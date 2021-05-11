@@ -1,0 +1,18 @@
+# Created at 2021-05-10T20:02:54.704
+Java HotSpot(TM) 64-Bit Server VM warning: Ignoring option MaxPermSize; support was removed in 8.0
+
+# Created at 2021-05-10T20:03:46.510
+WARNING: An illegal reflective access operation has occurred
+
+# Created at 2021-05-10T20:03:46.514
+WARNING: Illegal reflective access by org.openqa.selenium.os.ProcessUtils (file:/C:/Users/rama.chinthareddy/.m2/repository/Selenium/standalone/3.4.0/standalone-3.4.0.jar) to field java.lang.ProcessImpl.handle
+
+# Created at 2021-05-10T20:03:46.630
+WARNING: Please consider reporting this to the maintainers of org.openqa.selenium.os.ProcessUtils
+
+# Created at 2021-05-10T20:03:46.729
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+
+# Created at 2021-05-10T20:03:46.760
+WARNING: All illegal access operations will be denied in a future release
+
