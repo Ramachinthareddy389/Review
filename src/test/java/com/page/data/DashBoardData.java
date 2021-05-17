@@ -10,4 +10,5 @@ public class DashBoardData {
 	public final String dashboard = appData.getProperty("App.Dashboard");
 	public final String allpages = appData.getProperty("App.Allpages");
 	public final String LabelNewDashboard = appData.getProperty("App.LabelNewDashboard");
+
 }

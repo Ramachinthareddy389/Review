@@ -3,9 +3,12 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
+import com.page.locators.DashBoardLocators;
 import com.page.module.DashBoardPage;
 import com.page.module.LoginPage;
+import com.selenium.Dynamic;
 import com.selenium.Sync;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -38,9 +41,37 @@ public class DashboardCreation extends BaseSetup {
         loginPage.clickLogInButton();
         dashBoardPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashBoardPage.addingNewDashboard();
-        dashBoardPage.enterAddrequirefeildsInDashBoardPage(dashBoardData.dashboard);
-        dashBoardPage.signOut();
-
+        dashBoardPage.enterAddrequirefeildsInDashBoardPage();
+        dashBoardPage.removingDashboard();
     }
+
+    @Test( groups ="Smoke Test" )
+    public void tc_085removeDashboard() throws InterruptedException {
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.clickLogInButton();
+        dashBoardPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashBoardPage.addingNewDashboard();
+        dashBoardPage.enterAddrequirefeildsInDashBoardPage();
+        dashBoardPage.removingDashboard();
+    }
+
+    @Test( groups ="Smoke Test" )
+    public void tc086_deletingDashboard() throws InterruptedException {
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.clickLogInButton();
+        dashBoardPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashBoardPage.addingNewDashboard();
+        dashBoardPage.enterAddrequirefeildsInDashBoardPage();
+        dashBoardPage.deletingDashboard();
+    }
+
+
+    @Test( groups ="Smoke Test" )
+    public void signOut() throws InterruptedException {
+      dashBoardPage.signOut();
+    }
+
 
 }

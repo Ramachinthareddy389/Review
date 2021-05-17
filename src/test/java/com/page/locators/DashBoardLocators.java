@@ -16,10 +16,21 @@ public interface DashBoardLocators {
     By BUTTON_CLOSE=By.xpath("//span[text()='Close']");
     By ROWPERPAGE_DROPDOWN=By.className("MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon");
     By ROWS_DROPDOWN_Label_All=By.xpath("#menu->div>ul>li:nth-child(4)");
-    By LISTOFDASHBOARDS= By.xpath("//div[@title='Dashboards']//ancestor::div[4]//following::div[2]/div/div/span/div/div");
+    By LISTOFDASHBOARDS= By.xpath("//div[@title='Dashboards']//ancestor::div[4]//following::div[2]/div/div/span/div/div/span");
     By TEXTBOX_TYPESEARCH=By.xpath("//input[@placeholder='Type or select below']");
-    By BUTTON_DELETE=By.xpath("[aria-label='Remove from this folder']");
-    By DASHBOARD_LABEL=By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']");
+    By FOLDER_DELETE=By.xpath("//div[@aria-label='Remove from this folder']");
+    By DASHBOARD_LABEL=By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
     By USERICON=By.xpath("//button[@title='Presentation mode']/following-sibling::button");
     By LOGOUT=By.xpath("//span[text()='Logout']");
+
+    //Removing and Deleting of dashboards
+    By BUTTON_REMOVE= By.xpath("//span[text()='Remove']");
+    By BUTTON_DELETE=By.xpath("//span[text()='Delete']");
+    By BUTTON_CANCEL=By.xpath("//span[text()='Cancel']");
+    By BUTTON_ADDFOLDER=By.xpath("//div[@aria-label='Add folder or dashboard']");
+    By COLUMN_FOLDER= By.xpath("//div[contains(@class,'MuiContainer-root')]//span[text()='Dashboards']");
+    By TEXTBOX_CHOSE_DASHBOARD=By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]");
+    By DROPDOWN_CHOSE_DASHBOARD=By.xpath("//*[@id='dashboardKey']");
+
+
 }

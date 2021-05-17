@@ -262,13 +262,13 @@ public class BaseSetup implements TimeOuts {
 	 * This method since added in "AfterClass" group and when this class is
 	 * inherited from a TestSuite class, it will be called automatically
 	 */
-	@AfterClass(alwaysRun = true)
+/*	@AfterClass(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
 		if (driver != null) {
 			driver.quit();
 		}
-	}
+	}*/
 
 	/**
 	 * This method adds Log file link to ReportNG report
