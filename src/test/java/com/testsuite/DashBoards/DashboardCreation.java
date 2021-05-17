@@ -68,6 +68,20 @@ public class DashboardCreation extends BaseSetup {
     }
 
 
+    @Test( enabled = true )
+    public void tc027_CloningDashboard() throws InterruptedException {
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.clickLogInButton();
+        dashBoardPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashBoardPage.ClickAll();
+       // dashBoardPage.CloneDashboard();
+        dashBoardPage.HoverDashboard();
+
+    }
+
+
+
     @Test( groups ="Smoke Test" )
     public void signOut() throws InterruptedException {
       dashBoardPage.signOut();

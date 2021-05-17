@@ -18,6 +18,8 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
     String dname = "May2021";
     String dname1 = dname + random.nextInt(500);
     String expectedText = "Create" + " May2021129" + "";
+    static int j;
+
 
     //Constructor to define/call methods
     public DashBoardPage(WebDriver driver) {
@@ -142,6 +144,67 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
         safeClick(DASHBOARD_LABEL, "Clicking on select or create dashboard textbox", MEDIUMWAIT);
         safeClick(BUTTON_CANCEL,"Clicking on cancel button",MEDIUMWAIT);
     }
+
+//Dashboard Cloning
+
+    public int getRownumByText(String FolderName) {
+    	List<WebElement> dbrows = driver.findElements(By.xpath("//div[@class='jss2025']"));    	
+    	System.out.println("Total rows %%%%%%%%%%%%%%%% "+dbrows.size());
+		for(int i=0;i<=dbrows.size();i++) {    		
+			WebElement row = driver.findElement(By.xpath("//div[@class='jss2025']["+i+"]/div[1]/div/div/span/div/div/span"));
+		    String sFolderName= row.getText();
+		  if(sFolderName==FolderName) {
+			  j=i;		  
+			  
+		  }		  
+		}
+		return j;    	
+    	
+    }
+    
+   
+    public By dashboardLocator(String FolderName) {
+    	
+    return By.xpath("//div[@class='jss2025']["+getRownumByText(FolderName)+"]/div[3]/div/div/span/div/div/span");
+		
+     	    }
+    
+    @Step("To click on 'Dashboard' > 'All' ")
+    public void ClickAll() throws InterruptedException {
+        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+       Thread.sleep(5000);
+          }
+
+    @Step("CloneDashboard")
+    public void CloneDashboard() throws InterruptedException{     	
+         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+         safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);                
+       //Generating random number and converting to string to append============
+         Random rand = new Random();       
+         int rand_int1 = rand.nextInt(100000);
+         String ran=String.valueOf(rand_int1);           
+         safeClearAndType(CLONE_DB_NAME, ran,"Dashboard Name",MEDIUMWAIT);
+         safeClick(BTN_CLONE, "clone icon", MEDIUMWAIT);
+         Thread.sleep(5000);
+         String childDB = safeGetText(DB_TITLE, "Dashboard Title", MEDIUMWAIT);
+         Assert.assertEquals(childDB,"CloneParent"+ran);
+    } 
+    
+    
+    @Step("Hover Dashboard")
+    public void HoverDashboard() throws InterruptedException{     	
+        // safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+       //  mouseHover(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);   
+        // mouseHover(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT); 
+         mouseHoverJScript(CLONE_PARENT,"Clone PArent","clone Parent",MEDIUMWAIT);
+         Thread.sleep(5000);
+         safeClick(ICON_CLONE, "Clone icon", MEDIUMWAIT);
+     
+        
+    }
+
+
 }
 
 

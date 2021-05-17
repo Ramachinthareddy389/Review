@@ -32,5 +32,22 @@ public interface DashBoardLocators {
     By TEXTBOX_CHOSE_DASHBOARD=By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]");
     By DROPDOWN_CHOSE_DASHBOARD=By.xpath("//*[@id='dashboardKey']");
 
+//DashBoard Locators for cloning
+
+    By FOLDER_TESTAUTOMATION= By.xpath("//span[text()='Dashboards > TestAutomation']");
+    By TESTDASHBOARD1= By.xpath("//span[text()='TestDashboard1']");
+    By ICON_FILTER= By.xpath("//span[@class='MuiIconButton-label']/i[@class='fas fa-filter']");
+    By ICON_BOOKMARK= By.xpath("//span[@class='MuiIconButton-label']/i[@class='far fa-bookmark']");
+    By ICON_CLONE= By.xpath("//span[@class='MuiIconButton-label']/i[@class='far fa-clone']");
+    By ICON_REMOVE= By.xpath("//span[@class='MuiIconButton-label']/i[@class='fas fa-trash']");
+    By DIALOGBOX= By.xpath("//div[@role='dialog']");
+    By DIALOG_FOLDER=By.xpath("//div[contains(@class,'MuiTypography-root')]");	
+    By DIALOG_DASHBOARD=By.xpath("//input[@id='name']");
+    By CLONE_DB_NAME =  By.xpath("//input[@id='InputDialog']");                
+    By BTN_CLONE=By.xpath("//span[text()='Clone']"); 
+    By BTN_CANCEL=By.xpath("//span[text()='Cancel']");  
+    By CLONE_PARENT =By.xpath("//span[text()='CloneParent']/parent::div");
+    By DB_TITLE=By.xpath("//*[@class='MuiTypography-root MuiTypography-h5']");
+
 
 }
