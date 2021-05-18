@@ -135,6 +135,11 @@ With this framework in place, whenever we need to automate a web based applicati
    - Version: `6` or higher
 	- Website: [link](https://testng.org/doc/index.html)
 
+ - __Placing Shared jar file__
+   - Download the Shared Folder "*_setupHub_*"
+   - Extract the jar files available in the folder
+   - Place the files in "*_germain-test-automation\Resources\lib\ZenQJars_*"
+
 *** User can install required `jar's` by executing command present in `CommandToInstallLocalLibs.txt` file
 
 Note: `POM.xml` picks required `.jars` present under `Resources/lib` folder

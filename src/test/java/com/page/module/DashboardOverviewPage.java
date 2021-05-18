@@ -12,7 +12,7 @@ import java.util.Random;
 import org.openqa.selenium.interactions.Action;
 
 
-public class DashBoardPage extends SafeActions implements DashBoardLocators {
+public class DashboardOverviewPage extends SafeActions implements DashBoardLocators {
     private WebDriver driver;
     Random random = new Random();
     String dname = "May2021";
@@ -22,7 +22,7 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
 
 
     //Constructor to define/call methods
-    public DashBoardPage(WebDriver driver) {
+    public DashboardOverviewPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
@@ -53,7 +53,7 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Enter the dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "foldername", MEDIUMWAIT);
-        Thread.sleep(5000);
+        Thread.sleep(15000);
         List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
         waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
@@ -76,10 +76,12 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
+
     }
 
     @Step("Logout the application")
     public void signOut() {
+        waitForPageToLoad();
         safeClick(USERICON, "Clicking on user icon", MEDIUMWAIT);
         safeClick(LOGOUT, "Click on Logout", MEDIUMWAIT);
     }
@@ -107,6 +109,7 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
                 String actualText = kpi1.get(i).getText();
                 System.out.println(actualText);
                 Assert.assertEquals(actualText, dname1);
+                kpi1.get(i).click();
                 break;
             } else {
                 System.out.println("Created dashboard is not displaying in dropdown list");
@@ -116,6 +119,7 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
 
         }
 
+        safeClick(BUTTON_CANCEL,"Clicking on cancel button",MEDIUMWAIT);
 
     }
     @Step("Deleting dashboard from the application")
@@ -127,7 +131,7 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
         safeClick(FOLDER_DELETE, "Click remove button", MEDIUMWAIT);
         waitUntilClickable(BUTTON_DELETE, "wait delete button clciked", MEDIUMWAIT);
         safeClick(BUTTON_DELETE, "Clicking remove button", MEDIUMWAIT);
-        Thread.sleep(15000);
+        Thread.sleep(20000);
         waitUntilElementDisappears(BUTTON_DELETE, "disaapers", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
@@ -144,7 +148,25 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
         safeClick(DASHBOARD_LABEL, "Clicking on select or create dashboard textbox", MEDIUMWAIT);
         safeClick(BUTTON_CANCEL,"Clicking on cancel button",MEDIUMWAIT);
     }
-
+    @Step("Renaming dashboard from the application")
+    public void renamingDashboard() throws InterruptedException {
+        safeClick(LISTOFDASHBOARDS,"Clicking on Dashboard",MEDIUMWAIT);
+        waitUntilClickable(ICON_RENAME,"Waiting for rename icon is displayed");
+        safeClick(ICON_RENAME,"Clicking on Rename icon",MEDIUMWAIT);
+        waitUntilClickable(TEXTBOX_RENAMEDASHBRD,"Waiting for Dashboard textbox is displayed to enter rename");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField=driver.findElement(TEXTBOX_RENAMEDASHBRD);
+        searchField.sendKeys(del + dname1+123);
+        waitUntilClickable(BUTTON_RENAME,"Waiting for rename button is clickable in rename dash board window");
+        safeClick(BUTTON_RENAME,"Clicking on Rename button ");
+        Thread.sleep(5000);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1+123+ "\n", "Enter dashboard into type search");
+        System.out.println("entered dbtext");
+        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, dname1+123);
+    }
 //Dashboard Cloning
 
     public int getRownumByText(String FolderName) {
@@ -193,15 +215,12 @@ public class DashBoardPage extends SafeActions implements DashBoardLocators {
     
     
     @Step("Hover Dashboard")
-    public void HoverDashboard() throws InterruptedException{     	
-        // safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
-       //  mouseHover(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);   
-        // mouseHover(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT); 
-         mouseHoverJScript(CLONE_PARENT,"Clone PArent","clone Parent",MEDIUMWAIT);
-         Thread.sleep(5000);
-         safeClick(ICON_CLONE, "Clone icon", MEDIUMWAIT);
+    public void HoverDashboard() throws InterruptedException
+    {
+        mouseHoverJScript(CLONE_PARENT,"Clone PArent","clone Parent",MEDIUMWAIT);
+        Thread.sleep(5000);
+        safeClick(ICON_CLONE, "Clone icon", MEDIUMWAIT);
      
-        
     }
 
 

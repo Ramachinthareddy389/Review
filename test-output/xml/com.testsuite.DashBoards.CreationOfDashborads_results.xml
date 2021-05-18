@@ -8,6 +8,6 @@
   <properties />
   
   
-            <testcase name="tc027_CreatingDashboard" time="27.970" classname="com.testsuite.DashBoards.DashboardCreation" />
+            <testcase name="tc027_CreatingDashboard" time="27.970" classname="com.testsuite.DashBoards.DashboardOverview" />
       
 </testsuite>

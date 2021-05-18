@@ -31,6 +31,9 @@ public interface DashBoardLocators {
     By COLUMN_FOLDER= By.xpath("//div[contains(@class,'MuiContainer-root')]//span[text()='Dashboards']");
     By TEXTBOX_CHOSE_DASHBOARD=By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]");
     By DROPDOWN_CHOSE_DASHBOARD=By.xpath("//*[@id='dashboardKey']");
+    By ICON_RENAME=By.xpath("//div[@aria-label='Rename Dashboard']");
+    By TEXTBOX_RENAMEDASHBRD=By.xpath("//input[@id='InputDialog']");
+    By BUTTON_RENAME=By.xpath("//span[text()='Rename']");
 
 //DashBoard Locators for cloning
 
@@ -49,5 +52,9 @@ public interface DashBoardLocators {
     By CLONE_PARENT =By.xpath("//span[text()='CloneParent']/parent::div");
     By DB_TITLE=By.xpath("//*[@class='MuiTypography-root MuiTypography-h5']");
 
+    //Pin and Unpin Dashboard
+    By PIN_DASHBOARD= By.xpath("//div[@aria-label='Pin dashboard']");
+    By UNPIN_DASHBOARD= By.xpath("//div[@aria-label='Unpin Dashboard']");
+    By PIN_DASHBOARDPAGE= By.xpath("//div[@aria-label='Pin Dashboard']");
 
 }

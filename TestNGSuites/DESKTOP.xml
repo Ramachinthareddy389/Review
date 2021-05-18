@@ -17,7 +17,9 @@
 		<parameter name="osVersion" value="8.1" />
 		<parameter name="session" value="Testing" />
 		<classes>
-			<class name="com.testsuite.DashBoards.DashboardCreation"></class>
+			<class name="com.testsuite.DashBoards.DashboardOverview"></class>
+			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
+
 
 		</classes>
 	</test>
