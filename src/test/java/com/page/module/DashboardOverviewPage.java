@@ -6,9 +6,16 @@ import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
+
+import java.awt.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
+
 import org.openqa.selenium.interactions.Action;
 
 
@@ -167,6 +174,8 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1+123);
     }
+
+
 //Dashboard Cloning
 
     public int getRownumByText(String FolderName) {
@@ -199,20 +208,28 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
           }
 
     @Step("CloneDashboard")
-    public void CloneDashboard() throws InterruptedException{     	
-         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
-         safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);                
-       //Generating random number and converting to string to append============
-         Random rand = new Random();       
-         int rand_int1 = rand.nextInt(100000);
-         String ran=String.valueOf(rand_int1);           
-         safeClearAndType(CLONE_DB_NAME, ran,"Dashboard Name",MEDIUMWAIT);
-         safeClick(BTN_CLONE, "clone icon", MEDIUMWAIT);
-         Thread.sleep(5000);
-         String childDB = safeGetText(DB_TITLE, "Dashboard Title", MEDIUMWAIT);
-         Assert.assertEquals(childDB,"CloneParent"+ran);
-    } 
-    
+    public void CloneDashboard(String DBname) throws InterruptedException{
+        Thread.sleep(5000);
+        safeType(DB_SEARCH,DBname,"Enter dashboard into type search");
+        driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
+        // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
+        //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+        String locator ="//span[text()='"+DBname+"']/parent::div";
+        By CLONE_PARENT =By.xpath(locator);
+        safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+        safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);
+        //Generating random number and converting to string to append with cloned dashboard
+        Random rand = new Random();
+        int rand_int1 = rand.nextInt(100000);
+        String ran=String.valueOf(rand_int1);
+        for(int i=0; i<=30;i++) {driver.findElement(CLONE_DB_NAME).sendKeys(Keys.BACK_SPACE);}
+        safeClearAndType(CLONE_DB_NAME, "Child"+ran,"Dashboard Name",MEDIUMWAIT);
+        safeClick(BTN_CLONE, "clone icon", MEDIUMWAIT);
+        Thread.sleep(5000);
+        String childDB = safeGetText(DB_TITLE, "Dashboard Title", MEDIUMWAIT);
+        Assert.assertEquals(childDB,"Child"+ran);
+    }
     
     @Step("Hover Dashboard")
     public void HoverDashboard() throws InterruptedException
@@ -222,8 +239,54 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(ICON_CLONE, "Clone icon", MEDIUMWAIT);
      
     }
+    @Step("Clone using Hover over Dashboard")
+    public void SearchCloneDashboard(String DBname, String Folder) throws InterruptedException {
+        waitForPageToLoad();
+        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+        driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
+        waitForPageToLoad();
+        mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", MEDIUMWAIT);
+        String locator = "//span[text()='" + DBname + "']/parent::div";
+        By CLONE_PARENT = By.xpath(locator);
+        List<WebElement> result1 = driver.findElements(CLONE_PARENT);
+        int count1 = result1.size();
+        mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", MEDIUMWAIT);
+        safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);
+        String optXpath = "//div[@role='menuitem' and text()='" + Folder + "']";
+        By FOLDER = By.xpath(optXpath);
+        waitForPageToLoad();
+        safeClick(DIALOG_FOLDER, "Folder Field of Clone Dialogue", VERYLONGWAIT);
+        Actions act = new Actions(driver);
+        act.sendKeys("1 Folder");
+        //safeJavaScriptType(DIALOG_FOLDER,"1 Folder", MEDIUMWAIT);
+        safeJavaScriptClick(FOLDER, "dashboard display name option", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_CLONE, "dashboard display name option", MEDIUMWAIT);
+        waitForPageToLoad();
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(DIALOGBOX));
+        Thread.sleep(5000);
+        mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", VERYLONGWAIT);
+        //Thread.sleep(10000);
+        List<WebElement> result2 = driver.findElements(CLONE_PARENT);
+        int count2 = result2.size();
 
+        System.out.println("************** c1= " + count1);
+        System.out.println("************** c2= " + count2);
+        boolean checkclone = count2 > count1;
+        Assert.assertTrue(checkclone);
+
+        if (count2 > 1) {
+            String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
+            ((JavascriptExecutor) driver).executeScript(mouseOverScript, result2.get(1));
+            String mouseOverScript1 = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
+            ((JavascriptExecutor) driver).executeScript(mouseOverScript1, result2.get(1));
+            safeClick(ICON_REMOVE, "Remove icon", MEDIUMWAIT);
+            safeJavaScriptClick(BUTTON_REMOVE, "dashboard display name option", MEDIUMWAIT);
+        }
+    }
 
 }
+
 
 

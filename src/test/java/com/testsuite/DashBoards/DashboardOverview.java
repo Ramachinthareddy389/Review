@@ -69,7 +69,7 @@ public class DashboardOverview extends BaseSetup {
     public void tc002_CloningDashboard() throws InterruptedException {
        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
        dashboardOverviewPage.ClickAll();
-       dashboardOverviewPage.CloneDashboard();
+       dashboardOverviewPage.CloneDashboard("clone Parent");
        dashboardOverviewPage.HoverDashboard();
 
     }
@@ -85,9 +85,21 @@ public class DashboardOverview extends BaseSetup {
 
 
     }
-    @AfterMethod()
-    public void signOut() throws InterruptedException
+
+    @Test( enabled = true ,groups ="Smoke Test")
+    public void Tc089_CloningInDashboardOverview() throws InterruptedException
     {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.SearchCloneDashboard("clone Parent","Business");
+
+
+
+    }
+
+    @AfterMethod()
+    public void signOut() {
       dashboardOverviewPage.signOut();
     }
 

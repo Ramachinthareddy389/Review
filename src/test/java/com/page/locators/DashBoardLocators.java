@@ -28,7 +28,7 @@ public interface DashBoardLocators {
     By BUTTON_DELETE=By.xpath("//span[text()='Delete']");
     By BUTTON_CANCEL=By.xpath("//span[text()='Cancel']");
     By BUTTON_ADDFOLDER=By.xpath("//div[@aria-label='Add folder or dashboard']");
-    By COLUMN_FOLDER= By.xpath("//div[contains(@class,'MuiContainer-root')]//span[text()='Dashboards']");
+    By COLUMN_FOLDER= By.xpath("//div[contains(@class,'MuiContainer-root')]//span[starts-with(text(),'Dashboards')]");
     By TEXTBOX_CHOSE_DASHBOARD=By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]");
     By DROPDOWN_CHOSE_DASHBOARD=By.xpath("//*[@id='dashboardKey']");
     By ICON_RENAME=By.xpath("//div[@aria-label='Rename Dashboard']");
@@ -51,10 +51,39 @@ public interface DashBoardLocators {
     By BTN_CANCEL=By.xpath("//span[text()='Cancel']");  
     By CLONE_PARENT =By.xpath("//span[text()='CloneParent']/parent::div");
     By DB_TITLE=By.xpath("//*[@class='MuiTypography-root MuiTypography-h5']");
+    //Cloning Dashboard
+    By BUTTON_CLONE=By.xpath("//div[@aria-label='Clone this dashboard']");
+
 
     //Pin and Unpin Dashboard
     By PIN_DASHBOARD= By.xpath("//div[@aria-label='Pin dashboard']");
     By UNPIN_DASHBOARD= By.xpath("//div[@aria-label='Unpin Dashboard']");
     By PIN_DASHBOARDPAGE= By.xpath("//div[@aria-label='Pin Dashboard']");
+
+    //Calender Locators
+    By DB_SEARCH =By.xpath("//input[@placeholder='Type or select below']");
+    By CALENDAR_ICON =By.xpath("//div[contains(@class, 'DateTimePicker')]//i");
+    By FROM_DT_TIME = By.xpath("//div[contains(@class, 'DateTimePicker')]/div/div/span[2]/span[1]");
+    By TO_DT_TIME = By.xpath("//div[contains(@class, 'DateTimePicker')]/div/div/span[2]/span[2]");
+    By DATE= By.cssSelector(":nth-child(3) > :nth-child(4) > .MuiButtonBase-root > .MuiIconButton-label > .MuiTypography-root");
+    By HOURS= By.cssSelector("div.MuiPickersClockPointer-pointer~span");
+    By MINUTES= By.cssSelector("div.MuiPickersClockPointer-pointer~span");
+    By OPT_DB_DISPLAY_NAME= By.xpath("//span[text()='Dashboard Display Name']");
+
+    //Calander locators
+    By BTN_CURRENTHOUR=By.xpath("//span[text()='Current Hour']");
+    By BTN_LASTHOUR=By.xpath("//span[text()='Last Hour']");
+    By BTN_BUSINESS_HOURS=By.xpath("//span[text()='Business Hours']");
+    By BTN_Last_12_Hours=By.xpath("//span[text()='Last 12 Hours']");
+    By BTN_TODAY=By.xpath("//span[text()='Today']");
+    By BTN_YESTERDAY=By.xpath("//span[text()='Yesterday']");
+    By BTN_LAST_7_DAYS=By.xpath("//span[text()='Last 7 Days']");
+    By BTN_LAST_30_DAYS=By.xpath("//span[text()='Last 30 Days']");
+    By BTN_LAST_MONTH=By.xpath("//span[text()='Last Month']");
+    By BTN_THIS_MONTH=By.xpath("//span[text()='This Month']");
+    By BTN_ABSOLUTECURRENTHOUR_QA_30_MINS=By.xpath("//span[text()='Absolute QA - 30 min']");
+    By BTN_ABSOLUTE_ALL_UNITS=By.xpath("//span[text()='Absolute - All Units']");
+    By TIMESTAMPTEXTBOX=By.xpath("//div[contains(@class,'DateTimePicker')]/div/div/span[2]/span");
+
 
 }
