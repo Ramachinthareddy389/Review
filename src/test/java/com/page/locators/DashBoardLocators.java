@@ -85,5 +85,16 @@ public interface DashBoardLocators {
     By BTN_ABSOLUTE_ALL_UNITS=By.xpath("//span[text()='Absolute - All Units']");
     By TIMESTAMPTEXTBOX=By.xpath("//div[contains(@class,'DateTimePicker')]/div/div/span[2]/span");
 
+    //Portlet Locators
+
+    By LIST_PORTLETS=By.xpath("//div[@title='Dashboards']//ancestor::div[4]/following-sibling::div[4]/div/div/span/div/div/span");
+    By BTN_ADD_METRIC=By.xpath("//button[@type='button']/span/i[@title='Add Metric']");
+    By LINK_ADD_METRIC=By.xpath("//button[text()='Add Metric']");
+    By TEXT_HEADER= By.xpath("//*[text()='Portlet Name']/../../p[contains(@class,'body1')]");
+    By TEXTBOX_PORTLET=By.xpath("//input[@id='name']");
+    By BTN_ADD_PORTLET=By.xpath("//span[text()='Add Portlet']");
+    By CLONE_PORTLET=By.xpath("//div[@aria-label='Clone this portlet']");
+    By LISTBOX_FOLDER_PORTLET=By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]");
+    By DASHBOARD_COUNT=By.xpath("//span[@aria-label='Count'][@title='Number of unique items']");
 
 }

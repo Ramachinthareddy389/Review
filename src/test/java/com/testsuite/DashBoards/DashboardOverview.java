@@ -36,7 +36,7 @@ public class DashboardOverview extends BaseSetup {
 
 
     @Test( groups ="Smoke Test")
-    public void TC_083_CreatingDashboard() throws InterruptedException
+    public void TC083_CreatingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -45,7 +45,7 @@ public class DashboardOverview extends BaseSetup {
     }
 
     @Test( groups ="Smoke Test" )
-    public void Tc_085removeDashboard() throws InterruptedException
+    public void Tc085_RemoveDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -55,7 +55,7 @@ public class DashboardOverview extends BaseSetup {
     }
 
     @Test( groups ="Smoke Test")
-    public void Tc086_deletingDashboard() throws InterruptedException
+    public void Tc086_DeletingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -66,11 +66,11 @@ public class DashboardOverview extends BaseSetup {
 
 
    @Test( enabled = true ,groups ="Smoke Test")
-    public void tc002_CloningDashboard() throws InterruptedException {
+    public void TC002_CloningDashboard() throws InterruptedException {
        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
        dashboardOverviewPage.ClickAll();
        dashboardOverviewPage.CloneDashboard("clone Parent");
-       dashboardOverviewPage.HoverDashboard();
+
 
     }
 
@@ -86,22 +86,39 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
+
     @Test( enabled = true ,groups ="Smoke Test")
     public void Tc089_CloningInDashboardOverview() throws InterruptedException
     {
+
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.SearchCloneDashboard("clone Parent","Business");
+        dashboardOverviewPage.SearchCloneDashboard("1 Folder");
+
+
+    }
+
+
+    @Test( enabled = true ,groups ="Smoke Test")
+    public void Tc090_CloningPortletInDashboardOverview() throws InterruptedException
+    {
+
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingPortlet();
 
 
 
     }
+
 
     @AfterMethod()
     public void signOut() {
       dashboardOverviewPage.signOut();
     }
+
 
 
 }

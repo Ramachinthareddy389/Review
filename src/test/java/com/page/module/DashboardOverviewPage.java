@@ -92,6 +92,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(USERICON, "Clicking on user icon", MEDIUMWAIT);
         safeClick(LOGOUT, "Click on Logout", MEDIUMWAIT);
     }
+
     @Step("Removing dashboard")
     public void removingDashboard() {
         waitForPageToLoad();
@@ -126,12 +127,12 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
         }
 
-        safeClick(BUTTON_CANCEL,"Clicking on cancel button",MEDIUMWAIT);
+        safeClick(BUTTON_CANCEL, "Clicking on cancel button", MEDIUMWAIT);
 
     }
+
     @Step("Deleting dashboard from the application")
-    public void deletingDashboard() throws InterruptedException
-    {
+    public void deletingDashboard() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
@@ -150,104 +151,108 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitUntilClickable(DASHBOARD_LABEL, "waiting for element", MEDIUMWAIT);
         String actualText = safeGetText(DASHBOARD_LABEL, "dashboardname", MEDIUMWAIT);
         System.out.println(actualText);
-        String expectedText="Create"+" "+"\"" + dname1 + "\"";
+        String expectedText = "Create" + " " + "\"" + dname1 + "\"";
         Assert.assertEquals(actualText, expectedText);
         safeClick(DASHBOARD_LABEL, "Clicking on select or create dashboard textbox", MEDIUMWAIT);
-        safeClick(BUTTON_CANCEL,"Clicking on cancel button",MEDIUMWAIT);
+        safeClick(BUTTON_CANCEL, "Clicking on cancel button", MEDIUMWAIT);
     }
+
     @Step("Renaming dashboard from the application")
     public void renamingDashboard() throws InterruptedException {
-        safeClick(LISTOFDASHBOARDS,"Clicking on Dashboard",MEDIUMWAIT);
-        waitUntilClickable(ICON_RENAME,"Waiting for rename icon is displayed");
-        safeClick(ICON_RENAME,"Clicking on Rename icon",MEDIUMWAIT);
-        waitUntilClickable(TEXTBOX_RENAMEDASHBRD,"Waiting for Dashboard textbox is displayed to enter rename");
+        safeClick(LISTOFDASHBOARDS, "Clicking on Dashboard", MEDIUMWAIT);
+        waitUntilClickable(ICON_RENAME, "Waiting for rename icon is displayed");
+        safeClick(ICON_RENAME, "Clicking on Rename icon", MEDIUMWAIT);
+        waitUntilClickable(TEXTBOX_RENAMEDASHBRD, "Waiting for Dashboard textbox is displayed to enter rename");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
-        WebElement searchField=driver.findElement(TEXTBOX_RENAMEDASHBRD);
-        searchField.sendKeys(del + dname1+123);
-        waitUntilClickable(BUTTON_RENAME,"Waiting for rename button is clickable in rename dash board window");
-        safeClick(BUTTON_RENAME,"Clicking on Rename button ");
+        WebElement searchField = driver.findElement(TEXTBOX_RENAMEDASHBRD);
+        searchField.sendKeys(del + dname1 + 123);
+        waitUntilClickable(BUTTON_RENAME, "Waiting for rename button is clickable in rename dash board window");
+        safeClick(BUTTON_RENAME, "Clicking on Rename button ");
         Thread.sleep(5000);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, dname1+123+ "\n", "Enter dashboard into type search");
+        safeType(TEXTBOX_TYPESEARCH, dname1 + 123 + "\n", "Enter dashboard into type search");
         System.out.println("entered dbtext");
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dname1+123);
+        Assert.assertEquals(actualText, dname1 + 123);
     }
 
 
 //Dashboard Cloning
 
     public int getRownumByText(String FolderName) {
-    	List<WebElement> dbrows = driver.findElements(By.xpath("//div[@class='jss2025']"));    	
-    	System.out.println("Total rows %%%%%%%%%%%%%%%% "+dbrows.size());
-		for(int i=0;i<=dbrows.size();i++) {    		
-			WebElement row = driver.findElement(By.xpath("//div[@class='jss2025']["+i+"]/div[1]/div/div/span/div/div/span"));
-		    String sFolderName= row.getText();
-		  if(sFolderName==FolderName) {
-			  j=i;		  
-			  
-		  }		  
-		}
-		return j;    	
-    	
+        List<WebElement> dbrows = driver.findElements(By.xpath("//div[@class='jss2025']"));
+        System.out.println("Total rows %%%%%%%%%%%%%%%% " + dbrows.size());
+        for (int i = 0; i <= dbrows.size(); i++) {
+            WebElement row = driver.findElement(By.xpath("//div[@class='jss2025'][" + i + "]/div[1]/div/div/span/div/div/span"));
+            String sFolderName = row.getText();
+            if (sFolderName == FolderName) {
+                j = i;
+
+            }
+        }
+        return j;
+
     }
-    
-   
+
+
     public By dashboardLocator(String FolderName) {
-    	
-    return By.xpath("//div[@class='jss2025']["+getRownumByText(FolderName)+"]/div[3]/div/div/span/div/div/span");
-		
-     	    }
-    
+
+        return By.xpath("//div[@class='jss2025'][" + getRownumByText(FolderName) + "]/div[3]/div/div/span/div/div/span");
+
+    }
+
     @Step("To click on 'Dashboard' > 'All' ")
     public void ClickAll() throws InterruptedException {
         safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-       Thread.sleep(5000);
-          }
+        Thread.sleep(5000);
+    }
 
     @Step("CloneDashboard")
-    public void CloneDashboard(String DBname) throws InterruptedException{
+    public void CloneDashboard(String DBname) throws InterruptedException {
         Thread.sleep(5000);
-        safeType(DB_SEARCH,DBname,"Enter dashboard into type search");
+        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
         driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
         Thread.sleep(3000);
         // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
         //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
-        String locator ="//span[text()='"+DBname+"']/parent::div";
-        By CLONE_PARENT =By.xpath(locator);
+        String locator = "//span[text()='" + DBname + "']/parent::div";
+        By CLONE_PARENT = By.xpath(locator);
         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
         safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);
         //Generating random number and converting to string to append with cloned dashboard
         Random rand = new Random();
         int rand_int1 = rand.nextInt(100000);
-        String ran=String.valueOf(rand_int1);
-        for(int i=0; i<=30;i++) {driver.findElement(CLONE_DB_NAME).sendKeys(Keys.BACK_SPACE);}
-        safeClearAndType(CLONE_DB_NAME, "Child"+ran,"Dashboard Name",MEDIUMWAIT);
+        String ran = String.valueOf(rand_int1);
+        for (int i = 0; i <= 30; i++) {
+            driver.findElement(CLONE_DB_NAME).sendKeys(Keys.BACK_SPACE);
+        }
+        safeClearAndType(CLONE_DB_NAME, "Child" + ran, "Dashboard Name", MEDIUMWAIT);
+        Thread.sleep(10000);
         safeClick(BTN_CLONE, "clone icon", MEDIUMWAIT);
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         String childDB = safeGetText(DB_TITLE, "Dashboard Title", MEDIUMWAIT);
-        Assert.assertEquals(childDB,"Child"+ran);
+        Assert.assertEquals(childDB, "Child" + ran);
     }
-    
+
     @Step("Hover Dashboard")
-    public void HoverDashboard() throws InterruptedException
-    {
-        mouseHoverJScript(CLONE_PARENT,"Clone PArent","clone Parent",MEDIUMWAIT);
+    public void HoverDashboard() throws InterruptedException {
+        mouseHoverJScript(CLONE_PARENT, "Clone PArent", "clone Parent", MEDIUMWAIT);
         Thread.sleep(5000);
         safeClick(ICON_CLONE, "Clone icon", MEDIUMWAIT);
-     
+
     }
+
     @Step("Clone using Hover over Dashboard")
-    public void SearchCloneDashboard(String DBname, String Folder) throws InterruptedException {
-        waitForPageToLoad();
-        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+    public void SearchCloneDashboard(String Folder) throws InterruptedException {
+  /*      waitForPageToLoad();
+        safeType(DB_SEARCH, dname1, "Enter dashboard into type search");
         driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
+        Thread.sleep(3000);*/
         waitForPageToLoad();
-        mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", MEDIUMWAIT);
-        String locator = "//span[text()='" + DBname + "']/parent::div";
+        mouseHoverJScript(LISTOFDASHBOARDS, "Clone Parent", "clone Parent", MEDIUMWAIT);
+        String locator = "//span[text()='" + dname1 + "']/parent::div";
         By CLONE_PARENT = By.xpath(locator);
         List<WebElement> result1 = driver.findElements(CLONE_PARENT);
         int count1 = result1.size();
@@ -275,18 +280,46 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println("************** c2= " + count2);
         boolean checkclone = count2 > count1;
         Assert.assertTrue(checkclone);
-
-        if (count2 > 1) {
-            String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
-            ((JavascriptExecutor) driver).executeScript(mouseOverScript, result2.get(1));
-            String mouseOverScript1 = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
-            ((JavascriptExecutor) driver).executeScript(mouseOverScript1, result2.get(1));
-            safeClick(ICON_REMOVE, "Remove icon", MEDIUMWAIT);
-            safeJavaScriptClick(BUTTON_REMOVE, "dashboard display name option", MEDIUMWAIT);
-        }
     }
 
+
+
+    public void addingPortlet() throws InterruptedException {
+        waitForPageToLoad();
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(TEXT_HEADER, "Clicking on portelt NAme");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del + dname1 + 123);
+        safeClick(BTN_ADD_PORTLET, "Clicking on add portlet", VERYLONGWAIT);
+        Thread.sleep(10000);
+        waitUntilClickable(All_FOLDER, "Clicking on add metric link");
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        Thread.sleep(5000);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Enter the dashboard name in textbox", VERYLONGWAIT);
+        WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
+        type.sendKeys(Keys.ENTER);
+        waitForPageToLoad();
+        mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
+        safeClick(CLONE_PORTLET, "Clicking on Clone button from dashboard", MEDIUMWAIT);
+        waitForPageToLoad();
+        safeClick(LISTBOX_FOLDER_PORTLET, "foldername", MEDIUMWAIT);
+        Thread.sleep(15000);
+        driver.findElement(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]//following-sibling::div/div/input")).sendKeys("Dashboards");
+        waitUntilClickable(DROPDOWN_DASHBOARD_FOLDER, "waitinf for a element");
+        safeClick(DROPDOWN_DASHBOARD_FOLDER, "selecting Dashboard", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_CLONE, "dashboard display name option", MEDIUMWAIT);
+        Thread.sleep(15000);
+        String text = safeGetText(DASHBOARD_COUNT, "getting list of dashboards", MEDIUMWAIT);
+        System.out.println(text);
+        String expectedText = "(2)";
+        Assert.assertEquals(text, expectedText);
+    }
+
+
 }
-
-
-
