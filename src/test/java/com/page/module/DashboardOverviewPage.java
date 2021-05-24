@@ -6,6 +6,7 @@ import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -204,6 +205,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("To click on 'Dashboard' > 'All' ")
     public void ClickAll() throws InterruptedException {
+        Thread.sleep(7000);
         safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         Thread.sleep(5000);
@@ -284,7 +286,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
 
 
-    public void addingPortlet() throws InterruptedException {
+    public void cloningPortlet() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
@@ -320,6 +322,234 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         String expectedText = "(2)";
         Assert.assertEquals(text, expectedText);
     }
+
+
+    public void addingPortlet() throws InterruptedException {
+        waitForPageToLoad();
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(TEXT_HEADER, "Clicking on portelt NAme");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del + dname1 + 123);
+        //safeClick(DROPDOWN_SHOWAS,"Clicking on showas dropdown",MEDIUMWAIT);
+        WebElement rle=driver.findElement(By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]"));
+        safeClick(DROPDOWN_SHOWAS,"Clikcing on showas",MEDIUMWAIT);
+        safeType(TEXTBOX_SHOWAS,"Trend Chart","Selecting value from show as dropdown",MEDIUMWAIT);
+        List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
+        for (int i = 0; i < kpi1.size(); i++) {
+
+            if (kpi1.get(i).getText().contains("Color Distribution - Trend Chart")) {
+
+                kpi1.get(i).click();
+                break;
+            }
+        }
+        safeClick(DROPDWON_KPI,"Clicking on KPI",MEDIUMWAIT);
+        safeType(TEXTBOX_KPI,"ActiveMQ","Sending the text",VERYLONGWAIT);
+        Thread.sleep(7000);
+        List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpi12.size(); i++) {
+            System.out.println(kpi12.get(i).getText());
+            if (kpi12.get(i).getText().contains("ActiveMQ Heap Usage"))
+            {
+                kpi12.get(i).click();
+                break;
+            }
+        }
+        safeClick(TEXTBOX_SUMMARY,"Clicking on KPI",MEDIUMWAIT);
+        safeType(TEXTBOX_SUMMARY,"Avg Color","Enter Summary",MEDIUMWAIT);
+        safeClick(DROPDOWN_CHARTTYPE,"Clicking on chart type",MEDIUMWAIT);
+        Actions a=new Actions(driver);
+        a.sendKeys("area");
+        List<WebElement> kpi3 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + kpi3.size());
+        for (int i = 0; i < kpi3.size(); i++) {
+
+            if (kpi3.get(i).getText().contains("Area")) {
+
+                kpi3.get(i).click();
+                break;
+            }
+        }
+        safeClick(DROPDWON_TRENDGRATY,"Clicking on Trend granulaity",MEDIUMWAIT);
+        safeType(TEXTBOX_TRENDGRATY,"By Minute","Entering text into trendgranularity",MEDIUMWAIT);
+        List<WebElement> kpi4 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + kpi4.size());
+        for (int i = 0; i < kpi4.size(); i++) {
+
+            if (kpi4.get(i).getText().contains("By Minute")) {
+
+                kpi4.get(i).click();
+                break;
+            }
+        }
+        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField1 = driver.findElement(TEXTBOX_DECIMAL_PLACES);
+        searchField1.sendKeys(del + 5);
+        //safeClearAndType(TEXTBOX_DECIMAL_PLACES,"5","Entering values in decimal places",MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS,"Clicking on portlet filters",MEDIUMWAIT);
+        safeClick(PortletFilters_TypeSearch,"Entering Text into typesearch",MEDIUMWAIT);
+        safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
+        safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
+        driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
+        safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
+        safeClick(BTN_ADD_PORTLET,"Adding portlet",MEDIUMWAIT);
+        waitUntilClickable(All_FOLDER, "Clicking on add metric link");
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        Thread.sleep(5000);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Enter the dashboard name in textbox", VERYLONGWAIT);
+        WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
+        type.sendKeys(Keys.ENTER);
+        waitForPageToLoad();
+        mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
+       String text=   safeGetText(LIST_PORTLETS,"Getting Text",MEDIUMWAIT);
+       expectedText="dname1 + 123";
+       Assert.assertEquals(text,expectedText);
+
+    }
+//24/05/2021
+@Step("Select from Date")
+public void SelectFromDate(String date, String DBname) throws InterruptedException {
+    Thread.sleep(5000);
+    safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+    driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
+    Thread.sleep(3000);
+    // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
+    //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+    String locator = "//span[text()='" + DBname + "']/parent::div";
+    By CLONE_PARENT = By.xpath(locator);
+    safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+    safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+
+    try {
+        for (int i = 1; i <= 6; i++) {
+            for (int j = 1; j <= 7; j++) {
+                List<WebElement> dates = driver.findElements(By.cssSelector(":nth-child(" + i + ") > :nth-child(" + j + ") > .MuiButtonBase-root > .MuiIconButton-label > .MuiTypography-root"));
+                WebElement eFromDate = dates.get(0);
+                //WebElement ToDate=dates.get(1);
+                String fromdate = eFromDate.getText();
+                //String toDate= ToDate.getText();
+                System.out.println("========================= " + fromdate);
+                if (fromdate.contains(date)) {
+                    eFromDate.click();
+                    break;
+                }
+            }
+        }
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    Thread.sleep(5000);
+}
+
+
+    public void calendar2(String date) {
+        try {
+            for (int i = 1; i <= 6; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    List<WebElement> dates = driver.findElements(By.cssSelector(":nth-child(" + i + ") > :nth-child(" + j + ") > .MuiButtonBase-root > .MuiIconButton-label > .MuiTypography-root"));
+                    WebElement eFromDate = dates.get(0);
+                    //WebElement ToDate=dates.get(1);
+                    String fromdate = eFromDate.getText();
+                    //String toDate= ToDate.getText();
+                    System.out.println("========================= " + fromdate);
+                    if (fromdate.contains(date)) {
+                        eFromDate.click();
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @Step("Select hour")
+    public void selectHour() throws InterruptedException {
+
+
+        // new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber') ][text()='8']"))).click();
+       List<WebElement> ele = driver.findElements(By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')][@style='transform: translate(55px, 19.6px);']"));
+        By ele1 = By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')][text()='05']");
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele.get(2)));
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("document.getElementsByClassName('MuiTypography-root MuiPickersClockNumber-clockNumber MuiTypography-body1')");
+        ele.get(2).click();
+        Thread.sleep(5000);
+
+
+    }
+
+    @Step("Select minute")
+    public void SelectMinute(String minute) throws InterruptedException {
+
+        Actions action = new Actions(driver);
+        try {
+            List<WebElement> timeM = driver.findElements(By.cssSelector("div.MuiPickersClockPointer-pointer~span"));
+            int count = timeM.size();
+            System.out.println("***************************** minute: " + count);
+            for (int i = 0; i < count; i++) {
+                WebElement eMinute = timeM.get(i);
+                String sMinute = eMinute.getText();
+
+                System.out.println("========================= " + sMinute);
+                if (sMinute.contains(minute)) {
+                    //eMinute.click();
+                    action.moveToElement(eMinute).click().build().perform();
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        Thread.sleep(2000);
+    }
+
+
+    public void differentTimeRanges(String DBname) throws InterruptedException {
+        Thread.sleep(5000);
+        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+        driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
+        // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
+        //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+        String locator = "//span[text()='" + DBname + "']/parent::div";
+        By CLONE_PARENT = By.xpath(locator);
+        safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_CURRENTHOUR, "Clicking on Current Hour");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        Date date = new Date();
+        String date1 = dateFormat.format(date);
+        System.out.println("Current date and time is " + date1 + " " + "AM" + "-" + date1 + " " + "PM");
+        DateFormat time = new SimpleDateFormat("HH:mm");
+        Date date2 = new Date();
+        String date123 = time.format(date2);
+        System.out.println(date123);
+    }
+
+    public void validatingLastHour() {
+
+        safeClick(BTN_BUSINESS_HOURS, "Clicking on Current Hour");
+    }
+
 
 
 }

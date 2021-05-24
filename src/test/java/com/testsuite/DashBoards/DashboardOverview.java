@@ -107,12 +107,42 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingPortlet();
+        dashboardOverviewPage.cloningPortlet();
 
 
 
     }
 
+    @Test( enabled = true )
+    public void tc02_SelectDate() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectFromDate("20", "clone Parent");
+        // dashboardOverviewPage.calendar2("20");
+        dashboardOverviewPage.selectHour();
+
+        //dashboardOverviewPage.SelectMinute("55");
+
+    }
+    @Test( enabled = true )
+    public void tc02_SelectingpredefinedTimeRanges() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.differentTimeRanges("CloneParent");
+        dashboardOverviewPage.validatingLastHour();
+
+
+    }
+
+
+    @Test(enabled = true)
+    public void TC_20_AddingGeneralHealthPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingPortlet();
+    }
 
     @AfterMethod()
     public void signOut() {

@@ -96,5 +96,22 @@ public interface DashBoardLocators {
     By CLONE_PORTLET=By.xpath("//div[@aria-label='Clone this portlet']");
     By LISTBOX_FOLDER_PORTLET=By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]");
     By DASHBOARD_COUNT=By.xpath("//span[@aria-label='Count'][@title='Number of unique items']");
+     By DROPDOWN_SHOWAS=By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]");
+     By TEXTBOX_SHOWAS=By.xpath("//input[@id='showAs']");
+     By DROPDWON_KPI=By.xpath("//*[text()='KPI']/../../../div//div[contains(@class,'body1')]");
+     By TEXTBOX_KPI=By.xpath("//input[@id='kpi_0']");
+     By DROPDOWN_MEASURE=By.xpath("//*[text()='Measure']/../../../div//div[contains(@class,'body1')]");
+     By TEXTBOX_SUMMARY=By.xpath("//input[@id='kpiSummary_0']");
+     By DROPDOWN_CHARTTYPE=By.xpath("//*[text()='Chart Type']/../../../div//div[contains(@class,'body1')]");
+    By TEXTBOX_CHARTTYPE=By.xpath("//input[@id='kpi_0_chartType_0']");
+     By DROPDOWN_PIVOT=By.xpath("//*[text()='Pivot']/../../../div//div[contains(@class,'body1')]");
+     By DROPDWON_TRENDGRATY=By.xpath("//*[text()='Trend Granularity']/../../../div//div[contains(@class,'body1')]");
+     By TEXTBOX_TRENDGRATY=By.xpath("//input[@id='trendGranularity']");
+     By TEXTBOX_DECIMAL_PLACES=By.xpath("//input[@id='decimalPlaces']");
+     By TEXTBOX_PORTLET_FILTERS=By.xpath("//input[@id='portletFilters']");
+     By PortletFilters_TypeSearch=By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
+     By DROPDOWN_FEILDS=By.xpath("//div[text()='Color']");
+     By BTN_APPLY=By.xpath("//span[text()='Apply']");
+
 
 }
