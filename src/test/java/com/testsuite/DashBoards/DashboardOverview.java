@@ -35,31 +35,33 @@ public class DashboardOverview extends BaseSetup {
 
 
 
-    @Test( groups ="Smoke Test")
+    @Test( groups ="Smoke Test",priority = 0)
     public void TC083_CreatingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-
+        dashboardOverviewPage.addingdashboard();
     }
 
     @Test( groups ="Smoke Test" )
-    public void Tc085_RemoveDashboard() throws InterruptedException
+    public void TC085_RemoveDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         dashboardOverviewPage.removingDashboard();
 
     }
 
     @Test( groups ="Smoke Test")
-    public void Tc086_DeletingDashboard() throws InterruptedException
+    public void TC086_DeletingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         dashboardOverviewPage.deletingDashboard();
 
     }
@@ -76,11 +78,12 @@ public class DashboardOverview extends BaseSetup {
 
 
     @Test( enabled = true ,groups ="Smoke Test")
-    public void Tc087_RenamingDashboard() throws InterruptedException
+    public void TC087_RenamingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         dashboardOverviewPage.renamingDashboard();
 
 
@@ -88,65 +91,54 @@ public class DashboardOverview extends BaseSetup {
 
 
     @Test( enabled = true ,groups ="Smoke Test")
-    public void Tc089_CloningInDashboardOverview() throws InterruptedException
+    public void TC089_CloningInDashboardOverview() throws InterruptedException
     {
 
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.SearchCloneDashboard("1 Folder");
+        dashboardOverviewPage.addingdashboard();
+        dashboardOverviewPage.SearchCloneDashboard("1");
 
 
     }
 
-
     @Test( enabled = true ,groups ="Smoke Test")
-    public void Tc090_CloningPortletInDashboardOverview() throws InterruptedException
+    public void TC090_CloningPortletInDashboardOverview() throws InterruptedException
     {
 
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         dashboardOverviewPage.cloningPortlet();
 
 
-
     }
-
-    @Test( enabled = true )
-    public void tc02_SelectDate() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.SelectFromDate("20", "clone Parent");
-        // dashboardOverviewPage.calendar2("20");
-        dashboardOverviewPage.selectHour();
-
-        //dashboardOverviewPage.SelectMinute("55");
-
-    }
-    @Test( enabled = true )
-    public void tc02_SelectingpredefinedTimeRanges() throws InterruptedException
-    {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.differentTimeRanges("CloneParent");
-        dashboardOverviewPage.validatingLastHour();
-
-
-    }
-
 
     @Test(enabled = true)
-    public void TC_20_AddingGeneralHealthPortlet() throws InterruptedException {
+    public void TC20_AddingGeneralHealthPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         dashboardOverviewPage.addingPortlet();
     }
 
+    @Test(enabled = true)
+    public void TC001_AddingDashboardFolder() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.addingNewFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingFolder();
+    }
+
+
     @AfterMethod()
-    public void signOut() {
-      dashboardOverviewPage.signOut();
+    public void signOut()
+    {
+
+        dashboardOverviewPage.signOut();
     }
 
 

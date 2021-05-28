@@ -10,5 +10,9 @@ public class DashBoardData {
 	public final String dashboard = appData.getProperty("App.Dashboard");
 	public final String allpages = appData.getProperty("App.Allpages");
 	public final String LabelNewDashboard = appData.getProperty("App.LabelNewDashboard");
+	private ConfigManager ticketData = new ConfigManager("Ticket");
+	public final String ticketTitle = ticketData.getProperty("TicketTitle");
+	public final String ticketAssignee = ticketData.getProperty("TicketAssignee");
+	public final String ticketParticipant = ticketData.getProperty("TicketParticipant");
 
 }

@@ -86,13 +86,6 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:2.16" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.12" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jsr173_api:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.sikulix:sikulixapi:1.1.0" level="project" />
-    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.2" level="project" />
-    <orderEntry type="library" name="Maven: com.melloware:jintellitype:1.3.7" level="project" />
-    <orderEntry type="library" name="Maven: jxgrabkey:jxgrabkey:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.swinglabs:swing-layout:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: com.nativelibs4java:bridj:0.6.2" level="project" />
-    <orderEntry type="library" name="Maven: com.sikulix:sikulixlibswin:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.cafapi.decoder:decoder-js:1.12.0-232" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" level="project" />

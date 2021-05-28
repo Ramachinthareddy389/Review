@@ -132,11 +132,11 @@
 			<version>1.4.0</version>
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>com.sikulix</groupId>
 			<artifactId>sikulixapi</artifactId>
 			<version>1.1.0</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.github.cafapi.decoder</groupId>
 			<artifactId>decoder-js</artifactId>
@@ -495,6 +495,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.1.0</version>
 				<executions>
@@ -520,7 +521,7 @@
 							<goal>java</goal>
 						</goals>
 						<configuration>
-							<testFailureIgnore>true</testFailureIgnore>
+						<!--	<testFailureIgnore>true</testFailureIgnore> -->
 							<mainClass>jvm.ReportSetup</mainClass>
 						</configuration>
 
@@ -533,8 +534,10 @@
 						</goals>
 
 						<configuration>
-							<testFailureIgnore>true</testFailureIgnore>
+							<executableDependency>
+						<!--	<testFailureIgnore>true</testFailureIgnore> -->
 							<mainClass>jvm.CopyReportNGReports</mainClass>
+							</executableDependency>
 						</configuration>
 					</execution>
 					<execution>
@@ -545,8 +548,10 @@
 						</goals>
 
 						<configuration>
-							<testFailureIgnore>true</testFailureIgnore>
+							<executableDependency>
+						<!--	<testFailureIgnore>true</testFailureIgnore> -->
 							<mainClass>jvm.GenerateHtmlAndSendEmailUpdated</mainClass>
+							</executableDependency>
 						</configuration>
 					</execution>
 
@@ -579,39 +584,28 @@
 
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											exec-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.5.0,)
-										</versionRange>
-										<goals>
-											<goal>java</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
+
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+						<configuration>
+							<classpathScope>test</classpathScope>
+							<mainClass>Main</mainClass>
+						</configuration>
+						<executions>
+							<execution>
+								<id>run-selenium</id>
+								<phase>integration-test</phase>
+								<goals><goal>java</goal></goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+
 
 		</pluginManagement>
 

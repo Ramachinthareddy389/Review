@@ -7,6 +7,7 @@ import com.page.module.DashboardOverviewPage;
 import com.page.module.DashboardPage;
 import com.page.module.LoginPage;
 import com.selenium.Sync;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,11 +37,24 @@ public class DashBoardTests extends BaseSetup  {
     }
 
     @Test( groups ="Smoke Test" )
-    public void TC018_Pin_UnPin_Dashboard() throws InterruptedException {
+    public void TC018_PinUnPinDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.PinDashboard();
         dashboardPage.Unpin_Pin_Dashboard_FromDashboardPage();
     }
+
+    @Test( groups ="Smoke Test" )
+    public void TC017_CreateTicketOnDashboard() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardPage.clickOnDashboard();
+        dashboardPage.createTicketOnDashboard();
+        dashboardPage.verifyTicketInTicketsPage();
+    }
+
+
+
 }

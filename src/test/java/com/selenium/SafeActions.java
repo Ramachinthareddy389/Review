@@ -30,10 +30,10 @@ import org.openqa.selenium.remote.SessionId;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.sikuli.script.FindFailed;
+/*import org.sikuli.script.FindFailed;
 import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
+import org.sikuli.script.Screen;*/
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -3188,7 +3188,7 @@ public class SafeActions extends Sync
 		 * @param sLocatorName  Locator name
 		 * @param waitTime time in seconds
 		 */
-		public void safeClickUsingSikuli(String sImagePath, String sLocatorName,int waitTime)
+		/*public void safeClickUsingSikuli(String sImagePath, String sLocatorName,int waitTime)
 		{
 			try
 			{
@@ -3214,12 +3214,12 @@ public class SafeActions extends Sync
 
 			}
 		}
-		/**
+		*//**
 		 * Method: To Verify an element/image
 		 * @param sImagePath Image path
 		 * @param sLocatorName locator name
 		 * @param waitTime time in seconds
-		 */
+		 *//*
 		public void safeVerifyUsingSikuli(String sImagePath, String sLocatorName,int waitTime)
 		{
 			try
@@ -3245,12 +3245,12 @@ public class SafeActions extends Sync
 
 			}
 		}
-		/**
+		*//**
 		 * Method: To type text into input field using Sikuli
 		 * @param sImagePath Image path
 		 * @param sLocatorName locator name
 		 * @param waitTime time in seconds
-		 */
+		 *//*
 		public void safeTypeUsingSikuli(String sImagePath, String sLocatorName,String strText,int waitTime)
 		{
 			try
@@ -3277,12 +3277,12 @@ public class SafeActions extends Sync
 
 			}
 		}
-		/**
+		*//**
 		 * Method: To move mouse pointer on a specific element using Sikuli
 		 * @param sImagePath Image path
 		 * @param sLocatorName locator name
 		 * @param waitTime time in seconds
-		 */
+		 *//*
 		public void safeMouseMoveUsingSikuli(String sImagePath, String sLocatorName,int waitTime)
 		{
 			try
@@ -3308,7 +3308,7 @@ public class SafeActions extends Sync
 				Assert.fail("Locator with name '"+sLocatorName+"' is not displayed using sikuli, Some exception occured other than FindFailed, please check screenshot and image path");
 
 			}
-		}
+		}*/
 
 	/**
 	 * Returns list of webelements and handles the exceptions if any

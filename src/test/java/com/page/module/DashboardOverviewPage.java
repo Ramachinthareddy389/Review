@@ -23,7 +23,7 @@ import org.openqa.selenium.interactions.Action;
 public class DashboardOverviewPage extends SafeActions implements DashBoardLocators {
     private WebDriver driver;
     Random random = new Random();
-    String dname = "May2021";
+    String dname = "Filters";
     String dname1 = dname + random.nextInt(500);
     String expectedText = "Create" + " May2021129" + "";
     static int j;
@@ -79,13 +79,32 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(BUTTON_FINISH, "Clicked on Finish button in Dashboard window", MEDIUMWAIT);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Clicked on close button in Dashboard window", MEDIUMWAIT);
+Thread.sleep(7000);
+    }
+    @Step("Adding dashbaord")
+    public void addingdashboard() throws InterruptedException
+    {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Enter dashboard into type search");
         System.out.println("entered dbtext");
+        Thread.sleep(7000);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dname1);
+        Assert.assertEquals(actualText,dname1);
+    }
+
+    @Step("Adding Folder")
+    public void addingFolder() throws InterruptedException
+    {
+        safeType(TEXTBOX_TYPESEARCH, "Dashboards > "+dname1 + "\n", "Enter dashboard into type search");
+        System.out.println("entered dbtext");
+        Thread.sleep(7000);
+        String actualText = safeGetText(COLUMN_FOLDER, "dashboardname", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText,"Dashboards > "+dname1);
 
     }
+
+
 
     @Step("Logout the application")
     public void signOut() {
@@ -306,7 +325,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Enter the dashboard name in textbox", VERYLONGWAIT);
         WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
         type.sendKeys(Keys.ENTER);
-        waitForPageToLoad();
+        Thread.sleep(9000);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
         safeClick(CLONE_PORTLET, "Clicking on Clone button from dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -316,7 +335,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitUntilClickable(DROPDOWN_DASHBOARD_FOLDER, "waitinf for a element");
         safeClick(DROPDOWN_DASHBOARD_FOLDER, "selecting Dashboard", MEDIUMWAIT);
         safeJavaScriptClick(BTN_CLONE, "dashboard display name option", MEDIUMWAIT);
-        Thread.sleep(15000);
+        Thread.sleep(20000);
         String text = safeGetText(DASHBOARD_COUNT, "getting list of dashboards", MEDIUMWAIT);
         System.out.println(text);
         String expectedText = "(2)";
@@ -399,17 +418,19 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
         driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
         safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
+        Thread.sleep(9000);
         safeClick(BTN_ADD_PORTLET,"Adding portlet",MEDIUMWAIT);
+        Thread.sleep(15000);
         waitUntilClickable(All_FOLDER, "Clicking on add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         Thread.sleep(5000);
-        safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Enter the dashboard name in textbox", VERYLONGWAIT);
+        safeType(TEXTBOX_TYPESEARCH, "ActiveMQ Heap Usage", "Enter the dashboard name in textbox", VERYLONGWAIT);
         WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
         type.sendKeys(Keys.ENTER);
-        waitForPageToLoad();
+        Thread.sleep(10000);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
        String text=   safeGetText(LIST_PORTLETS,"Getting Text",MEDIUMWAIT);
-       expectedText="dname1 + 123";
+       expectedText="ActiveMQ Heap Usage";
        Assert.assertEquals(text,expectedText);
 
     }
@@ -550,6 +571,15 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
         safeClick(BTN_BUSINESS_HOURS, "Clicking on Current Hour");
     }
 
+
+    @Step("To click on 'Dashboard' and click on 'All' button")
+    public void addingNewFolder() {
+        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+
+        safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button ondashboards section", MEDIUMWAIT);
+        safeClick(LABEL_NEW_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+    }
 
 
 }

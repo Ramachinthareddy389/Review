@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite thread-count="1" verbose="10" name="OrangeHRM Suite"
+<suite thread-count="1" verbose="10" name="Germain Suite"
 	annotations="JDK" >
 
 

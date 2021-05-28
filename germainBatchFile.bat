@@ -1,15 +1,14 @@
-set MAVEN_HOME=%~dp0%Resources\Maven
+:: Set Variables 
+set MAVEN_HOME=%~dp0%Resources\MAVEN
 set PATH=%PATH%;%MAVEN_HOME%\bin;%~dp0%Resources\allure-cli\bin
 set JDK="%ProgramFiles%\Java\jdk*"
 for /d %%i in (%JDK%) do set JAVA_HOME=%%i
-:: Display Variables and Launch Maven
+:: Display Variables and Launch MAVEN
+
 set JAVA_HOME
-pause
 echo %MAVEN_HOME%
-pause
 echo %PATH%
-pause
 pushd %~dp0%
-pause
-mvn clean install
+timeout 1
+mvn clean test -Dsurefire.suiteXmlFiles=TestNGSuites\DESKTOP.xml
 pause
