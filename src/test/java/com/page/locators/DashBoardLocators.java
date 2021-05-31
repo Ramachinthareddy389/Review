@@ -88,7 +88,7 @@ public interface DashBoardLocators {
     By TIMESTAMPTEXTBOX=By.xpath("//div[contains(@class,'DateTimePicker')]/div/div/span[2]/span");
 
     //Portlet Locators
-By TEXTBOX_FOLDER=By.xpath("//input[@id='folderKey']");
+    By TEXTBOX_FOLDER=By.xpath("//input[@id='folderKey']");
     By LIST_PORTLETS=By.xpath("//div[@title='Dashboards']//ancestor::div[4]/following-sibling::div[4]/div/div/span/div/div/span");
     By BTN_ADD_METRIC=By.xpath("//button[@type='button']/span/i[@title='Add Metric']");
     By LINK_ADD_METRIC=By.xpath("//button[text()='Add Metric']");
@@ -131,5 +131,35 @@ By TEXTBOX_FOLDER=By.xpath("//input[@id='folderKey']");
     By TICKETS_PAGE_URL= By.xpath("//span[contains(text(),'Tickets')]");
     By STATUS_TICKETS_PAGE= By.xpath("//div[contains(text(),'Status:')]/following-sibling::div[1]//button[@value='ANY']");
     By TICKET_ASSIGNED_TO= By.xpath("//span[contains(text(),'Anyone')]");
+
+
+    //Dashboard Visibility - Allowed Users
+    By ERROR_MESSAGE = By.xpath("//p[contains(text(),'Unable to access Dashboard')]");
+    By DASHBAORD_VISIBILITY_ICON = By.xpath("//div[@aria-label='Update Dashboard Visibility']");
+    By ALLOWED_USERS_FIELD = By.xpath("//label[@for='allowedUsers']/following-sibling::div/div");
+    By BTN_SAVE_DASHBOARD_VISIBILITY = By.xpath("//span[contains(text(),'Save')]");
+    By ADD_METRIC_ICON = By.xpath("//i[@aria-label='Add Metric']");
+
+    //Dashboard Visibility - Required Roles
+    By BTN_REQUIRED_ROLES = By.xpath("(//label[@for='roles']/following::button[@aria-label='Add'])[1]");//Alternate Locator : //label[@for='roles']/../../../following-sibling::button
+    By NAME_ADD_ROLE_WINDOW = By.xpath("//input[contains(@id,'name')]");
+    By VIEW_DATA_PRIVILEGE = By.xpath("//span[contains(text(),'View Data')]");
+    By BTN_FINISH_ROLE_WINDOW = By.xpath("//span[contains(text(),'Finish')]");
+    By BTN_CLOSE_ROLE = By.xpath("//span[contains(text(),'Close')]");
+    By REQUIRED_ROLES_FIELD = By.xpath("//label[@for='roles']/following-sibling::div/div");
+    By TEXTBOX_REQUIRED_ROLES = By.xpath("//input[@id='roles']");
+    By DROPDOWN_REQUIRED_ROLES = By.xpath("//div[contains(@role,'menuitem')]");
+
+    //Dashboard Visibility - Owner Roles
+    By BTN_OWNER_ROLES = By.xpath("//label[@for='ownerRoles']/following::button[@aria-label='Add']");
+    By SUCCESS_CREATED_MESSAGE = By.xpath("//li[contains(text(),'created')]");
+    By OWNER_ROLES_FIELD = By.xpath("//label[@for='ownerRoles']/following-sibling::div/div");
+    By DROPDOWN_OWNER_ROLES = By.xpath("//div[contains(@role,'menuitem')]");
+    By BTN_RENAME_DASHBOARD = By.xpath("//div[@aria-label='Rename Dashboard']");
+    By BTN_CLONE_DASHBOARD = By.xpath("//div[@aria-label='Clone Dashboard']");
+    By BTN_PORTLETS_PER_ROW = By.xpath("//div[@aria-label='Portlets Per Row']");
+    By BTN_CLONE_PORTLET = By.xpath("//div[contains(@class,'Portlet')]/div/div/div[@aria-label='Clone']");
+    By BTN_EDIT_PORTLET = By.xpath("//div[contains(@class,'Portlet')]/div/div/div[@aria-label='Edit']");
+    By BTN_CLOSE_PORTLET = By.xpath("//div[contains(@class,'Portlet')]/div/div/div[@aria-label='Close']");
 
 }

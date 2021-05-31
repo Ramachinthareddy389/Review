@@ -134,6 +134,54 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
+    @Test( enabled = true )
+    public void tc02_SelectingpredefinedTimeRanges() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectingCalender("clone Parent");
+        dashboardOverviewPage.differentTimeRanges();
+        //dashboardOverviewPage.validatingLastHour();
+
+
+    }
+
+    @Test(enabled = true)
+    public void ValidatingLastHour() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectingCalender("clone Parent");
+        dashboardOverviewPage.validatingLastHour();
+    }
+
+    @Test(enabled = true)
+    public  void ValidatingBusinessHours() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectingCalender("clone Parent");
+        dashboardOverviewPage.validatingBusinessHours("09:00 AM","05:00 PM");
+
+
+    }
+
+    @Test(enabled = true)
+    public void ValidatingLast12Hours() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectingCalender("clone Parent");
+        dashboardOverviewPage.validatingLast12hours();
+    }
+
+    @Test(enabled = true)
+    public void validatingLast7days() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectingCalender("clone Parent");
+        dashboardOverviewPage.validatingThisMonth();
+    }
+
     @AfterMethod()
     public void signOut()
     {

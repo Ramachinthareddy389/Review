@@ -536,19 +536,21 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
         }
         Thread.sleep(2000);
     }
+     public void SelectingCalender(String DBname) throws InterruptedException {
+         Thread.sleep(5000);
+         safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+         driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
+         Thread.sleep(3000);
+         // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
+         //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+         String locator = "//span[text()='" + DBname + "']/parent::div";
+         By CLONE_PARENT = By.xpath(locator);
+         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+    }
 
+    public void differentTimeRanges() throws InterruptedException {
 
-    public void differentTimeRanges(String DBname) throws InterruptedException {
-        Thread.sleep(5000);
-        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
-        driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
-        // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
-        //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
-        String locator = "//span[text()='" + DBname + "']/parent::div";
-        By CLONE_PARENT = By.xpath(locator);
-        safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
-        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_CURRENTHOUR, "Clicking on Current Hour");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
@@ -556,21 +558,130 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
             str = str + list.get(i).getText();
         }
         System.out.println(str);
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         String date1 = dateFormat.format(date);
-        System.out.println("Current date and time is " + date1 + " " + "AM" + "-" + date1 + " " + "PM");
-        DateFormat time = new SimpleDateFormat("HH:mm");
+        int i=Integer.parseInt(date1);
+        int morn=i+1;
+        int  time=i-12;
+        int  time1=i-11;
+        DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
-        String date123 = time.format(date2);
-        System.out.println(date123);
+        String date5 = date123.format(date2);
+        System.out.println(date5);
+        if(i>=13){
+            System.out.println("Current date and time is " +date5+" "+0+ time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM");
+            expectedText=date5+" "+0 + time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM";
+            Assert.assertEquals(str,expectedText);
+            System.out.println("Its working");
+        }
+        else
+        {
+            System.out.println("Current date and time is " +date5+" " + i +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+ morn +":"+"00"+ " " + "AM");
+        }
+
     }
 
     public void validatingLastHour() {
 
-        safeClick(BTN_BUSINESS_HOURS, "Clicking on Current Hour");
-    }
+        safeClick(BTN_LASTHOUR, "Clicking on Last Hour");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        DateFormat dateFormat = new SimpleDateFormat("HH");
+        Date date = new Date();
+        String date1 = dateFormat.format(date);
+        int i=Integer.parseInt(date1);
+        System.out.println(i);
+        int  time=i-13;
+        int time1=time+1;
+        System.out.println(time);
+        DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
+        Date date2 = new Date();
+        String date5 = date123.format(date2);
+        System.out.println(date5);
+        if(i>=13){
+            System.out.println("Current date and time is " +date5+" "+0+ time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM");
+            expectedText=date5+" "+0 + time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM";
+            Assert.assertEquals(str,expectedText);
+            System.out.println("Its working");
+        }
+        else
+        {
 
+        }   System.out.println("Current date and time is " +date5+" " + (i-1) +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+ i +":"+"00"+ " " + "AM");
+
+
+    }
+   public void validatingBusinessHours(String start,String end)
+   {
+    safeClick(BTN_BUSINESS_HOURS, "Clicking on Business Hour");
+    List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+    String str = "";
+    for (int i = 0; i < list.size(); ++i) {
+        str = str + list.get(i).getText();
+    }
+    System.out.println(str);
+    DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
+    Date date2 = new Date();
+    String date5 = date123.format(date2);
+    System.out.println(date5);
+    System.out.println("Current date and time is " +date5+" " + start +" "+ "-" +date5+" "+ end);
+    String expectedText=date5+" " + start +" "+ "-" +date5+" "+ end;
+    Assert.assertEquals(str,expectedText);
+  }
+
+  public void validatingLast12hours(){
+
+      safeClick(BTN_Last_12_Hours, "Clicking on Business Hour");
+      List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+      String str = "";
+      for (int i = 0; i < list.size(); ++i) {
+          str = str + list.get(i).getText();
+      }
+      System.out.println(str);
+      DateFormat dateFormat = new SimpleDateFormat("HH");
+      Date date = new Date();
+      String date1 = dateFormat.format(date);
+      int i=Integer.parseInt(date1);
+      int time=i-11;
+      DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
+      Date date2 = new Date();
+      String date5 = date123.format(date2);
+      System.out.println(date5);
+      System.out.println("Current date and time is " +date5+" " + time +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+ time +":"+"00"+ " " + "PM");
+      expectedText=date5+" "+0 + time +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+0+ time +":"+"00"+ " " + "PM";
+      Assert.assertEquals(str,expectedText);
+  }
+
+
+  public void validatingThisMonth()
+  {
+      safeClick(BTN_THIS_MONTH, "Clicking on Last 7 Days");
+      List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+      String str = "";
+      for (int i = 0; i < list.size(); ++i) {
+          str = str + list.get(i).getText();
+      }
+      System.out.println(str);
+      Calendar cal = Calendar.getInstance();
+     // cal.add(Calendar.DATE, -6);
+
+      // I just want date before 90 days. you can give that you want.
+      SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+      System.out.println(s.format(new Date(cal.getTimeInMillis())));
+      String s1=s.format(new Date(cal.getTimeInMillis()));
+      cal.add(Calendar.DATE,-30);
+      System.out.println(s.format(new Date(cal.getTimeInMillis())));
+      String s2=s.format(new Date(cal.getTimeInMillis()));
+      Assert.assertEquals(s1,s2);
+
+
+
+  }
 
     @Step("To click on 'Dashboard' and click on 'All' button")
     public void addingNewFolder() {

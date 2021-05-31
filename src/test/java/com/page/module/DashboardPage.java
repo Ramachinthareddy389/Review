@@ -24,6 +24,11 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             +" - "+random.nextInt(500);
     static int j;
     String Assignee_Add, Severity_Add, Priority_Add, Status_Add, Participants_Add;
+    String sampleDashboard_AllowedUsers = dashBoardData1.sampleDashboard_AllowedUsers;
+    String sampleDB_RequiredRoles = dashBoardData1.sampleDB_RequiredRole;
+    String sample_Role_Name = dashBoardData1.sample_Role_Name + " - " +random.nextInt(1000);
+    String sampleDB_OwnerRoles = dashBoardData1.sampleDB_OwnerRole;
+    String sample_RoleName_Owner = dashBoardData1.sample_Role_Name_Owner + " - " +random.nextInt(1000);
 
 
     //Constructor to define/call methods
@@ -200,4 +205,261 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "text", MEDIUMWAIT);
     }
+
+
+
+
+
+
+    @Step("Accessing Dashboard by Allowed user")
+    public void accessDashboardByAllowedUser() throws InterruptedException{
+        boolean flag = false;
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDashboard_AllowedUsers+"')]");
+        waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
+        if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
+            Assert.fail("Dashboard page is not displayed for user after giving access");
+        try{
+            if((driver.findElement(ADD_METRIC_ICON).isDisplayed()|driver.findElement(BTN_RENAME_DASHBOARD).isDisplayed()|
+                    driver.findElement(BTN_CLONE_DASHBOARD).isDisplayed()|driver.findElement(BTN_PORTLETS_PER_ROW).isDisplayed()|
+                    driver.findElement(DASHBAORD_VISIBILITY_ICON).isDisplayed()))
+                Assert.fail("Dashboard Permissions are given to 'Allowed User'");
+            if((driver.findElement(BTN_CLONE_PORTLET).isDisplayed()|driver.findElement(BTN_EDIT_PORTLET).isDisplayed()|
+                    driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
+                Assert.fail("Permissions for portlet are given to 'Allowed User'");
+            flag = true;
+        }catch(Exception e){
+            System.out.println("Expected Permissions are given to 'Allowed User'");
+        }
+        if(flag)
+            Assert.fail("Non-applicable Permissions are given to 'Allowed User'");
+    }
+
+    @Step("Accessing Dashboard by sample user after removing access")
+    public void accessDashboardByUserAfterRemovingAccess() throws InterruptedException{
+        waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
+        if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
+            Assert.fail("Error message is not displayed for user without access");
+    }
+
+    @Step("Set 'Allowed Users' in 'Dashboard Visibility'")
+    public void setAllowedUsersInDashboardVisibility() throws InterruptedException{
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        waitUntilClickable(ALLOWED_USERS_FIELD,"Allowed Users Field",MEDIUMWAIT);
+        safeClick(ALLOWED_USERS_FIELD,"Allowed Users Field",MEDIUMWAIT);
+        //System.out.println("Participant existing one is "+driver.findElement(TICKET_PARTCIPANTS).getText());
+        By ALLOWED_USER_OPTION = By.xpath("//div[contains(text(),'"+dashBoardData1.userName+"')]");
+        waitForPageToLoad();
+        Actions act2=new Actions(driver);
+        act2.sendKeys(dashBoardData1.userName);
+        waitUntilClickable(ALLOWED_USER_OPTION,"Wait till users load" ,5000);
+        List<WebElement> users = driver.findElements(ALLOWED_USER_OPTION);
+        System.out.println("Total no 0f users:::====> " + users.size());
+        for (int i = 0; i < users.size(); i++) {
+            System.out.println(users.get(i).getText());
+            if (users.get(i).getText().contains(dashBoardData1.userName)) {
+                users.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Remove 'Allowed Users' in 'Dashboard Visibility'")
+    public void removeAllowedUsersInDashboardVisibility() throws InterruptedException{
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        waitUntilClickable(ALLOWED_USERS_FIELD,"Allowed Users Field",MEDIUMWAIT);
+        By DELETE_ALLOWED_USER = By.xpath("//span[contains(text(),'"+dashBoardData1.userName+"')]/following-sibling::i");
+        waitUntilClickable(DELETE_ALLOWED_USER,"Delete icon for Allowed User",MEDIUMWAIT);
+        safeClick(DELETE_ALLOWED_USER,"Delete icon for Allowed User",MEDIUMWAIT);
+        safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Navigate to Dashboards page")
+    public void navigateToDashboardsPage(){
+        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", LONGWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+    }
+
+    @Step("Set 'Required Roles' in 'Dashboard Visibility'")
+    public void setRequiredRolesInDashboardVisibility() throws InterruptedException{
+        boolean flag = false;
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDB_RequiredRoles + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD_REQUIRED_ROLES = By.xpath("//div[@title='"+sampleDB_RequiredRoles+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD_REQUIRED_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD_REQUIRED_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
+        waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        waitUntilClickable(BTN_REQUIRED_ROLES,"Add icon in 'Required Roles' Field",MEDIUMWAIT);
+        safeClick(BTN_REQUIRED_ROLES,"Add icon in 'Required Roles' Field",MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(NAME_ADD_ROLE_WINDOW,"Name field in Add Role window",MEDIUMWAIT);
+        safeType(NAME_ADD_ROLE_WINDOW,sample_Role_Name,"Name field in Add Role window",MEDIUMWAIT);
+        safeClick(VIEW_DATA_PRIVILEGE,"View Data Privilege in Add Role window",MEDIUMWAIT);
+        safeClick(BTN_FINISH_ROLE_WINDOW,"Finish button in Add Role window",MEDIUMWAIT);
+        waitUntilClickable(SUCCESS_CREATED_MESSAGE,"Success message after adding Role",MEDIUMWAIT);
+        if(!driver.findElement(SUCCESS_CREATED_MESSAGE).isDisplayed())
+            Assert.fail("User is not able to add new Role in 'Required Roles' field");
+        waitUntilClickable(BTN_CLOSE_ROLE,"Close button in Role window",MEDIUMWAIT);
+        safeClick(BTN_CLOSE_ROLE,"Close button in Role window",MEDIUMWAIT);
+        By DELETE_REQUIRED_ROLE = By.xpath("//span[contains(text(),'"+sample_Role_Name+"')]/following-sibling::i");
+        waitUntilClickable(DELETE_REQUIRED_ROLE,"Delete icon for Required Role",MEDIUMWAIT);
+        safeClick(DELETE_REQUIRED_ROLE,"Delete icon for Required Role",MEDIUMWAIT);
+        safeClick(REQUIRED_ROLES_FIELD,"Requires Roles field",MEDIUMWAIT);
+        List<WebElement> roles = driver.findElements(DROPDOWN_REQUIRED_ROLES);
+        System.out.println("Total no of roles:::====> " + roles.size());
+        for (int i = 0; i < roles.size(); i++) {
+            System.out.println(roles.get(i).getText());
+            if (roles.get(i).getText().contains(dashBoardData1.sample_Required_Role)) {
+                roles.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Accessing Dashboard by sample user with 'Required Roles'")
+    public void accessDashboardByRequiredRoleUser() throws InterruptedException{
+        boolean flag = false;
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDB_RequiredRoles + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDB_RequiredRoles+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDB_RequiredRoles+"')]");
+        waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
+        if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
+            Assert.fail("Dashboard page is not displayed for user after giving access");
+        try{
+            if((driver.findElement(ADD_METRIC_ICON).isDisplayed()|driver.findElement(BTN_RENAME_DASHBOARD).isDisplayed()|
+                    driver.findElement(BTN_CLONE_DASHBOARD).isDisplayed()|driver.findElement(BTN_PORTLETS_PER_ROW).isDisplayed()|
+                    driver.findElement(DASHBAORD_VISIBILITY_ICON).isDisplayed()))
+                Assert.fail("Dashboard Permissions are given to 'Required Role' User");
+            if((driver.findElement(BTN_CLONE_PORTLET).isDisplayed()|driver.findElement(BTN_EDIT_PORTLET).isDisplayed()|
+                    driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
+                Assert.fail("Permissions for portlet are given to 'Required Role' user");
+            flag = true;
+        }catch(Exception e){
+            System.out.println("Expected Permissions are given to 'Required Role' user");
+        }
+        if(flag)
+            Assert.fail("Non-applicable Permissions are given to 'Required Role' User");
+    }
+
+    @Step("Remove 'Required Roles' in 'Dashboard Visibility'")
+    public void removeRequiredRoleInDashboardVisibility() throws InterruptedException{
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDB_RequiredRoles + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDB_RequiredRoles+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        waitUntilClickable(REQUIRED_ROLES_FIELD,"Required Roles Field",MEDIUMWAIT);
+        By DELETE_REQUIRED_ROLES = By.xpath("//span[contains(text(),'"+dashBoardData1.sample_Required_Role+"')]/following-sibling::i");
+        waitUntilClickable(DELETE_REQUIRED_ROLES,"Delete icon for Required Role",MEDIUMWAIT);
+        safeClick(DELETE_REQUIRED_ROLES,"Delete icon for Required Role",MEDIUMWAIT);
+        safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Accessing Dashboard by sample user after removing required role")
+    public void accessDashboardByUserAfterRemovingRequiredRole() throws InterruptedException{
+        waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
+        if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
+            Assert.fail("Error message is not displayed for user without access");
+    }
+
+    @Step("Set 'Owner Roles' in 'Dashboard Visibility'")
+    public void setOwnerRolesInDashboardVisibility() throws InterruptedException{
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDB_OwnerRoles + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD_OWNER_ROLES = By.xpath("//div[@title='"+sampleDB_OwnerRoles+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD_OWNER_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD_OWNER_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
+        waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        waitUntilClickable(BTN_OWNER_ROLES,"Add icon in 'Owner Roles' Field",MEDIUMWAIT);
+        safeClick(BTN_OWNER_ROLES,"Add icon in 'Owner Roles' Field",MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(NAME_ADD_ROLE_WINDOW,"Name field in Add Role window",MEDIUMWAIT);
+        safeType(NAME_ADD_ROLE_WINDOW,sample_RoleName_Owner,"Name field in Add Role window",MEDIUMWAIT);
+        safeClick(VIEW_DATA_PRIVILEGE,"View Data Privilege in Add Role window",MEDIUMWAIT);
+        safeClick(BTN_FINISH_ROLE_WINDOW,"Finish button in Add Role window",MEDIUMWAIT);
+        waitUntilClickable(SUCCESS_CREATED_MESSAGE,"Success message after adding Role",MEDIUMWAIT);
+        if(!driver.findElement(SUCCESS_CREATED_MESSAGE).isDisplayed())
+            Assert.fail("User is not able to add new Role in 'Owner Roles' field");
+        waitUntilClickable(BTN_CLOSE_ROLE,"Close button in Role window",MEDIUMWAIT);
+        safeClick(BTN_CLOSE_ROLE,"Close button in Role window",MEDIUMWAIT);
+        By DELETE_OWNER_ROLE = By.xpath("//span[contains(text(),'"+sample_RoleName_Owner+"')]/following-sibling::i");
+        waitUntilClickable(DELETE_OWNER_ROLE,"Delete icon for Owner Role",MEDIUMWAIT);
+        safeClick(DELETE_OWNER_ROLE,"Delete icon for Owner Role",MEDIUMWAIT);
+        safeClick(OWNER_ROLES_FIELD,"Requires Roles field",MEDIUMWAIT);
+        List<WebElement> roles = driver.findElements(DROPDOWN_OWNER_ROLES);
+        System.out.println("Total no of roles:::====> " + roles.size());
+        for (int i = 0; i < roles.size(); i++) {
+            System.out.println(roles.get(i).getText());
+            if (roles.get(i).getText().contains(dashBoardData1.sample_Owner_Role)) {
+                roles.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Accessing Dashboard by sample user with 'Owner Roles'")
+    public void accessDashboardByOwnerRoleUser() throws InterruptedException{
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, sampleDB_OwnerRoles + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDB_OwnerRoles+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDB_OwnerRoles+"')]");
+        waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
+        if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
+            Assert.fail("Dashboard page is not displayed for user after giving access");
+        if(!(driver.findElement(ADD_METRIC_ICON).isDisplayed()&&driver.findElement(BTN_RENAME_DASHBOARD).isDisplayed()&&
+                driver.findElement(BTN_CLONE_DASHBOARD).isDisplayed()&&driver.findElement(BTN_PORTLETS_PER_ROW).isDisplayed()&&
+                driver.findElement(DASHBAORD_VISIBILITY_ICON).isDisplayed()))
+            Assert.fail("Dashboard Permissions are not given properly to 'Owner Role' User");
+        if(!(driver.findElement(BTN_CLONE_PORTLET).isDisplayed()&&driver.findElement(BTN_EDIT_PORTLET).isDisplayed()&&
+                driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
+            Assert.fail("Permissions for portlet are not given properly to owner user");
+    }
+    @Step("Remove 'Owner Roles' in 'Dashboard Visibility'")
+    public void removeOwnerRoleInDashboardVisibility() throws InterruptedException{
+        waitForPageToLoad();
+        waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
+        waitUntilClickable(OWNER_ROLES_FIELD,"Owner Roles Field",MEDIUMWAIT);
+        By DELETE_OWNER_ROLES = By.xpath("//span[contains(text(),'"+dashBoardData1.sample_Owner_Role+"')]/following-sibling::i");
+        waitUntilClickable(DELETE_OWNER_ROLES,"Delete icon for Required Role",MEDIUMWAIT);
+        safeClick(DELETE_OWNER_ROLES,"Delete icon for Required Role",MEDIUMWAIT);
+        safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Accessing Dashboard by sample user after removing owner role")
+    public void accessDashboardByUserAfterRemovingOwnerRole() throws InterruptedException{
+        refresh();
+        waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
+        if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
+            Assert.fail("Error message is not displayed for user without access");
+    }
+
 }

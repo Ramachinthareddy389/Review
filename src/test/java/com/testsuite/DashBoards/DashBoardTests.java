@@ -54,7 +54,58 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.createTicketOnDashboard();
         dashboardPage.verifyTicketInTicketsPage();
     }
+    @Test(groups = "Smoke Test")
+    public void TC011_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.setAllowedUsersInDashboardVisibility();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.userName,dashBoardData.userPassword);
+        loginPage.clickLogInButton();
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.accessDashboardByAllowedUser();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.clickLogInButton();
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.removeAllowedUsersInDashboardVisibility();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.userName,dashBoardData.userPassword);
+        loginPage.clickLogInButton();
+        dashboardPage.accessDashboardByUserAfterRemovingAccess();
+    }
 
+    @Test(groups = "Smoke Test")
+    public void TC011_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.setRequiredRolesInDashboardVisibility();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,dashBoardData.userPassword);
+        loginPage.clickLogInButton();
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.accessDashboardByRequiredRoleUser();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.clickLogInButton();
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.removeRequiredRoleInDashboardVisibility();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,dashBoardData.userPassword);
+        loginPage.clickLogInButton();
+        dashboardPage.accessDashboardByUserAfterRemovingRequiredRole();
+    }
+
+    @Test(groups = "Smoke Test")
+    public void TC011_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.setOwnerRolesInDashboardVisibility();
+        loginPage.clickLogoutButton();
+        loginPage.enterLoginCredentials(dashBoardData.ownerRole_Username,dashBoardData.userPassword);
+        loginPage.clickLogInButton();
+        dashboardPage.navigateToDashboardsPage();
+        dashboardPage.accessDashboardByOwnerRoleUser();
+        dashboardPage.removeOwnerRoleInDashboardVisibility();
+        dashboardPage.accessDashboardByUserAfterRemovingOwnerRole();
+    }
 
 
 }

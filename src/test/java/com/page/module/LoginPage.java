@@ -59,4 +59,13 @@ public class LoginPage extends SafeActions implements LogInPageLocators
 		waitForPageToLoad(VERYLONGWAIT);
 
 	}
+
+	@Step("Logout the application")
+	public void clickLogoutButton() {
+		waitForPageToLoad();
+		safeClick(USERICON, "Clicking on user icon", MEDIUMWAIT);
+		safeClick(LOGOUT, "Click on Logout", MEDIUMWAIT);
+	}
+
+
 }
