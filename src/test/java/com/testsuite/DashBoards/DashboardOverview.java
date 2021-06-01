@@ -135,52 +135,26 @@ public class DashboardOverview extends BaseSetup {
 
 
     @Test( enabled = true )
-    public void tc02_SelectingpredefinedTimeRanges() throws InterruptedException {
+    public void TC015_ApplyanyDatefromDatepickerinCalendar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SelectingCalender("clone Parent");
-        dashboardOverviewPage.differentTimeRanges();
-        //dashboardOverviewPage.validatingLastHour();
-
-
-    }
-
-    @Test(enabled = true)
-    public void ValidatingLastHour() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.SelectingCalender("clone Parent");
+        dashboardOverviewPage.ValidatingCurrentHour();
         dashboardOverviewPage.validatingLastHour();
-    }
-
-    @Test(enabled = true)
-    public  void ValidatingBusinessHours() throws InterruptedException
-    {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.SelectingCalender("clone Parent");
         dashboardOverviewPage.validatingBusinessHours("09:00 AM","05:00 PM");
-
-
-    }
-
-    @Test(enabled = true)
-    public void ValidatingLast12Hours() throws InterruptedException
-    {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.SelectingCalender("clone Parent");
         dashboardOverviewPage.validatingLast12hours();
+        dashboardOverviewPage.validatingThisMonth("12:00 AM");
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        dashboardOverviewPage.validatingToday("12:00 AM");
+        dashboardOverviewPage.validatingYesterday("12:00 AM");
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM","02/04/2021 01:30 AM");
+        dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM","02/20/2021 05:30 AM");
+
     }
 
-    @Test(enabled = true)
-    public void validatingLast7days() throws InterruptedException
-    {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.SelectingCalender("clone Parent");
-        dashboardOverviewPage.validatingThisMonth();
-    }
+
 
     @AfterMethod()
     public void signOut()

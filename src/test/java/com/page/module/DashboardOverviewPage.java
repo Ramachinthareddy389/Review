@@ -57,7 +57,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
-        // String dname1 = dname + random.nextInt(500);
+        String dname1 = dname + random.nextInt(500);
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Enter the dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "foldername", MEDIUMWAIT);
@@ -412,6 +412,7 @@ Thread.sleep(7000);
         WebElement searchField1 = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         searchField1.sendKeys(del + 5);
         //safeClearAndType(TEXTBOX_DECIMAL_PLACES,"5","Entering values in decimal places",MEDIUMWAIT);
+        Thread.sleep(7000);
         safeClick(TEXTBOX_PORTLET_FILTERS,"Clicking on portlet filters",MEDIUMWAIT);
         safeClick(PortletFilters_TypeSearch,"Entering Text into typesearch",MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
@@ -434,109 +435,8 @@ Thread.sleep(7000);
        Assert.assertEquals(text,expectedText);
 
     }
-//24/05/2021
-@Step("Select from Date")
-public void SelectFromDate(String date, String DBname) throws InterruptedException {
-    Thread.sleep(5000);
-    safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
-    driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-    Thread.sleep(3000);
-    // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
-    //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
-    String locator = "//span[text()='" + DBname + "']/parent::div";
-    By CLONE_PARENT = By.xpath(locator);
-    safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
-    safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
 
-    try {
-        for (int i = 1; i <= 6; i++) {
-            for (int j = 1; j <= 7; j++) {
-                List<WebElement> dates = driver.findElements(By.cssSelector(":nth-child(" + i + ") > :nth-child(" + j + ") > .MuiButtonBase-root > .MuiIconButton-label > .MuiTypography-root"));
-                WebElement eFromDate = dates.get(0);
-                //WebElement ToDate=dates.get(1);
-                String fromdate = eFromDate.getText();
-                //String toDate= ToDate.getText();
-                System.out.println("========================= " + fromdate);
-                if (fromdate.contains(date)) {
-                    eFromDate.click();
-                    break;
-                }
-            }
-        }
-    } catch (Exception e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
-    Thread.sleep(5000);
-}
-
-
-    public void calendar2(String date) {
-        try {
-            for (int i = 1; i <= 6; i++) {
-                for (int j = 1; j <= 7; j++) {
-                    List<WebElement> dates = driver.findElements(By.cssSelector(":nth-child(" + i + ") > :nth-child(" + j + ") > .MuiButtonBase-root > .MuiIconButton-label > .MuiTypography-root"));
-                    WebElement eFromDate = dates.get(0);
-                    //WebElement ToDate=dates.get(1);
-                    String fromdate = eFromDate.getText();
-                    //String toDate= ToDate.getText();
-                    System.out.println("========================= " + fromdate);
-                    if (fromdate.contains(date)) {
-                        eFromDate.click();
-                        break;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
-    @Step("Select hour")
-    public void selectHour() throws InterruptedException {
-
-
-        // new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber') ][text()='8']"))).click();
-       List<WebElement> ele = driver.findElements(By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')][@style='transform: translate(55px, 19.6px);']"));
-        By ele1 = By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')][text()='05']");
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele.get(2)));
-
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("document.getElementsByClassName('MuiTypography-root MuiPickersClockNumber-clockNumber MuiTypography-body1')");
-        ele.get(2).click();
-        Thread.sleep(5000);
-
-
-    }
-
-    @Step("Select minute")
-    public void SelectMinute(String minute) throws InterruptedException {
-
-        Actions action = new Actions(driver);
-        try {
-            List<WebElement> timeM = driver.findElements(By.cssSelector("div.MuiPickersClockPointer-pointer~span"));
-            int count = timeM.size();
-            System.out.println("***************************** minute: " + count);
-            for (int i = 0; i < count; i++) {
-                WebElement eMinute = timeM.get(i);
-                String sMinute = eMinute.getText();
-
-                System.out.println("========================= " + sMinute);
-                if (sMinute.contains(minute)) {
-                    //eMinute.click();
-                    action.moveToElement(eMinute).click().build().perform();
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        Thread.sleep(2000);
-    }
-     public void SelectingCalender(String DBname) throws InterruptedException {
+    public void SelectingCalender(String DBname) throws InterruptedException {
          Thread.sleep(5000);
          safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
          driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
@@ -549,7 +449,7 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
          safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
     }
 
-    public void differentTimeRanges() throws InterruptedException {
+    public void ValidatingCurrentHour() throws InterruptedException {
 
         safeClick(BTN_CURRENTHOUR, "Clicking on Current Hour");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -583,7 +483,7 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
     }
 
     public void validatingLastHour() {
-
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LASTHOUR, "Clicking on Last Hour");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
@@ -618,7 +518,8 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
     }
    public void validatingBusinessHours(String start,String end)
    {
-    safeClick(BTN_BUSINESS_HOURS, "Clicking on Business Hour");
+       safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+       safeClick(BTN_BUSINESS_HOURS, "Clicking on Business Hour");
     List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
     String str = "";
     for (int i = 0; i < list.size(); ++i) {
@@ -635,7 +536,7 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
   }
 
   public void validatingLast12hours(){
-
+      safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
       safeClick(BTN_Last_12_Hours, "Clicking on Business Hour");
       List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
       String str = "";
@@ -658,8 +559,9 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
   }
 
 
-  public void validatingThisMonth()
+  public void validatingThisMonth(String time)
   {
+      safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
       safeClick(BTN_THIS_MONTH, "Clicking on Last 7 Days");
       List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
       String str = "";
@@ -674,14 +576,186 @@ public void SelectFromDate(String date, String DBname) throws InterruptedExcepti
       SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
       System.out.println(s.format(new Date(cal.getTimeInMillis())));
       String s1=s.format(new Date(cal.getTimeInMillis()));
-      cal.add(Calendar.DATE,-30);
+      cal.add(Calendar.DATE,30);
       System.out.println(s.format(new Date(cal.getTimeInMillis())));
       String s2=s.format(new Date(cal.getTimeInMillis()));
-      Assert.assertEquals(s1,s2);
-
+      System.out.println("Current date and time is " +s1+" " + time +" "+ "-" +s2+" "+ time);
+      String expectedText=s1+" " + time +" "+ "-" +s2+" "+ time;
+      Assert.assertEquals(str,expectedText);
 
 
   }
+    public void validatingLastMonth(String time)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_LAST_MONTH, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+        // cal.add(Calendar.DATE, -6);
+
+        // I just want date before 90 days. you can give that you want.
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s1=s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.MONTH,-1);
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s2=s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
+        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+    public void validatingLast30Days(String time)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_LAST_30_DAYS, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, 1);
+
+        // I just want date before 90 days. you can give that you want.
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s1=s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,-30);
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s2=s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
+        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+
+    public void validatingToday(String time)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_TODAY, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+
+
+        // I just want date before 90 days. you can give that you want.
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s1=s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,1);
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s2=s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " +s1+" " + time +" "+ "-" +s2+" "+ time);
+        String expectedText=s1+" " + time +" "+ "-" +s2+" "+ time;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+
+    public void validatingYesterday(String time)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_YESTERDAY, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+
+
+        // I just want date before 90 days. you can give that you want.
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s1=s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,-1);
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s2=s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
+        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+
+    public void validatingLast7Days(String time)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_LAST_7_DAYS, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+
+        cal.add(Calendar.DATE,1);
+        // I just want date before 90 days. you can give that you want.
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s1=s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,-7);
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s2=s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
+        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+
+
+    public void validatingAbsoluteQa_30Mins(String tsstart,String tsend)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_ABSOLUTECURRENTHOUR_QA_30_MINS, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+        System.out.println("Current date and time is " +tsstart+" "+ "-" +tsend);
+        String expectedText=tsstart+" "+ "-" +tsend;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+
+    public void validatingAbsoluteAllUnits(String tsstart,String tsend)
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_ABSOLUTE_ALL_UNITS, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+        System.out.println("Current date and time is " +tsstart+" "+ "-" +tsend);
+        String expectedText=tsstart+" "+ "-" +tsend;
+        Assert.assertEquals(str,expectedText);
+
+
+    }
+
 
     @Step("To click on 'Dashboard' and click on 'All' button")
     public void addingNewFolder() {
