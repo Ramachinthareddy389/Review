@@ -162,4 +162,15 @@ public interface DashBoardLocators {
     By BTN_EDIT_PORTLET = By.xpath("//div[contains(@class,'Portlet')]/div/div/div[@aria-label='Edit']");
     By BTN_CLOSE_PORTLET = By.xpath("//div[contains(@class,'Portlet')]/div/div/div[@aria-label='Close']");
 
+    //Trend Granularity
+    By BTN_TREND_GRANULARITY=By.xpath("//div[@aria-label='Trend Granularity']");
+    By BTN_AUTO   = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[1]");
+    By BTN_MINUTE = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[2]");
+    By BTN_HOURLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[3]");
+    By BTN_DAILY  = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[4]");
+    By BTN_MONTHLY= By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[5]");
+    By BTN_YEARLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[6]");
+    By GHPORTLET_LABELS=By.xpath(".highcharts-axis-labels.highcharts-xaxis-labels>text");
+    By NTABULAR_LABELS=By.xpath("//div[@aria-label='Hourly']");
+
 }

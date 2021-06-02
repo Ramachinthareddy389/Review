@@ -27,5 +27,6 @@ public class DashBoardData {
 	public final String sampleDB_OwnerRole = dashboardVisibility.getProperty("sampleDB_OwnerRoles");
 	public final String sample_Owner_Role = dashboardVisibility.getProperty("OwnerRole");
 	public final String ownerRole_Username = dashboardVisibility.getProperty("OwnerRole_TestUser");
-
+	private ConfigManager portletsData = new ConfigManager("Portlets");
+	public final String portletKPI = portletsData.getProperty("KPI");
 }

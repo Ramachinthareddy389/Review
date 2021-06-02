@@ -351,10 +351,22 @@ Thread.sleep(7000);
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(DROPDWON_KPI,"Clicking on KPI",MEDIUMWAIT);
+        safeType(TEXTBOX_KPI,"User Click","Sending the text",VERYLONGWAIT);
+        Thread.sleep(7000);
+        List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpi12.size(); i++) {
+            System.out.println(kpi12.get(i).getText());
+            if (kpi12.get(i).getText().equals("User Click"))
+            {
+                kpi12.get(i).click();
+                break;
+            }
+        }
         safeClick(TEXT_HEADER, "Clicking on portelt NAme");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
-        searchField.sendKeys(del + dname1 + 123);
+        searchField.sendKeys(del + dname1);
         //safeClick(DROPDOWN_SHOWAS,"Clicking on showas dropdown",MEDIUMWAIT);
         WebElement rle=driver.findElement(By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]"));
         safeClick(DROPDOWN_SHOWAS,"Clikcing on showas",MEDIUMWAIT);
@@ -369,18 +381,7 @@ Thread.sleep(7000);
                 break;
             }
         }
-        safeClick(DROPDWON_KPI,"Clicking on KPI",MEDIUMWAIT);
-        safeType(TEXTBOX_KPI,"ActiveMQ","Sending the text",VERYLONGWAIT);
-        Thread.sleep(7000);
-        List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
-        for (int i = 0; i < kpi12.size(); i++) {
-            System.out.println(kpi12.get(i).getText());
-            if (kpi12.get(i).getText().contains("ActiveMQ Heap Usage"))
-            {
-                kpi12.get(i).click();
-                break;
-            }
-        }
+
         safeClick(TEXTBOX_SUMMARY,"Clicking on KPI",MEDIUMWAIT);
         safeType(TEXTBOX_SUMMARY,"Avg Color","Enter Summary",MEDIUMWAIT);
         safeClick(DROPDOWN_CHARTTYPE,"Clicking on chart type",MEDIUMWAIT);
@@ -412,27 +413,28 @@ Thread.sleep(7000);
         WebElement searchField1 = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         searchField1.sendKeys(del + 5);
         //safeClearAndType(TEXTBOX_DECIMAL_PLACES,"5","Entering values in decimal places",MEDIUMWAIT);
-        Thread.sleep(7000);
-        safeClick(TEXTBOX_PORTLET_FILTERS,"Clicking on portlet filters",MEDIUMWAIT);
-        safeClick(PortletFilters_TypeSearch,"Entering Text into typesearch",MEDIUMWAIT);
-        safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
-        safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
-        driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
-        Thread.sleep(9000);
+        Thread.sleep(10000);
+        //safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS,"Clicking on portlet filters",MEDIUMWAIT);
+        //safeClick(PortletFilters_TypeSearch,"Entering Text into typesearch",MEDIUMWAIT);
+       // safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
+
+       // safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
+       // driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
+       // safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
+        //Thread.sleep(9000);
         safeClick(BTN_ADD_PORTLET,"Adding portlet",MEDIUMWAIT);
         Thread.sleep(15000);
         waitUntilClickable(All_FOLDER, "Clicking on add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         Thread.sleep(5000);
-        safeType(TEXTBOX_TYPESEARCH, "ActiveMQ Heap Usage", "Enter the dashboard name in textbox", VERYLONGWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1, "Enter the dashboard name in textbox", VERYLONGWAIT);
         WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
         type.sendKeys(Keys.ENTER);
         Thread.sleep(10000);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
-       String text=   safeGetText(LIST_PORTLETS,"Getting Text",MEDIUMWAIT);
-       expectedText="ActiveMQ Heap Usage";
-       Assert.assertEquals(text,expectedText);
+        String text=   safeGetText(LIST_PORTLETS,"Getting Text",MEDIUMWAIT);
+        //expectedText="ActiveMQ Heap Usage";
+       Assert.assertEquals(text,dname1);
 
     }
 
@@ -755,7 +757,26 @@ Thread.sleep(7000);
 
 
     }
+    public void SearchinDashboard() throws InterruptedException {
+        String dashboard="Required Trend Granularity";
+        safeType(TEXTBOX_TYPESEARCH, dashboard + "\n", "Enter dashboard into type search");
+        System.out.println("entered dbtext");
+        Thread.sleep(7000);
 
+    }
+
+
+    public void validaingTrendGranularity() throws InterruptedException {
+        Thread.sleep(7000);
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        safeClick(BTN_TREND_GRANULARITY,"Clicking on Trend Granularity");
+        Thread.sleep(7000);
+        safeClick(BTN_MINUTE,"Selecting auto option from Trend Granularity");
+        Thread.sleep(7000);
+      String text=  safeGetText(NTABULAR_LABELS,"Getting the text",5000);
+        System.out.println(text);
+    }
 
     @Step("To click on 'Dashboard' and click on 'All' button")
     public void addingNewFolder() {

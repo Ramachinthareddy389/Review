@@ -154,7 +154,17 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
+    @Test( enabled = true )
+    public void TC_005VerifyTrendGranularityinDashboard() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SearchinDashboard();
+        dashboardOverviewPage.validaingTrendGranularity();
 
+
+
+    }
+/*
 
     @AfterMethod()
     public void signOut()
@@ -162,6 +172,7 @@ public class DashboardOverview extends BaseSetup {
 
         dashboardOverviewPage.signOut();
     }
+*/
 
 
 
