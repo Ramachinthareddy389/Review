@@ -23,7 +23,7 @@ public class PortletsTests extends BaseSetup {
     public void baseClassSetUp() {
         ConfigManager sys;
         sys = new ConfigManager();
-        loginPage=new LoginPage(getDriver());
+        loginPage = new LoginPage(getDriver());
         portletsFeature = new PortletsFeature(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         dashBoardData = new DashBoardData();
@@ -35,21 +35,36 @@ public class PortletsTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
         loginPage.clickLogInButton();
     }
+
     @Test(enabled = true)
     public void TC_28_AddingGaugePortlet() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         portletsFeature.addingGaugePortlet();
         portletsFeature.verifyingGaugePortlet();
     }
 
     @Test(enabled = true)
     public void TC_29_AddingCounterPortlet() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
         portletsFeature.addingCounterPortlet();
         portletsFeature.verifyingCounterPortlet();
     }
+
+    @Test(enabled = true)
+    public void TC_058_AddingPortletFromSearchBar() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+    }
+
+
 }

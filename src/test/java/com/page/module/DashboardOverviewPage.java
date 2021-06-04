@@ -57,7 +57,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
-        String dname1 = dname + random.nextInt(500);
+       // String dname1 = dname + random.nextInt(500);
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Enter the dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "foldername", MEDIUMWAIT);
@@ -77,33 +77,32 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForPageToLoad();
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Clicked on Finish button in Dashboard window", MEDIUMWAIT);
+        Thread.sleep(15000);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Clicked on close button in Dashboard window", MEDIUMWAIT);
-Thread.sleep(7000);
+        Thread.sleep(7000);
     }
+
     @Step("Adding dashbaord")
-    public void addingdashboard() throws InterruptedException
-    {
+    public void addingdashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Enter dashboard into type search");
         System.out.println("entered dbtext");
-        Thread.sleep(7000);
+        Thread.sleep(9000);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText,dname1);
+        Assert.assertEquals(actualText, dname1);
     }
 
     @Step("Adding Folder")
-    public void addingFolder() throws InterruptedException
-    {
-        safeType(TEXTBOX_TYPESEARCH, "Dashboards > "+dname1 + "\n", "Enter dashboard into type search");
+    public void addingFolder() throws InterruptedException {
+        safeType(TEXTBOX_TYPESEARCH, "Dashboards > " + dname1 + "\n", "Enter dashboard into type search");
         System.out.println("entered dbtext");
         Thread.sleep(7000);
         String actualText = safeGetText(COLUMN_FOLDER, "dashboardname", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText,"Dashboards > "+dname1);
+        Assert.assertEquals(actualText, "Dashboards > " + dname1);
 
     }
-
 
 
     @Step("Logout the application")
@@ -304,7 +303,6 @@ Thread.sleep(7000);
     }
 
 
-
     public void cloningPortlet() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
@@ -351,14 +349,13 @@ Thread.sleep(7000);
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(DROPDWON_KPI,"Clicking on KPI",MEDIUMWAIT);
-        safeType(TEXTBOX_KPI,"User Click","Sending the text",VERYLONGWAIT);
+        safeClick(DROPDWON_KPI, "Clicking on KPI", MEDIUMWAIT);
+        safeType(TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
         Thread.sleep(7000);
         List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi12.size(); i++) {
             System.out.println(kpi12.get(i).getText());
-            if (kpi12.get(i).getText().equals("User Click"))
-            {
+            if (kpi12.get(i).getText().equals("User Click")) {
                 kpi12.get(i).click();
                 break;
             }
@@ -368,9 +365,9 @@ Thread.sleep(7000);
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + dname1);
         //safeClick(DROPDOWN_SHOWAS,"Clicking on showas dropdown",MEDIUMWAIT);
-        WebElement rle=driver.findElement(By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]"));
-        safeClick(DROPDOWN_SHOWAS,"Clikcing on showas",MEDIUMWAIT);
-        safeType(TEXTBOX_SHOWAS,"Trend Chart","Selecting value from show as dropdown",MEDIUMWAIT);
+        WebElement rle = driver.findElement(By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]"));
+        safeClick(DROPDOWN_SHOWAS, "Clikcing on showas", MEDIUMWAIT);
+        safeType(TEXTBOX_SHOWAS, "Trend Chart", "Selecting value from show as dropdown", MEDIUMWAIT);
         List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
         for (int i = 0; i < kpi1.size(); i++) {
@@ -382,10 +379,10 @@ Thread.sleep(7000);
             }
         }
 
-        safeClick(TEXTBOX_SUMMARY,"Clicking on KPI",MEDIUMWAIT);
-        safeType(TEXTBOX_SUMMARY,"Avg Color","Enter Summary",MEDIUMWAIT);
-        safeClick(DROPDOWN_CHARTTYPE,"Clicking on chart type",MEDIUMWAIT);
-        Actions a=new Actions(driver);
+        safeClick(TEXTBOX_SUMMARY, "Clicking on KPI", MEDIUMWAIT);
+        safeType(TEXTBOX_SUMMARY, "Avg Color", "Enter Summary", MEDIUMWAIT);
+        safeClick(DROPDOWN_CHARTTYPE, "Clicking on chart type", MEDIUMWAIT);
+        Actions a = new Actions(driver);
         a.sendKeys("area");
         List<WebElement> kpi3 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + kpi3.size());
@@ -397,8 +394,8 @@ Thread.sleep(7000);
                 break;
             }
         }
-        safeClick(DROPDWON_TRENDGRATY,"Clicking on Trend granulaity",MEDIUMWAIT);
-        safeType(TEXTBOX_TRENDGRATY,"By Minute","Entering text into trendgranularity",MEDIUMWAIT);
+        safeClick(DROPDWON_TRENDGRATY, "Clicking on Trend granulaity", MEDIUMWAIT);
+        safeType(TEXTBOX_TRENDGRATY, "By Minute", "Entering text into trendgranularity", MEDIUMWAIT);
         List<WebElement> kpi4 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + kpi4.size());
         for (int i = 0; i < kpi4.size(); i++) {
@@ -416,13 +413,13 @@ Thread.sleep(7000);
         Thread.sleep(10000);
         //safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS,"Clicking on portlet filters",MEDIUMWAIT);
         //safeClick(PortletFilters_TypeSearch,"Entering Text into typesearch",MEDIUMWAIT);
-       // safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
+        // safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
 
-       // safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
-       // driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-       // safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
+        // safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
+        // driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
+        // safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
         //Thread.sleep(9000);
-        safeClick(BTN_ADD_PORTLET,"Adding portlet",MEDIUMWAIT);
+        safeClick(BTN_ADD_PORTLET, "Adding portlet", MEDIUMWAIT);
         Thread.sleep(15000);
         waitUntilClickable(All_FOLDER, "Clicking on add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
@@ -432,23 +429,23 @@ Thread.sleep(7000);
         type.sendKeys(Keys.ENTER);
         Thread.sleep(10000);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
-        String text=   safeGetText(LIST_PORTLETS,"Getting Text",MEDIUMWAIT);
+        String text = safeGetText(LIST_PORTLETS, "Getting Text", MEDIUMWAIT);
         //expectedText="ActiveMQ Heap Usage";
-       Assert.assertEquals(text,dname1);
+        Assert.assertEquals(text, dname1);
 
     }
 
     public void SelectingCalender(String DBname) throws InterruptedException {
-         Thread.sleep(5000);
-         safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
-         driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-         Thread.sleep(3000);
-         // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
-         //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
-         String locator = "//span[text()='" + DBname + "']/parent::div";
-         By CLONE_PARENT = By.xpath(locator);
-         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
-         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        Thread.sleep(5000);
+        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+        driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
+        // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
+        //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+        String locator = "//span[text()='" + DBname + "']/parent::div";
+        By CLONE_PARENT = By.xpath(locator);
+        safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
     }
 
     public void ValidatingCurrentHour() throws InterruptedException {
@@ -463,23 +460,21 @@ Thread.sleep(7000);
         DateFormat dateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         String date1 = dateFormat.format(date);
-        int i=Integer.parseInt(date1);
-        int morn=i+1;
-        int  time=i-12;
-        int  time1=i-11;
+        int i = Integer.parseInt(date1);
+        int morn = i + 1;
+        int time = i - 12;
+        int time1 = i - 11;
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        if(i>=13){
-            System.out.println("Current date and time is " +date5+" "+0+ time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM");
-            expectedText=date5+" "+0 + time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM";
-            Assert.assertEquals(str,expectedText);
+        if (i >= 13) {
+            System.out.println("Current date and time is " + date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM");
+            expectedText = date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM";
+            Assert.assertEquals(str, expectedText);
             System.out.println("Its working");
-        }
-        else
-        {
-            System.out.println("Current date and time is " +date5+" " + i +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+ morn +":"+"00"+ " " + "AM");
+        } else {
+            System.out.println("Current date and time is " + date5 + " " + i + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + morn + ":" + "00" + " " + "AM");
         }
 
     }
@@ -496,99 +491,102 @@ Thread.sleep(7000);
         DateFormat dateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         String date1 = dateFormat.format(date);
-        int i=Integer.parseInt(date1);
+        int i = Integer.parseInt(date1);
         System.out.println(i);
-        int  time=i-13;
-        int time1=time+1;
+        int time = i - 13;
+        int time1 = time + 1;
         System.out.println(time);
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        if(i>=13){
-            System.out.println("Current date and time is " +date5+" "+0+ time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM");
-            expectedText=date5+" "+0 + time +":"+"00"+ " " + "PM" +" "+ "-" +date5+" "+0+ time1 +":"+"00"+ " " + "PM";
-            Assert.assertEquals(str,expectedText);
+        if (i >= 13) {
+            System.out.println("Current date and time is " + date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM");
+            expectedText = date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM";
+            Assert.assertEquals(str, expectedText);
             System.out.println("Its working");
+        } else {
+
         }
-        else
-        {
-
-        }   System.out.println("Current date and time is " +date5+" " + (i-1) +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+ i +":"+"00"+ " " + "AM");
+        System.out.println("Current date and time is " + date5 + " " + (i - 1) + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + i + ":" + "00" + " " + "AM");
 
 
     }
-   public void validatingBusinessHours(String start,String end)
-   {
-       safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-       safeClick(BTN_BUSINESS_HOURS, "Clicking on Business Hour");
-    List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
-    String str = "";
-    for (int i = 0; i < list.size(); ++i) {
-        str = str + list.get(i).getText();
+
+    public void validatingBusinessHours(String start, String end) {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_BUSINESS_HOURS, "Clicking on Business Hour");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
+        Date date2 = new Date();
+        String date5 = date123.format(date2);
+        System.out.println(date5);
+        System.out.println("Current date and time is " + date5 + " " + start + " " + "-" + date5 + " " + end);
+        String expectedText = date5 + " " + start + " " + "-" + date5 + " " + end;
+        Assert.assertEquals(str, expectedText);
     }
-    System.out.println(str);
-    DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
-    Date date2 = new Date();
-    String date5 = date123.format(date2);
-    System.out.println(date5);
-    System.out.println("Current date and time is " +date5+" " + start +" "+ "-" +date5+" "+ end);
-    String expectedText=date5+" " + start +" "+ "-" +date5+" "+ end;
-    Assert.assertEquals(str,expectedText);
-  }
 
-  public void validatingLast12hours(){
-      safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-      safeClick(BTN_Last_12_Hours, "Clicking on Business Hour");
-      List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
-      String str = "";
-      for (int i = 0; i < list.size(); ++i) {
-          str = str + list.get(i).getText();
-      }
-      System.out.println(str);
-      DateFormat dateFormat = new SimpleDateFormat("HH");
-      Date date = new Date();
-      String date1 = dateFormat.format(date);
-      int i=Integer.parseInt(date1);
-      int time=i-11;
-      DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
-      Date date2 = new Date();
-      String date5 = date123.format(date2);
-      System.out.println(date5);
-      System.out.println("Current date and time is " +date5+" " + time +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+ time +":"+"00"+ " " + "PM");
-      expectedText=date5+" "+0 + time +":"+"00"+ " " + "AM" +" "+ "-" +date5+" "+0+ time +":"+"00"+ " " + "PM";
-      Assert.assertEquals(str,expectedText);
-  }
+    public void validatingLast12hours() {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_Last_12_Hours, "Clicking on Business Hour");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        DateFormat dateFormat = new SimpleDateFormat("HH");
+        Date date = new Date();
+        String date1 = dateFormat.format(date);
+        int i = Integer.parseInt(date1);
+        int time = i - 11;
+        DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
+        Date date2 = new Date();
+        String date5 = date123.format(date2);
+        System.out.println(date5);
+        System.out.println("Current date and time is " + date5 + " " + time + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + time + ":" + "00" + " " + "PM");
+        expectedText = date5 + " " + 0 + time + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + 0 + time + ":" + "00" + " " + "PM";
+        Assert.assertEquals(str, expectedText);
+    }
 
 
-  public void validatingThisMonth(String time)
-  {
-      safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-      safeClick(BTN_THIS_MONTH, "Clicking on Last 7 Days");
-      List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
-      String str = "";
-      for (int i = 0; i < list.size(); ++i) {
-          str = str + list.get(i).getText();
-      }
-      System.out.println(str);
-      Calendar cal = Calendar.getInstance();
-     // cal.add(Calendar.DATE, -6);
+    public void validatingThisMonth(String time) {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(BTN_THIS_MONTH, "Clicking on Last 7 Days");
+        List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
+        String str = "";
+        for (int i = 0; i < list.size(); ++i) {
+            str = str + list.get(i).getText();
+        }
+        System.out.println(str);
+        Calendar cal = Calendar.getInstance();
+        // cal.add(Calendar.DATE, -6);
 
-      // I just want date before 90 days. you can give that you want.
-      SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
-      System.out.println(s.format(new Date(cal.getTimeInMillis())));
-      String s1=s.format(new Date(cal.getTimeInMillis()));
-      cal.add(Calendar.DATE,30);
-      System.out.println(s.format(new Date(cal.getTimeInMillis())));
-      String s2=s.format(new Date(cal.getTimeInMillis()));
-      System.out.println("Current date and time is " +s1+" " + time +" "+ "-" +s2+" "+ time);
-      String expectedText=s1+" " + time +" "+ "-" +s2+" "+ time;
-      Assert.assertEquals(str,expectedText);
+        // I just want date before 90 days. you can give that you want.
+        SimpleDateFormat s = new SimpleDateFormat("MM"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s1 = s.format(new Date(cal.getTimeInMillis()));
+        SimpleDateFormat s3 = new SimpleDateFormat("yyyy"); // you can specify your format here...
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s4 = s.format(new Date(cal.getTimeInMillis()));
+       String date1= s1+"/01"+s4;
+        cal.add(Calendar.DATE, 30);
+        System.out.println(s.format(new Date(cal.getTimeInMillis())));
+        String s2 = s.format(new Date(cal.getTimeInMillis()));
+        String date2=s2+"/01"+s4;
+        System.out.println("Current date and time is " + date1 + " " + time + " " + "-" + date2 + " " + time);
+        String expectedText = date1 + " " + time + " " + "-" + date2 + " " + time;
+        Assert.assertEquals(str, expectedText);
 
 
-  }
-    public void validatingLastMonth(String time)
-    {
+    }
+
+    public void validatingLastMonth(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_MONTH, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -603,18 +601,18 @@ Thread.sleep(7000);
         // I just want date before 90 days. you can give that you want.
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s1=s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.MONTH,-1);
+        String s1 = s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.MONTH, -1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2=s.format(new Date(cal.getTimeInMillis()));
-        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
-        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
-        Assert.assertEquals(str,expectedText);
+        String s2 = s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);
+        String expectedText = s2 + " " + time + " " + "-" + s1 + " " + time;
+        Assert.assertEquals(str, expectedText);
 
 
     }
-    public void validatingLast30Days(String time)
-    {
+
+    public void validatingLast30Days(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_30_DAYS, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -629,19 +627,18 @@ Thread.sleep(7000);
         // I just want date before 90 days. you can give that you want.
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s1=s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,-30);
+        String s1 = s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, -30);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2=s.format(new Date(cal.getTimeInMillis()));
-        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
-        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
-        Assert.assertEquals(str,expectedText);
+        String s2 = s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);
+        String expectedText = s2 + " " + time + " " + "-" + s1 + " " + time;
+        Assert.assertEquals(str, expectedText);
 
 
     }
 
-    public void validatingToday(String time)
-    {
+    public void validatingToday(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_TODAY, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -656,19 +653,18 @@ Thread.sleep(7000);
         // I just want date before 90 days. you can give that you want.
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s1=s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,1);
+        String s1 = s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2=s.format(new Date(cal.getTimeInMillis()));
-        System.out.println("Current date and time is " +s1+" " + time +" "+ "-" +s2+" "+ time);
-        String expectedText=s1+" " + time +" "+ "-" +s2+" "+ time;
-        Assert.assertEquals(str,expectedText);
+        String s2 = s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " + s1 + " " + time + " " + "-" + s2 + " " + time);
+        String expectedText = s1 + " " + time + " " + "-" + s2 + " " + time;
+        Assert.assertEquals(str, expectedText);
 
 
     }
 
-    public void validatingYesterday(String time)
-    {
+    public void validatingYesterday(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_YESTERDAY, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -683,19 +679,18 @@ Thread.sleep(7000);
         // I just want date before 90 days. you can give that you want.
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s1=s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,-1);
+        String s1 = s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, -1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2=s.format(new Date(cal.getTimeInMillis()));
-        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
-        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
-        Assert.assertEquals(str,expectedText);
+        String s2 = s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);
+        String expectedText = s2 + " " + time + " " + "-" + s1 + " " + time;
+        Assert.assertEquals(str, expectedText);
 
 
     }
 
-    public void validatingLast7Days(String time)
-    {
+    public void validatingLast7Days(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_7_DAYS, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -706,24 +701,23 @@ Thread.sleep(7000);
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
 
-        cal.add(Calendar.DATE,1);
+        cal.add(Calendar.DATE, 1);
         // I just want date before 90 days. you can give that you want.
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s1=s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,-7);
+        String s1 = s.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, -7);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2=s.format(new Date(cal.getTimeInMillis()));
-        System.out.println("Current date and time is " +s2+" " + time +" "+ "-" +s1+" "+ time);
-        String expectedText=s2+" " + time +" "+ "-" +s1+" "+ time;
-        Assert.assertEquals(str,expectedText);
+        String s2 = s.format(new Date(cal.getTimeInMillis()));
+        System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);
+        String expectedText = s2 + " " + time + " " + "-" + s1 + " " + time;
+        Assert.assertEquals(str, expectedText);
 
 
     }
 
 
-    public void validatingAbsoluteQa_30Mins(String tsstart,String tsend)
-    {
+    public void validatingAbsoluteQa_30Mins(String tsstart, String tsend) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_ABSOLUTECURRENTHOUR_QA_30_MINS, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -733,15 +727,14 @@ Thread.sleep(7000);
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        System.out.println("Current date and time is " +tsstart+" "+ "-" +tsend);
-        String expectedText=tsstart+" "+ "-" +tsend;
-        Assert.assertEquals(str,expectedText);
+        System.out.println("Current date and time is " + tsstart + " " + "-" + tsend);
+        String expectedText = tsstart + " " + "-" + tsend;
+        Assert.assertEquals(str, expectedText);
 
 
     }
 
-    public void validatingAbsoluteAllUnits(String tsstart,String tsend)
-    {
+    public void validatingAbsoluteAllUnits(String tsstart, String tsend) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_ABSOLUTE_ALL_UNITS, "Clicking on Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
@@ -751,38 +744,163 @@ Thread.sleep(7000);
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        System.out.println("Current date and time is " +tsstart+" "+ "-" +tsend);
-        String expectedText=tsstart+" "+ "-" +tsend;
-        Assert.assertEquals(str,expectedText);
+        System.out.println("Current date and time is " + tsstart + " " + "-" + tsend);
+        String expectedText = tsstart + " " + "-" + tsend;
+        Assert.assertEquals(str, expectedText);
 
 
     }
+
     public void SearchinDashboard() throws InterruptedException {
-        String dashboard="Required Trend Granularity";
+        String dashboard = "Required Trend Granularity";
         safeType(TEXTBOX_TYPESEARCH, dashboard + "\n", "Enter dashboard into type search");
         System.out.println("entered dbtext");
         Thread.sleep(7000);
 
     }
 
+    public void validaingTrendGranularityUSingMinutely() throws InterruptedException {
+        Thread.sleep(7000);
+        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
+        Thread.sleep(7000);
+        safeClick(BTN_MINUTE, "Selecting auto option from Trend Granularity");
+        Thread.sleep(7000);
+        String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Getting the text", 5000);
+        System.out.println(text);
+        expectedText = "Minutely";
+        Assert.assertEquals(text, expectedText);
+        String[] expected = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "00:00"};
+        List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
+        for (int i = 0; i < expected.length; i++) {
+            String optionValue = allOptions.get(i).getText();
+            Assert.assertEquals(optionValue, expected[i]);
+            if (optionValue.equals(expected[i])) {
+                System.out.println(expected[i]);
+                System.out.println("passed on: " + optionValue);
+            } else {
+                System.out.println("failed on: " + optionValue);
+            }
+        }
 
-    public void validaingTrendGranularity() throws InterruptedException {
+    }
+
+
+    public void validaingTrendGranularityUSingHours() throws InterruptedException {
         Thread.sleep(7000);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        Thread.sleep(7000);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        safeClick(BTN_TREND_GRANULARITY,"Clicking on Trend Granularity");
+        Thread.sleep(15000);
+        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
         Thread.sleep(7000);
-        safeClick(BTN_MINUTE,"Selecting auto option from Trend Granularity");
+        safeClick(BTN_HOURLY, "Selecting auto option from Trend Granularity");
         Thread.sleep(7000);
-      String text=  safeGetText(NTABULAR_LABELS,"Getting the text",5000);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        Thread.sleep(5000);
+        safeClick(BTN_TODAY, "Clicking today button", MEDIUMWAIT);
+        Thread.sleep(7000);
+        String text = safeGetText(NTABULAR_LABELS_Hourly, "Getting the text", 5000);
         System.out.println(text);
+        expectedText = "HOURLY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("MMM");
+        SimpleDateFormat f1 = new SimpleDateFormat("d");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        String s2 = f1.format(new Date(cal.getTimeInMillis()));
+        String date = s2 + "." + " " + s1;
+        System.out.println(date);
+        String[] expected = {date, "1:00 am", "2:00 am", "3:00 am", "4:00 am", "5:00 am", "6:00 am", "7:00 am", "8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"};
+        List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
+        for (int i = 0; i < expected.length; i++) {
+            String optionValue = allOptions.get(i).getText();
+            Assert.assertEquals(optionValue, expected[i]);
+            if (optionValue.equals(expected[i])) {
+                System.out.println(expected[i]);
+                System.out.println("passed on: " + optionValue);
+            } else {
+                System.out.println("failed on: " + optionValue);
+            }
+        }
+
+    }
+
+
+    public void validaingTrendGranularityUSingDaily() throws InterruptedException {
+        Thread.sleep(7000);
+        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
+        Thread.sleep(7000);
+        safeClick(BTN_DAILY, "Selecting auto option from Trend Granularity");
+        Thread.sleep(7000);
+        String text = safeGetText(NTABULAR_LABELS_Daily, "Getting the text", 5000);
+        System.out.println(text);
+        expectedText = "DAILY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("MMM");
+        SimpleDateFormat f1 = new SimpleDateFormat("d");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        String s2 = f1.format(new Date(cal.getTimeInMillis()));
+        String date = s2 + "." + " " + s1;
+        System.out.println(date);
+        String expected = date;
+        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(expected, actualText);
+
+
+    }
+
+
+    public void validaingTrendGranularityUSingMonthly() throws InterruptedException {
+        Thread.sleep(7000);
+        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
+        Thread.sleep(7000);
+        safeClick(BTN_MONTHLY, "Selecting auto option from Trend Granularity");
+        Thread.sleep(7000);
+        String text = safeGetText(NTABULAR_LABELS_Monthly, "Getting the text", 5000);
+        System.out.println(text);
+        expectedText = "MONTHLY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("MMM");
+        SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        String s2 = f1.format(new Date(cal.getTimeInMillis()));
+        String date = s1 + " " + "'" + s2;
+        System.out.println(date);
+        String expected = date;
+        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(expected, actualText);
+
+
+    }
+
+    public void validaingTrendGranularityUSingYEARLY() throws InterruptedException {
+        Thread.sleep(7000);
+        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
+        Thread.sleep(7000);
+        safeClick(BTN_YEARLY, "Selecting auto option from Trend Granularity");
+        Thread.sleep(7000);
+        String text = safeGetText(NTABULAR_LABELS_yearly, "Getting the text", 5000);
+        System.out.println(text);
+        expectedText = "YEARLY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy");
+        SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(s1, actualText);
     }
 
     @Step("To click on 'Dashboard' and click on 'All' button")
     public void addingNewFolder() {
         safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-
         safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button ondashboards section", MEDIUMWAIT);
         safeClick(LABEL_NEW_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
     }

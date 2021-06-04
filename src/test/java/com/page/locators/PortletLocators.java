@@ -64,4 +64,10 @@ public interface PortletLocators {
     By COUNTER_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
     By COUNTER_TEXTBOX_MEASURE =By.xpath("//input[@id='Measure_0']");
 
+    By SEARCH_BAR_ADD_METRIC = By.xpath("//div[contains(@placeholder,'Search insights')]");
+    By NO_DATA_AVAILABLE_PORTLET = By.xpath("//div[contains(text(),'No aggregate data available')]");
+    By COUNTER_PORTLET_CHART = By.xpath("//div[contains(@class,'CounterChart')]");
+    By BTN_DRILLTHROUGH=By.xpath("//div[@aria-label='Drillthrough']");
+    By Title_DRILLTHROUGH=By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
+
 }

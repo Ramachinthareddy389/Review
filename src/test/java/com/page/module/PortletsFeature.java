@@ -163,10 +163,41 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         By FILTER_MESSAGE_COUNTER_PORTLET = By.xpath("//span[@aria-label='"+appliedFilter+"']");
         if(!driver.findElement(FILTER_MESSAGE_COUNTER_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Counter portlet");
-        By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='"+counterPortletName+"']/../../../following-sibling::div/div/div/span/span[contains(text(),'"+dashBoardData.portletKPI+"')]");
-        waitUntilClickable(KPI_COUNTER_PORTLET,"",MEDIUMWAIT);
-        if(!driver.findElement(KPI_COUNTER_PORTLET).isDisplayed())
-            Assert.fail("KPI Name is not displayed in Counter portlet");
-
+        try {
+            waitForSecs(5);
+            if (driver.findElement(COUNTER_PORTLET_CHART).isDisplayed()) {
+                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../../../following-sibling::div/div/div/span/span[contains(text(),'" + dashBoardData.portletKPI + "')]");
+                waitUntilClickable(KPI_COUNTER_PORTLET, "", MEDIUMWAIT);
+                if (!driver.findElement(KPI_COUNTER_PORTLET).isDisplayed())
+                    Assert.fail("KPI Name is not displayed in Counter portlet");
+            }
+        }
+        catch (Exception e){
+            if(!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+                Assert.fail("No Data Available label is not displayed in Counter portlet");
+            System.out.println("Data is not available in Counter Portlet");
+        }
     }
+    @Step("Adding Portlet from search bar in Dashboard page")
+    public void addingPortletFromSearchBar() throws InterruptedException {
+        Thread.sleep(15000);
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(SEARCH_BAR_ADD_METRIC,"Search bar in Add Metric Window",MEDIUMWAIT);
+        safeClick(SEARCH_BAR_ADD_METRIC,"Search bar in Add Metric Window",MEDIUMWAIT);
+        driver.findElement(SEARCH_BAR_ADD_METRIC).sendKeys(dashBoardData.portletQuery,Keys.ENTER,Keys.ENTER);
+    }
+    @Step("Verifying portlet added from search bar")
+    public void verifyingPortletAddedFromSearchBar(){
+        waitForPageToLoad();
+        By PORTLET_TITLE= By.xpath("//span[@aria-label='"+dashBoardData.portletQuery+"']");
+        waitUntilClickable(PORTLET_TITLE,"Counter Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(PORTLET_TITLE).isDisplayed())
+            Assert.fail("Counter portlet added is not displayed in Dashboard page");
+    }
+
+
 }

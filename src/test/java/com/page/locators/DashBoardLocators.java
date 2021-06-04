@@ -170,7 +170,13 @@ public interface DashBoardLocators {
     By BTN_DAILY  = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[4]");
     By BTN_MONTHLY= By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[5]");
     By BTN_YEARLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[6]");
-    By GHPORTLET_LABELS=By.xpath(".highcharts-axis-labels.highcharts-xaxis-labels>text");
-    By NTABULAR_LABELS=By.xpath("//div[@aria-label='Hourly']");
+    By GHPORTLET_LABELS=By.cssSelector(".highcharts-axis-labels.highcharts-xaxis-labels>text");
+    By NTABULAR_LABELS_Hourly=By.xpath("//div[@aria-label='Hourly']");
+    By NTABULAR_LABELS_Daily=By.xpath("//div[@aria-label='Daily']");
+    By NTABULAR_LABELS_Monthly=By.xpath("//div[@aria-label='Monthly']");
+    By NTABULAR_LABELS_yearly=By.xpath("//div[@aria-label='Yearly']");
+    By NTABULAR_LABELS_minutely=By.xpath("//div[@aria-label='Minutely']");
+
+
 
 }
