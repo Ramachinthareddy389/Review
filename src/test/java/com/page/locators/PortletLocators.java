@@ -69,5 +69,19 @@ public interface PortletLocators {
     By COUNTER_PORTLET_CHART = By.xpath("//div[contains(@class,'CounterChart')]");
     By BTN_DRILLTHROUGH=By.xpath("//div[@aria-label='Drillthrough']");
     By Title_DRILLTHROUGH=By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
+    By PORTLET_BAR=By.xpath("//span[@title='Avg Duration User Click']");
+    By TOOLTIPOPTION_1=By.xpath("//a[text()='View the worst (RCA)']");
+    By TOOLTIPOPTION_2=By.xpath("//a[contains(text(),'Raw')]");
+    By TOOLTIPOPTION_3=By.xpath("//a[contains(text(),'Pivot')]");
+    By HYPERLINKDBINDRILLTHROUGH=By.xpath("//a[contains(@class,'MuiLink-root')]/span");
+
+    By BTN_CLONE_PORTLET = By.xpath("//div[@aria-label='Clone']");
+    By DASHBOARD_FIELD_CLONE_PORTLET = By.xpath("//label[contains(@for,'dashboardKey')]/../div");
+    By DROPDOWN_DASHBOARDS = By.xpath("//div[contains(@role,'menuitem')]");
+    By DASHBOARD_OPTION_CLONE_PORTLET = By.xpath("//input[contains(@id,'dashboardKey')]");
+    By BTN_CLONE_PORTLET_WINDOW = By.xpath("//button/span[contains(text(),'Clone')]");
+    By CONFIRM_DELETE_PORTLET = By.xpath("//button/span[contains(text(),'Confirm')]");
+    By TEXTBOX_TYPESEARCH=By.xpath("//input[@placeholder='Type or select below']");
+    By All_FOLDER    =By.xpath("//span[text()='All']");
 
 }

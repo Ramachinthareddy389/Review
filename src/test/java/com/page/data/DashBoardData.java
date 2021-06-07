@@ -10,10 +10,11 @@ public class DashBoardData {
 	public final String dashboard = appData.getProperty("App.Dashboard");
 	public final String allpages = appData.getProperty("App.Allpages");
 	public final String LabelNewDashboard = appData.getProperty("App.LabelNewDashboard");
-	private ConfigManager ticketData = new ConfigManager("Ticket");
+	public ConfigManager ticketData = new ConfigManager("Ticket");
 	public final String ticketTitle = ticketData.getProperty("TicketTitle");
 	public final String ticketAssignee = ticketData.getProperty("TicketAssignee");
 	public final String ticketParticipant = ticketData.getProperty("TicketParticipant");
+	public final String dashboardname=ticketData.getProperty("Dashboards");
 
 	private ConfigManager dashboardVisibility = new ConfigManager("DashboardVisibility");
 	public final String userName = dashboardVisibility.getProperty("username");
@@ -28,6 +29,12 @@ public class DashBoardData {
 	public final String sample_Owner_Role = dashboardVisibility.getProperty("OwnerRole");
 	public final String ownerRole_Username = dashboardVisibility.getProperty("OwnerRole_TestUser");
 	private ConfigManager portletsData = new ConfigManager("Portlets");
-	public final String portletKPI = portletsData.getProperty("KPI");
+	public final String portletKPI     = portletsData.getProperty("KPI");
 	public final String portletQuery = portletsData.getProperty("Query");
+	public final String drillthrghpage =portletsData.getProperty("DRILLTHROUGHPAGETITLE");
+	public final String tooltip1     = portletsData.getProperty("TOOLTIP1");
+	public final String tooltip2     = portletsData.getProperty("TOOLTIP2");
+	public final String tooltip3     = portletsData.getProperty("TOOLTIP3");
+	public final String DB_clonedPortlet = portletsData.getProperty("Dashboard_ClonedPortlet");
+
 }

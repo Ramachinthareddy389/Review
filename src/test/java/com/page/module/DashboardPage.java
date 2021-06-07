@@ -39,30 +39,30 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
-        safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Enter the dashboard name in textbox", MEDIUMWAIT);
-        Thread.sleep(7000);
-        safeClick(LISTBOX_Folder, "foldername", MEDIUMWAIT);
-        Thread.sleep(9000);
-        List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
-        System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
+        safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in text box", MEDIUMWAIT);
+        waitForSecs(7);
+        safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
+        waitForSecs(9);
+        List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs.size());
         waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
-        for (int i = 0; i < kpi1.size(); i++) {
+        for (int i = 0; i < dbs.size(); i++) {
 
-            if (kpi1.get(i).getText().contains("Dashboards")) {
+            if (dbs.get(i).getText().contains(dashBoardData1.dashboardname)) {
 
-                kpi1.get(i).click();
+                dbs.get(i).click();
                 break;
             }
         }
 
         waitForPageToLoad();
         System.out.println("Before finish");
-        safeClick(BUTTON_FINISH, "Clicked on Finish button in Dashboard window", MEDIUMWAIT);
+        safeClick(BUTTON_FINISH, " Finish button in Dashboard window", MEDIUMWAIT);
         System.out.println("after finish");
-        safeClick(BUTTON_CLOSE, "Clicked on close button in Dashboard window", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Enter dashboard into type search");
+        safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard into type search");
         System.out.println("entered dbtext");
-        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
+        String actualText = safeGetText(LISTOFDASHBOARDS, "Dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
 
@@ -74,22 +74,23 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(PIN_DASHBOARD, "text", 5000);
         safeClick(PIN_DASHBOARD, "Pin Dashboard", MEDIUMWAIT);
-        Thread.sleep(5000);
-        safeClick(ICON_PIN,"Clicking on pin button",MEDIUMWAIT);
-        Thread.sleep(5000);
+        waitForSecs(5);
+        safeClick(ICON_PIN,"pin button",MEDIUMWAIT);
+        waitForSecs(5);
         By pinnedDashboard=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'"+dname1+"')]");
         WebElement pinnedDashboardElement = driver.findElement(pinnedDashboard);
         Boolean pinnedDashboard_Visibility = pinnedDashboardElement.isDisplayed();
         System.out.println("Dashboard is visible: "+pinnedDashboard_Visibility);
         Assert.assertTrue(pinnedDashboard_Visibility,"Pinned Dashboard is displayed");
-        safeClick(pinnedDashboard,"Clicking on pinned Dashboard in side menu",MEDIUMWAIT);
+        safeClick(pinnedDashboard,"Pinned Dashboard in side menu",MEDIUMWAIT);
     }
+
     @Step("Unpin Dashboard")
     public void Unpin_Pin_Dashboard_FromDashboardPage() throws InterruptedException{
         Boolean flag=false;
         waitForPageToLoad();
         safeClick(UNPIN_DASHBOARD, "Unpin Dashboard", MEDIUMWAIT);
-        Thread.sleep(5000);
+        waitForSecs(5);
         By pinnedDashboard=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'"+dname1+"')]");
         try {
             driver.findElement(pinnedDashboard).isDisplayed();
@@ -102,7 +103,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             Assert.fail("Pinned Dashboard is still displayed");
         System.out.println("Unpinned Dashboard Verification is completed in Dashboard page");
         safeClick(PIN_DASHBOARDPAGE, "Pin Dashboard from Dashboard page", MEDIUMWAIT);
-        Thread.sleep(5000);
+        waitForSecs(5);
         WebElement pinnedDashboardElement = driver.findElement(pinnedDashboard);
         Boolean pinnedDashboard_Visibility = pinnedDashboardElement.isDisplayed();
         System.out.println("Dashboard is visible: "+pinnedDashboard_Visibility);
@@ -123,18 +124,11 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(TICKET_STATUS,"Status field",MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(STATUS_OPTION,"Status Option selection",MEDIUMWAIT);
-        Thread.sleep(5000);
+        waitForSecs(5);
         safeClick(TICKET_ASSIGNEE,"Assignee field",MEDIUMWAIT);
-        //By TICKET_ASSIGNEE_SELECTION = By.xpath("//div[contains(text(),'"+ dashBoardData1.ticketAssignee+"')]");
-       // waitForPageToLoad();
-        //WebElement searchField1 = driver.findElement(TEXTBOX_ASSIGNEE);
-       // searchField1.sendKeys("vchavhan");
-        //Actions act=new Actions(driver);
-      //  act.sendKeys(dashBoardData1.ticketAssignee);
         safeType(TEXTBOX_ASSIGNEE,"vchavhan","ENtering text in to asignee");
         List<WebElement> assignees = driver.findElements(TICKET_ASSIGNEE_DROPDOWN);
         System.out.println("Total no 0f assignees:::====> " + assignees.size());
-       // waitUntilClickable(TICKET_ASSIGNEE_SELECTION,"Wait till assignees load" ,5000);
         for (int i = 0; i < assignees.size(); i++) {
             System.out.println(assignees.get(i).getText());
             if (assignees.get(i).getText().contains(dashBoardData1.ticketAssignee)) {
@@ -168,23 +162,24 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(BUTTON_SUBMIT_TICKET,"Submit ticket button",MEDIUMWAIT);
         Thread.sleep(5000);
     }
+
+
     @Step("Verifying Ticket in Tickets page")
     public void verifyTicketInTicketsPage() throws InterruptedException{
         waitUntilClickable(TICKETS_PAGE_URL,"Ticket Page in side menu",MEDIUMWAIT);
         safeClick(TICKETS_PAGE_URL,"Tickets page",MEDIUMWAIT);
-        waitForPageToLoad();
-        Thread.sleep(15000);
+        waitForSecs(15);
         waitUntilClickable(STATUS_TICKETS_PAGE,"Status in Tickets page",MEDIUMWAIT);
         safeClick(STATUS_TICKETS_PAGE,"Status in Tickets page",MEDIUMWAIT);
         waitUntilClickable(TICKET_ASSIGNED_TO,"Assigned user in Tickets page",MEDIUMWAIT);
         safeClick(TICKET_ASSIGNED_TO,"Assigned user in Tickets page",MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH,ticketTitle+ "\n","Searching Ticket Title",MEDIUMWAIT);
-        Thread.sleep(9000);
+        waitForSecs(9);
         By TitleCheck= By.xpath("(//span[contains(text(),'"+ticketTitle+"')])[2]");
         waitUntilClickable(TitleCheck,"Ticket Title",MEDIUMWAIT);
         if(driver.findElement(TitleCheck).isDisplayed()){
             safeClick(TitleCheck, "Ticket Title in Tickets page",MEDIUMWAIT);
-            Thread.sleep(9000);
+            waitForSecs(9);
             if(Assignee_Add.equals(driver.findElement(TICKET_ASSIGNEE).getText()) || Severity_Add.equals(driver.findElement(TICKET_SEVERITY).getText()) ||
                     Priority_Add.equals(driver.findElement(TICKET_PRIORITY).getText())||Status_Add.equals(driver.findElement(TICKET_STATUS).getText()) ||
                     Participants_Add.equals(driver.findElement(TICKET_PARTCIPANTS).getText())){
@@ -200,15 +195,12 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         }
     }
 
+
     @Step("Clicking on Dashboard in Dashboards Overview page")
     public void clickOnDashboard(){
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "text", MEDIUMWAIT);
     }
-
-
-
-
 
 
     @Step("Accessing Dashboard by Allowed user")
@@ -217,10 +209,10 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForPageToLoad();
         safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
         By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
-        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+       // waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDashboard_AllowedUsers+"')]");
-        waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
+        //waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
         if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
             Assert.fail("Dashboard page is not displayed for user after giving access");
         try{
@@ -329,8 +321,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             System.out.println(roles.get(i).getText());
             if (roles.get(i).getText().contains(dashBoardData1.sample_Required_Role)) {
                 roles.get(i).click();
-                break;
             }
+            break;
         }
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
     }
@@ -442,6 +434,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
             Assert.fail("Permissions for portlet are not given properly to owner user");
     }
+
     @Step("Remove 'Owner Roles' in 'Dashboard Visibility'")
     public void removeOwnerRoleInDashboardVisibility() throws InterruptedException{
         waitForPageToLoad();

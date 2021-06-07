@@ -6,12 +6,10 @@ import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -40,8 +38,6 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     public void verifyDashBoardOverviewPage(String dashboard, String all) {
         boolean bIsdashboardExists = isElementPresent(Dynamic.getNewLocator(DASHBOARd_MODULE, dashboard), MEDIUMWAIT);
         boolean bIsallExists = isElementPresent(Dynamic.getNewLocator(All_FOLDER, all), MEDIUMWAIT);
-
-        //  boolean bIsLabelNewDashboardExists = isElementPresent(Dynamic.getNewLocator(LABEL_NEW_DASHBOARD, LabelNewDashboard), MEDIUMWAIT);
         Assert.assertTrue(bIsdashboardExists || bIsallExists, "Dashboard/All Folder//addDashboardButon/LabelNewDashboard fields is not being displayed on ' Home' page");
     }
 
@@ -49,94 +45,84 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     public void addingNewDashboard() {
         safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-
-        safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button ondashboards section", MEDIUMWAIT);
+        safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button on dashboards section", MEDIUMWAIT);
         safeClick(LABEL_NEW_DASHBOARD, "All folder on dashboards section ", MEDIUMWAIT);
     }
 
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
-       // String dname1 = dname + random.nextInt(500);
-        safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Enter the dashboard name in textbox", MEDIUMWAIT);
+        safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
-        safeClick(LISTBOX_Folder, "foldername", MEDIUMWAIT);
-        Thread.sleep(15000);
-        List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
-        System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
+        safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
+        waitForSecs(15);
+        List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs.size());
         waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
-        for (int i = 0; i < kpi1.size(); i++) {
+        for (int i = 0; i < dbs.size(); i++) {
 
-            if (kpi1.get(i).getText().contains("Dashboards")) {
+            if (dbs.get(i).getText().contains("Dashboards")) {
 
-                kpi1.get(i).click();
+                dbs.get(i).click();
                 break;
             }
         }
 
         waitForPageToLoad();
         System.out.println("Before finish");
-        safeClick(BUTTON_FINISH, "Clicked on Finish button in Dashboard window", MEDIUMWAIT);
-        Thread.sleep(15000);
+        safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
+        waitForSecs(15);
         System.out.println("after finish");
-        safeClick(BUTTON_CLOSE, "Clicked on close button in Dashboard window", MEDIUMWAIT);
-        Thread.sleep(7000);
+        safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
+        waitForSecs(7);
     }
 
-    @Step("Adding dashbaord")
+    @Step("Adding dashbaord in Dashboard overview page")
     public void addingdashboard() throws InterruptedException {
-        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Enter dashboard into type search");
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
-        Thread.sleep(9000);
-        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
+        waitForSecs(9);
+        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
     }
 
-    @Step("Adding Folder")
+    @Step("Adding Folder in Dashboard overview Page")
     public void addingFolder() throws InterruptedException {
-        safeType(TEXTBOX_TYPESEARCH, "Dashboards > " + dname1 + "\n", "Enter dashboard into type search");
-        System.out.println("entered dbtext");
-        Thread.sleep(7000);
-        String actualText = safeGetText(COLUMN_FOLDER, "dashboardname", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, "Dashboards > " + dname1 + "\n", "Dashboard into type search");
+        System.out.println("entered db text");
+        waitForSecs(7);
+        String actualText = safeGetText(COLUMN_FOLDER, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, "Dashboards > " + dname1);
 
     }
 
-
-    @Step("Logout the application")
-    public void signOut() {
-        waitForPageToLoad();
-        safeClick(USERICON, "Clicking on user icon", MEDIUMWAIT);
-        safeClick(LOGOUT, "Click on Logout", MEDIUMWAIT);
-    }
-
-    @Step("Removing dashboard")
+    @Step("Removing dashboard from Dashboard overview page")
     public void removingDashboard() {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
-        safeClick(FOLDER_DELETE, "Click remove button", MEDIUMWAIT);
-        safeClick(BUTTON_REMOVE, "Clicking remove button", MEDIUMWAIT);
+        safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
+        safeClick(BUTTON_REMOVE, "Remove button", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
         mouseHoverJScript(COLUMN_FOLDER, "text", "mouse", MEDIUMWAIT);
-        safeClick(BUTTON_ADDFOLDER, "adding folder", MEDIUMWAIT);
+        safeClick(BUTTON_ADDFOLDER, "Add folder", MEDIUMWAIT);
         waitUntilClickable(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]"), "text", 5000);
-        safeClick(TEXTBOX_CHOSE_DASHBOARD, "Clicking on select or create dashboard textbox", MEDIUMWAIT);
+        safeClick(TEXTBOX_CHOSE_DASHBOARD, "Select or create dashboard text box", MEDIUMWAIT);
         driver.findElement(By.xpath("//*[@id='dashboardKey']")).sendKeys(dname1, Keys.ENTER);
         waitUntilClickable(DASHBOARD_LABEL, "waiting for element", MEDIUMWAIT);
-        List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
-        System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
-        for (int i = 0; i < kpi1.size(); i++) {
+        List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs.size());
+        for (int i = 0; i < dbs.size(); i++) {
 
-            if (kpi1.get(i).getText().contains(dname1)) {
+            if (dbs.get(i).getText().contains(dname1)) {
 
-                String actualText = kpi1.get(i).getText();
+                String actualText = dbs.get(i).getText();
                 System.out.println(actualText);
                 Assert.assertEquals(actualText, dname1);
-                kpi1.get(i).click();
+                dbs.get(i).click();
                 break;
             } else {
                 System.out.println("Created dashboard is not displaying in dropdown list");
@@ -146,52 +132,52 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
         }
 
-        safeClick(BUTTON_CANCEL, "Clicking on cancel button", MEDIUMWAIT);
+        safeClick(BUTTON_CANCEL, "Cancel button", MEDIUMWAIT);
 
     }
 
-    @Step("Deleting dashboard from the application")
+    @Step("Deleting dashboard from the application ")
     public void deletingDashboard() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
-        safeClick(FOLDER_DELETE, "Click remove button", MEDIUMWAIT);
-        waitUntilClickable(BUTTON_DELETE, "wait delete button clciked", MEDIUMWAIT);
-        safeClick(BUTTON_DELETE, "Clicking remove button", MEDIUMWAIT);
-        Thread.sleep(20000);
-        waitUntilElementDisappears(BUTTON_DELETE, "disaapers", MEDIUMWAIT);
+        safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
+        waitUntilClickable(BUTTON_DELETE, "wait delete button clicked", MEDIUMWAIT);
+        safeClick(BUTTON_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(20);
+        waitUntilElementDisappears(BUTTON_DELETE, "disappears", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
         mouseHoverJScript(COLUMN_FOLDER, "text", "mouse", MEDIUMWAIT);
-        safeClick(BUTTON_ADDFOLDER, "adding folder", MEDIUMWAIT);
+        safeClick(BUTTON_ADDFOLDER, "Add folder", MEDIUMWAIT);
         waitUntilClickable(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]"), "text", 5000);
-        safeClick(TEXTBOX_CHOSE_DASHBOARD, "Clicking on select or create dashboard textbox", MEDIUMWAIT);
+        safeClick(TEXTBOX_CHOSE_DASHBOARD, "Select or create dashboard text box", MEDIUMWAIT);
         driver.findElement(By.xpath("//*[@id='dashboardKey']")).sendKeys(dname1, Keys.ENTER);
         waitUntilClickable(DASHBOARD_LABEL, "waiting for element", MEDIUMWAIT);
-        String actualText = safeGetText(DASHBOARD_LABEL, "dashboardname", MEDIUMWAIT);
+        String actualText = safeGetText(DASHBOARD_LABEL, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         String expectedText = "Create" + " " + "\"" + dname1 + "\"";
         Assert.assertEquals(actualText, expectedText);
-        safeClick(DASHBOARD_LABEL, "Clicking on select or create dashboard textbox", MEDIUMWAIT);
-        safeClick(BUTTON_CANCEL, "Clicking on cancel button", MEDIUMWAIT);
+        safeClick(DASHBOARD_LABEL, "Select or create dashboard text box", MEDIUMWAIT);
+        safeClick(BUTTON_CANCEL, "Cancel button", MEDIUMWAIT);
     }
 
-    @Step("Renaming dashboard from the application")
+    @Step("Renaming dashboard from the  Dashboard overview page")
     public void renamingDashboard() throws InterruptedException {
-        safeClick(LISTOFDASHBOARDS, "Clicking on Dashboard", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "Dashboard", MEDIUMWAIT);
         waitUntilClickable(ICON_RENAME, "Waiting for rename icon is displayed");
-        safeClick(ICON_RENAME, "Clicking on Rename icon", MEDIUMWAIT);
+        safeClick(ICON_RENAME, "Rename icon", MEDIUMWAIT);
         waitUntilClickable(TEXTBOX_RENAMEDASHBRD, "Waiting for Dashboard textbox is displayed to enter rename");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_RENAMEDASHBRD);
         searchField.sendKeys(del + dname1 + 123);
         waitUntilClickable(BUTTON_RENAME, "Waiting for rename button is clickable in rename dash board window");
-        safeClick(BUTTON_RENAME, "Clicking on Rename button ");
-        Thread.sleep(5000);
+        safeClick(BUTTON_RENAME, "Rename button ");
+        waitForSecs(5);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, dname1 + 123 + "\n", "Enter dashboard into type search");
-        System.out.println("entered dbtext");
-        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboardname", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + 123 + "\n", "dashboard name into type search");
+        System.out.println("entered db text");
+        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1 + 123);
     }
@@ -223,20 +209,18 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("To click on 'Dashboard' > 'All' ")
     public void ClickAll() throws InterruptedException {
-        Thread.sleep(7000);
+        waitForSecs(7);
         safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        Thread.sleep(5000);
+        waitForSecs(5);
     }
 
-    @Step("CloneDashboard")
+    @Step("CloneDashboard from Dashboard overview page")
     public void CloneDashboard(String DBname) throws InterruptedException {
-        Thread.sleep(5000);
+        waitForSecs(5);
         safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
         driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
-        // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
-        //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+        waitForSecs(3);
         String locator = "//span[text()='" + DBname + "']/parent::div";
         By CLONE_PARENT = By.xpath(locator);
         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
@@ -249,27 +233,23 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             driver.findElement(CLONE_DB_NAME).sendKeys(Keys.BACK_SPACE);
         }
         safeClearAndType(CLONE_DB_NAME, "Child" + ran, "Dashboard Name", MEDIUMWAIT);
-        Thread.sleep(10000);
+        waitForSecs(10);
         safeClick(BTN_CLONE, "clone icon", MEDIUMWAIT);
-        Thread.sleep(10000);
+        waitForSecs(10);
         String childDB = safeGetText(DB_TITLE, "Dashboard Title", MEDIUMWAIT);
         Assert.assertEquals(childDB, "Child" + ran);
     }
 
-    @Step("Hover Dashboard")
+    @Step("Mouse Hover on Dashboard")
     public void HoverDashboard() throws InterruptedException {
-        mouseHoverJScript(CLONE_PARENT, "Clone PArent", "clone Parent", MEDIUMWAIT);
-        Thread.sleep(5000);
+        mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(ICON_CLONE, "Clone icon", MEDIUMWAIT);
 
     }
 
     @Step("Clone using Hover over Dashboard")
     public void SearchCloneDashboard(String Folder) throws InterruptedException {
-  /*      waitForPageToLoad();
-        safeType(DB_SEARCH, dname1, "Enter dashboard into type search");
-        driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);*/
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "Clone Parent", "clone Parent", MEDIUMWAIT);
         String locator = "//span[text()='" + dname1 + "']/parent::div";
@@ -284,74 +264,71 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(DIALOG_FOLDER, "Folder Field of Clone Dialogue", VERYLONGWAIT);
         Actions act = new Actions(driver);
         act.sendKeys("1 Folder");
-        //safeJavaScriptType(DIALOG_FOLDER,"1 Folder", MEDIUMWAIT);
         safeJavaScriptClick(FOLDER, "dashboard display name option", MEDIUMWAIT);
-        safeJavaScriptClick(BTN_CLONE, "dashboard display name option", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
         waitForPageToLoad();
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(DIALOGBOX));
-        Thread.sleep(5000);
+        waitForSecs(5);
         mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", VERYLONGWAIT);
-        //Thread.sleep(10000);
         List<WebElement> result2 = driver.findElements(CLONE_PARENT);
         int count2 = result2.size();
-
         System.out.println("************** c1= " + count1);
         System.out.println("************** c2= " + count2);
         boolean checkclone = count2 > count1;
         Assert.assertTrue(checkclone);
     }
 
-
+    @Step("Verifying cloning portlet in Dashboard over view page")
     public void cloningPortlet() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
-        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
-        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
-        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(TEXT_HEADER, "Clicking on portelt NAme");
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitUntilClickable(BTN_ADD_METRIC, "Waiting for Add metric icon");
+        safeClick(BTN_ADD_METRIC, "Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Waiting for Add metric link");
+        safeClick(LINK_ADD_METRIC, "Add metric link");
+        safeClick(TEXT_HEADER, "Portlet Name");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + dname1 + 123);
-        safeClick(BTN_ADD_PORTLET, "Clicking on add portlet", VERYLONGWAIT);
-        Thread.sleep(10000);
-        waitUntilClickable(All_FOLDER, "Clicking on add metric link");
+        safeClick(BTN_ADD_PORTLET, "Add portlet", VERYLONGWAIT);
+        waitForSecs(10);
+        waitUntilClickable(All_FOLDER, "Add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        Thread.sleep(5000);
-        safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Enter the dashboard name in textbox", VERYLONGWAIT);
+        waitForSecs(5);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Dashboard Name in textbox", VERYLONGWAIT);
         WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
         type.sendKeys(Keys.ENTER);
-        Thread.sleep(9000);
+        waitForSecs(9);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
-        safeClick(CLONE_PORTLET, "Clicking on Clone button from dashboard", MEDIUMWAIT);
+        safeClick(CLONE_PORTLET, "Clone button from dashboard", MEDIUMWAIT);
         waitForPageToLoad();
-        safeClick(LISTBOX_FOLDER_PORTLET, "foldername", MEDIUMWAIT);
-        Thread.sleep(15000);
+        safeClick(LISTBOX_FOLDER_PORTLET, "Folder name", MEDIUMWAIT);
+        waitForSecs(15);
         driver.findElement(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]//following-sibling::div/div/input")).sendKeys("Dashboards");
-        waitUntilClickable(DROPDOWN_DASHBOARD_FOLDER, "waitinf for a element");
-        safeClick(DROPDOWN_DASHBOARD_FOLDER, "selecting Dashboard", MEDIUMWAIT);
-        safeJavaScriptClick(BTN_CLONE, "dashboard display name option", MEDIUMWAIT);
-        Thread.sleep(20000);
-        String text = safeGetText(DASHBOARD_COUNT, "getting list of dashboards", MEDIUMWAIT);
+        waitUntilClickable(DROPDOWN_DASHBOARD_FOLDER, "Waiting for an element");
+        safeClick(DROPDOWN_DASHBOARD_FOLDER, "Dashboard", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
+        waitForSecs(20);
+        String text = safeGetText(DASHBOARD_COUNT, "list of dashboards", MEDIUMWAIT);
         System.out.println(text);
         String expectedText = "(2)";
         Assert.assertEquals(text, expectedText);
     }
 
-
+    @Step("Adding General Health portlet")
     public void addingPortlet() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
-        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
-        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
-        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(DROPDWON_KPI, "Clicking on KPI", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitUntilClickable(BTN_ADD_METRIC, "Waiting for an Add metric icon");
+        safeClick(BTN_ADD_METRIC, "Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Waiting for an Add metric link");
+        safeClick(LINK_ADD_METRIC, "Add metric link");
+        safeClick(DROPDWON_KPI, "KPI Label", MEDIUMWAIT);
         safeType(TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
-        Thread.sleep(7000);
+        waitForSecs(7);
         List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi12.size(); i++) {
             System.out.println(kpi12.get(i).getText());
@@ -360,14 +337,13 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
                 break;
             }
         }
-        safeClick(TEXT_HEADER, "Clicking on portelt NAme");
+        safeClick(TEXT_HEADER, "Portlet Name");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + dname1);
-        //safeClick(DROPDOWN_SHOWAS,"Clicking on showas dropdown",MEDIUMWAIT);
         WebElement rle = driver.findElement(By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]"));
-        safeClick(DROPDOWN_SHOWAS, "Clikcing on showas", MEDIUMWAIT);
-        safeType(TEXTBOX_SHOWAS, "Trend Chart", "Selecting value from show as dropdown", MEDIUMWAIT);
+        safeClick(DROPDOWN_SHOWAS, "ShowAs Dropdown", MEDIUMWAIT);
+        safeType(TEXTBOX_SHOWAS, "Trend Chart", "Chart from show as dropdown", MEDIUMWAIT);
         List<WebElement> kpi1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
         for (int i = 0; i < kpi1.size(); i++) {
@@ -379,78 +355,67 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             }
         }
 
-        safeClick(TEXTBOX_SUMMARY, "Clicking on KPI", MEDIUMWAIT);
-        safeType(TEXTBOX_SUMMARY, "Avg Color", "Enter Summary", MEDIUMWAIT);
-        safeClick(DROPDOWN_CHARTTYPE, "Clicking on chart type", MEDIUMWAIT);
+        safeClick(TEXTBOX_SUMMARY, "KPI", MEDIUMWAIT);
+        safeType(TEXTBOX_SUMMARY, "Avg Color", "Summary", MEDIUMWAIT);
+        safeClick(DROPDOWN_CHARTTYPE, "Chart type", MEDIUMWAIT);
         Actions a = new Actions(driver);
         a.sendKeys("area");
-        List<WebElement> kpi3 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
-        System.out.println("Total no 0f dashboards:::====> " + kpi3.size());
-        for (int i = 0; i < kpi3.size(); i++) {
+        List<WebElement> Charts = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f Charts:::====> " + Charts.size());
+        for (int i = 0; i < Charts.size(); i++) {
 
-            if (kpi3.get(i).getText().contains("Area")) {
+            if (Charts.get(i).getText().contains("Area")) {
 
-                kpi3.get(i).click();
+                Charts.get(i).click();
                 break;
             }
         }
-        safeClick(DROPDWON_TRENDGRATY, "Clicking on Trend granulaity", MEDIUMWAIT);
-        safeType(TEXTBOX_TRENDGRATY, "By Minute", "Entering text into trendgranularity", MEDIUMWAIT);
-        List<WebElement> kpi4 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
-        System.out.println("Total no 0f dashboards:::====> " + kpi4.size());
-        for (int i = 0; i < kpi4.size(); i++) {
+        safeClick(DROPDWON_TRENDGRATY, "Trend granularity", MEDIUMWAIT);
+        safeType(TEXTBOX_TRENDGRATY, "By Minute", " Trend granularity", MEDIUMWAIT);
+        List<WebElement> tdList = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f tdlist:::====> " + tdList.size());
+        for (int i = 0; i < tdList.size(); i++) {
 
-            if (kpi4.get(i).getText().contains("By Minute")) {
+            if (tdList.get(i).getText().contains("By Minute")) {
 
-                kpi4.get(i).click();
+                tdList.get(i).click();
                 break;
             }
         }
         String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         searchField1.sendKeys(del + 5);
-        //safeClearAndType(TEXTBOX_DECIMAL_PLACES,"5","Entering values in decimal places",MEDIUMWAIT);
-        Thread.sleep(10000);
-        //safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS,"Clicking on portlet filters",MEDIUMWAIT);
-        //safeClick(PortletFilters_TypeSearch,"Entering Text into typesearch",MEDIUMWAIT);
-        // safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
-
-        // safeClick(DROPDOWN_FEILDS,"Selecting feild",MEDIUMWAIT);
-        // driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-        // safeClick(BTN_APPLY,"Clikcing apply button",MEDIUMWAIT);
-        //Thread.sleep(9000);
-        safeClick(BTN_ADD_PORTLET, "Adding portlet", MEDIUMWAIT);
-        Thread.sleep(15000);
-        waitUntilClickable(All_FOLDER, "Clicking on add metric link");
+        waitForSecs(10);
+        safeClick(BTN_ADD_PORTLET, "Add Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        waitUntilClickable(All_FOLDER, "Add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        Thread.sleep(5000);
-        safeType(TEXTBOX_TYPESEARCH, dname1, "Enter the dashboard name in textbox", VERYLONGWAIT);
+        waitForSecs(5);
+        safeType(TEXTBOX_TYPESEARCH, dname1, "Dashboard Name in textbox", VERYLONGWAIT);
         WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
         type.sendKeys(Keys.ENTER);
-        Thread.sleep(10000);
+        waitForSecs(10);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
-        String text = safeGetText(LIST_PORTLETS, "Getting Text", MEDIUMWAIT);
-        //expectedText="ActiveMQ Heap Usage";
+        String text = safeGetText(LIST_PORTLETS, "List of Portlets", MEDIUMWAIT);
         Assert.assertEquals(text, dname1);
 
     }
 
+    @Step("Clicking on the calender in date picker in dashboard overview page")
     public void SelectingCalender(String DBname) throws InterruptedException {
-        Thread.sleep(5000);
-        safeType(DB_SEARCH, DBname, "Enter dashboard into type search");
+        waitForSecs(5);
+        safeType(DB_SEARCH, DBname, "Dashboard Name into type search");
         driver.findElement(DB_SEARCH).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
-        // mouseHoverJScript(OPT_DB_DISPLAY_NAME,"Clone PArent","clone Parent",MEDIUMWAIT);
-        //safeJavaScriptClick(OPT_DB_DISPLAY_NAME, "dashboard display name option", MEDIUMWAIT);
+        waitForSecs(3);
         String locator = "//span[text()='" + DBname + "']/parent::div";
         By CLONE_PARENT = By.xpath(locator);
         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
     }
 
+    @Step("Validating current hour of predefined time range from calendar ")
     public void ValidatingCurrentHour() throws InterruptedException {
-
-        safeClick(BTN_CURRENTHOUR, "Clicking on Current Hour");
+        safeClick(BTN_CURRENTHOUR, "Current Hour");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -479,9 +444,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Last hour of predefined time range from calendar ")
     public void validatingLastHour() {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_LASTHOUR, "Clicking on Last Hour");
+        safeClick(BTN_LASTHOUR, "Last Hour");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -513,9 +479,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Business hours of predefined time range from calendar ")
     public void validatingBusinessHours(String start, String end) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_BUSINESS_HOURS, "Clicking on Business Hour");
+        safeClick(BTN_BUSINESS_HOURS, "Business Hours");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -531,9 +498,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Assert.assertEquals(str, expectedText);
     }
 
+    @Step("Validating Last12 hours option of predefined time range from calendar ")
     public void validatingLast12hours() {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_Last_12_Hours, "Clicking on Business Hour");
+        safeClick(BTN_Last_12_Hours, "Last12hours");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -554,10 +522,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Assert.assertEquals(str, expectedText);
     }
 
-
+    @Step("Validating This month of predefined time range from calendar ")
     public void validatingThisMonth(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_THIS_MONTH, "Clicking on Last 7 Days");
+        safeClick(BTN_THIS_MONTH, "Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -565,20 +533,17 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        // cal.add(Calendar.DATE, -6);
-
-        // I just want date before 90 days. you can give that you want.
-        SimpleDateFormat s = new SimpleDateFormat("MM"); // you can specify your format here...
+        SimpleDateFormat s = new SimpleDateFormat("MM");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
-        SimpleDateFormat s3 = new SimpleDateFormat("yyyy"); // you can specify your format here...
+        SimpleDateFormat s3 = new SimpleDateFormat("yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s4 = s.format(new Date(cal.getTimeInMillis()));
-       String date1= s1+"/01"+s4;
+        String date1 = s1 + "/01" + s4;
         cal.add(Calendar.DATE, 30);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s2 = s.format(new Date(cal.getTimeInMillis()));
-        String date2=s2+"/01"+s4;
+        String date2 = s2 + "/01" + s4;
         System.out.println("Current date and time is " + date1 + " " + time + " " + "-" + date2 + " " + time);
         String expectedText = date1 + " " + time + " " + "-" + date2 + " " + time;
         Assert.assertEquals(str, expectedText);
@@ -586,9 +551,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Last Month of predefined time range from calendar ")
     public void validatingLastMonth(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_LAST_MONTH, "Clicking on Last 7 Days");
+        safeClick(BTN_LAST_MONTH, "Last Month");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -596,10 +562,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        // cal.add(Calendar.DATE, -6);
-
-        // I just want date before 90 days. you can give that you want.
-        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.MONTH, -1);
@@ -612,9 +575,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Last 30 Days of predefined time range from calendar ")
     public void validatingLast30Days(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_LAST_30_DAYS, "Clicking on Last 7 Days");
+        safeClick(BTN_LAST_30_DAYS, "Last 30 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -623,8 +587,6 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, 1);
-
-        // I just want date before 90 days. you can give that you want.
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
@@ -638,9 +600,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Today option of predefined time range from calendar ")
     public void validatingToday(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_TODAY, "Clicking on Last 7 Days");
+        safeClick(BTN_TODAY, "Today");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -648,10 +611,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-
-
-        // I just want date before 90 days. you can give that you want.
-        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 1);
@@ -664,9 +624,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Yesterday option of predefined time range from calendar ")
     public void validatingYesterday(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_YESTERDAY, "Clicking on Last 7 Days");
+        safeClick(BTN_YESTERDAY, "Yesterday");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -674,10 +635,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-
-
-        // I just want date before 90 days. you can give that you want.
-        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, -1);
@@ -690,9 +648,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Last7Days option of predefined time range from calendar ")
     public void validatingLast7Days(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_LAST_7_DAYS, "Clicking on Last 7 Days");
+        safeClick(BTN_LAST_7_DAYS, "Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -700,10 +659,8 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-
         cal.add(Calendar.DATE, 1);
-        // I just want date before 90 days. you can give that you want.
-        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy"); // you can specify your format here...
+        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, -7);
@@ -716,10 +673,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
-
+    @Step("Validating AbsoluteQa30mins option of predefined time range from calendar")
     public void validatingAbsoluteQa_30Mins(String tsstart, String tsend) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_ABSOLUTECURRENTHOUR_QA_30_MINS, "Clicking on Last 7 Days");
+        safeClick(BTN_ABSOLUTECURRENTHOUR_QA_30_MINS, "AbsoluteQa30mins");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -734,9 +691,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating AbsoluteAllUnits option of predefined time range from calendar")
     public void validatingAbsoluteAllUnits(String tsstart, String tsend) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        safeClick(BTN_ABSOLUTE_ALL_UNITS, "Clicking on Last 7 Days");
+        safeClick(BTN_ABSOLUTE_ALL_UNITS, "AbsoluteAllUnits");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -751,21 +709,23 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Searching dashboard in dashboard overview page")
     public void SearchinDashboard() throws InterruptedException {
         String dashboard = "Required Trend Granularity";
-        safeType(TEXTBOX_TYPESEARCH, dashboard + "\n", "Enter dashboard into type search");
+        safeType(TEXTBOX_TYPESEARCH, dashboard + "\n", "Dashboard name into type search");
         System.out.println("entered dbtext");
-        Thread.sleep(7000);
+        waitForSecs(7);
 
     }
 
+    @Step("Validating Minutely option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingMinutely() throws InterruptedException {
-        Thread.sleep(7000);
-        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
-        Thread.sleep(7000);
-        safeClick(BTN_MINUTE, "Selecting auto option from Trend Granularity");
-        Thread.sleep(7000);
-        String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Getting the text", 5000);
+        waitForSecs(7);
+        safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_MINUTE, "Minute option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
         System.out.println(text);
         expectedText = "Minutely";
         Assert.assertEquals(text, expectedText);
@@ -784,22 +744,22 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
-
+    @Step("Validating hours option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingHours() throws InterruptedException {
-        Thread.sleep(7000);
+        waitForSecs(7);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
-        Thread.sleep(7000);
-        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        Thread.sleep(15000);
-        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
-        Thread.sleep(7000);
-        safeClick(BTN_HOURLY, "Selecting auto option from Trend Granularity");
-        Thread.sleep(7000);
+        waitForSecs(7);
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_HOURLY, "Hourly option from Trend Granularity");
+        waitForSecs(7);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        Thread.sleep(5000);
-        safeClick(BTN_TODAY, "Clicking today button", MEDIUMWAIT);
-        Thread.sleep(7000);
-        String text = safeGetText(NTABULAR_LABELS_Hourly, "Getting the text", 5000);
+        waitForSecs(5);
+        safeClick(BTN_TODAY, "Today button", MEDIUMWAIT);
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_Hourly, "Hourly text", 5000);
         System.out.println(text);
         expectedText = "HOURLY";
         Assert.assertEquals(text, expectedText);
@@ -825,14 +785,14 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
-
+    @Step("Validating Daily option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingDaily() throws InterruptedException {
-        Thread.sleep(7000);
-        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
-        Thread.sleep(7000);
-        safeClick(BTN_DAILY, "Selecting auto option from Trend Granularity");
-        Thread.sleep(7000);
-        String text = safeGetText(NTABULAR_LABELS_Daily, "Getting the text", 5000);
+        waitForSecs(7);
+        safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_DAILY, "Daily option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_Daily, "Daily text", 5000);
         System.out.println(text);
         expectedText = "DAILY";
         Assert.assertEquals(text, expectedText);
@@ -851,14 +811,14 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
-
+    @Step("Validating Monthly option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingMonthly() throws InterruptedException {
-        Thread.sleep(7000);
-        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
-        Thread.sleep(7000);
-        safeClick(BTN_MONTHLY, "Selecting auto option from Trend Granularity");
-        Thread.sleep(7000);
-        String text = safeGetText(NTABULAR_LABELS_Monthly, "Getting the text", 5000);
+        waitForSecs(7);
+        safeClick(BTN_TREND_GRANULARITY, " Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_MONTHLY, "Monthly option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
         System.out.println(text);
         expectedText = "MONTHLY";
         Assert.assertEquals(text, expectedText);
@@ -877,13 +837,14 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    @Step("Validating Yearly option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingYEARLY() throws InterruptedException {
-        Thread.sleep(7000);
-        safeClick(BTN_TREND_GRANULARITY, "Clicking on Trend Granularity");
-        Thread.sleep(7000);
-        safeClick(BTN_YEARLY, "Selecting auto option from Trend Granularity");
-        Thread.sleep(7000);
-        String text = safeGetText(NTABULAR_LABELS_yearly, "Getting the text", 5000);
+        waitForSecs(7);
+        safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_YEARLY, "Yearly option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_yearly, "Yearly text", 5000);
         System.out.println(text);
         expectedText = "YEARLY";
         Assert.assertEquals(text, expectedText);
@@ -905,5 +866,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(LABEL_NEW_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
     }
 
+    @Step("Logout the application")
+    public void signOut() {
+        waitForPageToLoad();
+        safeClick(USERICON, "User Icon", MEDIUMWAIT);
+        safeClick(LOGOUT, "Logout", MEDIUMWAIT);
+    }
 
 }

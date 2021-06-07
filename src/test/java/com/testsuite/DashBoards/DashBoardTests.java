@@ -37,7 +37,7 @@ public class DashBoardTests extends BaseSetup  {
     }
 
     @Test( groups ="Smoke Test" )
-    public void TC018_PinUnPinDashboard() throws InterruptedException {
+    public void TC112_PinUnPinDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -46,7 +46,7 @@ public class DashBoardTests extends BaseSetup  {
     }
 
     @Test( groups ="Smoke Test" )
-    public void TC017_CreateTicketOnDashboard() throws InterruptedException {
+    public void TC020_CreateTicketOnDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -55,7 +55,7 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.verifyTicketInTicketsPage();
     }
     @Test(groups = "Smoke Test")
-    public void TC011_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
+    public void TC012_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
         dashboardPage.navigateToDashboardsPage();
         dashboardPage.setAllowedUsersInDashboardVisibility();
         loginPage.clickLogoutButton();
@@ -75,7 +75,7 @@ public class DashBoardTests extends BaseSetup  {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC011_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
+    public void TC013_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
         dashboardPage.navigateToDashboardsPage();
         dashboardPage.setRequiredRolesInDashboardVisibility();
         loginPage.clickLogoutButton();
@@ -95,7 +95,7 @@ public class DashBoardTests extends BaseSetup  {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC011_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
+    public void TC014_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
         dashboardPage.navigateToDashboardsPage();
         dashboardPage.setOwnerRolesInDashboardVisibility();
         loginPage.clickLogoutButton();

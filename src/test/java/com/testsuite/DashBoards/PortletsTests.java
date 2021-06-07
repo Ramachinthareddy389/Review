@@ -66,5 +66,28 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingPortletAddedFromSearchBar();
     }
 
+    @Test(enabled = true)
+    public void TC_055_NavigatetoDrillthroughpage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.navigatingToDrillThroughPage();
+    }
+
+
+
+    @Test(enabled = true)
+    public void TC_45_ClonePortletToAnotherDashboard() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.cloningPortletInDashboardPage();
+        portletsFeature.verifyingClonedPortlet();
+    }
 
 }

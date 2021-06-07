@@ -19,7 +19,7 @@
 		<classes>
 			<class name="com.testsuite.DashBoards.DashboardOverview"></class>
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
-
+			<class name="com.testsuite.DashBoards.PortletsTests"></class>
 
 		</classes>
 	</test>
