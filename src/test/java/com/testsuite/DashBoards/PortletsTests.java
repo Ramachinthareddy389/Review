@@ -11,6 +11,8 @@ import com.selenium.Sync;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class PortletsTests extends BaseSetup {
     private DashboardOverviewPage dashboardOverviewPage;
     private PortletsFeature portletsFeature;
@@ -90,4 +92,35 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingClonedPortlet();
     }
 
+
+    @Test(enabled = true)
+    public void TC023_AddingGeneralHealthPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingPortlet();
+        portletsFeature.VerifyingGHPortlet();
+    }
+
+
+    @Test(enabled = true)
+    public void TC_25_AddingNTabularPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        portletsFeature.addingNTabularPortlet();
+        portletsFeature.verifyingNTabularPortlet();
+    }
+
+    @Test(enabled = true)
+    public void TC_057_NavigateTORCANdPivotNdDrillthroughpageUsing3optionTooltip() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.navigatingToDrilthroughPagesUsingTooltipOptions();
+
+    }
 }

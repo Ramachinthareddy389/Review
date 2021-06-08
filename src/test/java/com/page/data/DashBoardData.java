@@ -36,5 +36,8 @@ public class DashBoardData {
 	public final String tooltip2     = portletsData.getProperty("TOOLTIP2");
 	public final String tooltip3     = portletsData.getProperty("TOOLTIP3");
 	public final String DB_clonedPortlet = portletsData.getProperty("Dashboard_ClonedPortlet");
+	public final String portletMeasureData = portletsData.getProperty("MeasureData");
+	public final String nTabularPortletTrendGranularity = portletsData.getProperty("TrendGranularity");
+	public final String nTabularPortletLabel = portletsData.getProperty("Label");
 
 }

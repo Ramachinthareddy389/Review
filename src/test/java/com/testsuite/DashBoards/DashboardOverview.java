@@ -110,15 +110,6 @@ public class DashboardOverview extends BaseSetup {
     }
 
     @Test(enabled = true)
-    public void TC023_AddingGeneralHealthPortlet() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
-        dashboardOverviewPage.addingPortlet();
-    }
-
-    @Test(enabled = true)
     public void TC105_AddingDashboardFolder() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewFolder();

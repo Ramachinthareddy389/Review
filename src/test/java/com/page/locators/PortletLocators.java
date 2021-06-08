@@ -74,7 +74,7 @@ public interface PortletLocators {
     By TOOLTIPOPTION_2=By.xpath("//a[contains(text(),'Raw')]");
     By TOOLTIPOPTION_3=By.xpath("//a[contains(text(),'Pivot')]");
     By HYPERLINKDBINDRILLTHROUGH=By.xpath("//a[contains(@class,'MuiLink-root')]/span");
-
+    By DROPDWON_KPI=By.xpath("//*[text()='KPI']/../../../div//div[contains(@class,'body1')]");
     By BTN_CLONE_PORTLET = By.xpath("//div[@aria-label='Clone']");
     By DASHBOARD_FIELD_CLONE_PORTLET = By.xpath("//label[contains(@for,'dashboardKey')]/../div");
     By DROPDOWN_DASHBOARDS = By.xpath("//div[contains(@role,'menuitem')]");
@@ -83,5 +83,24 @@ public interface PortletLocators {
     By CONFIRM_DELETE_PORTLET = By.xpath("//button/span[contains(text(),'Confirm')]");
     By TEXTBOX_TYPESEARCH=By.xpath("//input[@placeholder='Type or select below']");
     By All_FOLDER    =By.xpath("//span[text()='All']");
+    By BTN_EXPORT=By.xpath("//div[@aria-label='Export']");
 
+    //N Tabular Portlet
+    By NTABULAR_HEADER = By.xpath("//button/span[contains(text(),'N Tabular')]");
+    By NTABULAR_TEXTBOX_KPI = By.xpath("//input[contains(@id,'kpi_0')]");
+    By NTABULAR_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
+    By NTABULAR_ORDER_BY_OPTION = By.xpath("//div[(@role='menuitem')][contains(text(),'By Tally Column')]");
+    By NTABULAR_TALLY_COLUMN = By.xpath("//*[text()='Tally Column']/../../../div//div[contains(@class,'body1')]");
+    By NTABULAR_TALLY_COLUMN_OPTION = By.xpath("//input[contains(@id,'tallyColumn')]");
+    By NTABULAR_TEXTBOX_MEASURE = By.xpath("//input[contains(@id,'Measure_0')]");
+    By TEXTBOX_KPI_FILTERS = By.xpath("//input[contains(@id,'kpiFilters')]");
+    By NTABULAR_LABEL_FIELD = By.xpath("//label[contains(@for,'label')]");
+    By NTABULAR_LABEL_FIELD_TEXTBOX = By.xpath("//input[contains(@id,'label')]");
+    By NTABULAR_SHOW_KPI_NAME_CHECKBOX = By.xpath("//span[contains(text(),'Show KPI Name')]");
+    By KPI_FILTER_OPTION = By.xpath("//div[text()='Application Name']");
+    By NTABULAR_PORTLET_CHART = By.xpath("//div[contains(@class,'Portlet')]/div/following-sibling::div/div[contains(@style,'flex')]");
+    By ORDER_BY_FIELD = By.xpath("//label[@for='orderBy']/../div");
+    By ORDER_BY_OPTION = By.xpath("//div[(@role='menuitem')][contains(text(),'By Pivot Value')]");
+    By ORDER_DIRECTION_FIELD = By.xpath("//label[@for='orderDirection']/../div");
+    By ORDER_DIRECTION_OPTION = By.xpath("//div[(@role='menuitem')][contains(text(),'Ascending')]");
 }
