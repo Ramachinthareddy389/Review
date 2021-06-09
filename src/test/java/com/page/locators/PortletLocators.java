@@ -103,4 +103,19 @@ public interface PortletLocators {
     By ORDER_BY_OPTION = By.xpath("//div[(@role='menuitem')][contains(text(),'By Pivot Value')]");
     By ORDER_DIRECTION_FIELD = By.xpath("//label[@for='orderDirection']/../div");
     By ORDER_DIRECTION_OPTION = By.xpath("//div[(@role='menuitem')][contains(text(),'Ascending')]");
+
+    //Tabular Portlet
+    By TABULAR_HEADER = By.xpath("//button/span[contains(text(),'Tabular')]");
+    By TABULAR_TEXTBOX_KPI = By.xpath("//input[@id='kpi']");
+    By TABULAR_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
+    By SHOW_SLA_COLUMN_CHECKBOX = By.xpath("//span[contains(text(),'Show SLA Column')]");
+    By TABULAR_PIVOT_FIELD = By.xpath("//label[contains(@for,'pivots')]/../div");
+    By TABULAR_PIVOT_FIELD_INPUT = By.xpath("//input[contains(@id,'pivots')]");
+    By TABULAR_MEASURES_FIELD = By.xpath("//label[contains(@for,'measures')]/../div");
+    By TABULAR_MEASURES_FIELD_INPUT = By.xpath("//input[contains(@id,'measures')]");
+
+    By SLACOLUMNS=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div/span/div/div");
+    By USERNAME_COLUMN_PORTLET=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div[2]/span/span");
+    By SLAFILTERICON=By.xpath("//span[contains(@aria-label,'user.name')]");
+
 }

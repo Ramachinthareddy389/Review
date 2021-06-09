@@ -16,6 +16,7 @@ import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class PortletsFeature extends SafeActions implements PortletLocators {
     private WebDriver driver;
@@ -31,6 +32,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
     String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
+    String tabularPortletName = "Tabular Portlet - " +random.nextInt(1000);
 
 
     public PortletsFeature(WebDriver driver) {
@@ -481,7 +483,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         String Tooltip2= safeGetText(Title_DRILLTHROUGH, "Drill through page title for Raw instances", MEDIUMWAIT);
         System.out.println(Tooltip2);
-        String expectedText2="Drillthrough on Average user click duration";
         Assert.assertEquals(Tooltip2,dashBoardData.tooltip2);
         waitForPageToLoad();
         safeClick(HYPERLINKDBINDRILLTHROUGH,"Dashboard Name Hyper link in Drillthrough Page",MEDIUMWAIT);
@@ -490,9 +491,150 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         String Tooltip3= safeGetText(Title_DRILLTHROUGH, "Drill through page title for pivot instances", MEDIUMWAIT);
         System.out.println(Tooltip3);
-        String expectedText3="Pivot on Average user click duration";
         Assert.assertEquals(Tooltip3,dashBoardData.tooltip3);
 
     }
 
-}
+    @Step("Adding Tabular Portlet")
+    public void addingTabularPortlet() throws InterruptedException {
+        waitForPageToLoad();
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        waitUntilClickable(TABULAR_HEADER,"Tabular header in Portlet Interface",MEDIUMWAIT);
+        safeClick(TABULAR_HEADER,"Tabular header in Portlet Interface",MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI,"Clicking on KPI",MEDIUMWAIT);
+        safeType(TABULAR_TEXTBOX_KPI,dashBoardData.portletKPI,"Sending the text",VERYLONGWAIT);
+        waitForSecs(2);
+        List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis.size(); i++) {
+            System.out.println(kpis.get(i).getText());
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI))
+            {
+                kpis.get(i).click();
+                break;
+            }
+        }
+        safeClick(TABULAR_MEASURES_FIELD,"Pivots Field",MEDIUMWAIT);
+        String measureData = Keys.chord(Keys.CONTROL,"a") + Keys.DELETE;
+        driver.findElement(TABULAR_MEASURES_FIELD_INPUT).sendKeys(measureData + dashBoardData.portletMeasureData,Keys.ENTER);
+        safeClick(TABULAR_PIVOT_FIELD,"Pivots Field",MEDIUMWAIT);
+        String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData) + Keys.ENTER;
+        driver.findElement(TABULAR_PIVOT_FIELD_INPUT).sendKeys(pivotdata);
+        safeClick(ORDER_BY_FIELD,"Order By Field in Tabular portlet",MEDIUMWAIT);
+        safeClick(ORDER_BY_OPTION,"Order By Field option in Tabular portlet",MEDIUMWAIT);
+        safeClick(ORDER_DIRECTION_FIELD,"Order Direction Field in Tabular portlet",MEDIUMWAIT);
+        safeClick(ORDER_DIRECTION_OPTION,"Order Direction Field option in Tabular portlet",MEDIUMWAIT);
+    }
+
+    @Step("adding Tabular portlet1")
+    public void addingtabularPortlet1(){
+        safeClick(SHOW_SLA_COLUMN_CHECKBOX,"Show SLA column checkbox",MEDIUMWAIT);
+        safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del +tabularPortletName);
+        String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
+        decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
+        safeClick(TEXTBOX_PORTLET_FILTERS,"Portlet filters field",MEDIUMWAIT);
+        safeClick(Filters_TypeSearch,"Entering Text into type search",MEDIUMWAIT);
+        safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
+        safeClick(DROPDOWN_FEILDS,"Selecting field",MEDIUMWAIT);
+        driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
+        safeClick(IS_NOT_PORTLET_FILTER,"Changing to negation filter",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply button in Portlet Filters",MEDIUMWAIT);
+        System.out.println("Filter in Portlet Filters is "+driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
+        safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
+    }
+    @Step("Verifying Tabular Portlet in Dashboard page")
+    public void verifyingTabularPortlet() throws InterruptedException{
+        waitForPageToLoad();
+        By TABULAR_PORTLET_TITLE= By.xpath("//span[@aria-label='"+tabularPortletName+"']");
+        waitUntilClickable(TABULAR_PORTLET_TITLE,"Tabular Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(TABULAR_PORTLET_TITLE).isDisplayed())
+            Assert.fail("Tabular portlet added is not displayed in Dashboard page");
+        By FILTER_TABULAR_PORTLET = By.xpath("//span[@aria-label='"+tabularPortletName+"']/../following-sibling::span/i[contains(@class,'filter')]");
+        if(!driver.findElement(FILTER_TABULAR_PORTLET).isDisplayed())
+            Assert.fail("Filter icon is not displayed for Tabular Portlet");
+        mouseHoverJScript(FILTER_TABULAR_PORTLET,"Filter icon","Filter icon in Tabular Portlet",MEDIUMWAIT);
+        By FILTER_MESSAGE_TABULAR_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
+        if (!driver.findElement(FILTER_MESSAGE_TABULAR_PORTLET).isDisplayed())
+            Assert.fail("Filter Message is not displayed properly in Tabular portlet");
+        try {
+            By PIVOT_HEADER_PORTLET = By.xpath("//div[@aria-label='"+dashBoardData.tabularPortletPivotData+"']");
+            waitForSecs(5);
+            if (!driver.findElement(PIVOT_HEADER_PORTLET).isDisplayed())
+                Assert.fail("Pivot Field is not displayed properly in Tabular portlet");
+            By MEASURE_HEADER_PORTLET = By.xpath("//div[@title='"+dashBoardData.portletMeasureData+"']");
+            if(!driver.findElement(MEASURE_HEADER_PORTLET).isDisplayed())
+                Assert.fail("Measure field is not displayed properly in Tabular portlet");
+        }
+        catch(Exception e){
+            if(!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+                Assert.fail("No Data Available label is not displayed in Tabular portlet");
+            System.out.println("Data is not available in Tabular Portlet");
+        }
+    }
+
+    @Step("Export GH Portlet")
+    public void validatingExportedGHPortlet() throws IOException {
+        waitForSecs(7);
+        safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
+        waitForSecs(7);
+        //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
+        String home = System.getProperty("user.home");
+        String file_name = dname1 + "_" + "User Click.csv";
+        String downloadPath = home + "\\Downloads";
+        System.out.println(downloadPath);
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+        System.out.println(fileName);
+        Assert.assertTrue(fileName.equals(file_name));
+        String[] expected = {"Time Minute", "Time Hour", "Time Day", "Time Month", "Time Year", "#", "Color"};
+        Reader reader = new FileReader(downloadPath + "\\" + fileName);
+        CSVReader csvreader = new CSVReader(reader);
+        List<String[]> list = csvreader.readAll();
+        Iterator<String[]> ite = list.iterator();
+        String[] data = ite.next();
+        for (int i = 0; i < 7; i++) {
+            String actualText = data[i];
+            Assert.assertEquals(actualText, expected[i]);
+            if (actualText.equals(expected[i])) {
+                System.out.println(expected[i]);
+                System.out.println("passed on: " + actualText);
+            } else {
+                System.out.println("failed on: " + actualText);
+            }
+        }
+        reader.close();
+        File file = new File(downloadPath + "\\" + fileName);
+        if (file.delete())
+            System.out.println("file deleted");
+        else {
+            System.out.println("file not deleted");
+        }
+    }
+
+
+    private File getLatestFilefromDir(String dirPath) {
+        File dir = new File(dirPath);
+        File[] files = dir.listFiles();
+        if (files == null || files.length == 0) {
+            return null;
+        }
+
+        File lastModifiedFile = files[0];
+        for (int i = 1; i < files.length; i++) {
+            if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+                lastModifiedFile = files[i];
+            }
+        }
+        return lastModifiedFile;
+    }
+
+    }

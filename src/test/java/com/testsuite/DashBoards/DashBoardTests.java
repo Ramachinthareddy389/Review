@@ -56,12 +56,13 @@ public class DashBoardTests extends BaseSetup  {
     }
     @Test(groups = "Smoke Test")
     public void TC012_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
-        dashboardPage.navigateToDashboardsPage();
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.setAllowedUsersInDashboardVisibility();
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.userName,dashBoardData.userPassword);
         loginPage.clickLogInButton();
-        dashboardPage.navigateToDashboardsPage();
         dashboardPage.accessDashboardByAllowedUser();
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
@@ -73,15 +74,15 @@ public class DashBoardTests extends BaseSetup  {
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingAccess();
     }
-
     @Test(groups = "Smoke Test")
     public void TC013_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
-        dashboardPage.navigateToDashboardsPage();
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.setRequiredRolesInDashboardVisibility();
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,dashBoardData.userPassword);
         loginPage.clickLogInButton();
-        dashboardPage.navigateToDashboardsPage();
         dashboardPage.accessDashboardByRequiredRoleUser();
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
@@ -93,19 +94,17 @@ public class DashBoardTests extends BaseSetup  {
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingRequiredRole();
     }
-
     @Test(groups = "Smoke Test")
     public void TC014_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
-        dashboardPage.navigateToDashboardsPage();
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.setOwnerRolesInDashboardVisibility();
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.ownerRole_Username,dashBoardData.userPassword);
         loginPage.clickLogInButton();
-        dashboardPage.navigateToDashboardsPage();
         dashboardPage.accessDashboardByOwnerRoleUser();
         dashboardPage.removeOwnerRoleInDashboardVisibility();
         dashboardPage.accessDashboardByUserAfterRemovingOwnerRole();
     }
-
-
 }

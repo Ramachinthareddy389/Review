@@ -123,4 +123,31 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.navigatingToDrilthroughPagesUsingTooltipOptions();
 
     }
-}
+
+    @Test(enabled = true)
+    public void TC_24_AddingTabularPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingTabularPortlet();
+        portletsFeature.addingtabularPortlet1();
+        portletsFeature.verifyingTabularPortlet();
+    }
+
+    @Test(enabled = true)
+    public void TC_048_ExportGHPortlet() throws InterruptedException, IOException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingPortlet();
+        portletsFeature.validatingExportedGHPortlet();
+
+    }
+
+
+    }
+
+

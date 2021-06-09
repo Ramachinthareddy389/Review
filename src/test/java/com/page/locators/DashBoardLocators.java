@@ -176,6 +176,8 @@ public interface DashBoardLocators {
     By NTABULAR_LABELS_Monthly=By.xpath("//div[@aria-label='Monthly']");
     By NTABULAR_LABELS_yearly=By.xpath("//div[@aria-label='Yearly']");
     By NTABULAR_LABELS_minutely=By.xpath("//div[@aria-label='Minutely']");
+    By CLOSE_ERROR_POPUP = By.xpath("//button/span[contains(text(),'Close')]");
+    By SEARCH_BAR_ADD_METRIC = By.xpath("//div[contains(@placeholder,'Search insights')]");
 
 
 

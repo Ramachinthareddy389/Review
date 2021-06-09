@@ -4,9 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.DashBoardLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -29,7 +27,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     String sample_Role_Name = dashBoardData1.sample_Role_Name + " - " +random.nextInt(1000);
     String sampleDB_OwnerRoles = dashBoardData1.sampleDB_OwnerRole;
     String sample_RoleName_Owner = dashBoardData1.sample_Role_Name_Owner + " - " +random.nextInt(1000);
-
+    String dname12= "Sample DB - ";
+    String dname2 = dname12 + random.nextInt(500);
 
     //Constructor to define/call methods
     public DashboardPage(WebDriver driver) {
@@ -39,7 +38,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
-        safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in text box", MEDIUMWAIT);
+        safeType(TEXTBOX_DASHBOARD_WINDOW, dname2, "Dashboard name in text box", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
         waitForSecs(9);
@@ -60,11 +59,11 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(BUTTON_FINISH, " Finish button in Dashboard window", MEDIUMWAIT);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard into type search");
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Dashboard into type search");
         System.out.println("entered dbtext");
         String actualText = safeGetText(LISTOFDASHBOARDS, "Dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dname1);
+        Assert.assertEquals(actualText, dname2);
 
     }
 
@@ -77,7 +76,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForSecs(5);
         safeClick(ICON_PIN,"pin button",MEDIUMWAIT);
         waitForSecs(5);
-        By pinnedDashboard=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'"+dname1+"')]");
+        By pinnedDashboard=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'"+dname2+"')]");
         WebElement pinnedDashboardElement = driver.findElement(pinnedDashboard);
         Boolean pinnedDashboard_Visibility = pinnedDashboardElement.isDisplayed();
         System.out.println("Dashboard is visible: "+pinnedDashboard_Visibility);
@@ -91,7 +90,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForPageToLoad();
         safeClick(UNPIN_DASHBOARD, "Unpin Dashboard", MEDIUMWAIT);
         waitForSecs(5);
-        By pinnedDashboard=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'"+dname1+"')]");
+        By pinnedDashboard=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'"+dname2+"')]");
         try {
             driver.findElement(pinnedDashboard).isDisplayed();
             flag = true;
@@ -140,16 +139,21 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(TICKET_PARTCIPANTS,"Participants",MEDIUMWAIT);
         System.out.println("Participant existing one is "+driver.findElement(TICKET_PARTCIPANTS).getText());
         By TICKET_PARTICIPANT_SELECTION = By.xpath("//div[contains(text(),'"+dashBoardData1.ticketParticipant+"')]");
-        waitForPageToLoad();
+        waitForSecs(5);
         Actions act1=new Actions(driver);
         act1.sendKeys(dashBoardData1.ticketParticipant);
         List<WebElement> participants = driver.findElements(TICKET_PARTICIPANT_SELECTION);
         System.out.println("Total no 0f participants:::====> " + participants.size());
-        waitUntilClickable(TICKET_PARTICIPANT_SELECTION,"Wait till participants load" ,5000);
+       waitUntilClickable(TICKET_PARTICIPANT_SELECTION,"Wait till participants load" ,5000);
+
         for (int i = 0; i < participants.size(); i++) {
             System.out.println(participants.get(i).getText());
+            waitForSecs(7);
             if (participants.get(i).getText().contains(dashBoardData1.ticketParticipant)) {
-                participants.get(i).click();
+                waitForSecs(12);
+              WebElement e=  participants.get(i);
+              waitForSecs(6);
+            e.click();
                 break;
             }
         }
@@ -203,53 +207,30 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     }
 
 
-    @Step("Accessing Dashboard by Allowed user")
-    public void accessDashboardByAllowedUser() throws InterruptedException{
-        boolean flag = false;
+    @Step("Adding and Verifying Sample Portlet")
+    public void addingAndVerifyingSamplePortlet(){
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
-       // waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
-        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
-        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDashboard_AllowedUsers+"')]");
-        //waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
-        if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
-            Assert.fail("Dashboard page is not displayed for user after giving access");
-        try{
-            if((driver.findElement(ADD_METRIC_ICON).isDisplayed()|driver.findElement(BTN_RENAME_DASHBOARD).isDisplayed()|
-                    driver.findElement(BTN_CLONE_DASHBOARD).isDisplayed()|driver.findElement(BTN_PORTLETS_PER_ROW).isDisplayed()|
-                    driver.findElement(DASHBAORD_VISIBILITY_ICON).isDisplayed()))
-                Assert.fail("Dashboard Permissions are given to 'Allowed User'");
-            if((driver.findElement(BTN_CLONE_PORTLET).isDisplayed()|driver.findElement(BTN_EDIT_PORTLET).isDisplayed()|
-                    driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
-                Assert.fail("Permissions for portlet are given to 'Allowed User'");
-            flag = true;
-        }catch(Exception e){
-            System.out.println("Expected Permissions are given to 'Allowed User'");
-        }
-        if(flag)
-            Assert.fail("Non-applicable Permissions are given to 'Allowed User'");
-    }
-
-    @Step("Accessing Dashboard by sample user after removing access")
-    public void accessDashboardByUserAfterRemovingAccess() throws InterruptedException{
-        waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
-        if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
-            Assert.fail("Error message is not displayed for user without access");
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(SEARCH_BAR_ADD_METRIC,"Search bar in Add Metric Window",MEDIUMWAIT);
+        safeClick(SEARCH_BAR_ADD_METRIC,"Search bar in Add Metric Window",MEDIUMWAIT);
+        driver.findElement(SEARCH_BAR_ADD_METRIC).sendKeys(dashBoardData1.portletQuery, Keys.ENTER,Keys.ENTER);
+        waitForPageToLoad();
+        By PORTLET_TITLE= By.xpath("//span[@aria-label='"+dashBoardData1.portletQuery+"']");
+        waitUntilClickable(PORTLET_TITLE,"Counter Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(PORTLET_TITLE).isDisplayed())
+            Assert.fail("Counter portlet added is not displayed in Dashboard page");
     }
 
     @Step("Set 'Allowed Users' in 'Dashboard Visibility'")
     public void setAllowedUsersInDashboardVisibility() throws InterruptedException{
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
-        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
-        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS,"Dashboard in Dashboards Overview page", MEDIUMWAIT);
+        addingAndVerifyingSamplePortlet();
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         waitUntilClickable(ALLOWED_USERS_FIELD,"Allowed Users Field",MEDIUMWAIT);
         safeClick(ALLOWED_USERS_FIELD,"Allowed Users Field",MEDIUMWAIT);
-        //System.out.println("Participant existing one is "+driver.findElement(TICKET_PARTCIPANTS).getText());
         By ALLOWED_USER_OPTION = By.xpath("//div[contains(text(),'"+dashBoardData1.userName+"')]");
         waitForPageToLoad();
         Actions act2=new Actions(driver);
@@ -267,11 +248,51 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
     }
 
+    @Step("Accessing Dashboard by Allowed user")
+    public void accessDashboardByAllowedUser() throws InterruptedException{
+        boolean flag = false;
+        try{
+            safeClick(CLOSE_ERROR_POPUP,"Close button in error popup",MEDIUMWAIT);
+        }
+        catch (NoSuchElementException|AssertionError e){
+            e.getMessage();
+        }
+        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", LONGWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        waitForPageToLoad();
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+dname2+"']");
+        waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
+        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+dname2+"')]");
+        waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
+        if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
+            Assert.fail("Dashboard page is not displayed for user after giving access");
+        By PORTLET_TITLE= By.xpath("//span[@aria-label='"+dashBoardData1.portletQuery+"']");
+        waitUntilClickable(PORTLET_TITLE,"Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(PORTLET_TITLE).isDisplayed())
+            Assert.fail("Portlet added is not displayed in Dashboard page");
+        try{
+            if((driver.findElement(ADD_METRIC_ICON).isDisplayed()|driver.findElement(BTN_RENAME_DASHBOARD).isDisplayed()|
+                    driver.findElement(BTN_CLONE_DASHBOARD).isDisplayed()|driver.findElement(BTN_PORTLETS_PER_ROW).isDisplayed()|
+                    driver.findElement(DASHBAORD_VISIBILITY_ICON).isDisplayed()))
+                Assert.fail("Dashboard Permissions are given to 'Allowed User'");
+            if((driver.findElement(BTN_CLONE_PORTLET).isDisplayed()|driver.findElement(BTN_EDIT_PORTLET).isDisplayed()|
+                    driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
+                Assert.fail("Permissions for portlet are given to 'Allowed User'");
+            flag = true;
+        }catch(Exception e){
+            System.out.println("Expected Permissions are given to 'Allowed User'");
+        }
+        if(flag)
+            Assert.fail("Non-applicable Permissions are given to 'Allowed User'");
+    }
+
     @Step("Remove 'Allowed Users' in 'Dashboard Visibility'")
     public void removeAllowedUsersInDashboardVisibility() throws InterruptedException{
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDashboard_AllowedUsers + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDashboard_AllowedUsers+"']");
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+dname2+"']");
         waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
@@ -281,6 +302,13 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitUntilClickable(DELETE_ALLOWED_USER,"Delete icon for Allowed User",MEDIUMWAIT);
         safeClick(DELETE_ALLOWED_USER,"Delete icon for Allowed User",MEDIUMWAIT);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+    }
+
+    @Step("Accessing Dashboard by sample user after removing access")
+    public void accessDashboardByUserAfterRemovingAccess() throws InterruptedException{
+        waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
+        if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
+            Assert.fail("Error message is not displayed for user without access");
     }
 
     @Step("Navigate to Dashboards page")
@@ -293,10 +321,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     public void setRequiredRolesInDashboardVisibility() throws InterruptedException{
         boolean flag = false;
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDB_RequiredRoles + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD_REQUIRED_ROLES = By.xpath("//div[@title='"+sampleDB_RequiredRoles+"']");
-        waitUntilClickable(SAMPLE_DASHBOARD_REQUIRED_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
-        safeClick(SAMPLE_DASHBOARD_REQUIRED_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS,"Dashboard in Dashboards Overview page", MEDIUMWAIT);
+        addingAndVerifyingSamplePortlet();
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         waitUntilClickable(BTN_REQUIRED_ROLES,"Add icon in 'Required Roles' Field",MEDIUMWAIT);
@@ -321,8 +347,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             System.out.println(roles.get(i).getText());
             if (roles.get(i).getText().contains(dashBoardData1.sample_Required_Role)) {
                 roles.get(i).click();
+                break;
             }
-            break;
         }
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
     }
@@ -330,15 +356,27 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Accessing Dashboard by sample user with 'Required Roles'")
     public void accessDashboardByRequiredRoleUser() throws InterruptedException{
         boolean flag = false;
+        try{
+            safeClick(CLOSE_ERROR_POPUP,"Close button in error popup",MEDIUMWAIT);
+        }
+        catch (NoSuchElementException|AssertionError e){
+            e.getMessage();
+        }
+        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", LONGWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDB_RequiredRoles + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDB_RequiredRoles+"']");
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+dname2+"']");
         waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
-        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDB_RequiredRoles+"')]");
+        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+dname2+"')]");
         waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
         if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
             Assert.fail("Dashboard page is not displayed for user after giving access");
+        By PORTLET_TITLE= By.xpath("//span[@aria-label='"+dashBoardData1.portletQuery+"']");
+        waitUntilClickable(PORTLET_TITLE,"Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(PORTLET_TITLE).isDisplayed())
+            Assert.fail("Portlet added is not displayed in Dashboard page");
         try{
             if((driver.findElement(ADD_METRIC_ICON).isDisplayed()|driver.findElement(BTN_RENAME_DASHBOARD).isDisplayed()|
                     driver.findElement(BTN_CLONE_DASHBOARD).isDisplayed()|driver.findElement(BTN_PORTLETS_PER_ROW).isDisplayed()|
@@ -358,8 +396,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Remove 'Required Roles' in 'Dashboard Visibility'")
     public void removeRequiredRoleInDashboardVisibility() throws InterruptedException{
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDB_RequiredRoles + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDB_RequiredRoles+"']");
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+dname2+"']");
         waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
@@ -381,10 +419,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Set 'Owner Roles' in 'Dashboard Visibility'")
     public void setOwnerRolesInDashboardVisibility() throws InterruptedException{
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDB_OwnerRoles + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD_OWNER_ROLES = By.xpath("//div[@title='"+sampleDB_OwnerRoles+"']");
-        waitUntilClickable(SAMPLE_DASHBOARD_OWNER_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
-        safeClick(SAMPLE_DASHBOARD_OWNER_ROLES,"Sample Dashboard for user",MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS,"Dashboard in Dashboards Overview page", MEDIUMWAIT);
+        addingAndVerifyingSamplePortlet();
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         waitUntilClickable(BTN_OWNER_ROLES,"Add icon in 'Owner Roles' Field",MEDIUMWAIT);
@@ -417,12 +453,20 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("Accessing Dashboard by sample user with 'Owner Roles'")
     public void accessDashboardByOwnerRoleUser() throws InterruptedException{
+        try{
+            safeClick(CLOSE_ERROR_POPUP,"Close button in error popup",MEDIUMWAIT);
+        }
+        catch (NoSuchElementException |AssertionError e){
+            e.getMessage();
+        }
+        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", LONGWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
-        safeType(TEXTBOX_TYPESEARCH, sampleDB_OwnerRoles + "\n", "Enter dashboard into type search");
-        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+sampleDB_OwnerRoles+"']");
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Enter dashboard into type search");
+        By SAMPLE_DASHBOARD = By.xpath("//div[@title='"+dname2+"']");
         waitUntilClickable(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
         safeClick(SAMPLE_DASHBOARD,"Sample Dashboard for user",MEDIUMWAIT);
-        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+sampleDB_OwnerRoles+"')]");
+        By HEADER_DASHBOARD = By.xpath("//h5[contains(text(),'"+dname2+"')]");
         waitUntilClickable(HEADER_DASHBOARD,"",MEDIUMWAIT);
         if(!driver.findElement(HEADER_DASHBOARD).isDisplayed())
             Assert.fail("Dashboard page is not displayed for user after giving access");
@@ -434,7 +478,6 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 driver.findElement(BTN_CLOSE_PORTLET).isDisplayed()))
             Assert.fail("Permissions for portlet are not given properly to owner user");
     }
-
     @Step("Remove 'Owner Roles' in 'Dashboard Visibility'")
     public void removeOwnerRoleInDashboardVisibility() throws InterruptedException{
         waitForPageToLoad();
@@ -454,5 +497,4 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
             Assert.fail("Error message is not displayed for user without access");
     }
-
 }

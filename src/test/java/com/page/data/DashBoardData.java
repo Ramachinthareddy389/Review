@@ -39,5 +39,8 @@ public class DashBoardData {
 	public final String portletMeasureData = portletsData.getProperty("MeasureData");
 	public final String nTabularPortletTrendGranularity = portletsData.getProperty("TrendGranularity");
 	public final String nTabularPortletLabel = portletsData.getProperty("Label");
+	public final String tabularPortletPivotData = portletsData.getProperty("PivotData");
+
+
 
 }
