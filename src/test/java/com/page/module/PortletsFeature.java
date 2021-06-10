@@ -9,10 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -32,8 +29,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
     String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
-    String tabularPortletName = "Tabular Portlet - " +random.nextInt(1000);
-
+    String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
+    String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
 
     public PortletsFeature(WebDriver driver) {
         super(driver);
@@ -467,31 +464,30 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Navigate to RCA/Pivot/Drillthrough page using '3 option' tooltip")
-    public void navigatingToDrilthroughPagesUsingTooltipOptions()
-    {
+    public void navigatingToDrilthroughPagesUsingTooltipOptions() {
         waitForPageToLoad();
-        mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
-        safeClick(TOOLTIPOPTION_1,"RCA",MEDIUMWAIT);
+        mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_1, "RCA", MEDIUMWAIT);
         waitForPageToLoad();
-        String Tooltip1= safeGetText(Title_DRILLTHROUGH, "Drill through page title for RCA", MEDIUMWAIT);
+        String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for RCA", MEDIUMWAIT);
         System.out.println(Tooltip1);
-        Assert.assertEquals(Tooltip1,dashBoardData.tooltip1);
-        safeClick(HYPERLINKDBINDRILLTHROUGH,"Dashboard Name Hyper link in Drillthrough Page",MEDIUMWAIT);
+        Assert.assertEquals(Tooltip1, dashBoardData.tooltip1);
+        safeClick(HYPERLINKDBINDRILLTHROUGH, "Dashboard Name Hyper link in Drillthrough Page", MEDIUMWAIT);
         waitForSecs(5);
-        mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
-        safeClick(TOOLTIPOPTION_2,"RCA",MEDIUMWAIT);
+        mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_2, "RCA", MEDIUMWAIT);
         waitForPageToLoad();
-        String Tooltip2= safeGetText(Title_DRILLTHROUGH, "Drill through page title for Raw instances", MEDIUMWAIT);
+        String Tooltip2 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for Raw instances", MEDIUMWAIT);
         System.out.println(Tooltip2);
-        Assert.assertEquals(Tooltip2,dashBoardData.tooltip2);
+        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2);
         waitForPageToLoad();
-        safeClick(HYPERLINKDBINDRILLTHROUGH,"Dashboard Name Hyper link in Drillthrough Page",MEDIUMWAIT);
-        mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
-        safeClick(TOOLTIPOPTION_3,"RCA",MEDIUMWAIT);
+        safeClick(HYPERLINKDBINDRILLTHROUGH, "Dashboard Name Hyper link in Drillthrough Page", MEDIUMWAIT);
+        mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_3, "RCA", MEDIUMWAIT);
         waitForPageToLoad();
-        String Tooltip3= safeGetText(Title_DRILLTHROUGH, "Drill through page title for pivot instances", MEDIUMWAIT);
+        String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for pivot instances", MEDIUMWAIT);
         System.out.println(Tooltip3);
-        Assert.assertEquals(Tooltip3,dashBoardData.tooltip3);
+        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3);
 
     }
 
@@ -504,78 +500,77 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        waitUntilClickable(TABULAR_HEADER,"Tabular header in Portlet Interface",MEDIUMWAIT);
-        safeClick(TABULAR_HEADER,"Tabular header in Portlet Interface",MEDIUMWAIT);
-        safeClick(DROPDOWN_KPI,"Clicking on KPI",MEDIUMWAIT);
-        safeType(TABULAR_TEXTBOX_KPI,dashBoardData.portletKPI,"Sending the text",VERYLONGWAIT);
+        waitUntilClickable(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
+        safeClick(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
+        safeType(TABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         waitForSecs(2);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
-            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI))
-            {
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI)) {
                 kpis.get(i).click();
                 break;
             }
         }
-        safeClick(TABULAR_MEASURES_FIELD,"Pivots Field",MEDIUMWAIT);
-        String measureData = Keys.chord(Keys.CONTROL,"a") + Keys.DELETE;
-        driver.findElement(TABULAR_MEASURES_FIELD_INPUT).sendKeys(measureData + dashBoardData.portletMeasureData,Keys.ENTER);
-        safeClick(TABULAR_PIVOT_FIELD,"Pivots Field",MEDIUMWAIT);
+        safeClick(TABULAR_MEASURES_FIELD, "Pivots Field", MEDIUMWAIT);
+        String measureData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        driver.findElement(TABULAR_MEASURES_FIELD_INPUT).sendKeys(measureData + dashBoardData.portletMeasureData, Keys.ENTER);
+        safeClick(TABULAR_PIVOT_FIELD, "Pivots Field", MEDIUMWAIT);
         String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData) + Keys.ENTER;
         driver.findElement(TABULAR_PIVOT_FIELD_INPUT).sendKeys(pivotdata);
-        safeClick(ORDER_BY_FIELD,"Order By Field in Tabular portlet",MEDIUMWAIT);
-        safeClick(ORDER_BY_OPTION,"Order By Field option in Tabular portlet",MEDIUMWAIT);
-        safeClick(ORDER_DIRECTION_FIELD,"Order Direction Field in Tabular portlet",MEDIUMWAIT);
-        safeClick(ORDER_DIRECTION_OPTION,"Order Direction Field option in Tabular portlet",MEDIUMWAIT);
+        safeClick(ORDER_BY_FIELD, "Order By Field in Tabular portlet", MEDIUMWAIT);
+        safeClick(ORDER_BY_OPTION, "Order By Field option in Tabular portlet", MEDIUMWAIT);
+        safeClick(ORDER_DIRECTION_FIELD, "Order Direction Field in Tabular portlet", MEDIUMWAIT);
+        safeClick(ORDER_DIRECTION_OPTION, "Order Direction Field option in Tabular portlet", MEDIUMWAIT);
     }
 
     @Step("adding Tabular portlet1")
-    public void addingtabularPortlet1(){
-        safeClick(SHOW_SLA_COLUMN_CHECKBOX,"Show SLA column checkbox",MEDIUMWAIT);
+    public void addingtabularPortlet1() {
+        safeClick(SHOW_SLA_COLUMN_CHECKBOX, "Show SLA column checkbox", MEDIUMWAIT);
         safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
-        searchField.sendKeys(del +tabularPortletName);
+        searchField.sendKeys(del + tabularPortletName);
         String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
-        safeClick(TEXTBOX_PORTLET_FILTERS,"Portlet filters field",MEDIUMWAIT);
-        safeClick(Filters_TypeSearch,"Entering Text into type search",MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
-        safeClick(DROPDOWN_FEILDS,"Selecting field",MEDIUMWAIT);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER,"Changing to negation filter",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply button in Portlet Filters",MEDIUMWAIT);
-        System.out.println("Filter in Portlet Filters is "+driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
+        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
-        safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
+        safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }
+
     @Step("Verifying Tabular Portlet in Dashboard page")
-    public void verifyingTabularPortlet() throws InterruptedException{
+    public void verifyingTabularPortlet() throws InterruptedException {
         waitForPageToLoad();
-        By TABULAR_PORTLET_TITLE= By.xpath("//span[@aria-label='"+tabularPortletName+"']");
-        waitUntilClickable(TABULAR_PORTLET_TITLE,"Tabular Portlet Title",MEDIUMWAIT);
-        if(!driver.findElement(TABULAR_PORTLET_TITLE).isDisplayed())
+        By TABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + tabularPortletName + "']");
+        waitUntilClickable(TABULAR_PORTLET_TITLE, "Tabular Portlet Title", MEDIUMWAIT);
+        if (!driver.findElement(TABULAR_PORTLET_TITLE).isDisplayed())
             Assert.fail("Tabular portlet added is not displayed in Dashboard page");
-        By FILTER_TABULAR_PORTLET = By.xpath("//span[@aria-label='"+tabularPortletName+"']/../following-sibling::span/i[contains(@class,'filter')]");
-        if(!driver.findElement(FILTER_TABULAR_PORTLET).isDisplayed())
+        By FILTER_TABULAR_PORTLET = By.xpath("//span[@aria-label='" + tabularPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        if (!driver.findElement(FILTER_TABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Tabular Portlet");
-        mouseHoverJScript(FILTER_TABULAR_PORTLET,"Filter icon","Filter icon in Tabular Portlet",MEDIUMWAIT);
+        mouseHoverJScript(FILTER_TABULAR_PORTLET, "Filter icon", "Filter icon in Tabular Portlet", MEDIUMWAIT);
         By FILTER_MESSAGE_TABULAR_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
         if (!driver.findElement(FILTER_MESSAGE_TABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Tabular portlet");
         try {
-            By PIVOT_HEADER_PORTLET = By.xpath("//div[@aria-label='"+dashBoardData.tabularPortletPivotData+"']");
+            By PIVOT_HEADER_PORTLET = By.xpath("//div[@aria-label='" + dashBoardData.tabularPortletPivotData + "']");
             waitForSecs(5);
             if (!driver.findElement(PIVOT_HEADER_PORTLET).isDisplayed())
                 Assert.fail("Pivot Field is not displayed properly in Tabular portlet");
-            By MEASURE_HEADER_PORTLET = By.xpath("//div[@title='"+dashBoardData.portletMeasureData+"']");
-            if(!driver.findElement(MEASURE_HEADER_PORTLET).isDisplayed())
+            By MEASURE_HEADER_PORTLET = By.xpath("//div[@title='" + dashBoardData.portletMeasureData + "']");
+            if (!driver.findElement(MEASURE_HEADER_PORTLET).isDisplayed())
                 Assert.fail("Measure field is not displayed properly in Tabular portlet");
-        }
-        catch(Exception e){
-            if(!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+        } catch (Exception e) {
+            if (!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
                 Assert.fail("No Data Available label is not displayed in Tabular portlet");
             System.out.println("Data is not available in Tabular Portlet");
         }
@@ -637,4 +632,116 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         return lastModifiedFile;
     }
 
+    @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
+    public void verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet() {
+        safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del + tabularPortletName);
+        String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
+        decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
+        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
+        safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
+        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
+        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
+        safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
+        waitForSecs(5);
+        mouseHoverJScript(SLACOLUMNS, "", "first sla", MEDIUMWAIT);
+        safeClick(SLAFILTERICON, "Filter ICON", MEDIUMWAIT);
+        String filtervalue = getAttributeValue(SLAFILTERICON, "aria-label", "Tooltip", MEDIUMWAIT);
+        System.out.println(filtervalue);
+        String usrColum = safeGetText(USERNAME_COLUMN_PORTLET, "UserName column value", MEDIUMWAIT);
+        System.out.println(usrColum);
+        String usercolumText = "user.name == " + usrColum;
+        System.out.println(usercolumText);
+        Assert.assertEquals(filtervalue, usercolumText);
     }
+
+    @Step("Adding Flow Portlet")
+    public void addingFlowPortlet() throws InterruptedException {
+        waitForPageToLoad();
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        waitUntilClickable(FLOW_HEADER,"Flow header in Portlet Interface",MEDIUMWAIT);
+        safeClick(FLOW_HEADER,"Flow header in Portlet Interface",MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI,"Clicking on KPI",MEDIUMWAIT);
+        safeType(FLOW_TEXTBOX_KPI,dashBoardData.portletKPI,"Sending the text",VERYLONGWAIT);
+        Thread.sleep(3000);
+        List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis.size(); i++) {
+            System.out.println(kpis.get(i).getText());
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI))
+            {
+                kpis.get(i).click();
+                break;
+            }
+        }
+        safeClick(FLOW_PORTLET_NAME, "Portlet Name field in Flow portlet Interface");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del +flowPortletName);
+        safeClick(FLOW_COLUMN_LABEL,"Column Label Field",MEDIUMWAIT);
+        String deleteColumnLabelData = Keys.chord(Keys.CONTROL,"a") +Keys.DELETE;
+        driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData,dashBoardData.flowPortletColumnLabel);
+        safeClick(FLOW_CLUSTER_BY_LABEL,"Cluster By Field",MEDIUMWAIT);
+        String clusterdata = Keys.chord("Color") + Keys.ENTER;
+        driver.findElement(FLOW_CLUSTER_BY_INPUT).sendKeys(clusterdata);
+        safeClick(FLOW_SHOW_USERS_CHECKBOX,"Show Users checkbox",MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS,"Portlet filters field",MEDIUMWAIT);
+        safeClick(Filters_TypeSearch,"Entering Text into type search",MEDIUMWAIT);
+        safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
+        safeClick(DROPDOWN_FEILDS,"Selecting field",MEDIUMWAIT);
+        driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
+        safeClick(IS_NOT_PORTLET_FILTER,"Changing to negation filter",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply button in Portlet Filters",MEDIUMWAIT);
+        System.out.println("Filter in Portlet Filters is "+driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
+        safeClick(FLOW_FILTER_VALUE_LABEL,"",MEDIUMWAIT);
+        safeType(FLOW_FILTER_VALUE,"Sample","Filter value field input",MEDIUMWAIT);
+        safeClick(FLOW_FILTER_POSITION_LABEL,"Filter Position Field",MEDIUMWAIT);
+        safeClick(FLOW_FILTER_POSITION,"Filter Position Dropdown Option",MEDIUMWAIT);
+        safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
+    }
+    @Step("Verifying Flow Portlet in Dashboard page")
+    public void verifyingFlowPortlet() throws InterruptedException{
+        waitForPageToLoad();
+        By FLOW_PORTLET_TITLE= By.xpath("//span[@aria-label='"+flowPortletName+"']");
+        waitUntilClickable(FLOW_PORTLET_TITLE,"Flow Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(FLOW_PORTLET_TITLE).isDisplayed())
+            Assert.fail("Flow portlet added is not displayed in Dashboard page");
+        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='"+flowPortletName+"']/../following-sibling::span/i[contains(@class,'filter')]");
+        if(!driver.findElement(FILTER_FLOW_PORTLET).isDisplayed())
+            Assert.fail("Filter icon is not displayed for Flow Portlet");
+        mouseHoverJScript(FILTER_FLOW_PORTLET,"Filter icon","Filter icon in Flow Portlet",MEDIUMWAIT);
+        By FILTER_MESSAGE_FLOW_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
+        if (!driver.findElement(FILTER_MESSAGE_FLOW_PORTLET).isDisplayed())
+            Assert.fail("Filter Message is not displayed properly in Flow portlet");
+        try {
+            waitForSecs(5);
+            if (driver.findElement(FLOW_PORTLET_GRAPH).isDisplayed()) {
+                safeClick(BTN_MAXIMIZE_PORTLET, "Maximise portlet button", MEDIUMWAIT);
+                By COLUMN_LABEL = By.xpath("//span[@title='" + dashBoardData.flowPortletColumnLabel + "']");
+                waitUntilClickable(COLUMN_LABEL, "Column label Field", MEDIUMWAIT);
+                if (!driver.findElement(COLUMN_LABEL).isDisplayed())
+                    Assert.fail("Column Label is not displayed properly in Flow portlet");
+            }
+        }
+        catch(Exception e){
+            if(!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+                Assert.fail("No Data Available label is not displayed in flow portlet");
+            System.out.println("Data is not available in Flow Portlet");
+        }
+    }
+
+
+}

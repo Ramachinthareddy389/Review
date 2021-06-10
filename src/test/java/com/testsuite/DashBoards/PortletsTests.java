@@ -79,7 +79,6 @@ public class PortletsTests extends BaseSetup {
     }
 
 
-
     @Test(enabled = true)
     public void TC_45_ClonePortletToAnotherDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -136,8 +135,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(enabled = true)
-    public void TC_048_ExportGHPortlet() throws InterruptedException, IOException
-    {
+    public void TC_048_ExportGHPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -147,7 +145,29 @@ public class PortletsTests extends BaseSetup {
 
     }
 
+    @Test(enabled = true)
+    public void TC_27_AddingFlowPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingFlowPortlet();
+        portletsFeature.verifyingFlowPortlet();
+    }
+    @Test(enabled = true)
+    public void TC_056VerifyhovermessageinfiltericoninAnalysisportletinTabularportlet() throws InterruptedException, IOException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingTabularPortlet();
+        portletsFeature.verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet();
+
 
     }
+
+
+}
 
 

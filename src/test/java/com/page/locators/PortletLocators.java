@@ -114,8 +114,26 @@ public interface PortletLocators {
     By TABULAR_MEASURES_FIELD = By.xpath("//label[contains(@for,'measures')]/../div");
     By TABULAR_MEASURES_FIELD_INPUT = By.xpath("//input[contains(@id,'measures')]");
 
+    //Flow Portlet
+    By FLOW_HEADER = By.xpath("//button/span[contains(text(),'Flow')]");
+    By FLOW_TEXTBOX_KPI = By.xpath("//input[@id='kpi']");
+    By FLOW_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
+    By FLOW_COLUMN_LABEL = By.xpath("//label[contains(@for,'columnLabel')]");
+    By FLOW_COLUMN_LABEL_INPUT = By.xpath("//input[contains(@id,'columnLabel')]");
+    By FLOW_CLUSTER_BY_LABEL = By.xpath("//label[contains(@for,'clusterBy')]");
+    By FLOW_CLUSTER_BY_DATA = By.xpath("//label[contains(@for,'clusterBy')]/../div");
+    By FLOW_CLUSTER_BY_INPUT = By.xpath("//input[@id='clusterBy']");
+    By FLOW_FILTER_VALUE_LABEL = By.xpath("//label[contains(@for,'filterValue')]");
+    By FLOW_FILTER_VALUE = By.xpath("//input[contains(@id,'filterValue')]");
+    By FLOW_FILTER_POSITION_LABEL = By.xpath("//label[@for='filterAtStart']/../div");
+    By FLOW_FILTER_POSITION = By.xpath("//div[(@role='menuitem')][contains(text(),'End At')]");
+    By FLOW_SHOW_USERS_CHECKBOX = By.xpath("//span[contains(text(),'Show Users')]");
+    By BTN_MAXIMIZE_PORTLET = By.xpath("//div[@aria-label='Maximize']");
+    By FLOW_PORTLET_GRAPH = By.xpath("//*[local-name()='svg' and contains(@id,'graph')]");
+
     By SLACOLUMNS=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div/span/div/div");
     By USERNAME_COLUMN_PORTLET=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div[2]/span/span");
     By SLAFILTERICON=By.xpath("//span[contains(@aria-label,'user.name')]");
+    By TABLEDATA=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
 
 }
