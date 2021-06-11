@@ -136,4 +136,13 @@ public interface PortletLocators {
     By SLAFILTERICON=By.xpath("//span[contains(@aria-label,'user.name')]");
     By TABLEDATA=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
 
+    //Map Portlet
+    By MAP_HEADER = By.xpath("//button/span[contains(text(),'Map')]");
+    By MAP_TEXTBOX_KPI = By.xpath("//input[@id='kpi']");
+    By MAP_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
+    By MAP_LOCATION_FOR_LABEL = By.xpath("//label[@for='locationFor']");
+    By MAP_LOCATION_FOR = By.xpath("//label[@for='locationFor']/../div");
+    By MAP_LEVEL_DROPDOWN = By.xpath("//*[text()='Map Level']/../../../div//div[contains(@class,'body1')]");
+    By MAP_LEVEL_TEXTBOX = By.xpath("//input[@id='mapLevel']");
+
 }

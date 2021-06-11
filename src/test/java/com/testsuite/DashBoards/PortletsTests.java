@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class PortletsTests extends BaseSetup {
     private DashboardOverviewPage dashboardOverviewPage;
@@ -20,6 +21,9 @@ public class PortletsTests extends BaseSetup {
     private LoginPage loginPage;
 
     private String sModeOfExecution;
+    Random random=new Random();
+    String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
+    String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -108,8 +112,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingNTabularPortlet();
-        portletsFeature.verifyingNTabularPortlet();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingNTabularPortlet(nTabularPortletName);
+        portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
     }
 
     @Test(enabled = true)
@@ -130,8 +135,8 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.addingdashboard();
         portletsFeature.addingTabularPortlet();
-        portletsFeature.addingtabularPortlet1();
-        portletsFeature.verifyingTabularPortlet();
+        portletsFeature.addingtabularPortlet1(tabularPortletName);
+        portletsFeature.verifyingTabularPortlet(tabularPortletName);
     }
 
     @Test(enabled = true)
@@ -162,12 +167,34 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.addingdashboard();
         portletsFeature.addingTabularPortlet();
-        portletsFeature.verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet();
-
+        portletsFeature.verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet(tabularPortletName);
 
     }
 
 
+    @Test(enabled = true)
+    public void TC_049_ExportTabularportlet() throws InterruptedException, IOException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingTabularPortlet();
+        portletsFeature.addingtabularPortlet1(tabularPortletName);
+        portletsFeature.verifyingTabularPortlet(tabularPortletName);
+        portletsFeature.validatingExportedATabularPortlet(tabularPortletName);
+
+    }
+
+    @Test(enabled = true)
+    public void TC_26_AddingMapPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingdashboard();
+        portletsFeature.addingMapPortlet();
+        portletsFeature.verifyingMapPortlet();
+    }
 }
 
 

@@ -6,14 +6,12 @@ import com.page.locators.PortletLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.*;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class PortletsFeature extends SafeActions implements PortletLocators {
     private WebDriver driver;
@@ -28,9 +26,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
-    String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
-    String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
+    //String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
+    //String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
     String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
+    String mapPortletName = "Map Portlet - " + random.nextInt(1000);
 
     public PortletsFeature(WebDriver driver) {
         super(driver);
@@ -342,7 +341,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Adding N Tabular Portlet")
-    public void addingNTabularPortlet() throws InterruptedException {
+    public void addingNTabularPortlet(String nTabularPortletName) throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -428,7 +427,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Verifying N Tabular Portlet in Dashboard page")
-    public void verifyingNTabularPortlet() throws InterruptedException {
+    public void verifyingNTabularPortlet(String nTabularPortletName) throws InterruptedException {
         waitForPageToLoad();
         By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + nTabularPortletName + "']");
         waitUntilClickable(NTABULAR_PORTLET_TITLE, "N Tabular Portlet Title", MEDIUMWAIT);
@@ -526,7 +525,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("adding Tabular portlet1")
-    public void addingtabularPortlet1() {
+    public void addingtabularPortlet1(String tabularPortletName) {
         safeClick(SHOW_SLA_COLUMN_CHECKBOX, "Show SLA column checkbox", MEDIUMWAIT);
         safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
@@ -548,7 +547,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Verifying Tabular Portlet in Dashboard page")
-    public void verifyingTabularPortlet() throws InterruptedException {
+    public void verifyingTabularPortlet(String tabularPortletName) throws InterruptedException {
         waitForPageToLoad();
         By TABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + tabularPortletName + "']");
         waitUntilClickable(TABULAR_PORTLET_TITLE, "Tabular Portlet Title", MEDIUMWAIT);
@@ -633,7 +632,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
-    public void verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet() {
+    public void verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet(String tabularPortletName) {
         safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
@@ -743,5 +742,142 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
     }
 
+    @Step("Export Tabular portlet")
+    public void validatingExportedATabularPortlet(String tabularPortletName) throws IOException {
 
+        waitForSecs(10);
+        List<WebElement> list = driver.findElements(TABLEDATA);
+        for (int i = 1; i < list.size(); i++) {
+            String data = list.get(i).getText();
+            System.out.println("Table Data   :" +data);
+        }
+
+        waitForSecs(7);
+        safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+        //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
+        String home = System.getProperty("user.home");
+        String file_name = tabularPortletName + ".csv";
+        System.out.println(file_name);
+        String downloadPath = home + "\\Downloads";
+        System.out.println(downloadPath);
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+        System.out.println(fileName);
+        Assert.assertTrue(fileName.equals(file_name));
+        Reader reader = new FileReader(downloadPath + "\\" + fileName);
+        CSVReader csvreader = new CSVReader(reader);
+        String[] cell;
+        String s = "";
+        while ((cell = csvreader.readNext()) != null)
+        {
+            int i = 0;
+            s = s + cell[i] + ":";
+           // String emails = cell[i + 1];
+            //String message = cell[i + 2];
+
+        }
+
+        String[] labels = s.split(":");
+        Arrays.sort(labels);
+        Arrays.toString(labels);
+        for(int i=1;i<labels.length-1;i++){
+            if(labels[i+1].equals(list.get(i).getText()))
+            {
+                System.out.println("Exported CSV values  :"+labels[i+1] + "  Table Column Values:"+list.get(i).getText());
+                Assert.assertEquals(labels[i+1],list.get(i).getText());
+            }
+        }
+        reader.close();
+        File file = new File(downloadPath + "\\" + fileName);
+        if (file.delete())
+            System.out.println("file deleted");
+        else {
+            System.out.println("file not deleted");
+        }
+    }
+
+
+    @Step("Adding Map Portlet")
+    public void addingMapPortlet() throws InterruptedException {
+        waitForPageToLoad();
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        waitUntilClickable(MAP_HEADER,"Map header in Portlet Interface",MEDIUMWAIT);
+        safeClick(MAP_HEADER,"Map header in Portlet Interface",MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI,"Clicking on KPI",MEDIUMWAIT);
+        safeType(MAP_TEXTBOX_KPI,dashBoardData.portletKPI,"Sending the text",VERYLONGWAIT);
+        Thread.sleep(1000);
+        List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis.size(); i++) {
+            System.out.println(kpis.get(i).getText());
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI))
+            {
+                kpis.get(i).click();
+                break;
+            }
+        }
+        safeClick(MAP_PORTLET_NAME, "Portlet Name field in Map portlet Interface");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del +mapPortletName);
+        safeClick(MAP_LOCATION_FOR_LABEL,"Location field",MEDIUMWAIT);
+        Thread.sleep(2000);
+        safeClick(MAP_LOCATION_FOR,"Location field",MEDIUMWAIT);
+        Actions action1 = new Actions(driver);
+        action1.sendKeys("System");
+        Thread.sleep(2000);
+        List<WebElement> locations = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < locations.size(); i++) {
+            System.out.println(locations.get(i).getText());
+            if (locations.get(i).getText().equalsIgnoreCase("System"))
+            {
+                locations.get(i).click();
+                break;
+            }
+        }
+        safeClick(MAP_LEVEL_DROPDOWN,"Map Level Field",MEDIUMWAIT);
+        safeType(MAP_LEVEL_TEXTBOX,"Country","Sending the text",VERYLONGWAIT);
+        List<WebElement> levels = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < levels.size(); i++) {
+            System.out.println(levels.get(i).getText());
+            if (levels.get(i).getText().equalsIgnoreCase("Country"))
+            {
+                levels.get(i).click();
+                break;
+            }
+        }
+        String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
+        decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
+        safeClick(TEXTBOX_PORTLET_FILTERS,"Portlet filters field",MEDIUMWAIT);
+        safeClick(PortletFilters_TypeSearch,"Entering Text into type search",MEDIUMWAIT);
+        safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
+        safeClick(DROPDOWN_FEILDS,"Selecting field",MEDIUMWAIT);
+        driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
+        safeClick(IS_NOT_PORTLET_FILTER,"Changing to negation filter",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply button in Portlet Filters",MEDIUMWAIT);
+        System.out.println("Filter in Portlet Filters is "+driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
+        safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
+    }
+    @Step("Verifying Map Portlet in Dashboard page")
+    public void verifyingMapPortlet() {
+        waitForPageToLoad();
+        By MAP_PORTLET_TITLE= By.xpath("//span[@aria-label='"+mapPortletName+"']");
+        waitUntilClickable(MAP_PORTLET_TITLE,"Map Portlet Title",MEDIUMWAIT);
+        if(!driver.findElement(MAP_PORTLET_TITLE).isDisplayed())
+            Assert.fail("Map portlet added is not displayed in Dashboard page");
+        By FILTER_MAP_PORTLET = By.xpath("//span[@aria-label='"+mapPortletName+"']/../following-sibling::span/i[contains(@class,'filter')]");
+        if(!driver.findElement(FILTER_MAP_PORTLET).isDisplayed())
+            Assert.fail("Filter icon is not displayed for Map Portlet");
+        mouseHoverJScript(FILTER_MAP_PORTLET,"Filter icon","Filter icon in Map Portlet",MEDIUMWAIT);
+        By FILTER_MESSAGE_MAP_PORTLET = By.xpath("//span[@aria-label='"+appliedFilter+"']");
+        if(!driver.findElement(FILTER_MESSAGE_MAP_PORTLET).isDisplayed())
+            Assert.fail("Filter Message is not displayed properly in Map portlet");
+    }
 }
