@@ -20,9 +20,6 @@ import org.openqa.selenium.interactions.Action;
 
 public class DashboardOverviewPage extends SafeActions implements DashBoardLocators {
     private WebDriver driver;
-    Random random = new Random();
-    String dname = "Filters";
-    String dname1 = dname + random.nextInt(500);
     String expectedText = "Create" + " May2021129" + "";
     static int j;
 
@@ -51,7 +48,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
-    public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
+    public void enterAddrequirefeildsInDashBoardPage(String dname1) throws InterruptedException {
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
@@ -78,17 +75,22 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
-    public void addingdashboard() throws InterruptedException {
+    public void addingdashboard(String dname1) throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
+        /*String count=getAttributeValue(Count,"aria-label","Dashboard count",MEDIUMWAIT);
+        if(count.equals(Count))
+        {
+            safeClick(Count,"Count label",MEDIUMWAIT);
+        }*/
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
     }
 
     @Step("Adding Folder in Dashboard overview Page")
-    public void addingFolder() throws InterruptedException {
+    public void addingFolder(String dname1) throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, "Dashboards > " + dname1 + "\n", "Dashboard into type search");
         System.out.println("entered db text");
         waitForSecs(7);
@@ -99,7 +101,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Removing dashboard from Dashboard overview page")
-    public void removingDashboard() {
+    public void removingDashboard(String dname1) {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
@@ -137,7 +139,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Deleting dashboard from the application ")
-    public void deletingDashboard() throws InterruptedException {
+    public void deletingDashboard(String dname1) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
@@ -163,7 +165,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Renaming dashboard from the  Dashboard overview page")
-    public void renamingDashboard() throws InterruptedException {
+    public void renamingDashboard(String dname1) throws InterruptedException {
         safeClick(LISTOFDASHBOARDS, "Dashboard", MEDIUMWAIT);
         waitUntilClickable(ICON_RENAME, "Waiting for rename icon is displayed");
         safeClick(ICON_RENAME, "Rename icon", MEDIUMWAIT);
@@ -249,7 +251,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Clone using Hover over Dashboard")
-    public void SearchCloneDashboard(String Folder) throws InterruptedException {
+    public void SearchCloneDashboard(String dname1,String Folder) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "Clone Parent", "clone Parent", MEDIUMWAIT);
         String locator = "//span[text()='" + dname1 + "']/parent::div";
@@ -280,7 +282,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Verifying cloning portlet in Dashboard over view page")
-    public void cloningPortlet() throws InterruptedException {
+    public void cloningPortlet(String dname1) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);

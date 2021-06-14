@@ -1,5 +1,6 @@
 package com.page.module;
 
+import com.datamanager.ConfigManager;
 import com.opencsv.CSVReader;
 import com.page.data.DashBoardData;
 import com.page.locators.PortletLocators;
@@ -21,15 +22,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
     String counterPortletName = "Counter Portlet - " + random.nextInt(1000);
     String appliedFilter = null;
-    String dname = "Filters";
-    String dname1 = dname + random.nextInt(500);
-
+    String file_name;
+    String downloadPath;
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
     //String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
     //String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
-    String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
-    String mapPortletName = "Map Portlet - " + random.nextInt(1000);
+    //String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
+   // String mapPortletName = "Map Portlet - " + random.nextInt(1000);
 
     public PortletsFeature(WebDriver driver) {
         super(driver);
@@ -252,7 +252,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Adding General Health portlet")
-    public void addingPortlet() throws InterruptedException {
+    public void addingPortlet(String dname1) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
@@ -325,7 +325,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Verifying GHPortlet")
-    public void VerifyingGHPortlet() {
+    public void VerifyingGHPortlet(String dname1) {
         waitForSecs(15);
         waitUntilClickable(All_FOLDER, "Add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
@@ -575,21 +575,30 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
     }
 
-    @Step("Export GH Portlet")
-    public void validatingExportedGHPortlet() throws IOException {
+
+    public void downloadedpath(){
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(7);
         //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
         String home = System.getProperty("user.home");
-        String file_name = dname1 + "_" + "User Click.csv";
-        String downloadPath = home + "\\Downloads";
+        downloadPath = home + "\\Downloads";
         System.out.println(downloadPath);
+
+    }
+
+    @Step("Export GH Portlet")
+    public void validatingExportedGHPortlet(String file_name,String[] expected) throws IOException {
+
+        downloadedpath();
         File getLatestFile = getLatestFilefromDir(downloadPath);
         String fileName = getLatestFile.getName();
         System.out.println(fileName);
+        System.out.println(file_name);
         Assert.assertTrue(fileName.equals(file_name));
-        String[] expected = {"Time Minute", "Time Hour", "Time Day", "Time Month", "Time Year", "#", "Color"};
+        for(int j=0; j<expected.length;j++){
+            System.out.println("Values are "+expected[j]);
+        }
         Reader reader = new FileReader(downloadPath + "\\" + fileName);
         CSVReader csvreader = new CSVReader(reader);
         List<String[]> list = csvreader.readAll();
@@ -663,7 +672,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Adding Flow Portlet")
-    public void addingFlowPortlet() throws InterruptedException {
+    public void addingFlowPortlet(String flowPortletName) throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -712,7 +721,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
     }
     @Step("Verifying Flow Portlet in Dashboard page")
-    public void verifyingFlowPortlet() throws InterruptedException{
+    public void verifyingFlowPortlet(String flowPortletName) throws InterruptedException{
         waitForPageToLoad();
         By FLOW_PORTLET_TITLE= By.xpath("//span[@aria-label='"+flowPortletName+"']");
         waitUntilClickable(FLOW_PORTLET_TITLE,"Flow Portlet Title",MEDIUMWAIT);
@@ -799,7 +808,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Adding Map Portlet")
-    public void addingMapPortlet() throws InterruptedException {
+    public void addingMapPortlet(String mapPortletName) throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -866,7 +875,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
     }
     @Step("Verifying Map Portlet in Dashboard page")
-    public void verifyingMapPortlet() {
+    public void verifyingMapPortlet(String mapPortletName) {
         waitForPageToLoad();
         By MAP_PORTLET_TITLE= By.xpath("//span[@aria-label='"+mapPortletName+"']");
         waitUntilClickable(MAP_PORTLET_TITLE,"Map Portlet Title",MEDIUMWAIT);
@@ -879,5 +888,61 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         By FILTER_MESSAGE_MAP_PORTLET = By.xpath("//span[@aria-label='"+appliedFilter+"']");
         if(!driver.findElement(FILTER_MESSAGE_MAP_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Map portlet");
+    }
+
+
+    @Step("Validating NTabular Portlet")
+    public  void verifyingExportedNtabularPortlet(String tabularPortletName) throws IOException {
+        waitForSecs(10);
+        List<WebElement> list = driver.findElements(NtabularFirstRow);
+        for (int i = 0; i < list.size(); i++) {
+            String data = list.get(i).getText();
+            System.out.println("Table Data   :" +data);
+        }
+        waitForSecs(7);
+        safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+        //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
+        String home = System.getProperty("user.home");
+        String file_name = tabularPortletName + ".csv";
+        System.out.println(file_name);
+        String downloadPath = home + "\\Downloads";
+        System.out.println(downloadPath);
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+        System.out.println(fileName);
+        Assert.assertTrue(fileName.equals(file_name));
+        Reader reader = new FileReader(downloadPath + "\\" + fileName);
+        CSVReader csvreader = new CSVReader(reader);
+        String [] nextLine;
+        int lineNumber = 0;
+        while ((nextLine = csvreader.readNext()) != null) {
+            lineNumber++;
+            System.out.println("Line # " + lineNumber);
+
+            // nextLine[] is an array of values from the line
+            System.out.println(nextLine[2] + "etc...");
+        }
+
+        reader.close();
+        File file = new File(downloadPath + "\\" + fileName);
+        if (file.delete())
+            System.out.println("file deleted");
+        else {
+            System.out.println("file not deleted");
+        }
+    }
+
+
+    @Step("Removing portlet")
+     public  void removingPortlet()
+    {
+        safeClick(CLOSE_PORTLET,"Close button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_CONFIRM,"Confirm Button",MEDIUMWAIT);
+        waitForSecs(2);
+        String actualText= safeGetText(PORTLET_NOTIFY,"Empty portlet Notigication",MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText,dashBoardData.noPorteltNotify);
     }
 }

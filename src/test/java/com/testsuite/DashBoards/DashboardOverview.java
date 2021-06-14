@@ -10,13 +10,17 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class DashboardOverview extends BaseSetup {
     private DashboardOverviewPage dashboardOverviewPage;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
 
     private String sModeOfExecution;
-
+    Random random = new Random();
+    String dname = "Filters";
+    String dname1 = dname + random.nextInt(500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -38,17 +42,17 @@ public class DashboardOverview extends BaseSetup {
     public void TC001_CreatingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingdashboard(dname1);
     }
 
     @Test(groups = "Smoke Test")
     public void TC085_RemoveDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
-        dashboardOverviewPage.removingDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.removingDashboard(dname1);
 
     }
 
@@ -56,9 +60,9 @@ public class DashboardOverview extends BaseSetup {
     public void TC110_DeletingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
-        dashboardOverviewPage.deletingDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.deletingDashboard(dname1);
 
     }
 
@@ -77,9 +81,9 @@ public class DashboardOverview extends BaseSetup {
     public void TC011_RenamingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
-        dashboardOverviewPage.renamingDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.renamingDashboard(dname1);
 
 
     }
@@ -90,9 +94,9 @@ public class DashboardOverview extends BaseSetup {
 
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
-        dashboardOverviewPage.SearchCloneDashboard("1");
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.SearchCloneDashboard(dname1,"1");
 
 
     }
@@ -102,9 +106,9 @@ public class DashboardOverview extends BaseSetup {
 
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingdashboard();
-        dashboardOverviewPage.cloningPortlet();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.cloningPortlet(dname1);
 
 
     }
@@ -113,8 +117,8 @@ public class DashboardOverview extends BaseSetup {
     public void TC105_AddingDashboardFolder() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewFolder();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.addingFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingFolder(dname1);
     }
 
 

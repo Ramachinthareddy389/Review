@@ -144,5 +144,9 @@ public interface PortletLocators {
     By MAP_LOCATION_FOR = By.xpath("//label[@for='locationFor']/../div");
     By MAP_LEVEL_DROPDOWN = By.xpath("//*[text()='Map Level']/../../../div//div[contains(@class,'body1')]");
     By MAP_LEVEL_TEXTBOX = By.xpath("//input[@id='mapLevel']");
+    By NtabularFirstRow=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div/span/span");
+    By CLOSE_PORTLET=By.xpath("//div[@aria-label='Close']");
+    By BTN_CONFIRM=By.xpath("//span[text()='Confirm']");
+    By PORTLET_NOTIFY=By.xpath("//div[text()='No portlets configured, click to add a metric.']");
 
 }

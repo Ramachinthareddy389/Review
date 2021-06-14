@@ -23,6 +23,7 @@ public interface DashBoardLocators {
     By DASHBOARD_LABEL=By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
     By USERICON=By.xpath("//button[@title='Presentation mode']/following-sibling::button");
     By LOGOUT=By.xpath("//span[text()='Logout']");
+    By Count=By.xpath("//span[@class='MuiButton-label']/span[@aria-label='Count']");
 
     //Removing and Deleting of dashboards
     By BUTTON_REMOVE= By.xpath("//span[text()='Remove']");
