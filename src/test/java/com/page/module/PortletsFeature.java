@@ -17,19 +17,12 @@ import java.util.*;
 public class PortletsFeature extends SafeActions implements PortletLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
-
     Random random = new Random();
-    String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
-    String counterPortletName = "Counter Portlet - " + random.nextInt(1000);
     String appliedFilter = null;
     String file_name;
     String downloadPath;
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
-    //String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
-    //String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
-    //String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
-   // String mapPortletName = "Map Portlet - " + random.nextInt(1000);
 
     public PortletsFeature(WebDriver driver) {
         super(driver);
@@ -37,7 +30,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Adding Gauge Portlet")
-    public void addingGaugePortlet() throws InterruptedException {
+    public void addingGaugePortlet(String gaugePortletName) throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -88,7 +81,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Verifying Gauge Portlet in Dashboard page")
-    public void verifyingGaugePortlet() throws InterruptedException {
+    public void verifyingGaugePortlet(String gaugePortletName) throws InterruptedException {
         waitForPageToLoad();
         By GAUGE_PORTLET_TITLE = By.xpath("//span[@aria-label='" + gaugePortletName + "']");
         waitUntilClickable(GAUGE_PORTLET_TITLE, "Gauge Portlet Title", MEDIUMWAIT);
@@ -105,7 +98,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Adding Counter Portlet")
-    public void addingCounterPortlet() throws InterruptedException {
+    public void addingCounterPortlet(String counterPortletName) throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -156,7 +149,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Verifying Counter Portlet in Dashboard page")
-    public void verifyingCounterPortlet() {
+    public void verifyingCounterPortlet(String counterPortletName) {
         waitForPageToLoad();
         By COUNTER_PORTLET_TITLE = By.xpath("//span[@aria-label='" + counterPortletName + "']");
         waitUntilClickable(COUNTER_PORTLET_TITLE, "Counter Portlet Title", MEDIUMWAIT);
@@ -288,7 +281,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
                 break;
             }
         }
-
         safeClick(TEXTBOX_SUMMARY, "KPI", MEDIUMWAIT);
         safeType(TEXTBOX_SUMMARY, "Avg Color", "Summary", MEDIUMWAIT);
         safeClick(DROPDOWN_CHARTTYPE, "Chart type", MEDIUMWAIT);
@@ -490,7 +482,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     }
 
-    @Step("Adding Tabular Portlet")
+    @Step("Adding Tabular Portlet page1")
     public void addingTabularPortlet() throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
@@ -524,7 +516,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(ORDER_DIRECTION_OPTION, "Order Direction Field option in Tabular portlet", MEDIUMWAIT);
     }
 
-    @Step("adding Tabular portlet1")
+    @Step("adding Tabular page2")
     public void addingtabularPortlet1(String tabularPortletName) {
         safeClick(SHOW_SLA_COLUMN_CHECKBOX, "Show SLA column checkbox", MEDIUMWAIT);
         safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
@@ -576,11 +568,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
 
-    public void downloadedpath(){
+    public void downloadedpath() {
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(7);
-        //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
         String home = System.getProperty("user.home");
         downloadPath = home + "\\Downloads";
         System.out.println(downloadPath);
@@ -588,7 +579,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Export GH Portlet")
-    public void validatingExportedGHPortlet(String file_name,String[] expected) throws IOException {
+    public void validatingExportedGHPortlet(String file_name, String[] expected) throws IOException {
 
         downloadedpath();
         File getLatestFile = getLatestFilefromDir(downloadPath);
@@ -596,8 +587,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         System.out.println(fileName);
         System.out.println(file_name);
         Assert.assertTrue(fileName.equals(file_name));
-        for(int j=0; j<expected.length;j++){
-            System.out.println("Values are "+expected[j]);
+        for (int j = 0; j < expected.length; j++) {
+            System.out.println("Values are " + expected[j]);
         }
         Reader reader = new FileReader(downloadPath + "\\" + fileName);
         CSVReader csvreader = new CSVReader(reader);
@@ -621,9 +612,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         else {
             System.out.println("file not deleted");
         }
+
     }
 
-
+    @Step("Taking latest file from windows")
     private File getLatestFilefromDir(String dirPath) {
         File dir = new File(dirPath);
         File[] files = dir.listFiles();
@@ -641,7 +633,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
-    public void verifyinghovermessageinfiltericoninAnalysisportletinTabularportlet(String tabularPortletName) {
+    public void verifyingHoverMessageinFilterTabularportlet(String tabularPortletName) {
         safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
@@ -680,16 +672,15 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        waitUntilClickable(FLOW_HEADER,"Flow header in Portlet Interface",MEDIUMWAIT);
-        safeClick(FLOW_HEADER,"Flow header in Portlet Interface",MEDIUMWAIT);
-        safeClick(DROPDOWN_KPI,"Clicking on KPI",MEDIUMWAIT);
-        safeType(FLOW_TEXTBOX_KPI,dashBoardData.portletKPI,"Sending the text",VERYLONGWAIT);
+        waitUntilClickable(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
+        safeClick(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
+        safeType(FLOW_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
-            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI))
-            {
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI)) {
                 kpis.get(i).click();
                 break;
             }
@@ -697,40 +688,41 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(FLOW_PORTLET_NAME, "Portlet Name field in Flow portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
-        searchField.sendKeys(del +flowPortletName);
-        safeClick(FLOW_COLUMN_LABEL,"Column Label Field",MEDIUMWAIT);
-        String deleteColumnLabelData = Keys.chord(Keys.CONTROL,"a") +Keys.DELETE;
-        driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData,dashBoardData.flowPortletColumnLabel);
-        safeClick(FLOW_CLUSTER_BY_LABEL,"Cluster By Field",MEDIUMWAIT);
+        searchField.sendKeys(del + flowPortletName);
+        safeClick(FLOW_COLUMN_LABEL, "Column Label Field", MEDIUMWAIT);
+        String deleteColumnLabelData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData, dashBoardData.flowPortletColumnLabel);
+        safeClick(FLOW_CLUSTER_BY_LABEL, "Cluster By Field", MEDIUMWAIT);
         String clusterdata = Keys.chord("Color") + Keys.ENTER;
         driver.findElement(FLOW_CLUSTER_BY_INPUT).sendKeys(clusterdata);
-        safeClick(FLOW_SHOW_USERS_CHECKBOX,"Show Users checkbox",MEDIUMWAIT);
-        safeClick(TEXTBOX_PORTLET_FILTERS,"Portlet filters field",MEDIUMWAIT);
-        safeClick(Filters_TypeSearch,"Entering Text into type search",MEDIUMWAIT);
+        safeClick(FLOW_SHOW_USERS_CHECKBOX, "Show Users checkbox", MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
-        safeClick(DROPDOWN_FEILDS,"Selecting field",MEDIUMWAIT);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER,"Changing to negation filter",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply button in Portlet Filters",MEDIUMWAIT);
-        System.out.println("Filter in Portlet Filters is "+driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
+        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
-        safeClick(FLOW_FILTER_VALUE_LABEL,"",MEDIUMWAIT);
-        safeType(FLOW_FILTER_VALUE,"Sample","Filter value field input",MEDIUMWAIT);
-        safeClick(FLOW_FILTER_POSITION_LABEL,"Filter Position Field",MEDIUMWAIT);
-        safeClick(FLOW_FILTER_POSITION,"Filter Position Dropdown Option",MEDIUMWAIT);
-        safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
+        safeClick(FLOW_FILTER_VALUE_LABEL, "", MEDIUMWAIT);
+        safeType(FLOW_FILTER_VALUE, "Sample", "Filter value field input", MEDIUMWAIT);
+        safeClick(FLOW_FILTER_POSITION_LABEL, "Filter Position Field", MEDIUMWAIT);
+        safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
+        safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }
+
     @Step("Verifying Flow Portlet in Dashboard page")
-    public void verifyingFlowPortlet(String flowPortletName) throws InterruptedException{
+    public void verifyingFlowPortlet(String flowPortletName) throws InterruptedException {
         waitForPageToLoad();
-        By FLOW_PORTLET_TITLE= By.xpath("//span[@aria-label='"+flowPortletName+"']");
-        waitUntilClickable(FLOW_PORTLET_TITLE,"Flow Portlet Title",MEDIUMWAIT);
-        if(!driver.findElement(FLOW_PORTLET_TITLE).isDisplayed())
+        By FLOW_PORTLET_TITLE = By.xpath("//span[@aria-label='" + flowPortletName + "']");
+        waitUntilClickable(FLOW_PORTLET_TITLE, "Flow Portlet Title", MEDIUMWAIT);
+        if (!driver.findElement(FLOW_PORTLET_TITLE).isDisplayed())
             Assert.fail("Flow portlet added is not displayed in Dashboard page");
-        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='"+flowPortletName+"']/../following-sibling::span/i[contains(@class,'filter')]");
-        if(!driver.findElement(FILTER_FLOW_PORTLET).isDisplayed())
+        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='" + flowPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        if (!driver.findElement(FILTER_FLOW_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Flow Portlet");
-        mouseHoverJScript(FILTER_FLOW_PORTLET,"Filter icon","Filter icon in Flow Portlet",MEDIUMWAIT);
+        mouseHoverJScript(FILTER_FLOW_PORTLET, "Filter icon", "Filter icon in Flow Portlet", MEDIUMWAIT);
         By FILTER_MESSAGE_FLOW_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
         if (!driver.findElement(FILTER_MESSAGE_FLOW_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Flow portlet");
@@ -743,9 +735,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
                 if (!driver.findElement(COLUMN_LABEL).isDisplayed())
                     Assert.fail("Column Label is not displayed properly in Flow portlet");
             }
-        }
-        catch(Exception e){
-            if(!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+        } catch (Exception e) {
+            if (!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
                 Assert.fail("No Data Available label is not displayed in flow portlet");
             System.out.println("Data is not available in Flow Portlet");
         }
@@ -755,16 +746,24 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     public void validatingExportedATabularPortlet(String tabularPortletName) throws IOException {
 
         waitForSecs(10);
-        List<WebElement> list = driver.findElements(TABLEDATA);
+        List<WebElement> list = driver.findElements(TABULAR_COLUMN1);
         for (int i = 1; i < list.size(); i++) {
             String data = list.get(i).getText();
-            System.out.println("Table Data   :" +data);
+            System.out.println("Table Data   :" + data);
         }
-
+        List<WebElement> list2 = driver.findElements(TABULAR_COLUMN2);
+        for (int i = 1; i < list.size(); i++) {
+            String data2 = list2.get(i).getText();
+            System.out.println("Table Data   :" + data2);
+        }
+        List<WebElement> list3 = driver.findElements(TABULAR_COLUMN3);
+        for (int i = 1; i < list.size(); i++) {
+            String data3 = list3.get(i).getText();
+            System.out.println("Table Data   :" + data3);
+        }
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
-        //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
         String home = System.getProperty("user.home");
         String file_name = tabularPortletName + ".csv";
         System.out.println(file_name);
@@ -777,33 +776,60 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Reader reader = new FileReader(downloadPath + "\\" + fileName);
         CSVReader csvreader = new CSVReader(reader);
         String[] cell;
-        String s = "";
-        while ((cell = csvreader.readNext()) != null)
-        {
+        String s1 = "";
+        String s2 = "";
+        String s3 = "";
+        while ((cell = csvreader.readNext()) != null) {
             int i = 0;
-            s = s + cell[i] + ":";
-           // String emails = cell[i + 1];
-            //String message = cell[i + 2];
-
+            s1 = s1 + cell[i] + ":";
+            s2 = s2+cell[i + 1]+":";
+            s3  = s3+cell[i + 2]+":";
         }
 
-        String[] labels = s.split(":");
+        String[] labels = s1.split(":");
+        String[] column2 = s2.split(":");
         Arrays.sort(labels);
         Arrays.toString(labels);
-        for(int i=1;i<labels.length-1;i++){
-            if(labels[i+1].equals(list.get(i).getText()))
-            {
-                System.out.println("Exported CSV values  :"+labels[i+1] + "  Table Column Values:"+list.get(i).getText());
-                Assert.assertEquals(labels[i+1],list.get(i).getText());
+
+
+        for (int i = 1; i < labels.length - 1; i++) {
+            if (labels[i + 1].equals(list.get(i).getText())) {
+                System.out.println("Exported CSV values  :" + labels[i + 1] + "  Table Column Values:" + list.get(i).getText());
+                Assert.assertEquals(labels[i + 1], list.get(i).getText());
             }
         }
+        ArrayList<String> d2=new ArrayList<String>();
+        for (int i = 1; i < column2.length - 1; i++)
+        {
+            double value=Double.parseDouble(column2[i + 1]);
+            String Double=String.format("%.2f", value);
+            d2.add(Double);
+
+        }
+        Collections.sort(d2);
+        System.out.println(d2);
+        boolean b2= list.contains(d2);
+        System.out.println(b2);
+
+        String[] column3 = s3.split(":");
+        ArrayList<String> d3=new ArrayList<String>();
+        for (int i = 1; i < column3.length - 1; i++)
+        {
+            double value=Double.parseDouble(column3[i + 1]);
+            String Double=String.format("%.0f", value);
+            d3.add(Double);
+        }
+        Collections.sort(d3);
+        System.out.println(d3);
+        boolean b3= list3.contains(d3);
+        System.out.println(b3);
         reader.close();
-        File file = new File(downloadPath + "\\" + fileName);
+      /*  File file = new File(downloadPath + "\\" + fileName);
         if (file.delete())
             System.out.println("file deleted");
         else {
             System.out.println("file not deleted");
-        }
+        }*/
     }
 
 
@@ -816,16 +842,15 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        waitUntilClickable(MAP_HEADER,"Map header in Portlet Interface",MEDIUMWAIT);
-        safeClick(MAP_HEADER,"Map header in Portlet Interface",MEDIUMWAIT);
-        safeClick(DROPDOWN_KPI,"Clicking on KPI",MEDIUMWAIT);
-        safeType(MAP_TEXTBOX_KPI,dashBoardData.portletKPI,"Sending the text",VERYLONGWAIT);
+        waitUntilClickable(MAP_HEADER, "Map header in Portlet Interface", MEDIUMWAIT);
+        safeClick(MAP_HEADER, "Map header in Portlet Interface", MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
+        safeType(MAP_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(1000);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
-            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI))
-            {
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI)) {
                 kpis.get(i).click();
                 break;
             }
@@ -833,29 +858,27 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(MAP_PORTLET_NAME, "Portlet Name field in Map portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
-        searchField.sendKeys(del +mapPortletName);
-        safeClick(MAP_LOCATION_FOR_LABEL,"Location field",MEDIUMWAIT);
+        searchField.sendKeys(del + mapPortletName);
+        safeClick(MAP_LOCATION_FOR_LABEL, "Location field", MEDIUMWAIT);
         Thread.sleep(2000);
-        safeClick(MAP_LOCATION_FOR,"Location field",MEDIUMWAIT);
+        safeClick(MAP_LOCATION_FOR, "Location field", MEDIUMWAIT);
         Actions action1 = new Actions(driver);
         action1.sendKeys("System");
         Thread.sleep(2000);
         List<WebElement> locations = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < locations.size(); i++) {
             System.out.println(locations.get(i).getText());
-            if (locations.get(i).getText().equalsIgnoreCase("System"))
-            {
+            if (locations.get(i).getText().equalsIgnoreCase("System")) {
                 locations.get(i).click();
                 break;
             }
         }
-        safeClick(MAP_LEVEL_DROPDOWN,"Map Level Field",MEDIUMWAIT);
-        safeType(MAP_LEVEL_TEXTBOX,"Country","Sending the text",VERYLONGWAIT);
+        safeClick(MAP_LEVEL_DROPDOWN, "Map Level Field", MEDIUMWAIT);
+        safeType(MAP_LEVEL_TEXTBOX, "Country", "Sending the text", VERYLONGWAIT);
         List<WebElement> levels = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < levels.size(); i++) {
             System.out.println(levels.get(i).getText());
-            if (levels.get(i).getText().equalsIgnoreCase("Country"))
-            {
+            if (levels.get(i).getText().equalsIgnoreCase("Country")) {
                 levels.get(i).click();
                 break;
             }
@@ -863,41 +886,43 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
-        safeClick(TEXTBOX_PORTLET_FILTERS,"Portlet filters field",MEDIUMWAIT);
-        safeClick(PortletFilters_TypeSearch,"Entering Text into type search",MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
-        safeClick(DROPDOWN_FEILDS,"Selecting field",MEDIUMWAIT);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER,"Changing to negation filter",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply button in Portlet Filters",MEDIUMWAIT);
-        System.out.println("Filter in Portlet Filters is "+driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
+        waitForSecs(5);
+        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
-        safeClick(BTN_ADD_PORTLET,"Add portlet button",MEDIUMWAIT);
+        safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }
+
     @Step("Verifying Map Portlet in Dashboard page")
     public void verifyingMapPortlet(String mapPortletName) {
         waitForPageToLoad();
-        By MAP_PORTLET_TITLE= By.xpath("//span[@aria-label='"+mapPortletName+"']");
-        waitUntilClickable(MAP_PORTLET_TITLE,"Map Portlet Title",MEDIUMWAIT);
-        if(!driver.findElement(MAP_PORTLET_TITLE).isDisplayed())
+        By MAP_PORTLET_TITLE = By.xpath("//span[@aria-label='" + mapPortletName + "']");
+        waitUntilClickable(MAP_PORTLET_TITLE, "Map Portlet Title", MEDIUMWAIT);
+        if (!driver.findElement(MAP_PORTLET_TITLE).isDisplayed())
             Assert.fail("Map portlet added is not displayed in Dashboard page");
-        By FILTER_MAP_PORTLET = By.xpath("//span[@aria-label='"+mapPortletName+"']/../following-sibling::span/i[contains(@class,'filter')]");
-        if(!driver.findElement(FILTER_MAP_PORTLET).isDisplayed())
+        By FILTER_MAP_PORTLET = By.xpath("//span[@aria-label='" + mapPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        if (!driver.findElement(FILTER_MAP_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Map Portlet");
-        mouseHoverJScript(FILTER_MAP_PORTLET,"Filter icon","Filter icon in Map Portlet",MEDIUMWAIT);
-        By FILTER_MESSAGE_MAP_PORTLET = By.xpath("//span[@aria-label='"+appliedFilter+"']");
-        if(!driver.findElement(FILTER_MESSAGE_MAP_PORTLET).isDisplayed())
+        mouseHoverJScript(FILTER_MAP_PORTLET, "Filter icon", "Filter icon in Map Portlet", MEDIUMWAIT);
+        By FILTER_MESSAGE_MAP_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
+        if (!driver.findElement(FILTER_MESSAGE_MAP_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Map portlet");
     }
 
 
     @Step("Validating NTabular Portlet")
-    public  void verifyingExportedNtabularPortlet(String tabularPortletName) throws IOException {
+    public void verifyingExportedNtabularPortlet(String tabularPortletName) throws IOException {
         waitForSecs(10);
         List<WebElement> list = driver.findElements(NtabularFirstRow);
         for (int i = 0; i < list.size(); i++) {
             String data = list.get(i).getText();
-            System.out.println("Table Data   :" +data);
+            System.out.println("Table Data   :" + data);
         }
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
@@ -914,7 +939,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Assert.assertTrue(fileName.equals(file_name));
         Reader reader = new FileReader(downloadPath + "\\" + fileName);
         CSVReader csvreader = new CSVReader(reader);
-        String [] nextLine;
+        String[] nextLine;
         int lineNumber = 0;
         while ((nextLine = csvreader.readNext()) != null) {
             lineNumber++;
@@ -935,14 +960,93 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Removing portlet")
-     public  void removingPortlet()
-    {
-        safeClick(CLOSE_PORTLET,"Close button",MEDIUMWAIT);
+    public void removingPortlet() {
+        safeClick(CLOSE_PORTLET, "Close button", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(BTN_CONFIRM,"Confirm Button",MEDIUMWAIT);
+        safeClick(BTN_CONFIRM, "Confirm Button", MEDIUMWAIT);
         waitForSecs(2);
-        String actualText= safeGetText(PORTLET_NOTIFY,"Empty portlet Notigication",MEDIUMWAIT);
+        String actualText = safeGetText(PORTLET_NOTIFY, "Empty portlet Notigication", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText,dashBoardData.noPorteltNotify);
+        Assert.assertEquals(actualText, dashBoardData.noPorteltNotify);
+    }
+
+    @Step("Exporting Gauge Portlet")
+    public void exportingGaugePortlet(String gaugePortletName) throws IOException {
+
+        String gaugeData = safeGetText(GAUGEPORTLETDATA, "Gauge Portlet Data", MEDIUMWAIT);
+        System.out.println(gaugeData);
+        String gaugeData1 = gaugeData.replace(",", "");
+        System.out.println(gaugeData1);
+        String actualValue = "#" + gaugeData1;
+        safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+        //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
+        String home = System.getProperty("user.home");
+        String file_name = gaugePortletName + ".csv";
+        System.out.println(file_name);
+        String downloadPath = home + "\\Downloads";
+        System.out.println(downloadPath);
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+        System.out.println(fileName);
+        Assert.assertTrue(fileName.equals(file_name));
+        Reader reader = new FileReader(downloadPath + "\\" + fileName);
+        CSVReader csvreader = new CSVReader(reader);
+        String[] cell;
+        String s = "";
+        while ((cell = csvreader.readNext()) != null) {
+            int i = 0;
+            s = s + cell[i];
+            // String emails = cell[i + 1];
+            //String message = cell[i + 2];
+
+        }
+        System.out.println(s);
+        Assert.assertEquals(s, actualValue);
+        reader.close();
+        File file = new File(downloadPath + "\\" + fileName);
+        if (file.delete())
+            System.out.println("file deleted");
+        else {
+            System.out.println("file not deleted");
+        }
+    }
+
+    @Step("Exporting Counter Portlet")
+    public void exportingCounterPortlet(String counterPortletName) throws IOException {
+        String counterData = safeGetText(COUNTERPORTLETDATA, "Gauge Portlet Data", MEDIUMWAIT);
+        System.out.println(counterData);
+        String counterData1 = counterData.replace(",", "");
+        System.out.println(counterData1);
+        String actualValue = "#" + counterData1;
+        safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+        String home = System.getProperty("user.home");
+        String file_name = counterPortletName + ".csv";
+        System.out.println(file_name);
+        String downloadPath = home + "\\Downloads";
+        System.out.println(downloadPath);
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+        System.out.println(fileName);
+        Assert.assertTrue(fileName.equals(file_name));
+        Reader reader = new FileReader(downloadPath + "\\" + fileName);
+        CSVReader csvreader = new CSVReader(reader);
+        String[] cell;
+        String s = "";
+        while ((cell = csvreader.readNext()) != null) {
+            int i = 0;
+            s = s + cell[i] ;
+        }
+        System.out.println(s);
+        Assert.assertEquals(s, actualValue);
+        waitForSecs(2);
+        reader.close();
+        File file = new File(downloadPath + "\\" + fileName);
+        if (file.delete())
+            System.out.println("file deleted");
+        else {
+            System.out.println("file not deleted");
+        }
     }
 }

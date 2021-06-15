@@ -75,7 +75,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
-    public void addingdashboard(String dname1) throws InterruptedException {
+    public void searchingDashboard(String dname1) throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);

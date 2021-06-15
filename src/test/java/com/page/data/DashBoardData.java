@@ -3,8 +3,8 @@ package com.page.data;
 import com.datamanager.ConfigManager;
 
 public class DashBoardData {
-	private ConfigManager appData = new ConfigManager("App");
-	public final String openCartURL = appData.getProperty("App.URL");
+	private ConfigManager appData   =   new ConfigManager("App");
+	public final String openCartURL  = appData.getProperty("App.URL");
 	public final String emailAddress = appData.getProperty("App.Username");
 	public final String password = appData.getProperty("App.Password");
 	public final String dashboard = appData.getProperty("App.Dashboard");
@@ -15,7 +15,6 @@ public class DashBoardData {
 	public final String ticketAssignee = ticketData.getProperty("TicketAssignee");
 	public final String ticketParticipant = ticketData.getProperty("TicketParticipant");
 	public final String dashboardname=ticketData.getProperty("Dashboards");
-
 	private ConfigManager dashboardVisibility = new ConfigManager("DashboardVisibility");
 	public final String userName = dashboardVisibility.getProperty("username");
 	public final String userPassword = dashboardVisibility.getProperty("password");
@@ -31,7 +30,7 @@ public class DashBoardData {
 	private ConfigManager portletsData = new ConfigManager("Portlets");
 	public final String portletKPI     = portletsData.getProperty("KPI");
 	public final String portletQuery = portletsData.getProperty("Query");
-	public final String drillthrghpage =portletsData.getProperty("DRILLTHROUGHPAGETITLE");
+	public final String drillthrghpage = portletsData.getProperty("DRILLTHROUGHPAGETITLE");
 	public final String tooltip1     = portletsData.getProperty("TOOLTIP1");
 	public final String tooltip2     = portletsData.getProperty("TOOLTIP2");
 	public final String tooltip3     = portletsData.getProperty("TOOLTIP3");

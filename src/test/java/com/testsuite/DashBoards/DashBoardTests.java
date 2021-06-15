@@ -36,25 +36,7 @@ public class DashBoardTests extends BaseSetup  {
         loginPage.clickLogInButton();
     }
 
-    @Test( groups ="Smoke Test" )
-    public void TC112_PinUnPinDashboard() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardPage.PinDashboard();
-        dashboardPage.Unpin_Pin_Dashboard_FromDashboardPage();
-    }
-
-    @Test( groups ="Smoke Test" )
-    public void TC020_CreateTicketOnDashboard() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardPage.clickOnDashboard();
-        dashboardPage.createTicketOnDashboard();
-        dashboardPage.verifyTicketInTicketsPage();
-    }
-    @Test(groups = "Smoke Test")
+    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC012_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -74,7 +56,7 @@ public class DashBoardTests extends BaseSetup  {
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingAccess();
     }
-    @Test(groups = "Smoke Test")
+    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC013_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -94,7 +76,7 @@ public class DashBoardTests extends BaseSetup  {
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingRequiredRole();
     }
-    @Test(groups = "Smoke Test")
+    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC014_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -106,5 +88,24 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.accessDashboardByOwnerRoleUser();
         dashboardPage.removeOwnerRoleInDashboardVisibility();
         dashboardPage.accessDashboardByUserAfterRemovingOwnerRole();
+    }
+
+    @Test( groups ="Smoke Test",retryAnalyzer = com.testng.Retry.class )
+    public void TC020_CreateTicketOnDashboard() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardPage.clickOnDashboard();
+        dashboardPage.createTicketOnDashboard();
+        dashboardPage.verifyTicketInTicketsPage();
+    }
+
+    @Test( groups ="Smoke Test",retryAnalyzer = com.testng.Retry.class )
+    public void TC112_PinUnPinDashboard() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardPage.PinDashboard();
+        dashboardPage.Unpin_Pin_Dashboard_FromDashboardPage();
     }
 }

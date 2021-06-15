@@ -134,7 +134,9 @@ public interface PortletLocators {
     By SLACOLUMNS=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div/span/div/div");
     By USERNAME_COLUMN_PORTLET=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div[2]/span/span");
     By SLAFILTERICON=By.xpath("//span[contains(@aria-label,'user.name')]");
-    By TABLEDATA=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
+    By TABULAR_COLUMN1=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
+    By TABULAR_COLUMN2 =By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");
+    By TABULAR_COLUMN3=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[3]/span/span");
 
     //Map Portlet
     By MAP_HEADER = By.xpath("//button/span[contains(text(),'Map')]");
@@ -148,5 +150,7 @@ public interface PortletLocators {
     By CLOSE_PORTLET=By.xpath("//div[@aria-label='Close']");
     By BTN_CONFIRM=By.xpath("//span[text()='Confirm']");
     By PORTLET_NOTIFY=By.xpath("//div[text()='No portlets configured, click to add a metric.']");
+    By GAUGEPORTLETDATA=By.xpath("//div[@data-id='series_0']/span");
+    By COUNTERPORTLETDATA=By.xpath("//div[contains(@class,'CounterChart')]/div/span/span[2]");
 
 }

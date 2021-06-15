@@ -42,12 +42,12 @@ public class PivotTests extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test(enabled = true)
+    @Test(groups = "Smoke Test",enabled = true,retryAnalyzer = com.testng.Retry.class)
     public void TC_071_AddingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();
@@ -56,12 +56,12 @@ public class PivotTests extends BaseSetup {
         pivotPage.removeTablePortletInPivotPage();
     }
 
-    @Test(enabled = true)
+    @Test(groups = "Smoke Test",enabled = true,retryAnalyzer = com.testng.Retry.class)
     public void TC_072_AddingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();

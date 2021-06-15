@@ -3,13 +3,14 @@ package com.page.locators;
 import org.openqa.selenium.By;
 
 public interface DashBoardLocators {
+
     By DASHBOARd_MODULE=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]");
     By All_FOLDER     =By.xpath("//span[text()='All']");
     By BUTTON_ADD_DASHBOARD =By.xpath("//i[@title='Add new Dashboard or Folder'][@class='fas fa-plus']");
     By LABEL_NEW_DASHBOARD =By.xpath("//li[text()='Dashboard']");
     By LABEL_NEW_FOLDER   =By.xpath("//li[text()='Folder']");
-    By TEXTBOX_DASHBOARD_WINDOW=By.id("name");
-    By LISTBOX_Folder=By.xpath("//*[text()='Folder']/../../../div//div[contains(@class,'body1')]");
+    By TEXTBOX_DASHBOARD_WINDOW =By.id("name");
+    By LISTBOX_Folder =By.xpath("//*[text()='Folder']/../../../div//div[contains(@class,'body1')]");
     By TEXTBOX_Folder=By.xpath("//div[text()='Select or Add...']");
     By DROPDOWN_DASHBOARD_FOLDER=By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By BUTTON_FINISH=By.xpath("//span[text()='Finish']");
@@ -37,7 +38,7 @@ public interface DashBoardLocators {
     By TEXTBOX_RENAMEDASHBRD=By.xpath("//input[@id='InputDialog']");
     By BUTTON_RENAME=By.xpath("//span[text()='Rename']");
 
-//DashBoard Locators for cloning
+    //DashBoard Locators for cloning
 
     By FOLDER_TESTAUTOMATION= By.xpath("//span[text()='Dashboards > TestAutomation']");
     By TESTDASHBOARD1= By.xpath("//span[text()='TestDashboard1']");
@@ -115,6 +116,7 @@ public interface DashBoardLocators {
      By PortletFilters_TypeSearch=By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
      By DROPDOWN_FEILDS=By.xpath("//div[text()='Color']");
      By BTN_APPLY=By.xpath("//span[text()='Apply']");
+
     //Ticket on Dashboard
     By TICKET_ICON= By.xpath("//i[@class='fas fa-ticket-alt']");
     By TICKET_TITLE= By.xpath("//textarea[@id='TextArea']");

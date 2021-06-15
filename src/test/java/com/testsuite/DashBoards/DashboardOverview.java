@@ -38,92 +38,40 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
-    @Test(groups = "Smoke Test", priority = 0)
-    public void TC001_CreatingDashboard() throws InterruptedException {
+    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC_001_CreatingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
     }
 
-    @Test(groups = "Smoke Test")
-    public void TC085_RemoveDashboard() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
-        dashboardOverviewPage.removingDashboard(dname1);
-
-    }
-
-    @Test(groups = "Smoke Test")
-    public void TC110_DeletingDashboard() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
-        dashboardOverviewPage.deletingDashboard(dname1);
-
-    }
-
-
-    @Test(enabled = true, groups = "Smoke Test")
-    public void TC113_CloningDashboard() throws InterruptedException {
+    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC_005_VerifyTrendGranularityinDashboard() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.CloneDashboard("clone Parent");
-
-
+        dashboardOverviewPage.SearchinDashboard();
+        dashboardOverviewPage.validaingTrendGranularityUSingHours();
+        dashboardOverviewPage.validaingTrendGranularityUSingDaily();
+        dashboardOverviewPage.validaingTrendGranularityUSingMonthly();
+        dashboardOverviewPage.validaingTrendGranularityUSingYEARLY();
+        dashboardOverviewPage.validaingTrendGranularityUSingMinutely();
     }
 
-
-    @Test(enabled = true, groups = "Smoke Test")
-    public void TC011_RenamingDashboard() throws InterruptedException {
+    @Test(enabled = true, groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC_011_RenamingDashboard() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
         dashboardOverviewPage.renamingDashboard(dname1);
-
-
     }
 
-
-    @Test(enabled = true, groups = "Smoke Test")
-    public void TC089_CloningInDashboardOverview() throws InterruptedException {
-
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
-        dashboardOverviewPage.SearchCloneDashboard(dname1,"1");
-
-
-    }
-
-    @Test(enabled = true, groups = "Smoke Test")
-    public void TC114_CloningPortletInDashboardOverview() throws InterruptedException {
-
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingdashboard(dname1);
-        dashboardOverviewPage.cloningPortlet(dname1);
-
-
-    }
-
-    @Test(enabled = true)
-    public void TC105_AddingDashboardFolder() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
-        dashboardOverviewPage.addingNewFolder();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.addingFolder(dname1);
-    }
-
-
-    @Test(enabled = true)
-    public void TC018_ApplyanydatefrompredefinedtimerangesinCalendar() throws InterruptedException {
+    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC018_ApplyanydatefrompredefinedtimerangesinCalendar() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SelectingCalender("clone Parent");
@@ -142,24 +90,71 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
-    @Test(enabled = true)
-    public void TC_005VerifyTrendGranularityinDashboard() throws InterruptedException
+    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC085_RemoveDashboard() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.removingDashboard(dname1);
+
+    }
+
+
+    @Test(enabled = true, groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC089_CloningInDashboardOverview() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.SearchCloneDashboard(dname1,"1");
+    }
+
+    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC105_AddingDashboardFolder() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.addingFolder(dname1);
+    }
+
+
+    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC110_DeletingDashboard() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard(dname1);
+
+    }
+
+
+    @Test(enabled = true, groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC113_CloningDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
-        dashboardOverviewPage.SearchinDashboard();
-        dashboardOverviewPage.validaingTrendGranularityUSingHours();
-        dashboardOverviewPage.validaingTrendGranularityUSingDaily();
-        dashboardOverviewPage.validaingTrendGranularityUSingMonthly();
-        dashboardOverviewPage.validaingTrendGranularityUSingYEARLY();
-        dashboardOverviewPage.validaingTrendGranularityUSingMinutely();
+        dashboardOverviewPage.CloneDashboard("clone Parent");
     }
 
+    @Test(enabled = true, groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    public void TC114_CloningPortletInDashboardOverview() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.cloningPortlet(dname1);
+    }
 
     @AfterMethod()
     public void signOut()
     {
-
         dashboardOverviewPage.signOut();
     }
 
