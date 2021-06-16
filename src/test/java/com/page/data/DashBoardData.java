@@ -48,6 +48,13 @@ public class DashBoardData {
 	public final String measurePivotPortlet = portletsData.getProperty("Measure_PivotPortlet");
 	public final String chartType = portletsData.getProperty("ChartType");
 	public  final String mapHeaders=portletsData.getProperty("Mapportlet");
+	public final String updatedPivotFieldPivotPage = portletsData.getProperty("Updated_Pivot_Portlet");
+	public final String updatedMeasurePivotPortlet = portletsData.getProperty("Updated_Measure_PivotPortlet");
+	public final String updatedChartType = portletsData.getProperty("UpdatedChartType");
+	public final String updatedChartPortletName = portletsData.getProperty("UpdatedChartPortletName");
+	public final String updatedTablePortletName = portletsData.getProperty("UpdatedTablePortletName");
+	public final String[] pivotsArray = portletsData.getProperty("MultiplePivots").split(",");
+	public final String[] measuresArray = portletsData.getProperty("MultipleMeasures").split(",");
 
 
 }

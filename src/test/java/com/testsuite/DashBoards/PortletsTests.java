@@ -8,6 +8,7 @@ import com.page.module.DashboardPage;
 import com.page.module.LoginPage;
 import com.page.module.PortletsFeature;
 import com.selenium.Sync;
+import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -43,7 +44,7 @@ public class PortletsTests extends BaseSetup {
         (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
         loginPage.verifyLoginPage();
-        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
     }
 
@@ -163,7 +164,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingtabularPortlet1(tabularPortletName);
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.validatingExportedATabularPortlet(tabularPortletName);
-       // portletsFeature.removingPortlet();
+        portletsFeature.removingPortlet();
 
     }
 
@@ -176,7 +177,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingExportedNtabularPortlet(nTabularPortletName);
-        portletsFeature.removingPortlet();
+       // portletsFeature.removingPortlet();
 
     }
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -235,7 +236,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
         dashboardOverviewPage.searchingDashboard(dname1);
         portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.navigatingToDrillThroughPage();
+        portletsFeature.navigatingToDrillThroughPage(dname1);
         portletsFeature.removingPortlet();
     }
 

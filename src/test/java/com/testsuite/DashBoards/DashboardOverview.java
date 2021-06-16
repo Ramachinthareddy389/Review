@@ -6,6 +6,8 @@ import com.page.data.DashBoardData;
 import com.page.module.DashboardOverviewPage;
 import com.page.module.LoginPage;
 import com.selenium.Sync;
+
+import jvm.PasswordDecoder;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -33,7 +35,7 @@ public class DashboardOverview extends BaseSetup {
         (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
         loginPage.verifyLoginPage();
-        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
     }
 
@@ -101,7 +103,6 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
-
     @Test(enabled = true, groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC089_CloningInDashboardOverview() throws InterruptedException
     {
@@ -151,12 +152,12 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.searchingDashboard(dname1);
         dashboardOverviewPage.cloningPortlet(dname1);
     }
-
+/*
     @AfterMethod()
     public void signOut()
     {
         dashboardOverviewPage.signOut();
-    }
+    }*/
 
 
 

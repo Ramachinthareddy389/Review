@@ -23,6 +23,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     String downloadPath;
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
+    private WebDriver driver1;
 
     public PortletsFeature(WebDriver driver) {
         super(driver);
@@ -201,12 +202,12 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Verifying portlet added from search bar")
-    public void navigatingToDrillThroughPage() {
+    public void navigatingToDrillThroughPage(String dname1) {
         waitForPageToLoad();
         safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dashBoardData.drillthrghpage);
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage+dname1);
 
     }
 
@@ -752,10 +753,15 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             System.out.println("Table Data   :" + data);
         }
         List<WebElement> list2 = driver.findElements(TABULAR_COLUMN2);
+        List<Double> testList = new ArrayList();
         for (int i = 1; i < list.size(); i++) {
             String data2 = list2.get(i).getText();
-            System.out.println("Table Data   :" + data2);
+            double d = Double.parseDouble(data2);
+            System.out.println("Table Data   :" + d);
+            testList.add(d);
         }
+        Collections.sort(testList);
+        Collections.reverse(testList);
         List<WebElement> list3 = driver.findElements(TABULAR_COLUMN3);
         for (int i = 1; i < list.size(); i++) {
             String data3 = list3.get(i).getText();
@@ -782,47 +788,43 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         while ((cell = csvreader.readNext()) != null) {
             int i = 0;
             s1 = s1 + cell[i] + ":";
-            s2 = s2+cell[i + 1]+":";
-            s3  = s3+cell[i + 2]+":";
+            s2 = s2 + cell[i + 1] + ":";
+            s3 = s3 + cell[i + 2] + ":";
         }
-
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
         String[] labels = s1.split(":");
-        String[] column2 = s2.split(":");
         Arrays.sort(labels);
         Arrays.toString(labels);
-
-
         for (int i = 1; i < labels.length - 1; i++) {
             if (labels[i + 1].equals(list.get(i).getText())) {
                 System.out.println("Exported CSV values  :" + labels[i + 1] + "  Table Column Values:" + list.get(i).getText());
                 Assert.assertEquals(labels[i + 1], list.get(i).getText());
             }
         }
-        ArrayList<String> d2=new ArrayList<String>();
-        for (int i = 1; i < column2.length - 1; i++)
-        {
-            double value=Double.parseDouble(column2[i + 1]);
-            String Double=String.format("%.2f", value);
-            d2.add(Double);
+        String[] column2 = s2.split(":");
+        Arrays.sort(column2);
+        Arrays.toString(column2);
+        for (int i = 1; i <= column2.length; i++) {
+            double value = Double.parseDouble(column2[i + 2]);
+            String Double = String.format("%.2f", value);
+            System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" + list2.get(i).getText());
+            // Assert.assertEquals(Double, list2.get(i).getText());
+
 
         }
-        Collections.sort(d2);
-        System.out.println(d2);
-        boolean b2= list.contains(d2);
-        System.out.println(b2);
-
         String[] column3 = s3.split(":");
-        ArrayList<String> d3=new ArrayList<String>();
-        for (int i = 1; i < column3.length - 1; i++)
-        {
-            double value=Double.parseDouble(column3[i + 1]);
-            String Double=String.format("%.0f", value);
-            d3.add(Double);
+        Arrays.sort(column3);
+        Arrays.toString(column3);
+        for (int i = 0; i < column3.length - 1; i++) {
+            double value = Double.parseDouble(column3[i + 3]);
+            String Double = String.format("%.0f", value);
+            System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" + testList.get(i));
+
         }
-        Collections.sort(d3);
-        System.out.println(d3);
-        boolean b3= list3.contains(d3);
-        System.out.println(b3);
+
+
         reader.close();
       /*  File file = new File(downloadPath + "\\" + fileName);
         if (file.delete())
@@ -919,12 +921,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Validating NTabular Portlet")
     public void verifyingExportedNtabularPortlet(String tabularPortletName) throws IOException {
         waitForSecs(10);
-        List<WebElement> list = driver.findElements(NtabularFirstRow);
-        for (int i = 0; i < list.size(); i++) {
-            String data = list.get(i).getText();
-            System.out.println("Table Data   :" + data);
-        }
-        waitForSecs(7);
+    String firstRow= driver.findElement(NtabularFirstRow).getText();
+    String secndRow= driver.findElement(NTABULARSENDROW).getText();
+    String thirdRow=driver.findElement(NTABULARTHIRDROW).getText();
+
+    waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
         //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
@@ -939,16 +940,39 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Assert.assertTrue(fileName.equals(file_name));
         Reader reader = new FileReader(downloadPath + "\\" + fileName);
         CSVReader csvreader = new CSVReader(reader);
-        String[] nextLine;
-        int lineNumber = 0;
-        while ((nextLine = csvreader.readNext()) != null) {
-            lineNumber++;
-            System.out.println("Line # " + lineNumber);
-
-            // nextLine[] is an array of values from the line
-            System.out.println(nextLine[2] + "etc...");
+        String[] cell;
+        String s1 = "";
+        String s2 = "";
+        String s3 = "";
+        while ((cell = csvreader.readNext()) != null) {
+            int i = 0;
+            s1 = s1 + cell[i] + ":";
+            s2 = s2 + cell[i + 1] + ":";
+            s3 = s3 + cell[i + 2] + ":";
         }
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+        String[] labels = s1.split(":");
+        Arrays.sort(labels);
+        Arrays.toString(labels);
+        for (int i = 1; i < labels.length - 1; i++) {
+            if (labels[i + 2].equals(firstRow)) {
+                System.out.println("Exported CSV values  :" + labels[i + 2] + "  Table Column Values:" +firstRow);
+                //Assert.assertEquals(labels[i + 1], firstRow);
+            }
+        }
+        String[] column2 = s2.split(":");
+        Arrays.sort(column2);
+        Arrays.toString(column2);
+        for (int i = 1; i <= column2.length; i++) {
+            double value = Double.parseDouble(column2[i + 2]);
+            String Double = String.format("%.2f", value);
+            System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" +secndRow);
+            // Assert.assertEquals(Double, list2.get(i).getText());
 
+
+        }
         reader.close();
         File file = new File(downloadPath + "\\" + fileName);
         if (file.delete())

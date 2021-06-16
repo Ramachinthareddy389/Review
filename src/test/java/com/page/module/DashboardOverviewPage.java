@@ -341,25 +341,20 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             str = str + list.get(i).getText();
         }
         System.out.println(str);
-        DateFormat dateFormat = new SimpleDateFormat("HH");
-        Date date = new Date();
-        String date1 = dateFormat.format(date);
-        int i = Integer.parseInt(date1);
-        int morn = i + 1;
-        int time = i - 12;
-        int time1 = i - 11;
+        Calendar cal1 = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
+        String time=simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        System.out.println(time);
+        cal1.add(Calendar.HOUR,1);
+        String time1= simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        if (i >= 13) {
-            System.out.println("Current date and time is " + date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM");
-            expectedText = date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM";
-            Assert.assertEquals(str, expectedText);
-            System.out.println("Its working");
-        } else {
-            System.out.println("Current date and time is " + date5 + " " + i + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + morn + ":" + "00" + " " + "AM");
-        }
+        System.out.println("Current date and time is " + date5 + " " + time + " " + "-"+date5 + " " + time1);
+        expectedText =date5 + " " + time +" " + "-"+ date5 + " " + time1 ;
+        Assert.assertEquals(str, expectedText);
+
 
     }
 
@@ -373,27 +368,21 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             str = str + list.get(i).getText();
         }
         System.out.println(str);
-        DateFormat dateFormat = new SimpleDateFormat("HH");
-        Date date = new Date();
-        String date1 = dateFormat.format(date);
-        int i = Integer.parseInt(date1);
-        System.out.println(i);
-        int time = i - 13;
-        int time1 = time + 1;
+        Calendar cal1 = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
+        String time=simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         System.out.println(time);
+        cal1.add(Calendar.HOUR,-1);
+        String time1= simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        if (i >= 13) {
-            System.out.println("Current date and time is " + date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM");
-            expectedText = date5 + " " + 0 + time + ":" + "00" + " " + "PM" + " " + "-" + date5 + " " + 0 + time1 + ":" + "00" + " " + "PM";
+
+            System.out.println("Current date and time is " + date5 + " " + time1 + " " + "-"+date5 + " " + time);
+            expectedText =date5 + " " + time1 +" " + "-"+ date5 + " " + time ;
             Assert.assertEquals(str, expectedText);
             System.out.println("Its working");
-        } else {
-
-        }
-        System.out.println("Current date and time is " + date5 + " " + (i - 1) + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + i + ":" + "00" + " " + "AM");
 
 
     }
@@ -426,19 +415,21 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         for (int i = 0; i < list.size(); ++i) {
             str = str + list.get(i).getText();
         }
+
         System.out.println(str);
-        DateFormat dateFormat = new SimpleDateFormat("HH");
-        Date date = new Date();
-        String date1 = dateFormat.format(date);
-        int i = Integer.parseInt(date1);
-        int time = i - 11;
+        Calendar cal1 = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh", Locale.UK);
+        System.out.println(simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis())));
+        cal1.add(Calendar.HOUR,1);
+        String time= simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        System.out.println("Current date and time is " + date5 + " " + time + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + time + ":" + "00" + " " + "PM");
-        expectedText = date5 + " " + 0 + time + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + 0 + time + ":" + "00" + " " + "PM";
-        Assert.assertEquals(str, expectedText);
+        String exp1 = date5 + " " + time + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + time + ":" + "00" + " " + "PM";
+        Assert.assertEquals(str, exp1);
+
     }
 
     @Step("Validating This month of predefined time range from calendar ")
@@ -451,22 +442,24 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             str = str + list.get(i).getText();
         }
         System.out.println(str);
+
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat s = new SimpleDateFormat("MM");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
-        SimpleDateFormat s3 = new SimpleDateFormat("yyyy");
+        System.out.println(s1);
+        SimpleDateFormat s2 = new SimpleDateFormat("yyyy");
+        System.out.println(s2.format(new Date(cal.getTimeInMillis())));
+        String s3 = s2.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s3);
+        cal.add(Calendar.MONTH, 1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s4 = s.format(new Date(cal.getTimeInMillis()));
-        String date1 = s1 + "/01" + s4;
-        cal.add(Calendar.DATE, 30);
-        System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2 = s.format(new Date(cal.getTimeInMillis()));
-        String date2 = s2 + "/01" + s4;
+        String date1=s1+"/01"+"/"+s3;
+        String date2=s4+"/01"+"/"+s3;
         System.out.println("Current date and time is " + date1 + " " + time + " " + "-" + date2 + " " + time);
         String expectedText = date1 + " " + time + " " + "-" + date2 + " " + time;
         Assert.assertEquals(str, expectedText);
-
 
     }
 
@@ -481,14 +474,21 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat s = new SimpleDateFormat("MM");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        SimpleDateFormat s2 = new SimpleDateFormat("yyyy");
+        System.out.println(s2.format(new Date(cal.getTimeInMillis())));
+        String s3 = s2.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s3);
         cal.add(Calendar.MONTH, -1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
-        String s2 = s.format(new Date(cal.getTimeInMillis()));
-        System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);
-        String expectedText = s2 + " " + time + " " + "-" + s1 + " " + time;
+        String s4 = s.format(new Date(cal.getTimeInMillis()));
+        String date1=s1+"/01"+"/"+s3;
+        String date2=s4+"/01"+"/"+s3;
+        System.out.println("Current date and time is " + date2 + " " + time + " " + "-" + date1 + " " + time);
+        String expectedText = date2 + " " + time + " " + "-" + date1+ " " + time;
         Assert.assertEquals(str, expectedText);
 
 
