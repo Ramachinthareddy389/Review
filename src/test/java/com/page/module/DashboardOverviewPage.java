@@ -251,7 +251,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Clone using Hover over Dashboard")
-    public void SearchCloneDashboard(String dname1,String Folder) throws InterruptedException {
+    public void SearchCloneDashboard(String dname1) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "Clone Parent", "clone Parent", MEDIUMWAIT);
         String locator = "//span[text()='" + dname1 + "']/parent::div";
@@ -260,18 +260,19 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         int count1 = result1.size();
         mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", MEDIUMWAIT);
         safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);
-        String optXpath = "//div[@role='menuitem' and text()='" + Folder + "']";
+        String optXpath = "//div[@role='menuitem' and text()='Application']";
         By FOLDER = By.xpath(optXpath);
-        waitForPageToLoad();
+        waitForSecs(10);
         safeClick(DIALOG_FOLDER, "Folder Field of Clone Dialogue", VERYLONGWAIT);
-        Actions act = new Actions(driver);
-        act.sendKeys("1 Folder");
-        safeJavaScriptClick(FOLDER, "dashboard display name option", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(DIALOG_DASHBOARD,"Application","Folder textbox",MEDIUMWAIT);
+   /*     Actions act = new Actions(driver);
+        act.sendKeys("1 Folder");*/
+        waitForSecs(10);
+        safeClick(FOLDER, "dashboard display name option", MEDIUMWAIT);
+        waitForSecs(10);
         safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
-        waitForPageToLoad();
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(DIALOGBOX));
-        waitForSecs(5);
+        waitForSecs(15);
         mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", VERYLONGWAIT);
         List<WebElement> result2 = driver.findElements(CLONE_PARENT);
         int count2 = result2.size();
@@ -332,6 +333,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
     }
 
+    @Step("Clicking on Calender icon")
+    public void clickingOnCalenderIcon()
+    {
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+    }
     @Step("Validating current hour of predefined time range from calendar ")
     public void ValidatingCurrentHour() throws InterruptedException {
         safeClick(BTN_CURRENTHOUR, "Current Hour");
@@ -418,18 +424,33 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
         System.out.println(str);
         Calendar cal1 = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh", Locale.UK);
-        System.out.println(simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis())));
-        cal1.add(Calendar.HOUR,1);
-        String time= simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
-
+        SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
+        String time=simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormatArrivals1 = new SimpleDateFormat("hh:00");
+        String time1=simpleDateFormatArrivals1.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.HOUR,1);
+        String time3=simpleDateFormatArrivals1.format(new Date(cal.getTimeInMillis()));
+        Calendar cal5 = Calendar.getInstance();
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        String exp1 = date5 + " " + time + ":" + "00" + " " + "AM" + " " + "-" + date5 + " " + time + ":" + "00" + " " + "PM";
-        Assert.assertEquals(str, exp1);
-
+        cal5.add(Calendar.DATE,-1);
+      String date12=  date123.format(new Date(cal5.getTimeInMillis()));
+        System.out.println(date12);
+        if(time.contains("PM")) {
+            System.out.println("Current date and time is " + date5+ " " + time3 + " " + "AM" +" "+ "-" + date5 + " " + time3+ " " + "PM");
+            expectedText = date5 + " " + time3 + " " + "AM" +" "+"-" + date5 + " " + time3 + " " + "PM";
+            Assert.assertEquals(str, expectedText);
+            System.out.println("Its working");
+        }
+        else{
+            System.out.println("Current date and time is " + date12+ " " + time3 + " " + "PM" +" "+ "-" + date5 + " " + time3 + " " + "AM");
+            expectedText = date12 + " " + time3 + " " + "PM" +" "+ "-" + date5 + " " + time3 + " " + "AM";
+            Assert.assertEquals(str, expectedText);
+            System.out.println("Its working");
+        }
     }
 
     @Step("Validating This month of predefined time range from calendar ")

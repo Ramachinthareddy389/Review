@@ -23,7 +23,7 @@ public class PivotTests extends BaseSetup {
 
     private String sModeOfExecution;
     Random random=new Random();
-    String dname = "Filters";
+    String dname = "testng";
     String dname1 = dname + random.nextInt(1500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {

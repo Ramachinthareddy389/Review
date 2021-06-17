@@ -327,12 +327,12 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(DASHBAORD_VISIBILITY_ICON,"Dashboard Visibility icon",MEDIUMWAIT);
         waitUntilClickable(BTN_REQUIRED_ROLES,"Add icon in 'Required Roles' Field",MEDIUMWAIT);
         safeClick(BTN_REQUIRED_ROLES,"Add icon in 'Required Roles' Field",MEDIUMWAIT);
-        waitForPageToLoad();
+        waitForSecs(7);
         waitUntilClickable(NAME_ADD_ROLE_WINDOW,"Name field in Add Role window",MEDIUMWAIT);
         safeType(NAME_ADD_ROLE_WINDOW,sample_Role_Name,"Name field in Add Role window",MEDIUMWAIT);
         safeClick(VIEW_DATA_PRIVILEGE,"View Data Privilege in Add Role window",MEDIUMWAIT);
         safeClick(BTN_FINISH_ROLE_WINDOW,"Finish button in Add Role window",MEDIUMWAIT);
-        waitUntilClickable(SUCCESS_CREATED_MESSAGE,"Success message after adding Role",MEDIUMWAIT);
+        waitForSecs(7);
         if(!driver.findElement(SUCCESS_CREATED_MESSAGE).isDisplayed())
             Assert.fail("User is not able to add new Role in 'Required Roles' field");
         waitUntilClickable(BTN_CLOSE_ROLE,"Close button in Role window",MEDIUMWAIT);

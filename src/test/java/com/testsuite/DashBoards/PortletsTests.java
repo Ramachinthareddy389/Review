@@ -25,7 +25,7 @@ public class PortletsTests extends BaseSetup {
     Random random=new Random();
     String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
     String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
-    String dname = "Filters";
+    String dname = "Pivots";
     String dname1 = dname + random.nextInt(1500);
     String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
     String mapPortletName = "Map Portlet - " + random.nextInt(1000);
@@ -58,6 +58,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortlet(dname1);
         portletsFeature.VerifyingGHPortlet(dname1);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -70,6 +71,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingtabularPortlet1(tabularPortletName);
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -81,6 +83,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
 
@@ -93,6 +96,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingMapPortlet(mapPortletName);
         portletsFeature.verifyingMapPortlet(mapPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -104,6 +108,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingFlowPortlet(flowPortletName);
         portletsFeature.verifyingFlowPortlet(flowPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -115,6 +120,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -126,6 +132,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingCounterPortlet(counterPortletName);
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -139,6 +146,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.cloningPortletInDashboardPage();
         portletsFeature.verifyingClonedPortlet();
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -150,6 +158,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortlet(dname1);
         portletsFeature.validatingExportedGHPortlet(dname1 + "_" + "User Click.csv",dashBoardData.porletHeaders.split(","));
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
 
     }
 
@@ -165,6 +174,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.validatingExportedATabularPortlet(tabularPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
 
     }
 
@@ -177,7 +187,8 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingExportedNtabularPortlet(nTabularPortletName);
-       // portletsFeature.removingPortlet();
+        portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
 
     }
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -190,6 +201,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingMapPortlet(mapPortletName);
         portletsFeature.validatingExportedGHPortlet(mapPortletName+".csv",dashBoardData.mapHeaders.split(","));
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
 
     }
 
@@ -202,6 +214,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -214,6 +227,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.exportingGaugePortlet(gaugePortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -226,6 +240,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.exportingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
 
@@ -238,6 +253,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.navigatingToDrillThroughPage(dname1);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -250,7 +266,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingTabularPortlet();
         portletsFeature.verifyingHoverMessageinFilterTabularportlet(tabularPortletName);
         portletsFeature.removingPortlet();
-
+        dashboardOverviewPage.deletingDashboard(dname1);
     }
 
     @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
@@ -262,6 +278,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.navigatingToDrilthroughPagesUsingTooltipOptions();
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.deletingDashboard(dname1);
 
     }
 
@@ -274,6 +291,29 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.removingPortlet();
+    }
+
+    @Test(enabled=true,groups = "Smoke Test")
+    public void TC_066_ApplyingTimeRangeinCalendar() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.navigatingToDrillThroughPage(dname1);
+        dashboardOverviewPage.clickingOnCalenderIcon();
+        dashboardOverviewPage.ValidatingCurrentHour();
+        dashboardOverviewPage.validatingLastHour();
+        dashboardOverviewPage.validatingBusinessHours("09:00 AM", "05:00 PM");
+        dashboardOverviewPage.validatingLast12hours();
+        dashboardOverviewPage.validatingThisMonth("12:00 AM");
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        dashboardOverviewPage.validatingToday("12:00 AM");
+        dashboardOverviewPage.validatingYesterday("12:00 AM");
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
+        dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
     }
 }
 

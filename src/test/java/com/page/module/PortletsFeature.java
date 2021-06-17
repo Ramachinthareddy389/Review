@@ -207,7 +207,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dashBoardData.drillthrghpage+dname1);
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage+" "+dashBoardData.portletQuery);
 
     }
 
@@ -1073,4 +1073,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             System.out.println("file not deleted");
         }
     }
+
+
 }

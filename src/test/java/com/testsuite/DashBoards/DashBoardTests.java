@@ -37,54 +37,54 @@ public class DashBoardTests extends BaseSetup  {
         loginPage.clickLogInButton();
     }
 
-    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(groups = "Smoke Test")
     public void TC012_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.setAllowedUsersInDashboardVisibility();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.userName,dashBoardData.userPassword);
+        loginPage.enterLoginCredentials(dashBoardData.userName,PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByAllowedUser();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
         dashboardPage.navigateToDashboardsPage();
         dashboardPage.removeAllowedUsersInDashboardVisibility();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.userName,dashBoardData.userPassword);
+        loginPage.enterLoginCredentials(dashBoardData.userName,PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingAccess();
     }
-    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(groups = "Smoke Test")
     public void TC013_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.setRequiredRolesInDashboardVisibility();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,dashBoardData.userPassword);
+        loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByRequiredRoleUser();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.emailAddress, dashBoardData.password);
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
         dashboardPage.navigateToDashboardsPage();
         dashboardPage.removeRequiredRoleInDashboardVisibility();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,dashBoardData.userPassword);
+        loginPage.enterLoginCredentials(dashBoardData.requiredRole_Username,PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingRequiredRole();
     }
-    @Test(groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(groups = "Smoke Test")
     public void TC014_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.setOwnerRolesInDashboardVisibility();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.ownerRole_Username,dashBoardData.userPassword);
+        loginPage.enterLoginCredentials(dashBoardData.ownerRole_Username,PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByOwnerRoleUser();
         dashboardPage.removeOwnerRoleInDashboardVisibility();
@@ -101,7 +101,7 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.verifyTicketInTicketsPage();
     }
 
-    @Test( groups ="Smoke Test",retryAnalyzer = com.testng.Retry.class )
+    @Test( groups ="Smoke Test" )
     public void TC112_PinUnPinDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
