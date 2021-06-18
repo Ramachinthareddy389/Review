@@ -40,7 +40,7 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
-    @Test(groups = "Smoke Test",priority =1,retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC_001_CreatingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -49,7 +49,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,priority = 8,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC_005_VerifyTrendGranularityinDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -62,7 +62,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.validaingTrendGranularityUSingMinutely();
     }
 
-    @Test(enabled = true,priority = 2,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC_011_RenamingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -73,7 +73,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,priority =7,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC018_ApplyanydatefrompredefinedtimerangesinCalendar() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -94,7 +94,7 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
-    @Test(groups = "Smoke Test",priority = 10,retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC085_RemoveDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -106,7 +106,7 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
-    @Test(enabled = true,priority =3,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC089_CloningInDashboardOverview() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -117,7 +117,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,priority = 6,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC105_AddingDashboardFolder() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -128,7 +128,7 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
-    @Test(groups = "Smoke Test",priority = 9,retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC110_DeletingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -140,7 +140,7 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
-    @Test(enabled = true,priority =4,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC113_CloningDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -148,7 +148,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.CloneDashboard("clone Parent");
     }
 
-    @Test(enabled = true,priority = 5,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC114_CloningPortletInDashboardOverview() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);

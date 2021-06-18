@@ -306,7 +306,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("Accessing Dashboard by sample user after removing access")
     public void accessDashboardByUserAfterRemovingAccess() throws InterruptedException{
-        waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
+        //waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
+        waitForSecs(10);
         if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
             Assert.fail("Error message is not displayed for user without access");
     }

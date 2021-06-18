@@ -43,7 +43,7 @@ public class PivotTests extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_071_AddingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -57,7 +57,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.removeTablePortletInPivotPage();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_072_AddingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -71,7 +71,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.removeChartPortletInPivotPage();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_075_VerifyingDataInPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -85,7 +85,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.removeTablePortletInPivotPage();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_076_EditingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -100,7 +100,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.verifyEditedChartPortletInPivotPage();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_077_EditingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();

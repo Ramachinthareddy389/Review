@@ -14,7 +14,7 @@
 		<parameter name="browser-Type" value="chrome" />
 		<parameter name="browserVersion" value="91" />
 		<parameter name="osName" value="WINDOWS" />
-		<parameter name="osVersion" value="10" />
+		<parameter name="osVersion" value="8.1" />
 		<parameter name="session" value="Testing" />
 		<classes>
 			<class name="com.testsuite.DashBoards.DashboardOverview"></class>

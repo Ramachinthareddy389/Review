@@ -155,4 +155,12 @@ public interface PortletLocators {
     By GAUGEPORTLETDATA=By.xpath("//div[@data-id='series_0']/span");
     By COUNTERPORTLETDATA=By.xpath("//div[contains(@class,'CounterChart')]/div/span/span[2]");
 
+
+    //RCA
+    By ICON_MAXMIZE_RCA = By.xpath("//span[contains(@aria-label,'Issue Description')]/../../../descendant::div[contains(@aria-label,'Maximize')]");
+    By ICON_RESTORE_RCA = By.xpath("//span[contains(@aria-label,'Issue Description')]/../../../descendant::div[contains(@aria-label,'Restore')]");
+    By TIME_SESSION_RCA = By.xpath("//span[contains(text(),'Time')]/../following-sibling::div/span/span");
+    By CALENDAR_TIME_RANGE = By.xpath("//div[contains(@class,'DateTimePicker')]/descendant::span[contains(@style,'nowrap')]");
+
+
 }

@@ -48,7 +48,7 @@ public class OprationalTests extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test(enabled = true,groups = "Smoke Test")
+    @Test(groups = "Smoke Test")
     public void TC_092_validatingDrillthroughUsingOperational() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();

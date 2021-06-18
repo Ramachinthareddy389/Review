@@ -49,7 +49,7 @@ public class PortletsTests extends BaseSetup {
     }
 
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC023_AddingGeneralHealthPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -61,7 +61,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_24_AddingTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -74,7 +74,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC_25_AddingNTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -87,7 +87,7 @@ public class PortletsTests extends BaseSetup {
     }
 
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_26_AddingMapPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -99,7 +99,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_27_AddingFlowPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -111,7 +111,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_28_AddingGaugePortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -123,7 +123,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_29_AddingCounterPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -135,7 +135,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_45_ClonePortletToAnotherDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -149,7 +149,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_048_ExportGHPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -162,7 +162,7 @@ public class PortletsTests extends BaseSetup {
 
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_049_ExportTabularportlet() throws InterruptedException, IOException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -178,7 +178,7 @@ public class PortletsTests extends BaseSetup {
 
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_50_ExportNTabularPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -191,7 +191,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
 
     }
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_051_ExportMapPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -205,7 +205,7 @@ public class PortletsTests extends BaseSetup {
 
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_O52_RemovePortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -217,7 +217,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_53_ExportingGaugePortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -230,7 +230,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_54_ExportingCounterPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -244,7 +244,7 @@ public class PortletsTests extends BaseSetup {
     }
 
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_055_NavigatetoDrillthroughpage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -256,7 +256,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_056_VerifyHovermessageinFilterIconInTabularPortlet() throws InterruptedException, IOException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -269,7 +269,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard(dname1);
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_057_NavigateDrillthroughpageUsing3optionTooltip() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -282,7 +282,7 @@ public class PortletsTests extends BaseSetup {
 
     }
 
-    @Test(enabled = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_058_AddingPortletFromSearchBar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -293,7 +293,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.removingPortlet();
     }
 
-    @Test(enabled=true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_066_ApplyingTimeRangeinCalendar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -315,6 +315,44 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
         dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
     }
+
+
+
+    @Test(enabled = true)
+    public void TC_061_NavigateToDrillthroughpageUsing3optionTooltip() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.navigateToDrillthroughPage();
+    }
+
+    @Test()
+    public void TC_080_VerifyingTimeRangeInRCAPage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToRCAFromDrillthroughPage();
+        portletsFeature.verifyTimeRangeInRCAPage();
+    }
+
+    @Test(retryAnalyzer = com.testng.Retry.class)
+    public void TC_082_MaximisePortletInRCAPage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
+        dashboardOverviewPage.searchingDashboard(dname1);
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.navigateToRCAPage();
+        portletsFeature.maximisePortletInRCAPage();
+    }
+
 }
 
 
