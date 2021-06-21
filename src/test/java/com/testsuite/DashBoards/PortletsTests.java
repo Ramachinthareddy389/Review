@@ -53,37 +53,37 @@ public class PortletsTests extends BaseSetup {
     public void TC023_AddingGeneralHealthPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1);
         portletsFeature.VerifyingGHPortlet(dname1);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_24_AddingTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test",retryAnalyzer = com.testng.Retry.class)
     public void TC_25_AddingNTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
 
@@ -91,74 +91,74 @@ public class PortletsTests extends BaseSetup {
     public void TC_26_AddingMapPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingMapPortlet(mapPortletName);
         portletsFeature.verifyingMapPortlet(mapPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_27_AddingFlowPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingFlowPortlet(flowPortletName);
         portletsFeature.verifyingFlowPortlet(flowPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_28_AddingGaugePortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_29_AddingCounterPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_45_ClonePortletToAnotherDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.cloningPortletInDashboardPage();
         portletsFeature.verifyingClonedPortlet();
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_048_ExportGHPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1);
         portletsFeature.validatingExportedGHPortlet(dname1 + "_" + "User Click.csv",dashBoardData.porletHeaders.split(","));
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -167,14 +167,14 @@ public class PortletsTests extends BaseSetup {
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.validatingExportedATabularPortlet(tabularPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -182,26 +182,26 @@ public class PortletsTests extends BaseSetup {
     public void TC_50_ExportNTabularPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingExportedNtabularPortlet(nTabularPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
 
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_051_ExportMapPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingMapPortlet(mapPortletName);
         portletsFeature.verifyingMapPortlet(mapPortletName);
         portletsFeature.validatingExportedGHPortlet(mapPortletName+".csv",dashBoardData.mapHeaders.split(","));
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -209,38 +209,38 @@ public class PortletsTests extends BaseSetup {
     public void TC_O52_RemovePortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_53_ExportingGaugePortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.exportingGaugePortlet(gaugePortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_54_ExportingCounterPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.exportingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
 
@@ -248,12 +248,12 @@ public class PortletsTests extends BaseSetup {
     public void TC_055_NavigatetoDrillthroughpage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.navigatingToDrillThroughPage(dname1);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
@@ -261,24 +261,24 @@ public class PortletsTests extends BaseSetup {
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.verifyingHoverMessageinFilterTabularportlet(tabularPortletName);
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_057_NavigateDrillthroughpageUsing3optionTooltip() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.navigatingToDrilthroughPagesUsingTooltipOptions();
         portletsFeature.removingPortlet();
-        dashboardOverviewPage.deletingDashboard(dname1);
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -286,8 +286,8 @@ public class PortletsTests extends BaseSetup {
     public void TC_058_AddingPortletFromSearchBar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.removingPortlet();
@@ -297,8 +297,8 @@ public class PortletsTests extends BaseSetup {
     public void TC_066_ApplyingTimeRangeinCalendar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.navigatingToDrillThroughPage(dname1);
         dashboardOverviewPage.clickingOnCalenderIcon();
@@ -322,8 +322,8 @@ public class PortletsTests extends BaseSetup {
     public void TC_061_NavigateToDrillthroughpageUsing3optionTooltip() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.navigateToDrillthroughPage();
     }
@@ -332,8 +332,8 @@ public class PortletsTests extends BaseSetup {
     public void TC_080_VerifyingTimeRangeInRCAPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.navigateToDrillthroughPage();
@@ -345,8 +345,8 @@ public class PortletsTests extends BaseSetup {
     public void TC_082_MaximisePortletInRCAPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.navigateToRCAPage();

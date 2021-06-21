@@ -3,9 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.DashboardPage;
-import com.page.module.LoginPage;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +15,8 @@ public class DashBoardTests extends BaseSetup  {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private DashboardOverviewPage dashboardOverviewPage;
+    private PortletsFeature portletsFeature;
+    private PivotPage pivotPage;
 
     private String sModeOfExecution;
 
@@ -109,4 +109,50 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.PinDashboard();
         dashboardPage.Unpin_Pin_Dashboard_FromDashboardPage();
     }
+
+
+    @Test( groups ="Smoke Test" )
+    public void TC085_Verify_Standard_Breadcrumb_Navigation() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage();
+        dashboardPage.navigateToDrillthroughPageFromPivotPage();
+        portletsFeature.navigateToRCAFromDrillthroughPage();
+        dashboardPage.verifyStandardBreadcrumbNavigation();
+    }
+
+    @Test( groups ="Smoke Test" )
+    public void TC086_Verify_Standard_Breadcrumb_Backward_Navigation() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage();
+        dashboardPage.navigateToDrillthroughPageFromPivotPage();
+        portletsFeature.navigateToRCAFromDrillthroughPage();
+        dashboardPage.verifyStandardBreadcrumbNavigation();
+        dashboardPage.verifyStandardBreadcrumbBackwardNavigation();
+    }
+
+    @Test( groups ="Smoke Test" )
+    public void TC087_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.navigateToDrillthroughPage();
+        dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
+        portletsFeature.navigateToRCAFromDrillthroughPage();
+        dashboardPage.verifyBreadcrumbNavigationWithConstraintsInDrillthroughPage();
+        dashboardPage.verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage();
+    }
+
 }

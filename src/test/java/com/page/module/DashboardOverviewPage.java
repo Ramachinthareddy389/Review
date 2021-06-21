@@ -23,7 +23,9 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     String expectedText = "Create" + " May2021129" + "";
     static int j;
 
-
+    Random random = new Random();
+    String dname = "Dboverview";
+    String dname1 = dname + random.nextInt(1500);
     //Constructor to define/call methods
     public DashboardOverviewPage(WebDriver driver) {
         super(driver);
@@ -48,7 +50,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
-    public void enterAddrequirefeildsInDashBoardPage(String dname1) throws InterruptedException {
+    public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
@@ -75,7 +77,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
-    public void searchingDashboard(String dname1) throws InterruptedException {
+    public void searchingDashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -90,7 +92,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Adding Folder in Dashboard overview Page")
-    public void addingFolder(String dname1) throws InterruptedException {
+    public void addingFolder() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, "Dashboards > " + dname1 + "\n", "Dashboard into type search");
         System.out.println("entered db text");
         waitForSecs(7);
@@ -101,7 +103,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Removing dashboard from Dashboard overview page")
-    public void removingDashboard(String dname1) {
+    public void removingDashboard() {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
@@ -139,7 +141,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Deleting dashboard from the application ")
-    public void deletingDashboard(String dname1) throws InterruptedException {
+    public void deletingDashboard() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
@@ -165,7 +167,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Renaming dashboard from the  Dashboard overview page")
-    public void renamingDashboard(String dname1) throws InterruptedException {
+    public void renamingDashboard() throws InterruptedException {
         safeClick(LISTOFDASHBOARDS, "Dashboard", MEDIUMWAIT);
         waitUntilClickable(ICON_RENAME, "Waiting for rename icon is displayed");
         safeClick(ICON_RENAME, "Rename icon", MEDIUMWAIT);
@@ -251,7 +253,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Clone using Hover over Dashboard")
-    public void SearchCloneDashboard(String dname1) throws InterruptedException {
+    public void SearchCloneDashboard() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "Clone Parent", "clone Parent", MEDIUMWAIT);
         String locator = "//span[text()='" + dname1 + "']/parent::div";
@@ -283,7 +285,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Verifying cloning portlet in Dashboard over view page")
-    public void cloningPortlet(String dname1) throws InterruptedException {
+    public void cloningPortlet() throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
@@ -669,13 +671,13 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(text);
         expectedText = "Minutely";
         Assert.assertEquals(text, expectedText);
-        String[] expected = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "00:00"};
+        String expected = "00:00";
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
-        for (int i = 0; i < expected.length; i++) {
+        for (int i = 0; i < allOptions.size()-1; i++) {
             String optionValue = allOptions.get(i).getText();
-            Assert.assertEquals(optionValue, expected[i]);
-            if (optionValue.equals(expected[i])) {
-                System.out.println(expected[i]);
+            Assert.assertEquals(optionValue, expected);
+            if (optionValue.equals(expected)) {
+                System.out.println(expected);
                 System.out.println("passed on: " + optionValue);
             } else {
                 System.out.println("failed on: " + optionValue);
@@ -691,28 +693,57 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(15);
+
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_LAST_30_DAYS, "Last 30 Days button", MEDIUMWAIT);
+        waitForSecs(7);
         safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
         waitForSecs(7);
         safeClick(BTN_HOURLY, "Hourly option from Trend Granularity");
         waitForSecs(7);
-        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
-        waitForSecs(5);
-        safeClick(BTN_TODAY, "Today button", MEDIUMWAIT);
-        waitForSecs(7);
-        String text = safeGetText(NTABULAR_LABELS_Hourly, "Hourly text", 5000);
+        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title","Hourly text", 5000);
         System.out.println(text);
-        expectedText = "HOURLY";
+        expectedText = "Hourly";
         Assert.assertEquals(text, expectedText);
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat f = new SimpleDateFormat("MMM");
+        SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
+        cal.add(Calendar.DATE,-28);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
-        String s2 = f1.format(new Date(cal.getTimeInMillis()));
-        String date = s2 + "." + " " + s1;
-        System.out.println(date);
-        String[] expected = {date, "1:00 am", "2:00 am", "3:00 am", "4:00 am", "5:00 am", "6:00 am", "7:00 am", "8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"};
+        System.out.println(s1);
+        cal.add(Calendar.DATE,2);
+        String s2= f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s3 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s4 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s5 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s6 = f.format(new Date(cal.getTimeInMillis()));
+
+        cal.add(Calendar.DATE,2);
+        String s7 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s8 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s9 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s10 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s11 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s12 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s13 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s14 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE,2);
+        String s15 = f.format(new Date(cal.getTimeInMillis()));
+        String[] expected = {s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15};
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
-        for (int i = 0; i < expected.length; i++) {
+        for (int i = 0; i <=  expected.length-1; i++) {
             String optionValue = allOptions.get(i).getText();
             Assert.assertEquals(optionValue, expected[i]);
             if (optionValue.equals(expected[i])) {
@@ -737,13 +768,12 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         expectedText = "DAILY";
         Assert.assertEquals(text, expectedText);
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat f = new SimpleDateFormat("MMM");
+        SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
+        cal.add(Calendar.DATE,-28);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
-        String s2 = f1.format(new Date(cal.getTimeInMillis()));
-        String date = s2 + "." + " " + s1;
-        System.out.println(date);
-        String expected = date;
+        System.out.println(s1);
+        String expected = s1;
         WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
         String actualText = allOptions.getText();
         Assert.assertEquals(expected, actualText);
@@ -765,6 +795,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        cal.add(Calendar.MONTH,-1);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
         String date = s1 + " " + "'" + s2;

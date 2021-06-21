@@ -21,7 +21,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     String ticketTitle = dashBoardData1.ticketTitle
             +" - "+random.nextInt(500);
     static int j;
-    String Assignee_Add, Severity_Add, Priority_Add, Status_Add, Participants_Add;
+    String Assignee_Add, Severity_Add, Priority_Add, Status_Add, Participants_Add,filterValue_Drillthrough,portletName_Pivot;
     String sampleDashboard_AllowedUsers = dashBoardData1.sampleDashboard_AllowedUsers;
     String sampleDB_RequiredRoles = dashBoardData1.sampleDB_RequiredRole;
     String sample_Role_Name = dashBoardData1.sample_Role_Name + " - " +random.nextInt(1000);
@@ -497,5 +497,90 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitUntilClickable(ERROR_MESSAGE,"Error popup for accessing dashboard",MEDIUMWAIT);
         if(!driver.findElement(ERROR_MESSAGE).isDisplayed())
             Assert.fail("Error message is not displayed for user without access");
+    }
+
+    @Step("Navigating to Drillthrough page from pivot page")
+    public void navigateToDrillthroughPageFromPivotPage() {
+        waitForPageToLoad();
+        System.out.println("Pivot Portlet Name is "+driver.findElement(FIRST_PORTLET_PIVOT).getText());
+        portletName_Pivot = driver.findElement(FIRST_PORTLET_PIVOT).getText();
+        By DRILLTHROUGH_TABLE_PORTLET = By.xpath("//span[contains(@aria-label,'" + portletName_Pivot + "')]/../../../descendant::div[contains(@aria-label,'Drillthrough')]");
+        waitUntilClickable(DRILLTHROUGH_TABLE_PORTLET, "Drillthrough icon in Table portlet", MEDIUMWAIT);
+        safeClick(DRILLTHROUGH_TABLE_PORTLET, "Drillthrough icon in Table portlet", MEDIUMWAIT);
+        waitUntilClickable(Title_DRILLTHROUGH,"Drillthrough Title",MEDIUMWAIT);
+        if(!driver.findElement(Title_DRILLTHROUGH).getText().contains(portletName_Pivot))
+            System.out.println("Drillthrough page is not displayed properly");
+    }
+
+
+    @Step("Verify Standard Breadcrumb navigation")
+    public void verifyStandardBreadcrumbNavigation() throws InterruptedException{
+        waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
+        System.out.println("Breadcrumb is "+driver.findElement(DASHBOARD_BREADCRUMB).getText()+" dNAME IS "+dname1);
+        if (!driver.findElement(DASHBOARD_BREADCRUMB).getText().equalsIgnoreCase(dname1))
+            Assert.fail("Breadcrumb for Dashboard is not displayed properly");
+        System.out.println("Breadcrumb for Pivot is "+driver.findElement(PIVOT_BREADCRUMB).getText()+"portlet name is "+dashBoardData1.portletQuery);
+        if(!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(dashBoardData1.portletQuery))
+            Assert.fail("Breadcrumb for Pivot is not displayed properly");
+        System.out.println("Breadcrumb for Drillthrough is "+driver.findElement(DRILLTHROUGH_BREADCRUMB).getText()+"portlet name is "+portletName_Pivot);
+        if(!driver.findElement(DRILLTHROUGH_BREADCRUMB).getText().equalsIgnoreCase(portletName_Pivot))
+            Assert.fail("Breadcrumb for Drillthrough is not displayed properly");
+    }
+
+    @Step("Verify Standard Breadcrumb Backward navigation")
+    public void verifyStandardBreadcrumbBackwardNavigation() throws InterruptedException{
+        waitUntilClickable(DRILLTHROUGH_BREADCRUMB,"Drillthrough Breadcrumb",MEDIUMWAIT);
+        safeClick(DRILLTHROUGH_BREADCRUMB,"Drillthrough Breadcrumb",MEDIUMWAIT);
+        if(!driver.findElement(DRILLTHROUGH_BREADCRUMB).getText().equalsIgnoreCase(portletName_Pivot))
+            Assert.fail("Breadcrumb for Drillthrough is not displayed properly");
+        if(!driver.findElement(Title_DRILLTHROUGH).getText().contains(portletName_Pivot))
+            Assert.fail("Title for Drillthrough page is not displayed properly");
+        waitUntilClickable(PIVOT_BREADCRUMB,"Pivot Page Breadcrumb",MEDIUMWAIT);
+        safeClick(PIVOT_BREADCRUMB,"Pivot Page Breadcrumb",MEDIUMWAIT);
+        if(!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(dashBoardData1.portletQuery))
+            Assert.fail("Breadcrumb for Pivot is not displayed properly");
+        if(!driver.findElement(Title_DRILLTHROUGH).getText().contains(dashBoardData1.portletQuery))
+            Assert.fail("Title for Pivot page is not displayed properly");
+        waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
+        safeClick(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
+        if(!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname1))
+            Assert.fail("Title for Dashboard page is not displayed properly");
+    }
+
+    @Step("Applying and Verifying breadcrumb with constraints in Drillthrough page")
+    public void applyAndVerifyConstraintsInDrillthroughPage() {
+        waitForPageToLoad();
+        safeClick(TEXTBOX_TYPESEARCH,"Search box in Drillthrough page",MEDIUMWAIT);
+        String constraint = Keys.chord(dashBoardData1.constraint_DrillthroughPage)+Keys.ENTER;
+        driver.findElement(TEXTBOX_TYPESEARCH).sendKeys(constraint);
+        waitUntilClickable(FILTER_VALUE_DRILLTHROUGH,"Filter value in Drillthrough page",MEDIUMWAIT);
+        filterValue_Drillthrough=driver.findElement(FILTER_VALUE_DRILLTHROUGH).getText();
+        if(!driver.findElement(FILTER_VALUE_DRILLTHROUGH).getText().equalsIgnoreCase(driver.findElement(BREADCRUMB_DRILLTHROUGH).getText()))
+            Assert.fail("Breadcrumb is not updated as per the applied constraint");
+    }
+
+    @Step("Verify Standard Breadcrumb navigation with constraints in Drillthrough page")
+    public void verifyBreadcrumbNavigationWithConstraintsInDrillthroughPage() throws InterruptedException{
+        waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
+        System.out.println("Breadcrumb is "+driver.findElement(DASHBOARD_BREADCRUMB).getText()+" dNAME IS "+dname1);
+        if (!driver.findElement(DASHBOARD_BREADCRUMB).getText().equalsIgnoreCase(dname1))
+            Assert.fail("Breadcrumb for Dashboard is not displayed properly");
+        System.out.println("Breadcrumb for Drillthrough is "+driver.findElement(BREADCRUMB_DRILLTHROUGH).getText()+" Filter value is "+filterValue_Drillthrough);
+        if(!driver.findElement(BREADCRUMB_DRILLTHROUGH).getText().equalsIgnoreCase(filterValue_Drillthrough))
+            Assert.fail("Breadcrumb with constraints for Drillthrough is not displayed properly");
+    }
+
+    @Step("Verify Standard Breadcrumb navigation with constraints in Drillthrough page")
+    public void verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage() throws InterruptedException{
+        waitUntilClickable(BREADCRUMB_DRILLTHROUGH,"Drillthrough Breadcrumb",MEDIUMWAIT);
+        safeClick(BREADCRUMB_DRILLTHROUGH,"Drillthrough Breadcrumb",MEDIUMWAIT);
+        if(!driver.findElement(BREADCRUMB_DRILLTHROUGH).getText().equalsIgnoreCase(filterValue_Drillthrough))
+            Assert.fail("Breadcrumb with constraints for Drillthrough is not displayed properly on backward navigation");
+        if(!driver.findElement(Title_DRILLTHROUGH).getText().contains(dashBoardData1.portletQuery))
+            Assert.fail("Title for Drillthrough page is not displayed properly");
+        waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
+        safeClick(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
+        if(!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname1))
+            Assert.fail("Title for Dashboard page is not displayed properly");
     }
 }

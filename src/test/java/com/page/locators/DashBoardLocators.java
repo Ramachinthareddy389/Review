@@ -184,4 +184,18 @@ public interface DashBoardLocators {
 
 
 
+    //Breadcrumb nav
+    By DASHBOARD_BREADCRUMB = By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::a/span");
+    By PIVOT_BREADCRUMB = By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::span[2]");
+    By DRILLTHROUGH_BREADCRUMB= By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::span[3]");
+    By FIRST_PORTLET_PIVOT = By.xpath("(//span[contains(@class,'portlet-title')]/span)[1]");
+    By DASHBOARD_TITLE = By.xpath("//h5");
+    By Title_DRILLTHROUGH=By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
+
+    //Breadcrumb with Constraints
+    By FILTER_VALUE_DRILLTHROUGH = By.xpath("//button[contains(@title,'Switch to \"is not\"')]/following-sibling::span/span");
+    By BREADCRUMB_DRILLTHROUGH = By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::span[2]");
+
+
+
 }

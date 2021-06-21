@@ -55,6 +55,8 @@ public class DashBoardData {
 	public final String updatedTablePortletName = portletsData.getProperty("UpdatedTablePortletName");
 	public final String[] pivotsArray = portletsData.getProperty("MultiplePivots").split(",");
 	public final String[] measuresArray = portletsData.getProperty("MultipleMeasures").split(",");
+	public final String constraint_DrillthroughPage = portletsData.getProperty("Constraint_Drillthrough");
+
 
 
 }

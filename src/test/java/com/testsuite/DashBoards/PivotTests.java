@@ -47,8 +47,8 @@ public class PivotTests extends BaseSetup {
     public void TC_071_AddingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();
@@ -61,8 +61,8 @@ public class PivotTests extends BaseSetup {
     public void TC_072_AddingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();
@@ -75,8 +75,8 @@ public class PivotTests extends BaseSetup {
     public void TC_075_VerifyingDataInPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();
@@ -89,8 +89,8 @@ public class PivotTests extends BaseSetup {
     public void TC_076_EditingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();
@@ -104,8 +104,8 @@ public class PivotTests extends BaseSetup {
     public void TC_077_EditingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
-        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage(dname1);
-        dashboardOverviewPage.searchingDashboard(dname1);
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage();
