@@ -26,6 +26,8 @@ public class DashBoardTests extends BaseSetup  {
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
         dashboardOverviewPage  =new DashboardOverviewPage(getDriver());
+        portletsFeature = new PortletsFeature(getDriver());
+        pivotPage = new PivotPage(getDriver());
         dashboardPage = new DashboardPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();

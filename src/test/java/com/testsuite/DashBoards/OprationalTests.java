@@ -16,7 +16,6 @@ import java.util.Random;
 
 public class OprationalTests extends BaseSetup {
     private DashboardOverviewPage dashboardOverviewPage;
-    private PortletsFeature portletsFeature;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private OperationalPage OperationalPage;
@@ -54,6 +53,15 @@ public class OprationalTests extends BaseSetup {
         OperationalPage.clickingOperationButton();
         dashboardOverviewPage.validatingLastMonth("12:00 AM");
         OperationalPage.validatingDrillthroughUsingOperational();
+    }
+
+
+    @Test(groups = "Smoke Test")
+    public void TC_094_VerifyCountofKPI() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        OperationalPage.validatingCountOfKPI();
     }
 
 }

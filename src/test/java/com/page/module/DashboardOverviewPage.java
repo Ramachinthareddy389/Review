@@ -81,11 +81,6 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        /*String count=getAttributeValue(Count,"aria-label","Dashboard count",MEDIUMWAIT);
-        if(count.equals(Count))
-        {
-            safeClick(Count,"Count label",MEDIUMWAIT);
-        }*/
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
@@ -490,6 +485,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     public void validatingLastMonth(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_MONTH, "Last Month");
+        waitForSecs(5);
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
         for (int i = 0; i < list.size(); ++i) {
@@ -592,6 +588,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Validating Last7Days option of predefined time range from calendar ")
     public void validatingLast7Days(String time) {
+        waitForSecs(5);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_7_DAYS, "Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);

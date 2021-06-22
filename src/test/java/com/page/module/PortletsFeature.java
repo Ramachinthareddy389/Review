@@ -485,6 +485,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for pivot instances", MEDIUMWAIT);
         System.out.println(Tooltip3);
         Assert.assertEquals(Tooltip3, dashBoardData.tooltip3);
+        safeClick(HYPERLINKDBINDRILLTHROUGH, "Dashboard Name Hyper link in Drillthrough Page", MEDIUMWAIT);
 
     }
 
@@ -577,7 +578,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     public void downloadedpath() {
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
-        waitForSecs(7);
+        waitForSecs(10);
         String home = System.getProperty("user.home");
         downloadPath = home + "\\Downloads";
         System.out.println(downloadPath);
@@ -601,7 +602,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         List<String[]> list = csvreader.readAll();
         Iterator<String[]> ite = list.iterator();
         String[] data = ite.next();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < data.length; i++) {
             String actualText = data[i];
             Assert.assertEquals(actualText, expected[i]);
             if (actualText.equals(expected[i])) {
@@ -926,11 +927,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Validating NTabular Portlet")
     public void verifyingExportedNtabularPortlet(String tabularPortletName) throws IOException {
         waitForSecs(10);
-    String firstRow= driver.findElement(NtabularFirstRow).getText();
-    String secndRow= driver.findElement(NTABULARSENDROW).getText();
-    String thirdRow=driver.findElement(NTABULARTHIRDROW).getText();
-
-    waitForSecs(7);
+        String firstRow= driver.findElement(NtabularFirstRow).getText();
+        String secndRow= driver.findElement(NTABULARSENDROW).getText();
+        String thirdRow=driver.findElement(NTABULARTHIRDROW).getText();
+        waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
         //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";
@@ -1126,6 +1126,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Navigate to RCA page using '3 option' tooltip")
     public void navigateToRCAPage()
     {
+
         waitForPageToLoad();
         mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_1,"RCA",MEDIUMWAIT);

@@ -21,6 +21,7 @@
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
 			<class name="com.testsuite.DashBoards.PortletsTests"></class>
 			<class name="com.testsuite.DashBoards.PivotTests"></class>
+			<class name="com.testsuite.DashBoards.OprationalTests"></class>
 
 		</classes>
 	</test>
