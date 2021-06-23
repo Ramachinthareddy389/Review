@@ -516,8 +516,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Verify Standard Breadcrumb navigation")
     public void verifyStandardBreadcrumbNavigation() throws InterruptedException{
         waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
-        System.out.println("Breadcrumb is "+driver.findElement(DASHBOARD_BREADCRUMB).getText()+" dNAME IS "+dname1);
-        if (!driver.findElement(DASHBOARD_BREADCRUMB).getText().equalsIgnoreCase(dname1))
+        System.out.println("Breadcrumb is "+driver.findElement(DASHBOARD_BREADCRUMB).getText()+" dNAME IS "+dname2);
+        if (!driver.findElements(DASHBOARD_BREADCRUMB).get(0).getText().equalsIgnoreCase(dname2))
             Assert.fail("Breadcrumb for Dashboard is not displayed properly");
         System.out.println("Breadcrumb for Pivot is "+driver.findElement(PIVOT_BREADCRUMB).getText()+"portlet name is "+dashBoardData1.portletQuery);
         if(!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(dashBoardData1.portletQuery))
@@ -543,7 +543,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             Assert.fail("Title for Pivot page is not displayed properly");
         waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
         safeClick(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
-        if(!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname1))
+        if(!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname2))
             Assert.fail("Title for Dashboard page is not displayed properly");
     }
 
@@ -562,8 +562,8 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Verify Standard Breadcrumb navigation with constraints in Drillthrough page")
     public void verifyBreadcrumbNavigationWithConstraintsInDrillthroughPage() throws InterruptedException{
         waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
-        System.out.println("Breadcrumb is "+driver.findElement(DASHBOARD_BREADCRUMB).getText()+" dNAME IS "+dname1);
-        if (!driver.findElement(DASHBOARD_BREADCRUMB).getText().equalsIgnoreCase(dname1))
+        System.out.println("Breadcrumb is "+driver.findElement(DASHBOARD_BREADCRUMB).getText()+" dNAME IS "+dname2);
+        if (!driver.findElement(DASHBOARD_BREADCRUMB).getText().equalsIgnoreCase(dname2))
             Assert.fail("Breadcrumb for Dashboard is not displayed properly");
         System.out.println("Breadcrumb for Drillthrough is "+driver.findElement(BREADCRUMB_DRILLTHROUGH).getText()+" Filter value is "+filterValue_Drillthrough);
         if(!driver.findElement(BREADCRUMB_DRILLTHROUGH).getText().equalsIgnoreCase(filterValue_Drillthrough))
@@ -580,7 +580,36 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             Assert.fail("Title for Drillthrough page is not displayed properly");
         waitUntilClickable(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
         safeClick(DASHBOARD_BREADCRUMB,"Dashboard Breadcrumb",MEDIUMWAIT);
-        if(!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname1))
+        if(!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname2))
             Assert.fail("Title for Dashboard page is not displayed properly");
     }
+
+    @Step("Deleting dashboard from the application ")
+    public void deletingDashboard() throws InterruptedException {
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname2+ "\n", "dashboard name into type search");
+        System.out.println("entered db text");
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        waitUntilClickable(FOLDER_DELETE, "text", 5000);
+        safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
+        waitUntilClickable(BUTTON_DELETE, "wait delete button clicked", MEDIUMWAIT);
+        safeClick(BUTTON_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(20);
+        waitUntilElementDisappears(BUTTON_DELETE, "disappears", MEDIUMWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        waitForPageToLoad();
+        mouseHoverJScript(COLUMN_FOLDER, "text", "mouse", MEDIUMWAIT);
+        safeClick(BUTTON_ADDFOLDER, "Add folder", MEDIUMWAIT);
+        waitUntilClickable(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]"), "text", 5000);
+        safeClick(TEXTBOX_CHOSE_DASHBOARD, "Select or create dashboard text box", MEDIUMWAIT);
+        driver.findElement(By.xpath("//*[@id='dashboardKey']")).sendKeys(dname2, Keys.ENTER);
+        waitUntilClickable(DASHBOARD_LABEL, "waiting for element", MEDIUMWAIT);
+        String actualText = safeGetText(DASHBOARD_LABEL, "dashboard name", MEDIUMWAIT);
+        System.out.println(actualText);
+        String expectedText = "Create" + " " + "\"" + dname2 + "\"";
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(DASHBOARD_LABEL, "Select or create dashboard text box", MEDIUMWAIT);
+        safeClick(BUTTON_CANCEL, "Cancel button", MEDIUMWAIT);
+    }
+
 }

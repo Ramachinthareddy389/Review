@@ -9,6 +9,7 @@ import com.page.module.WizardsPage;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.Random;
 
@@ -39,4 +40,23 @@ public class WizardsTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_116_AddconfigfromWizardspage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        wizardsPage.addingConfigFromWizardPage();
+        wizardsPage.verifyingInAlertPage();
+
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_117_ManagefromWizardPage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        wizardsPage.verifyingManageButtonInWizards();
+
+
+
+    }
+
 }

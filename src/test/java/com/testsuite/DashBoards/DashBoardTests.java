@@ -118,13 +118,14 @@ public class DashBoardTests extends BaseSetup  {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
         pivotPage.navigateToPivotPage();
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyStandardBreadcrumbNavigation();
+        dashboardPage.deletingDashboard();
     }
 
     @Test( groups ="Smoke Test" )
@@ -132,14 +133,15 @@ public class DashBoardTests extends BaseSetup  {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
         pivotPage.navigateToPivotPage();
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyStandardBreadcrumbNavigation();
         dashboardPage.verifyStandardBreadcrumbBackwardNavigation();
+        dashboardPage.deletingDashboard();
     }
 
     @Test( groups ="Smoke Test" )
@@ -147,14 +149,15 @@ public class DashBoardTests extends BaseSetup  {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
         portletsFeature.navigateToDrillthroughPage();
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyBreadcrumbNavigationWithConstraintsInDrillthroughPage();
         dashboardPage.verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage();
+        dashboardPage.deletingDashboard();
     }
 
 }
