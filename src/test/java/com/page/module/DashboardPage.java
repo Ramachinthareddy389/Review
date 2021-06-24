@@ -138,22 +138,17 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForPageToLoad();
         safeClick(TICKET_PARTCIPANTS,"Participants",MEDIUMWAIT);
         System.out.println("Participant existing one is "+driver.findElement(TICKET_PARTCIPANTS).getText());
-        By TICKET_PARTICIPANT_SELECTION = By.xpath("//div[contains(text(),'"+dashBoardData1.ticketParticipant+"')]");
         waitForSecs(5);
-        Actions act1=new Actions(driver);
-        act1.sendKeys(dashBoardData1.ticketParticipant);
-        List<WebElement> participants = driver.findElements(TICKET_PARTICIPANT_SELECTION);
+        safeClick(PARTICIPANTS_GHOSTTEXT,"Select..ghost text",MEDIUMWAIT);
+        safeClearAndType(PARTICIPANTS_TEXTBOX,dashBoardData1.ticketParticipant,"Text into partcipants",MEDIUMWAIT);
+        List<WebElement> participants = driver.findElements(TICKET_ASSIGNEE_DROPDOWN);
         System.out.println("Total no 0f participants:::====> " + participants.size());
-       waitUntilClickable(TICKET_PARTICIPANT_SELECTION,"Wait till participants load" ,5000);
-
         for (int i = 0; i < participants.size(); i++) {
             System.out.println(participants.get(i).getText());
             waitForSecs(7);
             if (participants.get(i).getText().contains(dashBoardData1.ticketParticipant)) {
-                waitForSecs(12);
-              WebElement e=  participants.get(i);
-              waitForSecs(6);
-            e.click();
+                WebElement e=  participants.get(i);
+                e.click();
                 break;
             }
         }

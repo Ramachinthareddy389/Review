@@ -17,14 +17,18 @@ public interface WizardsLocators
     By BTN_FINISH          = By.xpath("//span[text()='Finish']");
     By BTN_AUTOMATION      = By.xpath("//span[text()='Automation']");
     By ALERT_HEADER_SIDE_MENU = By.xpath("//span[text()='Automation']/../../following-sibling::div/div/a/span/span[text()='Alert']");
-    By TYPESEARCH_ALERT  =By.xpath("//input[@placeholder='Type or select below']");
-    By DROPDOWN_DASHBOARD_FOLDER=By.xpath("//div[contains(@class,'MuiListItem-button')]");
-    By BUTTON_CLOSE=By.xpath("//span[text()='Close']");
-    By NOTIFY_TEXT  =By.xpath("//div[contains(@class,'WizardSummary')]/div/span/ul/li");
-    By TEXTBOX_TYPESEARCH=By.xpath("//input[@placeholder='Type or select below']");
-    By CHKBOX_ALERT =By.xpath("//input[@aria-label='Select Row']");
-    By DELETE_ALERT =By.xpath("//div[@aria-label='Remove Configuration']");
+    By DROPDOWN_DASHBOARD_FOLDER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By BUTTON_CLOSE = By.xpath("//span[text()='Close']");
+    By NOTIFY_TEXT  = By.xpath("//div[contains(@class,'WizardSummary')]/div/span/ul/li");
+    By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By CHKBOX_ALERT = By.xpath("//input[@aria-label='Select Row']");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
-    By BTN_MANAGE_ALERT=By.xpath("//span[@aria-label='Alert']/../../following-sibling::div/div/div/a/span[1]");
-    By PAGE_TITLE_ALERT=By.xpath("//div[@aria-label='Enable Selected Configuration']/../../../h5");
+    By BTN_MANAGE_ALERT = By.xpath("//span[@aria-label='Alert']/../../following-sibling::div/div/div/a/span[1]");
+    By PAGE_TITLE_ALERT = By.xpath("//div[@aria-label='Enable Selected Configuration']/../../../h5");
+    By BUTTON_ALL = By.xpath("//button[@type='button']/span[text()='All']");
+    By BUTTON_MONITORING = By.xpath("//button[@type='button']/span[text()='Monitoring']");
+    By BUTTON_ANALYTICS = By.xpath("//button[@type='button']/span[text()='Analytics']");
+    By BUTTON_AUTOMATION = By.xpath("//button[@type='button']/span[text()='Automation']");
+    By LISTOFWIZARDS  =By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 MuiTypography-noWrap']/span");
 }

@@ -57,6 +57,9 @@ public class DashBoardData {
 	public final String[] measuresArray            = portletsData.getProperty("MultipleMeasures").split(",");
 	public final String constraint_DrillthroughPage = portletsData.getProperty("Constraint_Drillthrough");
 	public final String pivot_DrillthroughPage      = portletsData.getProperty("Pivot_DrillthroughPage");
+	public final String trendPortlet_InsightsPage = portletsData.getProperty("TrendPortlet_Insights");
+	private ConfigManager wizardData = new ConfigManager("Wizard");
+	public final String[] a = wizardData.getProperty("WIZARDS").split(";");
 
 
 

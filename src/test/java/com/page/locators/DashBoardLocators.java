@@ -134,8 +134,8 @@ public interface DashBoardLocators {
     By TICKETS_PAGE_URL= By.xpath("//span[contains(text(),'Tickets')]");
     By STATUS_TICKETS_PAGE= By.xpath("//div[contains(text(),'Status:')]/following-sibling::div[1]//button[@value='ANY']");
     By TICKET_ASSIGNED_TO= By.xpath("//span[contains(text(),'Anyone')]");
-
-
+    By PARTICIPANTS_GHOSTTEXT=By.xpath("//div[text()='Select...']");
+    By PARTICIPANTS_TEXTBOX=By.xpath("//input[@id='participants']");
     //Dashboard Visibility - Allowed Users
     By ERROR_MESSAGE = By.xpath("//p[contains(text(),'Unable to access Dashboard')]");
     By DASHBAORD_VISIBILITY_ICON = By.xpath("//div[@aria-label='Update Dashboard Visibility']");

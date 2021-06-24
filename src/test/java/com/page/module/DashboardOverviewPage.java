@@ -152,7 +152,6 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitUntilClickable(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]"), "text", 5000);
         safeClick(TEXTBOX_CHOSE_DASHBOARD, "Select or create dashboard text box", MEDIUMWAIT);
         driver.findElement(By.xpath("//*[@id='dashboardKey']")).sendKeys(dname1, Keys.ENTER);
-        waitUntilClickable(DASHBOARD_LABEL, "waiting for element", MEDIUMWAIT);
         String actualText = safeGetText(DASHBOARD_LABEL, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         String expectedText = "Create" + " " + "\"" + dname1 + "\"";

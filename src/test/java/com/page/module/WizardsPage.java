@@ -16,7 +16,7 @@ import java.util.List;
 public class WizardsPage extends SafeActions implements WizardsLocators {
 
     private WebDriver driver;
-    private DashBoardData dashBoardData=new DashBoardData();
+    private DashBoardData dashBoardData = new DashBoardData();
 
 
     //Constructor to define/call methods
@@ -31,15 +31,13 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         safeClick(ALERT_ADD_BUTTON, "Alert button", MEDIUMWAIT);
         safeType(ALERTNAME_TXTBOX, "TestAlerts", "Alert Textbox", MEDIUMWAIT);
         safeClick(DISTRIBUTION_HEADER, "Distribution header", MEDIUMWAIT);
-        safeClick(DISTRIBUTION_GhOSTTEXT, "Selec or add ghost text", MEDIUMWAIT);
+        safeClick(DISTRIBUTION_GhOSTTEXT, "Select or add ghost text", MEDIUMWAIT);
         safeClearAndType(DISTRIBUTION_TXTBOX, "QA test", "QA test", MEDIUMWAIT);
         List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + dbs.size());
-        for (int i = 0; i < dbs.size(); i++)
-        {
+        for (int i = 0; i < dbs.size(); i++) {
 
-            if (dbs.get(i).getText().contains("QA test"))
-            {
+            if (dbs.get(i).getText().contains("QA test")) {
 
                 dbs.get(i).click();
                 break;
@@ -48,27 +46,25 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         }
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(SLA_HEADER,"SLA label",MEDIUMWAIT);
+        safeClick(SLA_HEADER, "SLA label", MEDIUMWAIT);
         safeClick(DISTRIBUTION_GhOSTTEXT, "Selec or add ghost text", MEDIUMWAIT);
-        safeClearAndType(SLA_TXTBOX,"0 KPI Threshold - raw - fact sample 1","text",MEDIUMWAIT);
+        safeClearAndType(SLA_TXTBOX, "0 KPI Threshold - raw - fact sample 1", "text", MEDIUMWAIT);
         waitForSecs(5);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
-        for (int i = 0; i < dbs1.size(); i++)
-        {
+        for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().contains("0 KPI Threshold - raw - fact sample 1"))
-            {
+            if (dbs1.get(i).getText().contains("0 KPI Threshold - raw - fact sample 1")) {
 
                 dbs1.get(i).click();
                 break;
             }
         }
-        safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
-        String Notify = safeGetText(NOTIFY_TEXT,"Success Notification",MEDIUMWAIT);
-        String expecteText="TestAlerts"+" successfully configured.";
-        Assert.assertEquals(Notify,expecteText);
-        safeClick(BUTTON_CLOSE,"Close button",MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        String Notify = safeGetText(NOTIFY_TEXT, "Success Notification", MEDIUMWAIT);
+        String expecteText = "TestAlerts" + " successfully configured.";
+        Assert.assertEquals(Notify, expecteText);
+        safeClick(BUTTON_CLOSE, "Close button", MEDIUMWAIT);
 
 
     }
@@ -81,18 +77,18 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         System.out.println("entered dbtext");
         waitForSecs(9);
         By ALERTNAME = By.xpath("//mark[text()='TestAlerts']");
-        boolean alertName=  driver.findElement(ALERTNAME).isDisplayed();
+        boolean alertName = driver.findElement(ALERTNAME).isDisplayed();
         System.out.println(alertName);
         Assert.assertTrue(alertName);
         waitForSecs(5);
         driver.findElement(ALERTNAME).click();
         waitForSecs(2);
         //safeJavaScriptClick(CHKBOX_ALERT,"Alert Checkbox",MEDIUMWAIT);
-        safeJavaScriptClick(DELETE_ALERT,"Delete Alert",MEDIUMWAIT);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
-        safeJavaScriptClick(CONFIRM_DELETE,"Confirm button",MEDIUMWAIT);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(2);
-        safeJavaScriptClick(CONFIRM_DELETE,"Confirm button",MEDIUMWAIT);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
     }
 
     @Step("Verify Manage button in Wizards")
@@ -106,10 +102,58 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         boolean b = backcolor.equals(backcolor1);
         System.out.println(b);
         Assert.assertFalse(b);
-        String title= safeGetText(PAGE_TITLE_ALERT,"Alert page title",MEDIUMWAIT);
-        String expectedText="Alerts";
-        Assert.assertEquals(title,expectedText);
+        String title = safeGetText(PAGE_TITLE_ALERT, "Alert page title", MEDIUMWAIT);
+        String expectedText = "Alerts";
+        Assert.assertEquals(title, expectedText);
 
     }
 
+    @Step("Verify Test Search Capability")
+    public void verifyingTestSearchCapability() {
+        safeClick(BTN_Wizards, "Wizard label from side pane", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, "Alert Template" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        By ALERTNAME = By.xpath("//span[@aria-label='Alert Template']");
+        boolean alertName = driver.findElement(ALERTNAME).isDisplayed();
+        System.out.println(alertName);
+        Assert.assertTrue(alertName);
+
+    }
+
+    @Step("Verify Test Search Capability")
+    public void verifyingTestShowCapability() {
+        safeClick(BTN_Wizards, "Wizard label from side pane", MEDIUMWAIT);
+        waitForSecs(5);
+         List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
+         for(int i=0;i<=wizards.size()-1;i++)
+         {
+            String wizardName= wizards.get(i).getText();
+            Assert.assertEquals(wizardName,(dashBoardData.a[i]));
+            System.out.println(wizardName);
+         }
+
+
+        for(int j=0; j<dashBoardData.a.length;j++){
+            System.out.println("Values are "+dashBoardData.a[j]);
+        }
+    }
+
+    @Step("Verify Test Search Capability")
+    public void verifyingTestShowCapabilityUsingMonitoring() {
+        safeClick(BUTTON_MONITORING, "Monitoring tab", MEDIUMWAIT);
+        waitForSecs(5);
+        List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
+        for(int i=0;i<=wizards.size()-1;i++)
+        {
+            String wizardName= wizards.get(i).getText();
+           // Assert.assertEquals(wizardName,(dashBoardData.a[i]));
+            System.out.println(wizardName);
+        }
+
+
+     /*   for(int j=0; j<dashBoardData.a.length;j++){
+            System.out.println("Values are "+dashBoardData.a[j]);
+        }*/
+    }
 }

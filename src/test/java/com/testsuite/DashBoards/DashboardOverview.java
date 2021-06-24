@@ -79,7 +79,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.SelectingCalender("clone Parent");
         dashboardOverviewPage.ValidatingCurrentHour();
         dashboardOverviewPage.validatingLastHour();
-        dashboardOverviewPage.validatingBusinessHours("010:00 AM", "05:00 PM");
+        dashboardOverviewPage.validatingBusinessHours("09:00 AM", "05:00 PM");
         dashboardOverviewPage.validatingLast12hours();
         dashboardOverviewPage.validatingThisMonth("12:00 AM");
         dashboardOverviewPage.validatingLastMonth("12:00 AM");
@@ -122,7 +122,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.addingNewFolder();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.addingFolder();
-        dashboardOverviewPage.deletingDashboard();
+       
     }
 
 

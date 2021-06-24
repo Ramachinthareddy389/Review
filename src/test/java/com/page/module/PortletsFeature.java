@@ -639,7 +639,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         return lastModifiedFile;
     }
 
-    @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
+    @Step("adding  Tabular portlet")
     public void verifyingHoverMessageinFilterTabularportlet(String tabularPortletName) {
         safeClick(TABULAR_PORTLET_NAME, "Portlet Name field in Tabular portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
@@ -659,7 +659,12 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
         safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
         waitForSecs(5);
+
+    }
+    @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
+    public void verifyhoverFiltermessage(){
         mouseHoverJScript(SLACOLUMNS, "", "first sla", MEDIUMWAIT);
+        waitForSecs(7);
         safeClick(SLAFILTERICON, "Filter ICON", MEDIUMWAIT);
         String filtervalue = getAttributeValue(SLAFILTERICON, "aria-label", "Tooltip", MEDIUMWAIT);
         System.out.println(filtervalue);
@@ -669,7 +674,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         System.out.println(usercolumText);
         Assert.assertEquals(filtervalue, usercolumText);
     }
-
     @Step("Adding Flow Portlet")
     public void addingFlowPortlet(String flowPortletName) throws InterruptedException {
         waitForPageToLoad();

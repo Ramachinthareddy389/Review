@@ -20,7 +20,7 @@ public class WizardsTests extends BaseSetup {
     private WizardsPage wizardsPage;
 
     private String sModeOfExecution;
-    Random random=new Random();
+    Random random = new Random();
     String dname = "wizards";
     String dname1 = dname + random.nextInt(1500);
 
@@ -41,22 +41,39 @@ public class WizardsTests extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_116_AddconfigfromWizardspage() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.addingConfigFromWizardPage();
         wizardsPage.verifyingInAlertPage();
 
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_117_ManagefromWizardPage() throws InterruptedException {
-        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard,dashBoardData.allpages);
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.verifyingManageButtonInWizards();
 
 
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_119_VerifyingTestSearchCapability() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        wizardsPage.verifyingTestSearchCapability();
+
 
     }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_120_VerifyingTestShowCapability() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        wizardsPage.verifyingTestShowCapability();
+        wizardsPage.verifyingTestShowCapabilityUsingMonitoring();
+
+
+    }
+
 
 }
