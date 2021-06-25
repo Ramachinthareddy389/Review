@@ -62,9 +62,17 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         }
         safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
         String Notify = safeGetText(NOTIFY_TEXT, "Success Notification", MEDIUMWAIT);
+
         String expecteText = "TestAlerts" + " successfully configured.";
-        Assert.assertEquals(Notify, expecteText);
-        safeClick(BUTTON_CLOSE, "Close button", MEDIUMWAIT);
+        String expecteText1 = "TestAlerts" + " already exists";
+        if(Notify.equals("TestAlerts" + " successfully configured."))
+        {
+            Assert.assertEquals(Notify, expecteText);
+        }
+        else {
+            Assert.assertEquals(Notify, expecteText1);
+        }
+            safeClick(BUTTON_CLOSE, "Close button", MEDIUMWAIT);
 
 
     }
@@ -129,17 +137,17 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
          for(int i=0;i<=wizards.size()-1;i++)
          {
             String wizardName= wizards.get(i).getText();
-            Assert.assertEquals(wizardName,(dashBoardData.a[i]));
+            Assert.assertEquals(wizardName,(dashBoardData.all[i]));
             System.out.println(wizardName);
          }
 
 
-        for(int j=0; j<dashBoardData.a.length;j++){
-            System.out.println("Values are "+dashBoardData.a[j]);
+        for(int j=0; j<dashBoardData.all.length;j++){
+            System.out.println("Values are "+dashBoardData.all[j]);
         }
     }
 
-    @Step("Verify Test Search Capability")
+    @Step("Verify Test Show Capability Using Monitoring ")
     public void verifyingTestShowCapabilityUsingMonitoring() {
         safeClick(BUTTON_MONITORING, "Monitoring tab", MEDIUMWAIT);
         waitForSecs(5);
@@ -147,13 +155,49 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         for(int i=0;i<=wizards.size()-1;i++)
         {
             String wizardName= wizards.get(i).getText();
-           // Assert.assertEquals(wizardName,(dashBoardData.a[i]));
+            Assert.assertEquals(wizardName,(dashBoardData.monitoring[i]));
             System.out.println(wizardName);
         }
 
 
-     /*   for(int j=0; j<dashBoardData.a.length;j++){
-            System.out.println("Values are "+dashBoardData.a[j]);
-        }*/
+        for(int j=0; j<dashBoardData.monitoring.length;j++){
+            System.out.println("Values are "+dashBoardData.monitoring[j]);
+        }
+    }
+
+    @Step("Verify Test Show Capability using Analytics")
+    public void verifyingTestShowCapabilityUsingAnalytics() {
+        safeClick(BUTTON_ANALYTICS, "Monitoring tab", MEDIUMWAIT);
+        waitForSecs(5);
+        List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
+        for(int i=0;i<=wizards.size()-1;i++)
+        {
+            String wizardName= wizards.get(i).getText();
+            Assert.assertEquals(wizardName,(dashBoardData.analytics[i]));
+            System.out.println(wizardName);
+        }
+
+
+        for(int j=0; j<dashBoardData.analytics.length;j++){
+            System.out.println("Values are "+dashBoardData.analytics[j]);
+        }
+    }
+
+    @Step("Verify Test Show Capability using Automation")
+    public void verifyingTestShowCapabilityUsingAutomation() {
+        safeClick(BUTTON_AUTOMATION, "Monitoring tab", MEDIUMWAIT);
+        waitForSecs(5);
+        List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
+        for(int i=0;i<=wizards.size()-1;i++)
+        {
+            String wizardName= wizards.get(i).getText();
+            Assert.assertEquals(wizardName,(dashBoardData.automation[i]));
+            System.out.println(wizardName);
+        }
+
+
+        for(int j=0; j<dashBoardData.automation.length;j++){
+            System.out.println("Values are "+dashBoardData.automation[j]);
+        }
     }
 }

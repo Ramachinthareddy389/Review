@@ -4,6 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.InsightsLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -21,6 +22,9 @@ public class InsightsPage extends SafeActions implements InsightsLocators {
         waitForPageToLoad();
         waitUntilClickable(INSIGHTS_PAGE_SIDE_MENU,"Insights Page in side menu",LONGWAIT);
         safeClick(INSIGHTS_PAGE_SIDE_MENU, "Insights Page in side menu", LONGWAIT);
+        waitUntilClickable(INSIGHTS_PAGE_TITLE,"Insights page title",MEDIUMWAIT);
+        if(!driver.findElement(INSIGHTS_PAGE_TITLE).isDisplayed())
+            Assert.fail("Insights page is not displayed properly");
     }
 
     @Step("Navigate to Drillthrough page from Insights page")
@@ -69,5 +73,21 @@ public class InsightsPage extends SafeActions implements InsightsLocators {
         String Tooltip3= safeGetText(PAGE_TITLE, "Page title for pivot", MEDIUMWAIT);
         System.out.println(Tooltip3);
         Assert.assertEquals(Tooltip3,"Pivot on "+dashBoardData.trendPortlet_InsightsPage);
+    }
+
+    @Step("Verify Group By in Insights page")
+    public void verifyGroupByInInsightsPage(){
+        waitForPageToLoad();
+        waitUntilClickable(GROUP_BY_LABEL,"Group By label",MEDIUMWAIT);
+        for(int i=0;i<dashBoardData.groupByOptions.length;i++) {
+            By OPTION_GROUPBY = By.xpath("//button[contains(@value,'"+dashBoardData.groupByOptions[i]+"')]");
+            waitUntilClickable(OPTION_GROUPBY, "Option in Group By", MEDIUMWAIT);
+            safeClick(OPTION_GROUPBY, "Option in Group By", MEDIUMWAIT);
+            String firstcolumn = driver.findElement(FIRST_COLUMN_GROUPBY).getText();
+            String selectedGroupBy = driver.findElement(OPTION_GROUPBY).getAttribute("value");
+            System.out.println("First column: " + firstcolumn + " Selected option: " + selectedGroupBy);
+            if (!selectedGroupBy.contains(firstcolumn.toLowerCase()))
+                Assert.fail("Column is not displayed as per Group By in Insights page");
+        }
     }
 }

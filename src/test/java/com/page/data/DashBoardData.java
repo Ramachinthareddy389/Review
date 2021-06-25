@@ -58,8 +58,13 @@ public class DashBoardData {
 	public final String constraint_DrillthroughPage = portletsData.getProperty("Constraint_Drillthrough");
 	public final String pivot_DrillthroughPage      = portletsData.getProperty("Pivot_DrillthroughPage");
 	public final String trendPortlet_InsightsPage = portletsData.getProperty("TrendPortlet_Insights");
+	public final String[] groupByOptions            = portletsData.getProperty("GroupBy_Options").split(",");
 	private ConfigManager wizardData = new ConfigManager("Wizard");
-	public final String[] a = wizardData.getProperty("WIZARDS").split(";");
+	public final String[] all = wizardData.getProperty("WIZARDS").split(";");
+	public final String[] monitoring = wizardData.getProperty("MONITORING").split(";");
+	public final String[] analytics = wizardData.getProperty("ANALYTICS").split(";");
+	public final String[] automation = wizardData.getProperty("AUTOMATION").split(";");
+
 
 
 

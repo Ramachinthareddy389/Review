@@ -13,6 +13,7 @@ public class InsightsTest extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private InsightsPage insightsPage;
+    private DashboardOverviewPage dashboardOverviewPage;
 
     private String sModeOfExecution;
 
@@ -22,6 +23,7 @@ public class InsightsTest extends BaseSetup {
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
         insightsPage = new InsightsPage(getDriver());
+        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -42,7 +44,15 @@ public class InsightsTest extends BaseSetup {
     @Test( groups ="Smoke Test" )
     public void TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
         insightsPage.navigationUsingTooltipOptions();
+    }
+
+    @Test( groups ="Smoke Test" )
+    public void TC_102_Verify_GroupBy_In_Insights_Page() throws InterruptedException {
+        insightsPage.navigateToInsightsPage();
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        insightsPage.verifyGroupByInInsightsPage();
     }
 
 }

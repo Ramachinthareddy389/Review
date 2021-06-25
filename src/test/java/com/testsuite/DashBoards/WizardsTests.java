@@ -71,6 +71,8 @@ public class WizardsTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.verifyingTestShowCapability();
         wizardsPage.verifyingTestShowCapabilityUsingMonitoring();
+        wizardsPage.verifyingTestShowCapabilityUsingAnalytics();
+        wizardsPage.verifyingTestShowCapabilityUsingAutomation();
 
 
     }
