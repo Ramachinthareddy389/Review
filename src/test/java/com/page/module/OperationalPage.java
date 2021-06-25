@@ -30,6 +30,7 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     {
 
         safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
+        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
     }
 
     @Step("validatingDrillthroughUsingOperational")

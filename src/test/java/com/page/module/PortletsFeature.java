@@ -93,7 +93,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(GAUGE_PORTLET_TITLE, "Gauge Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(GAUGE_PORTLET_TITLE).isDisplayed())
             Assert.fail("Gauge portlet added is not displayed in Dashboard page");
-        By FILTER_GAUGE_PORTLET = By.xpath("//span[@aria-label='" + gaugePortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        By FILTER_GAUGE_PORTLET = By.xpath("//span[@aria-label='" + gaugePortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_GAUGE_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Gauge Portlet");
         mouseHoverJScript(FILTER_GAUGE_PORTLET, "Filter icon", "Filter icon in Gauge Portlet", MEDIUMWAIT);
@@ -161,7 +161,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(COUNTER_PORTLET_TITLE, "Counter Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(COUNTER_PORTLET_TITLE).isDisplayed())
             Assert.fail("Counter portlet added is not displayed in Dashboard page");
-        By FILTER_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        By FILTER_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_COUNTER_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Counter Portlet");
         mouseHoverJScript(FILTER_COUNTER_PORTLET, "Filter icon", "Filter icon in Counter Portlet", MEDIUMWAIT);
@@ -431,7 +431,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(NTABULAR_PORTLET_TITLE, "N Tabular Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(NTABULAR_PORTLET_TITLE).isDisplayed())
             Assert.fail("N Tabular portlet added is not displayed in Dashboard page");
-        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + nTabularPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + nTabularPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_NTABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for N Tabular Portlet");
         mouseHoverJScript(FILTER_NTABULAR_PORTLET, "Filter icon", "Filter icon in N Tabular Portlet", MEDIUMWAIT);
@@ -552,7 +552,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(TABULAR_PORTLET_TITLE, "Tabular Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(TABULAR_PORTLET_TITLE).isDisplayed())
             Assert.fail("Tabular portlet added is not displayed in Dashboard page");
-        By FILTER_TABULAR_PORTLET = By.xpath("//span[@aria-label='" + tabularPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        By FILTER_TABULAR_PORTLET = By.xpath("//span[@aria-label='" + tabularPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_TABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Tabular Portlet");
         mouseHoverJScript(FILTER_TABULAR_PORTLET, "Filter icon", "Filter icon in Tabular Portlet", MEDIUMWAIT);
@@ -730,7 +730,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(FLOW_PORTLET_TITLE, "Flow Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(FLOW_PORTLET_TITLE).isDisplayed())
             Assert.fail("Flow portlet added is not displayed in Dashboard page");
-        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='" + flowPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='" + flowPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_FLOW_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Flow Portlet");
         mouseHoverJScript(FILTER_FLOW_PORTLET, "Filter icon", "Filter icon in Flow Portlet", MEDIUMWAIT);
@@ -918,7 +918,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(MAP_PORTLET_TITLE, "Map Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(MAP_PORTLET_TITLE).isDisplayed())
             Assert.fail("Map portlet added is not displayed in Dashboard page");
-        By FILTER_MAP_PORTLET = By.xpath("//span[@aria-label='" + mapPortletName + "']/../following-sibling::span/i[contains(@class,'filter')]");
+        By FILTER_MAP_PORTLET = By.xpath("//span[@aria-label='" + mapPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_MAP_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Map Portlet");
         mouseHoverJScript(FILTER_MAP_PORTLET, "Filter icon", "Filter icon in Map Portlet", MEDIUMWAIT);
