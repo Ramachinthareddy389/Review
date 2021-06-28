@@ -1130,7 +1130,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Navigate to RCA page using '3 option' tooltip")
     public void navigateToRCAPage()
     {
-
         waitForPageToLoad();
         mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_1,"RCA",MEDIUMWAIT);
