@@ -1,32 +1,32 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-
-<suite thread-count="1" verbose="10" name="Germain Suite"
-	annotations="JDK" >
-
+<suite thread-count="2" parallel="tests" verbose="10" name="Germain Suite"
+	   annotations="JDK" >
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
-
 	<test name="Dashboards">
 		<parameter name="browser-Type" value="chrome" />
 		<parameter name="browserVersion" value="91" />
 		<parameter name="osName" value="WINDOWS" />
-		<parameter name="osVersion" value="8.1" />
+		<parameter name="osVersion" value="10" />
 		<parameter name="session" value="Testing" />
 		<classes>
-			<class name="com.testsuite.DashBoards.DashboardOverview"></class>
-			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
-			<class name="com.testsuite.DashBoards.PortletsTests"></class>
-			<class name="com.testsuite.DashBoards.PivotTests"></class>
-			<class name="com.testsuite.DashBoards.OprationalTests"></class>
-			<class name="com.testsuite.DashBoards.WizardsTests"></class>
-			<class name="com.testsuite.DashBoards.InsightsTest"></class>
-			<class name="com.testsuite.DashBoards.DBInstancesTests"></class>
-
+			<class name="com.testsuite.DashBoards.DashboardOverview">
+			</class>
 		</classes>
 	</test>
-
+	<test name="Insights">
+		<parameter name="browser-Type" value="chrome" />
+		<parameter name="browserVersion" value="91" />
+		<parameter name="osName" value="WINDOWS" />
+		<parameter name="osVersion" value="10" />
+		<parameter name="session" value="Testing" />
+		<classes>
+			<class name="com.testsuite.DashBoards.DashBoardTests">
+			</class>
+		</classes>
+	</test>
 </suite>

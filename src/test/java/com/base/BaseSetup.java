@@ -414,7 +414,7 @@ public class BaseSetup implements TimeOuts {
 		if ((System.getProperty("os.name").toLowerCase().contains("mac")
 				|| System.getProperty("os.name").toLowerCase().contains("linux")) && isChromeBrowser()) {
 			driver.manage().window().setPosition(new Point(0, 0));
-			java.awt.Dimension sz = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+			Dimension sz = Toolkit.getDefaultToolkit().getScreenSize();
 			org.openqa.selenium.Dimension dim = new org.openqa.selenium.Dimension((int) sz.getWidth(),
 					(int) sz.getHeight());
 			driver.manage().window().setSize(dim);

@@ -64,6 +64,10 @@ public class DashBoardData {
 	public final String[] monitoring = wizardData.getProperty("MONITORING").split(";");
 	public final String[] analytics = wizardData.getProperty("ANALYTICS").split(";");
 	public final String[] automation = wizardData.getProperty("AUTOMATION").split(";");
+	public final String[] ticketParticipantsList = ticketData.getProperty("TicketParticipantsList").split(",");
+	public final String filePath_Tickets = ticketData.getProperty("FilePath");
+	public final String updatedTicketAssignee = ticketData.getProperty("TicketAssignee_Updated");
+	public final String[] updatedTicketParticipantsList = ticketData.getProperty("TicketParticipantsList_Updated").split(",");
 
 
 

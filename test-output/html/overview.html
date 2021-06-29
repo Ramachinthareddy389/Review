@@ -11,7 +11,7 @@
 <body>
 <div id="meta">
   By <span id="image"><img src="http://www.zenq.com/wp-content/uploads/2018/04/main-logo.png" height="20" width="49" alt="ZenQ"></span> 
-  at 16:12 IST on Monday 21 June 2021
+  at 17:18 IST on Tuesday 29 June 2021
   <br /><span id="systemInfo">rama.chinthareddy@RLT297&nbsp;/&nbsp;Java 9.0.4 (Oracle Corporation)&nbsp;/&nbsp;Windows 10 10.0 (amd64)</span>
 </div>
 
@@ -37,15 +37,15 @@
   
     <tr class="test">
     <td class="test">
-      <a  href="suite1_test1_results.html">Dashboards</a>&nbsp;chrome
+      <a  href="suite1_test1_results.html">Insights</a>&nbsp;chrome
 	  </td>
     <td class="duration">
-      45.561s
+      3000.127s
     </td>
 
         <td class="zero number">0</td>
     
-        <td class="zero number">0</td>
+        <td class="skipped number">7</td>
     
         <td class="failed number">1</td>
     
@@ -54,27 +54,46 @@
           </td>
   </tr>
     
-    <tr class="suite">
-    <td colspan="2" class="totalLabel">Total</td>
+    <tr class="test">
+    <td class="test">
+      <a  href="suite1_test2_results.html">Dashboards</a>&nbsp;chrome
+	  </td>
+    <td class="duration">
+      3434.877s
+    </td>
 
-        <td class="zero number">0</td>
+        <td class="passed number">1</td>
     
-        <td class="zero number">0</td>
+        <td class="skipped number">8</td>
     
         <td class="failed number">1</td>
     
+    <td class="passRate">
+            10%
+          </td>
+  </tr>
+    
+    <tr class="suite">
+    <td colspan="2" class="totalLabel">Total</td>
+
+        <td class="passed number">1</td>
+    
+        <td class="skipped number">15</td>
+    
+        <td class="failed number">2</td>
+    
     <td class="passRate suite">
-            0%
+            5%
           </td>
 
   </tr>
 </table>
-  	<br/>
+  		<br/>
 <br/>
  <script type="text/javascript" src=" https://www.google.com/jsapi"></script><script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
-var data = google.visualization.arrayToDataTable([['Status', 'Percentage'],['PASS', 0],['FAIL', 1],['SKIPPED', 0]]);var options = {backgroundColor:'#F1F7F9',is3D: false,colors:['green','#dc3912','orange'],fontName:"Segoe UI",legend:{position:'top',alignment:'center'}};
+var data = google.visualization.arrayToDataTable([['Status', 'Percentage'],['PASS', 1],['FAIL', 2],['SKIPPED', 15]]);var options = {backgroundColor:'#F1F7F9',is3D: false,colors:['green','#dc3912','orange'],fontName:"Segoe UI",legend:{position:'top',alignment:'center'}};
 var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
 chart.draw(data, options);}</script>
 <table class="overviewTable"><tr><th colspan="6" class = "header suite">SUMMARY</th></tr>
@@ -89,14 +108,14 @@ chart.draw(data, options);}</script>
     <tr class="suite">
     <td colspan="2" class="totalLabel">Total</td>
 
-        <td class="zero number">0</td>
+        <td class="passed number">1</td>
     
-        <td class="zero number">0</td>
+        <td class="skipped number">15</td>
     
-        <td class="failed number">1</td>
+        <td class="failed number">2</td>
     
     <td class="passRate suite">
-            0%
+            5%
           </td>
 
   </tr>
