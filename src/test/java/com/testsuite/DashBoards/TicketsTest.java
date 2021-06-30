@@ -54,5 +54,17 @@ public class TicketsTest extends BaseSetup {
         ticketsPage.verifyStatusAndAssignedToInTicketsPage();
     }
 
+    @Test( groups ="Smoke Test" )
+    public void TC_121_Add_Ticket_With_Assignee_And_Multiple_Participants() throws InterruptedException {
+        ticketsPage.navigateToTicketsPage();
+        ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
+        ticketsPage.verifyAddedTicketInTicketsPage();
 
+    }
+    @Test( groups ="Smoke Test" )
+    public void TC_131_Verify_Status_Assigned_To_Filters_In_Tickets_Page() throws InterruptedException {
+        ticketsPage.navigateToTicketsPage();
+        ticketsPage.setPaginationInTicketsPage();
+        ticketsPage.verifyStatusAndAssignedToFiltersInTicketsPage();
+    }
 }
