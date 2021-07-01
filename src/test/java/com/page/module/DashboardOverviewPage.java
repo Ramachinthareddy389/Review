@@ -54,7 +54,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
-        waitForSecs(15);
+        waitForSecs(5);
         List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + dbs.size());
         waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
@@ -70,17 +70,17 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForPageToLoad();
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(15);
+        waitForSecs(5);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(7);
+        waitForSecs(5);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(5);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
@@ -90,7 +90,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     public void addingFolder() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, "Dashboards > " + dname1 + "\n", "Dashboard into type search");
         System.out.println("entered db text");
-        waitForSecs(7);
+        waitForSecs(5);
         String actualText = safeGetText(COLUMN_FOLDER, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, "Dashboards > " + dname1);
@@ -143,7 +143,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
         waitUntilClickable(BUTTON_DELETE, "wait delete button clicked", MEDIUMWAIT);
         safeClick(BUTTON_DELETE, "Delete button", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(10);
         waitUntilElementDisappears(BUTTON_DELETE, "disappears", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
@@ -231,9 +231,9 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             driver.findElement(CLONE_DB_NAME).sendKeys(Keys.BACK_SPACE);
         }
         safeClearAndType(CLONE_DB_NAME, "Child" + ran, "Dashboard Name", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(5);
         safeClick(BTN_CLONE, "clone icon", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(5);
         String childDB = safeGetText(DB_TITLE, "Dashboard Title", MEDIUMWAIT);
         Assert.assertEquals(childDB, "Child" + ran);
     }
@@ -258,17 +258,17 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);
         String optXpath = "//div[@role='menuitem' and text()='Application']";
         By FOLDER = By.xpath(optXpath);
-        waitForSecs(10);
+        waitForSecs(5);
         safeClick(DIALOG_FOLDER, "Folder Field of Clone Dialogue", VERYLONGWAIT);
-        waitForSecs(10);
+        waitForSecs(5);
         safeType(DIALOG_DASHBOARD,"Application","Folder textbox",MEDIUMWAIT);
    /*     Actions act = new Actions(driver);
         act.sendKeys("1 Folder");*/
-        waitForSecs(10);
+        waitForSecs(5);
         safeClick(FOLDER, "dashboard display name option", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(5);
         safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
-        waitForSecs(15);
+        waitForSecs(5);
         mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", VERYLONGWAIT);
         List<WebElement> result2 = driver.findElements(CLONE_PARENT);
         int count2 = result2.size();
@@ -292,24 +292,24 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + dname1 + 123);
         safeClick(BTN_ADD_PORTLET, "Add portlet", VERYLONGWAIT);
-        waitForSecs(10);
+        waitForSecs(5);
         waitUntilClickable(All_FOLDER, "Add metric link");
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForSecs(5);
         safeType(TEXTBOX_TYPESEARCH, dname1 + 123, "Dashboard Name in textbox", VERYLONGWAIT);
         WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
         type.sendKeys(Keys.ENTER);
-        waitForSecs(9);
+        waitForSecs(5);
         mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
         safeClick(CLONE_PORTLET, "Clone button from dashboard", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_FOLDER_PORTLET, "Folder name", MEDIUMWAIT);
-        waitForSecs(15);
+        waitForSecs(7);
         driver.findElement(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]//following-sibling::div/div/input")).sendKeys("Dashboards");
         waitUntilClickable(DROPDOWN_DASHBOARD_FOLDER, "Waiting for an element");
         safeClick(DROPDOWN_DASHBOARD_FOLDER, "Dashboard", MEDIUMWAIT);
         safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(5);
         String text = safeGetText(DASHBOARD_COUNT, "list of dashboards", MEDIUMWAIT);
         System.out.println(text);
         String expectedText = "(2)";
@@ -688,7 +688,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
-        waitForSecs(15);
+        waitForSecs(10);
 
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);

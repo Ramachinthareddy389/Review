@@ -9,13 +9,12 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class HardwareTests extends BaseSetup
-{
+public class HardwareTests extends BaseSetup {
     private DashboardPage dashboardPage;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private DashboardOverviewPage dashboardOverviewPage;
-    private HardwarePage hardwarePage ;
+    private HardwarePage hardwarePage;
 
 
     private String sModeOfExecution;
@@ -25,7 +24,7 @@ public class HardwareTests extends BaseSetup
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        dashboardOverviewPage  =new DashboardOverviewPage(getDriver());
+        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         dashboardPage = new DashboardPage(getDriver());
         dashBoardData = new DashBoardData();
@@ -37,19 +36,17 @@ public class HardwareTests extends BaseSetup
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
     }
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_141_AddNewHardwareConfiguration() throws InterruptedException
-    {
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_141_AddNewHardwareConfiguration() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
-      //  hardwarePage.verifyingHardwareNameDetails();
-        hardwarePage.ediingConfiguration();
-        hardwarePage.verifyingEditedHardwareNameDetails();
+        hardwarePage.verifyingHardwareNameDetails();
+
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_142_EditingHardwareConfiguration() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_142_EditingHardwareConfiguration() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.ediingConfiguration();

@@ -719,7 +719,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(FLOW_FILTER_VALUE_LABEL, "", MEDIUMWAIT);
         safeType(FLOW_FILTER_VALUE, "Sample", "Filter value field input", MEDIUMWAIT);
         safeClick(FLOW_FILTER_POSITION_LABEL, "Filter Position Field", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }
 

@@ -56,6 +56,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.VerifyingGHPortlet(dname1);
         //portletsFeature.removingPortlet();
        // dashboardOverviewPage.deletingDashboard();
@@ -69,6 +70,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
        // portletsFeature.removingPortlet();
        // dashboardOverviewPage.deletingDashboard();
@@ -81,6 +83,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
       //  portletsFeature.removingPortlet();
        // dashboardOverviewPage.deletingDashboard();
@@ -95,6 +98,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingMapPortlet(mapPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingMapPortlet(mapPortletName);
 
     }
@@ -107,6 +111,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingFlowPortlet(flowPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingFlowPortlet(flowPortletName);
 
     }
@@ -119,6 +124,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
 
     }
@@ -131,6 +137,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
 
     }
@@ -157,6 +164,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.validatingExportedGHPortlet(dname1 + "_" + "User Click.csv",dashBoardData.porletHeaders.split(","));
 
     }
@@ -170,6 +178,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.validatingExportedATabularPortlet(tabularPortletName);
     }
@@ -182,6 +191,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingExportedNtabularPortlet(nTabularPortletName);
 
@@ -195,6 +205,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingMapPortlet(mapPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingMapPortlet(mapPortletName);
         portletsFeature.validatingExportedGHPortlet(mapPortletName+".csv",dashBoardData.mapHeaders.split(","));
 
@@ -209,6 +220,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
 
     }
@@ -234,6 +246,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.exportingCounterPortlet(counterPortletName);
 
@@ -248,6 +261,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortletFromSearchBar();
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigatingToDrillThroughPage(dname1);
 
     }

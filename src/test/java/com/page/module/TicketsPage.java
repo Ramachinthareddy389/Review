@@ -55,8 +55,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Adding Ticket with assignee and Multiple Participants in Tickets page")
     public void addTicketWithAssigneeAndMultipleParticipants(){
-        waitForPageToLoad();
-        waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",MEDIUMWAIT);
+        //waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",MEDIUMWAIT);
         waitUntilClickable(ADD_TICKET_ICON,"Add Ticket Icon",LONGWAIT);
         safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
         waitUntilClickable(TICKET_TITLE,"",MEDIUMWAIT);
@@ -120,7 +119,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
     public void verifyAddedTicketInTicketsPage() throws InterruptedException {
         waitForPageToLoad();
         waitForSecs(10);
-        waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
+        //waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
         waitUntilClickable(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
         safeClick(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
         waitUntilClickable(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
@@ -191,7 +190,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
     @Step("Set Pagination Count in Tickets page")
     public void setPaginationInTicketsPage(){
         waitForPageToLoad();
-        waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",MEDIUMWAIT);
+       // waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",MEDIUMWAIT);
         waitUntilClickable(PAGINATION_TICKETS,"Pagination in Tickets Page",LONGWAIT);
         safeClick(PAGINATION_TICKETS, "Pagination in Tickets Page", MEDIUMWAIT);
         waitUntilClickable(PAGINATION_OPTION,"First Option in Pagination",MEDIUMWAIT);
@@ -241,7 +240,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
     @Step("Verify Status and Assigned To in Tickets page")
     public void verifyStatusAndAssignedToInTicketsPage(){
         waitForPageToLoad();
-        waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",LONGWAIT);
+       // waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",LONGWAIT);
         safeClick(STATUS_ANY, "Any status in Tickets page", MEDIUMWAIT);
         waitUntilClickable(ASSIGNED_TO_ME,"Assigned to Me in Tickets page",LONGWAIT);
         safeClick(ASSIGNED_TO_ME, "Assigned to Me in Tickets page", MEDIUMWAIT);
@@ -264,7 +263,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
     @Step("Verify Status and Assigned To filters in Tickets page")
     public void verifyStatusAndAssignedToFiltersInTicketsPage(){
         waitForPageToLoad();
-        waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",LONGWAIT);
+      //  waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",LONGWAIT);
         safeClick(STATUS_ANY, "Any status in Tickets page", MEDIUMWAIT);
         waitUntilClickable(ASSIGNED_TO_ANYONE,"Assigned to Anyone in Tickets page",LONGWAIT);
         safeClick(ASSIGNED_TO_ANYONE, "Assigned to Anyone in Tickets page", MEDIUMWAIT);
