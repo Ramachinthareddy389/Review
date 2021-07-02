@@ -34,4 +34,13 @@ public interface HardwareLocators
     By BTN_SAVE =By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By EDITLABEL_HOSTNAME =By.xpath("//span[text()='Hostname']");
+    By LOCALAGENTADDICON =By.xpath("//h4[text()='Local Monitoring Agents:']//../following-sibling::button/span/i");
+    By LOCALAGENTMONITORINGDROPDOWN = By.xpath("//div[@class='MuiPopover-root'][3]/following-sibling::div/div/ul/li");
+    By LABEL_SOFTWARE     = By.xpath("//input[@id='monitoredApplication']/../../../../../../label/p/span");
+    By SOFTWARE_GHOSTEXT  = By.xpath("//input[@id='monitoredApplication']/../../../div[1]");
+    By TXTBOX_SOFTWARE   = By.xpath("//input[@id='monitoredApplication']");
+    By LABEL_AGENT   = By.xpath("//div[@class='DynamicFormInput'][3]/div/div/label");
+    By TXTBOX_LABEL_AGENT = By.xpath("//div[@class='DynamicFormInput'][3]/div/div/div/input");
+   // By ADDEDAGENT_LABEL =By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li");
+   // By ADDEDREFERENCES_LABEl=By.xpath("//button[contains(@aria-label,'germain.apm.monitoringAgents')]");
 }

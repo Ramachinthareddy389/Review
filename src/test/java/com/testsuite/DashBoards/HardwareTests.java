@@ -53,4 +53,16 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.verifyingEditedHardwareNameDetails();
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_142_AddLocalMonitoringAgentsinEditconfigwindow() throws InterruptedException
+    {
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        hardwarePage.addingLocalMonitoringAgentsUsingJVMAgentInEditConfiguration();
+        hardwarePage.addingLocalMonitoringAgentsUsingNodeJSInEditConfiguration();
+        hardwarePage.addingLocalMonitoringAgentsUsingWebUXAgentInEditConfiguration();
+
+    }
+
+
 }

@@ -97,7 +97,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         if (!driver.findElement(FILTER_GAUGE_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Gauge Portlet");
         mouseHoverJScript(FILTER_GAUGE_PORTLET, "Filter icon", "Filter icon in Gauge Portlet", MEDIUMWAIT);
-        By FILTER_MESSAGE_GAUGE_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
+        By FILTER_MESSAGE_GAUGE_PORTLET = By.xpath("//span[@aria-label='\" + appliedFilter + \"']");
         if (!driver.findElement(FILTER_MESSAGE_GAUGE_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Gauge portlet");
     }

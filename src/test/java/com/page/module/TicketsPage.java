@@ -284,6 +284,105 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         if(!verifyTicketsForStatusAndAssignedTo(ASSIGNEE_LIST, dashBoardData.emailAddress,"Assignee",true))
             Assert.fail("Tickets are not displayed properly for filter Assigned to 'Me'");
     }
-
+    @Step("Changing Ticket Settings in Ticket page")
+    public void changeTicketSettingsInTicketsPage(){
+        waitForPageToLoad();
+        waitUntilClickable(TICKET_TITLE,"",MEDIUMWAIT);
+        String title = Keys.chord(Keys.CONTROL,"a")+Keys.DELETE;
+        driver.findElement(TICKET_TITLE).sendKeys(title,ticketTitle+" - Updated");
+        safeClick(TICKET_SEVERITY,"Severity field",MEDIUMWAIT);
+        waitUntilClickable(SEVERITY_OPTION_UPDATED,"",MEDIUMWAIT);
+        safeClick(SEVERITY_OPTION_UPDATED,"Severity Option selection",MEDIUMWAIT);
+        waitUntilClickable(TICKET_PRIORITY,"",MEDIUMWAIT);
+        safeClick(TICKET_PRIORITY,"Priority field",MEDIUMWAIT);
+        waitUntilClickable(TICKET_ASSIGNEE_DROPDOWN,"",MEDIUMWAIT);
+        waitForSecs(2);
+        safeClick(PRIORITY_OPTION_UPDATED,"Priority Option selection",MEDIUMWAIT);
+        waitUntilClickable(TICKET_STATUS,"",MEDIUMWAIT);
+        safeClick(TICKET_STATUS,"Status field",MEDIUMWAIT);
+        waitUntilClickable(STATUS_OPTION_UPDATED,"",MEDIUMWAIT);
+        safeClick(STATUS_OPTION_UPDATED,"Status Option selection",MEDIUMWAIT);
+        safeClick(TICKET_ASSIGNEE,"Assignee field",MEDIUMWAIT);
+        waitUntilClickable(TICKET_ASSIGNEE_DROPDOWN,"",MEDIUMWAIT);
+        safeType(TEXTBOX_ASSIGNEE,dashBoardData.updatedTicketAssignee,"Entering text in to assignee");
+        List<WebElement> assignees = driver.findElements(TICKET_ASSIGNEE_DROPDOWN);
+        System.out.println("Total no 0f assignees:::====> " + assignees.size());
+        for (int i = 0; i < assignees.size(); i++) {
+            System.out.println(assignees.get(i).getText());
+            if (assignees.get(i).getText().equalsIgnoreCase(dashBoardData.updatedTicketAssignee)) {
+                assignees.get(i).click();
+                break;
+            }
+        }
+        waitForPageToLoad();
+        safeClick(TICKET_PARTCIPANTS,"Participants",MEDIUMWAIT);
+        System.out.println("Participant existing one is "+driver.findElement(TICKET_PARTCIPANTS).getText());
+        safeClick(REMOVE_EXISTING_PARTICIPANTS,"Remove button in Participants field",MEDIUMWAIT);
+        safeClick(PARTICIPANTS_GHOSTTEXT,"Select..ghost text",MEDIUMWAIT);
+        int participantcount = dashBoardData.updatedTicketParticipantsList.length;
+        for(int j=0;j<participantcount;j++) {
+            safeClearAndType(PARTICIPANTS_TEXTBOX, dashBoardData.updatedTicketParticipantsList[j], "Text into partcipants", MEDIUMWAIT);
+            waitUntilClickable(TICKET_ASSIGNEE_DROPDOWN, "", MEDIUMWAIT);
+            List<WebElement> participants = driver.findElements(TICKET_ASSIGNEE_DROPDOWN);
+            System.out.println("Total no 0f participants:::====> " + participants.size());
+            for (int i = 0; i < participants.size(); i++) {
+                System.out.println(participants.get(i).getText());
+                if (participants.get(i).getText().equalsIgnoreCase(dashBoardData.updatedTicketParticipantsList[j])) {
+                    WebElement e = participants.get(i);
+                    e.click();
+                    break;
+                }
+            }
+        }
+        Assignee_Add=driver.findElement(TICKET_ASSIGNEE).getText();
+        Severity_Add=driver.findElement(TICKET_SEVERITY).getText();
+        Priority_Add=driver.findElement(TICKET_PRIORITY).getText();
+        Status_Add=driver.findElement(TICKET_STATUS).getText();
+        for(int i=0;i<driver.findElements(TICKET_PARTCIPANTS_LIST).size();i++){
+            String a=driver.findElements(TICKET_PARTCIPANTS_LIST).get(i).getText();
+            Participants_Add[i]=a;
+        }
+        System.out.println("Assignee: "+Assignee_Add+" Severity: "+Severity_Add+" Priority: "+Priority_Add+" Status: "+Status_Add+" Participants: "+Participants_Add);
+        safeClick(CLOSE_BUTTON,"Close ticket button",MEDIUMWAIT);
+        waitUntilClickable(TICKET_UPDATED_MESSAGE,"Ticket Updated Message",MEDIUMWAIT);
+        if(!driver.findElement(TICKET_UPDATED_MESSAGE).isDisplayed())
+            Assert.fail("Ticket Updated message is not displayed");
+    }
+    @Step("Changing Ticket Settings in Ticket page")
+    public void verifyChangedTicketSettingsInTicketsPage() {
+        waitForPageToLoad();
+        waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
+        waitUntilClickable(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
+        safeClick(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
+        waitUntilClickable(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
+        safeClick(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, ticketTitle+" - Updated" + "\n", "Searching Ticket Title", MEDIUMWAIT);
+        waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
+        By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle+" - Updated" + "')])[2]");
+        waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
+        if (driver.findElement(TitleCheck).isDisplayed()) {
+            safeClick(TitleCheck, "Ticket Title in Tickets page", MEDIUMWAIT);
+            waitForSecs(10);
+            if (Assignee_Add.equals(driver.findElement(TICKET_ASSIGNEE).getText()) || Severity_Add.equals(driver.findElement(TICKET_SEVERITY).getText()) ||
+                    Priority_Add.equals(driver.findElement(TICKET_PRIORITY).getText()) || Status_Add.equals(driver.findElement(TICKET_STATUS).getText())) {
+                System.out.println("Ticket details are valid");
+                System.out.println("Assignee: " + driver.findElement(TICKET_ASSIGNEE).getText() + " Severity: " + driver.findElement(TICKET_SEVERITY).getText() +
+                        " Priority: " + driver.findElement(TICKET_PRIORITY).getText() + " Status: " + driver.findElement(TICKET_STATUS).getText() +
+                        " Participants: " + driver.findElement(TICKET_PARTCIPANTS).getText());
+                for (int i = 0; i < driver.findElements(TICKET_PARTCIPANTS_LIST).size(); i++) {
+                    String a = driver.findElements(TICKET_PARTCIPANTS_LIST).get(i).getText();
+                    Participants_After_Add[i] = a;
+                }
+                for (int i = 0; i < driver.findElements(TICKET_PARTCIPANTS_LIST).size(); i++) {
+                    if (!Participants_Add[i].equals(Participants_After_Add[i])) {
+                        System.out.println("Participant add: " + Participants_Add[i] + " Partcipant after add is " + Participants_After_Add[i]);
+                        Assert.fail("Participants are not displayed properly in Ticket");
+                    }
+                }
+            } else {
+                Assert.fail("Ticket added on Dashboard is not displayed in Tickets page");
+            }
+        }
+    }
 
 }
