@@ -120,7 +120,7 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
-        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage();
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
@@ -135,7 +135,7 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
-        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage();
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
@@ -151,7 +151,7 @@ public class DashBoardTests extends BaseSetup  {
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         portletsFeature.addingPortletFromSearchBar();
         portletsFeature.verifyingPortletAddedFromSearchBar();
-        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage();
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();

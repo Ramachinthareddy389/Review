@@ -240,7 +240,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     @Step("Accessing Dashboard by Allowed user")
@@ -346,7 +348,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY,"Save button in Dashboard Visibility",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     @Step("Accessing Dashboard by sample user with 'Required Roles'")

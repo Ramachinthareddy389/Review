@@ -54,7 +54,7 @@ public class HardwareTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_142_AddLocalMonitoringAgentsinEditconfigwindow() throws InterruptedException
+    public void TC_148_AddLocalMonitoringAgentsinEditconfigwindow() throws InterruptedException
     {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
@@ -64,5 +64,14 @@ public class HardwareTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_147_ApplyReapplyMonitoringProfileswindowEditconfigwindow() throws InterruptedException
+    {
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        hardwarePage.configuringHardwareInAPMModule();
+        hardwarePage.clickingOnHardware();
+        hardwarePage.validatingEngineMonitoringProfiles();
+    }
 
 }

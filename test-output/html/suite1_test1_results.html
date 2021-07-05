@@ -3,22 +3,22 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
 <head>
-  <title>Test Results Report - Insights</title>
+  <title>Test Results Report - test</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="description" content="TestNG unit test results." />
   <link href="reportng.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript" src="reportng.js"></script>
 </head>
 <body>
-<h1>Insights</h1>
+<h1>test</h1>
 <p>
-  Test duration: 3000.127s
+  Test duration: 4986.126s
 </p>
 
   <table class="resultsTable configTable">
     <tr><th colspan="3" class="header failedConfig">Failed Configuration</th></tr>
               <tr class="group">
-        <td colspan="3">com.testsuite.DashBoards.DashBoardTests</td>
+        <td colspan="3">com.testsuite.DashBoards.DBInstancesTests</td>
       </tr>
             
 <tr>
@@ -33,28 +33,11 @@
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: unable to load webpage</b></a><br />
     <div class="stackTrace" id="exception-0">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitForPageToLoad(Sync.java:529)<br />
+              com.testsuite.DashBoards.DBInstancesTests.baseClassSetUp(DBInstancesTests.java:34)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -67,19 +50,16 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
               org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
               java.base/java.lang.Thread.run(Thread.java:844)<br />
                 </div>
       </td>
 </tr>
+          <tr class="group">
+        <td colspan="3">com.testsuite.DashBoards.HardwareTests</td>
+      </tr>
+            
 <tr>
   <td class="method">
                   baseClassSetUp
@@ -92,27 +72,11 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
     
         
 
-        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: unable to load webpage</b></a><br />
     <div class="stackTrace" id="exception-1">
-              jdk.internal.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitForPageToLoad(Sync.java:529)<br />
+              com.testsuite.DashBoards.HardwareTests.baseClassSetUp(HardwareTests.java:33)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -125,13 +89,6 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
               org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
               java.base/java.lang.Thread.run(Thread.java:844)<br />
@@ -150,27 +107,11 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
     
         
 
-        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
+        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: unable to load webpage</b></a><br />
     <div class="stackTrace" id="exception-2">
-              jdk.internal.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitForPageToLoad(Sync.java:529)<br />
+              com.testsuite.DashBoards.HardwareTests.baseClassSetUp(HardwareTests.java:33)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -183,249 +124,6 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
               org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
-    <div class="stackTrace" id="exception-3">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
-    <div class="stackTrace" id="exception-4">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
-    <div class="stackTrace" id="exception-5">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.WebDriverException: chrome not reachable<br/>
-&nbsp; (Session info: chrome=91.0.4472.114)<br/>
-Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir48132_46405573}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:60549}, acceptInsecureCerts=false, browserVersion=91.0.4472.114, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
-Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
-    <div class="stackTrace" id="exception-6">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:694)<br />
-              org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.deleteAllCookies(RemoteWebDriver.java:776)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringOptions.deleteAllCookies(EventFiringWebDriver.java:526)<br />
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
               java.base/java.lang.Thread.run(Thread.java:844)<br />
@@ -447,19 +145,25 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
                   TC012_Verify_Dashboard_Visibility_AllowedUsers
       </td>
   <td class="duration">
-    2900.939s
+    85.588s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot371805205.png"> <img src="..\Screenshots\Screenshot371805205.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC012_Verify_Dashboard_Visibility_AllowedUsers04.Jul.2021_09.22.52.709.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: text was not displayed</b></a><br />
-    <div class="stackTrace" id="exception-7">
+        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Logout button in User Profile was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-3">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.selenium.Sync.waitUntilClickable(Sync.java:294)<br />
-              com.page.module.DashboardPage.enterAddrequirefeildsInDashBoardPage(DashboardPage.java:47)<br />
-              com.testsuite.DashBoards.DashBoardTests.TC012_Verify_Dashboard_Visibility_AllowedUsers(DashBoardTests.java:46)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:120)<br />
+              com.page.module.LoginPage.clickLogoutButton(LoginPage.java:69)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC012_Verify_Dashboard_Visibility_AllowedUsers(DashBoardTests.java:48)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -470,13 +174,1410 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
               org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC013_Verify_Dashboard_Visibility_RequiredRoles
+      </td>
+  <td class="duration">
+    106.163s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1277237582.png"> <img src="..\Screenshots\Screenshot-1277237582.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC013_Verify_Dashboard_Visibility_RequiredRoles04.Jul.2021_09.24.42.552.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Logout button in User Profile was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-4">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:120)<br />
+              com.page.module.LoginPage.clickLogoutButton(LoginPage.java:69)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC013_Verify_Dashboard_Visibility_RequiredRoles(DashBoardTests.java:68)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC014_Verify_Dashboard_Visibility_OwnerRoles
+      </td>
+  <td class="duration">
+    91.207s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Logout button in User Profile was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-5">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:120)<br />
+              com.page.module.LoginPage.clickLogoutButton(LoginPage.java:69)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC014_Verify_Dashboard_Visibility_OwnerRoles(DashBoardTests.java:88)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC085_Verify_Standard_Breadcrumb_Navigation
+      </td>
+  <td class="duration">
+    100.588s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1573520210.png"> <img src="..\Screenshots\Screenshot1573520210.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC085_Verify_Standard_Breadcrumb_Navigation04.Jul.2021_09.29.57.627.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-6">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC085_Verify_Standard_Breadcrumb_Navigation(DashBoardTests.java:124)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC086_Verify_Standard_Breadcrumb_Backward_Navigation
+      </td>
+  <td class="duration">
+    99.363s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-254236824.png"> <img src="..\Screenshots\Screenshot-254236824.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC086_Verify_Standard_Breadcrumb_Backward_Navigation04.Jul.2021_09.31.41.111.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-7">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC086_Verify_Standard_Breadcrumb_Backward_Navigation(DashBoardTests.java:139)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC087_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA
+      </td>
+  <td class="duration">
+    65.241s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-854027.png"> <img src="..\Screenshots\Screenshot-854027.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC087_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA04.Jul.2021_09.32.49.611.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-8', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find Dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-8">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardPage.enterAddrequirefeildsInDashBoardPage(DashboardPage.java:64)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC087_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA(DashBoardTests.java:151)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC112_PinUnPinDashboard
+      </td>
+  <td class="duration">
+    37.236s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1011525148.png"> <img src="..\Screenshots\Screenshot-1011525148.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC112_PinUnPinDashboard04.Jul.2021_09.33.30.652.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-9', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find Dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-9">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardPage.enterAddrequirefeildsInDashBoardPage(DashboardPage.java:64)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC112_PinUnPinDashboard(DashBoardTests.java:110)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashboardOverview</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC089_CloningInDashboardOverview
+      </td>
+  <td class="duration">
+    67.851s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1355881970.png"> <img src="..\Screenshots\Screenshot1355881970.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC089_CloningInDashboardOverview04.Jul.2021_09.13.00.806.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-10', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-10">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.searchingDashboard(DashboardOverviewPage.java:84)<br />
+              com.testsuite.DashBoards.DashboardOverview.TC089_CloningInDashboardOverview(DashboardOverview.java:111)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC110_DeletingDashboard
+      </td>
+  <td class="duration">
+    83.486s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-614992571.png"> <img src="..\Screenshots\Screenshot-614992571.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC110_DeletingDashboard04.Jul.2021_09.15.07.462.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-11', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-11">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.deletingDashboard(DashboardOverviewPage.java:155)<br />
+              com.testsuite.DashBoards.DashboardOverview.TC110_DeletingDashboard(DashboardOverview.java:134)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC114_CloningPortletInDashboardOverview
+      </td>
+  <td class="duration">
+    98.504s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-159460051.png"> <img src="..\Screenshots\Screenshot-159460051.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC114_CloningPortletInDashboardOverview04.Jul.2021_09.17.36.844.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-12', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Waiting for an element was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-12">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.DashboardOverviewPage.cloningPortlet(DashboardOverviewPage.java:309)<br />
+              com.testsuite.DashBoards.DashboardOverview.TC114_CloningPortletInDashboardOverview(DashboardOverview.java:154)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_011_RenamingDashboard
+      </td>
+  <td class="duration">
+    76.497s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1349765813.png"> <img src="..\Screenshots\Screenshot1349765813.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_011_RenamingDashboard04.Jul.2021_09.22.57.838.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-13', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-13">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.renamingDashboard(DashboardOverviewPage.java:178)<br />
+              com.testsuite.DashBoards.DashboardOverview.TC_011_RenamingDashboard(DashboardOverview.java:68)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.InsightsTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page
+      </td>
+  <td class="duration">
+    45.350s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-685007674.png"> <img src="..\Screenshots\Screenshot-685007674.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page04.Jul.2021_08.57.56.045.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-14', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-14">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.InsightsPage.navigationUsingTooltipOptions(InsightsPage.java:52)<br />
+              com.testsuite.DashBoards.InsightsTest.TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page(InsightsTest.java:48)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_102_Verify_GroupBy_In_Insights_Page
+      </td>
+  <td class="duration">
+    19.925s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-700806462.png"> <img src="..\Screenshots\Screenshot-700806462.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_102_Verify_GroupBy_In_Insights_Page04.Jul.2021_08.58.18.990.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-15', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Column is not displayed as per Group By in Insights page</b></a><br />
+    <div class="stackTrace" id="exception-15">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.page.module.InsightsPage.verifyGroupByInInsightsPage(InsightsPage.java:90)<br />
+              com.testsuite.DashBoards.InsightsTest.TC_102_Verify_GroupBy_In_Insights_Page(InsightsTest.java:55)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.OprationalTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_092_validatingDrillthroughUsingOperational
+      </td>
+  <td class="duration">
+    29.632s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot2096196300.png"> <img src="..\Screenshots\Screenshot2096196300.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_092_validatingDrillthroughUsingOperational04.Jul.2021_08.56.15.427.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-16', 'block')" title="Click to expand/collapse"><b>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 0</b></a><br />
+    <div class="stackTrace" id="exception-16">
+              java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)<br />
+              java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)<br />
+              java.base/java.util.Objects.checkIndex(Objects.java:372)<br />
+              java.base/java.util.ArrayList.get(ArrayList.java:440)<br />
+              com.page.module.OperationalPage.validatingDrillthroughUsingOperational(OperationalPage.java:39)<br />
+              com.testsuite.DashBoards.OprationalTests.TC_092_validatingDrillthroughUsingOperational(OprationalTests.java:55)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_094_VerifyCountofKPI
+      </td>
+  <td class="duration">
+    28.994s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot2123779167.png"> <img src="..\Screenshots\Screenshot2123779167.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_094_VerifyCountofKPI04.Jul.2021_08.56.47.602.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-17', 'block')" title="Click to expand/collapse"><b>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 0</b></a><br />
+    <div class="stackTrace" id="exception-17">
+              java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)<br />
+              java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)<br />
+              java.base/java.util.Objects.checkIndex(Objects.java:372)<br />
+              java.base/java.util.ArrayList.get(ArrayList.java:440)<br />
+              com.page.module.OperationalPage.validatingCountOfKPI(OperationalPage.java:60)<br />
+              com.testsuite.DashBoards.OprationalTests.TC_094_VerifyCountofKPI(OprationalTests.java:64)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PivotTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_071_AddingTablePortletInPivotPage
+      </td>
+  <td class="duration">
+    100.461s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1473128589.png"> <img src="..\Screenshots\Screenshot-1473128589.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_071_AddingTablePortletInPivotPage04.Jul.2021_08.49.21.432.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-18', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-18">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.PivotTests.TC_071_AddingTablePortletInPivotPage(PivotTests.java:54)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_072_AddingChartPortletInPivotPage
+      </td>
+  <td class="duration">
+    90.238s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1049300122.png"> <img src="..\Screenshots\Screenshot1049300122.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_072_AddingChartPortletInPivotPage04.Jul.2021_08.50.56.709.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-19', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-19">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.PivotTests.TC_072_AddingChartPortletInPivotPage(PivotTests.java:68)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_075_VerifyingDataInPortletInPivotPage
+      </td>
+  <td class="duration">
+    90.638s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1303072412.png"> <img src="..\Screenshots\Screenshot1303072412.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_075_VerifyingDataInPortletInPivotPage04.Jul.2021_08.52.30.851.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-20', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-20">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.PivotTests.TC_075_VerifyingDataInPortletInPivotPage(PivotTests.java:82)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_076_EditingChartPortletInPivotPage
+      </td>
+  <td class="duration">
+    89.909s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot430584723.png"> <img src="..\Screenshots\Screenshot430584723.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_076_EditingChartPortletInPivotPage04.Jul.2021_08.54.04.356.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-21', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-21">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.PivotTests.TC_076_EditingChartPortletInPivotPage(PivotTests.java:96)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_077_EditingTablePortletInPivotPage
+      </td>
+  <td class="duration">
+    89.339s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-2135309231.png"> <img src="..\Screenshots\Screenshot-2135309231.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_077_EditingTablePortletInPivotPage04.Jul.2021_08.55.37.428.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-22', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse Over on the portlet bar was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-22">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PivotPage.navigateToPivotPage(PivotPage.java:25)<br />
+              com.testsuite.DashBoards.PivotTests.TC_077_EditingTablePortletInPivotPage(PivotTests.java:111)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PortletsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_049_ExportTabularportlet
+      </td>
+  <td class="duration">
+    101.409s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1915322568.png"> <img src="..\Screenshots\Screenshot1915322568.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_049_ExportTabularportlet04.Jul.2021_08.53.14.048.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-23', 'block')" title="Click to expand/collapse"><b>java.lang.ArrayIndexOutOfBoundsException: 3</b></a><br />
+    <div class="stackTrace" id="exception-23">
+              com.page.module.PortletsFeature.validatingExportedATabularPortlet(PortletsFeature.java:822)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_049_ExportTabularportlet(PortletsTests.java:183)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_055_NavigatetoDrillthroughpage
+      </td>
+  <td class="duration">
+    68.046s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot271882073.png"> <img src="..\Screenshots\Screenshot271882073.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_055_NavigatetoDrillthroughpage04.Jul.2021_08.55.59.698.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-24', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-24">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.searchingDashboard(DashboardOverviewPage.java:84)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_055_NavigatetoDrillthroughpage(PortletsTests.java:262)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_056_VerifyHovermessageinFilterIconInTabularPortlet
+      </td>
+  <td class="duration">
+    101.613s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1702858789.png"> <img src="..\Screenshots\Screenshot1702858789.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_056_VerifyHovermessageinFilterIconInTabularPortlet04.Jul.2021_08.57.44.536.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-25', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: first sla was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-25">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.PortletsFeature.verifyhoverFiltermessage(PortletsFeature.java:666)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_056_VerifyHovermessageinFilterIconInTabularPortlet(PortletsTests.java:279)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_057_NavigateDrillthroughpageUsing3optionTooltip
+      </td>
+  <td class="duration">
+    125.504s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1996122900.png"> <img src="..\Screenshots\Screenshot1996122900.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_057_NavigateDrillthroughpageUsing3optionTooltip04.Jul.2021_08.59.53.243.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-26', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find Empty portlet Notigication in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-26">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.PortletsFeature.removingPortlet(PortletsFeature.java:1003)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_057_NavigateDrillthroughpageUsing3optionTooltip(PortletsTests.java:293)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_080_VerifyingTimeRangeInRCAPage
+      </td>
+  <td class="duration">
+    65.434s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1459942265.png"> <img src="..\Screenshots\Screenshot1459942265.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_080_VerifyingTimeRangeInRCAPage04.Jul.2021_09.05.15.008.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-27', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-27">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.searchingDashboard(DashboardOverviewPage.java:84)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_080_VerifyingTimeRangeInRCAPage(PortletsTests.java:352)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_27_AddingFlowPortlet
+      </td>
+  <td class="duration">
+    59.221s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-834187423.png"> <img src="..\Screenshots\Screenshot-834187423.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_27_AddingFlowPortlet04.Jul.2021_09.11.40.404.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-28', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Filter Position Field is not attached to the page document - StaleElementReferenceException</b></a><br />
+    <div class="stackTrace" id="exception-28">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:137)<br />
+              com.page.module.PortletsFeature.addingFlowPortlet(PortletsFeature.java:721)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_27_AddingFlowPortlet(PortletsTests.java:113)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_28_AddingGaugePortlet
+      </td>
+  <td class="duration">
+    69.573s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot2049777581.png"> <img src="..\Screenshots\Screenshot2049777581.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_28_AddingGaugePortlet04.Jul.2021_09.12.53.396.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-29', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[@aria-label=&apos;&quot; + appliedFilter + &quot;&apos;]&quot;}<br/>
+&nbsp; (Session info: chrome=91.0.4472.124)<br/>
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html<br/>
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
+System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
+Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir6244_623902387}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:59713}, acceptInsecureCerts=false, browserVersion=91.0.4472.124, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
+Session ID: 32b0536e73cc96e0396d501bb932da3a<br/>
+*** Element info: {Using=xpath, value=//span[@aria-label=&apos;&quot; + appliedFilter + &quot;&apos;]}</b></a><br />
+    <div class="stackTrace" id="exception-29">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:509)<br />
+              org.openqa.selenium.By$ByXPath.findElement(By.java:361)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)<br />
+              com.sun.proxy.$Proxy14.findElement(Unknown Source)<br />
+              org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)<br />
+              com.page.module.PortletsFeature.verifyingGaugePortlet(PortletsFeature.java:101)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_28_AddingGaugePortlet(PortletsTests.java:128)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_29_AddingCounterPortlet
+      </td>
+  <td class="duration">
+    102.881s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot617869659.png"> <img src="..\Screenshots\Screenshot617869659.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_29_AddingCounterPortlet04.Jul.2021_09.14.39.483.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-30', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError:&nbsp; was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-30">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.PortletsFeature.verifyingCounterPortlet(PortletsFeature.java:175)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_29_AddingCounterPortlet(PortletsTests.java:141)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_45_ClonePortletToAnotherDashboard
+      </td>
+  <td class="duration">
+    69.019s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-753473550.png"> <img src="..\Screenshots\Screenshot-753473550.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_45_ClonePortletToAnotherDashboard04.Jul.2021_09.15.51.864.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-31', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Clone button in Clone Portlet window was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-31">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.PortletsFeature.cloningPortletInDashboardPage(PortletsFeature.java:228)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_45_ClonePortletToAnotherDashboard(PortletsTests.java:154)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_50_ExportNTabularPortlet
+      </td>
+  <td class="duration">
+    66.591s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot2066360482.png"> <img src="..\Screenshots\Screenshot2066360482.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_50_ExportNTabularPortlet04.Jul.2021_09.17.01.716.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-32', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-32">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.searchingDashboard(DashboardOverviewPage.java:84)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_50_ExportNTabularPortlet(PortletsTests.java:192)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_53_ExportingGaugePortlet
+      </td>
+  <td class="duration">
+    59.231s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1132078233.png"> <img src="..\Screenshots\Screenshot-1132078233.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_53_ExportingGaugePortlet04.Jul.2021_09.18.04.746.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-33', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[@aria-label=&apos;&quot; + appliedFilter + &quot;&apos;]&quot;}<br/>
+&nbsp; (Session info: chrome=91.0.4472.124)<br/>
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html<br/>
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;<br/>
+System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
+Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}), userDataDir=C:\Users\RAMA~1.CHI\AppData\Local\Temp\scoped_dir6244_623902387}, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=ANY, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:59713}, acceptInsecureCerts=false, browserVersion=91.0.4472.124, browserName=chrome, javascriptEnabled=true, platformName=windows, setWindowRect=true, webauthn:extension:largeBlob=true, webauthn:virtualAuthenticators=true}]<br/>
+Session ID: 32b0536e73cc96e0396d501bb932da3a<br/>
+*** Element info: {Using=xpath, value=//span[@aria-label=&apos;&quot; + appliedFilter + &quot;&apos;]}</b></a><br />
+    <div class="stackTrace" id="exception-33">
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:509)<br />
+              org.openqa.selenium.By$ByXPath.findElement(By.java:361)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)<br />
+              com.sun.proxy.$Proxy14.findElement(Unknown Source)<br />
+              org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)<br />
+              com.page.module.PortletsFeature.verifyingGaugePortlet(PortletsFeature.java:101)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_53_ExportingGaugePortlet(PortletsTests.java:236)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_54_ExportingCounterPortlet
+      </td>
+  <td class="duration">
+    102.271s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1302947770.png"> <img src="..\Screenshots\Screenshot1302947770.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_54_ExportingCounterPortlet04.Jul.2021_09.19.50.342.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-34', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError:&nbsp; was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-34">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.PortletsFeature.verifyingCounterPortlet(PortletsFeature.java:175)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_54_ExportingCounterPortlet(PortletsTests.java:250)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.TicketsTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_123_Verify_Status_Assigned_To_In_Tickets_Page
+      </td>
+  <td class="duration">
+    133.389s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-462136722.png"> <img src="..\Screenshots\Screenshot-462136722.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_123_Verify_Status_Assigned_To_In_Tickets_Page04.Jul.2021_09.04.59.693.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-35', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: List was not displayed in time - 120 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-35">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.TicketsPage.verifyTicketsForStatusAndAssignedTo(TicketsPage.java:217)<br />
+              com.page.module.TicketsPage.verifyStatusAndAssignedToInTicketsPage(TicketsPage.java:247)<br />
+              com.testsuite.DashBoards.TicketsTest.TC_123_Verify_Status_Assigned_To_In_Tickets_Page(TicketsTest.java:54)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_130_Change_Ticket_Settings_In_Tickets_Page
+      </td>
+  <td class="duration">
+    103.860s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-2031220194.png"> <img src="..\Screenshots\Screenshot-2031220194.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_130_Change_Ticket_Settings_In_Tickets_Page04.Jul.2021_09.06.46.773.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-36', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Ticket Rows in Tickets page was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-36">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.TicketsPage.verifyChangedTicketSettingsInTicketsPage(TicketsPage.java:354)<br />
+              com.testsuite.DashBoards.TicketsTest.TC_130_Change_Ticket_Settings_In_Tickets_Page(TicketsTest.java:78)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_131_Verify_Status_Assigned_To_Filters_In_Tickets_Page
+      </td>
+  <td class="duration">
+    182.709s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1350839272.png"> <img src="..\Screenshots\Screenshot-1350839272.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_131_Verify_Status_Assigned_To_Filters_In_Tickets_Page04.Jul.2021_09.09.52.711.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-37', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: List was not displayed in time - 120 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-37">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.TicketsPage.verifyTicketsForStatusAndAssignedTo(TicketsPage.java:217)<br />
+              com.page.module.TicketsPage.verifyStatusAndAssignedToFiltersInTicketsPage(TicketsPage.java:284)<br />
+              com.testsuite.DashBoards.TicketsTest.TC_131_Verify_Status_Assigned_To_Filters_In_Tickets_Page(TicketsTest.java:68)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
               java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
               java.base/java.lang.Thread.run(Thread.java:844)<br />
@@ -488,15 +1589,33 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
   <table class="resultsTable" width="100%">
     <tr><th colspan="3" class="header skipped">Skipped Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DBInstancesTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC013_Verify_Dashboard_Visibility_RequiredRoles
+                  TC133_EditConfiguration
       </td>
   <td class="duration">
-    12.189s
+    0.033s
+  </td>
+  <td class="result">
+                               
+    
+        
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HardwareTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_142_AddLocalMonitoringAgentsinEditconfigwindow
+      </td>
+  <td class="duration">
+    0.035s
   </td>
   <td class="result">
                                
@@ -507,80 +1626,10 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
 </tr>
 <tr>
   <td class="method">
-                  TC014_Verify_Dashboard_Visibility_OwnerRoles
+                  TC_142_EditingHardwareConfiguration
       </td>
   <td class="duration">
-    12.170s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC020_CreateTicketOnDashboard
-      </td>
-  <td class="duration">
-    12.221s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC085_Verify_Standard_Breadcrumb_Navigation
-      </td>
-  <td class="duration">
-    12.273s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC086_Verify_Standard_Breadcrumb_Backward_Navigation
-      </td>
-  <td class="duration">
-    12.164s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC087_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA
-      </td>
-  <td class="duration">
-    12.160s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC112_PinUnPinDashboard
-      </td>
-  <td class="duration">
-    12.144s
+    0.045s
   </td>
   <td class="result">
                                
@@ -591,6 +1640,500 @@ Session ID: 109f2b9b3b89cca253a0c9620bdf5440</b></a><br />
 </tr>
       </table>
 
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DBInstancesTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC132_AddNewConfiguration
+      </td>
+  <td class="duration">
+    56.416s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC132_AddNewConfiguration04.Jul.2021_09.25.11.256.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC020_CreateTicketOnDashboard
+      </td>
+  <td class="duration">
+    112.363s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC020_CreateTicketOnDashboard04.Jul.2021_09.28.12.857.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashboardOverview</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC018_ApplyanydatefrompredefinedtimerangesinCalendar
+      </td>
+  <td class="duration">
+    59.342s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC018_ApplyanydatefrompredefinedtimerangesinCalendar04.Jul.2021_09.11.00.638.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC085_RemoveDashboard
+      </td>
+  <td class="duration">
+    46.360s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC085_RemoveDashboard04.Jul.2021_09.11.49.768.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC105_AddingDashboardFolder
+      </td>
+  <td class="duration">
+    36.885s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC105_AddingDashboardFolder04.Jul.2021_09.13.40.674.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC113_CloningDashboard
+      </td>
+  <td class="duration">
+    44.705s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC113_CloningDashboard04.Jul.2021_09.15.55.104.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_001_CreatingDashboard
+      </td>
+  <td class="duration">
+    53.426s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_001_CreatingDashboard04.Jul.2021_09.18.33.051.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_005_VerifyTrendGranularityinDashboard
+      </td>
+  <td class="duration">
+    181.562s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_005_VerifyTrendGranularityinDashboard04.Jul.2021_09.21.37.584.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HardwareTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_141_AddNewHardwareConfiguration
+      </td>
+  <td class="duration">
+    57.479s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_141_AddNewHardwareConfiguration04.Jul.2021_09.24.04.582.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.InsightsTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_098_Navigate_To_Drillthrough_From_Insights_Page
+      </td>
+  <td class="duration">
+    11.643s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_098_Navigate_To_Drillthrough_From_Insights_Page04.Jul.2021_08.57.07.673.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PortletsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC023_AddingGeneralHealthPortlet
+      </td>
+  <td class="duration">
+    130.051s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC023_AddingGeneralHealthPortlet04.Jul.2021_08.49.51.016.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_048_ExportGHPortlet
+      </td>
+  <td class="duration">
+    95.798s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_048_ExportGHPortlet04.Jul.2021_08.51.29.637.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_051_ExportMapPortlet
+      </td>
+  <td class="duration">
+    91.345s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_051_ExportMapPortlet04.Jul.2021_08.54.48.362.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_058_AddingPortletFromSearchBar
+      </td>
+  <td class="duration">
+    70.744s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_058_AddingPortletFromSearchBar04.Jul.2021_09.01.06.936.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_061_NavigateToDrillthroughpageUsing3optionTooltip
+      </td>
+  <td class="duration">
+    72.721s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_061_NavigateToDrillthroughpageUsing3optionTooltip04.Jul.2021_09.02.22.438.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_066_ApplyingTimeRangeinCalendar
+      </td>
+  <td class="duration">
+    100.069s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_066_ApplyingTimeRangeinCalendar04.Jul.2021_09.04.06.267.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_082_MaximisePortletInRCAPage
+      </td>
+  <td class="duration">
+    77.101s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_082_MaximisePortletInRCAPage04.Jul.2021_09.06.35.152.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_24_AddingTabularPortlet
+      </td>
+  <td class="duration">
+    74.226s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_24_AddingTabularPortlet04.Jul.2021_09.07.52.224.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_25_AddingNTabularPortlet
+      </td>
+  <td class="duration">
+    85.498s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_25_AddingNTabularPortlet04.Jul.2021_09.09.20.812.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_26_AddingMapPortlet
+      </td>
+  <td class="duration">
+    74.212s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_26_AddingMapPortlet04.Jul.2021_09.10.37.879.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_O52_RemovePortlet
+      </td>
+  <td class="duration">
+    84.937s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_O52_RemovePortlet04.Jul.2021_09.21.18.305.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.TicketsTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_121_Add_Ticket_With_Assignee_And_Multiple_Participants
+      </td>
+  <td class="duration">
+    57.206s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_121_Add_Ticket_With_Assignee_And_Multiple_Participants04.Jul.2021_09.01.40.008.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_122_Upload_Attachment_To_Ticket
+      </td>
+  <td class="duration">
+    60.012s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_122_Upload_Attachment_To_Ticket04.Jul.2021_09.02.42.907.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.WizardsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_116_AddconfigfromWizardspage
+      </td>
+  <td class="duration">
+    55.544s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_116_AddconfigfromWizardspage04.Jul.2021_08.59.22.545.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_117_ManagefromWizardPage
+      </td>
+  <td class="duration">
+    12.598s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_117_ManagefromWizardPage04.Jul.2021_08.59.38.024.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_119_VerifyingTestSearchCapability
+      </td>
+  <td class="duration">
+    17.160s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_119_VerifyingTestSearchCapability04.Jul.2021_08.59.57.883.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_120_VerifyingTestShowCapability
+      </td>
+  <td class="duration">
+    33.700s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_120_VerifyingTestShowCapability04.Jul.2021_09.00.34.404.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+      </table>
   
 </body>
 </html>

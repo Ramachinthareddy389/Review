@@ -56,7 +56,7 @@ public class LoginPage extends SafeActions implements LogInPageLocators
 	public void clickLogInButton()
 	{
 		safeClick(LOGIN_BTN, "'Login' button in 'Login' page ",VERYLONGWAIT);
-		waitForPageToLoad(VERYLONGWAIT);
+        waitForSecs(10);
 
 	}
 
@@ -65,7 +65,7 @@ public class LoginPage extends SafeActions implements LogInPageLocators
 	{
         waitForSecs(10);
 		safeClick(USERICON,"'User Profile' icon",MEDIUMWAIT);
-		waitForPageToLoad(LONGWAIT);
+		waitForSecs(10);
 		safeClick(LOGOUT,"Logout button in User Profile",MEDIUMWAIT);
 		waitForPageToLoad();
 		verifyLoginPage();

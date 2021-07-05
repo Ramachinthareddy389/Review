@@ -14,7 +14,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Server_Add, Type_add, OSFamily_add, Host_Add, OSName_add, Environment_add;
+    String Server_Add, Type_add, OSFamily_add, Host_Add, OSName_add, Environment_add,Hostmachine_add,software_add;
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
     String EditTitle = "Andriod" + " - " + random.nextInt(500);
     String NodeJS ="NodeJs" + " - " + random.nextInt(500);
@@ -393,5 +393,64 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         Assert.assertTrue(Monitoring_Agents_Ref);
     }
 
+    public void configuringHardwareInAPMModule()
+    {
+        safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
+        safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(JSSCRPTS_TAB,"JS Script Tab",MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_HOSTMACHINE, "Server Feild", MEDIUMWAIT);
+        safeClick(HOSTMACHINE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_HOSTMACHINE, DbTitle, "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals(DbTitle)) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        Hostmachine_add = safeGetText(HOSTMACHINE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
+        safeClick(LABEL_SOFTWARE, "Server Feild", MEDIUMWAIT);
+        safeClick(SOFTWARE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, ".NET", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs2.get(i).getText().equals(".NET")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        software_add = safeGetText(SOFTWARE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
+        safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_NEXT,"NExt button",MEDIUMWAIT);
+        safeClick(MONITORSCRIPTPROFILE_LABEL,"Monitoring script profile label",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_NEXT,"NExt button",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public void validatingEngineMonitoringProfiles(){
+        safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(MONITORINGPROFILEADDICON,"Monitoring profile add icon",MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN,"Apply profile dropdown",MEDIUMWAIT);
+        safeClick(DROPDOWN1,"Apache Tomcat Server",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply Button",MEDIUMWAIT);
+
+    }
 }
 
