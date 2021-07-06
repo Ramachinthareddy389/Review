@@ -130,7 +130,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_29_AddingCounterPortlet() throws InterruptedException
+        public void TC_29_AddingCounterPortlet() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -275,7 +275,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.verifyingHoverMessageinFilterTabularportlet(tabularPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyhoverFiltermessage();
 
 

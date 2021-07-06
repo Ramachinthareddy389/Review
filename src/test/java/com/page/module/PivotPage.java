@@ -146,19 +146,19 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
     public void editChartPortletInPivotPage() {
         By EDIT_CHART_PORTLET = By.xpath("//span[contains(@aria-label,'" + dashBoardData.chartPortletName + "')]/../../../descendant::div[contains(@aria-label,'Edit')]");
         safeClick(EDIT_CHART_PORTLET, "Edit icon in Chart portlet", MEDIUMWAIT);
-        waitUntilClickable(CHART_PORTELT_NAME_FIELD, "Portlet Name Field in Chart Portlet", MEDIUMWAIT);
+       // waitUntilClickable(CHART_PORTELT_NAME_FIELD, "Portlet Name Field in Chart Portlet", MEDIUMWAIT);
         safeClick(CHART_PORTELT_NAME_FIELD, "Portlet Name Field in Chart Portlet", MEDIUMWAIT);
         String chartPortletName = Keys.chord(Keys.CONTROL + "a") + Keys.DELETE;
         driver.findElement(CHART_PORTLET_NAME_FIELD_INPUT).sendKeys(chartPortletName + dashBoardData.updatedChartPortletName);
         By DELETE_EXISTING_PIVOT = By.xpath("//div[@role='button']/span[contains(text(),'" + dashBoardData.pivotFieldPivotPage + "')]/following-sibling::i");
-        waitUntilClickable(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
+        //waitUntilClickable(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
         safeClick(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
-        waitUntilClickable(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
+        //waitUntilClickable(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
         safeClick(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
         String pivot = Keys.chord(dashBoardData.updatedPivotFieldPivotPage) + Keys.ENTER;
         driver.findElement(CHART_PIVOT_FIELD_INPUT).sendKeys(pivot);
         By DELETE_EXISTING_MEASURE = By.xpath("//div[@role='button']/span[contains(text(),'" + dashBoardData.measurePivotPortlet + "')]/following-sibling::i");
-        waitUntilClickable(DELETE_EXISTING_MEASURE, "Delete existing data in Measures field", MEDIUMWAIT);
+       // waitUntilClickable(DELETE_EXISTING_MEASURE, "Delete existing data in Measures field", MEDIUMWAIT);
         safeClick(DELETE_EXISTING_MEASURE, "Delete existing data in Measures field", MEDIUMWAIT);
         waitUntilClickable(CHART_MEASURE_FIELD, "Measures Field in Chart Portlet", MEDIUMWAIT);
         safeClick(CHART_MEASURE_FIELD, "Measures Field in Chart Portlet", MEDIUMWAIT);

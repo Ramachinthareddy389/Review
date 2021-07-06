@@ -97,7 +97,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         if (!driver.findElement(FILTER_GAUGE_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Gauge Portlet");
         mouseHoverJScript(FILTER_GAUGE_PORTLET, "Filter icon", "Filter icon in Gauge Portlet", MEDIUMWAIT);
-        By FILTER_MESSAGE_GAUGE_PORTLET = By.xpath("//span[@aria-label='\" + appliedFilter + \"']");
+        By FILTER_MESSAGE_GAUGE_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
         if (!driver.findElement(FILTER_MESSAGE_GAUGE_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Gauge portlet");
     }
@@ -171,7 +171,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         try {
             waitForSecs(5);
             if (driver.findElement(COUNTER_PORTLET_CHART).isDisplayed()) {
-                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../../../following-sibling::div/div/div/span/span[contains(text(),'" + dashBoardData.portletKPI + "')]");
+                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../../../following-sibling::div/div/div/div/span/span[contains(text(),'" + dashBoardData.portletKPI + "')]");
                 waitUntilClickable(KPI_COUNTER_PORTLET, "", MEDIUMWAIT);
                 if (!driver.findElement(KPI_COUNTER_PORTLET).isDisplayed())
                     Assert.fail("KPI Name is not displayed in Counter portlet");
@@ -663,6 +663,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
     @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
     public void verifyhoverFiltermessage(){
+        waitForSecs(2);
         mouseHoverJScript(SLACOLUMNS, "", "first sla", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(SLAFILTERICON, "Filter ICON", MEDIUMWAIT);
@@ -906,6 +907,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
         safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         waitForSecs(5);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));

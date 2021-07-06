@@ -55,7 +55,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.navigateToPivotPage();
         pivotPage.addTablePortletInPivotPage();
         pivotPage.verifyTablePortletInPivotPage();
-        //pivotPage.removeTablePortletInPivotPage();
+        pivotPage.removeTablePortletInPivotPage();
     }
 
     @Test(alwaysRun = true)
@@ -70,7 +70,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.navigateToPivotPage();
         pivotPage.addChartPortletInPivotPage();
         pivotPage.verifyChartPortletInPivotPage();
-      //  pivotPage.removeChartPortletInPivotPage();
+        pivotPage.removeChartPortletInPivotPage();
     }
 
     @Test(alwaysRun = true)
@@ -85,7 +85,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.navigateToPivotPage();
         pivotPage.addDataInTablePortletInPivotPage();
         pivotPage.verifyDataInTablePortletInPivotPage();
-      //  pivotPage.removeTablePortletInPivotPage();
+        pivotPage.removeTablePortletInPivotPage();
     }
 
     @Test(alwaysRun = true)
@@ -101,7 +101,7 @@ public class PivotTests extends BaseSetup {
         pivotPage.addChartPortletInPivotPage();
         pivotPage.verifyChartPortletInPivotPage();
         pivotPage.editChartPortletInPivotPage();
-      //  pivotPage.verifyEditedChartPortletInPivotPage();
+        pivotPage.verifyEditedChartPortletInPivotPage();
     }
 
     @Test(alwaysRun = true)
@@ -117,6 +117,6 @@ public class PivotTests extends BaseSetup {
         pivotPage.addTablePortletInPivotPage();
         pivotPage.verifyTablePortletInPivotPage();
         pivotPage.editTablePortletInPivotPage();
-       // pivotPage.verifyEditedTablePortletInPivotPage();
+        pivotPage.verifyEditedTablePortletInPivotPage();
     }
 }

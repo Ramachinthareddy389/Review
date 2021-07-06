@@ -28,9 +28,10 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     @Step("Clicking on Operational button")
     public void clickingOperationButton()
     {
+        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
+        waitForSecs(2);
+        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
 
-        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
-        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
     }
 
     @Step("validatingDrillthroughUsingOperational")
@@ -57,9 +58,9 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     @Step("Verify count of KPI in Data Graph window and Pivot/Drillthrough page")
     public void validatingCountOfKPI() {
         waitForSecs(15);
-        boolean b = driver.findElements(TRENDCHARTS).get(1).isDisplayed();
+        boolean b = driver.findElements(TRENDCHARTS).get(0).isDisplayed();
         System.out.println(b);
-        driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
+        driver.findElements(ICONS_DRILLTHROUGH).get(0).click();
         String kpi = driver.findElements(KPINAMES).get(0).getText();
         System.out.println(kpi);
         safeType(FILTERSKPISTEXTBOX, kpi, "KPI Name", MEDIUMWAIT);

@@ -3,7 +3,7 @@
 <suite thread-count="4" parallel="classes" verbose="10" name="Germain Suite"
 	   annotations="JDK" >
 
-	<!--<listeners>
+	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
@@ -43,28 +43,20 @@
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
 
 		</classes>
-	</test>-->
-	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-	</listeners>
-<test name="test">
-	<parameter name="browser-Type" value="chrome" />
-	<parameter name="browserVersion" value="91" />
-	<parameter name="osName" value="WINDOWS" />
-	<parameter name="osVersion" value="10" />
-	<parameter name="session" value="Testing" />
-	<classes>
-		<class name="com.testsuite.DashBoards.PortletsTests"></class>
-		<class name="com.testsuite.DashBoards.PivotTests"></class>
-		<class name="com.testsuite.DashBoards.OprationalTests"></class>
-		<class name="com.testsuite.DashBoards.InsightsTest"></class>
-		<class name="com.testsuite.DashBoards.WizardsTests"></class>
-		<class name="com.testsuite.DashBoards.TicketsTest"></class>
-		<class name="com.testsuite.DashBoards.DashboardOverview"></class>
-		<class name="com.testsuite.DashBoards.DashBoardTests"></class>
-		<class name="com.testsuite.DashBoards.HardwareTests"></class>
-		<class name="com.testsuite.DashBoards.DBInstancesTests"></class>
-	</classes>
-</test>
+	</test>
+
+	<test name="Datasources">
+		<parameter name="browser-Type" value="chrome" />
+		<parameter name="browserVersion" value="91" />
+		<parameter name="osName" value="WINDOWS" />
+		<parameter name="osVersion" value="10" />
+		<parameter name="session" value="Testing" />
+		<classes>
+			<class name="com.testsuite.DashBoards.DBInstancesTests"></class>
+			<class name="com.testsuite.DashBoards.SoftwareTests"></class>
+			<class name="com.testsuite.DashBoards.HardwareTests"></class>
+
+		</classes>
+	</test>
+
 </suite>
