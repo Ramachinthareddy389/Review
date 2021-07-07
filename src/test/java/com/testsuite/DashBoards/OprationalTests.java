@@ -21,15 +21,16 @@ public class OprationalTests extends BaseSetup {
     private OperationalPage OperationalPage;
 
     private String sModeOfExecution;
-    Random random=new Random();
+    Random random = new Random();
     String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
     String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
     String dname = "Pivots";
     String dname1 = dname + random.nextInt(1500);
-    String flowPortletName = "Flow Portlet - " +random.nextInt(1000);
+    String flowPortletName = "Flow Portlet - " + random.nextInt(1000);
     String mapPortletName = "Map Portlet - " + random.nextInt(1000);
     String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
     String counterPortletName = "Counter Portlet - " + random.nextInt(1000);
+
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;

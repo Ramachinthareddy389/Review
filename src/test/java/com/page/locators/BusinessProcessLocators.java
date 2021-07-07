@@ -17,12 +17,12 @@ public interface BusinessProcessLocators {
     By BTN_NEXT = By.xpath("//span[text()='Next']");
     By LABEL_SLA = By.xpath("//label[@id='threshold-label']");
     By TXTBOX_SLA = By.xpath("//input[@id='threshold']");
-    By BTN_SLAADDICON =By.xpath("//span[text()='Filters']/..//../../button[@aria-label='Add']");
+    By BTN_SLAADDICON = By.xpath("//span[text()='Filters']/..//../../button[@aria-label='Add']");
     By CREATE_GHOSTEXT = By.xpath("//span[text()='Filters']/../../../../../div[4]/div/div/div/div/div/div/div/div/div/div[text()='Create...']");
     By Filter_GHOSTEXT = By.xpath("//span[text()='Filters']/../../../../../div[4]/div/div/div/div/div/div/div/div/div/div[text()='Select...']");
-    By TXTBOX_FILTERS= By.xpath("//input[@id='filters_key_0']");
+    By TXTBOX_FILTERS = By.xpath("//input[@id='filters_key_0']");
     By TXTBOX_VALUE = By.xpath("//input[@id='filters_value_0']");
-    By BTN_SKIP= By.xpath("//span[text()='Skip']");
+    By BTN_SKIP = By.xpath("//span[text()='Skip']");
     By LABEL_DASHBOARD = By.xpath("//span[text()='Dashboard']");
     By DASHBOARD_GHOSTEXT = By.xpath("//input[@id='dashboard']/../../../div[1]");
     By TXTBOX_DASHBOARD = By.xpath("//input[@id='dashboard']");
@@ -35,8 +35,15 @@ public interface BusinessProcessLocators {
     By SERVERVALUE = By.xpath("//input[@id='server']/../../../div");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
-    By CREATE_LABEL=By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
-    By TXTBOX_EDITED_KPIS=By.xpath("//input[@id='kpis']/../../../div[2]/span");
+    By CREATE_LABEL = By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
+    By TXTBOX_EDITED_KPIS = By.xpath("//input[@id='kpis']/../../../div[2]/span");
 
+ // Business Process Steps
+    By BPSTEPS_ADDICON = By.xpath("//span[text()='BP Steps']/../../following-sibling::div/button/span/i");
+    By TXTBOX_BPSTEPS_VALUE = By.xpath("//button[@aria-label='Delete']/preceding-sibling::i/following-sibling::div/input");
+    By LABEL_STEPNAME = By.xpath("//span[text()='Step Name']/../../../label[@id='name-label']");
+    By TXTBOX_STEPNAME = By.xpath("//span[text()='Step Name']/../../../div/input[@id='name']");
+    By Added_BPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/button");
+    By BTN_REMOVEBPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/div[@aria-label='Remove Configuration']");
 
 }

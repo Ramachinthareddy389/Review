@@ -36,7 +36,7 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_001_CreatingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -45,9 +45,8 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_005_VerifyTrendGranularityinDashboard() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_005_VerifyTrendGranularityinDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SearchinDashboard();
@@ -58,9 +57,8 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.validaingTrendGranularityUSingMinutely();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_011_RenamingDashboard() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_011_RenamingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -69,9 +67,8 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC018_ApplyanydatefrompredefinedtimerangesinCalendar() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC018_ApplyanydatefrompredefinedtimerangesinCalendar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SelectingCalender("clone Parent");
@@ -90,9 +87,8 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC085_RemoveDashboard() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC085_RemoveDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -102,9 +98,8 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC089_CloningInDashboardOverview() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC089_CloningInDashboardOverview() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -113,20 +108,18 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC105_AddingDashboardFolder() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC105_AddingDashboardFolder() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewFolder();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.addingFolder();
-       
+
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC110_DeletingDashboard() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC110_DeletingDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -136,23 +129,21 @@ public class DashboardOverview extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC113_CloningDashboard() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC113_CloningDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.CloneDashboard("clone Parent");
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC114_CloningPortletInDashboardOverview() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC114_CloningPortletInDashboardOverview() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.cloningPortlet();
-        //dashboardOverviewPage.deletingDashboard(dname1);
+
     }
 
 /*
@@ -163,7 +154,6 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.signOut();
     }
 */
-
 
 
 }

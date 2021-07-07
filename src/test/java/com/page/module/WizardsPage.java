@@ -65,14 +65,12 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
 
         String expecteText = "TestAlerts" + " successfully configured.";
         String expecteText1 = "TestAlerts" + " already exists";
-        if(Notify.equals("TestAlerts" + " successfully configured."))
-        {
+        if (Notify.equals("TestAlerts" + " successfully configured.")) {
             Assert.assertEquals(Notify, expecteText);
-        }
-        else {
+        } else {
             Assert.assertEquals(Notify, expecteText1);
         }
-            safeClick(BUTTON_CLOSE, "Close button", MEDIUMWAIT);
+        safeClick(BUTTON_CLOSE, "Close button", MEDIUMWAIT);
 
 
     }
@@ -133,17 +131,16 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
     public void verifyingTestShowCapability() {
         safeClick(BTN_Wizards, "Wizard label from side pane", MEDIUMWAIT);
         waitForSecs(5);
-         List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
-         for(int i=0;i<=wizards.size()-1;i++)
-         {
-            String wizardName= wizards.get(i).getText();
-            Assert.assertEquals(wizardName,(dashBoardData.all[i]));
+        List<WebElement> wizards = driver.findElements(LISTOFWIZARDS);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.all[i]));
             System.out.println(wizardName);
-         }
+        }
 
 
-        for(int j=0; j<dashBoardData.all.length;j++){
-            System.out.println("Values are "+dashBoardData.all[j]);
+        for (int j = 0; j < dashBoardData.all.length; j++) {
+            System.out.println("Values are " + dashBoardData.all[j]);
         }
     }
 
@@ -151,17 +148,16 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
     public void verifyingTestShowCapabilityUsingMonitoring() {
         safeClick(BUTTON_MONITORING, "Monitoring tab", MEDIUMWAIT);
         waitForSecs(5);
-        List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
-        for(int i=0;i<=wizards.size()-1;i++)
-        {
-            String wizardName= wizards.get(i).getText();
-            Assert.assertEquals(wizardName,(dashBoardData.monitoring[i]));
+        List<WebElement> wizards = driver.findElements(LISTOFWIZARDS);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.monitoring[i]));
             System.out.println(wizardName);
         }
 
 
-        for(int j=0; j<dashBoardData.monitoring.length;j++){
-            System.out.println("Values are "+dashBoardData.monitoring[j]);
+        for (int j = 0; j < dashBoardData.monitoring.length; j++) {
+            System.out.println("Values are " + dashBoardData.monitoring[j]);
         }
     }
 
@@ -169,17 +165,16 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
     public void verifyingTestShowCapabilityUsingAnalytics() {
         safeClick(BUTTON_ANALYTICS, "Monitoring tab", MEDIUMWAIT);
         waitForSecs(5);
-        List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
-        for(int i=0;i<=wizards.size()-1;i++)
-        {
-            String wizardName= wizards.get(i).getText();
-            Assert.assertEquals(wizardName,(dashBoardData.analytics[i]));
+        List<WebElement> wizards = driver.findElements(LISTOFWIZARDS);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.analytics[i]));
             System.out.println(wizardName);
         }
 
 
-        for(int j=0; j<dashBoardData.analytics.length;j++){
-            System.out.println("Values are "+dashBoardData.analytics[j]);
+        for (int j = 0; j < dashBoardData.analytics.length; j++) {
+            System.out.println("Values are " + dashBoardData.analytics[j]);
         }
     }
 
@@ -187,17 +182,16 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
     public void verifyingTestShowCapabilityUsingAutomation() {
         safeClick(BUTTON_AUTOMATION, "Monitoring tab", MEDIUMWAIT);
         waitForSecs(5);
-        List<WebElement> wizards=  driver.findElements(LISTOFWIZARDS);
-        for(int i=0;i<=wizards.size()-1;i++)
-        {
-            String wizardName= wizards.get(i).getText();
-            Assert.assertEquals(wizardName,(dashBoardData.automation[i]));
+        List<WebElement> wizards = driver.findElements(LISTOFWIZARDS);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.automation[i]));
             System.out.println(wizardName);
         }
 
 
-        for(int j=0; j<dashBoardData.automation.length;j++){
-            System.out.println("Values are "+dashBoardData.automation[j]);
+        for (int j = 0; j < dashBoardData.automation.length; j++) {
+            System.out.println("Values are " + dashBoardData.automation[j]);
         }
     }
 }

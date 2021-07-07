@@ -22,9 +22,10 @@ public class PivotTests extends BaseSetup {
     private LoginPage loginPage;
 
     private String sModeOfExecution;
-    Random random=new Random();
+    Random random = new Random();
     String dname = "testng";
     String dname1 = dname + random.nextInt(1500);
+
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;

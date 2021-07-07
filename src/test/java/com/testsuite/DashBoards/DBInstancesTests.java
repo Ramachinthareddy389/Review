@@ -15,7 +15,7 @@ public class DBInstancesTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private DashboardOverviewPage dashboardOverviewPage;
-    private DBInstancesPage dbInstancesPage ;
+    private DBInstancesPage dbInstancesPage;
 
 
     private String sModeOfExecution;
@@ -25,7 +25,7 @@ public class DBInstancesTests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        dashboardOverviewPage  =new DashboardOverviewPage(getDriver());
+        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         dbInstancesPage = new DBInstancesPage(getDriver());
         dashboardPage = new DashboardPage(getDriver());
         dashBoardData = new DashBoardData();
@@ -38,17 +38,15 @@ public class DBInstancesTests extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC132_AddNewConfiguration() throws InterruptedException
-    {
-       dbInstancesPage.clickingOnDbInstances();
-       dbInstancesPage.addingNewDbinstances();
-       dbInstancesPage.verifyingDbInstanceNameDetails();
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC132_AddNewConfiguration() throws InterruptedException {
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances();
+        dbInstancesPage.verifyingDbInstanceNameDetails();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC133_EditConfiguration() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC133_EditConfiguration() throws InterruptedException {
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.ediingConfiguration();

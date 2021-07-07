@@ -55,6 +55,7 @@
 			<class name="com.testsuite.DashBoards.DBInstancesTests"></class>
 			<class name="com.testsuite.DashBoards.SoftwareTests"></class>
 			<class name="com.testsuite.DashBoards.HardwareTests"></class>
+			<class name="com.testsuite.DashBoards.BusinessProcessTests"></class>
 
 		</classes>
 	</test>

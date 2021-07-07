@@ -42,8 +42,7 @@ public class WizardsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_116_AddconfigfromWizardspage() throws InterruptedException
-    {
+    public void TC_116_AddconfigfromWizardspage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.addingConfigFromWizardPage();
         wizardsPage.verifyingInAlertPage();
@@ -52,24 +51,21 @@ public class WizardsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_117_ManagefromWizardPage() throws InterruptedException
-    {
+    public void TC_117_ManagefromWizardPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.verifyingManageButtonInWizards();
 
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_119_VerifyingTestSearchCapability() throws InterruptedException
-    {
+    public void TC_119_VerifyingTestSearchCapability() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.verifyingTestSearchCapability();
 
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_120_VerifyingTestShowCapability() throws InterruptedException
-    {
+    public void TC_120_VerifyingTestShowCapability() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.verifyingTestShowCapability();
         wizardsPage.verifyingTestShowCapabilityUsingMonitoring();

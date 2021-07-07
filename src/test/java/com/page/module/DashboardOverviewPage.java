@@ -5,18 +5,12 @@ import com.selenium.Dynamic;
 import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
-
-import org.openqa.selenium.interactions.Action;
-
 
 public class DashboardOverviewPage extends SafeActions implements DashBoardLocators {
     private WebDriver driver;
@@ -26,6 +20,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     Random random = new Random();
     String dname = "Dboverview";
     String dname1 = dname + random.nextInt(1500);
+
     //Constructor to define/call methods
     public DashboardOverviewPage(WebDriver driver) {
         super(driver);
@@ -35,14 +30,14 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Verifying home page")
     public void verifyDashBoardOverviewPage(String dashboard, String all) {
-        boolean bIsdashboardExists = isElementPresent(Dynamic.getNewLocator(DASHBOARd_MODULE, dashboard), MEDIUMWAIT);
+        boolean bIsdashboardExists = isElementPresent(Dynamic.getNewLocator(DASHBOARD_MODULE, dashboard), MEDIUMWAIT);
         boolean bIsallExists = isElementPresent(Dynamic.getNewLocator(All_FOLDER, all), MEDIUMWAIT);
         Assert.assertTrue(bIsdashboardExists || bIsallExists, "Dashboard/All Folder//addDashboardButon/LabelNewDashboard fields is not being displayed on ' Home' page");
     }
 
     @Step("To click on 'Dashboard' and click on 'All' button")
     public void addingNewDashboard() {
-        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+        safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button on dashboards section", MEDIUMWAIT);
         safeClick(LABEL_NEW_DASHBOARD, "All folder on dashboards section ", MEDIUMWAIT);
@@ -208,7 +203,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     @Step("To click on 'Dashboard' > 'All' ")
     public void ClickAll() throws InterruptedException {
         waitForSecs(7);
-        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+        safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForSecs(5);
     }
@@ -261,7 +256,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(5);
         safeClick(DIALOG_FOLDER, "Folder Field of Clone Dialogue", VERYLONGWAIT);
         waitForSecs(5);
-        safeType(DIALOG_DASHBOARD,"Application","Folder textbox",MEDIUMWAIT);
+        safeType(DIALOG_DASHBOARD, "Application", "Folder textbox", MEDIUMWAIT);
    /*     Actions act = new Actions(driver);
         act.sendKeys("1 Folder");*/
         waitForSecs(5);
@@ -330,10 +325,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Clicking on Calender icon")
-    public void clickingOnCalenderIcon()
-    {
+    public void clickingOnCalenderIcon() {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
     }
+
     @Step("Validating current hour of predefined time range from calendar ")
     public void ValidatingCurrentHour() throws InterruptedException {
         safeClick(BTN_CURRENTHOUR, "Current Hour");
@@ -345,16 +340,16 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(str);
         Calendar cal1 = Calendar.getInstance();
         SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
-        String time=simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        String time = simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         System.out.println(time);
-        cal1.add(Calendar.HOUR,1);
-        String time1= simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        cal1.add(Calendar.HOUR, 1);
+        String time1 = simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        System.out.println("Current date and time is " + date5 + " " + time + " " + "-"+date5 + " " + time1);
-        expectedText =date5 + " " + time +" " + "-"+ date5 + " " + time1 ;
+        System.out.println("Current date and time is " + date5 + " " + time + " " + "-" + date5 + " " + time1);
+        expectedText = date5 + " " + time + " " + "-" + date5 + " " + time1;
         Assert.assertEquals(str, expectedText);
 
 
@@ -372,19 +367,19 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(str);
         Calendar cal1 = Calendar.getInstance();
         SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
-        String time=simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        String time = simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         System.out.println(time);
-        cal1.add(Calendar.HOUR,-1);
-        String time1= simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        cal1.add(Calendar.HOUR, -1);
+        String time1 = simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
 
-            System.out.println("Current date and time is " + date5 + " " + time1 + " " + "-"+date5 + " " + time);
-            expectedText =date5 + " " + time1 +" " + "-"+ date5 + " " + time ;
-            Assert.assertEquals(str, expectedText);
-            System.out.println("Its working");
+        System.out.println("Current date and time is " + date5 + " " + time1 + " " + "-" + date5 + " " + time);
+        expectedText = date5 + " " + time1 + " " + "-" + date5 + " " + time;
+        Assert.assertEquals(str, expectedText);
+        System.out.println("Its working");
 
 
     }
@@ -421,29 +416,28 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(str);
         Calendar cal1 = Calendar.getInstance();
         SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
-        String time=simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        String time = simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat simpleDateFormatArrivals1 = new SimpleDateFormat("hh:00");
-        String time1=simpleDateFormatArrivals1.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.HOUR,1);
-        String time3=simpleDateFormatArrivals1.format(new Date(cal.getTimeInMillis()));
+        String time1 = simpleDateFormatArrivals1.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.HOUR, 1);
+        String time3 = simpleDateFormatArrivals1.format(new Date(cal.getTimeInMillis()));
         Calendar cal5 = Calendar.getInstance();
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);
         System.out.println(date5);
-        cal5.add(Calendar.DATE,-1);
-      String date12=  date123.format(new Date(cal5.getTimeInMillis()));
+        cal5.add(Calendar.DATE, -1);
+        String date12 = date123.format(new Date(cal5.getTimeInMillis()));
         System.out.println(date12);
-        if(time.contains("PM")) {
-            System.out.println("Current date and time is " + date5+ " " + time3 + " " + "AM" +" "+ "-" + date5 + " " + time3+ " " + "PM");
-            expectedText = date5 + " " + time3 + " " + "AM" +" "+"-" + date5 + " " + time3 + " " + "PM";
+        if (time.contains("PM")) {
+            System.out.println("Current date and time is " + date5 + " " + time3 + " " + "AM" + " " + "-" + date5 + " " + time3 + " " + "PM");
+            expectedText = date5 + " " + time3 + " " + "AM" + " " + "-" + date5 + " " + time3 + " " + "PM";
             Assert.assertEquals(str, expectedText);
             System.out.println("Its working");
-        }
-        else{
-            System.out.println("Current date and time is " + date12+ " " + time3 + " " + "PM" +" "+ "-" + date5 + " " + time3 + " " + "AM");
-            expectedText = date12 + " " + time3 + " " + "PM" +" "+ "-" + date5 + " " + time3 + " " + "AM";
+        } else {
+            System.out.println("Current date and time is " + date12 + " " + time3 + " " + "PM" + " " + "-" + date5 + " " + time3 + " " + "AM");
+            expectedText = date12 + " " + time3 + " " + "PM" + " " + "-" + date5 + " " + time3 + " " + "AM";
             Assert.assertEquals(str, expectedText);
             System.out.println("Its working");
         }
@@ -472,8 +466,8 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         cal.add(Calendar.MONTH, 1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s4 = s.format(new Date(cal.getTimeInMillis()));
-        String date1=s1+"/01"+"/"+s3;
-        String date2=s4+"/01"+"/"+s3;
+        String date1 = s1 + "/01" + "/" + s3;
+        String date2 = s4 + "/01" + "/" + s3;
         System.out.println("Current date and time is " + date1 + " " + time + " " + "-" + date2 + " " + time);
         String expectedText = date1 + " " + time + " " + "-" + date2 + " " + time;
         Assert.assertEquals(str, expectedText);
@@ -503,10 +497,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         cal.add(Calendar.MONTH, -1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s4 = s.format(new Date(cal.getTimeInMillis()));
-        String date1=s1+"/01"+"/"+s3;
-        String date2=s4+"/01"+"/"+s3;
+        String date1 = s1 + "/01" + "/" + s3;
+        String date2 = s4 + "/01" + "/" + s3;
         System.out.println("Current date and time is " + date2 + " " + time + " " + "-" + date1 + " " + time);
-        String expectedText = date2 + " " + time + " " + "-" + date1+ " " + time;
+        String expectedText = date2 + " " + time + " " + "-" + date1 + " " + time;
         Assert.assertEquals(str, expectedText);
 
 
@@ -669,7 +663,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Assert.assertEquals(text, expectedText);
         String expected = "00:00";
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
-        for (int i = 0; i < allOptions.size()-1; i++) {
+        for (int i = 0; i < allOptions.size() - 1; i++) {
             String optionValue = allOptions.get(i).getText();
             Assert.assertEquals(optionValue, expected);
             if (optionValue.equals(expected)) {
@@ -698,48 +692,48 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(7);
         safeClick(BTN_HOURLY, "Hourly option from Trend Granularity");
         waitForSecs(7);
-        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title","Hourly text", 5000);
+        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title", "Hourly text", 5000);
         System.out.println(text);
         expectedText = "Hourly";
         Assert.assertEquals(text, expectedText);
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE,-28);
+        cal.add(Calendar.DATE, -28);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
-        cal.add(Calendar.DATE,2);
-        String s2= f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
+        String s2 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
         String s3 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s4 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s5 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s6 = f.format(new Date(cal.getTimeInMillis()));
 
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s7 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s8 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s9 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s10 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s11 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s12 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s13 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s14 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE,2);
+        cal.add(Calendar.DATE, 2);
         String s15 = f.format(new Date(cal.getTimeInMillis()));
-        String[] expected = {s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15};
+        String[] expected = {s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15};
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
-        for (int i = 0; i <=  expected.length-1; i++) {
+        for (int i = 0; i <= expected.length - 1; i++) {
             String optionValue = allOptions.get(i).getText();
             Assert.assertEquals(optionValue, expected[i]);
             if (optionValue.equals(expected[i])) {
@@ -766,7 +760,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE,-28);
+        cal.add(Calendar.DATE, -28);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
         String expected = s1;
@@ -791,7 +785,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
-        cal.add(Calendar.MONTH,-1);
+        cal.add(Calendar.MONTH, -1);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
         String date = s1 + " " + "'" + s2;
@@ -827,7 +821,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("To click on 'Dashboard' and click on 'All' button")
     public void addingNewFolder() {
-        safeClick(DASHBOARd_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+        safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button ondashboards section", MEDIUMWAIT);
         safeClick(LABEL_NEW_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);

@@ -43,14 +43,20 @@ public interface HardwareLocators {
     //APM State Locators
     By APMHEADER = By.xpath("//span[text()='APM']");
     By APMSTATE_HEADER = By.xpath("//span[text()='APM State']");
-    By JSSCRPTS_TAB = By.xpath("//span[@title='Germain APM JavaScript scripts for UX monitoring']");
-    By LABEL_HOSTMACHINE = By.xpath("//span[text()='Host Machine']");
-    By HOSTMACHINE_GHOSTEXT = By.xpath("//input[@id='monitoredServer']/../../../div[1]");
-    By TXTBOX_HOSTMACHINE = By.xpath("//input[@id='monitoredServer']");
+    By NODES_TAB = By.xpath("//span[contains(text(),'Nodes')]");
+    By LABEL_HOSTNAME_NODE = By.xpath("//span[text()='Hostname']");
+    By TXTBOX_HOSTNAME_NODE = By.xpath("//input[@id='hostname']");
     By MONITORSCRIPTPROFILE_LABEL = By.xpath("//span[text()='Monitoring script profile']");
-    By MONITORINGPROFILEADDICON = By.xpath("//h4[text()='Engine Monitoring Profiles:']//../following-sibling::button/span/i");
+    By ENGINES_ADDICON = By.xpath("//span[text()='Hostname']/../../../../../div[3]/div/div/button/span/i");
+    By LABLE_NAME = By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/label");
+    By TXTBOX_NAME= By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/div/input");
+    By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
+    By LABEL_MONITORED_SERVER = By.xpath("//input[@id='monitoredServer']/../../../../../../label/p/span");
+    By MONITORED_SERVER_GHOSTEXT = By.xpath("//input[@id='monitoredServer']/../../../div[1]");
+    By TXTBOX_MONITORED = By.xpath("//input[@id='monitoredServer']");
+    By ENGINE_MONITORIN_GPROFILES = By.xpath("//h4[text()='Engine Monitoring Profiles:']//../following-sibling::button/span/i");
     By APPLYPROFILEDROPDOWN     = By.xpath("//span[text()='Apply']/../../div/div");
-    By BTN_APPLY       =By.xpath("//span[text()='Apply']");
+    By BTN_APPLY = By.xpath("//span[text()='Apply']");
     By DROPDOWN1  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Apache Tomcat Server']");
     By DROPDOWN2  = By.xpath("//div[@id='menu-']/div/ul/li[text()='BIP App Server']");
     By DROPDOWN3  = By.xpath("//div[@id='menu-']/div/ul/li[text()='DB2 Database Server']");

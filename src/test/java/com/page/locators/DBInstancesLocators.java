@@ -29,7 +29,7 @@ public interface DBInstancesLocators
    By LISTOFDBS  = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
    By HEADER_DB = By.xpath("//h5[@aria-label='Dbinstancename']");
    By SERVERVALUE = By.xpath("//input[@id='server']/../../../div");
-   By BTN_SAVE =By.xpath("//div[@aria-label='Save Configuration']");
+   By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
 
 

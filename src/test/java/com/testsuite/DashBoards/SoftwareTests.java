@@ -39,16 +39,14 @@ public class SoftwareTests extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_152_AddSoftwareConfiguration() throws InterruptedException
-    {
+    public void TC_152_AddSoftwareConfiguration() throws InterruptedException {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.verifyingSoftwareNameDetails();
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_153_EditSoftwareConfiguration() throws InterruptedException
-    {
+    public void TC_153_EditSoftwareConfiguration() throws InterruptedException {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.editConfiugurationSoftwareDetails();

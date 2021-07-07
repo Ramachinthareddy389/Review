@@ -38,9 +38,9 @@ public interface TicketLocators {
     By CLEAR_FILTER = By.xpath("//button/span[contains(text(),'Clear')]");
 
     //Change Ticket Settings
-    By SEVERITY_OPTION_UPDATED= By.xpath("//span[contains(text(),'Severity')]/../../../following-sibling::div/div/div/div/div[contains(text(),'Critical')]");
-    By PRIORITY_OPTION_UPDATED= By.xpath("//span[contains(text(),'Priority')]/../../../following-sibling::div/div/div/div/div[contains(text(),'Low')]");
-    By STATUS_OPTION_UPDATED= By.xpath("//div[contains(text(),'Open')]");
+    By SEVERITY_OPTION_UPDATED = By.xpath("//span[contains(text(),'Severity')]/../../../following-sibling::div/div/div/div/div[contains(text(),'Critical')]");
+    By PRIORITY_OPTION_UPDATED = By.xpath("//span[contains(text(),'Priority')]/../../../following-sibling::div/div/div/div/div[contains(text(),'Low')]");
+    By STATUS_OPTION_UPDATED = By.xpath("//div[contains(text(),'Open')]");
     By REMOVE_EXISTING_PARTICIPANTS = By.xpath("//label[@for='participants']/../descendant::*[local-name()='svg'][1]");
     By CLOSE_BUTTON = By.xpath("//h6/../following-sibling::button");
     By TICKET_UPDATED_MESSAGE = By.xpath("//span[contains(@id,'snackbar') and contains(text(),'Ticket updated')]");

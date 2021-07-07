@@ -46,11 +46,24 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-        public void TC_161_EditBusinessProcessConfiguration() throws InterruptedException {
+    public void TC_161_EditBusinessProcessConfiguration() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.editBusinessConfig();
         businessProcessPage.verifyingEditedBusinessProcessNameDetails();
     }
+
+
+    @Test(alwaysRun = true)
+    public void TC_162_AddBPStepineditconfigwindow() throws InterruptedException {
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.addingBPStepInEditConfigWindow();
+        businessProcessPage.verifyingAddedBPStepsInEditConfigWindow();
+
+
+    }
+
+
 }
 

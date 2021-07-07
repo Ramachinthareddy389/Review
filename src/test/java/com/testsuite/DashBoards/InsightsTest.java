@@ -34,21 +34,21 @@ public class InsightsTest extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_098_Navigate_To_Drillthrough_From_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
         insightsPage.navigateToDrillthroughFromInsightsPage();
         insightsPage.verifyDrillthroughPageNavigatedFromInsightsPage();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
         dashboardOverviewPage.validatingLastMonth("12:00 AM");
         insightsPage.navigationUsingTooltipOptions();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_102_Verify_GroupBy_In_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");

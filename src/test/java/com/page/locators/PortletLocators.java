@@ -146,14 +146,14 @@ public interface PortletLocators {
     By MAP_LOCATION_FOR = By.xpath("//label[@for='locationFor']/../div");
     By MAP_LEVEL_DROPDOWN = By.xpath("//*[text()='Map Level']/../../../div//div[contains(@class,'body1')]");
     By MAP_LEVEL_TEXTBOX = By.xpath("//input[@id='mapLevel']");
-    By NtabularFirstRow=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
-    By NTABULARSENDROW=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");
-    By NTABULARTHIRDROW=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[3]/span/span");
-    By CLOSE_PORTLET=By.xpath("//div[@aria-label='Close']");
-    By BTN_CONFIRM=By.xpath("//span[text()='Confirm']");
-    By PORTLET_NOTIFY=By.xpath("//div[text()='No portlets configured, click to add a metric.']");
-    By GAUGEPORTLETDATA=By.xpath("//div[@data-id='series_0']/span");
-    By COUNTERPORTLETDATA=By.xpath("//div[contains(@class,'CounterChart')]/div/span/span[2]");
+    By NtabularFirstRow = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
+    By NTABULARSENDROW = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");
+    By NTABULARTHIRDROW = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[3]/span/span");
+    By CLOSE_PORTLET = By.xpath("//div[@aria-label='Close']");
+    By BTN_CONFIRM = By.xpath("//span[text()='Confirm']");
+    By PORTLET_NOTIFY = By.xpath("//div[text()='No portlets configured, click to add a metric.']");
+    By GAUGEPORTLETDATA = By.xpath("//div[@data-id='series_0']/span");
+    By COUNTERPORTLETDATA = By.xpath("//div[contains(@class,'CounterChart')]/div/span/span[2]");
 
 
     //RCA

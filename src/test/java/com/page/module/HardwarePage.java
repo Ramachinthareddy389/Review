@@ -14,11 +14,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Server_Add, Type_add, OSFamily_add, Host_Add, OSName_add, Environment_add,Hostmachine_add,software_add;
+    String Server_Add, Type_add, OSFamily_add, Host_Add, OSName_add, Environment_add, Hostmachine_add, software_add;
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
     String EditTitle = "Andriod" + " - " + random.nextInt(500);
-    String NodeJS ="NodeJs" + " - " + random.nextInt(500);
-    String WebUXAgent ="WebUXAgent" + " - " + random.nextInt(500);
+    String NodeJS = "NodeJs" + " - " + random.nextInt(500);
+    String Engine="Engine"  + " - " + random.nextInt(500);
+    String WebUXAgent = "WebUXAgent" + " - " + random.nextInt(500);
 
     public HardwarePage(WebDriver driver) {
         super(driver);
@@ -261,7 +262,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(LOCALAGENTADDICON,"Local agent icon",MEDIUMWAIT);
+        safeClick(LOCALAGENTADDICON, "Local agent icon", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(LOCALAGENTMONITORINGDROPDOWN);
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
@@ -286,19 +287,19 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
             }
         }
         safeClick(LABEL_AGENT, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_LABEL_AGENT,DbTitle,"Entering the label name",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeType(TXTBOX_LABEL_AGENT, DbTitle, "Entering the label name", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         waitForSecs(3);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li/mark[contains(text(),'" + DbTitle + "')]");
-        boolean Monitoring_Agents=driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
+        boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
         //String Monitoring_Agents=safeGetText(ADDEDAGENT_LABEL,"Added Local Monitoring Agents",MEDIUMWAIT);
         System.out.println(Monitoring_Agents);
         Assert.assertTrue(Monitoring_Agents);
-        String label="germain.apm.monitoringAgents";
-        By ADDEDREFERENCES_LABEl = By.xpath("//button[@aria-label='" +label+'('+DbTitle+')'+"']");
-        boolean Monitoring_Agents_Ref=driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
+        String label = "germain.apm.monitoringAgents";
+        By ADDEDREFERENCES_LABEl = By.xpath("//button[@aria-label='" + label + '(' + DbTitle + ')' + "']");
+        boolean Monitoring_Agents_Ref = driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
 
@@ -306,7 +307,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
 
 
     public void addingLocalMonitoringAgentsUsingNodeJSInEditConfiguration() {
-        safeClick(LOCALAGENTADDICON,"Local agent icon",MEDIUMWAIT);
+        safeClick(LOCALAGENTADDICON, "Local agent icon", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(LOCALAGENTMONITORINGDROPDOWN);
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
@@ -331,26 +332,27 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
             }
         }
         safeClick(LABEL_AGENT, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_LABEL_AGENT,NodeJS,"Entering the label name",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeType(TXTBOX_LABEL_AGENT, NodeJS, "Entering the label name", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         waitForSecs(3);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li[contains(text(),'" + NodeJS + "')]");
-        boolean Monitoring_Agents=driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
+        boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
         //String Monitoring_Agents=safeGetText(ADDEDAGENT_LABEL,"Added Local Monitoring Agents",MEDIUMWAIT);
         System.out.println(Monitoring_Agents);
         Assert.assertTrue(Monitoring_Agents);
-        String label="germain.apm.monitoringAgents";
-        By ADDEDREFERENCES_LABEl = By.xpath("//button[@aria-label='" +label+'('+NodeJS+')'+"']");
-        boolean Monitoring_Agents_Ref=driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
+        String label = "germain.apm.monitoringAgents";
+        By ADDEDREFERENCES_LABEl = By.xpath("//button[@aria-label='" + label + '(' + NodeJS + ')' + "']");
+        boolean Monitoring_Agents_Ref = driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
     }
+
     public void addingLocalMonitoringAgentsUsingWebUXAgentInEditConfiguration() {
-        safeClick(LOCALAGENTADDICON,"Local agent icon",MEDIUMWAIT);
+        safeClick(LOCALAGENTADDICON, "Local agent icon", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(LOCALAGENTMONITORINGDROPDOWN);
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
@@ -375,81 +377,90 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
             }
         }
         safeClick(LABEL_AGENT, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_LABEL_AGENT,WebUXAgent,"Entering the label name",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeType(TXTBOX_LABEL_AGENT, WebUXAgent, "Entering the label name", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         waitForSecs(3);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li[contains(text(),'" + WebUXAgent + "')]");
-        boolean Monitoring_Agents=driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
+        boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
         //String Monitoring_Agents=safeGetText(ADDEDAGENT_LABEL,"Added Local Monitoring Agents",MEDIUMWAIT);
         System.out.println(Monitoring_Agents);
         Assert.assertTrue(Monitoring_Agents);
-        String label="germain.apm.monitoringAgents";
-        By ADDEDREFERENCES_LABEl = By.xpath("//button[@aria-label='" +label+'('+WebUXAgent+')'+"']");
-        boolean Monitoring_Agents_Ref=driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
+        String label = "germain.apm.monitoringAgents";
+        By ADDEDREFERENCES_LABEl = By.xpath("//button[@aria-label='" + label + '(' + WebUXAgent + ')' + "']");
+        boolean Monitoring_Agents_Ref = driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
     }
 
-    public void configuringHardwareInAPMModule()
-    {
+    public void configuringNodeInAPMModule() {
         safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
         safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
-        safeClick(JSSCRPTS_TAB,"JS Script Tab",MEDIUMWAIT);
+        safeClick(NODES_TAB, "Nodes Tab", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
-        safeClick(LABEL_HOSTMACHINE, "Server Feild", MEDIUMWAIT);
-        safeClick(HOSTMACHINE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_HOSTMACHINE, DbTitle, "Server name into textbox", MEDIUMWAIT);
-        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
-        for (int i = 0; i < dbs1.size(); i++) {
-
-            if (dbs1.get(i).getText().equals(DbTitle)) {
-
-                dbs1.get(i).click();
-                break;
-            }
-        }
-        Hostmachine_add = safeGetText(HOSTMACHINE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
-        safeClick(LABEL_SOFTWARE, "Server Feild", MEDIUMWAIT);
-        safeClick(SOFTWARE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, ".NET", "Server name into textbox", MEDIUMWAIT);
-        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
-        for (int i = 0; i < dbs1.size(); i++) {
-
-            if (dbs2.get(i).getText().equals(".NET")) {
-
-                dbs2.get(i).click();
-                break;
-            }
-        }
-        software_add = safeGetText(SOFTWARE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_SERVERNAME, NodeJS, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
-        safeClick(BTN_NEXT,"NExt button",MEDIUMWAIT);
-        safeClick(MONITORSCRIPTPROFILE_LABEL,"Monitoring script profile label",MEDIUMWAIT);
-        waitForSecs(5);
-        safeClick(BTN_NEXT,"NExt button",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_HOSTNAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+
+
     }
 
-    public void validatingEngineMonitoringProfiles(){
+    public void configuringEnginesInAPMModule() {
+        safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(ENGINES_ADDICON, " Engine Add Icon", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(LABLE_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Engine, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_SHOW_ADVANCED,"Show advanced");
+        safeClick(LABEL_MONITORED_SERVER, "Monitored Server", MEDIUMWAIT);
+        safeClick(MONITORED_SERVER_GHOSTEXT, "Monitored Server host text", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONITORED, DbTitle, "Monitored name into textbox", MEDIUMWAIT);
+        List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + db1.size());
+        for (int i = 0; i < db1.size(); i++) {
+
+            if (db1.get(i).getText().equals(DbTitle)) {
+
+                db1.get(i).click();
+                break;
+            }
+        }
+            safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+            safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+            safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+            safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+            waitForSecs(3);
+        }
+
+
+    public void validatingEngineMonitoringProfiles() {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(MONITORINGPROFILEADDICON,"Monitoring profile add icon",MEDIUMWAIT);
-        safeClick(APPLYPROFILEDROPDOWN,"Apply profile dropdown",MEDIUMWAIT);
-        safeClick(DROPDOWN1,"Apache Tomcat Server",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply Button",MEDIUMWAIT);
+        safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
+        safeClick(DROPDOWN1,"Apache HTTP Server",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
+
 
     }
 }

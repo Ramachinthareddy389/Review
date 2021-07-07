@@ -14,12 +14,14 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
     private WebDriver driver;
     String expectedText = "Create" + " May2021129" + "";
     static int j;
-   String Name_Add,KPIS_add,KeyExp_add,StepName_Add,SLA_Add,EditKey_Exp_add, Edited_KPIS_add,Edited_Name_Add;
+    String Name_Add, KPIS_add, KeyExp_add, StepName_Add, SLA_Add, EditKey_Exp_add, Edited_KPIS_add, Edited_Name_Add;
     Random random = new Random();
     String dname = "BP";
     String dname1 = dname + random.nextInt(1500);
-    String editBP="BPEDIT";
+    String editBP = "BPEDIT";
     String editBP1 = editBP + random.nextInt(1500);
+    String Bpstep = "Bp" + random.nextInt(1500);
+
     //Constructor to define/call methods
     public BusinessProcessPage(WebDriver driver) {
         super(driver);
@@ -76,7 +78,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeClick(Filter_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_FILTERS, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
             if (dbs3.get(i).getText().equals("color")) {
@@ -93,7 +95,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeType(TXTBOX_SLA, dname1, "Name into textbox", MEDIUMWAIT);
         SLA_Add = safeGetAttribute(TXTBOX_SLA, "value", "Name textbox value", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeClick(BTN_SKIP,"Skip",MEDIUMWAIT);
+        safeClick(BTN_SKIP, "Skip", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(LABEL_DASHBOARD, "Server Feild", MEDIUMWAIT);
         safeClick(DASHBOARD_GHOSTEXT, "Server textbox", MEDIUMWAIT);
@@ -108,7 +110,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
-         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
 
     }
@@ -133,14 +135,13 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
             waitForSecs(7);
             System.out.println("Name: " + driver.findElement(TXTBOX_SERVERNAME).getAttribute("value") + " Database Name: " + driver.findElement(KPIS_GHOSTEXT).getText() +
                     " Instance Name: " + driver.findElement(KEYEXP_GHOSTEXT).getText());
-        }
-        else {
+        } else {
             Assert.fail("Business process details are invalid");
         }
     }
 
 
-    public void editBusinessConfig(){
+    public void editBusinessConfig() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -184,13 +185,14 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         System.out.println(EditKey_Exp_add);
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, editBP1+ "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, editBP1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         String EditedText = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         System.out.println(EditedText);
         Assert.assertEquals(EditedText, editBP1);
     }
+
     public void verifyingEditedBusinessProcessNameDetails() {
         safeType(TEXTBOX_TYPESEARCH, editBP1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -209,14 +211,56 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
             String text = driver.findElement(TXTBOX_SERVERNAME).getAttribute("value");
             System.out.println(text);
             waitForSecs(10);
-            System.out.println("Name: " + driver.findElement(TXTBOX_SERVERNAME).getAttribute("value")+ " Database Name: " +  driver.findElement(TXTBOX_EDITED_KPIS).getText() +
+            System.out.println("Name: " + driver.findElement(TXTBOX_SERVERNAME).getAttribute("value") + " Database Name: " + driver.findElement(TXTBOX_EDITED_KPIS).getText() +
                     " Instance Name: " + driver.findElement(KEYEXP_GHOSTEXT).getText());
-        }
-        else {
+        } else {
             Assert.fail("Business process details are invalid");
         }
     }
 
+    public void addingBPStepInEditConfigWindow() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
+       // safeClick(BTN_CLOSE,"Close after deleting BPs steps",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save Button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BPSTEPS_ADDICON, "BP Steps add icon", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
+        safeClick(LABEL_STEPNAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_STEPNAME, editBP1, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_STEPNAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        waitForSecs(5);
+        safeClick(Filter_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_FILTERS, "color", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs3.size(); i++) {
 
+            if (dbs3.get(i).getText().equals("color")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        safeClearAndType(TXTBOX_BPSTEPS_VALUE, "test", "Server name into textbox", MEDIUMWAIT);
+      //  safeClick(LABEL_SLA, "Name Feild", MEDIUMWAIT);
+        //safeType(TXTBOX_SLA, "2", "Name into textbox", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    }
+
+    public void verifyingAddedBPStepsInEditConfigWindow() {
+        String actualText = safeGetText(Added_BPSTEPS, "Added BP Steps", MEDIUMWAIT);
+        expectedText = editBP1;
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
 
     }
+}

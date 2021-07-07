@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public interface DashBoardLocators {
 
-    By DASHBOARd_MODULE=By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]");
+    By DASHBOARD_MODULE = By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]");
     By All_FOLDER     =By.xpath("//span[text()='All']");
     By BUTTON_ADD_DASHBOARD =By.xpath("//i[@title='Add new Dashboard or Folder'][@class='fas fa-plus']");
     By LABEL_NEW_DASHBOARD =By.xpath("//li[text()='Dashboard']");

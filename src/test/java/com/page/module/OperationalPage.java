@@ -16,7 +16,7 @@ import java.util.List;
 
 public class OperationalPage extends SafeActions implements OperationalLocators {
     private WebDriver driver;
-    private DashBoardData dashBoardData=new DashBoardData();
+    private DashBoardData dashBoardData = new DashBoardData();
 
 
     //Constructor to define/call methods
@@ -26,11 +26,10 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     }
 
     @Step("Clicking on Operational button")
-    public void clickingOperationButton()
-    {
-        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
+    public void clickingOperationButton() {
+        safeClick(BUTTON_OPERATIONAL, "Operational ICon", MEDIUMWAIT);
         waitForSecs(2);
-        safeClick(BUTTON_OPERATIONAL,"Operational ICon",MEDIUMWAIT);
+        safeClick(BUTTON_OPERATIONAL, "Operational ICon", MEDIUMWAIT);
 
     }
 
@@ -51,8 +50,8 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         String appNameIndrilthrgh = safeGetText(APPNAME_IN_DRILLTHROUGH, "Application Name", MEDIUMWAIT);
         System.out.println(appNameIndrilthrgh);
         String expectedText = "Application Name" + " " + "is" + " " + appNameIndrilthrgh;
-        String actulaText="Application Name" + " " + "is" + " "+AppName;
-        Assert.assertEquals(expectedText,actulaText);
+        String actulaText = "Application Name" + " " + "is" + " " + AppName;
+        Assert.assertEquals(expectedText, actulaText);
     }
 
     @Step("Verify count of KPI in Data Graph window and Pivot/Drillthrough page")
@@ -76,10 +75,10 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         String text = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
         System.out.println(text);
         Assert.assertEquals(text, dashBoardData.pivot_DrillthroughPage + " " + kpi);
-        String countInPivotPage=safeGetText(COUNT_IN_PIVOT_DRILLTHRHPAGE,"Count in pivot drillthrough page",MEDIUMWAIT);
-        String expectedText="Count"+" "+countInPivotPage+" ";
-        Assert.assertEquals(str,expectedText);
+        String countInPivotPage = safeGetText(COUNT_IN_PIVOT_DRILLTHRHPAGE, "Count in pivot drillthrough page", MEDIUMWAIT);
+        String expectedText = "Count" + " " + countInPivotPage + " ";
+        Assert.assertEquals(str, expectedText);
     }
 
-    }
+}
 

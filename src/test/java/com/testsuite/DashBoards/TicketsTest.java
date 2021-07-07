@@ -38,7 +38,7 @@ public class TicketsTest extends BaseSetup {
         loginPage.clickLogInButton();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_122_Upload_Attachment_To_Ticket() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
@@ -47,28 +47,29 @@ public class TicketsTest extends BaseSetup {
         ticketsPage.verifyingUploadedAttachementsInTicket();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_123_Verify_Status_Assigned_To_In_Tickets_Page() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.setPaginationInTicketsPage();
         ticketsPage.verifyStatusAndAssignedToInTicketsPage();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_121_Add_Ticket_With_Assignee_And_Multiple_Participants() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
         ticketsPage.verifyAddedTicketInTicketsPage();
 
     }
-    @Test( groups ="Smoke Test" )
+
+    @Test(groups = "Smoke Test")
     public void TC_131_Verify_Status_Assigned_To_Filters_In_Tickets_Page() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.setPaginationInTicketsPage();
         ticketsPage.verifyStatusAndAssignedToFiltersInTicketsPage();
     }
 
-    @Test( groups ="Smoke Test" )
+    @Test(groups = "Smoke Test")
     public void TC_130_Change_Ticket_Settings_In_Tickets_Page() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();

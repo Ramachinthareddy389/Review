@@ -27,7 +27,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
     private WebDriver driver1;
-    String sessionTime=null;
+    String sessionTime = null;
 
 
     public PortletsFeature(WebDriver driver) {
@@ -212,7 +212,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dashBoardData.drillthrghpage+" "+dashBoardData.portletQuery);
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dashBoardData.portletQuery);
 
     }
 
@@ -661,8 +661,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(5);
 
     }
+
     @Step("Verify hover message in filter icon in Analysis portlet in Tabular portlet")
-    public void verifyhoverFiltermessage(){
+    public void verifyhoverFiltermessage() {
         waitForSecs(2);
         mouseHoverJScript(SLACOLUMNS, "", "first sla", MEDIUMWAIT);
         waitForSecs(7);
@@ -675,6 +676,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         System.out.println(usercolumText);
         Assert.assertEquals(filtervalue, usercolumText);
     }
+
     @Step("Adding Flow Portlet")
     public void addingFlowPortlet(String flowPortletName) throws InterruptedException {
         waitForPageToLoad();
@@ -935,9 +937,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Validating NTabular Portlet")
     public void verifyingExportedNtabularPortlet(String tabularPortletName) throws IOException {
         waitForSecs(10);
-        String firstRow= driver.findElement(NtabularFirstRow).getText();
-        String secndRow= driver.findElement(NTABULARSENDROW).getText();
-        String thirdRow=driver.findElement(NTABULARTHIRDROW).getText();
+        String firstRow = driver.findElement(NtabularFirstRow).getText();
+        String secndRow = driver.findElement(NTABULARSENDROW).getText();
+        String thirdRow = driver.findElement(NTABULARTHIRDROW).getText();
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
@@ -971,7 +973,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Arrays.toString(labels);
         for (int i = 1; i < labels.length - 1; i++) {
             if (labels[i + 2].equals(firstRow)) {
-                System.out.println("Exported CSV values  :" + labels[i + 2] + "  Table Column Values:" +firstRow);
+                System.out.println("Exported CSV values  :" + labels[i + 2] + "  Table Column Values:" + firstRow);
                 //Assert.assertEquals(labels[i + 1], firstRow);
             }
         }
@@ -981,7 +983,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         for (int i = 1; i <= column2.length; i++) {
             double value = Double.parseDouble(column2[i + 2]);
             String Double = String.format("%.2f", value);
-            System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" +secndRow);
+            System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" + secndRow);
             // Assert.assertEquals(Double, list2.get(i).getText());
 
 
@@ -1073,7 +1075,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String s = "";
         while ((cell = csvreader.readNext()) != null) {
             int i = 0;
-            s = s + cell[i] ;
+            s = s + cell[i];
         }
         System.out.println(s);
         Assert.assertEquals(s, actualValue);
@@ -1089,15 +1091,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Navigate to Drillthrough page using '3 option' tooltip")
-    public void navigateToDrillthroughPage()
-    {
+    public void navigateToDrillthroughPage() {
         waitForPageToLoad();
-        mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
-        safeClick(TOOLTIPOPTION_2,"Drillthrough",MEDIUMWAIT);
+        mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_2, "Drillthrough", MEDIUMWAIT);
         waitForPageToLoad();
-        String Tooltip2= safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
+        String Tooltip2 = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
         System.out.println(Tooltip2);
-        Assert.assertEquals(Tooltip2,dashBoardData.tooltip2);
+        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2);
     }
 
     @Step("Navigate to RCA page from Drillthrough page")
@@ -1105,42 +1106,41 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         By SESSION_DRILLTHROUGH = By.xpath("//div[contains(@role,'rowgroup')]/a/div//div/div[2]");
         By SESSION_TIME = By.xpath("//div[contains(@role,'rowgroup')]/a/div//div/div[2]/span/span");
-        waitUntilClickable(SESSION_TIME,"",MEDIUMWAIT);
+        waitUntilClickable(SESSION_TIME, "", MEDIUMWAIT);
         sessionTime = driver.findElement(SESSION_TIME).getText();
-        System.out.println("Time is "+driver.findElement(SESSION_TIME).getText());
-        safeClick(SESSION_DRILLTHROUGH,"",MEDIUMWAIT);
+        System.out.println("Time is " + driver.findElement(SESSION_TIME).getText());
+        safeClick(SESSION_DRILLTHROUGH, "", MEDIUMWAIT);
         waitForPageToLoad();
-        String Tooltip1= safeGetText(Title_DRILLTHROUGH, "Page title for RCA", MEDIUMWAIT);
+        String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Page title for RCA", MEDIUMWAIT);
         System.out.println(Tooltip1);
-        Assert.assertEquals(Tooltip1,dashBoardData.tooltip1);
+        Assert.assertEquals(Tooltip1, dashBoardData.tooltip1);
     }
 
     @Step("Navigate to RCA page from Drillthrough page")
     public void verifyTimeRangeInRCAPage() throws InterruptedException {
-        waitUntilClickable(TIME_SESSION_RCA,"",MEDIUMWAIT);
-        Assert.assertEquals(driver.findElement(TIME_SESSION_RCA).getText(),sessionTime);
-        String time =driver.findElement(TIME_SESSION_RCA).getText().substring(0,16);
+        waitUntilClickable(TIME_SESSION_RCA, "", MEDIUMWAIT);
+        Assert.assertEquals(driver.findElement(TIME_SESSION_RCA).getText(), sessionTime);
+        String time = driver.findElement(TIME_SESSION_RCA).getText().substring(0, 16);
         DateTimeFormatter formatter = DateTimeFormat.forPattern("MM/dd/yyyy HH:mm");
         DateTime dt = formatter.parseDateTime(time);
         List<WebElement> ranges = driver.findElements(CALENDAR_TIME_RANGE);
-        DateTime startRange = formatter.parseDateTime(ranges.get(0).getText().substring(0,16));
-        DateTime endRange = formatter.parseDateTime(ranges.get(1).getText().substring(0,16));
-        System.out.println("Actual Time is "+dt+" Start Time is "+startRange.plusMinutes(5)+" End time is "+endRange.minusMinutes(5));
-        if(!(dt.equals(startRange.plusMinutes(5))&&dt.equals(endRange.minusMinutes(5))))
+        DateTime startRange = formatter.parseDateTime(ranges.get(0).getText().substring(0, 16));
+        DateTime endRange = formatter.parseDateTime(ranges.get(1).getText().substring(0, 16));
+        System.out.println("Actual Time is " + dt + " Start Time is " + startRange.plusMinutes(5) + " End time is " + endRange.minusMinutes(5));
+        if (!(dt.equals(startRange.plusMinutes(5)) && dt.equals(endRange.minusMinutes(5))))
             Assert.fail("Time Range is not displayed properly in RCA page");
 
     }
 
     @Step("Navigate to RCA page using '3 option' tooltip")
-    public void navigateToRCAPage()
-    {
+    public void navigateToRCAPage() {
         waitForPageToLoad();
-        mouseHoverJScript(PORTLET_BAR,"Portlet Bar","Mouse Over on the portlet bar",MEDIUMWAIT);
-        safeClick(TOOLTIPOPTION_1,"RCA",MEDIUMWAIT);
+        mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_1, "RCA", MEDIUMWAIT);
         waitForPageToLoad();
-        String Tooltip1= safeGetText(Title_DRILLTHROUGH, "Page title for RCA", MEDIUMWAIT);
+        String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Page title for RCA", MEDIUMWAIT);
         System.out.println(Tooltip1);
-        Assert.assertEquals(Tooltip1,dashBoardData.tooltip1);
+        Assert.assertEquals(Tooltip1, dashBoardData.tooltip1);
     }
 
     @Step("Maximise portlet in RCA page")
@@ -1148,11 +1148,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         safeClick(ICON_MAXMIZE_RCA, "Maximize button in Issue Description portlet", MEDIUMWAIT);
         waitUntilClickable(ICON_RESTORE_RCA, "Restore button in Issue Description portlet", MEDIUMWAIT);
-        safeClick(ICON_RESTORE_RCA,"Restore button in Issue Description portlet",MEDIUMWAIT);
+        safeClick(ICON_RESTORE_RCA, "Restore button in Issue Description portlet", MEDIUMWAIT);
         try {
             if (driver.findElement(ICON_MAXMIZE_RCA).isDisplayed())
                 System.out.println("Portlet is restored properly in RCA page");
-        }catch (Exception e){
+        } catch (Exception e) {
             Assert.fail("Portlet is not restored properly in RCA page");
         }
     }
