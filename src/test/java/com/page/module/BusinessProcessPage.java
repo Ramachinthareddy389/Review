@@ -6,6 +6,7 @@ import com.testng.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 import java.util.Random;
@@ -257,10 +258,34 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
     }
 
     public void verifyingAddedBPStepsInEditConfigWindow() {
-        String actualText = safeGetText(Added_BPSTEPS, "Added BP Steps", MEDIUMWAIT);
+        String actualText = safeGetText(ADDED_BPSTEPS, "Added BP Steps", MEDIUMWAIT);
         expectedText = editBP1;
         Assert.assertEquals(actualText, expectedText);
         safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
 
+    }
+
+
+    public void validatingBPStepMetrics()
+    {
+        String actualText = safeGetText(ADDED_BPSTEPS, "Added BP Steps", MEDIUMWAIT);
+        expectedText = editBP1;
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(ADDED_BPSTEPS,"Added Bp steps");
+        safeClick(BPSTEP_METRICS_ADDICON,"Added BP Metric icon",MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
+        safeClick(LABEl_METRIC_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_METRIC_NAME, "BP Metric", "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_METRIC_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        waitForSecs(5);
+        safeClick(TXTBOX_METRIC_EXP,"Metric Exp",MEDIUMWAIT);
+        WebElement metric=driver.findElement(TXTBOX_METRIC_EXP);
+        metric.sendKeys("test");
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        String actualText1 = safeGetText(ADDED_BPMETRIC, "Added BP Steps", MEDIUMWAIT);
+        expectedText = "BP Metric";
+        Assert.assertEquals(actualText1, expectedText);
     }
 }

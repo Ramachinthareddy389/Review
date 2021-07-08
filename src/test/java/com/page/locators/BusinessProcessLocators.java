@@ -43,7 +43,17 @@ public interface BusinessProcessLocators {
     By TXTBOX_BPSTEPS_VALUE = By.xpath("//button[@aria-label='Delete']/preceding-sibling::i/following-sibling::div/input");
     By LABEL_STEPNAME = By.xpath("//span[text()='Step Name']/../../../label[@id='name-label']");
     By TXTBOX_STEPNAME = By.xpath("//span[text()='Step Name']/../../../div/input[@id='name']");
-    By Added_BPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/button");
+    By ADDED_BPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/button");
     By BTN_REMOVEBPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+
+
+    //BP Step Metrics
+
+    By BPSTEP_METRICS_ADDICON = By.xpath("//span[text()='BP Step Metrics']/../../following-sibling::div/button/span/i");
+    By LABEl_METRIC_NAME = By.xpath("//span[text()='Metric name']/../../../label[@id='name-label']");
+    By TXTBOX_METRIC_NAME = By.xpath("//span[text()='Metric name']/../../../div/input[@id='name']");
+    By TXTBOX_METRIC_EXP = By.cssSelector("textarea.inputarea");
+    By BTN_REMOVE_BPSTEP_METRICS = By.xpath("//span[text()='BP Step Metrics']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By ADDED_BPMETRIC =By.xpath("//span[text()='BP Step Metrics']/../../../div/div/div/button");
 
 }

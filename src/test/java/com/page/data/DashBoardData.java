@@ -68,8 +68,9 @@ public class DashBoardData {
 	public final String filePath_Tickets = ticketData.getProperty("FilePath");
 	public final String updatedTicketAssignee = ticketData.getProperty("TicketAssignee_Updated");
 	public final String[] updatedTicketParticipantsList = ticketData.getProperty("TicketParticipantsList_Updated").split(",");
-
-
+	private ConfigManager HardwareData = new ConfigManager("Hardware");
+	public  final String[] Notify =HardwareData.getProperty("SUCESSMSGS").split(";");
+	public  final String[] Bpsever =HardwareData.getProperty("BPSERVER").split(";");
 
 
 }

@@ -61,6 +61,7 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.addingLocalMonitoringAgentsUsingNodeJSInEditConfiguration();
         hardwarePage.addingLocalMonitoringAgentsUsingWebUXAgentInEditConfiguration();
 
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -71,6 +72,7 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.configuringEnginesInAPMModule();
         hardwarePage.clickingOnHardware();
         hardwarePage.validatingEngineMonitoringProfiles();
+        hardwarePage.validatingBIPApServer();
     }
 
 }

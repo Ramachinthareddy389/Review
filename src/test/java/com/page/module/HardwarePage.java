@@ -455,13 +455,51 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(15);
         safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
         safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
         safeClick(DROPDOWN1,"Apache HTTP Server",MEDIUMWAIT);
         safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
+        waitForSecs(4);
+        safeClick(LOG_DIRCT_LABEL,"Log Direct Label",MEDIUMWAIT);
+        safeType(TXTBOX_LOG_DIRCT,"Log Directory","Access log directory",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        waitForSecs(5);
+        List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
+        for (int i =0; i <=3; i++) {
+                String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.Notify[i]));
+            System.out.println(DbTitle+" - "+dashBoardData.Notify[i]);
+            System.out.println(wizardName);
+            wizards.get(i).click();
+            String color =wizards.get(i).getCssValue("color");
+            System.out.println(color);
+        }
 
+      safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+    }
 
+    public void validatingBIPApServer(){
+        waitForSecs(10);
+        safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
+        safeClick(DROPDOWN2,"BIP App Server",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
+        safeClick(LOG_DIRCT_LABEL,"Log Direct Label",MEDIUMWAIT);
+        safeType(TXTBOX_LOG_DIRCT,"Log Directory","Access log directory",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        waitForSecs(5);
+
+        List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
+        for (int i = 4; i <=8; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.Bpsever[i-4]));
+            System.out.println(DbTitle+" - "+dashBoardData.Bpsever[i-4]);
+            System.out.println(wizardName);
+            wizards.get(i).click();
+            String color =wizards.get(i).getCssValue("color");
+            System.out.println(color);
+        }
     }
 }
 

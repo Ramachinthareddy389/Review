@@ -65,5 +65,17 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
 
+    @Test(alwaysRun = true)
+    public void TC_163_AddBPStepMetricinEditBPStepwindow() throws InterruptedException {
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.addingBPStepInEditConfigWindow();
+        businessProcessPage.validatingBPStepMetrics();
+
+
+
+    }
+
+
 }
 
