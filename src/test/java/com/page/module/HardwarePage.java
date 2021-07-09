@@ -449,7 +449,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
 
 
-    public void validatingEngineMonitoringProfiles() {
+    public void validatingHttpProfiles() {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -466,17 +466,19 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
         waitForSecs(5);
         List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
-        for (int i =0; i <=3; i++) {
+        for (int i =0; i <=2; i++) {
                 String wizardName = wizards.get(i).getText();
-            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.Notify[i]));
-            System.out.println(DbTitle+" - "+dashBoardData.Notify[i]);
+            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.HttpServer[i]));
+            System.out.println(DbTitle+" - "+dashBoardData.HttpServer[i]);
             System.out.println(wizardName);
             wizards.get(i).click();
             String color =wizards.get(i).getCssValue("color");
             System.out.println(color);
         }
 
-      safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
+        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
     }
 
     public void validatingBIPApServer(){
@@ -491,15 +493,45 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(5);
 
         List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
-        for (int i = 4; i <=8; i++) {
+        for (int i = 0; i <=4; i++) {
             String wizardName = wizards.get(i).getText();
-            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.Bpsever[i-4]));
-            System.out.println(DbTitle+" - "+dashBoardData.Bpsever[i-4]);
+            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.Bpsever[i]));
+            System.out.println(DbTitle+" - "+dashBoardData.Bpsever[i]);
             System.out.println(wizardName);
             wizards.get(i).click();
             String color =wizards.get(i).getCssValue("color");
             System.out.println(color);
         }
+        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
+        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+    }
+
+
+    public void validatingApacheTomcatServer(){
+        waitForSecs(10);
+        safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
+        safeClick(DROPDOWN3,"BIP App Server",MEDIUMWAIT);
+        safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
+        safeClick(LOG_DIRCT_LABEL,"Log Direct Label",MEDIUMWAIT);
+        safeType(TXTBOX_LOG_DIRCT,"Log Directory","Access log directory",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        waitForSecs(5);
+
+        List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
+        for (int i = 0; i <=3; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.TomcatServer[i]));
+            System.out.println(DbTitle+" - "+dashBoardData.TomcatServer[i]);
+            System.out.println(wizardName);
+            wizards.get(i).click();
+            String color =wizards.get(i).getCssValue("color");
+            System.out.println(color);
+        }
+        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
+        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
     }
 }
 

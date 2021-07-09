@@ -12,3 +12,4 @@ pushd %~dp0%
 timeout 1
 mvn clean test -Dsurefire.suiteXmlFiles=TestNGSuites\Smoke_Desktop.xml
 pause
+pause

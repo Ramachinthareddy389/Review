@@ -71,8 +71,9 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.configuringNodeInAPMModule();
         hardwarePage.configuringEnginesInAPMModule();
         hardwarePage.clickingOnHardware();
-        hardwarePage.validatingEngineMonitoringProfiles();
+        hardwarePage.validatingHttpProfiles();
         hardwarePage.validatingBIPApServer();
+        hardwarePage.validatingApacheTomcatServer();
     }
 
 }

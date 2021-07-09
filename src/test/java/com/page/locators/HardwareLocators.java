@@ -57,12 +57,14 @@ public interface HardwareLocators {
     By ENGINE_MONITORIN_GPROFILES = By.xpath("//h4[text()='Engine Monitoring Profiles:']//../following-sibling::button/span/i");
     By APPLYPROFILEDROPDOWN     = By.xpath("//span[text()='Apply']/../../div/div");
     By BTN_APPLY = By.xpath("//span[text()='Apply']");
-    By DROPDOWN1  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Apache Tomcat Server']");
+    By BTN_REMOVE_PROFILE = By.xpath("//div[@aria-label='Remove Profile']");
+    By BTN_CONFIRM = By.xpath("//span[text()='Confirm']");
     By LOG_DIRCT_LABEL = By.xpath("//label[@id='logDirectory-label']");
     By TXTBOX_LOG_DIRCT = By.xpath("//input[@id='logDirectory']");
     By SUCESS_MSGS = By.xpath("//div[contains(@class,'WizardSummary')]/div/span/ul/li");
+    By DROPDOWN1  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Apache HTTP Server']");
     By DROPDOWN2  = By.xpath("//div[@id='menu-']/div/ul/li[text()='BIP App Server']");
-    By DROPDOWN3  = By.xpath("//div[@id='menu-']/div/ul/li[text()='DB2 Database Server']");
+    By DROPDOWN3  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Apache Tomcat Server']");
     By DROPDOWN4  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Microsoft IIS Server']");
     By DROPDOWN5  = By.xpath("//div[@id='menu-']/div/ul/li[text()='MySQL Database Server]");
     By DROPDOWN6  = By.xpath("//div[@id='menu-']/div/ul/li[text()='OBIEE Server']");
@@ -72,5 +74,6 @@ public interface HardwareLocators {
     By DROPDOWN10 = By.xpath("//div[@id='menu-']/div/ul/li[text()='SQL Server Database Server']");
     By DROPDOWN11  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Salesforce Application']");
     By DROPDOWN12  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Siebel App Server']");
+    By DROPDOWN13  = By.xpath("//div[@id='menu-']/div/ul/li[text()='DB2 Database Server']");
 
 }
