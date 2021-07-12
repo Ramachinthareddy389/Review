@@ -55,4 +55,29 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.editCorrelationConfig();
         correlationPage.verifyingEditedCorrelationDetails();
     }
+
+    @Test(alwaysRun = true)
+    public void TC_175_AddTypesinEditCorrelationScenariowindow()
+    {
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.verifyingTypesInCorrelationScenarioWindow();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_176_AddFactTypeinEditCorrelationScenariowindow()
+    {
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.validatingEditTypeinEditCorrelationScenariowindow();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_177_AddStreamCorrelationScenarioconfig(){
+        correlationPage.clickingOnCorrelation();
+        correlationPage.AddingCorrrlationStreamPage();
+        correlationPage.AddingLeftStreamPage();
+        correlationPage.AddingRightStreamPage();
+        correlationPage.AddingStreamFunction();
+    }
 }

@@ -6,8 +6,8 @@ public interface CorrelationLocators {
     By BTN_ANALYTICS = By.xpath("//span[text()='Analytics']");
     By BTN_CORRELATION = By.xpath("//span[text()='Correlation']");
     By BTN_ADDICON_CORRELATION = By.xpath("//h5[text()='Correlation Scenarios']/../div/div/button/span/i[@aria-label='Add New Configuration']");
-    By LABEL_NAME = By.xpath("//label[@id='name-label']");
-    By TXTBOX_NAME = By.xpath(" //div[contains(@class,'WizardStep')]/div/div[2]/div/div/div/input[@id='name']");
+    By LABEL_NAME = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/label[@id='name-label']");
+    By TXTBOX_NAME = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/div/input[@id='name']");
     By TXTBOX_NAME_GENERATOR = By.cssSelector("textarea.inputarea");
     By LABEL_RETENSION = By.xpath("//label[@id='retention-label']");
     By TXTBOX_RETENSION = By.xpath("//div[contains(@class,'WizardStep')]/div/div[5]/div/div/div/input[@id='retention']");
@@ -40,9 +40,33 @@ public interface CorrelationLocators {
     By BTN_CLOSE = By.xpath("//span[text()='Close']");
     By ADDED_NAME_GENERATOR = By.xpath("//div[@class='view-lines']/div/span/span");
     By TXTBOX_EDITED_KPIS = By.xpath("//input[@id='kpis']/../../../div/span");
+    By LABEL_EDITED_FACTTYPE = By.xpath("//span[text()='Fact Type']");
     By TXTBOX_EDITED_FACTTYPE = By.xpath("//input[@id='factClass']/../../../div[1]");
     By HYPERLINK_TYPES = By.xpath("//span[text()='Types']/../../../div/div/div/button");
     By TXTBOX_EDITED_RETENTION = By.xpath("//input[@id='retention']");
     By TXTBOX_EDITED_NAME = By.xpath("//input[@id='name']");
+    By BTN_REMOVETYPES= By.xpath("//span[text()='Types']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By TYPES_ADDICON = By.xpath("//span[text()='Types']/../../following-sibling::div/button/span/i");
+    By FILTERS_GHOSTTEXT_IN_TYPES = By.xpath("//span[text()='Filters']/../../../../../div[4]/div/div/div/div/div/div/div/div/div/div[text()='Select or Create...']");
+    //Stream correlation locators
+    By BTN_ADDICON_STREAM_CORRELATION = By.xpath("//h5[text()='Stream Correlation Scenarios']/../div/div/button/span/i[@aria-label='Add New Configuration']");
+    By LABEL_TIME_TO_LIVE = By.xpath("//span[text()='Time To Live']");
+    By TXT_BOX_TIME_TO_LIVE = By.xpath("//input[@id='timeToLive']");
+    By LABEL_STREAM_KPIS = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
+    By GHOSTTEXT_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
+    By DROPDOWN_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
+    By LABEL_PARTITION_KEY = By.xpath("//span[text()='Partition Key']");
+    By GHOSTTEXT_PARTITION_KEY = By.xpath("//input[@id='partitionKey']/../../../div[1]");
+    By DROPDOWN_PARTITION_KEY = By.xpath("//input[@id='partitionKey']/../../../div[1]");
+    By GHOSTTEXT_ORDER_BY = By.xpath("//input[@id='orderBy']/../../../div[1]");
+    By LABEL_ORDER_BY = By.xpath("//span[text()='Order By']");
+    By DROPDOWN_ORDER_BY = By.xpath("//input[@id='orderBy']");
+    By LABEL_TIME_TO_LIVE_IN_SECONDS = By.xpath("//span[text()='Time To Live (in seconds)']");
+    By TEXT_AREA_COST_FUNCTION = By.xpath("//span[text()='Cost Function']/../../../div/section/div/div/div/textarea");
+    By TEXT_AREA_PAIR_FUNCTION = By.xpath("//span[text()='Pair Function']/../../../div/section/div/div/div/textarea");
+    By LABEL_RSTREAM_KPIS = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
+    By GHOSTTEXT_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
+    By DROPDOWN_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
+    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/span");
 
 }

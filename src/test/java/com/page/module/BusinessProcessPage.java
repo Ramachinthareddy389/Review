@@ -288,4 +288,6 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         expectedText = "BP Metric";
         Assert.assertEquals(actualText1, expectedText);
     }
+
+
 }

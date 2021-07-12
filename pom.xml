@@ -488,12 +488,12 @@
 			<version>3.0.0</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
+      <!--  <dependency>
             <groupId>germain-test-automation</groupId>
             <artifactId>germain-test-automation</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 	<build>
 		<plugins>
