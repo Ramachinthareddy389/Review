@@ -30,4 +30,5 @@ public interface WizardsLocators
     By BUTTON_ANALYTICS = By.xpath("//button[@type='button']/span[text()='Analytics']");
     By BUTTON_AUTOMATION = By.xpath("//button[@type='button']/span[text()='Automation']");
     By LISTOFWIZARDS  = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 MuiTypography-noWrap']/span");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 }

@@ -44,7 +44,7 @@ public class InsightsTest extends BaseSetup {
     @Test(groups = "Smoke Test")
     public void TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
-        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         insightsPage.navigationUsingTooltipOptions();
     }
 

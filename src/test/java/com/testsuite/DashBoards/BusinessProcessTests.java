@@ -28,6 +28,7 @@ public class BusinessProcessTests extends BaseSetup {
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
         businessProcessPage = new BusinessProcessPage(getDriver());
+        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -64,15 +65,13 @@ public class BusinessProcessTests extends BaseSetup {
 
     }
 
-
     @Test(alwaysRun = true)
-    public void TC_163_AddBPStepMetricinEditBPStepwindow() throws InterruptedException {
+    public void TC_163_AddBPStepMetricinEditBPStepwindow() throws InterruptedException
+    {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.addingBPStepInEditConfigWindow();
         businessProcessPage.validatingBPStepMetrics();
-
-
 
     }
 

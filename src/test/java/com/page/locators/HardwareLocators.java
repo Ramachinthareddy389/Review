@@ -62,6 +62,7 @@ public interface HardwareLocators {
     By LOG_DIRCT_LABEL = By.xpath("//label[@id='logDirectory-label']");
     By TXTBOX_LOG_DIRCT = By.xpath("//input[@id='logDirectory']");
     By SUCESS_MSGS = By.xpath("//div[contains(@class,'WizardSummary')]/div/span/ul/li");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By DROPDOWN1  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Apache HTTP Server']");
     By DROPDOWN2  = By.xpath("//div[@id='menu-']/div/ul/li[text()='BIP App Server']");
     By DROPDOWN3  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Apache Tomcat Server']");

@@ -24,9 +24,7 @@ public class HardwareTests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
-        dashboardPage = new DashboardPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);

@@ -185,10 +185,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     @Step("Adding Portlet from search bar in Dashboard page")
     public void addingPortletFromSearchBar() throws InterruptedException {
-        Thread.sleep(15000);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        waitForPageToLoad();
         waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(SEARCH_BAR_ADD_METRIC, "Search bar in Add Metric Window", MEDIUMWAIT);

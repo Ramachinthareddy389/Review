@@ -16,4 +16,5 @@ public interface OperationalLocators
     By APPNAME_IN_DRILLTHROUGH = By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text']/following-sibling::span/span");
     By KPI_TOOLTIP = By.xpath("//div[@class='MuiTooltip-tooltip MuiTooltip-tooltipPlacementTop']/div/div[2]/div");
     By COUNT_IN_PIVOT_DRILLTHRHPAGE = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[3]/span/span");
+
 }

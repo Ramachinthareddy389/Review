@@ -95,6 +95,7 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(2);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     @Step("Verify Manage button in Wizards")

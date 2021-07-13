@@ -79,5 +79,17 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.AddingLeftStreamPage();
         correlationPage.AddingRightStreamPage();
         correlationPage.AddingStreamFunction();
+        correlationPage.verifyingAddedStreamCorrelationScenarios();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_178_EditStreamCorrelationScenarioconfig(){
+        correlationPage.clickingOnCorrelation();
+        correlationPage.AddingCorrrlationStreamPage();
+        correlationPage.AddingLeftStreamPage();
+        correlationPage.AddingRightStreamPage();
+        correlationPage.AddingStreamFunction();
+        correlationPage.EditStreamCorrelationScenarios();
+        correlationPage.EditLeftStreamFeildsWithNewValues();
     }
 }

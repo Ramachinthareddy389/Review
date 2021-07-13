@@ -18,13 +18,14 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
     String Name_Add, KPIS_add, KeyExp_add, StepName_Add, FeildExclusion_add, Name_Add1, Type_add, Genarator_add, Retention_add, Type_add1, Retension_Name_Add, Edited_Name_Add, Edited_Type_add, Edited_KPIS_add, After_Edit_Type;
     String Correlation_Name_Add, Correlation_LStream_Add, TimeToLive_LStream_add, Lstream_KPIS_add,Lstream_PartitionKey_add,Lstream_OrderKey_add;
     String Correlation_RStream_Add, TimeToLive_RStream_add, Rstream_KPIS_add, Rstream_PartitionKey_add, Rstream_OrderKey_add,CostFun_add,PairFun_add;
-
+    String Edited_Correlation_Name_Add;
     Random random = new Random();
     String dname = "BP";
     String dname1 = dname + random.nextInt(1500);
     String editBP = "BPEDIT";
     String editBP1 = editBP + random.nextInt(1500);
     String Bpstep = "Bp" + random.nextInt(1500);
+    String Stream_Correlation ="Correaltion"+random.nextInt(1500);
 
     //Constructor to define/call methods
     public CorrelationPage(WebDriver driver) {
@@ -362,7 +363,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(BTN_ADDICON_STREAM_CORRELATION, "Add button", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_NAME, "Correlation", "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Stream_Correlation, "Name into textbox", MEDIUMWAIT);
         Correlation_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Correlation_Name_Add);
         safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
@@ -396,7 +397,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Lstream_KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Lstream_KPIS_add);
-
+waitForSecs(5);
         safeClick(LABEL_PARTITION_KEY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_PARTITION_KEY, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(DROPDOWN_PARTITION_KEY, "application.name", "Server name into textbox", MEDIUMWAIT);
@@ -412,7 +413,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Lstream_PartitionKey_add = safeGetText(GHOSTTEXT_PARTITION_KEY, "Server textbox value", MEDIUMWAIT);
         System.out.println(Lstream_PartitionKey_add);
-
+waitForSecs(5);
         safeClick(LABEL_ORDER_BY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_ORDER_BY, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(DROPDOWN_ORDER_BY, "application.name", "Server name into textbox", MEDIUMWAIT);
@@ -500,13 +501,13 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(TEXT_AREA_COST_FUNCTION, "Metric Exp", MEDIUMWAIT);
         WebElement metric = driver.findElement(TEXT_AREA_COST_FUNCTION);
         metric.sendKeys("test");
-        CostFun_add = safeGetText(ADDED_NAME_GENERATOR, "Server textbox value", MEDIUMWAIT);
+        CostFun_add = safeGetText(EDITED_COST_FUNCTION, "Server textbox value", MEDIUMWAIT);
         System.out.println(CostFun_add);
 
         safeClick(TEXT_AREA_PAIR_FUNCTION, "Metric Exp", MEDIUMWAIT);
         WebElement pair = driver.findElement(TEXT_AREA_PAIR_FUNCTION);
         pair.sendKeys("pair1");
-         PairFun_add = safeGetText(ADDED_NAME_GENERATOR, "Server textbox value", MEDIUMWAIT);
+         PairFun_add = safeGetText(EDITED_PAIR_FUNCTION, "Server textbox value", MEDIUMWAIT);
         System.out.println(PairFun_add);
         safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
@@ -514,7 +515,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
 
     public void  verifyingAddedStreamCorrelationScenarios()
     {
-        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, Stream_Correlation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -522,23 +523,95 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        String expectedText = dname1;
+        String expectedText = Stream_Correlation;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
-        System.out.println(Name_Add + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + KPIS_add + driver.findElement(TXTBOX_EDITED_KPIS).getText() +
-                Retention_add + driver.findElement(TXTBOX_EDITED_RETENTION).getAttribute("value") + Type_add1 + driver.findElement(TXTBOX_EDITED_FACTTYPE).getText() + Name_Add1 + driver.findElement(HYPERLINK_TYPES).getText());
-        /*if (Name_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && KPIS_add.equals(driver.findElement(TXTBOX_EDITED_KPIS).getText()) &&
-                Retention_add.equals(driver.findElement(TXTBOX_EDITED_RETENTION).getAttribute("value")) && Type_add1.equals(driver.findElement(TXTBOX_EDITED_FACTTYPE).getText()) && Name_Add1.equals(driver.findElement(HYPERLINK_TYPES).getText())) {
-            System.out.println("Business process details are valid");
-            String text = driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value");
-            System.out.println(text);
-            waitForSecs(7);
-            System.out.println("Name: " + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + " Database Name: " + driver.findElement(TXTBOX_EDITED_KPIS).getText() +
-                    " Instance Name: " + driver.findElement(TXTBOX_EDITED_RETENTION).getAttribute("value") + driver.findElement(TXTBOX_EDITED_FACTTYPE).getText() + driver.findElement(HYPERLINK_TYPES).getText());
+        System.out.println(Correlation_Name_Add +":" + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + Correlation_LStream_Add+":" + driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value") +
+                TimeToLive_LStream_add + driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Lstream_KPIS_add + driver.findElement(EDITED_LSTREAM_KPIS).getText() + Lstream_PartitionKey_add + driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText()+Lstream_OrderKey_add+driver.findElement(EDITED_LSTREAM_ORDER_BY).getText()+Correlation_RStream_Add+":"+driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")+TimeToLive_RStream_add+":"+driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")+Rstream_KPIS_add+":"+driver.findElement(EDITED_RSTREAM_KPIS).getText()+Rstream_PartitionKey_add+":"+driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText()+Rstream_OrderKey_add+":"+driver.findElement(EDITED_RSTREAM_ORDER_BY).getText()+CostFun_add+":"+driver.findElement(EDITED_COST_FUNCTION).getText()+PairFun_add+":"+driver.findElement(EDITED_PAIR_FUNCTION).getText());
 
-        } else {
-            Assert.fail("Business process details are invalid");
+
+      if(Correlation_Name_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value"))&& Correlation_LStream_Add.equals(driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value"))&&
+                TimeToLive_LStream_add.equals(driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Lstream_KPIS_add.equals(driver.findElement(EDITED_LSTREAM_KPIS).getText()) && Lstream_PartitionKey_add.equals(driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText()) && Lstream_OrderKey_add.equals(driver.findElement(EDITED_LSTREAM_ORDER_BY).getText()) && Correlation_RStream_Add.equals(driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")) &&TimeToLive_RStream_add.equals(driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Rstream_KPIS_add.equals(driver.findElement(EDITED_RSTREAM_KPIS).getText())&&Rstream_PartitionKey_add.equals(driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText()) && Rstream_OrderKey_add.equals(driver.findElement(EDITED_RSTREAM_ORDER_BY).getText()) && CostFun_add.equals(driver.findElement(EDITED_COST_FUNCTION).getText()) && PairFun_add.equals(driver.findElement(EDITED_PAIR_FUNCTION).getText())) {
+          System.out.println("Valid Details");
+      }
+
+    else  {
+        Assert.fail("Stream Correlation process details are invalid");
+       }
+        safeClick(CLOSE_EDITWINDOW,"Edit Window",MEDIUMWAIT);
+    }
+
+    public void EditStreamCorrelationScenarios()
+    {
+        safeType(TEXTBOX_TYPESEARCH, Stream_Correlation + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = Stream_Correlation;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+      /*  safeJavaScriptClearAndType(TXTBOX_EDITED_NAME, Stream_Correlation+"edited", "Name into textbox", MEDIUMWAIT);
+        Edited_Correlation_Name_Add = safeGetAttribute(TXTBOX_EDITED_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Edited_Correlation_Name_Add);
+*/
+    }
+
+    public void EditLeftStreamFeildsWithNewValues() {
+        safeClick(EDITED_NAME_LABEl, "Name Feild", MEDIUMWAIT);
+        String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_EDITED_NAME);
+        searchField.sendKeys(del5 + editBP1);
+        Edited_Name_Add = safeGetAttribute(TXTBOX_EDITED_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(EDITED_LSTREAM_LABEL, "Name Feild", MEDIUMWAIT);
+        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField1 = driver.findElement(EDITED_LSTREAM_NAME_TXTBOX);
+        searchField1.sendKeys(del1 + "EditLSTREAm");
+        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField2 = driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX);
+        searchField2.sendKeys(del2 + "7000");
+        safeClick(EDITED_LSTREAM_KPIS_LABEL, "Server Feild", MEDIUMWAIT);
+        safeClick(CLOSINGADDED_KPIS, "ClosingKpis's", MEDIUMWAIT);
+        safeClick(EDITED_KPIS_GHSOTTXET, "Server textbox", MEDIUMWAIT);
+        safeJavaScriptClearAndType(EDITED_LSTREAM_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Alert")) {
+
+                dbs1.get(i).click();
+                break;
+            }
         }
-    }*/
+        safeClick(EDITED_LSTREAM_PARTITION_LABEL, "Server Feild", MEDIUMWAIT);
+        safeJavaScriptClearAndType(EDITED_LSTREAM_PARTITION_KEY, "bucket", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("bucket")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+
+        safeClick(EDITED_LSTREAM_ORDER_LABEL, "Server Feild", MEDIUMWAIT);
+        safeJavaScriptType(EDITED_LSTREAM_ORDER_BY, "bucket", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs3.size(); i++) {
+
+            if (dbs3.get(i).getText().equals("bucket")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
     }
 }

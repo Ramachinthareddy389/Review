@@ -16,4 +16,5 @@ public interface InsightsLocators {
     By SECOND_BREADCRUMB_FLOW = By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::span[2]");
     By GROUP_BY_LABEL = By.xpath("//div[contains(text(),'Group By')]");
     By FIRST_COLUMN_GROUPBY = By.xpath("//div[contains(text(),'Group By')]/../following-sibling::div/div/div[1]/div[1]/div/div");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 }

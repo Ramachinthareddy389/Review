@@ -47,7 +47,6 @@ public class InsightsPage extends SafeActions implements InsightsLocators {
 
     @Step("Navigate to RCA/Pivot/Drillthrough page using '3 option' tooltip")
     public void navigationUsingTooltipOptions() {
-        waitForPageToLoad();
         mouseHoverJScript(SUMMARY_TREND_PORTLET, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(RCA_TOOLTIP, "RCA", MEDIUMWAIT);
         waitForPageToLoad();

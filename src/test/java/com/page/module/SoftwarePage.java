@@ -103,6 +103,7 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(5);
     }
 
     public void editConfiugurationSoftwareDetails() {

@@ -3,10 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.LoginPage;
-import com.page.module.PivotPage;
-import com.page.module.PortletsFeature;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
@@ -20,6 +17,7 @@ public class PivotTests extends BaseSetup {
     private PivotPage pivotPage;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
+    private DashboardPage dashboardPage;
 
     private String sModeOfExecution;
     Random random = new Random();
@@ -31,9 +29,10 @@ public class PivotTests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        portletsFeature = new PortletsFeature(getDriver());
-        pivotPage = new PivotPage(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
+        pivotPage = new PivotPage(getDriver());
+        dashboardPage = new DashboardPage(getDriver());
+        portletsFeature =new PortletsFeature(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);

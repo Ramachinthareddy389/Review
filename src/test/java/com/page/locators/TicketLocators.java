@@ -33,7 +33,7 @@ public interface TicketLocators {
     By STATUS_OPEN = By.xpath("//button[@value='OPEN']");
     By STATUS_CLOSED = By.xpath("//button[@value='CLOSED']");
     By STATUS_LIST = By.xpath("//div[@role='rowgroup']/a/div/div/div[8]/span/span");
-
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     //Verify Status and Assigned To Filters
     By CLEAR_FILTER = By.xpath("//button/span[contains(text(),'Clear')]");
 

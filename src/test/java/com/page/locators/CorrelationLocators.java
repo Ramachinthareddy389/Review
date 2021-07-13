@@ -44,7 +44,7 @@ public interface CorrelationLocators {
     By TXTBOX_EDITED_FACTTYPE = By.xpath("//input[@id='factClass']/../../../div[1]");
     By HYPERLINK_TYPES = By.xpath("//span[text()='Types']/../../../div/div/div/button");
     By TXTBOX_EDITED_RETENTION = By.xpath("//input[@id='retention']");
-    By TXTBOX_EDITED_NAME = By.xpath("//input[@id='name']");
+    By TXTBOX_EDITED_NAME = By.xpath("//input[@id='name']");//Edited
     By BTN_REMOVETYPES= By.xpath("//span[text()='Types']/../../../div/div/div/div[@aria-label='Remove Configuration']");
     By TYPES_ADDICON = By.xpath("//span[text()='Types']/../../following-sibling::div/button/span/i");
     By FILTERS_GHOSTTEXT_IN_TYPES = By.xpath("//span[text()='Filters']/../../../../../div[4]/div/div/div/div/div/div/div/div/div/div[text()='Select or Create...']");
@@ -52,6 +52,7 @@ public interface CorrelationLocators {
     By BTN_ADDICON_STREAM_CORRELATION = By.xpath("//h5[text()='Stream Correlation Scenarios']/../div/div/button/span/i[@aria-label='Add New Configuration']");
     By LABEL_TIME_TO_LIVE = By.xpath("//span[text()='Time To Live']");
     By TXT_BOX_TIME_TO_LIVE = By.xpath("//input[@id='timeToLive']");
+    By EDITED_KPIS_GHSOTTXET = By.xpath("//input[@id='leftStream.kpis']/../../../div[1]");
     By LABEL_STREAM_KPIS = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
     By GHOSTTEXT_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
     By DROPDOWN_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
@@ -68,5 +69,28 @@ public interface CorrelationLocators {
     By GHOSTTEXT_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
     By DROPDOWN_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
     By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/span");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+
+    By EDITED_LSTREAM_NAME_TXTBOX = By.xpath("//input[@id='leftStream.name']");
+    By EDITED_LSTREAM_TIMETOLIVE_TXTBOX = By.xpath("//input[@id='leftStream.timeToLive']");
+    By EDITED_LSTREAM_PARTITION_KEY = By.xpath("//input[@id='leftStream.partitionKey']");
+    By EDITED_LSTREAM_ORDER_BY = By.xpath("//input[@id='leftStream.orderBy']");
+    By EDITED_LSTREAM_KPIS = By.xpath("//input[@id='leftStream.kpis']");
+    By CLOSINGADDED_KPIS = By.xpath("//span[text()='0 KPI Threshold']/following-sibling::i");
+    By EDITED_RSTREAM_NAME_TXTBOX = By.xpath("//input[@id='rightStream.name']");
+    By EDITED_RSTREAM_TIMETOLIVE_TXTBOX = By.xpath("//input[@id='rightStream.timeToLive']");
+    By EDITED_RSTREAM_PARTITION_KEY = By.xpath("//label[@for='rightStream.partitionKey']/following-sibling::div/div/div[1]/div[1]");
+    By EDITED_RSTREAM_ORDER_BY = By.xpath("//label[@for='rightStream.orderBy']/following-sibling::div/div/div[1]/div[1]");
+    By EDITED_RSTREAM_KPIS = By.xpath("//input[@id='rightStream.kpis']");
+    By EDITED_COST_FUNCTION = By.xpath("//span[text()='Cost Function']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
+    By EDITED_PAIR_FUNCTION = By.xpath("//span[text()='Pair Function']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
+    By EDITED_NAME_LABEl = By.xpath("//span[text()='Name']");
+    By EDITED_LSTREAM_LABEL =By.xpath("//span[text()='Left Stream Name']");
+    By EDITED_LSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Left Stream Partition Key']");
+    By EDITED_LSTREAM_ORDER_LABEL = By.xpath("//span[text()='Left Stream OrderBy']");
+    By EDITED_LSTREAM_KPIS_LABEL = By.xpath("//span[text()='Left Stream KPIs']");
+
+
+
 
 }

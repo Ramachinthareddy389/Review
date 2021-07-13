@@ -32,6 +32,7 @@ public interface SoftwareLocators {
         By BTN_CLEAR = By.xpath("//span[text()='Clear']");
         By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
         By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+        By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 
     }
 

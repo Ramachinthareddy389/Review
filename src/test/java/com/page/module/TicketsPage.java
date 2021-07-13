@@ -128,10 +128,11 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         safeType(TEXTBOX_TYPESEARCH, ticketTitle + "\n", "Searching Ticket Title", MEDIUMWAIT);
         waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
         By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])[2]");
-        waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
+        waitForSecs(15);
+        //waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
         if (driver.findElement(TitleCheck).isDisplayed()) {
             safeClick(TitleCheck, "Ticket Title in Tickets page", MEDIUMWAIT);
-            waitForSecs(15);
+            waitForSecs(10);
             if (Assignee_Add.equals(driver.findElement(TICKET_ASSIGNEE).getText()) || Severity_Add.equals(driver.findElement(TICKET_SEVERITY).getText()) ||
                     Priority_Add.equals(driver.findElement(TICKET_PRIORITY).getText()) || Status_Add.equals(driver.findElement(TICKET_STATUS).getText())) {
                 System.out.println("Ticket details are valid");
@@ -215,7 +216,6 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         waitForPageToLoad();
         int rowCount = 0;
         int count_Pagination = getPageCountFromPagination();
-        waitUntilClickable(LIST, "List", LONGWAIT);
         while (true) {
             List<WebElement> statusList = driver.findElements(LIST);
             System.out.println("List size is " + statusList.size());
@@ -353,14 +353,14 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Changing Ticket Settings in Ticket page")
     public void verifyChangedTicketSettingsInTicketsPage() {
-        waitForPageToLoad();
-        waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
-        waitUntilClickable(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
+
+        //waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
+       // waitUntilClickable(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
         safeClick(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
-        waitUntilClickable(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
+       // waitUntilClickable(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
         safeClick(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, ticketTitle + " - Updated" + "\n", "Searching Ticket Title", MEDIUMWAIT);
-        waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
+       // waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
         By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + " - Updated" + "')])[2]");
         waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
         if (driver.findElement(TitleCheck).isDisplayed()) {

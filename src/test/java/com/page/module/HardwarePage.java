@@ -133,6 +133,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         } else {
             Assert.fail("Ticket details are invalid");
         }
+        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 
     public void ediingConfiguration() {
@@ -253,6 +254,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         } else {
             Assert.fail("Ticket details are invalid");
         }
+        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 
     public void addingLocalMonitoringAgentsUsingJVMAgentInEditConfiguration() {
@@ -393,6 +395,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         boolean Monitoring_Agents_Ref = driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
+        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 
     public void configuringNodeInAPMModule() {
@@ -532,6 +535,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
         safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
         safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 }
 

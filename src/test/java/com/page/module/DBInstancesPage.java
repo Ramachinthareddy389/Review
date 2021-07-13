@@ -110,6 +110,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         } else {
             Assert.fail("Ticket details are invalid");
         }
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
     public void ediingConfiguration() {
