@@ -1154,6 +1154,16 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             Assert.fail("Portlet is not restored properly in RCA page");
         }
     }
+
+    @Step("Navigate to RCA Drill through page")
+    public  void navigateToRCADrillThroughPage(){
+        waitForPageToLoad();
+        mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_1, "RCA", MEDIUMWAIT);
+        waitForPageToLoad();
+        String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for RCA", MEDIUMWAIT);
+        System.out.println(Tooltip1);
+    }
 }
 
 

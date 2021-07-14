@@ -91,5 +91,8 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.AddingStreamFunction();
         correlationPage.EditStreamCorrelationScenarios();
         correlationPage.EditLeftStreamFeildsWithNewValues();
+        correlationPage.EditRightStreamFeildsWithNewValues();
+        correlationPage.verifyingEditedStreamCorrelationValues();
+
     }
 }

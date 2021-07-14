@@ -52,7 +52,8 @@ public interface CorrelationLocators {
     By BTN_ADDICON_STREAM_CORRELATION = By.xpath("//h5[text()='Stream Correlation Scenarios']/../div/div/button/span/i[@aria-label='Add New Configuration']");
     By LABEL_TIME_TO_LIVE = By.xpath("//span[text()='Time To Live']");
     By TXT_BOX_TIME_TO_LIVE = By.xpath("//input[@id='timeToLive']");
-    By EDITED_KPIS_GHSOTTXET = By.xpath("//input[@id='leftStream.kpis']/../../../div[1]");
+    By EDITED_LEFT_KPIS_GHSOTTXET = By.xpath("//input[@id='leftStream.kpis']/../../../div[1]");
+    By EDITED_RIGHT_KPIS_GHSOTTXET = By.xpath("//input[@id='rightStream.kpis']/../../../div[1]");
     By LABEL_STREAM_KPIS = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
     By GHOSTTEXT_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
     By DROPDOWN_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
@@ -79,8 +80,8 @@ public interface CorrelationLocators {
     By CLOSINGADDED_KPIS = By.xpath("//span[text()='0 KPI Threshold']/following-sibling::i");
     By EDITED_RSTREAM_NAME_TXTBOX = By.xpath("//input[@id='rightStream.name']");
     By EDITED_RSTREAM_TIMETOLIVE_TXTBOX = By.xpath("//input[@id='rightStream.timeToLive']");
-    By EDITED_RSTREAM_PARTITION_KEY = By.xpath("//label[@for='rightStream.partitionKey']/following-sibling::div/div/div[1]/div[1]");
-    By EDITED_RSTREAM_ORDER_BY = By.xpath("//label[@for='rightStream.orderBy']/following-sibling::div/div/div[1]/div[1]");
+    By EDITED_RSTREAM_PARTITION_KEY = By.xpath("//input[@id='rightStream.partitionKey']");
+    By EDITED_RSTREAM_ORDER_BY = By.xpath("//input[@id='rightStream.orderBy']");
     By EDITED_RSTREAM_KPIS = By.xpath("//input[@id='rightStream.kpis']");
     By EDITED_COST_FUNCTION = By.xpath("//span[text()='Cost Function']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
     By EDITED_PAIR_FUNCTION = By.xpath("//span[text()='Pair Function']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
@@ -91,6 +92,9 @@ public interface CorrelationLocators {
     By EDITED_LSTREAM_KPIS_LABEL = By.xpath("//span[text()='Left Stream KPIs']");
 
 
-
+    By EDITED_RSTREAM_LABEL =By.xpath("//span[text()='Right Stream Name']");
+    By EDITED_RSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Right Stream Partition Key']");
+    By EDITED_RSTREAM_ORDER_LABEL = By.xpath("//span[text()='Right Stream OrderBy']");
+    By EDITED_RSTREAM_KPIS_LABEL = By.xpath("//span[text()='Right Stream KPIs']");
 
 }
