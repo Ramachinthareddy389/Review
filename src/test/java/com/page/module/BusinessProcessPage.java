@@ -221,7 +221,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         } else {
             Assert.fail("Business process details are invalid");
         }
-
+       waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
@@ -269,7 +269,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         Assert.assertEquals(actualText, expectedText);
         safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
     }
 
@@ -292,9 +292,11 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         metric.sendKeys("test");
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        waitForSecs(5);
         String actualText1 = safeGetText(ADDED_BPMETRIC, "Added BP Steps", MEDIUMWAIT);
         expectedText = "BP Metric";
         Assert.assertEquals(actualText1, expectedText);
+        waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 

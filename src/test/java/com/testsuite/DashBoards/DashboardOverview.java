@@ -64,7 +64,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.renamingDashboard();
-        dashboardOverviewPage.deletingDashboard();
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")

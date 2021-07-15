@@ -100,7 +100,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         if (flag)
             Assert.fail("Pinned Dashboard is still displayed");
         System.out.println("Unpinned Dashboard Verification is completed in Dashboard page");
+        waitForSecs(7);
         safeClick(PIN_DASHBOARDPAGE, "Pin Dashboard from Dashboard page", MEDIUMWAIT);
+        safeClick(ICON_PIN, "Pin Dashboard from Dashboard page", MEDIUMWAIT);
         waitForSecs(5);
         WebElement pinnedDashboardElement = driver.findElement(pinnedDashboard);
         Boolean pinnedDashboard_Visibility = pinnedDashboardElement.isDisplayed();

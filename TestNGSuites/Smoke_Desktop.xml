@@ -29,6 +29,7 @@
 			<class name="com.testsuite.DashBoards.InsightsTest"></class>
 			<class name="com.testsuite.DashBoards.WizardsTests"></class>
 			<class name="com.testsuite.DashBoards.TicketsTest"></class>
+			<class name="com.testsuite.DashBoards.DataFieldExclusionsTests"></class>
 		</classes>
 	</test>
 

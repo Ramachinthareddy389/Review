@@ -62,10 +62,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             }
         }
 
-        waitForPageToLoad();
+        waitForSecs(10);
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
         waitForSecs(5);
@@ -217,7 +217,9 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         String locator = "//span[text()='" + DBname + "']/parent::div";
         By CLONE_PARENT = By.xpath(locator);
         safeClick(CLONE_PARENT, "CloneParent dashboard", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(ICON_CLONE, "clone icon", MEDIUMWAIT);
+        waitForSecs(5);
         //Generating random number and converting to string to append with cloned dashboard
         Random rand = new Random();
         int rand_int1 = rand.nextInt(100000);
@@ -300,11 +302,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForPageToLoad();
         safeClick(LISTBOX_FOLDER_PORTLET, "Folder name", MEDIUMWAIT);
         waitForSecs(7);
-        driver.findElement(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]//following-sibling::div/div/input")).sendKeys("Dashboards");
+        driver.findElement(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]//following-sibling::div/div/input")).sendKeys("QA Dashboard Test");
         waitUntilClickable(DROPDOWN_DASHBOARD_FOLDER, "Waiting for an element");
-        safeClick(DROPDOWN_DASHBOARD_FOLDER, "Dashboard", MEDIUMWAIT);
+        safeClick(DROPDOWN_DASHBOARD_FOLDER, "QA Dashboard Test", MEDIUMWAIT);
         safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
         String text = safeGetText(DASHBOARD_COUNT, "list of dashboards", MEDIUMWAIT);
         System.out.println(text);
         String expectedText = "(2)";
@@ -387,6 +389,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     @Step("Validating Business hours of predefined time range from calendar ")
     public void validatingBusinessHours(String start, String end) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_BUSINESS_HOURS, "Business Hours");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";

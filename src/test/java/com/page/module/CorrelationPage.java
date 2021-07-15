@@ -74,12 +74,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Retention_add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "ActiveMQ Heap Usage", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Agent Status", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("ActiveMQ Heap Usage")) {
+            if (dbs2.get(i).getText().equals("Agent Status")) {
 
                 dbs2.get(i).click();
                 break;
@@ -94,12 +94,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Name_Add1);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "engine", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("bucket")) {
+            if (dbs5.get(i).getText().equals("engine")) {
 
                 dbs5.get(i).click();
                 break;
@@ -171,6 +171,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         } else {
             Assert.fail("Business process details are invalid");
         }
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
 
@@ -181,7 +183,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeClick(EDITED_NAME_LABEl, "Name Feild", MEDIUMWAIT);
         String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_EDITED_NAME);
         searchField.sendKeys(del5 + editBP1);
@@ -224,6 +226,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         Edited_KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KPIS_add);
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
     }
 
@@ -254,6 +257,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         } else {
             Assert.fail("Business process details are invalid");
         }
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
 
@@ -326,6 +331,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         String actualText = safeGetText(HYPERLINK_TYPES, "Types hyperlink name", MEDIUMWAIT);
         expectedText = dname1 + "123";
         Assert.assertEquals(actualText, expectedText);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
 
@@ -357,6 +364,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(After_Edit_Type);
         String expectedTextAfterEdit = "FactCounter";
         Assert.assertEquals(After_Edit_Type, expectedTextAfterEdit);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
     public void AddingCorrrlationStreamPage() {
@@ -534,7 +543,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         } else {
             Assert.fail("Stream Correlation process details are invalid");
         }
-        safeClick(CLOSE_EDITWINDOW, "Edit Window", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
     public void EditStreamCorrelationScenarios() {
@@ -727,7 +737,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         } else {
             Assert.fail("Stream Correlation process details are invalid");
         }
-        safeClick(CLOSE_EDITWINDOW, "Edit Window", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
 
