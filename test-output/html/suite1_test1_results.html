@@ -3,16 +3,16 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
 <head>
-  <title>Test Results Report - Dashboards(failed)</title>
+  <title>Test Results Report - Dashboards</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="description" content="TestNG unit test results." />
   <link href="reportng.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript" src="reportng.js"></script>
 </head>
 <body>
-<h1>Dashboards(failed)</h1>
+<h1>Dashboards</h1>
 <p>
-  Test duration: 888.936s
+  Test duration: 2864.326s
 </p>
 
 
@@ -28,25 +28,106 @@
                   TC_049_ExportTabularportlet
       </td>
   <td class="duration">
-    82.057s
+    111.339s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot555527455.png"> <img src="..\Screenshots\Screenshot555527455.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_049_ExportTabularportlet15.Jul.2021_08.46.05.842.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot111136856.png"> <img src="..\Screenshots\Screenshot111136856.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_049_ExportTabularportlet16.Jul.2021_09.40.44.247.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.NumberFormatException: For input string: &quot;Avg Duration (s)&quot;</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.IndexOutOfBoundsException: Index 16 out-of-bounds for length 16</b></a><br />
     <div class="stackTrace" id="exception-0">
-              java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)<br />
-              java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)<br />
-              java.base/java.lang.Double.parseDouble(Double.java:543)<br />
-              com.page.module.PortletsFeature.validatingExportedATabularPortlet(PortletsFeature.java:823)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)<br />
+              java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)<br />
+              java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)<br />
+              java.base/java.util.Objects.checkIndex(Objects.java:372)<br />
+              java.base/java.util.ArrayList.get(ArrayList.java:440)<br />
+              com.page.module.PortletsFeature.validatingExportedATabularPortlet(PortletsFeature.java:814)<br />
               com.testsuite.DashBoards.PortletsTests.TC_049_ExportTabularportlet(PortletsTests.java:177)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_057_NavigateDrillthroughpageUsing3optionTooltip
+      </td>
+  <td class="duration">
+    73.780s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1258945339.png"> <img src="..\Screenshots\Screenshot1258945339.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_057_NavigateDrillthroughpageUsing3optionTooltip16.Jul.2021_09.47.05.533.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-1">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.searchingDashboard(DashboardOverviewPage.java:79)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_057_NavigateDrillthroughpageUsing3optionTooltip(PortletsTests.java:277)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_066_ApplyingTimeRangeinCalendar
+      </td>
+  <td class="duration">
+    103.641s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1604979531.png"> <img src="..\Screenshots\Screenshot-1604979531.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_066_ApplyingTimeRangeinCalendar16.Jul.2021_09.51.38.133.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Business Hours was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
+    <div class="stackTrace" id="exception-2">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:120)<br />
+              com.page.module.DashboardOverviewPage.validatingBusinessHours(DashboardOverviewPage.java:393)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_066_ApplyingTimeRangeinCalendar(PortletsTests.java:309)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -68,20 +149,20 @@
                   TC_27_AddingFlowPortlet
       </td>
   <td class="duration">
-    33.817s
+    50.862s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot423357958.png"> <img src="..\Screenshots\Screenshot423357958.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_27_AddingFlowPortlet15.Jul.2021_08.37.06.931.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot51460835.png"> <img src="..\Screenshots\Screenshot51460835.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_27_AddingFlowPortlet16.Jul.2021_10.00.18.015.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to enter &apos;User Click&apos; text in&nbsp; -Sending the text Some Exception</b></a><br />
-    <div class="stackTrace" id="exception-1">
+        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to enter &apos;User Click&apos; text in&nbsp; -Sending the text Some Exception</b></a><br />
+    <div class="stackTrace" id="exception-3">
               com.testng.Assert.fail(Assert.java:201)<br />
               com.selenium.SafeActions.safeType(SafeActions.java:330)<br />
               com.page.module.PortletsFeature.addingFlowPortlet(PortletsFeature.java:690)<br />
@@ -104,62 +185,27 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_45_ClonePortletToAnotherDashboard
-      </td>
-  <td class="duration">
-    48.353s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot1532503618.png"> <img src="..\Screenshots\Screenshot1532503618.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_45_ClonePortletToAnotherDashboard15.Jul.2021_08.42.01.022.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                                <font color='Blue' face='verdana' size='2'><b></b></font>
-                  </div>
-    
-
-        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Cloned Portlet is not removed in Dashboard page</b></a><br />
-    <div class="stackTrace" id="exception-2">
-              com.testng.Assert.fail(Assert.java:201)<br />
-              com.page.module.PortletsFeature.verifyingClonedPortlet(PortletsFeature.java:245)<br />
-              com.testsuite.DashBoards.PortletsTests.TC_45_ClonePortletToAnotherDashboard(PortletsTests.java:151)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
                   TC_50_ExportNTabularPortlet
       </td>
   <td class="duration">
-    92.784s
+    114.097s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-1384884487.png"> <img src="..\Screenshots\Screenshot-1384884487.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_50_ExportNTabularPortlet15.Jul.2021_08.41.00.034.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot1509439464.png"> <img src="..\Screenshots\Screenshot1509439464.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_50_ExportNTabularPortlet16.Jul.2021_10.06.44.556.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>java.lang.ArrayIndexOutOfBoundsException: 4</b></a><br />
-    <div class="stackTrace" id="exception-3">
-              com.page.module.PortletsFeature.verifyingExportedNtabularPortlet(PortletsFeature.java:982)<br />
+        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: null</b></a><br />
+    <div class="stackTrace" id="exception-4">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.testng.Assert.assertTrue(Assert.java:138)<br />
+              com.page.module.PortletsFeature.verifyingExportedNtabularPortlet(PortletsFeature.java:953)<br />
               com.testsuite.DashBoards.PortletsTests.TC_50_ExportNTabularPortlet(PortletsTests.java:189)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
@@ -183,21 +229,212 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.PortletsTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PivotTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC_051_ExportMapPortlet
+                  TC_071_AddingTablePortletInPivotPage
       </td>
   <td class="duration">
-    77.357s
+    99.206s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_051_ExportMapPortlet15.Jul.2021_08.48.48.127.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_071_AddingTablePortletInPivotPage16.Jul.2021_09.35.37.447.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_072_AddingChartPortletInPivotPage
+      </td>
+  <td class="duration">
+    80.760s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_072_AddingChartPortletInPivotPage16.Jul.2021_09.37.11.878.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_075_VerifyingDataInPortletInPivotPage
+      </td>
+  <td class="duration">
+    89.895s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_075_VerifyingDataInPortletInPivotPage16.Jul.2021_09.38.54.918.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_076_EditingChartPortletInPivotPage
+      </td>
+  <td class="duration">
+    95.825s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_076_EditingChartPortletInPivotPage16.Jul.2021_09.40.44.204.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_077_EditingTablePortletInPivotPage
+      </td>
+  <td class="duration">
+    107.000s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_077_EditingTablePortletInPivotPage16.Jul.2021_09.42.44.682.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PortletsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC023_AddingGeneralHealthPortlet
+      </td>
+  <td class="duration">
+    126.446s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC023_AddingGeneralHealthPortlet16.Jul.2021_09.36.05.354.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_048_ExportGHPortlet
+      </td>
+  <td class="duration">
+    137.148s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_048_ExportGHPortlet16.Jul.2021_09.38.35.862.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_051_ExportMapPortlet
+      </td>
+  <td class="duration">
+    104.875s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_051_ExportMapPortlet16.Jul.2021_09.42.44.538.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_055_NavigatetoDrillthroughpage
+      </td>
+  <td class="duration">
+    61.659s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_055_NavigatetoDrillthroughpage16.Jul.2021_09.44.02.723.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_056_VerifyHovermessageinFilterIconInTabularPortlet
+      </td>
+  <td class="duration">
+    82.154s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_056_VerifyHovermessageinFilterIconInTabularPortlet16.Jul.2021_09.45.38.042.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_058_AddingPortletFromSearchBar
+      </td>
+  <td class="duration">
+    58.539s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_058_AddingPortletFromSearchBar16.Jul.2021_09.48.17.127.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_061_NavigateToDrillthroughpageUsing3optionTooltip
+      </td>
+  <td class="duration">
+    69.419s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_061_NavigateToDrillthroughpageUsing3optionTooltip16.Jul.2021_09.49.39.334.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -208,13 +445,30 @@
                   TC_080_VerifyingTimeRangeInRCAPage
       </td>
   <td class="duration">
-    52.381s
+    69.994s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_080_VerifyingTimeRangeInRCAPage15.Jul.2021_08.38.11.842.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_080_VerifyingTimeRangeInRCAPage16.Jul.2021_09.53.01.604.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_082_MaximisePortletInRCAPage
+      </td>
+  <td class="duration">
+    77.597s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_082_MaximisePortletInRCAPage16.Jul.2021_09.54.32.198.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -225,13 +479,30 @@
                   TC_24_AddingTabularPortlet
       </td>
   <td class="duration">
-    54.701s
+    76.360s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_24_AddingTabularPortlet15.Jul.2021_08.50.59.201.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_24_AddingTabularPortlet16.Jul.2021_09.56.01.335.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_25_AddingNTabularPortlet
+      </td>
+  <td class="duration">
+    84.895s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_25_AddingNTabularPortlet16.Jul.2021_09.57.39.187.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -242,13 +513,13 @@
                   TC_26_AddingMapPortlet
       </td>
   <td class="duration">
-    60.020s
+    81.103s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_26_AddingMapPortlet15.Jul.2021_08.44.31.276.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_26_AddingMapPortlet16.Jul.2021_09.59.13.301.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -259,13 +530,47 @@
                   TC_28_AddingGaugePortlet
       </td>
   <td class="duration">
-    49.265s
+    68.033s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_28_AddingGaugePortlet15.Jul.2021_08.39.14.592.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_28_AddingGaugePortlet16.Jul.2021_10.01.40.534.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_29_AddingCounterPortlet
+      </td>
+  <td class="duration">
+    74.142s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_29_AddingCounterPortlet16.Jul.2021_10.03.07.587.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_45_ClonePortletToAnotherDashboard
+      </td>
+  <td class="duration">
+    75.358s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_45_ClonePortletToAnotherDashboard16.Jul.2021_10.04.36.627.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -276,13 +581,13 @@
                   TC_53_ExportingGaugePortlet
       </td>
   <td class="duration">
-    51.757s
+    74.166s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_53_ExportingGaugePortlet15.Jul.2021_08.49.52.140.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_53_ExportingGaugePortlet16.Jul.2021_10.08.11.732.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -293,13 +598,13 @@
                   TC_54_ExportingCounterPortlet
       </td>
   <td class="duration">
-    64.844s
+    88.620s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_54_ExportingCounterPortlet15.Jul.2021_08.43.18.826.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_54_ExportingCounterPortlet16.Jul.2021_10.09.53.293.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -310,13 +615,13 @@
                   TC_O52_RemovePortlet
       </td>
   <td class="duration">
-    60.281s
+    140.220s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_O52_RemovePortlet15.Jul.2021_08.47.18.530.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_O52_RemovePortlet16.Jul.2021_10.12.26.878.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 

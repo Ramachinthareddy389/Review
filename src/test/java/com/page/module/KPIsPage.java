@@ -85,7 +85,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
 
     public void addingSLASettingsPage() {
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_NAME, KpisName, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, KpisName+"SLA", "Name into textbox", MEDIUMWAIT);
         Sla_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Sla_Name_Add);
 
@@ -179,7 +179,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
     }
 
-    public void editCorrelationConfig() {
+    public void editKPISConfig() {
         safeType(TEXTBOX_TYPESEARCH, KpisName + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -219,7 +219,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
     }
 
 
-    public void verifyingEditedCorrelationDetails() {
+    public void verifyingEditedKPISDetails() {
         safeType(TEXTBOX_TYPESEARCH, editKPi + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -245,5 +245,34 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         }
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+    }
+
+    public void addingSLASInEditConfigWindow() {
+        safeType(TEXTBOX_TYPESEARCH, KpisName + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_REMOVE_SLAS, "Delete button", MEDIUMWAIT);
+        // safeClick(BTN_CLOSE,"Close after deleting BPs steps",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save Button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(SLAS_ADD_ICON, "BP Steps add icon", MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(BTN_RADIO_SLA_TYPE,"SLA type",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+
+    }
+
+    public void verifyingAddedSLASInEditConfigWindow() {
+        String actualText = safeGetText(HYPERLINK_SLAs, "Added BP Steps", MEDIUMWAIT);
+       String expectedText = KpisName+"SLA";
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(BTN_REMOVE_SLAS, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
     }
 }

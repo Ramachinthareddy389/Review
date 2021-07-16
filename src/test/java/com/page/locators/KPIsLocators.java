@@ -44,4 +44,6 @@ public interface KPIsLocators {
     By EDITED_NAME_LABEl = By.xpath("//span[text()='Name']");
     By EDITED_FACTCATEGORY_LABEl = By.xpath("//span[text()='Fact Category']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+    By BTN_REMOVE_SLAS = By.xpath("//span[text()='SLAs']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By SLAS_ADD_ICON = By.xpath("//span[text()='SLAs']/../../following-sibling::div/button/span/i");
 }

@@ -52,7 +52,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(5);
         List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + dbs.size());
-        waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
+       // waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
         for (int i = 0; i < dbs.size(); i++) {
 
             if (dbs.get(i).getText().contains("Dashboards")) {
@@ -830,6 +830,12 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(LABEL_NEW_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
     }
 
+    @Step("Clicking on Dashboards section")
+    public void clickingOnDashboardSection()
+    {
+        safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+    }
     @Step("Logout the application")
     public void signOut() {
         waitForPageToLoad();

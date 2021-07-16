@@ -55,7 +55,19 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
         kpIsPage.addingSLAAction();
-        kpIsPage.editCorrelationConfig();
-        kpIsPage.verifyingEditedCorrelationDetails();
+        kpIsPage.editKPISConfig();
+        kpIsPage.verifyingEditedKPISDetails();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_201_AddSLAsinEditKPIconfigwindow(){
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLASInEditConfigWindow();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction();
+        kpIsPage.verifyingAddedSLASInEditConfigWindow();
     }
 }

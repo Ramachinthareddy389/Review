@@ -58,6 +58,32 @@ public class DataFieldExclusionsTests extends BaseSetup {
     }
 
 
+    @Test(alwaysRun = true)
+    public void TC_193_AddDataFieldExclusionfromDrillthroughpage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        portletsFeature.navigatingToDrillThroughPage(dname1);
+        dataFeildExclusionsPage.addingDataExclusionFromDrillThroughPage();
+        dataFeildExclusionsPage.addingNewDataFieldExclusion();
+        dataFeildExclusionsPage.navigatingToDataExclusionModule();
+        dataFeildExclusionsPage.verifyingFeildExclusionDetails();
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        portletsFeature.navigateToRCADrillThroughPage();
+        dataFeildExclusionsPage.addingDataFieldExclusionDetailsFromRCApage();
+        dataFeildExclusionsPage.addingNewDataFieldExclusion();
+        dataFeildExclusionsPage.navigatingToDataExclusionModule();
+        dataFeildExclusionsPage.verifyingFeildExclusionDetails();
+
+    }
+
 
 
 }
