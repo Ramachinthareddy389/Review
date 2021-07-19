@@ -46,4 +46,13 @@ public interface KPIsLocators {
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By BTN_REMOVE_SLAS = By.xpath("//span[text()='SLAs']/../../../div/div/div/div[@aria-label='Remove Configuration']");
     By SLAS_ADD_ICON = By.xpath("//span[text()='SLAs']/../../following-sibling::div/button/span/i");
+    By BTN_REMOVE_THRESHOLDS = By.xpath("//span[text()='Thresholds']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By THRESHOLDS_ADD_ICON = By.xpath("//span[text()='Thresholds']/../../following-sibling::div/button/span/i");
+    By LABEL_THRESHOLD_EDITED = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/label[@id='thresholdValue-label']");
+    By TXTBOX_THRESHOLD_EDITED = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/div/input[@id='thresholdValue']");
+    By ACTIONS_GHOSTTEXT_EDITED = By.xpath("//input[@id='actionsUsages']/../../../div[1]");
+    By ACTIONS_TXTBOX_EDITED = By.xpath("//input[@id='actionsUsages']");
+    By HYPERLINK_THRESHOLD = By.xpath("//span[text()='Thresholds']/../../../div/div/div/button");
+    By HYPERLINK_DRILLTHROUGH = By.xpath("//a[contains(@href,'#Drillthrough')]");
+    By Title_DRILLTHROUGH=By.xpath("//form[@id='export']/../../../h5");
 }

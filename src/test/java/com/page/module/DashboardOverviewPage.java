@@ -136,12 +136,10 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
         safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
-        waitUntilClickable(BUTTON_DELETE, "wait delete button clicked", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(BUTTON_DELETE, "Delete button", MEDIUMWAIT);
-        waitForSecs(10);
-        waitUntilElementDisappears(BUTTON_DELETE, "disappears", MEDIUMWAIT);
+        waitForSecs(40);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        waitForPageToLoad();
         mouseHoverJScript(COLUMN_FOLDER, "text", "mouse", MEDIUMWAIT);
         safeClick(BUTTON_ADDFOLDER, "Add folder", MEDIUMWAIT);
         waitUntilClickable(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]"), "text", 5000);
@@ -265,7 +263,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(FOLDER, "dashboard display name option", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(BTN_CLONE, "Clone button", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
         mouseHoverJScript(CLONE_PARENT, "Clone Parent", "clone Parent", VERYLONGWAIT);
         List<WebElement> result2 = driver.findElements(CLONE_PARENT);
         int count2 = result2.size();
@@ -788,7 +786,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
-        cal.add(Calendar.MONTH, -1);
+       // cal.add(Calendar.MONTH);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
         String date = s1 + " " + "'" + s2;

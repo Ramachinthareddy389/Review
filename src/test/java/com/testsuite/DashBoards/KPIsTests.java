@@ -70,4 +70,24 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.addingSLAAction();
         kpIsPage.verifyingAddedSLASInEditConfigWindow();
     }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_202_AddThresholdinFactBasedSLAeditwindowinKPIpage(){
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction();
+        kpIsPage.addingThresholdValueInEditKPIswindow();
+        kpIsPage.verifyingAddedThresholdInEditWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_203_NavigatetoDrillthroughpagefromKPIeditconfigwindow(){
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction();
+        kpIsPage.navigateToDrillThrghPageFrmKpiEditWindow();
+    }
 }

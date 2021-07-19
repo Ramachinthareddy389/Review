@@ -102,6 +102,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         OSName_add = safeGetText(OSNAME_GHOSTEXT, "OS Family value", MEDIUMWAIT);
         System.out.println(OSName_add);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
 
@@ -133,6 +134,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         } else {
             Assert.fail("Ticket details are invalid");
         }
+        waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 
@@ -254,6 +256,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         } else {
             Assert.fail("Ticket details are invalid");
         }
+        waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 
@@ -277,12 +280,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         safeClick(LABEL_SOFTWARE, "Vendor Feild", MEDIUMWAIT);
         safeClick(SOFTWARE_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, ".NET", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, "_NET", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals(".NET")) {
+            if (db1.get(i).getText().equals("_NET")) {
 
                 db1.get(i).click();
                 break;
@@ -293,10 +296,9 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        waitForSecs(3);
+        waitForSecs(10);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li/mark[contains(text(),'" + DbTitle + "')]");
         boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
-        //String Monitoring_Agents=safeGetText(ADDEDAGENT_LABEL,"Added Local Monitoring Agents",MEDIUMWAIT);
         System.out.println(Monitoring_Agents);
         Assert.assertTrue(Monitoring_Agents);
         String label = "germain.apm.monitoringAgents";
@@ -304,6 +306,8 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         boolean Monitoring_Agents_Ref = driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
+        waitForSecs(5);
+
 
     }
 
@@ -322,12 +326,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         safeClick(LABEL_SOFTWARE, "Vendor Feild", MEDIUMWAIT);
         safeClick(SOFTWARE_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, ".NET", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, "_NET", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals(".NET")) {
+            if (db1.get(i).getText().equals("_NET")) {
 
                 db1.get(i).click();
                 break;
@@ -343,7 +347,6 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(3);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li[contains(text(),'" + NodeJS + "')]");
         boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
-        //String Monitoring_Agents=safeGetText(ADDEDAGENT_LABEL,"Added Local Monitoring Agents",MEDIUMWAIT);
         System.out.println(Monitoring_Agents);
         Assert.assertTrue(Monitoring_Agents);
         String label = "germain.apm.monitoringAgents";
@@ -367,12 +370,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         safeClick(LABEL_SOFTWARE, "Vendor Feild", MEDIUMWAIT);
         safeClick(SOFTWARE_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, ".NET", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, "_NET", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals(".NET")) {
+            if (db1.get(i).getText().equals("_NET")) {
 
                 db1.get(i).click();
                 break;
@@ -395,6 +398,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         boolean Monitoring_Agents_Ref = driver.findElement(ADDEDREFERENCES_LABEl).isDisplayed();
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
+        waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 
@@ -535,6 +539,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
         safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
         safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
     }
 }

@@ -57,9 +57,9 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     @Step("Verify count of KPI in Data Graph window and Pivot/Drillthrough page")
     public void validatingCountOfKPI() {
         waitForSecs(15);
-        boolean b = driver.findElements(TRENDCHARTS).get(0).isDisplayed();
+        boolean b = driver.findElements(TRENDCHARTS).get(2).isDisplayed();
         System.out.println(b);
-        driver.findElements(ICONS_DRILLTHROUGH).get(0).click();
+        driver.findElements(ICONS_DRILLTHROUGH).get(2).click();
         String kpi = driver.findElements(KPINAMES).get(0).getText();
         System.out.println(kpi);
         safeType(FILTERSKPISTEXTBOX, kpi, "KPI Name", MEDIUMWAIT);

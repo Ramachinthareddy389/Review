@@ -90,7 +90,9 @@ public interface CorrelationLocators {
     By EDITED_LSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Left Stream Partition Key']");
     By EDITED_LSTREAM_ORDER_LABEL = By.xpath("//span[text()='Left Stream OrderBy']");
     By EDITED_LSTREAM_KPIS_LABEL = By.xpath("//span[text()='Left Stream KPIs']");
-
+    By EDITED_LSTREAM_KPI_VALUE = By.xpath("//input[@id='leftStream.kpis']/../../../div/span");
+    By EDITED_RSTREAM_KPI_VALUE = By.xpath("//input[@id='rightStream.kpis']/../../../div/span");
+    By BTN_MAXIMIZE = By.xpath("//div[@aria-label='Maximize']/span/i");
 
     By EDITED_RSTREAM_LABEL =By.xpath("//span[text()='Right Stream Name']");
     By EDITED_RSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Right Stream Partition Key']");

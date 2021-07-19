@@ -18,6 +18,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
     String KpisName = "KPI's" + random.nextInt(3000);
+    String Threshold = "Threshold"+random.nextInt(2000);
     String editKPi = "EditedKpis"+random.nextInt(3000);
     String Name_Add, Fact_Type_add,FactCategory_Add,DSCategory_add,Sla_Name_Add,Threshold_Name_Add,Color_add,Alert_add,Edited_Name_Add,Edited_FactType_add,Edited_FactCategory_Add;
     private WebDriver driver1;
@@ -117,6 +118,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(LABEL_ALERT_TEMP, "Server Feild", MEDIUMWAIT);
         safeClick(ALERT_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ALERT, "SLA", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(5);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
@@ -274,5 +276,88 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+    }
+
+    public void addingThresholdValueInEditKPIswindow(){
+        safeType(TEXTBOX_TYPESEARCH, KpisName + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(HYPERLINK_SLAs, "Added BP Steps", MEDIUMWAIT);
+        safeClick(BTN_REMOVE_THRESHOLDS, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(THRESHOLDS_ADD_ICON, "BP Steps add icon", MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Threshold, "Name into textbox", MEDIUMWAIT);
+        Sla_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Sla_Name_Add);
+
+        safeClick(LABEL_THRESHOLD_EDITED, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_THRESHOLD_EDITED, "7", "Name into textbox", MEDIUMWAIT);
+        Threshold_Name_Add = safeGetAttribute(TXTBOX_THRESHOLD_EDITED, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Threshold_Name_Add);
+        safeClick(LABEL_COLOR, "Server Feild", MEDIUMWAIT);
+        safeClick(COLOR_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_COLOR, "Green", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("Green")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        Color_add = safeGetText(COLOR_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Color_add);
+
+        waitForSecs(5);
+        safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
+        safeClick(ACTIONS_GHOSTTEXT_EDITED, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(ACTIONS_TXTBOX_EDITED, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs3.get(i).getText().equals("QA Test")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        Alert_add = safeGetText(ALERT_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Alert_add);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+
+    }
+
+    public void verifyingAddedThresholdInEditWindow(){
+        String actualText = safeGetText(HYPERLINK_THRESHOLD, "Added BP Steps", MEDIUMWAIT);
+        String expectedText = Threshold;
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(BTN_REMOVE_THRESHOLDS, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+    }
+
+    public void navigateToDrillThrghPageFrmKpiEditWindow(){
+        safeType(TEXTBOX_TYPESEARCH, KpisName + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(HYPERLINK_DRILLTHROUGH,"Drill Through icon",MEDIUMWAIT);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " +KpisName);
     }
 }
