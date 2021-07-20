@@ -32,10 +32,10 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
     public void clickingOnCorrelation() {
         safeClick(BTN_ANALYTICS, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_KPIS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(BTN_ADDICON_KPIS, "Add button", MEDIUMWAIT);
     }
 
     public void addingKPIPage() {
-        safeClick(BTN_ADDICON_KPIS, "Add button", MEDIUMWAIT);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, KpisName, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -145,8 +145,6 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
                 break;
             }
         }
-        Alert_add = safeGetText(ALERT_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
-        System.out.println(Alert_add);
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
     }
@@ -163,7 +161,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         String expectedText = KpisName;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
-        waitForSecs(5);
+
         System.out.println(Name_Add + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + Fact_Type_add + driver.findElement(TXTBOX_EDITED_FACTTYPE).getText() +
                 FactCategory_Add + driver.findElement(TXTBOX_EDITED_FACT_CATEGORY).getAttribute("value") +Sla_Name_Add + driver.findElement(HYPERLINK_SLAs).getText());
         if (Name_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && Fact_Type_add.equals(driver.findElement(TXTBOX_EDITED_FACTTYPE).getText()) &&
