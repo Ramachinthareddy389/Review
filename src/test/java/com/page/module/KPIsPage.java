@@ -118,7 +118,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(LABEL_ALERT_TEMP, "Server Feild", MEDIUMWAIT);
         safeClick(ALERT_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ALERT, "SLA", "Server name into textbox", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
@@ -255,7 +255,6 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(BTN_REMOVE_SLAS, "Delete button", MEDIUMWAIT);
-        // safeClick(BTN_CLOSE,"Close after deleting BPs steps",MEDIUMWAIT);
         safeClick(BTN_SAVE,"Save Button",MEDIUMWAIT);
         waitForSecs(5);
         safeClick(SLAS_ADD_ICON, "BP Steps add icon", MEDIUMWAIT);
@@ -320,7 +319,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClearAndType(ACTIONS_TXTBOX_EDITED, "QA Test", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-        for (int i = 0; i < dbs2.size(); i++) {
+        for (int i = 0; i < dbs3.size(); i++) {
 
             if (dbs3.get(i).getText().equals("QA Test")) {
 
@@ -354,8 +353,54 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(HYPERLINK_DRILLTHROUGH,"Drill Through icon",MEDIUMWAIT);
-        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        String actualText = safeGetText(TITLE_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " +KpisName);
     }
+
+    public void addingActionsInEditSLAConfigWindow(){
+        safeType(TEXTBOX_TYPESEARCH, KpisName + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(HYPERLINK_SLAs, "Added BP Steps", MEDIUMWAIT);
+        safeClick(HYPERLINK_THRESHOLD,"Threshold Hyperlink",MEDIUMWAIT);
+        safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save Button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(ACTIONS_ADD_ICON,"Actions Icon",MEDIUMWAIT);
+        safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
+        safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS_NAME, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs3.size(); i++) {
+
+            if (dbs3.get(i).getText().equals("QA HTTP")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+      public void verifyingActionsInEditSLAConfigWindow(){
+          String actualText = safeGetText(HYPERLINK_ACTIONS, "Added BP Steps", MEDIUMWAIT);
+          String expectedText = "QA HTTP";
+          Assert.assertEquals(actualText, expectedText);
+          safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
+          safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+          waitForSecs(10);
+          safeClick(CLOSE_EDITWINDOW,"Close Window",MEDIUMWAIT);
+          safeClick(CLOSE_EDITWINDOW,"Close Window",MEDIUMWAIT);
+          safeClick(CLOSE_EDITWINDOW,"Close Window",MEDIUMWAIT);
+          safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+          safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+          safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+      }
+
 }

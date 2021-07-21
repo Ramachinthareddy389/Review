@@ -54,5 +54,14 @@ public interface KPIsLocators {
     By ACTIONS_TXTBOX_EDITED = By.xpath("//input[@id='actionsUsages']");
     By HYPERLINK_THRESHOLD = By.xpath("//span[text()='Thresholds']/../../../div/div/div/button");
     By HYPERLINK_DRILLTHROUGH = By.xpath("//a[contains(@href,'#Drillthrough')]");
-    By Title_DRILLTHROUGH=By.xpath("//form[@id='export']/../../../h5");
+    By TITLE_DRILLTHROUGH = By.xpath("//form[@id='export']/../../../h5");
+    By ACTIONS_ADD_ICON = By.xpath("//span[text()='Actions']/../../following-sibling::div/button/span/i");
+    By BTN_REMOVE_ACTIONS = By.xpath("//span[text()='Actions']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By LABEL_ACTIONS_NAME = By.xpath("//span[text()='Action Name']");
+    By ACTIONS_NAME_GHOSTTEXT = By.xpath("//input[@id='name']/../../../div[text()='Select or Add...']");
+    By TXTBOX_ACTIONS_NAME= By.xpath("//input[@id='name']/../../../div[text()='Select or Add...']/../div[2]/div/input");
+    By HYPERLINK_ACTIONS = By.xpath("//span[text()='Actions']/../../../div/div/div/button");
+    By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
+    By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
+    By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
 }

@@ -53,7 +53,7 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
     @Step("Clicking on LogIn button")
     public void clickLogInButton() {
         safeClick(LOGIN_BTN, "'Login' button in 'Login' page ", VERYLONGWAIT);
-        waitForSecs(10);
+        waitForSecs(15);
 
     }
 

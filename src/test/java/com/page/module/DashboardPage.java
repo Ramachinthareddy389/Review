@@ -347,9 +347,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 break;
             }
         }
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY, "Save button in Dashboard Visibility", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
     }
 
     @Step("Accessing Dashboard by sample user with 'Required Roles'")
@@ -360,6 +360,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         } catch (NoSuchElementException | AssertionError e) {
             e.getMessage();
         }
+        wait(10);
         safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", LONGWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
@@ -485,7 +486,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         By DELETE_OWNER_ROLES = By.xpath("//span[contains(text(),'" + dashBoardData1.sample_Owner_Role + "')]/following-sibling::i");
         waitUntilClickable(DELETE_OWNER_ROLES, "Delete icon for Required Role", MEDIUMWAIT);
         safeClick(DELETE_OWNER_ROLES, "Delete icon for Required Role", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY, "Save button in Dashboard Visibility", MEDIUMWAIT);
+        waitForSecs(5);
     }
 
     @Step("Accessing Dashboard by sample user after removing owner role")

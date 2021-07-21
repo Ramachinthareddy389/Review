@@ -37,5 +37,15 @@ public interface SLAsLocators {
     By TXTBOX_EDITED_NAME = By.xpath("//input[@id='slaName']");
     By EDITED_NAME_LABEl = By.xpath("//span[text()='Name']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
-   
+    By HYPERLINK_THRESHOLD = By.xpath("//span[text()='Thresholds']/../../../div/div/div/button");
+    By BTN_REMOVE_THRESHOLDS = By.xpath("//span[text()='Thresholds']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By LABEL_THRESHOLD_EDITED = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/label[@id='thresholdValue-label']");
+    By TXTBOX_THRESHOLD_EDITED = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/div/input[@id='thresholdValue']");
+    By ACTIONS_GHOSTTEXT_EDITED = By.xpath("//input[@id='actionsUsages']/../../../div[1]");
+    By ACTIONS_TXTBOX_EDITED = By.xpath("//input[@id='actionsUsages']");
+    By THRESHOLDS_ADD_ICON = By.xpath("//span[text()='Thresholds']/../../following-sibling::div/button/span/i");
+    By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
+    By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
+    By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+
 }

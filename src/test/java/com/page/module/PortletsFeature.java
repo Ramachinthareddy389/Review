@@ -687,12 +687,13 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        safeType(FLOW_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        safeClick(KPI_GHOSTTEXT,"KPI ghost text",MEDIUMWAIT);
+        safeJavaScriptClearAndType(FLOW_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
-            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI)) {
+            if (kpis.get(i).getText().equals(dashBoardData.portletKPI)) {
                 kpis.get(i).click();
                 break;
             }
@@ -705,12 +706,12 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String deleteColumnLabelData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData, dashBoardData.flowPortletColumnLabel);
         safeClick(FLOW_CLUSTER_BY_LABEL, "Cluster By Field", MEDIUMWAIT);
-        String clusterdata = Keys.chord("Color") + Keys.ENTER;
+        String clusterdata = Keys.chord("Name") + Keys.ENTER;
         driver.findElement(FLOW_CLUSTER_BY_INPUT).sendKeys(clusterdata);
         safeClick(FLOW_SHOW_USERS_CHECKBOX, "Show Users checkbox", MEDIUMWAIT);
         safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
         safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
-        safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
+        safeType(Filters_TypeSearch, "Name", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
         safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
@@ -721,7 +722,19 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(FLOW_FILTER_VALUE, "Sample", "Filter value field input", MEDIUMWAIT);
         safeClick(FLOW_FILTER_POSITION_LABEL, "Filter Position Field", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
+        safeClick(LABEL_FILTER_POSITION_CHART, "Clicking on KPI", MEDIUMWAIT);
+        safeClick(FILTER_POSITION_CHART_GHOSTTEXT,"KPI ghost text",MEDIUMWAIT);
+        safeJavaScriptClearAndType(TXTBOX_FILTER_POSITION_CHART, "End At", "Sending the text", VERYLONGWAIT);
+        Thread.sleep(3000);
+        List<WebElement> kpis1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis1.size(); i++) {
+            System.out.println(kpis1.get(i).getText());
+            if (kpis1.get(i).getText().equals("End At")) {
+                kpis1.get(i).click();
+                break;
+            }
+        }
+       // safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }

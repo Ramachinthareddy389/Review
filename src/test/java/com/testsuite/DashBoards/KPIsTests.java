@@ -90,4 +90,15 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.addingSLAAction();
         kpIsPage.navigateToDrillThrghPageFrmKpiEditWindow();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_206_AddActionsinEditSLAconfigwindowinKPIspage(){
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction();
+        kpIsPage.addingActionsInEditSLAConfigWindow();
+        kpIsPage.verifyingActionsInEditSLAConfigWindow();
+
+    }
 }

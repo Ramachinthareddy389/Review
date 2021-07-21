@@ -47,12 +47,22 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_214_EditSLAconfigforallTypes()
+    public void TC_215_EditSLAconfigforallTypes()
     {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction();
         slAsPage.editSLAsConfig();
         slAsPage.verifyingEditedSLADetails();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_214_AddThresholdinFactBasedSLAeditwindow()
+    {
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction();
+        slAsPage.addingThresholdValueInEditSLAswindow();
+        slAsPage.verifyingAddedThresholdInEditWindow();
     }
 }

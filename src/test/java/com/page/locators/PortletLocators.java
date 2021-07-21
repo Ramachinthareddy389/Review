@@ -19,7 +19,8 @@ public interface PortletLocators {
     By DASHBOARD_COUNT=By.xpath("//span[@aria-label='Count'][@title='Number of unique items']");
     By DROPDOWN_SHOWAS=By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]");
     By TEXTBOX_SHOWAS=By.xpath("//input[@id='showAs']");
-    By DROPDOWN_KPI=By.xpath("//*[text()='KPI']/../../../div//div[contains(@class,'body1')]");
+    By DROPDOWN_KPI=By.xpath("//span[text()='KPI']");
+    By KPI_GHOSTTEXT = By.xpath("//input[@id='kpi']/../../../div[1]");
     By TEXTBOX_KPI=By.xpath("//input[@id='kpi_0']");
     By DROPDOWN_MEASURE=By.xpath("//*[text()='Measure']/../../../div//div[contains(@class,'body1')]");
     By TEXTBOX_SUMMARY=By.xpath("//input[@id='kpiSummary_0']");
@@ -126,6 +127,9 @@ public interface PortletLocators {
     By FLOW_FILTER_VALUE_LABEL = By.xpath("//label[contains(@for,'filterValue')]");
     By FLOW_FILTER_VALUE = By.xpath("//input[contains(@id,'filterValue')]");
     By FLOW_FILTER_POSITION_LABEL = By.xpath("//label[@for='filterAtStart']/../div");
+    By LABEL_FILTER_POSITION_CHART = By.xpath("//span[text()='Filter Position (Chart)']");
+    By TXTBOX_FILTER_POSITION_CHART = By.xpath("//input[@id='filterAtStart']");
+    By FILTER_POSITION_CHART_GHOSTTEXT = By.xpath("//input[@id='filterAtStart']/../../../div[1]");
     By FLOW_FILTER_POSITION = By.xpath("//div[(@role='menuitem')][contains(text(),'End At')]");
     By FLOW_SHOW_USERS_CHECKBOX = By.xpath("//span[contains(text(),'Show Users')]");
     By BTN_MAXIMIZE_PORTLET = By.xpath("//div[@aria-label='Maximize']");

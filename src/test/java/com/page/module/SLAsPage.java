@@ -145,6 +145,9 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         }
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
     public void editSLAsConfig() {
@@ -205,6 +208,82 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         }
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
+
+
+    public void addingThresholdValueInEditSLAswindow(){
+        safeType(TEXTBOX_TYPESEARCH, slasName+"SLA" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_REMOVE_THRESHOLDS, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(THRESHOLDS_ADD_ICON, "BP Steps add icon", MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Threshold, "Name into textbox", MEDIUMWAIT);
+        Sla_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Sla_Name_Add);
+
+        safeClick(LABEL_THRESHOLD_EDITED, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_THRESHOLD_EDITED, "7", "Name into textbox", MEDIUMWAIT);
+        Threshold_Name_Add = safeGetAttribute(TXTBOX_THRESHOLD_EDITED, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Threshold_Name_Add);
+        safeClick(LABEL_COLOR, "Server Feild", MEDIUMWAIT);
+        safeClick(COLOR_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_COLOR, "Green", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("Green")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        Color_add = safeGetText(COLOR_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Color_add);
+
+        waitForSecs(5);
+        safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
+        safeClick(ACTIONS_GHOSTTEXT_EDITED, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(ACTIONS_TXTBOX_EDITED, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs3.get(i).getText().equals("QA Test")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        Alert_add = safeGetText(ALERT_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Alert_add);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+
+    }
+
+    public void verifyingAddedThresholdInEditWindow(){
+        String actualText = safeGetText(HYPERLINK_THRESHOLD, "Added BP Steps", MEDIUMWAIT);
+        String expectedText = Threshold;
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(BTN_REMOVE_THRESHOLDS, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+    }
+
 
 }
