@@ -10,7 +10,7 @@ public interface SLAsLocators {
     By LABEL_KPI_NAME = By.xpath("//span[text()='KPI Name']");
     By KPI_NAME_GHOSTTEXT = By.xpath("//input[@id='name']/../../../div[1]");
     By KPINAME_TXTBOX = By.xpath("//input[@id='name']");
-   By TXTBOX_EDITED_ALERT = By.xpath("//input[@id='alertTemplate']/../../../div[1]");
+    By TXTBOX_EDITED_ALERT = By.xpath("//input[@id='alertTemplate']/../../../div[1]");
     By BTN_NEXT = By.xpath("//span[text()='Next']");
     By BTN_RADIO_SLA_TYPE = By.xpath("//input[@type='radio'][@value='FactBasedSLA']/../../span[2]");
     By LABEL_THRESHOLD  = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/label[@id='threshold-label']");
@@ -47,5 +47,12 @@ public interface SLAsLocators {
     By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
     By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+    By ACTIONS_ADD_ICON = By.xpath("//span[text()='Actions']/../../following-sibling::div/button/span/i");
+    By BTN_REMOVE_ACTIONS = By.xpath("//span[text()='Actions']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By LABEL_ACTIONS_NAME = By.xpath("//span[text()='Action Name']");
+    By ACTIONS_NAME_GHOSTTEXT = By.xpath("//input[@id='name']/../../../div[text()='Select or Add...']");
+    By TXTBOX_ACTIONS_NAME= By.xpath("//input[@id='name']/../../../div[text()='Select or Add...']/../div[2]/div/input");
+    By HYPERLINK_ACTIONS = By.xpath("//span[text()='Actions']/../../../div/div/div/button");
+
 
 }

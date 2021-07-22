@@ -71,8 +71,8 @@ public class DashBoardTests extends BaseSetup {
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByRequiredRoleUser();
         loginPage.clickLogoutButton();
-        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
-        loginPage.clickLogInButton();
+       loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
+       loginPage.clickLogInButton();
         dashboardPage.navigateToDashboardsPage();
         dashboardPage.removeRequiredRoleInDashboardVisibility();
         loginPage.clickLogoutButton();

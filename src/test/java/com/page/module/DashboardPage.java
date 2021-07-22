@@ -337,7 +337,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         By DELETE_REQUIRED_ROLE = By.xpath("//span[contains(text(),'" + sample_Role_Name + "')]/following-sibling::i");
         waitUntilClickable(DELETE_REQUIRED_ROLE, "Delete icon for Required Role", MEDIUMWAIT);
         safeClick(DELETE_REQUIRED_ROLE, "Delete icon for Required Role", MEDIUMWAIT);
-        safeClick(REQUIRED_ROLES_FIELD, "Requires Roles field", MEDIUMWAIT);
+        safeClick(REQUIRED_ROLES_FIELD, "Requires Roles field", MEDIUMWAIT);  waitForSecs(15);
         List<WebElement> roles = driver.findElements(DROPDOWN_REQUIRED_ROLES);
         System.out.println("Total no of roles:::====> " + roles.size());
         for (int i = 0; i < roles.size(); i++) {
@@ -347,7 +347,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 break;
             }
         }
-        waitForSecs(15);
+
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY, "Save button in Dashboard Visibility", MEDIUMWAIT);
         waitForSecs(20);
     }
@@ -360,7 +360,6 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         } catch (NoSuchElementException | AssertionError e) {
             e.getMessage();
         }
-        wait(10);
         safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", LONGWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
         waitForPageToLoad();
@@ -411,8 +410,10 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Accessing Dashboard by sample user after removing required role")
     public void accessDashboardByUserAfterRemovingRequiredRole() throws InterruptedException {
         waitUntilClickable(ERROR_MESSAGE, "Error popup for accessing dashboard", MEDIUMWAIT);
-        if (!driver.findElement(ERROR_MESSAGE).isDisplayed())
+        if (!driver.findElement(ERROR_MESSAGE).isDisplayed()) {
             Assert.fail("Error message is not displayed for user without access");
+        }
+        safeClick(CLOSE_ERROR_POPUP, "Close button in error popup", MEDIUMWAIT);
     }
 
     @Step("Set 'Owner Roles' in 'Dashboard Visibility'")
@@ -447,7 +448,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
                 break;
             }
         }
+        waitForSecs(15);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY, "Save button in Dashboard Visibility", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
     @Step("Accessing Dashboard by sample user with 'Owner Roles'")
@@ -493,10 +496,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("Accessing Dashboard by sample user after removing owner role")
     public void accessDashboardByUserAfterRemovingOwnerRole() throws InterruptedException {
-        refresh();
-        waitUntilClickable(ERROR_MESSAGE, "Error popup for accessing dashboard", MEDIUMWAIT);
-        if (!driver.findElement(ERROR_MESSAGE).isDisplayed())
+        if (!driver.findElement(ERROR_MESSAGE).isDisplayed()) {
             Assert.fail("Error message is not displayed for user without access");
+        }
     }
 
     @Step("Navigating to Drillthrough page from pivot page")

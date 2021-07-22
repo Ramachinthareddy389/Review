@@ -65,4 +65,15 @@ public class SLAsTests extends BaseSetup {
         slAsPage.addingThresholdValueInEditSLAswindow();
         slAsPage.verifyingAddedThresholdInEditWindow();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_216_AddActionsinEditSLAconfigwindow(){
+
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction();
+        slAsPage.addingActionsInEditSLAConfigWindow();
+        slAsPage.verifyingActionsInEditSLAConfigWindow();
+
+    }
 }
