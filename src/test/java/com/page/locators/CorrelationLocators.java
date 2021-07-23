@@ -71,8 +71,11 @@ public interface CorrelationLocators {
     By DROPDOWN_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
     By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/span");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
-
+    By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
+    By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
+    By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By EDITED_LSTREAM_NAME_TXTBOX = By.xpath("//input[@id='leftStream.name']");
+
     By EDITED_LSTREAM_TIMETOLIVE_TXTBOX = By.xpath("//input[@id='leftStream.timeToLive']");
     By EDITED_LSTREAM_PARTITION_KEY = By.xpath("//input[@id='leftStream.partitionKey']");
     By EDITED_LSTREAM_ORDER_BY = By.xpath("//input[@id='leftStream.orderBy']");
@@ -92,6 +95,10 @@ public interface CorrelationLocators {
     By EDITED_LSTREAM_KPIS_LABEL = By.xpath("//span[text()='Left Stream KPIs']");
     By EDITED_LSTREAM_KPI_VALUE = By.xpath("//input[@id='leftStream.kpis']/../../../div/span");
     By EDITED_RSTREAM_KPI_VALUE = By.xpath("//input[@id='rightStream.kpis']/../../../div/span");
+    By EDITED_LSTREAM_PARTITION_VALUE = By.xpath("//input[@id='leftStream.partitionKey']/../../../div[1]");
+    By EDITED_LSTREAM_ORDER_VALUE = By.xpath("//input[@id='leftStream.orderBy']/../../../div[1]");
+    By EDITED_RSTREAM_PARTITION_VALUE = By.xpath("//input[@id='rightStream.partitionKey']/../../../div[1]");
+    By EDITED_RSTREAM_ORDER_VALUE = By.xpath("//input[@id='rightStream.orderBy']/../../../div[1]");
     By BTN_MAXIMIZE = By.xpath("//div[@aria-label='Maximize']/span/i");
 
     By EDITED_RSTREAM_LABEL =By.xpath("//span[text()='Right Stream Name']");

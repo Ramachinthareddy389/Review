@@ -333,6 +333,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         Assert.assertEquals(actualText, expectedText);
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+
+        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
 
@@ -365,7 +369,11 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         String expectedTextAfterEdit = "FactCounter";
         Assert.assertEquals(After_Edit_Type, expectedTextAfterEdit);
         waitForSecs(10);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
     public void AddingCorrrlationStreamPage() {
@@ -471,7 +479,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Rstream_KPIS_add = safeGetText(RSTREAM_KPIS_VALUE, "Server textbox value", MEDIUMWAIT);
         System.out.println(Rstream_KPIS_add);
-
+      waitForSecs(5);
         safeClick(LABEL_PARTITION_KEY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_PARTITION_KEY, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(DROPDOWN_PARTITION_KEY, "bucket", "Server name into textbox", MEDIUMWAIT);
@@ -528,7 +536,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(15);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = Stream_Correlation;
@@ -536,9 +544,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(10);
         System.out.println(Correlation_Name_Add + ":" + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + Correlation_LStream_Add + ":" + driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value") +
                 TimeToLive_LStream_add + driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Lstream_KPIS_add + ":"+driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText() + Lstream_PartitionKey_add + driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText() + Lstream_OrderKey_add + driver.findElement(EDITED_LSTREAM_ORDER_BY).getText() + Correlation_RStream_Add + ":" + driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value") + TimeToLive_RStream_add + ":" + driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Rstream_KPIS_add + ":" + driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText() + Rstream_PartitionKey_add + ":" + driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText() + Rstream_OrderKey_add + ":" + driver.findElement(EDITED_RSTREAM_ORDER_BY).getText() + CostFun_add + ":" + driver.findElement(EDITED_COST_FUNCTION).getText() + PairFun_add + ":" + driver.findElement(EDITED_PAIR_FUNCTION).getText());
-
         if (Correlation_Name_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && Correlation_LStream_Add.equals(driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value")) &&
-                TimeToLive_LStream_add.equals(driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Lstream_KPIS_add.equals(driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText()) && Lstream_PartitionKey_add.equals(driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText()) && Lstream_OrderKey_add.equals(driver.findElement(EDITED_LSTREAM_ORDER_BY).getText()) && Correlation_RStream_Add.equals(driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")) && TimeToLive_RStream_add.equals(driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Rstream_KPIS_add.equals(driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText()) && Rstream_PartitionKey_add.equals(driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText()) && Rstream_OrderKey_add.equals(driver.findElement(EDITED_RSTREAM_ORDER_BY).getText()) && CostFun_add.equals(driver.findElement(EDITED_COST_FUNCTION).getText()) && PairFun_add.equals(driver.findElement(EDITED_PAIR_FUNCTION).getText()))
+                TimeToLive_LStream_add.equals(driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Lstream_KPIS_add.equals(driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText()) && Lstream_PartitionKey_add.equals(driver.findElement(EDITED_LSTREAM_PARTITION_VALUE).getText()) && Lstream_OrderKey_add.equals(driver.findElement(EDITED_LSTREAM_ORDER_VALUE).getText()) && Correlation_RStream_Add.equals(driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")) && TimeToLive_RStream_add.equals(driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Rstream_KPIS_add.equals(driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText()) && Rstream_PartitionKey_add.equals(driver.findElement(EDITED_RSTREAM_PARTITION_VALUE).getText()) && Rstream_OrderKey_add.equals(driver.findElement(EDITED_RSTREAM_ORDER_VALUE).getText()) && CostFun_add.equals(driver.findElement(EDITED_COST_FUNCTION).getText()) && PairFun_add.equals(driver.findElement(EDITED_PAIR_FUNCTION).getText()))
         {
             System.out.println("Valid Details");
         } else {
@@ -546,6 +553,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+
     }
 
     public void EditStreamCorrelationScenarios() {
@@ -600,6 +608,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Edited_LStreamKpis_Add);
 
         safeClick(EDITED_LSTREAM_PARTITION_LABEL, "Server Feild", MEDIUMWAIT);
+        waitForSecs(7);
         safeType(EDITED_LSTREAM_PARTITION_KEY, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
@@ -615,6 +624,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Edited_LStreamPartition_Add);
 
         safeClick(EDITED_LSTREAM_ORDER_LABEL, "Server Feild", MEDIUMWAIT);
+        waitForSecs(7);
         safeType(EDITED_LSTREAM_ORDER_BY, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
@@ -646,7 +656,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         searchField2.sendKeys(del2 + "7000");
         Edited_RStreamTimeToLive_Add = safeGetAttribute(EDITED_RSTREAM_TIMETOLIVE_TXTBOX, "value", "Timetolive", MEDIUMWAIT);
         System.out.println(Edited_RStreamTimeToLive_Add);
-
+        waitForSecs(7);
         safeClick(EDITED_RSTREAM_KPIS_LABEL, "Server Feild", MEDIUMWAIT);
         safeClick(CLOSINGADDED_KPIS, "ClosingKpis's", MEDIUMWAIT);
         safeClick(EDITED_RIGHT_KPIS_GHSOTTXET, "Server textbox", MEDIUMWAIT);
@@ -666,6 +676,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Edited_RStreamKpis_Add);
 
         safeClick(EDITED_RSTREAM_PARTITION_LABEL, "Server Feild", MEDIUMWAIT);
+        waitForSecs(7);
         safeType(EDITED_RSTREAM_PARTITION_KEY, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
@@ -681,6 +692,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Edited_RStreamPartition_Add);
 
         safeClick(EDITED_RSTREAM_ORDER_LABEL, "Server Feild", MEDIUMWAIT);
+        waitForSecs(7);
         safeType(EDITED_RSTREAM_ORDER_BY, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
@@ -741,6 +753,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+
     }
 
 
