@@ -12,6 +12,7 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.util.Random;
 
 public class HTTPTests extends BaseSetup {
@@ -62,8 +63,35 @@ public class HTTPTests extends BaseSetup {
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_243_AddHTTPScenarioconfiguration(){
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
         httpPage.addingHttpScenario();
+        httpPage.verifyingHttpScenario();
+
     }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_244_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException {
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        httpPage.configuringNodeInAPMModule();
+        httpPage.configuringEnginesInAPMModule();
+        httpPage.addingHTTPScenarioUsingharFile();
+        httpPage.verifyingHttpScenario();
+
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_245_AddScenarioTargetsinEditHTTPScenariowindow() throws InterruptedException, AWTException {
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        httpPage.configuringNodeInAPMModule();
+        httpPage.configuringEnginesInAPMModule();
+        httpPage.addingHTTPScenarioUsingharFile();
+        httpPage.verifyingHttpScenario();
+    }
+
+
 }

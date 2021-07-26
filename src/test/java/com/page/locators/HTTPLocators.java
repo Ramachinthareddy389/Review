@@ -46,8 +46,8 @@ public interface HTTPLocators {
     By TXTBOX_ENGINE = By.xpath("//input[@id='nodeAndEngine_child']");
 
     By LABEL_MONITORING_NODE= By.xpath("//span[text()='Monitoring Node']");
-    By MONITORING_NODE_GHOSTTEXT = By.xpath("//input[@id='nodeAndEngine_child']/../../../div[1]");
-    By TXTBOX_MONITORING_NODE = By.xpath("//input[@id='nodeAndEngine_child']");
+    By MONITORING_NODE_GHOSTTEXT = By.xpath("//input[@id='nodeAndEngine']/../../../div[1]");
+    By TXTBOX_MONITORING_NODE = By.xpath("//input[@id='nodeAndEngine']");
 
 
     By LABEL_APPLICATION_NAME= By.xpath("//span[text()='Application Name']");
@@ -71,6 +71,14 @@ public interface HTTPLocators {
     By TXTBOX_MONITORED = By.xpath("//input[@id='monitoredServer']");
     By ENGINE_MONITORIN_GPROFILES = By.xpath("//h4[text()='Engine Monitoring Profiles:']//../following-sibling::button/span/i");
     By APPLYPROFILEDROPDOWN     = By.xpath("//span[text()='Apply']/../../div/div");
-
+    By LABEL_THRESHOLD_SLA = By.xpath("//label[@id='threshold-label']");
+    By TXTBOX_SLA_THRESHOLD = By.xpath("//input[@id='threshold']");
+    By LABEL_ACTIONS = By.xpath("//span[text()='SLA Actions']");
+    By ACTIONS_GHOSTTEXT = By.xpath("//input[@id='actions']/../../../div[1]");
+    By TXTBOX_ACTIONS= By.xpath("//input[@id='actions']");
+    By LABEL_HTTPSCENARIO_HAR_FILE = By.xpath("//li[text()='HTTP Scenario (from .har file)']");
+    By BTN_IMPORT = By.xpath("//i[@aria-label='Select .har file to import']");
+    By SCENARIO_TARGET_ICON = By.xpath("//span[text()='Scenario Targets']/../../../div/button/span/i[@aria-label='Add New Configuration']");
+    By LABEL_HTTPSCENARIO_TARGET = By.xpath("//li[text()='HTTP Scenario Target']");
 
 }
