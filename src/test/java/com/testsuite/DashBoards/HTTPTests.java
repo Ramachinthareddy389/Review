@@ -62,25 +62,25 @@ public class HTTPTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_243_AddHTTPScenarioconfiguration(){
+    public void TC_243_AddHTTPScenarioconfiguration()
+    {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
         httpPage.addingHttpScenario();
-        httpPage.verifyingHttpScenario();
+
 
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_244_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException {
+    public void TC_244_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException
+    {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
         httpPage.addingHTTPScenarioUsingharFile();
         httpPage.verifyingHttpScenario();
-
-
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")

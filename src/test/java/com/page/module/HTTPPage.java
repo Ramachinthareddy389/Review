@@ -234,7 +234,6 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
             safeClick(LABEL_MONITORING_NODE, "Server Feild", MEDIUMWAIT);
             safeClick(MONITORING_NODE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
             safeClearAndType(TXTBOX_MONITORING_NODE, NodeJS, "Server name into textbox", MEDIUMWAIT);
-            waitForSecs(10);
             List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
             System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
             for (int i = 0; i < dbs2.size(); i++) {
@@ -276,8 +275,10 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
             }
         }
         application_add = safeGetText(APPLICATION_NAME_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_SERVERNAME,"Clickinng servername",MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME,"Http Request","Entering value",MEDIUMWAIT);
         safeClick(LABEL_PATH, "Name Feild", MEDIUMWAIT);
@@ -286,12 +287,12 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         System.out.println(path_Add);
         safeClick(LABEL_REQUEST_METHOD, "Server Feild", MEDIUMWAIT);
         safeClick(REQUEST_METHOD_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_REQUEST_METHOD, "FORM", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_REQUEST_METHOD, "CONNECT", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("FORM")) {
+            if (dbs1.get(i).getText().equals("CONNECT")) {
 
                 dbs1.get(i).click();
                 break;
@@ -315,8 +316,9 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         }
         content_add = safeGetText(CONTENT_TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(content_add);
+        waitForSecs(10);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
-        safeClick(LABEL_THRESHOLD_SLA,"MOonitor name",MEDIUMWAIT);
+       /* safeClick(LABEL_THRESHOLD_SLA,"MOonitor name",MEDIUMWAIT);
         safeType(TXTBOX_SLA_THRESHOLD,"5","Threshold value",MEDIUMWAIT);
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
@@ -330,7 +332,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
                 dbs6.get(i).click();
                 break;
             }
-        }
+        }*/
         waitForSecs(20);
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
         waitForSecs(15);
