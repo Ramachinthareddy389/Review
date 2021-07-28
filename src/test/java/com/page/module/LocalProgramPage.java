@@ -91,7 +91,24 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         waitForSecs(10);
     }
 
+    public void addingLocalProgramWithoutSla(){
+        safeClick(LABEL_SERVERNAME,"Name Label",MEDIUMWAIT);
+        safeType(TXTBOX_SERVERNAME,LCLPRGM,"Name Textbox",MEDIUMWAIT);
+        server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(server_Add);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(LABEL_PROGRAM, "Server Feild", MEDIUMWAIT);
+        safeType(TXTBOX_PROGRAM,"Program","Name Textbox",MEDIUMWAIT);
+        program_Add = safeGetAttribute(TXTBOX_PROGRAM, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(program_Add);
+        safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeCheck(CHKBOX_RUNSCHEDULE,"Run Schedule checkbox",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
 
+    }
     public void verifyingAddedScriptInLocalPrograms(){
         safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -141,5 +158,48 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         waitForSecs(10);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
 
+    }
+
+    public void verifyingAddedSLAsInLocalProgramsWindow(){
+        safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
+        safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
+        safeClick(ACTION_SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(ACTION_SLA_TXTBOX, "Alert - raw - test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs3.size(); i++) {
+
+            if (dbs3.get(i).getText().equals("Alert - raw - test")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        String sla = safeGetText(ACTION_SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(sla);
+        String[] parts = sla.split(" - ");
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        sla_add = parts[2]; // 004
+        System.out.println(sla_add);
+        safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        Assert.assertEquals(sla_add, driver.findElement(HYPERLINK_SLAs).getText());
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
     }
 }

@@ -49,10 +49,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
         waitForPageToLoad();
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
+        safeClick(FOLDER_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TEXTBOX_Folder, "Dashboards", "Server name into textbox", MEDIUMWAIT);
         waitForSecs(10);
         List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         System.out.println("Total no 0f dashboards:::====> " + dbs.size());
-       // waitUntilClickable(By.xpath("//div[contains(@class,'MuiListItem-button')][@id='react-select-2-option-0']"), "text", 5000);
         for (int i = 0; i < dbs.size(); i++) {
 
             if (dbs.get(i).getText().contains("Dashboards")) {
@@ -75,7 +76,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     public void searchingDashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(5);
+        waitForSecs(15);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);

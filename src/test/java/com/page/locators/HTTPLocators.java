@@ -44,16 +44,12 @@ public interface HTTPLocators {
     By LABEL_ENGINE = By.xpath("//span[text()='Engine']");
     By ENGINE_GHOSTTEXT = By.xpath("//input[@id='nodeAndEngine_child']/../../../div[1]");
     By TXTBOX_ENGINE = By.xpath("//input[@id='nodeAndEngine_child']");
-
     By LABEL_MONITORING_NODE= By.xpath("//span[text()='Monitoring Node']");
     By MONITORING_NODE_GHOSTTEXT = By.xpath("//input[@id='nodeAndEngine']/../../../div[1]");
     By TXTBOX_MONITORING_NODE = By.xpath("//input[@id='nodeAndEngine']");
-
-
     By LABEL_APPLICATION_NAME= By.xpath("//span[text()='Application Name']");
     By APPLICATION_NAME_GHOSTTEXT = By.xpath("//input[@id='monitoredApplication']/../../../div[1]");
     By TXTBOX_APPLICATION_NAME = By.xpath("//input[@id='monitoredApplication']");
-
     By APMHEADER = By.xpath("//span[text()='APM']");
     By APMSTATE_HEADER = By.xpath("//span[text()='APM State']");
     By NODES_TAB = By.xpath("//span[contains(text(),'Nodes')]");

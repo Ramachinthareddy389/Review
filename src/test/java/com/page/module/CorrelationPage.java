@@ -35,6 +35,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
     }
 
     public void clickingOnCorrelation() {
+        waitForSecs(10);
         safeClick(BTN_ANALYTICS, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_CORRELATION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
@@ -45,6 +46,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeType(TXTBOX_NAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
+        waitForSecs(10);
         safeClick(LABEL_TYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_TYPE, "Alert Event", "Server name into textbox", MEDIUMWAIT);
@@ -60,6 +62,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Type_add = safeGetText(TYPE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Type_add);
+        waitForSecs(10);
         Type_add1 = Type_add.replaceAll("\\s+", "");
         waitForSecs(5);
         safeClick(TXTBOX_NAME_GENERATOR, "Metric Exp", MEDIUMWAIT);

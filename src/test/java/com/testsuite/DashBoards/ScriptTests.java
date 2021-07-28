@@ -3,21 +3,19 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.HTTPPage;
 import com.page.module.HardwarePage;
 import com.page.module.LocalProgramPage;
 import com.page.module.LoginPage;
+import com.page.module.ScriptPage;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
-public class LocalProgramTests extends BaseSetup {
+public class ScriptTests  extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
-    private LocalProgramPage localProgramPage;
+    private ScriptPage scriptPage;
     private HardwarePage hardwarePage;
     private String sModeOfExecution;
 
@@ -26,7 +24,7 @@ public class LocalProgramTests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        localProgramPage  = new LocalProgramPage(getDriver());
+        scriptPage  = new ScriptPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
@@ -40,29 +38,12 @@ public class LocalProgramTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_253_AddLocalProgramConfiguration() throws InterruptedException
+    public void TC_253_AddScriptconfigurationwithallConnectionTypes() throws InterruptedException
     {
-        localProgramPage.clickingOnAutomation();
-        localProgramPage.addingLocalPrograms();
-        localProgramPage.verifyingLocalprogrames();
+        scriptPage.clickingOnAutomation();
+        scriptPage.addingScripts();
+        scriptPage.verifyingAddedScript();
 
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_254_AddScriptinAddEditLocalProgramwindow() throws InterruptedException
-    {
-        localProgramPage.clickingOnAutomation();
-        localProgramPage.addingLocalPrograms();
-        localProgramPage.verifyingAddedScriptInLocalPrograms();
-
-
-    }
-
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_255_AddSLAsinAddEditLocalProgramWindow()
-    {
-        localProgramPage.clickingOnAutomation();
-        localProgramPage.addingLocalProgramWithoutSla();
-        localProgramPage.verifyingAddedSLAsInLocalProgramsWindow();
-    }
 }

@@ -30,6 +30,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
     }
 
     public void clickingOnCorrelation() {
+        waitForSecs(10);
         safeClick(BTN_ANALYTICS, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_KPIS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_ADDICON_KPIS, "Add button", MEDIUMWAIT);
@@ -40,7 +41,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeType(TXTBOX_NAME, KpisName, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-
+       waitForSecs(10);
         safeClick(LABEL_FACTTYPE, "Server Feild", MEDIUMWAIT);
         safeClick(FACTTYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_FACTTYPE, "Alert Event", "Server name into textbox", MEDIUMWAIT);
@@ -57,7 +58,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         Fact_Type_add = safeGetText(FACTTYPE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Fact_Type_add);
         Fact_Type_add = Fact_Type_add.replaceAll("\\s+", "");
-
+        waitForSecs(10);
         safeClick(LABEL_FACT_CATEGORY, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_FACT_CATEGORY, "Fact Category", "Name into textbox", MEDIUMWAIT);
         FactCategory_Add = safeGetAttribute(TXTBOX_FACT_CATEGORY, "value", "Name textbox value", MEDIUMWAIT);

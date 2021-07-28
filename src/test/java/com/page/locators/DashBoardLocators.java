@@ -11,10 +11,11 @@ public interface DashBoardLocators {
     By LABEL_NEW_FOLDER   =By.xpath("//li[text()='Folder']");
     By TEXTBOX_DASHBOARD_WINDOW =By.id("name");
     By LISTBOX_Folder =By.xpath("//*[text()='Folder']/../../../div//div[contains(@class,'body1')]");
-    By TEXTBOX_Folder=By.xpath("//div[text()='Select or Add...']");
+    By FOLDER_GHOSTTEXT = By.xpath("//input[@id='folder']/../../../div[1]");
+    By TEXTBOX_Folder=By.xpath("//input[@id='folder']");
     By DROPDOWN_DASHBOARD_FOLDER=By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By BUTTON_FINISH=By.xpath("//span[text()='Finish']");
-    By TEXT_NOTIFY=By.xpath("//li[text()='Dashboard created.']");
+    By TEXT_NOTIFY=By.xpath("//li[text()='Dashboard create']");
     By BUTTON_CLOSE=By.xpath("//span[text()='Close']");
     By ROWPERPAGE_DROPDOWN=By.className("MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon");
     By ROWS_DROPDOWN_Label_All=By.xpath("#menu->div>ul>li:nth-child(4)");

@@ -33,6 +33,7 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
     public void clickingOnSoftware() {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_SOFTWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void addingNewSoftware() {
