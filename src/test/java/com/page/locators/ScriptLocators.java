@@ -29,5 +29,10 @@ public interface ScriptLocators {
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By USED_BY_ACTIONS_HYPERLINK = By.xpath("//span[text()='Used By Actions']/../../../div/div/button");
+    By TARGET_BY_SLA_ADD_ICON = By.xpath("//span[text()='Triggered By SLAs']/../../../div/button/span/i");
+    By ACTION_SLA_GHOSTTEXT = By.xpath("//input[@id='names']/../../../div[1]");
+    By ACTION_SLA_TXTBOX = By.xpath("//input[@id='names']");
+    By HYPERLINK_SLAs = By.xpath("//span[text()='Triggered By SLAs']/../../../div/div/button");
 
 }

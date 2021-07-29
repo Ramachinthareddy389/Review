@@ -46,4 +46,21 @@ public class ScriptTests  extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_268_EditScriptConfigurartion()
+    {
+        scriptPage.clickingOnAutomation();
+        scriptPage.addingScripts();
+        scriptPage.editScriptConfigurationWindow();
+        scriptPage.verifyingAddedScript();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_270_AddSLAinAddScriptwindow()
+    {
+        scriptPage.clickingOnAutomation();
+        scriptPage.addinSLA();
+        scriptPage.verifyingAddedSLAsScriptWindow();
+    }
+
 }
