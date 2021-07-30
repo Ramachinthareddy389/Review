@@ -82,7 +82,6 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         waitForSecs(10);
         Assert.assertEquals(sla_add,driver.findElement(HYPERLINK_SLAs).getText());
         Assert.assertEquals(program_Add,driver.findElement(TXTBOX_PROGRAM).getAttribute("value"));
-
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
