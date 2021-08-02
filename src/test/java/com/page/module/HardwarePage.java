@@ -39,12 +39,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println(Server_Add);
         safeClick(LABEL_ENVIRONMENT, "Server Feild", MEDIUMWAIT);
         safeClick(ENVIRONMENT_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ENVIRONMENT, "AWS", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ENVIRONMENT, "Default", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("AWS")) {
+            if (dbs1.get(i).getText().equals("Default")) {
 
                 dbs1.get(i).click();
                 break;
@@ -54,12 +54,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println(Environment_add);
         safeClick(LABEL_TYPE, "Vendor Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_TYPE, "App Server", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_TYPE, "Web Server", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db.size());
         for (int i = 0; i < db.size(); i++) {
 
-            if (db.get(i).getText().equals("App Server")) {
+            if (db.get(i).getText().equals("Web Server")) {
 
                 db.get(i).click();
                 break;

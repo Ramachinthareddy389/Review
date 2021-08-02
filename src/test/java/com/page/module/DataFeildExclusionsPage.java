@@ -43,12 +43,12 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         System.out.println(Name_Add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Agent Status", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("Agent Status")) {
+            if (dbs2.get(i).getText().equals("Database Errors")) {
 
                 dbs2.get(i).click();
                 break;

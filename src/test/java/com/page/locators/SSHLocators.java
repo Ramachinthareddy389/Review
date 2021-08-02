@@ -47,4 +47,11 @@ public interface SSHLocators {
     By ACTION_SLA_TXTBOX = By.xpath("//input[@id='names']");
     By SCRIPT_ADDICON = By.xpath("//i[@aria-label='Script to execute.']/../../../../../../button/span/i");
     By BTN_SCRIPT= By.xpath("//span[text()='Script']");
+    By LABEL_MONITORED_SERVER = By.xpath("//span[text()='Monitored Server']");
+    By LABEL_EDITED_CREDENTIALS = By.xpath("//label/p/span[text()='Credentials']");
+
+    //WMI Locators
+
+    By BTN_WMI = By.xpath("//span[text()='WMI']");
+    By BTN_ADDICON_WMI = By.xpath("//h5[text()='Windows Management Instrumentation']/../div/div/button/span/i[@aria-label='Add New Configuration']");
 }

@@ -12,7 +12,7 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SSHTests extends BaseSetup {
+public class SSHNdWMITests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private SSHPage sshPage;
@@ -24,7 +24,7 @@ public class SSHTests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        sshPage  = new SSHPage(getDriver());
+        sshPage = new SSHPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
@@ -38,20 +38,34 @@ public class SSHTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_293_AddSSHConfiguration() throws InterruptedException
-    {
+    public void TC_293_AddSSHConfiguration() throws InterruptedException {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingAddedSSH();
-
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_296_AddNewScriptFromAddEditWindow()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_296_AddNewScriptFromAddEditWindow() {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingAddedScriptInSSH();
         sshPage.verifyingInScriptPage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_300_EditSSHConfiguration(){
+        sshPage.clickingOnAutomation();
+        sshPage.addingSSH();
+        sshPage.addingEditedSSH();
+        sshPage.verifyingEditedValues();
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_311_AddWMIconfiguration() {
+        sshPage.ClickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.verifyingAddedSSH();
+
     }
 }

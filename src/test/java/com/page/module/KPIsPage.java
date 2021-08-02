@@ -135,12 +135,12 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         waitForSecs(5);
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ACTIONS, "QA Alert", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS, "user-login-report", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("QA Alert")) {
+            if (dbs3.get(i).getText().equals("user-login-report")) {
 
                 dbs3.get(i).click();
                 break;
@@ -374,12 +374,12 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(ACTIONS_ADD_ICON,"Actions Icon",MEDIUMWAIT);
         safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ACTIONS_NAME, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS_NAME, "user logon report", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("QA HTTP")) {
+            if (dbs3.get(i).getText().equals("user-login-report")) {
 
                 dbs3.get(i).click();
                 break;

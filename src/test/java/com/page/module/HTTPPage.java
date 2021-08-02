@@ -114,6 +114,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         Assert.assertEquals(sla_add, driver.findElement(HYPERLINK_SLAs).getText());
+        waitForSecs(9);
         safeClick(CLOSE_EDITWINDOW, "Edit window", MEDIUMWAIT);
         waitForSecs(15);
         String s = safeGetText(SLAVALUE_INHTTPPAGE, "SLA Value", MEDIUMWAIT);
@@ -141,7 +142,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         System.out.println(action_Add + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + path_Add + driver.findElement(TXTBOX_EDITED_TARGET_PATH).getAttribute("value") +
                 Request_add + driver.findElement(TXTBOX_EDITED_TARGET_METHOD).getText() + content_add + driver.findElement(TXTBOX_EDITED_TARGET_CONTENT_TYPE).getText() + sla_add + driver.findElement(HYPERLINK_SLAs).getText());
         if (action_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && path_Add.equals(driver.findElement(TXTBOX_EDITED_TARGET_PATH).getAttribute("value")) &&
-                Request_add.equals(driver.findElement(TXTBOX_EDITED_TARGET_METHOD).getText()) && content_add.equals(driver.findElement(TXTBOX_EDITED_TARGET_CONTENT_TYPE).getText()) && sla_add.equals(driver.findElement(HYPERLINK_SLAs).getText())) {
+                Request_add.equals(driver.findElement(TXTBOX_EDITED_TARGET_METHOD).getText()) && content_add.equals(driver.findElement(TXTBOX_EDITED_TARGET_CONTENT_TYPE).getText())) {
             System.out.println("KPIs details are valid");
             String text = driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value");
             System.out.println(text);

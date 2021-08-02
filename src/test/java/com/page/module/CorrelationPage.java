@@ -77,12 +77,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Retention_add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Agent Status", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("Agent Status")) {
+            if (dbs2.get(i).getText().equals("Database Errors")) {
 
                 dbs2.get(i).click();
                 break;
@@ -97,12 +97,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Name_Add1);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "engine", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("engine")) {
+            if (dbs5.get(i).getText().equals("bucket")) {
 
                 dbs5.get(i).click();
                 break;
@@ -404,12 +404,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
 
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "0 KPI Threshold", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("0 KPI Threshold")) {
+            if (dbs2.get(i).getText().equals("Database Errors")) {
 
                 dbs2.get(i).click();
                 break;

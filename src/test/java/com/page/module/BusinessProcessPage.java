@@ -42,12 +42,12 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         System.out.println(Name_Add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Agent Status", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Agent Status")) {
+            if (dbs1.get(i).getText().equals("Database Errors")) {
 
                 dbs1.get(i).click();
                 break;
@@ -57,12 +57,12 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         System.out.println(KPIS_add);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "color", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("color")) {
+            if (dbs2.get(i).getText().equals("bucket")) {
 
                 dbs2.get(i).click();
                 break;
@@ -70,6 +70,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         }
         KeyExp_add = safeGetText(KEYEXP_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KeyExp_add);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, dname1, "Name into textbox", MEDIUMWAIT);
@@ -160,12 +161,12 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(5);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Database DB Time", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Alert")) {
+            if (dbs1.get(i).getText().equals("Database DB Time")) {
 
                 dbs1.get(i).click();
                 break;
@@ -174,12 +175,12 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         Edited_KPIS_add = safeGetText(TXTBOX_EDITED_KPIS, "Server textbox value", MEDIUMWAIT);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "node", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("node")) {
+            if (dbs2.get(i).getText().equals("bucket")) {
 
                 dbs2.get(i).click();
                 break;
@@ -298,6 +299,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         Assert.assertEquals(actualText1, expectedText);
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 

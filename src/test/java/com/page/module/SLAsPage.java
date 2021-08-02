@@ -34,12 +34,12 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(BTN_ADDICON_SLAS,"Add SLAS button",MEDIUMWAIT);
         safeClick(LABEL_KPI_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(KPI_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(KPINAME_TXTBOX, "Agent Status", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(KPINAME_TXTBOX, "Database Errors", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Agent Status")) {
+            if (dbs1.get(i).getText().equals("Database Errors")) {
 
                 dbs1.get(i).click();
                 break;
