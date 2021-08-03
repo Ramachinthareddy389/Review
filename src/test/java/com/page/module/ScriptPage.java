@@ -61,12 +61,12 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "Alert - raw - test", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "- raw -", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
         for (int i = 0; i < dbs4.size(); i++) {
 
-            if (dbs4.get(i).getText().equals("Alert - raw - test")) {
+            if (dbs4.get(i).getText().equals("- raw -")) {
 
                 dbs4.get(i).click();
                 break;
@@ -75,9 +75,9 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         String sla = safeGetText(SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(sla);
         System.out.println(sla);
-        String[] parts = sla.split(" - ");
-        sla_add = parts[2]; // 004
-        System.out.println(sla_add);
+       // String[] parts = sla.split(" - ");
+        //sla_add = parts[2]; // 004
+        //System.out.println(sla_add);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
@@ -159,6 +159,7 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         }
         type_add = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(type_add);
+        waitForSecs(7);
         safeClick(LABEL_CONTENT, "Server Feild", MEDIUMWAIT);
         safeClearAndType(CONTENT_TEXTAREA, "test", "Server name into textbox", MEDIUMWAIT);
         content_add = safeGetText(CONTENT_TEXTAREA, "Server textbox value", MEDIUMWAIT);
@@ -193,12 +194,12 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(ACTION_SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(ACTION_SLA_TXTBOX, "Alert - raw - test", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(ACTION_SLA_TXTBOX, "Database Dead Rows - raw - Default SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Alert - raw - test")) {
+            if (dbs3.get(i).getText().equals("Database Dead Rows - raw - Default SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -210,15 +211,15 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        sla_add = parts[2]; // 004
-        System.out.println(sla_add);
+       // sla_add = parts[2]; // 004
+        //System.out.println(sla_add);
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        Assert.assertEquals(sla_add, driver.findElement(HYPERLINK_SLAs).getText());
+        Assert.assertEquals(sla, driver.findElement(HYPERLINK_SLAs).getText());
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);

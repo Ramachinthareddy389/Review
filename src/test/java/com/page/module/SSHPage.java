@@ -7,6 +7,7 @@ import com.testng.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
 import java.util.Random;
@@ -26,14 +27,18 @@ public class SSHPage extends SafeActions implements SSHLocators {
         this.driver = driver;
     }
 
-    public void clickingOnAutomation() {
+    @Step("Navigating to SSH page from automation module")
+    public void clickingOnAutomation()
+    {
         safeClick(BTN_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_SSH, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_ADDICON_SSH, "Add button", MEDIUMWAIT);
         waitForSecs(10);
     }
 
-    public void addingSSH() {
+    @Step("Creating New SSh page")
+    public void addingSSH()
+    {
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, SSH, "Name Textbox", MEDIUMWAIT);
         server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -103,7 +108,9 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public void verifyingAddedSSH() {
+    @Step("Verifying configured values in SSH page")
+    public void verifyingAddedSSH()
+    {
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -128,7 +135,9 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(10);
     }
 
-    public void verifyingAddedScriptInSSH() {
+    @Step("Adding script from SSH edit window")
+    public void AddedScriptInSSHEditWindow()
+    {
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -176,10 +185,13 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
 
     }
 
-    public void verifyingInScriptPage() {
+    @Step("Verifying added script in SSH edit window")
+    public void verifyingaddedScriptInSSHPage()
+    {
         safeClick(BTN_SCRIPT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -196,17 +208,22 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(5);
 
     }
 
-    public void ClickingOnWMIInAutomation(){
+    @Step("Navigating to WMI page from automation module")
+    public void clickingOnWMIInAutomation()
+    {
         safeClick(BTN_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_WMI, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_ADDICON_WMI, "Add button", MEDIUMWAIT);
         waitForSecs(10);
     }
 
-    public void addingEditedSSH(){
+    @Step("Editing/modifying the values in SSH edit window")
+    public void addingEditedSSH()
+    {
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -266,7 +283,9 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
 
     }
- public void verifyingEditedValues(){
+    @Step("Verifying the edited values in SSH edit window ")
+    public void verifyingAfterSSHEditedConfigValues()
+    {
      safeType(TEXTBOX_TYPESEARCH, WMI + "\n", "Alert Name into type search");
      System.out.println("entered dbtext");
      waitForSecs(9);

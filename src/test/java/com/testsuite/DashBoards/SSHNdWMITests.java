@@ -38,34 +38,54 @@ public class SSHNdWMITests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_293_AddSSHConfiguration() throws InterruptedException {
+    public void TC_293_AddSSHConfiguration() throws InterruptedException
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingAddedSSH();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_296_AddNewScriptFromAddEditWindow() {
+    public void TC_296_AddNewScriptFromAddEditSSHWindow()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
-        sshPage.verifyingAddedScriptInSSH();
-        sshPage.verifyingInScriptPage();
+        sshPage.AddedScriptInSSHEditWindow();
+        sshPage.verifyingaddedScriptInSSHPage();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_300_EditSSHConfiguration(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_300_EditSSHConfiguration()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.addingEditedSSH();
-        sshPage.verifyingEditedValues();
+        sshPage.verifyingAfterSSHEditedConfigValues();
     }
 
-
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_311_AddWMIconfiguration() {
-        sshPage.ClickingOnWMIInAutomation();
+    public void TC_311_AddWMIconfiguration()
+    {
+        sshPage.clickingOnWMIInAutomation();
         sshPage.addingSSH();
         sshPage.verifyingAddedSSH();
 
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_314_AddnewScriptfromAddEditWMIwindow()
+    {
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.AddedScriptInSSHEditWindow();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_318_EditWMIconfiguration()
+    {
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.addingEditedSSH();
+        sshPage.verifyingAfterSSHEditedConfigValues();
     }
 }
