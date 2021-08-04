@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite thread-count="3" parallel="tests" verbose="10" name="Germain Suite"
+<suite thread-count="1" parallel="tests" verbose="10" name="Germain Suite"
 	   annotations="JDK"  preserve-order="true" >
 
 	<listeners>
@@ -15,7 +15,7 @@
 		<parameter name="session" value="Testing" />
 		<classes>
 
-			<class name="com.testsuite.DashBoards.OprationalTests"></class>
+		<!--	<class name="com.testsuite.DashBoards.OprationalTests"></class> -->
 			<class name="com.testsuite.DashBoards.InsightsTest"></class>
 			<class name="com.testsuite.DashBoards.WizardsTests"></class>
 			<class name="com.testsuite.DashBoards.TicketsTest"></class>
@@ -50,7 +50,7 @@
 		<parameter name="osVersion" value="10" />
 		<parameter name="session" value="Testing" />
 		<classes>
-			<class name="com.testsuite.DashBoards.PortletsTests"></class>
+		<!--	<class name="com.testsuite.DashBoards.PortletsTests"></class> -->
 			<class name="com.testsuite.DashBoards.PivotTests"></class>
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
 			<class name="com.testsuite.DashBoards.BusinessProcessTests"></class>

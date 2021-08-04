@@ -4,11 +4,14 @@ import com.page.data.DashBoardData;
 import com.page.locators.SSHLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -308,5 +311,53 @@ public class SSHPage extends SafeActions implements SSHLocators {
      safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
      waitForSecs(10);
  }
+
+ //Click module
+
+    @Step("Navigating to Click page from automation module")
+    public void clickingOnClickModuleInAutomation()
+    {
+        safeClick(BTN_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CLICK, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(BTN_ADDICON_CLICK, "Add button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LABEL_RECORD,"Record option",MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
+    public void addingNewRecordingInClickPage() throws InterruptedException, AWTException
+    {
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[aria-label='Add to Chrome']")));
+        element.click();
+        Thread.sleep(5000);
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        waitForSecs(30);
+        driver.switchTo().window(tabs.get(0));
+    }
+
+    public void startedRecording()
+    {
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.navigate().to("https://www.google.com/");
+        driver.findElements(By.xpath("//center/input[@aria-label='Google Search']")).get(1).click();
+        driver.close();
+        driver.switchTo().window(tabs.get(1));
+        String s1 =   driver.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
+        System.out.println(s1);
+        String s2 =   driver.findElement(By.xpath("//tbody/tr[2]/td[1]")).getText();
+        System.out.println(s2);
+
+        safeClick(BTN_STOP,"Stop button",MEDIUMWAIT);
+        safeClick(BTN_EXPORT,"Export button",MEDIUMWAIT);
+
+
+    }
+
 
 }

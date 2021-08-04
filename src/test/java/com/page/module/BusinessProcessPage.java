@@ -55,14 +55,15 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         }
         KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KPIS_add);
+        waitForSecs(10);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "name", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("bucket")) {
+            if (dbs2.get(i).getText().equals("name")) {
 
                 dbs2.get(i).click();
                 break;
@@ -70,7 +71,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         }
         KeyExp_add = safeGetText(KEYEXP_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KeyExp_add);
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, dname1, "Name into textbox", MEDIUMWAIT);
@@ -186,6 +187,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
+        waitForSecs(10);
         EditKey_Exp_add = safeGetText(KEYEXP_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(EditKey_Exp_add);
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
@@ -298,8 +300,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         expectedText = "BP Metric";
         Assert.assertEquals(actualText1, expectedText);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
-        waitForSecs(10);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
 

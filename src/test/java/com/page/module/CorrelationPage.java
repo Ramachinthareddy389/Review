@@ -35,7 +35,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
     }
 
     public void clickingOnCorrelation() {
-        waitForSecs(10);
+        waitForSecs(30);
         safeClick(BTN_ANALYTICS, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_CORRELATION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
@@ -50,6 +50,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(LABEL_TYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_TYPE, "Alert Event", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(10);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
@@ -62,7 +63,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Type_add = safeGetText(TYPE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Type_add);
-        waitForSecs(10);
+        waitForSecs(20);
         Type_add1 = Type_add.replaceAll("\\s+", "");
         waitForSecs(5);
         safeClick(TXTBOX_NAME_GENERATOR, "Metric Exp", MEDIUMWAIT);
@@ -175,7 +176,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Business process details are invalid");
         }
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
 
@@ -261,7 +263,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Business process details are invalid");
         }
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 
@@ -338,7 +342,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
 
         safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
-        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
@@ -375,7 +379,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
         safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
-        safeClick(DELETE_SLAS,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
@@ -466,7 +470,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         searchField1.sendKeys(del + "5000");
         TimeToLive_RStream_add = safeGetAttribute(TXT_BOX_TIME_TO_LIVE, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(TimeToLive_RStream_add);
-
+        waitForSecs(10);
         safeClick(LABEL_RSTREAM_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_KPIS_RSTREAM, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(DROPDOWN_KPIS_RSTREAM, "0 KPI Threshold", "Server name into textbox", MEDIUMWAIT);
@@ -482,7 +486,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Rstream_KPIS_add = safeGetText(RSTREAM_KPIS_VALUE, "Server textbox value", MEDIUMWAIT);
         System.out.println(Rstream_KPIS_add);
-      waitForSecs(5);
+        waitForSecs(5);
         safeClick(LABEL_PARTITION_KEY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_PARTITION_KEY, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(DROPDOWN_PARTITION_KEY, "bucket", "Server name into textbox", MEDIUMWAIT);
@@ -555,7 +559,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Stream Correlation process details are invalid");
         }
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
 
     }
 
@@ -755,7 +760,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Stream Correlation process details are invalid");
         }
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
 
     }
 

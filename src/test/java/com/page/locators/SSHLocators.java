@@ -54,4 +54,11 @@ public interface SSHLocators {
 
     By BTN_WMI = By.xpath("//span[text()='WMI']");
     By BTN_ADDICON_WMI = By.xpath("//h5[text()='Windows Management Instrumentation']/../div/div/button/span/i[@aria-label='Add New Configuration']");
+
+    //Click Locators
+    By BTN_CLICK = By.xpath("//span[text()='Click']");
+    By BTN_ADDICON_CLICK = By.xpath("//h5[text()='Click']/../div/div/button/span/i");
+    By LABEL_RECORD = By.xpath("//li[text()='Record (with click recorder)']");
+    By BTN_STOP = By.xpath("//button[text()=' Stop ']");
+    By BTN_EXPORT = By.xpath("//button[text()=' Export ']");
 }

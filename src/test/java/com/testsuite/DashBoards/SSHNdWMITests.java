@@ -3,20 +3,20 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.HardwarePage;
-import com.page.module.LocalProgramPage;
-import com.page.module.LoginPage;
-import com.page.module.SSHPage;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.awt.*;
 
 public class SSHNdWMITests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private SSHPage sshPage;
     private HardwarePage hardwarePage;
+    private  HTTPPage httpPage;
     private String sModeOfExecution;
 
     @BeforeMethod(alwaysRun = true)
@@ -26,6 +26,7 @@ public class SSHNdWMITests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         sshPage = new SSHPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
+        httpPage = new HTTPPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -87,5 +88,26 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.addingSSH();
         sshPage.addingEditedSSH();
         sshPage.verifyingAfterSSHEditedConfigValues();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_329_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException
+    {
+       sshPage.clickingOnClickModuleInAutomation();
+       sshPage.addingNewRecordingInClickPage();
+       sshPage.clickingOnClickModuleInAutomation();
+       sshPage.startedRecording();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_330_Addclickbyimportingexistingharfileinsystem() throws InterruptedException, AWTException
+    {
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        httpPage.configuringNodeInAPMModule();
+        httpPage.configuringEnginesInAPMModule();
+        httpPage.addingHTTPScenarioUsingharFile();
+        httpPage.verifyingHttpScenario();
+
     }
 }

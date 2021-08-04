@@ -68,13 +68,14 @@ public interface CorrelationLocators {
     By TEXT_AREA_PAIR_FUNCTION = By.xpath("//span[text()='Pair Function']/../../../div/section/div/div/div/textarea");
     By LABEL_RSTREAM_KPIS = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
     By GHOSTTEXT_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
-    By DROPDOWN_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
-    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/span");
+    By DROPDOWN_KPIS_RSTREAM = By.xpath("//input[@id='kpis']");
+    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/di//input[@id='kpis']v/div/div/div/span");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
     By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By EDITED_LSTREAM_NAME_TXTBOX = By.xpath("//input[@id='leftStream.name']");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
 
     By EDITED_LSTREAM_TIMETOLIVE_TXTBOX = By.xpath("//input[@id='leftStream.timeToLive']");
     By EDITED_LSTREAM_PARTITION_KEY = By.xpath("//input[@id='leftStream.partitionKey']");

@@ -55,5 +55,6 @@ public interface BusinessProcessLocators {
     By TXTBOX_METRIC_EXP = By.cssSelector("textarea.inputarea");
     By BTN_REMOVE_BPSTEP_METRICS = By.xpath("//span[text()='BP Step Metrics']/../../../div/div/div/div[@aria-label='Remove Configuration']");
     By ADDED_BPMETRIC =By.xpath("//span[text()='BP Step Metrics']/../../../div/div/div/button");
-
+    By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
 }
