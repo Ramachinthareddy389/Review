@@ -89,6 +89,7 @@ public class HTTPTests extends BaseSetup {
         hardwarePage.addingNewHardware();
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
+        httpPage.addingHttpScenarioUsinharFile();
         httpPage.addingHTTPScenarioUsingharFile();
         httpPage.verifyingHttpScenario();
     }

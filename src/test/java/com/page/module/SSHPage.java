@@ -22,7 +22,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
     String SCRIPT = "Script" + "-" + random.nextInt(500);
     String SSH = "SSH" + "-" + random.nextInt(500);
     String WMI = "WMI"+ "-" + random.nextInt(500);
-    String Cred_add, server_Add, program_Add, sla_add, monitoredServer_add, script_Add;
+    String Cred_add, server_Add, program_Add, sla_add, monitoredServer_add, script_Add,Record2,Record1,AddedScenario1,AddedScenario2;
 
 
     public SSHPage(WebDriver driver) {
@@ -317,47 +317,117 @@ public class SSHPage extends SafeActions implements SSHLocators {
     @Step("Navigating to Click page from automation module")
     public void clickingOnClickModuleInAutomation()
     {
+        waitForSecs(10);
         safeClick(BTN_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_CLICK, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(BTN_ADDICON_CLICK, "Add button", MEDIUMWAIT);
+        waitForSecs(10);
+
+    }
+
+    public void addingNewRecordingInClickPage() throws InterruptedException, AWTException
+    {
+        safeClick(LABEL_RECORD,"Record option",MEDIUMWAIT);
+        waitForSecs(15);
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        waitForSecs(10);
+        driver.findElements(By.cssSelector("[aria-label='Add to Chrome']")).get(0).click();
+        waitForSecs(10);
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_UP);
+        Thread.sleep(500);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        Thread.sleep(500);
+    }
+
+    public void switchingToMainWindow(){
+
+        waitForSecs(30);
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(0));
+        waitForSecs(10);
         safeClick(BTN_ADDICON_CLICK, "Add button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LABEL_RECORD,"Record option",MEDIUMWAIT);
         waitForSecs(15);
     }
 
-    public void addingNewRecordingInClickPage() throws InterruptedException, AWTException
-    {
-        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[aria-label='Add to Chrome']")));
-        element.click();
-        Thread.sleep(5000);
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_TAB);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        waitForSecs(30);
-        driver.switchTo().window(tabs.get(0));
-    }
-
     public void startedRecording()
     {
         ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        waitForSecs(10);
         driver.navigate().to("https://www.google.com/");
         driver.findElements(By.xpath("//center/input[@aria-label='Google Search']")).get(1).click();
-        driver.close();
-        driver.switchTo().window(tabs.get(1));
-        String s1 =   driver.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
-        System.out.println(s1);
-        String s2 =   driver.findElement(By.xpath("//tbody/tr[2]/td[1]")).getText();
-        System.out.println(s2);
-
+        driver.navigate().back();
+        System.out.println(tabs.size());
+        System.out.println(driver.switchTo().window(tabs.get(3)));
+        Record1 =   driver.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
+         System.out.println(Record1);
+        Record2=   driver.findElement(By.xpath("//tbody/tr[2]/td[1]")).getText();
+         System.out.println(Record2);
         safeClick(BTN_STOP,"Stop button",MEDIUMWAIT);
+        waitForSecs(3);
         safeClick(BTN_EXPORT,"Export button",MEDIUMWAIT);
+        waitForSecs(5);
+        System.out.println(driver.switchTo().window(tabs.get(0)));
+        safeClick(LABEL_BRWSER_DRIVER_PATH,"Browser driver path",MEDIUMWAIT);
+        safeType(TXTBOX_BRSER_DRIVER_PATH, "Click", "Name Textbox", MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
+        safeType(TXTBOX_SERVERNAME, SSH, "Name Textbox", MEDIUMWAIT);
 
+        safeClick(LABEL_APP_NAME, "Server Feild", MEDIUMWAIT);
+        safeClick(LABEL_APP_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_APP_NAME, "Agent Desktop", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs3.size(); i++) {
 
+            if (dbs3.get(i).getText().equals("Agent Desktop")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(BTN_SKIP,"Skip button",MEDIUMWAIT);
+        safeClick(BTN_SKIP,"Skip button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CLOSE_CLICK_WINDOW,"close button",MEDIUMWAIT);
+    }
+
+    public void verifyingAddedClickActions()
+    {
+        safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = SSH;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        AddedScenario1 =   safeGetText(HYPERLINK_BROWSER_RESIZE,"Hyperlink value",MEDIUMWAIT);
+        AddedScenario2 =   safeGetText(HYPERLINK_CLICK_IN_INPUT,"Hyperlink value",MEDIUMWAIT);
+        Assert.assertEquals(Record1,AddedScenario1);
+        Assert.assertEquals(Record2,AddedScenario2);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 
+    public void addingCUStomeRole(){
+        safeClick(LABEL_CUSTOM_ROLE,"Record option",MEDIUMWAIT);
+        waitForSecs(15);
+    }
 }

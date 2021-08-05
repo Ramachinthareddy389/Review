@@ -93,10 +93,12 @@ public class SSHNdWMITests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_329_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException
     {
-       sshPage.clickingOnClickModuleInAutomation();
-       sshPage.addingNewRecordingInClickPage();
-       sshPage.clickingOnClickModuleInAutomation();
-       sshPage.startedRecording();
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingNewRecordingInClickPage();
+        sshPage.switchingToMainWindow();
+        sshPage.startedRecording();
+        sshPage.verifyingAddedClickActions();
+
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
@@ -106,8 +108,15 @@ public class SSHNdWMITests extends BaseSetup {
         hardwarePage.addingNewHardware();
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
+        sshPage.clickingOnClickModuleInAutomation();
         httpPage.addingHTTPScenarioUsingharFile();
         httpPage.verifyingHttpScenario();
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_331_AddandeditcustomRuleClick(){
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingCUStomeRole();
     }
 }

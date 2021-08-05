@@ -393,13 +393,15 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         waitForSecs(15);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
-
+    public void addingHttpScenarioUsinharFile()
+    {
+    safeClick(BTN_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
+    safeClick(BTN_HTTP, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+    safeClick(BTN_ADDICON_HTTP_SCENARIOS, "Http scenarios", MEDIUMWAIT);
+    safeClick(LABEL_HTTPSCENARIO_HAR_FILE, "Http scenario label", MEDIUMWAIT);
+     }
 
     public void addingHTTPScenarioUsingharFile() throws InterruptedException, AWTException {
-        safeClick(BTN_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
-        safeClick(BTN_HTTP, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        safeClick(BTN_ADDICON_HTTP_SCENARIOS, "Http scenarios", MEDIUMWAIT);
-        safeClick(LABEL_HTTPSCENARIO_HAR_FILE, "Http scenario label", MEDIUMWAIT);
         safeClick(LABEL_NAME, "MOonitor name", MEDIUMWAIT);
         safeType(TXTBOX_NAME, HTTPScenario, "Scenario", MEDIUMWAIT);
         waitForSecs(10);

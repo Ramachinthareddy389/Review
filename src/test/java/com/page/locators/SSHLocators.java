@@ -61,4 +61,16 @@ public interface SSHLocators {
     By LABEL_RECORD = By.xpath("//li[text()='Record (with click recorder)']");
     By BTN_STOP = By.xpath("//button[text()=' Stop ']");
     By BTN_EXPORT = By.xpath("//button[text()=' Export ']");
+    By LABEL_BRWSER_DRIVER_PATH = By.xpath("//span[text()='Browser Driver Path']");
+    By TXTBOX_BRSER_DRIVER_PATH = By.xpath("//input[@id='browserDriver']");
+    By LABEL_APP_NAME = By.xpath("//span[text()='Application Name']");
+    By LABEL_APP_NAME_GHOSTTEXT = By.xpath("//input[@id ='applicationName']/../../../div[1]");
+    By TXTBOX_APP_NAME = By.xpath("//input[@id ='applicationName']");
+    By BTN_SKIP = By.xpath("//span[text()='Skip']");
+    By BTN_CLOSE_CLICK_WINDOW = By.xpath("//button[@aria-label='close']");
+    By HYPERLINK_BROWSER_RESIZE = By.xpath("//span[text()='Scenario Steps']/../../../div/div/div[2]/button");
+    By HYPERLINK_CLICK_IN_INPUT = By.xpath("//span[text()='Scenario Steps']/../../../div/div/div[3]/button");
+    By LABEL_EXPORT_RECORD = By.xpath("//li[text()='Import (from click recorder)']");
+    By LABEL_CUSTOM_ROLE = By.xpath("//li[text()='Custom (Rule)]");
+
 }
