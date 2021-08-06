@@ -97,26 +97,43 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.addingNewRecordingInClickPage();
         sshPage.switchingToMainWindow();
         sshPage.startedRecording();
+        sshPage.addingClickConfigurations();
         sshPage.verifyingAddedClickActions();
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_330_Addclickbyimportingexistingharfileinsystem() throws InterruptedException, AWTException
+    public void TC_330_AddclickbyimportingexistingJSonfileinsystem() throws InterruptedException, AWTException
     {
-        hardwarePage.clickingOnHardware();
-        hardwarePage.addingNewHardware();
-        httpPage.configuringNodeInAPMModule();
-        httpPage.configuringEnginesInAPMModule();
         sshPage.clickingOnClickModuleInAutomation();
-        httpPage.addingHTTPScenarioUsingharFile();
-        httpPage.verifyingHttpScenario();
+        sshPage.addingJSonFileUsingImport();
+        sshPage.addingClickConfigurations();
+        sshPage.verifyingAddedClickActions();
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_331_AddandeditcustomRuleClick(){
+    public void TC_331_AddandeditcustomRuleClick()
+    {
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingCUStomeRole();
+        sshPage.verifyingCustomRulesConfigs();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_332_EditClickByimportingexistingJSONfileinsystem() throws InterruptedException, AWTException {
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingJSonFileUsingImport();
+        sshPage.addingClickConfigurations();
+        sshPage.addingElementSelectorsInEditSceanrioWindow();
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_333_Exportactionsinsystemtoextensionwindow() throws InterruptedException, AWTException {
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingNewRecordingInClickPage();
+        sshPage.switchingToMainWindow();
+        sshPage.verifyingExportingActionsOnClosingGermainApm();
     }
 }

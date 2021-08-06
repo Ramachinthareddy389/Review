@@ -50,11 +50,12 @@
 		<parameter name="osVersion" value="10" />
 		<parameter name="session" value="Testing" />
 		<classes>
-		<!--	<class name="com.testsuite.DashBoards.PortletsTests"></class> -->
+		    <class name="com.testsuite.DashBoards.PortletsTests"></class>
 			<class name="com.testsuite.DashBoards.PivotTests"></class>
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
 			<class name="com.testsuite.DashBoards.BusinessProcessTests"></class>
 			<class name="com.testsuite.DashBoards.KPIsTests"></class>
+			<class name="com.testsuite.DashBoards.SSHNdWMITests"></class>
 		</classes>
 	</test>
 

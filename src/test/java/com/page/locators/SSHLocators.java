@@ -70,7 +70,20 @@ public interface SSHLocators {
     By BTN_CLOSE_CLICK_WINDOW = By.xpath("//button[@aria-label='close']");
     By HYPERLINK_BROWSER_RESIZE = By.xpath("//span[text()='Scenario Steps']/../../../div/div/div[2]/button");
     By HYPERLINK_CLICK_IN_INPUT = By.xpath("//span[text()='Scenario Steps']/../../../div/div/div[3]/button");
-    By LABEL_EXPORT_RECORD = By.xpath("//li[text()='Import (from click recorder)']");
-    By LABEL_CUSTOM_ROLE = By.xpath("//li[text()='Custom (Rule)]");
-
+    By LABEL_IMPORT_RECORD = By.xpath("//li[text()='Import (from click recorder)']");
+    By ICON_IMPORT = By.xpath("//i[@aria-label='Select .json file to import']");
+    By LABEL_CUSTOM_ROLE = By.xpath("//li[text()='Custom (Rule)']");
+    By LABEL_URL = By.xpath("//span[text()='URL']");
+    By TXTBOX_URL  = By.xpath("//input[@id ='url']");
+    By RULES_HYPERLINK = By.xpath("//label/p/span[text()='Rules']/../../../div/div/div/button");
+    By SCENARIO_STEP_ADD_ICON = By.xpath("//span[text()='Scenario Steps']/../../../div/button/span/i[@aria-label='Add New Configuration']");
+    By LABEL_STEPNAME = By.xpath("//span[text()='Step Name']");
+    By TXTBOX_STEPNAME = By.xpath("//label/p/span[text()='Step Name']/../../../div/input");
+    By LABEL_STEPTYPE = By.xpath("//span[text()='Step Type']");
+    By STEPTYPE_GHOSTTEXT = By.xpath("//label/p/span[text()='Step Type']/../../../div/div/div/div/div/input[@id ='type']/../../../div[1]");
+    By TXTBOX_STEPTYPE= By.xpath("//label/p/span[text()='Step Type']/../../../div/div/div/div/div/input[@id ='type']");
+    By LABEL_SELECTOR_TYPE = By.xpath("//span[text()='Primary element selector type']");
+    By SELECTOR_TYPE_GHOSTTEXT = By.xpath("//label/p/span[text()='Primary element selector type']/../../../div/div/div/div/div/input[@id ='primaryBy']/../../../div[1]");
+    By TXTBOX_SELECTOR_TYPE = By.xpath("//label/p/span[text()='Primary element selector type']/../../../div/div/div/div/div/input[@id ='primaryBy']");
+    By HYPERLINK_ADDED_SELECTOR = By.xpath("//span[text()='Scenario Steps']/../../../div/div/div[4]/button");
 }
