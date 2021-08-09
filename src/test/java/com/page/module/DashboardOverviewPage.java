@@ -593,11 +593,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 1);
+        cal.add(Calendar.DATE, 2);
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE, -7);
+        cal.add(Calendar.DATE, -6);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s2 = s.format(new Date(cal.getTimeInMillis()));
         System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);
@@ -680,7 +680,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Validating hours option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingHours() throws InterruptedException {
-        waitForSecs(7);
+        waitForSecs(15);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
