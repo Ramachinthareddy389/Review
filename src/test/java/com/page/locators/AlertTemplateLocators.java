@@ -33,4 +33,5 @@ public interface AlertTemplateLocators
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+
 }

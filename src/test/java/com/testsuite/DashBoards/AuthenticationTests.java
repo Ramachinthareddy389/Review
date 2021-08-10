@@ -43,9 +43,25 @@ public class AuthenticationTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_355_AddAuthenticationConfiguration() throws InterruptedException {
+    public void TC_365_AddAuthenticationConfiguration() throws InterruptedException
+    {
         authenticationPage.clickingOnAuthentication();
-        authenticationPage.addingNewBusinessProcess();
-        ;
+        authenticationPage.addingJDBCAuthentication();
+        authenticationPage.verifyingAddedAuthentication();
+        authenticationPage.addingLADPAuthentication();
+        authenticationPage.verifyingAddedAuthentication();
+        authenticationPage.addingOauthAuthentication();
+        authenticationPage.verifyingAddedAuthentication();
+
+    }
+
+    @Test(alwaysRun = true)
+    public  void TC_366_Editalltypesofproviders()
+    {
+        authenticationPage.clickingOnAuthentication();
+        authenticationPage.addingJDBCAuthentication();
+        authenticationPage.editAuthenticationConfigurations();
+        authenticationPage.addingLADPAuthentication();
+        authenticationPage.editLDAPConfig();
     }
 }
