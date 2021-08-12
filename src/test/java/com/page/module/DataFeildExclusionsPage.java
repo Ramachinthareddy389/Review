@@ -29,6 +29,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
     }
 
     public void clickingOnDataFeildExclusion() {
+        waitForSecs(30);
         safeClick(BTN_ANALYTICS, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_DATAFIELD_EXCLUSION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
@@ -43,12 +44,12 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         System.out.println(Name_Add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("Database Errors")) {
+            if (dbs2.get(i).getText().equals("Alert")) {
 
                 dbs2.get(i).click();
                 break;
@@ -59,6 +60,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         safeClick(LABEL_FIELDNAME, "Server Feild", MEDIUMWAIT);
         safeClick(FEILDNAME_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_FEILDNAME, "user.name", "Server name into textbox", MEDIUMWAIT);
+       waitForSecs(20);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs5.size(); i++) {
@@ -92,7 +94,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         safeClick(LABEL_FACTTYPE, "Server Feild", MEDIUMWAIT);
         String FactType = safeGetText(TXTBOX_FACTTYPE, "Server textbox value", MEDIUMWAIT);
         System.out.println(FactType);
-        String expectedFactType = "GermainAPM:Agent Status";
+        String expectedFactType = "SLA";
         if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) &&
                 FeildName_add.equals(driver.findElement(FEILDNAME_GHOSTEXT).getText()) && expectedFactType.equals(driver.findElement(TXTBOX_FACTTYPE).getText())) {
             System.out.println("Data Field Exclusion details are valid");
@@ -142,12 +144,12 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
 
         safeClick(LABEL_FACTTYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TXTBOX_FACTTYPE, "Server textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(TXTBOX_FACTTYPE, "GermainAPM:Action", "Server name into textbox", MEDIUMWAIT);
+        safeJavaScriptClearAndType(TXTBOX_FACTTYPE, "System:Disk Usage", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("GermainAPM:Action")) {
+            if (dbs5.get(i).getText().equals("System:Disk Usage")) {
 
                 dbs5.get(i).click();
                 break;
@@ -155,6 +157,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         }
         Edit_FactType = safeGetText(TXTBOX_FACTTYPE, "Server textbox value", MEDIUMWAIT);
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(20);
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
     }
 

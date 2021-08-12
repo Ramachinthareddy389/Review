@@ -51,6 +51,7 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         }
         type_add = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(type_add);
+        waitForSecs(10);
         safeClick(LABEL_CONTENT, "Server Feild", MEDIUMWAIT);
         safeClearAndType(CONTENT_TEXTAREA, "test", "Server name into textbox", MEDIUMWAIT);
         content_add = safeGetText(CONTENT_TEXTAREA, "Server textbox value", MEDIUMWAIT);
@@ -194,12 +195,12 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(ACTION_SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(ACTION_SLA_TXTBOX, "Database Dead Rows - raw - Default SLA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(ACTION_SLA_TXTBOX, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Database Dead Rows - raw - Default SLA")) {
+            if (dbs3.get(i).getText().equals("User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -211,15 +212,15 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-       // sla_add = parts[2]; // 004
-        //System.out.println(sla_add);
+        sla_add = parts[2]; // 004
+        System.out.println(sla_add);
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        Assert.assertEquals(sla, driver.findElement(HYPERLINK_SLAs).getText());
+        Assert.assertEquals(sla_add, driver.findElement(HYPERLINK_SLAs).getText());
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);

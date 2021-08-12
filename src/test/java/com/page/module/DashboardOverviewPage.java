@@ -597,7 +597,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE, -6);
+        cal.add(Calendar.DATE, -8);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s2 = s.format(new Date(cal.getTimeInMillis()));
         System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);

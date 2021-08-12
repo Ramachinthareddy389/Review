@@ -64,4 +64,12 @@ public class AuthenticationTests extends BaseSetup {
         authenticationPage.addingLADPAuthentication();
         authenticationPage.editLDAPConfig();
     }
+
+    @Test(alwaysRun = true)
+    public  void TC_367_UpdateManagerPasswordinEditLDAPProviderwindow()
+    {
+        authenticationPage.clickingOnAuthentication();
+        authenticationPage.addingLADPAuthentication();
+        authenticationPage.updatingManagerPassword();
+    }
 }

@@ -48,4 +48,8 @@ public interface AuthenticationLocators {
     By ADDED_USERNAME_QUALITY = By.xpath("//span[text()='User By Username Query']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
     By ADDED_AUTHORITIES_QUALITY = By.xpath("//span[text()='Authorities By Username Query']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
     By TXTBOX_URL = By.xpath("//input[@id='url']");
+    By BTN_MANAGE_PASSWORD = By.xpath("//span[text()='Manager Password']");
+    By TXTBOX_PASSWORD = By.xpath("//input[@id='password']");
+    By TXTBOX_CONFIRM_PASSWORD = By.xpath("//input[@id='confirmPassword']");
+    By BTN_UPDATE_PASSWORD = By.xpath("//span[text()='Update Password']");
 }

@@ -46,12 +46,12 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "Alert - raw - test", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Alert - raw - test")) {
+            if (dbs3.get(i).getText().equals("User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -169,12 +169,12 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(ACTION_SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(ACTION_SLA_TXTBOX, "Alert - raw - test", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(ACTION_SLA_TXTBOX, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Alert - raw - test")) {
+            if (dbs3.get(i).getText().equals("User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;

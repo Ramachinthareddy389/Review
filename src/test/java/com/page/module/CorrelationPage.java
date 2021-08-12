@@ -49,18 +49,19 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(10);
         safeClick(LABEL_TYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_TYPE, "Alert Event", "Server name into textbox", MEDIUMWAIT);
-        waitForSecs(10);
+        safeClearAndType(TXTBOX_TYPE, "Flow Node", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(30);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Alert Event")) {
+            if (dbs1.get(i).getText().equals("Flow Node")) {
 
                 dbs1.get(i).click();
                 break;
             }
         }
+        waitForSecs(10);
         Type_add = safeGetText(TYPE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Type_add);
         waitForSecs(20);
@@ -78,12 +79,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Retention_add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("Database Errors")) {
+            if (dbs2.get(i).getText().equals("Alert")) {
 
                 dbs2.get(i).click();
                 break;
@@ -98,12 +99,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Name_Add1);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("bucket")) {
+            if (dbs5.get(i).getText().equals("color")) {
 
                 dbs5.get(i).click();
                 break;
@@ -152,7 +153,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
     public void verifyingCorrelationDetails() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(30);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -275,10 +276,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(20);
         safeClick(BTN_REMOVETYPES, "Delete button", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save Button", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(30);
         safeClick(TYPES_ADDICON, "BP Steps add icon", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
@@ -339,11 +340,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         expectedText = dname1 + "123";
         Assert.assertEquals(actualText, expectedText);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
-
-        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 
@@ -353,10 +353,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(20);
         String beforeEdit = driver.findElement(TXTBOX_EDITED_FACTTYPE).getText();
         System.out.println(beforeEdit);
-        expectedText = "AlertEvent";
+        expectedText = "FlowNode";
         Assert.assertEquals(beforeEdit, expectedText);
         safeClick(LABEL_EDITED_FACTTYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
@@ -377,10 +377,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         Assert.assertEquals(After_Edit_Type, expectedTextAfterEdit);
         waitForSecs(10);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_ALL_CKHBOX,"All Checkbox",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void AddingCorrrlationStreamPage() {
@@ -408,12 +408,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
 
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("Database Errors")) {
+            if (dbs2.get(i).getText().equals("Alert")) {
 
                 dbs2.get(i).click();
                 break;
@@ -421,7 +421,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Lstream_KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Lstream_KPIS_add);
-        waitForSecs(5);
+        waitForSecs(20);
         safeClick(LABEL_PARTITION_KEY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_PARTITION_KEY, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(DROPDOWN_PARTITION_KEY, "application.name", "Server name into textbox", MEDIUMWAIT);
@@ -473,12 +473,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(10);
         safeClick(LABEL_RSTREAM_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_KPIS_RSTREAM, "Server textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(DROPDOWN_KPIS_RSTREAM, "0 KPI Threshold", "Server name into textbox", MEDIUMWAIT);
+        safeJavaScriptClearAndType(DROPDOWN_KPIS_RSTREAM, "Alert", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("0 KPI Threshold")) {
+            if (dbs2.get(i).getText().equals("Alert")) {
 
                 dbs2.get(i).click();
                 break;
@@ -486,15 +486,15 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         Rstream_KPIS_add = safeGetText(RSTREAM_KPIS_VALUE, "Server textbox value", MEDIUMWAIT);
         System.out.println(Rstream_KPIS_add);
-        waitForSecs(5);
+        waitForSecs(20);
         safeClick(LABEL_PARTITION_KEY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_PARTITION_KEY, "Server textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(DROPDOWN_PARTITION_KEY, "bucket", "Server name into textbox", MEDIUMWAIT);
+        safeJavaScriptClearAndType(DROPDOWN_PARTITION_KEY, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("bucket")) {
+            if (dbs3.get(i).getText().equals("color")) {
 
                 dbs3.get(i).click();
                 break;
@@ -505,12 +505,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(5);
         safeClick(LABEL_ORDER_BY, "Server Feild", MEDIUMWAIT);
         safeClick(GHOSTTEXT_ORDER_BY, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(DROPDOWN_ORDER_BY, "bucket", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(DROPDOWN_ORDER_BY, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
         for (int i = 0; i < dbs4.size(); i++) {
 
-            if (dbs4.get(i).getText().equals("bucket")) {
+            if (dbs4.get(i).getText().equals("color")) {
 
                 dbs4.get(i).click();
                 break;
@@ -762,6 +762,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(10);
         safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(10);
 
     }
 

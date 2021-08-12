@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class AuthenticationPage extends SafeActions implements AuthenticationLocators {
@@ -153,5 +154,32 @@ public class AuthenticationPage extends SafeActions implements AuthenticationLoc
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         String exp=  safeGetAttribute(TXTBOX_URL,"value","url value",MEDIUMWAIT);
         Assert.assertEquals(exp,"URLs");
+    }
+
+    public  void updatingManagerPassword()
+    {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = dname1;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeClick(BTN_MANAGE_PASSWORD,"Manage password",MEDIUMWAIT);
+        safeType(TXTBOX_PASSWORD,"test1","Password Textbox",MEDIUMWAIT);
+        safeType(TXTBOX_CONFIRM_PASSWORD,"test1","Confirm password",MEDIUMWAIT);
+        safeClick(BTN_UPDATE_PASSWORD,"Update password",MEDIUMWAIT);
+        waitForSecs(15);
+        driver.switchTo().alert().accept();
+        System.out.println("Updated Password");
+        waitForSecs(30);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 }

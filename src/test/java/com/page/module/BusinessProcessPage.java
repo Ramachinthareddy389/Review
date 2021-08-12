@@ -42,12 +42,12 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         System.out.println(Name_Add);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Database Errors", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Database Errors")) {
+            if (dbs1.get(i).getText().equals("Alert")) {
 
                 dbs1.get(i).click();
                 break;

@@ -69,7 +69,7 @@ public interface CorrelationLocators {
     By LABEL_RSTREAM_KPIS = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
     By GHOSTTEXT_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
     By DROPDOWN_KPIS_RSTREAM = By.xpath("//input[@id='kpis']");
-    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/di//input[@id='kpis']v/div/div/div/span");
+    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div//input[@id='kpis']/../../../div/span");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
     By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
