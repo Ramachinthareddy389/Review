@@ -4,6 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.ComponentTypesLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -17,8 +18,8 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     Random random = new Random();
     String Component = "Component" + "-" + random.nextInt(500);
     String Cred = "Cred" + "-" + random.nextInt(500);
-    String WMI = "WMI" + "-" + random.nextInt(500);
-    String Name_Add, KPIS_add, program_Add, sla_add, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
+    String credEdited = "credEdited" + "-" + random.nextInt(500);
+    String Name_Add, KPIS_add, Edited_Cred_Name, Edited_Cred_User_Name, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
 
 
     public ComponentPage(WebDriver driver) {
@@ -28,15 +29,15 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
     @Step("Navigating to SSH page from automation module")
     public void clickingOnAutomation() {
+        waitForSecs(20);
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ENGINE_SETTINGS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_COMPONENT_TYPES, "Add button", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(30);
     }
 
-    public void adding1stComponent()
-    {
-        safeClick(BTN_ADDICON,"Add Icon",MEDIUMWAIT);
+    public void adding1stComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(2).click();
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
@@ -49,12 +50,11 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
         waitForSecs(50);
         driver.findElement(TXTBOX_USERNAME_QUERY).sendKeys("test");
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public void verifyingAddedComponent()
-    {
+    public void verifyingAddedComponent() {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -74,9 +74,8 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     }
 
 
-    public void adding2ndComponent()
-    {
-        safeClick(BTN_ADDICON,"Add Icon",MEDIUMWAIT);
+    public void adding2ndComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(3).click();
         safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_COMPONENT_NAME, Component, "Name into textbox", MEDIUMWAIT);
@@ -106,26 +105,24 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         }
         KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KPIS_add);
-        safeCheck(CUSTOMRULE_CHKBOX,"Custom rule",MEDIUMWAIT);
+        safeCheck(CUSTOMRULE_CHKBOX, "Custom rule", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
     //Credentials
 
-    public void clickingOnAddCredentials()
-    {
+    public void clickingOnAddCredentials() {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
-        safeClick(BTN_CREDENTIALS,"Credentials",MEDIUMWAIT);
-        safeClick(BTN_ADDICON,"Add Icon",MEDIUMWAIT);
+        safeClick(BTN_CREDENTIALS, "Credentials", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
     }
 
 //Credentails config
 
-    public void addingNewCredentials()
-    {
+    public void addingNewCredentials() {
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, Cred, "Name into textbox", MEDIUMWAIT);
         safeClick(LABEL_USERNAME, "Name Feild", MEDIUMWAIT);
@@ -133,11 +130,11 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
         safeClick(LABEL_PASSWORD, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_PASSWORD, Cred, "Name into textbox", MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"close button",MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
     }
 
-    public void verifyingAddedCredentials(){
+    public void verifyingAddedCredentials() {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -156,4 +153,176 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(10);
     }
 
+    public void editCredentialsConfigs() {
+        waitForSecs(20);
+        safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + credEdited);
+        Edited_Cred_Name = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField1 = driver.findElement(TXTBOX_USERNAME);
+        searchField1.sendKeys(del1 + credEdited);
+        Edited_Cred_User_Name = safeGetAttribute(TXTBOX_USERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        safeClick(BTN_CLEAR, "Save button", MEDIUMWAIT);
+    }
+
+    public void verifyingEditedAddedCredentials() {
+        waitForSecs(20);
+        safeType(TEXTBOX_TYPESEARCH, credEdited + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = credEdited;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void adding3rdComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        driver.findElements(LIST_COMPONENT_TYPES).get(4).click();
+        //safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(20);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_FILE_PATTERN, "File Pattern", "File Pattern", MEDIUMWAIT);
+        safeType(TXTBOX_TARGET_QUEUE, "Target Queue", "File Pattern", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
+    }
+
+    public void adding4thComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        driver.findElements(LIST_COMPONENT_TYPES).get(5).click();
+        //safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_EXECUTABLE, Component, "Name into textbox", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
+
+    }
+
+    public void adding5thComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        driver.findElements(LIST_COMPONENT_TYPES).get(6).click();
+        //safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
+
+    }
+
+    public void adding8thComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        driver.findElements(LIST_COMPONENT_TYPES).get(9).click();
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeType(TXTBOX_ROOT, "Root", "Root textbox", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_PATH, "Path", "Name into textbox", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
+    }
+
+    public void adding9thComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        driver.findElements(LIST_COMPONENT_TYPES).get(10).click();
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_OID, "OID", "Name into textbox", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
+    }
+
+    public void adding10thComponent() {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        driver.findElements(LIST_COMPONENT_TYPES).get(11).click();
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(LABEL_DRIVER, "Server Feild", MEDIUMWAIT);
+        safeClick(DRIVER_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_DRIVER, "Chrome", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Chrome")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        safeType(TXTBOX_DRIVER_PATH, Component, "Name into textbox", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    }
+
+    public void verifyingEditedAllComponentTypes() {
+        waitForSecs(20);
+        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        waitForSecs(20);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + credEdited);
+        Edited_Cred_Name = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(BTN_CLEAR, "Save button", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, credEdited + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = credEdited;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 }

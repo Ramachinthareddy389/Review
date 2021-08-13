@@ -39,11 +39,24 @@ public class ComponentTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_373_AddallComponentTypeconfigurations() throws InterruptedException
     {
-        componentPage.clickingOnAutomation();
-        componentPage.adding1stComponent();
+       componentPage.clickingOnAutomation();
+       componentPage.adding1stComponent();
         componentPage.verifyingAddedComponent();
         componentPage.adding2ndComponent();
         componentPage.verifyingAddedComponent();
+        componentPage.adding3rdComponent();
+        componentPage.verifyingAddedComponent();
+        componentPage.adding4thComponent();
+        componentPage.verifyingAddedComponent();
+        componentPage.adding5thComponent();
+        componentPage.verifyingAddedComponent();
+        componentPage.adding8thComponent();
+        componentPage.verifyingAddedComponent();
+        componentPage.adding9thComponent();
+        componentPage.verifyingAddedComponent();
+        componentPage.adding10thComponent();
+        componentPage.verifyingAddedComponent();
+
 
     }
 
@@ -54,6 +67,25 @@ public class ComponentTests extends BaseSetup {
        componentPage.addingNewCredentials();
        componentPage.verifyingAddedCredentials();
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test" )
+    public  void TC_384_EditCredentialsconfiguration()
+    {
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials();
+        componentPage.editCredentialsConfigs();
+        componentPage.verifyingEditedAddedCredentials();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_374_EditallComponentTypeconfigurations()
+    {
+        componentPage.clickingOnAutomation();
+        componentPage.adding1stComponent();
+        componentPage.verifyingEditedAllComponentTypes();
+        componentPage.adding2ndComponent();
+        componentPage.verifyingEditedAllComponentTypes();
     }
 
 }

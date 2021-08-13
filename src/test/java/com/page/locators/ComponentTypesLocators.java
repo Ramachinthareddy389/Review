@@ -34,6 +34,17 @@ public interface ComponentTypesLocators
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By CUSTOMRULE_CHKBOX = By.xpath("//span[text()='Custom Rule']/../../../span/span/input");
 
+//3rd component
+    By TXTBOX_FILE_PATTERN = By.xpath("//input[@id='pattern']");
+    By TXTBOX_TARGET_QUEUE = By.xpath("//input[@id='queueName']");
+    By TXTBOX_EXECUTABLE = By.xpath("//input[@id='command']");
+    By TXTBOX_ROOT = By.xpath("//input[@id='root']");
+    By TXTBOX_PATH = By.xpath("//input[@id='path']");
+    By TXTBOX_OID = By.xpath("//input[@id='oid']");
+    By TXTBOX_DRIVER_PATH = By.xpath("//input[@id='driverPath']");
+    By LABEL_DRIVER = By.xpath("//input[@id='driver']/../../../div[1]/../../../../label/p/span[1]");
+    By DRIVER_GHOSTEXT = By.xpath("//input[@id='driver']/../../../div[1]");
+    By TXTBOX_DRIVER = By.xpath("//input[@id='driver']");
 
     //Credentials
     By BTN_CREDENTIALS = By.xpath("//span[text()='Credentials']");
@@ -41,4 +52,6 @@ public interface ComponentTypesLocators
     By TXTBOX_USERNAME = By.xpath("//input[@id='username']");
     By LABEL_PASSWORD = By.xpath("//label[@id='password-label']");
     By TXTBOX_PASSWORD = By.xpath("//input[@id='password']");
+    By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
+    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
 }
