@@ -33,7 +33,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ENGINE_SETTINGS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_COMPONENT_TYPES, "Add button", MEDIUMWAIT);
-        waitForSecs(30);
+
     }
 
     public void adding1stComponent() {
@@ -51,6 +51,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(50);
         driver.findElement(TXTBOX_USERNAME_QUERY).sendKeys("test");
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
@@ -175,6 +176,31 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLEAR, "Save button", MEDIUMWAIT);
     }
 
+    public void changePasswordInEditCredWindow(){
+        waitForSecs(20);
+        safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(BTN_CHNAGE_PASSWORD,"Change password button",MEDIUMWAIT);
+        safeType(TXTBOX_PASSWORD,"test","Password textbox",MEDIUMWAIT);
+        safeType(TXTBOX_CONFIRM_PASSWRD,"test","Confirm password textbox",MEDIUMWAIT);
+        safeClick(BTN_UPDATE_PASSWRD,"update password button",MEDIUMWAIT);
+        waitForSecs(30);
+        acceptAlert();
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = Cred;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+
+    }
     public void verifyingEditedAddedCredentials() {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, credEdited + "\n", "Alert Name into type search");
@@ -300,7 +326,6 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(20);
-        waitForSecs(20);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_NAME);
         searchField.sendKeys(del + credEdited);
@@ -324,5 +349,43 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+    }
+    //Display Settings
+    public  void clickingOnDisplaySettings(){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_DISPLAY_SETTINGS,"Display settings label",MEDIUMWAIT);
+        waitForSecs(20);
+        safeType(TEXTBOX_TYPESEARCH, "ActionConfig" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + credEdited);
+        Edited_Cred_Name = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField1 = driver.findElement(TXTBOX_NAME);
+        searchField1.sendKeys(del1 + credEdited);
+        Edited_Cred_Name = safeGetAttribute(TXTBOX_IDENTIFIER, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = credEdited;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField2 = driver.findElement(TXTBOX_NAME);
+        searchField2.sendKeys(del2 + "ActionConfig");
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+
+
+
+
+
     }
 }

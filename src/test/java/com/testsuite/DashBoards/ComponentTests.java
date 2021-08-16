@@ -88,4 +88,18 @@ public class ComponentTests extends BaseSetup {
         componentPage.verifyingEditedAllComponentTypes();
     }
 
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_385_ChangePasswordInCredentialsEditwindow()
+    {
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials();
+        componentPage.changePasswordInEditCredWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_393_EditDisplaySettingsConfiguration()
+    {
+       componentPage.clickingOnDisplaySettings();
+    }
 }

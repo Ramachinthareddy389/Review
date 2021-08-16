@@ -20,6 +20,7 @@ public interface ComponentTypesLocators
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+
    // By ADDED_TEXT_HTML_TITLE = By.xpath("//span[text()='HTML Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
 
 
@@ -52,6 +53,13 @@ public interface ComponentTypesLocators
     By TXTBOX_USERNAME = By.xpath("//input[@id='username']");
     By LABEL_PASSWORD = By.xpath("//label[@id='password-label']");
     By TXTBOX_PASSWORD = By.xpath("//input[@id='password']");
+    By TXTBOX_CONFIRM_PASSWRD = By.xpath("//input[@id='confirmPassword']");
+    By BTN_UPDATE_PASSWRD = By.xpath("//span[text()='Update Password']");
+    By BTN_CHNAGE_PASSWORD = By.xpath("//span[text()='Change Password']");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+
+    //Display Settings
+     By LABEL_DISPLAY_SETTINGS = By.xpath("//span[text()='Display Settings']");
+     By TXTBOX_IDENTIFIER = By.xpath("//input[@id='identifier']");
 }
