@@ -115,7 +115,8 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
     //Credentials
 
-    public void clickingOnAddCredentials() {
+    public void clickingOnAddCredentials()
+    {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_CREDENTIALS, "Credentials", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
@@ -373,7 +374,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(5);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         waitForSecs(10);
-        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        String pageTitle = safeGetText(EDITWINDOW_TITLE, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = credEdited;
         Assert.assertEquals(pageTitle, expectedText);
@@ -382,10 +383,90 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         WebElement searchField2 = driver.findElement(TXTBOX_NAME);
         searchField2.sendKeys(del2 + "ActionConfig");
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit Window",MEDIUMWAIT);
+    }
 
+    //Distribution list
 
+    public void clickingOnAddDistributionList()
+    {
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_DISTRIBUTION_LISTS, "Credentials", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(LABEL_EMAIL_ADDRESS, "Server Feild", MEDIUMWAIT);
+        safeClick(EMAIL_ADDRESS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESS, "rama.chinthareddy@zenq.com", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+       List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
 
+            if (dbs1.get(i).getText().equals("rama.chinthareddy@zenq.com")) {
 
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    }
+
+    public  void verifyingAddedDistributionList(){
+        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Distribution Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = Component;
+        Assert.assertEquals(pageTitle, expectedText);
+        String distributionName = safeGetAttribute(TXTBOX_NAME,"value","Distribution List Name",MEDIUMWAIT);
+        Assert.assertEquals(distributionName, expectedText);
+        String actualText = safeGetText(MEMBERS_HYPERLINK, "Member hyperlink", MEDIUMWAIT);
+        expectedText = "rama.chinthareddy@zenq.com";
+        Assert.assertEquals(actualText, expectedText);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void addMembersInEditDistributionListwindow(){
+        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Distribution Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        safeClick(BTN_REMOVE_MEMBER, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save Button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(MEMBER_ADDICON, "Member add icon", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
+        safeClick(LABEL_EMAIL_ADDRESS, "Server Feild", MEDIUMWAIT);
+        safeClick(EMAIL_ADDRESS_GHOSTTEXT_EDIT_WINDOW, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESSS_EDIT_WINDOW, "rama.chinthareddy@zenq.com", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("rama.chinthareddy@zenq.com")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
 
     }
 }

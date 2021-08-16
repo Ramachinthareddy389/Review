@@ -102,4 +102,18 @@ public class ComponentTests extends BaseSetup {
     {
        componentPage.clickingOnDisplaySettings();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test" )
+    public  void TC_399_AddDistributionListwithAllDistributiontypes()
+    {
+      componentPage.clickingOnAddDistributionList();
+      componentPage.verifyingAddedDistributionList();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_400_AddMembersinEditDistributionListwindow(){
+        componentPage.clickingOnAddDistributionList();
+        componentPage.addMembersInEditDistributionListwindow();
+        componentPage.verifyingAddedDistributionList();
+    }
 }

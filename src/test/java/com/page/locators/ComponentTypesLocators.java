@@ -58,8 +58,20 @@ public interface ComponentTypesLocators
     By BTN_CHNAGE_PASSWORD = By.xpath("//span[text()='Change Password']");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
-
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     //Display Settings
      By LABEL_DISPLAY_SETTINGS = By.xpath("//span[text()='Display Settings']");
      By TXTBOX_IDENTIFIER = By.xpath("//input[@id='identifier']");
+     By EDITWINDOW_TITLE = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+
+     //Distribution List
+     By BTN_DISTRIBUTION_LISTS = By.xpath("//span[text()='Distribution Lists']");
+     By LABEL_EMAIL_ADDRESS = By.xpath("//input[@id='name']/../../../div[1]/../../../../label/p/span[1]");
+     By EMAIL_ADDRESS_GHOSTEXT = By.xpath("//input[@id='name']/../../../div[1]");
+     By TXTBOX_EMAIL_ADDRESS = By.xpath("//input[@id='name']");
+     By MEMBERS_HYPERLINK = By.xpath("//span[text()='Members']/../../../div/div/div/button");
+    By MEMBER_ADDICON = By.xpath("//span[text()='Members']/../../following-sibling::div/button/span/i");
+    By BTN_REMOVE_MEMBER = By.xpath("//span[text()='Members']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By EMAIL_ADDRESS_GHOSTTEXT_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[1]");
+    By TXTBOX_EMAIL_ADDRESSS_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[2]/div/input");
 }
