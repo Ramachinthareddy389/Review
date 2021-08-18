@@ -467,6 +467,29 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(15);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
 
+    public  void verifyingEditDistributionListConfig()
+    {
+        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Distribution Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + "DistributionList");
+        waitForSecs(15);
+        safeClick(BTN_SAVE,"Save configuaration",MEDIUMWAIT);
+        waitForSecs(15);
+        String actualText = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        String expectedText = "DistributionList";
+        Assert.assertEquals(actualText,expectedText);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 }

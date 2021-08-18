@@ -116,4 +116,14 @@ public class ComponentTests extends BaseSetup {
         componentPage.addMembersInEditDistributionListwindow();
         componentPage.verifyingAddedDistributionList();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_401_EditDistributionListconfiguration()
+    {
+        componentPage.clickingOnAddDistributionList();
+        componentPage.verifyingEditDistributionListConfig();
+
+    }
+
+
 }
