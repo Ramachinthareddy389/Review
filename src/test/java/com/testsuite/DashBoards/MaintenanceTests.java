@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 public class MaintenanceTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
+    private LocalProgramPage localProgramPage;
     private MaintenancePage maintenancePage;
     private HardwarePage hardwarePage;
     private HTTPPage httpPage;
@@ -47,11 +48,24 @@ public class MaintenanceTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_AddActionsinEditMaintenancewindow()
+    public  void TC_408_AddActionsinEditMaintenancewindow()
     {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.addActionsInEditMaintenanceWindow();
+        maintenancePage.addingHTTPactionInMaintennceWindow();
+        maintenancePage.addingLocalProgrammes();
+        localProgramPage.addingLocalPrograms();
+
+    }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_410_VerifyRecurringCheckboxinEditMaintenancewindow()
+    {
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.verifyingAddedMaintenanceConfigs();
     }
 
 }
