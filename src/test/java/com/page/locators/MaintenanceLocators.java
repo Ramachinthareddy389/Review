@@ -45,6 +45,10 @@ public interface MaintenanceLocators {
      By TXTBOX_PROGRAM = By.xpath("//input[@id='command']");
      By SLA_GHOSTTEXT = By.xpath("//input[@id='sla']/../../../div[1]");
      By CHKBOX_RUNSCHEDULE = By.xpath("//span[text()='Run on schedule?']/../../../span/span/input[@type='checkbox']");
-
+     By CHKBOX_RECURRING = By.xpath("//span[text()='Recurring']/../../../span/span/input");
+     By ICON_REFRESH_ICON = By.xpath("//div[@class='MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate']");
+     By BTN_PLAY = By.xpath("//i[@class='fas fa-play-circle']");
+     By BTN_PAUSE = By.xpath("//i[@class='fas fa-stop-circle']");
+     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 
 }

@@ -40,7 +40,7 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         safeType(TXTBOX_NAME, Maintenance, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-        safeType(TXTBOX_DURATION, "10", "Duration into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_DURATION, "60", "Duration into textbox", MEDIUMWAIT);
         Duration_Add = safeGetAttribute(TXTBOX_DURATION, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Duration_Add);
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
@@ -180,5 +180,63 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         System.out.println(sla_add);
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public void verifyingReaccuranceOfCheckBoxInEditMaintenanceWindow(){
+        safeType(TEXTBOX_TYPESEARCH, Maintenance + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b=  isElementSelected(CHKBOX_RECURRING);
+        System.out.println(b);
+        Assert.assertFalse(b);
+        safeCheck(CHKBOX_RECURRING,"Recurring checkbox",MEDIUMWAIT);
+        boolean b1=  isElementSelected(CHKBOX_RECURRING);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public  void VerifyScheduleinEditMaintenancewindow()
+    {
+        safeType(TEXTBOX_TYPESEARCH, Maintenance + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeCheck(CHKBOX_RECURRING,"Recurring checkbox",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
+        safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
+        safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
+        safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
+        safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
+        safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
+        waitForSecs(50);
+        refresh();
+        waitForSecs(50);
+        String s=safeGetAttribute(ICON_REFRESH_ICON,"aria-label","Status of the maintenance",MEDIUMWAIT);
+        System.out.println(s);
+    }
+    public void verifyingGlobalMaintanennce(){
+        safeType(TEXTBOX_TYPESEARCH, Maintenance + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        waitForSecs(20);
+        safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
+        safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
     }
 }

@@ -23,7 +23,7 @@ public class MaintenanceTests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        maintenancePage= new MaintenancePage(getDriver());
+        maintenancePage = new MaintenancePage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         httpPage = new HTTPPage(getDriver());
         dashBoardData = new DashBoardData();
@@ -38,18 +38,16 @@ public class MaintenanceTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_407_AddMaintenanceConfiguration() throws InterruptedException
-    {
+    public void TC_407_AddMaintenanceConfiguration() throws InterruptedException {
 
-       maintenancePage.clickingOnMaintenance();
-       maintenancePage.addingMaintenanceConfig();
-       maintenancePage.verifyingAddedMaintenanceConfigs();
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.verifyingAddedMaintenanceConfigs();
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_408_AddActionsinEditMaintenancewindow()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_408_AddActionsinEditMaintenancewindow() {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.addActionsInEditMaintenanceWindow();
@@ -60,12 +58,27 @@ public class MaintenanceTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_410_VerifyRecurringCheckboxinEditMaintenancewindow()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_410_VerifyRecurringCheckboxinEditMaintenancewindow() {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
-        maintenancePage.verifyingAddedMaintenanceConfigs();
+        maintenancePage.verifyingReaccuranceOfCheckBoxInEditMaintenanceWindow();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_409_VerifyScheduleinEditMaintenancewindow() {
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.VerifyScheduleinEditMaintenancewindow();
+
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_411_VerifyGlobalMaintenancePeriod() {
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.verifyingGlobalMaintanennce();
+
     }
 
 }
