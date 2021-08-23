@@ -50,5 +50,8 @@ public interface MaintenanceLocators {
      By BTN_PLAY = By.xpath("//i[@class='fas fa-play-circle']");
      By BTN_PAUSE = By.xpath("//i[@class='fas fa-stop-circle']");
      By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+     By GLOBAL_MAINTENANCE_LABEL = By.xpath("//span[text()='global-maintenance']");
+     By GLOBAL_MAINTENANCE_STATUS = By.xpath("//span[text()='global-maintenance']/../../../div[3]/span/div/div");
 
 }

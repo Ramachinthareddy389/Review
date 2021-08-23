@@ -1,0 +1,133 @@
+package com.page.module;
+
+import com.page.data.DashBoardData;
+import com.page.locators.MaintenanceLocators;
+import com.page.locators.PresentationModesLocators;
+import com.selenium.SafeActions;
+import com.testng.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import ru.yandex.qatools.allure.annotations.Step;
+
+import java.util.List;
+import java.util.Random;
+
+public class PresentationModesPage extends SafeActions implements PresentationModesLocators {
+    private WebDriver driver;
+    private DashBoardData dashBoardData = new DashBoardData();
+    Random random = new Random();
+    String Presentation = "Presentation" + "-" + random.nextInt(500);
+    String Name_Add, Duration_Add, Dashboard_add, Timerange_add;
+
+
+    public PresentationModesPage(WebDriver driver) {
+        super(driver);
+        this.driver = driver;
+    }
+
+    @Step("Navigating to SSH page from automation module")
+    public void clickingOnPresentationModes() {
+        waitForSecs(20);
+        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_PRESENTATION_MODES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Presentation, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        waitForSecs(5);
+
+    }
+
+    public void addingPresentationModeConfigWithDashboards(){
+        safeClick(LABEL_DASHBOARD, "Server Feild", MEDIUMWAIT);
+        safeClick(DASHBOARD_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_DASHBOARD, "Business Overview", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Business Overview")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        Dashboard_add = safeGetText(TXTBOX_DASHBOARD_VALUE, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Dashboard_add);
+    }
+     public void addingTimeRangesAndDurationConfigs(){
+         waitForSecs(5);
+         safeClick(LABEL_TIMERANGE, "Server Feild", MEDIUMWAIT);
+         safeClick(TIMERANGE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+         safeClearAndType(TXTBOX_TIMERANGE, "Today", "Server name into textbox", MEDIUMWAIT);
+         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+         for (int i = 0; i < dbs2.size(); i++) {
+
+             if (dbs2.get(i).getText().equals("Today")) {
+
+                 dbs2.get(i).click();
+                 break;
+             }
+         }
+         Timerange_add = safeGetText(TXTBOX_TIMERANGE, "Server textbox value", MEDIUMWAIT);
+         safeType(TXTBOX_DURATION, "60", "Duration into textbox", MEDIUMWAIT);
+         Duration_Add = safeGetAttribute(TXTBOX_DURATION, "value", "Name textbox value", MEDIUMWAIT);
+         System.out.println(Duration_Add);
+         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+     }
+
+     public void verifyingAddedPresenatationModesWithDasshboardsConfig(){
+         safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
+         System.out.println("entered dbtext");
+         waitForSecs(20);
+         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+         waitForSecs(9);
+         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+         System.out.println(pageTitle);
+         String expectedText = Presentation;
+         Assert.assertEquals(pageTitle, expectedText);
+         waitForSecs(10);
+         if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value"))&& Dashboard_add.equals(driver.findElement(HYPERLINK_DASHBOARDS).getText())){
+             System.out.println("Business process details are valid");
+             Assert.assertTrue(true);
+
+         } else {
+             Assert.fail("Business process details are invalid");
+         }
+
+         waitForSecs(10);
+         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+         waitForSecs(5);
+         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+         waitForSecs(10);
+     }
+
+     public  void uncheckDashBoardCheckBox(){
+        waitForSecs(10);
+        safeUnCheck(CHKBOX_DASHBOARD,"Dashboard checkbox",MEDIUMWAIT);
+    }
+     public void addingPresentationModeConfigWithViews(){
+        safeClick(LABEL_VIEW, "Server Feild", MEDIUMWAIT);
+        safeClick(VIEW_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_VIEW, "Insights", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Insights")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        Dashboard_add = safeGetText(TXTBOX_VIEW_VALUE, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Dashboard_add);
+    }
+}

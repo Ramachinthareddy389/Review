@@ -74,10 +74,12 @@ public class MaintenanceTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_411_VerifyGlobalMaintenancePeriod() {
+    public void TC_411_VerifyGlobalMaintenancePeriod()
+    {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.verifyingGlobalMaintanennce();
+
 
     }
 

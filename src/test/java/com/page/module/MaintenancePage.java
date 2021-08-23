@@ -216,7 +216,6 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
         safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
         safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
         safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
@@ -227,6 +226,14 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         waitForSecs(50);
         String s=safeGetAttribute(ICON_REFRESH_ICON,"aria-label","Status of the maintenance",MEDIUMWAIT);
         System.out.println(s);
+        String expectedText = "Is Active";
+        Assert.assertEquals(s,expectedText);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
     public void verifyingGlobalMaintanennce(){
         safeType(TEXTBOX_TYPESEARCH, Maintenance + "\n", "Alert Name into type search");
@@ -235,8 +242,18 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
+        safeCheck(CHKBOX_RECURRING,"Recurring checkbox",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(BTN_PAUSE,"Play button",MEDIUMWAIT);
+        safeClick(BTN_CLEAR,"Clear button",MEDIUMWAIT);
         safeClick(BTN_PLAY,"Play button",MEDIUMWAIT);
+        boolean b=  isElementDisplayed(GLOBAL_MAINTENANCE_LABEL);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        String s=safeGetAttribute(GLOBAL_MAINTENANCE_STATUS,"aria-label","Status of the maintenance",MEDIUMWAIT);
+        System.out.println(s);
+        String expectedText = "Is Active";
+        Assert.assertEquals(s,expectedText);
     }
 }
