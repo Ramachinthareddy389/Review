@@ -38,8 +38,7 @@ public class PresentationModesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_418_AddNewPresentationwithDashboards() throws InterruptedException
-    {
+    public void TC_418_AddNewPresentationwithDashboards() throws InterruptedException {
         presentationModesPage.clickingOnPresentationModes();
         presentationModesPage.addingPresentationModeConfigWithDashboards();
         presentationModesPage.addingTimeRangesAndDurationConfigs();
@@ -50,8 +49,7 @@ public class PresentationModesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_419_AddNewPresentationwithViews() throws InterruptedException
-    {
+    public void TC_419_AddNewPresentationwithViews() throws InterruptedException {
         presentationModesPage.clickingOnPresentationModes();
         presentationModesPage.uncheckDashBoardCheckBox();
         presentationModesPage.addingPresentationModeConfigWithViews();
@@ -60,4 +58,35 @@ public class PresentationModesTests extends BaseSetup {
 
 
     }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_420_AddDashboardsViewsinEditPresentationModewindow()
+    {
+        presentationModesPage.clickingOnPresentationModes();
+        presentationModesPage.addingPresentationModeConfigWithDashboards();
+        presentationModesPage.addingTimeRangesAndDurationConfigs();
+        presentationModesPage.addingDashboardsNDViewsfromEditPresentationModeWindow();
+        presentationModesPage.addingPresentationModeConfigWithDashboards();
+        presentationModesPage.addingTimeRangesAndDurationConfigs();
+        presentationModesPage.verifyingAddedDashboardInEditPresentationWindow();
+        presentationModesPage.addingPresentationModePage();
+        presentationModesPage.uncheckDashBoardCheckBox();
+        presentationModesPage.addingPresentationModeConfigWithViews();
+        presentationModesPage.addingTimeRangesAndDurationConfigs();
+        presentationModesPage.addingDashboardsNDViewsfromEditPresentationModeWindow();
+        presentationModesPage.uncheckDashBoardCheckBox();
+        presentationModesPage.addingPresentationModeConfigWithViews();
+        presentationModesPage.addingTimeRangesAndDurationConfigs();
+        presentationModesPage.verifyingAddedDashboardInEditPresentationWindow();
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_422_VerifyPresentationmodesinPresentationbutton() {
+        presentationModesPage.clickingOnPresentationModes();
+        presentationModesPage.addingPresentationModeConfigWithDashboards();
+        presentationModesPage.addingTimeRangesAndDurationConfigs();
+        presentationModesPage.verifyingPresentationModesInPresentationButton();
+    }
+
 }

@@ -32,4 +32,9 @@ public interface PresentationModesLocators {
     By VIEW_GHOSTEXT = By.xpath("//input[@id='contextPath']/../../../div[1]");
     By TXTBOX_VIEW   = By.xpath("//input[@id='contextPath']");
     By TXTBOX_VIEW_VALUE = By.xpath("//input[@id='contextPath']/.././../../div[1]");
+    By BTN_REMOVE_DASHBOARDS = By.xpath("//span[text()='Dashboards']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By DASHBOARDS_ADD_ICON = By.xpath("//span[text()='Dashboards']/../../following-sibling::div/button/span/i");
+    By PLAY_BTN_ICON = By.xpath("//button[@title='Fullscreen mode']/following-sibling::button/span/i[contains(@class,'far fa-play-circle')]");
+    By PLAYMODE_DRPDOWN = By.xpath("//ul/li[@role='menuitem']");
+    By PAGE_TITLE = By.xpath("//div[@aria-label='Enable Selected Configuration']/../../../h5");
 }
