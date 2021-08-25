@@ -1,10 +1,10 @@
 package com.page.module;
 
 import com.page.data.DashBoardData;
-import com.page.locators.MaintenanceLocators;
-import com.page.locators.PresentationModesLocators;
+import com.page.locators.PresentationModesNdRulesLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -12,15 +12,17 @@ import ru.yandex.qatools.allure.annotations.Step;
 import java.util.List;
 import java.util.Random;
 
-public class PresentationModesPage extends SafeActions implements PresentationModesLocators {
+public class PresentationModesNdRulesNdRulesPages extends SafeActions implements PresentationModesNdRulesLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
     String Presentation = "Presentation" + "-" + random.nextInt(500);
-    String Name_Add, Duration_Add, Dashboard_add, Timerange_add;
+    String Rules = "Rules" + "-" + random.nextInt(500);
+    String Edit_Presentation = "EditP_Presentation"+"-" + random.nextInt(500);
+    String Name_Add, Duration_Add, Dashboard_add, Timerange_add,Edited_Name_Add,Content_Add;
 
 
-    public PresentationModesPage(WebDriver driver) {
+    public PresentationModesNdRulesNdRulesPages(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
@@ -192,6 +194,90 @@ public class PresentationModesPage extends SafeActions implements PresentationMo
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void editDashboardConfigValues()
+    {
+        safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + Edit_Presentation);
+        Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_REMOVE_DASHBOARDS, "Remove Dashboards", MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(DASHBOARDS_ADD_ICON, "Dashboards add icon", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+    }
+
+    public void verifyingEditedDashboardViewConfigValues()
+    {
+        waitForSecs(10);
+        if (Edited_Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Dashboard_add.equals(driver.findElement(HYPERLINK_DASHBOARDS).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void addRuleConfiguration()
+    {
+        safeClick(LABEL_SYSTEM,"System",MEDIUMWAIT);
+        safeClick(LABEL_ENGINE_SETTINGS, "Engine Settings", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LABEL_RULES, "Rules", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Rules, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeType(TEXTAREA_CONTENT,"contentRules","Content Text are",MEDIUMWAIT);
+        Content_Add = safeGetText(CONTENT_VAULUE,"Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_FINISH,"Finish",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public void verifyingAddedRules()
+    {
+        safeType(TEXTBOX_TYPESEARCH, Rules + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = Rules;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Content_Add.equals(driver.findElement(CONTENT_VAULUE).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);

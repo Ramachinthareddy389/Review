@@ -2,7 +2,7 @@ package com.page.locators;
 
 import org.openqa.selenium.By;
 
-public interface PresentationModesLocators {
+public interface PresentationModesNdRulesLocators {
     By LABEL_SYSTEM= By.xpath("//span[text()='System']");
     By LABEL_PRESENTATION_MODES =By.xpath("//span[text()='Presentation Modes']");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
@@ -36,5 +36,11 @@ public interface PresentationModesLocators {
     By DASHBOARDS_ADD_ICON = By.xpath("//span[text()='Dashboards']/../../following-sibling::div/button/span/i");
     By PLAY_BTN_ICON = By.xpath("//button[@title='Fullscreen mode']/following-sibling::button/span/i[contains(@class,'far fa-play-circle')]");
     By PLAYMODE_DRPDOWN = By.xpath("//ul/li[@role='menuitem']");
-    By PAGE_TITLE = By.xpath("//div[@aria-label='Enable Selected Configuration']/../../../h5");
+
+    //Rules Configurations
+    By LABEL_ENGINE_SETTINGS = By.xpath("//span[text()='Engine Settings']");
+    By LABEL_RULES = By.xpath("//span[text()='Engine Settings']/../../following-sibling::div[1]/div/a[3]/span[2]/span[1]");
+    By TEXTAREA_CONTENT = By.xpath("//textarea[@class='inputarea']");
+    By CONTENT_VAULUE = By.xpath("//div[@class='view-line']/span/span");
+
 }
