@@ -116,4 +116,21 @@ public class PresentationModesNdRulesTests extends BaseSetup {
       presentationModesNdRulesPages.addRuleConfiguration();
       presentationModesNdRulesPages.verifyingAddedRules();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_432_EditRuleConfiguration()
+    {
+        presentationModesNdRulesPages.addRuleConfiguration();
+        presentationModesNdRulesPages.EditRulesConfig();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_440_AddAbsoluteTimeRange()
+    {
+       presentationModesNdRulesPages.addingTimeRanges();
+       presentationModesNdRulesPages.startPageConfigs();
+       presentationModesNdRulesPages.endPageConfigs();
+       presentationModesNdRulesPages.verifyingAddedAbsoluteTimeRangesInEditWindow();
+
+    }
 }

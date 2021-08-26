@@ -4,6 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.PresentationModesNdRulesLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,8 +19,11 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
     Random random = new Random();
     String Presentation = "Presentation" + "-" + random.nextInt(500);
     String Rules = "Rules" + "-" + random.nextInt(500);
-    String Edit_Presentation = "EditP_Presentation"+"-" + random.nextInt(500);
+    String Edit_Rule = "EditRule" + "-" + random.nextInt(500);
+    String Edit_Presentation = "EditP_Presentation" + "-" + random.nextInt(500);
+    String TimeRanges ="TimeRanges" + "-" + random.nextInt(500);
     String Name_Add, Duration_Add, Dashboard_add, Timerange_add,Edited_Name_Add,Content_Add;
+    String Minute_Add,Hour_Add,Day_Add,Year_Add,Month_add,End_Minute_Add,End_Hour_Add,End_Day_Add,End_Year_Add,End_Month_add;
 
 
     public PresentationModesNdRulesNdRulesPages(WebDriver driver) {
@@ -282,5 +286,135 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+    public void EditRulesConfig()
+    {
+        safeType(TEXTBOX_TYPESEARCH, Rules + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + Edit_Rule);
+        Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField1= driver.findElement(TEXTAREA_CONTENT);
+        searchField1.sendKeys(del1 + "content");
+        Content_Add = safeGetText(CONTENT_VAULUE,"Name textbox value", MEDIUMWAIT);
+        System.out.println(Content_Add);
+        waitForSecs(15);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(30);
+        if (Edited_Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Content_Add.equals(driver.findElement(CONTENT_VAULUE).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+
+    public void addingTimeRanges(){
+        waitForSecs(20);
+        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_TIMERANGES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, TimeRanges, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeJavaScriptClick(BTN_ABSOLUTE_RADIO,"Absolute radio button",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+    }
+
+    public void startPageConfigs(){
+        safeType(TXTBOX_MINUTE, "0", "Name into textbox", MEDIUMWAIT);
+        Minute_Add = safeGetAttribute(TXTBOX_MINUTE, "value", "Name textbox value", MEDIUMWAIT);
+        safeType(TXTBOX_HOUR, "9", "Name into textbox", MEDIUMWAIT);
+        Hour_Add = safeGetAttribute(TXTBOX_HOUR, "value", "Name textbox value", MEDIUMWAIT);
+        safeType(TXTBOX_DAY, "3", "Name into textbox", MEDIUMWAIT);
+        Day_Add = safeGetAttribute(TXTBOX_DAY, "value", "Name textbox value", MEDIUMWAIT);
+        safeType(TXTBOX_YEAR, "2021", "Name into textbox", MEDIUMWAIT);
+        Year_Add = safeGetAttribute(TXTBOX_YEAR, "value", "Name textbox value", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONTH, "January", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("January")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        Month_add = safeGetText(TXTBOX_MONTH, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Month_add);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+    }
+    public void endPageConfigs(){
+        safeType(TXTBOX_MINUTE, "0", "Name into textbox", MEDIUMWAIT);
+        End_Minute_Add = safeGetAttribute(TXTBOX_MINUTE, "value", "Name textbox value", MEDIUMWAIT);
+        safeType(TXTBOX_HOUR, "9", "Name into textbox", MEDIUMWAIT);
+        End_Hour_Add = safeGetAttribute(TXTBOX_HOUR, "value", "Name textbox value", MEDIUMWAIT);
+        safeType(TXTBOX_DAY, "3", "Name into textbox", MEDIUMWAIT);
+        End_Day_Add = safeGetAttribute(TXTBOX_DAY, "value", "Name textbox value", MEDIUMWAIT);
+        safeType(TXTBOX_YEAR, "2021", "Name into textbox", MEDIUMWAIT);
+        End_Year_Add = safeGetAttribute(TXTBOX_YEAR, "value", "Name textbox value", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONTH, "February", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("February")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        End_Month_add = safeGetText(TXTBOX_MONTH, "Server textbox value", MEDIUMWAIT);
+        System.out.println(End_Month_add);
+        safeClick(BTN_FINISH,"Finish",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public void verifyingAddedAbsoluteTimeRangesInEditWindow(){
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = TimeRanges;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        if (Timerange_add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Minute_Add.equals(driver.findElement(TXTBOX_START_EDIT_MINUTE).getAttribute("value")) &&  Day_Add.equals(driver.findElement(TXTBOX_START_EDIT_DAY).getAttribute("value")) &&  Month_add.equals(driver.findElement(TXTBOX_START_EDIT_MONTH).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+
     }
 }

@@ -66,17 +66,17 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(10);
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(30);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(15);
+        waitForSecs(20);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
@@ -593,11 +593,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         }
         System.out.println(str);
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 2);
+        cal.add(Calendar.DATE, 1);
         SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE, -8);
+        cal.add(Calendar.DATE, -7);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s2 = s.format(new Date(cal.getTimeInMillis()));
         System.out.println("Current date and time is " + s2 + " " + time + " " + "-" + s1 + " " + time);

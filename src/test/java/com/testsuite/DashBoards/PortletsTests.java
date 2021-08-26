@@ -215,6 +215,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
 
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -236,7 +237,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.exportingCounterPortlet(counterPortletName);
 

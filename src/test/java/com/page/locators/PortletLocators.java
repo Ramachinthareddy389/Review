@@ -156,7 +156,7 @@ public interface PortletLocators {
     By CLOSE_PORTLET = By.xpath("//div[@aria-label='Close']");
     By BTN_CONFIRM = By.xpath("//span[text()='Confirm']");
     By PORTLET_NOTIFY = By.xpath("//div[text()='No portlets configured, click to add a metric.']");
-    By GAUGEPORTLETDATA = By.xpath("//div[@data-id='series_0']/span");
+    By GAUGEPORTLETDATA = By.xpath("//div[contains(@class,'highcharts-label')]/span");
     By COUNTERPORTLETDATA = By.xpath("//div[contains(@class,'CounterChart')]/div/span/span[2]");
 
 

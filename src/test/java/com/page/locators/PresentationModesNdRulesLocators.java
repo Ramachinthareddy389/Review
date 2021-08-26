@@ -43,4 +43,24 @@ public interface PresentationModesNdRulesLocators {
     By TEXTAREA_CONTENT = By.xpath("//textarea[@class='inputarea']");
     By CONTENT_VAULUE = By.xpath("//div[@class='view-line']/span/span");
 
+    //TimeRanges
+    By LABEL_TIMERANGES = By.xpath("//span[text()='Time Ranges']");
+    By BTN_ABSOLUTE_RADIO = By.xpath("//p[text()='Absolute Time Range']/../../span/span/input[1]");
+    By TXTBOX_MINUTE = By.xpath("//input[@id='value_minute']");
+    By TXTBOX_HOUR = By.xpath("//input[@id='value_hour']");
+    By TXTBOX_DAY = By.xpath("//input[@id='value_day']");
+    By TXTBOX_YEAR = By.xpath("//input[@id='value_year']");
+    By TXTBOX_MONTH = By.xpath("//input[@id='value_month']");
+    By TXTBOX_START_EDIT_MINUTE = By.xpath("//input[@id='Start_minute']");
+    By TXTBOX_START_EDIT_HOUR = By.xpath("//input[@id='Start_hour']");
+    By TXTBOX_START_EDIT_DAY = By.xpath("//input[@id='Start_day']");
+    By TXTBOX_START_EDIT_YEAR = By.xpath("//input[@id='Start_year']");
+    By TXTBOX_START_EDIT_MONTH = By.xpath("//input[@id='Start_month']");
+
+    By TXTBOX_END_EDIT_MINUTE = By.xpath("//input[@id='End_minute']");
+    By TXTBOX_END_EDIT_HOUR = By.xpath("//input[@id='End_hour']");
+    By TXTBOX_END_EDIT_DAY = By.xpath("//input[@id='End_day']");
+    By TXTBOX_END_EDIT_YEAR = By.xpath("//input[@id='End_year']");
+    By TXTBOX_END_EDIT_MONTH = By.xpath("//input[@id='End_month']");
+
 }
