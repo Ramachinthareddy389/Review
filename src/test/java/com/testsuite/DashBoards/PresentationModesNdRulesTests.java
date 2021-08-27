@@ -133,4 +133,29 @@ public class PresentationModesNdRulesTests extends BaseSetup {
        presentationModesNdRulesPages.verifyingAddedAbsoluteTimeRangesInEditWindow();
 
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_441_AddRelativeTimeRange()
+    {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.addingRelativeTimeRanges();
+        presentationModesNdRulesPages.addingRelativeTimeRangeEndPageConfigs();
+        presentationModesNdRulesPages.verifyingAddedRelativeTimeRange();
+    }
+
+    @Test(alwaysRun = true,groups ="Smoke Test")
+    public void TC_442_EditTimeRangeConfiguration()
+    {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.startPageConfigs();
+        presentationModesNdRulesPages.endPageConfigs();
+        presentationModesNdRulesPages.editingAbsoluteTimerange();
+        presentationModesNdRulesPages.verifyingEditedValuesInAbsoluteTimerange();
+        presentationModesNdRulesPages.ClickingOnTimeRanges();
+        presentationModesNdRulesPages.addingRelativeTimeRanges();
+        presentationModesNdRulesPages.addingRelativeTimeRangeEndPageConfigs();
+        presentationModesNdRulesPages.editingRelativeTimeRange();
+        presentationModesNdRulesPages.verifyingEditedRelativeTimerangeConfigs();
+    }
+
 }

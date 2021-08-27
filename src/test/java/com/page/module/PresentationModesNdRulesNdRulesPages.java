@@ -4,6 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.PresentationModesNdRulesLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.apache.poi.ss.formula.functions.Na;
 import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -22,8 +23,9 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
     String Edit_Rule = "EditRule" + "-" + random.nextInt(500);
     String Edit_Presentation = "EditP_Presentation" + "-" + random.nextInt(500);
     String TimeRanges ="TimeRanges" + "-" + random.nextInt(500);
+    String Edit_TimeRange = "EditTimeRange"+ "-" + random.nextInt(500);
     String Name_Add, Duration_Add, Dashboard_add, Timerange_add,Edited_Name_Add,Content_Add;
-    String Minute_Add,Hour_Add,Day_Add,Year_Add,Month_add,End_Minute_Add,End_Hour_Add,End_Day_Add,End_Year_Add,End_Month_add;
+    String Minute_Add,Hour_Add,Day_Add,Year_Add,Month_add,End_Minute_Add,End_Hour_Add,End_Day_Add,End_Year_Add,End_Month_add,Start_Value_Add,Start_Unit_add,End_Value_Add,End_Unit_add;
 
 
     public PresentationModesNdRulesNdRulesPages(WebDriver driver) {
@@ -306,9 +308,16 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         searchField1.sendKeys(del1 + "content");
         Content_Add = safeGetText(CONTENT_VAULUE,"Name textbox value", MEDIUMWAIT);
         System.out.println(Content_Add);
-        waitForSecs(15);
+        waitForSecs(20);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         waitForSecs(30);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit Window",MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, Edit_Rule + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
         if (Edited_Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Content_Add.equals(driver.findElement(CONTENT_VAULUE).getText())) {
             System.out.println("Business process details are valid");
             Assert.assertTrue(true);
@@ -334,11 +343,12 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TXTBOX_NAME, TimeRanges, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-        safeJavaScriptClick(BTN_ABSOLUTE_RADIO,"Absolute radio button",MEDIUMWAIT);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+
     }
 
     public void startPageConfigs(){
+        safeJavaScriptClick(BTN_ABSOLUTE_RADIO,"Absolute radio button",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeType(TXTBOX_MINUTE, "0", "Name into textbox", MEDIUMWAIT);
         Minute_Add = safeGetAttribute(TXTBOX_MINUTE, "value", "Name textbox value", MEDIUMWAIT);
         safeType(TXTBOX_HOUR, "9", "Name into textbox", MEDIUMWAIT);
@@ -402,7 +412,7 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         String expectedText = TimeRanges;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(10);
-        if (Timerange_add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Minute_Add.equals(driver.findElement(TXTBOX_START_EDIT_MINUTE).getAttribute("value")) &&  Day_Add.equals(driver.findElement(TXTBOX_START_EDIT_DAY).getAttribute("value")) &&  Month_add.equals(driver.findElement(TXTBOX_START_EDIT_MONTH).getText())) {
+        if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Minute_Add.equals(driver.findElement(TXTBOX_START_EDIT_MINUTE).getAttribute("value")) &&  Hour_Add.equals(driver.findElement(TXTBOX_START_EDIT_HOUR).getAttribute("value"))&& Year_Add.equals(driver.findElement(TXTBOX_START_EDIT_YEAR).getAttribute("value")) &&  Day_Add.equals(driver.findElement(TXTBOX_START_EDIT_DAY).getAttribute("value")) &&  Month_add.equals(driver.findElement(TXTBOX_START_EDIT_MONTH).getText())&&End_Minute_Add.equals(driver.findElement(TXTBOX_END_EDIT_MINUTE).getAttribute("value")) &&  End_Day_Add.equals(driver.findElement(TXTBOX_END_EDIT_DAY).getAttribute("value")) &&  End_Year_Add.equals(driver.findElement(TXTBOX_END_EDIT_YEAR).getAttribute("value"))&& End_Hour_Add.equals(driver.findElement(TXTBOX_END_EDIT_HOUR).getAttribute("value")) && End_Month_add.equals(driver.findElement(TXTBOX_END_EDIT_MONTH).getText())) {
             System.out.println("Business process details are valid");
             Assert.assertTrue(true);
 
@@ -416,5 +426,234 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
 
+    }
+
+    public void addingRelativeTimeRanges(){
+        safeJavaScriptClick(BTN_RELATIVE_RADIO,"Absolute radio button",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeType(TXTBOX_START_VALUE, "2", "Name into textbox", MEDIUMWAIT);
+        Start_Value_Add = safeGetAttribute(TXTBOX_START_VALUE, "value", "Name textbox value", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_START_UNIT, "Month", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Month")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        Start_Unit_add = safeGetText(TXTBOX_START_UNIT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Start_Unit_add);
+        safeCheck(CHKBOX_START_OF_TIME,"Start of time checkbox",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+    }
+
+    public void addingRelativeTimeRangeEndPageConfigs(){
+        safeType(TXTBOX_START_VALUE, "3", "Name into textbox", MEDIUMWAIT);
+        End_Value_Add = safeGetAttribute(TXTBOX_START_VALUE, "value", "Name textbox value", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_START_UNIT, "Year", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Year")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        End_Unit_add = safeGetText(TXTBOX_START_UNIT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Start_Unit_add);
+        safeCheck(CHKBOX_START_OF_TIME,"Start of time checkbox",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public  void verifyingAddedRelativeTimeRange(){
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = TimeRanges;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        boolean startTime=  isElementSelected(CHKBOX_START_TIME_IN_EDIT);
+        Assert.assertTrue(startTime);
+        boolean endTime=  isElementSelected(CHKBOX_END_TIME_IN_EDIT);
+        Assert.assertTrue(endTime);
+        if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Start_Value_Add.equals(driver.findElement(TXTBOX_START_EDIT_VALUE).getAttribute("value")) &&  Start_Unit_add.equals(driver.findElement(TXTBOX_START_EDIT_UNIT).getText())&&End_Value_Add.equals(driver.findElement(TXTBOX_END_EDIT_VALUE).getAttribute("value")) &&  End_Unit_add.equals(driver.findElement(TXTBOX_END_EDIT_UNIT).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+
+    }
+
+    public void editingAbsoluteTimerange(){
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeTypeUsingChrod(TXTBOX_NAME, Edit_TimeRange, "Name into textbox", MEDIUMWAIT);
+        Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeTypeUsingChrod(TXTBOX_START_EDIT_MINUTE, "5", "Name into textbox", MEDIUMWAIT);
+        Minute_Add = safeGetAttribute(TXTBOX_START_EDIT_MINUTE, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_START_EDIT_HOUR, "8", "Name into textbox", MEDIUMWAIT);
+        Hour_Add = safeGetAttribute(TXTBOX_START_EDIT_HOUR, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_START_EDIT_DAY, "5", "Name into textbox", MEDIUMWAIT);
+        Day_Add = safeGetAttribute(TXTBOX_START_EDIT_DAY, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_START_EDIT_YEAR, "2020", "Name into textbox", MEDIUMWAIT);
+        Year_Add = safeGetAttribute(TXTBOX_START_EDIT_YEAR, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_START_EDIT_MONTH, "February", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("February")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        Month_add = safeGetText(TXTBOX_START_EDIT_MONTH, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Month_add);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_MINUTE, "9", "Name into textbox", MEDIUMWAIT);
+        End_Minute_Add = safeGetAttribute(TXTBOX_END_EDIT_MINUTE, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_HOUR, "10", "Name into textbox", MEDIUMWAIT);
+        End_Hour_Add = safeGetAttribute(TXTBOX_END_EDIT_HOUR, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_DAY, "6", "Name into textbox", MEDIUMWAIT);
+        End_Day_Add = safeGetAttribute(TXTBOX_END_EDIT_DAY, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_YEAR, "2025", "Name into textbox", MEDIUMWAIT);
+        End_Year_Add = safeGetAttribute(TXTBOX_END_EDIT_YEAR, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_MONTH, "March", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("March")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        End_Month_add = safeGetText(TXTBOX_END_EDIT_MONTH, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Month_add);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+
+    }
+
+    public void verifyingEditedValuesInAbsoluteTimerange(){
+        waitForSecs(10);
+        if (Edited_Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Minute_Add.equals(driver.findElement(TXTBOX_START_EDIT_MINUTE).getAttribute("value")) &&  Hour_Add.equals(driver.findElement(TXTBOX_START_EDIT_HOUR).getAttribute("value"))&& Year_Add.equals(driver.findElement(TXTBOX_START_EDIT_YEAR).getAttribute("value")) &&  Day_Add.equals(driver.findElement(TXTBOX_START_EDIT_DAY).getAttribute("value")) &&  Month_add.equals(driver.findElement(TXTBOX_START_EDIT_MONTH).getText())&&End_Minute_Add.equals(driver.findElement(TXTBOX_END_EDIT_MINUTE).getAttribute("value")) &&  End_Day_Add.equals(driver.findElement(TXTBOX_END_EDIT_DAY).getAttribute("value")) &&  End_Year_Add.equals(driver.findElement(TXTBOX_END_EDIT_YEAR).getAttribute("value"))&& End_Hour_Add.equals(driver.findElement(TXTBOX_END_EDIT_HOUR).getAttribute("value")) && End_Month_add.equals(driver.findElement(TXTBOX_END_EDIT_MONTH).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void editingRelativeTimeRange(){
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeTypeUsingChrod(TXTBOX_NAME, Edit_TimeRange, "Name into textbox", MEDIUMWAIT);
+        Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeTypeUsingChrod(TXTBOX_START_EDIT_VALUE, "5", "Name into textbox", MEDIUMWAIT);
+        Start_Value_Add = safeGetAttribute(TXTBOX_START_EDIT_VALUE, "value", "Name textbox value", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_START_EDIT_UNIT, "Year", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Year")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        Start_Unit_add = safeGetText(TXTBOX_START_EDIT_UNIT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Start_Unit_add);
+        safeUnCheck(CHKBOX_START_TIME_IN_EDIT,"Start of time checkbox",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_VALUE, "7", "Name into textbox", MEDIUMWAIT);
+        End_Value_Add = safeGetAttribute(TXTBOX_END_EDIT_VALUE, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_END_EDIT_UNIT, "Year", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("Year")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(5);
+        End_Unit_add = safeGetText(TXTBOX_END_EDIT_UNIT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(End_Unit_add);
+        safeUnCheck(CHKBOX_END_TIME_IN_EDIT,"Start of time checkbox",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+    }
+
+    public void verifyingEditedRelativeTimerangeConfigs()
+    {
+        waitForSecs(10);
+        boolean startTime=  isElementSelected(CHKBOX_START_TIME_IN_EDIT);
+        Assert.assertFalse(startTime);
+        boolean endTime=  isElementSelected(CHKBOX_END_TIME_IN_EDIT);
+        Assert.assertFalse(endTime);
+        if (Edited_Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Start_Value_Add.equals(driver.findElement(TXTBOX_START_EDIT_VALUE).getAttribute("value")) &&  Start_Unit_add.equals(driver.findElement(TXTBOX_START_EDIT_UNIT).getText())&&End_Value_Add.equals(driver.findElement(TXTBOX_END_EDIT_VALUE).getAttribute("value")) &&  End_Unit_add.equals(driver.findElement(TXTBOX_END_EDIT_UNIT).getText())) {
+            System.out.println("Business process details are valid");
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.fail("Business process details are invalid");
+        }
+
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void ClickingOnTimeRanges(){
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, TimeRanges, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
     }
 }

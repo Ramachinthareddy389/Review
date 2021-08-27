@@ -42,10 +42,12 @@ public interface PresentationModesNdRulesLocators {
     By LABEL_RULES = By.xpath("//span[text()='Engine Settings']/../../following-sibling::div[1]/div/a[3]/span[2]/span[1]");
     By TEXTAREA_CONTENT = By.xpath("//textarea[@class='inputarea']");
     By CONTENT_VAULUE = By.xpath("//div[@class='view-line']/span/span");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 
     //TimeRanges
     By LABEL_TIMERANGES = By.xpath("//span[text()='Time Ranges']");
     By BTN_ABSOLUTE_RADIO = By.xpath("//p[text()='Absolute Time Range']/../../span/span/input[1]");
+    By BTN_RELATIVE_RADIO = By.xpath("//p[text()='Relative Time Range']/../../span/span/input[1]");
     By TXTBOX_MINUTE = By.xpath("//input[@id='value_minute']");
     By TXTBOX_HOUR = By.xpath("//input[@id='value_hour']");
     By TXTBOX_DAY = By.xpath("//input[@id='value_day']");
@@ -62,5 +64,15 @@ public interface PresentationModesNdRulesLocators {
     By TXTBOX_END_EDIT_DAY = By.xpath("//input[@id='End_day']");
     By TXTBOX_END_EDIT_YEAR = By.xpath("//input[@id='End_year']");
     By TXTBOX_END_EDIT_MONTH = By.xpath("//input[@id='End_month']");
+
+    By TXTBOX_START_VALUE = By.xpath("//input[@id='value']");
+    By TXTBOX_START_UNIT = By.xpath("//input[@id='unit']");
+    By CHKBOX_START_OF_TIME = By.xpath("//span[text()='Start of Time']/../../../span/span/input");
+    By TXTBOX_START_EDIT_VALUE = By.xpath("//input[@id='start.value']");
+    By TXTBOX_START_EDIT_UNIT = By.xpath("//input[@id='start.unit']");
+    By CHKBOX_START_TIME_IN_EDIT = By.xpath("//span[text()='Start - Start of Time']/../../../span/span/input");
+    By TXTBOX_END_EDIT_VALUE = By.xpath("//input[@id='end.value']");
+    By TXTBOX_END_EDIT_UNIT = By.xpath("//input[@id='end.unit']");
+    By CHKBOX_END_TIME_IN_EDIT = By.xpath("//span[text()='End - Start of Time']/../../../span/span/input");
 
 }

@@ -3350,4 +3350,43 @@ public class SafeActions extends Sync
 		return element;
 	}
 
+	public void safeTypeUsingChrod(By locator,String text,String friendlyWebElementName,int... optionWaitTime)
+	{
+		int waitTime=0;
+		try
+		{
+			waitTime =  getWaitTime(optionWaitTime);
+			if(isElementPresent(locator, waitTime))
+			{
+		String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+		WebElement searchField = driver.findElement(locator);
+		searchField.sendKeys(del + text);
+				log.info(getTestCasename()+"Entered - '" + text + " into " + friendlyWebElementName);
+			}
+			else
+			{
+				log.error(getTestCasename()+"Unable to enter " + text + " in  " + friendlyWebElementName+" in time - "+waitTime+" Seconds");
+				Assert.fail("Unable to enter " + text + " in  " + friendlyWebElementName+" in time - "+waitTime+" Seconds");
+			}
+		}
+		catch(StaleElementReferenceException e)
+		{
+			log.error(getTestCasename()+"Text " + text + " to be entered in the   " + friendlyWebElementName + " is not attached to the page document - StaleElementReferenceException");
+			Assert.fail("Text " + text + " to be entered in the   " + friendlyWebElementName + " is not attached to the page document - StaleElementReferenceException");
+		}
+		catch (NoSuchElementException e)
+		{
+			log.error(getTestCasename()+"Text " + text + " to be entered in the   " + friendlyWebElementName + " is not attached to the page document in time - "+waitTime+" - NoSuchElementException");
+			Assert.fail("Text " + text + " to be entered in the   " + friendlyWebElementName + " is not attached to the page document in time - "+waitTime+" - NoSuchElementException");
+		}
+//		catch(NullPointerException e){
+//			log.error(getTestCasename()+"some variables may failed to initialize... please check");
+//			Assert.fail("some variables may failed to initialize... please check");
+//		}
+		catch(Exception e)
+		{
+			log.error(getTestCasename()+"Unable to enter '" + text + "' text in   -"+ friendlyWebElementName + " - " + e);
+			Assert.fail("Unable to enter '" + text + "' text in  -"+ friendlyWebElementName+" Some Exception");
+		}
+	}
 }
