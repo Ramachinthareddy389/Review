@@ -74,5 +74,10 @@ public interface PresentationModesNdRulesLocators {
     By TXTBOX_END_EDIT_VALUE = By.xpath("//input[@id='end.value']");
     By TXTBOX_END_EDIT_UNIT = By.xpath("//input[@id='end.unit']");
     By CHKBOX_END_TIME_IN_EDIT = By.xpath("//span[text()='End - Start of Time']/../../../span/span/input");
+    By CALENDAR_ICON =By.xpath("//div[contains(@class, 'DateTimePicker')]//i");
+    By PREDEFINED_TIMERANGES = By.xpath("//button[contains(@class,'MuiButton-outlined')]/span[@class='MuiButton-label']");
+    By EXPLORE_LABEL = By.xpath("//span[text()='Explore your data']");
+    By EXPLORE_SEARCH_TEXTBOX = By.xpath("//div[@placeholder='Search insights (free text or select keywords)']");
+    By TIMERANGES_IN_EXPLORE_PAGE = By.xpath("//i[contains(@class,'far fa-calendar-alt')]/parent::div");
 
 }

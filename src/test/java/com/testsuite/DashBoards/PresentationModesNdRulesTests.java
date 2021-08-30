@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class PresentationModesNdRulesTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
-    private LocalProgramPage localProgramPage;
+    private DashboardOverviewPage dashboardOverviewPage;
     private PresentationModesNdRulesNdRulesPages presentationModesNdRulesPages;
     private HardwarePage hardwarePage;
     private HTTPPage httpPage;
@@ -24,7 +24,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
         presentationModesNdRulesPages = new PresentationModesNdRulesNdRulesPages(getDriver());
-        hardwarePage = new HardwarePage(getDriver());
+        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         httpPage = new HTTPPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
@@ -157,5 +157,26 @@ public class PresentationModesNdRulesTests extends BaseSetup {
         presentationModesNdRulesPages.editingRelativeTimeRange();
         presentationModesNdRulesPages.verifyingEditedRelativeTimerangeConfigs();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_444_VerifyTimeRangesinCalendar() throws InterruptedException {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.startPageConfigs();
+        presentationModesNdRulesPages.endPageConfigs();
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SelectingCalender("clone Parent");
+        presentationModesNdRulesPages.verifyTimeRangesInCalendar();
+    }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_445_VerifyTimeRangesinGuidedSearchPage()
+    {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.startPageConfigs();
+        presentationModesNdRulesPages.endPageConfigs();
+        presentationModesNdRulesPages.verifyingTimeRangesInGuidedSearchPage();
+    }
+
 
 }

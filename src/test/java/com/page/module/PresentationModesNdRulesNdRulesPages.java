@@ -656,4 +656,61 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
     }
+
+    public void verifyTimeRangesInCalendar(){
+        List<WebElement> dbs1 = driver.findElements(PREDEFINED_TIMERANGES);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+            System.out.println(dbs1.get(i).getText());
+            if (dbs1.get(i).getText().equals(TimeRanges)) {
+
+               Assert.assertEquals(dbs1.get(i).getText(),TimeRanges);
+            }
+        }
+        waitForSecs(20);
+        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_TIMERANGES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+
+    public void verifyingTimeRangesInGuidedSearchPage(){
+        safeClick(EXPLORE_LABEL,"Explore label",MEDIUMWAIT);
+        safeClick(EXPLORE_SEARCH_TEXTBOX, "Search bar in Add Metric Window", MEDIUMWAIT);
+        driver.findElement(EXPLORE_SEARCH_TEXTBOX).sendKeys(dashBoardData.portletQuery, Keys.ENTER, Keys.ENTER);
+        safeClick(EXPLORE_SEARCH_TEXTBOX, "Search bar in Add Metric Window", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(TIMERANGES_IN_EXPLORE_PAGE);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+            System.out.println(dbs1.get(i).getText());
+            if (dbs1.get(i).getText().equals("for "+TimeRanges)) {
+
+                Assert.assertEquals(dbs1.get(i).getText(),"for "+TimeRanges);
+            }
+        }
+        waitForSecs(20);
+        refresh();
+        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_TIMERANGES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
 }
