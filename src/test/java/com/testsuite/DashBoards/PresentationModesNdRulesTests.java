@@ -179,4 +179,11 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_457_AddNewRole()
+    {
+        presentationModesNdRulesPages.addingNewRole();
+        presentationModesNdRulesPages.verifyingAddedRole();
+    }
+
 }

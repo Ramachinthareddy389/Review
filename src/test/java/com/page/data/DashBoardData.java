@@ -29,6 +29,7 @@ public class DashBoardData {
 	public final String ownerRole_Username = dashboardVisibility.getProperty("OwnerRole_TestUser");
 	private ConfigManager portletsData = new ConfigManager("Portlets");
 	public final String portletKPI     = portletsData.getProperty("KPI");
+	public final String portletBPKPI     = portletsData.getProperty("BPKPI");
 	public final String portletQuery = portletsData.getProperty("Query");
 	public final String drillthrghpage = portletsData.getProperty("DRILLTHROUGHPAGETITLE");
 	public final String tooltip1     = portletsData.getProperty("TOOLTIP1");

@@ -63,7 +63,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             }
         }
 
-        waitForSecs(10);
+        waitForSecs(20);
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
         waitForSecs(20);

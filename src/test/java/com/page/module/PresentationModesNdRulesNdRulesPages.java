@@ -24,6 +24,7 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
     String Edit_Presentation = "EditP_Presentation" + "-" + random.nextInt(500);
     String TimeRanges ="TimeRanges" + "-" + random.nextInt(500);
     String Edit_TimeRange = "EditTimeRange"+ "-" + random.nextInt(500);
+    String ROLE = "role" + "-" + random.nextInt(500);
     String Name_Add, Duration_Add, Dashboard_add, Timerange_add,Edited_Name_Add,Content_Add;
     String Minute_Add,Hour_Add,Day_Add,Year_Add,Month_add,End_Minute_Add,End_Hour_Add,End_Day_Add,End_Year_Add,End_Month_add,Start_Value_Add,Start_Unit_add,End_Value_Add,End_Unit_add;
 
@@ -711,6 +712,49 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+    //Roles
+
+    public void addingNewRole()
+    {
+        waitForSecs(20);
+        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_AUTH_SETTINGS,"Auth Settings",MEDIUMWAIT);
+        safeClick(LABEL_USER_ROLES,"Auth Settings",MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, ROLE, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeCheck(CHECKBOX1,"Creativeinactive config",MEDIUMWAIT);
+        safeCheck(CHECKBOX2,"Create/Edit Config",MEDIUMWAIT);
+        safeCheck(CHECKBOX3,"Create Dashboards",MEDIUMWAIT);
+        safeCheck(CHECKBOX4,"Edit UI Fields/Columns",MEDIUMWAIT);
+        safeCheck(CHECKBOX5,"View Data",MEDIUMWAIT);
+        safeCheck(CHECKBOX6,"View User Replay",MEDIUMWAIT);
+        safeCheck(CHECKBOX7,"Manage Users",MEDIUMWAIT);
+        safeCheck(CHECKBOX8,"Monitor",MEDIUMWAIT);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public  void verifyingAddedRole(){
+        safeType(TEXTBOX_TYPESEARCH, ROLE + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(RECORD_IN_ROLE_PAGE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(RECORD_IN_ROLE_PAGE, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = ROLE;
+        Assert.assertEquals(pageTitle, expectedText);
+/*        waitForSecs(10);
+        boolean startTime=  isElementSelected(CHKBOX_START_TIME_IN_EDIT);
+        Assert.assertTrue(startTime);
+        boolean endTime=  isElementSelected(CHKBOX_END_TIME_IN_EDIT);
+        Assert.assertTrue(endTime);*/
     }
 
 }

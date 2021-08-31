@@ -21,9 +21,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String appliedFilter = null;
+    String appliedFilter ="Cumulative transaction duration of all requests between 2 consecutive clicks (in seconds). It will contain async and sync transactions.";
+    String appliedFilterBPKPI ="No description provided";
     String file_name;
     String downloadPath;
+    String appliedBPFilter = "No description provided";
     By Filters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     String appliedKPIFilter = null;
     private WebDriver driver1;
@@ -719,23 +721,24 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + flowPortletName);
+        waitForSecs(20);
         safeClick(FLOW_COLUMN_LABEL, "Column Label Field", MEDIUMWAIT);
         String deleteColumnLabelData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData, dashBoardData.flowPortletColumnLabel);
         safeClick(FLOW_CLUSTER_BY_LABEL, "Cluster By Field", MEDIUMWAIT);
-        String clusterdata = Keys.chord("Name") + Keys.ENTER;
+        String clusterdata = Keys.chord("Path") + Keys.ENTER;
         driver.findElement(FLOW_CLUSTER_BY_INPUT).sendKeys(clusterdata);
         safeClick(FLOW_SHOW_USERS_CHECKBOX, "Show Users checkbox", MEDIUMWAIT);
-        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+      /*  safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
         safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(Filters_TypeSearch, "Name", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
         safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
-        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));*/
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
-        safeClick(FLOW_FILTER_VALUE_LABEL, "", MEDIUMWAIT);
+    /*    safeClick(FLOW_FILTER_VALUE_LABEL, "", MEDIUMWAIT);
         safeType(FLOW_FILTER_VALUE, "Sample", "Filter value field input", MEDIUMWAIT);
         safeClick(FLOW_FILTER_POSITION_LABEL, "Filter Position Field", MEDIUMWAIT);
         waitForSecs(10);
@@ -750,31 +753,33 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
                 kpis1.get(i).click();
                 break;
             }
-        }
+        }*/
        // safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(20);
         safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }
 
     @Step("Verifying Flow Portlet in Dashboard page")
     public void verifyingFlowPortlet(String flowPortletName) throws InterruptedException {
-        waitForPageToLoad();
+        waitForSecs(20);
         By FLOW_PORTLET_TITLE = By.xpath("//span[@aria-label='" + flowPortletName + "']");
         waitUntilClickable(FLOW_PORTLET_TITLE, "Flow Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(FLOW_PORTLET_TITLE).isDisplayed())
             Assert.fail("Flow portlet added is not displayed in Dashboard page");
-        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='" + flowPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
+        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='" + flowPortletName + "']/../following-sibling::div/i");
         if (!driver.findElement(FILTER_FLOW_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Flow Portlet");
         mouseHoverJScript(FILTER_FLOW_PORTLET, "Filter icon", "Filter icon in Flow Portlet", MEDIUMWAIT);
-        By FILTER_MESSAGE_FLOW_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
-        if (!driver.findElement(FILTER_MESSAGE_FLOW_PORTLET).isDisplayed())
+        By FILTER_MESSAGE_FLOW_PORTLET = By.cssSelector(".MuiTooltip-tooltip.MuiTooltip-tooltipPlacementTop>div>div>div:nth-child(2)");
+        String text=safeGetText(FILTER_MESSAGE_FLOW_PORTLET,"Information text",MEDIUMWAIT);
+        System.out.println(text);
+        if (!text.contains(appliedFilter))
             Assert.fail("Filter Message is not displayed properly in Flow portlet");
         try {
             waitForSecs(5);
             if (driver.findElement(FLOW_PORTLET_GRAPH).isDisplayed()) {
                 safeClick(BTN_MAXIMIZE_PORTLET, "Maximise portlet button", MEDIUMWAIT);
-                By COLUMN_LABEL = By.xpath("//span[@title='" + dashBoardData.flowPortletColumnLabel + "']");
+                By COLUMN_LABEL = By.cssSelector("text.headerText:nth-child(1)");
                 waitUntilClickable(COLUMN_LABEL, "Column label Field", MEDIUMWAIT);
                 if (!driver.findElement(COLUMN_LABEL).isDisplayed())
                     Assert.fail("Column Label is not displayed properly in Flow portlet");
@@ -1197,6 +1202,81 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for RCA", MEDIUMWAIT);
         System.out.println(Tooltip1);
     }
+
+
+    @Step("Adding Flow Portlet using BP KPI")
+    public  void addingFlowPortletUsingBPKPI(String flowPortletName) throws InterruptedException {
+        waitForPageToLoad();
+        safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
+        waitForPageToLoad();
+        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
+        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
+        waitUntilClickable(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
+        safeClick(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
+        safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
+        safeClick(KPI_GHOSTTEXT,"KPI ghost text",MEDIUMWAIT);
+        //safeJavaScriptClearAndType(FLOW_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        Thread.sleep(3000);
+        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField2 = driver.findElement(FLOW_TEXTBOX_KPI);
+        searchField2.sendKeys(del2 + dashBoardData.portletBPKPI);
+        waitForSecs(10);
+        List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis.size(); i++) {
+            System.out.println(kpis.get(i).getText());
+            if (kpis.get(i).getText().equals(dashBoardData.portletBPKPI)) {
+                waitForSecs(20);
+                kpis.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClick(FLOW_PORTLET_NAME, "Portlet Name field in Flow portlet Interface");
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
+        searchField.sendKeys(del + flowPortletName);
+        waitForSecs(20);
+        safeClick(FLOW_COLUMN_LABEL, "Column Label Field", MEDIUMWAIT);
+        String deleteColumnLabelData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData, dashBoardData.flowPortletColumnLabel);
+        waitForSecs(20);
+        safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
+    }
+
+    @Step("Verifying BP Flow Portlet in Dashboard page")
+    public void verifyingFlowPortletUSingBPKPI(String flowPortletName) throws InterruptedException {
+        waitForSecs(20);
+        By FLOW_PORTLET_TITLE = By.xpath("//span[@aria-label='" + flowPortletName + "']");
+        waitUntilClickable(FLOW_PORTLET_TITLE, "Flow Portlet Title", MEDIUMWAIT);
+        if (!driver.findElement(FLOW_PORTLET_TITLE).isDisplayed())
+            Assert.fail("Flow portlet added is not displayed in Dashboard page");
+        By FILTER_FLOW_PORTLET = By.xpath("//span[@aria-label='" + flowPortletName + "']/../following-sibling::div/i");
+        if (!driver.findElement(FILTER_FLOW_PORTLET).isDisplayed())
+            Assert.fail("Filter icon is not displayed for Flow Portlet");
+        mouseHoverJScript(FILTER_FLOW_PORTLET, "Filter icon", "Filter icon in Flow Portlet", MEDIUMWAIT);
+        By FILTER_MESSAGE_FLOW_PORTLET = By.cssSelector(".MuiTooltip-tooltip.MuiTooltip-tooltipPlacementTop>div>div>div:nth-child(2)");
+        String text=safeGetText(FILTER_MESSAGE_FLOW_PORTLET,"Information text",MEDIUMWAIT);
+        System.out.println(text);
+        if (!text.contains(appliedFilterBPKPI))
+            Assert.fail("Filter Message is not displayed properly in Flow portlet");
+        try {
+            waitForSecs(5);
+            if (driver.findElement(FLOW_PORTLET_GRAPH).isDisplayed()) {
+                safeClick(BTN_MAXIMIZE_PORTLET, "Maximise portlet button", MEDIUMWAIT);
+                By COLUMN_LABEL = By.cssSelector("text.headerText:nth-child(1)");
+                waitUntilClickable(COLUMN_LABEL, "Column label Field", MEDIUMWAIT);
+                if (!driver.findElement(COLUMN_LABEL).isDisplayed())
+                    Assert.fail("Column Label is not displayed properly in Flow portlet");
+            }
+        } catch (Exception e) {
+            if (!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+                Assert.fail("No Data Available label is not displayed in flow portlet");
+            System.out.println("Data is not available in Flow Portlet");
+        }
+    }
+
 }
 
 

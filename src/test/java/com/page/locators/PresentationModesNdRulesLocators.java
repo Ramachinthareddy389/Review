@@ -80,4 +80,18 @@ public interface PresentationModesNdRulesLocators {
     By EXPLORE_SEARCH_TEXTBOX = By.xpath("//div[@placeholder='Search insights (free text or select keywords)']");
     By TIMERANGES_IN_EXPLORE_PAGE = By.xpath("//i[contains(@class,'far fa-calendar-alt')]/parent::div");
 
+
+    //Role Locators
+    By LABEL_AUTH_SETTINGS = By.xpath("//span[text()='Auth Settings']");
+    By LABEL_USER_ROLES = By.xpath("//span[text()='User Roles']");
+    By CHECKBOX1 = By.xpath("//span[text()='Create Inactive Config']/../../../span/span/input");
+    By CHECKBOX2 = By.xpath("//span[text()='Create/Edit Config']/../../../span/span/input");
+    By CHECKBOX3 = By.xpath("//span[text()='Create Dashboards']/../../../span/span/input");
+    By CHECKBOX4 = By.xpath("//span[text()='Edit UI Fields/Columns']/../../../span/span/input");
+    By CHECKBOX5 = By.xpath("//span[text()='View Data']/../../../span/span/input");
+    By CHECKBOX6 = By.xpath("//span[text()='View User Replay']/../../../span/span/input");
+    By CHECKBOX7 = By.xpath("//span[text()='Manage Users']/../../../span/span/input");
+    By CHECKBOX8 = By.xpath("//span[text()='Monitor']/../../../span/span/input");
+    By RECORD_IN_ROLE_PAGE = By.xpath("//div[@title='Select Row']/following-sibling::div/span/span");
+
 }

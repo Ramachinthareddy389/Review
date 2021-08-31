@@ -112,6 +112,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingFlowPortlet(flowPortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingFlowPortlet(flowPortletName);
+        portletsFeature.removingPortlet();
 
     }
 
@@ -124,6 +125,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
+        portletsFeature.removingPortlet();
 
     }
 
@@ -136,6 +138,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingCounterPortlet(counterPortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
+        portletsFeature.removingPortlet();
 
     }
 
@@ -358,6 +361,18 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.maximisePortletInRCAPage();
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_27_1_AddingFlowPortletUsingBPKPI() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingFlowPortletUsingBPKPI(flowPortletName);
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        portletsFeature.verifyingFlowPortletUSingBPKPI(flowPortletName);
+        portletsFeature.removingPortlet();
+
+    }
 }
 
 
