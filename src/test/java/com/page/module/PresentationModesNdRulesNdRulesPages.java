@@ -716,7 +716,7 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
 
     //Roles
 
-    public void addingNewRole()
+    public void addingNewUserRoles()
     {
         waitForSecs(20);
         safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
@@ -739,7 +739,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
     }
 
-    public  void verifyingAddedRole(){
+    public  void verifyingAddedUserRoles()
+    {
         safeType(TEXTBOX_TYPESEARCH, ROLE + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
@@ -750,11 +751,67 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         System.out.println(pageTitle);
         String expectedText = ROLE;
         Assert.assertEquals(pageTitle, expectedText);
-/*        waitForSecs(10);
-        boolean startTime=  isElementSelected(CHKBOX_START_TIME_IN_EDIT);
-        Assert.assertTrue(startTime);
-        boolean endTime=  isElementSelected(CHKBOX_END_TIME_IN_EDIT);
-        Assert.assertTrue(endTime);*/
+        waitForSecs(10);
+        Assert.assertEquals(Name_Add,driver.findElement(TXTBOX_NAME).getAttribute("value"));
+        boolean chkBOx1=  isElementSelected(CHECKBOX1);
+        Assert.assertTrue(chkBOx1);
+        boolean chkBOx2=  isElementSelected(CHECKBOX2);
+        Assert.assertTrue(chkBOx2);
+        boolean chkBOx3=  isElementSelected(CHECKBOX3);
+        Assert.assertTrue(chkBOx3);
+        boolean chkBOx4=  isElementSelected(CHECKBOX4);
+        Assert.assertTrue(chkBOx4);
+        boolean chkBOx5=  isElementSelected(CHECKBOX5);
+        Assert.assertTrue(chkBOx5);
+        boolean chkBOx6=  isElementSelected(CHECKBOX6);
+        Assert.assertTrue(chkBOx6);
+        boolean chkBOx7=  isElementSelected(CHECKBOX7);
+        Assert.assertTrue(chkBOx7);
+        boolean chkBOx8=  isElementSelected(CHECKBOX8);
+        Assert.assertTrue(chkBOx8);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+
+    public  void editUserRolesConfig(){
+        safeType(TEXTBOX_TYPESEARCH, ROLE + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(RECORD_IN_ROLE_PAGE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(RECORD_IN_ROLE_PAGE, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeUnCheck(CHECKBOX1,"Creativeinactive config",MEDIUMWAIT);
+        safeUnCheck(CHECKBOX2,"Create/Edit Config",MEDIUMWAIT);
+        safeUnCheck(CHECKBOX3,"Create Dashboards",MEDIUMWAIT);
+        safeUnCheck(CHECKBOX4,"Edit UI Fields/Columns",MEDIUMWAIT);
+        safeUnCheck(CHECKBOX5,"View Data",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(9);
+        boolean chkBOx1=  isElementSelected(CHECKBOX1);
+        Assert.assertFalse(chkBOx1);
+        boolean chkBOx2=  isElementSelected(CHECKBOX2);
+        Assert.assertFalse(chkBOx2);
+        boolean chkBOx3=  isElementSelected(CHECKBOX3);
+        Assert.assertFalse(chkBOx3);
+        boolean chkBOx4=  isElementSelected(CHECKBOX4);
+        Assert.assertFalse(chkBOx4);
+        boolean chkBOx5=  isElementSelected(CHECKBOX5);
+        Assert.assertFalse(chkBOx5);
+        boolean chkBOx6=  isElementSelected(CHECKBOX6);
+        Assert.assertTrue(chkBOx6);
+        boolean chkBOx7=  isElementSelected(CHECKBOX7);
+        Assert.assertTrue(chkBOx7);
+        boolean chkBOx8=  isElementSelected(CHECKBOX8);
+        Assert.assertTrue(chkBOx8);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 }

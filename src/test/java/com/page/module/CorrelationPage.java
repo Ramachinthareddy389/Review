@@ -601,12 +601,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(EDITED_LSTREAM_KPIS_LABEL, "Server Feild", MEDIUMWAIT);
         safeClick(CLOSINGADDED_KPIS, "ClosingKpis's", MEDIUMWAIT);
         safeClick(EDITED_LEFT_KPIS_GHSOTTXET, "Server textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(EDITED_LSTREAM_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
+        safeJavaScriptClearAndType(EDITED_LSTREAM_KPIS, "Agent Status", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Alert")) {
+            if (dbs1.get(i).getText().equals("Agent Status")) {
 
                 dbs1.get(i).click();
                 break;

@@ -81,7 +81,7 @@ public interface CorrelationLocators {
     By EDITED_LSTREAM_PARTITION_KEY = By.xpath("//input[@id='leftStream.partitionKey']");
     By EDITED_LSTREAM_ORDER_BY = By.xpath("//input[@id='leftStream.orderBy']");
     By EDITED_LSTREAM_KPIS = By.xpath("//input[@id='leftStream.kpis']");
-    By CLOSINGADDED_KPIS = By.xpath("//span[text()='0 KPI Threshold']/following-sibling::i");
+    By CLOSINGADDED_KPIS = By.xpath("//span[text()='Alert']/following-sibling::i");
     By EDITED_RSTREAM_NAME_TXTBOX = By.xpath("//input[@id='rightStream.name']");
     By EDITED_RSTREAM_TIMETOLIVE_TXTBOX = By.xpath("//input[@id='rightStream.timeToLive']");
     By EDITED_RSTREAM_PARTITION_KEY = By.xpath("//input[@id='rightStream.partitionKey']");
