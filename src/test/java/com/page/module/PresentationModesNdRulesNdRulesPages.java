@@ -715,14 +715,18 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
     }
 
     //Roles
+    public void clickingOnUserRoles(){
+        waitForSecs(20);
+        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LABEL_AUTH_SETTINGS,"Auth Settings",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(LABEL_USER_ROLES,"Auth Settings",MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+    }
 
     public void addingNewUserRoles()
     {
-        waitForSecs(20);
-        safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
-        safeClick(LABEL_AUTH_SETTINGS,"Auth Settings",MEDIUMWAIT);
-        safeClick(LABEL_USER_ROLES,"Auth Settings",MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, ROLE, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -735,7 +739,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeCheck(CHECKBOX6,"View User Replay",MEDIUMWAIT);
         safeCheck(CHECKBOX7,"Manage Users",MEDIUMWAIT);
         safeCheck(CHECKBOX8,"Monitor",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_FINISH_ROLE,"Finish button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
     }
 

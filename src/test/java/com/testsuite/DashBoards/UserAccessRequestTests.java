@@ -3,10 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.LoginPage;
-import com.page.module.PortletsFeature;
-import com.page.module.UserAccessRequestPage;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
@@ -19,6 +16,7 @@ public class UserAccessRequestTests extends BaseSetup {
     private PortletsFeature portletsFeature;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
+    private PresentationModesNdRulesNdRulesPages presentationModesNdRulesPages;
 
     private String sModeOfExecution;
     Random random = new Random();
@@ -38,6 +36,7 @@ public class UserAccessRequestTests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         portletsFeature = new PortletsFeature(getDriver());
         userAccessRequestPage = new UserAccessRequestPage(getDriver());
+        presentationModesNdRulesPages = new PresentationModesNdRulesNdRulesPages(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -58,5 +57,23 @@ public class UserAccessRequestTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
         userAccessRequestPage.verifyingRequestedUserInUserAccessRequestPage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_467_AddNewRolesInAddNDEditUserwindow()
+    {
+         userAccessRequestPage.addingRoleFromUsersPage();
+         presentationModesNdRulesPages.addingNewUserRoles();
+         userAccessRequestPage.ClickingFinIShNdCloseButtons();
+         presentationModesNdRulesPages.verifyingAddedUserRoles();
+         userAccessRequestPage.deletingaddedEmail();
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_469_EditUserConfiguration(){
+        userAccessRequestPage.addingRoleFromUsersPage();
+        presentationModesNdRulesPages.addingNewUserRoles();
+        userAccessRequestPage.editingUserConfigurations();
     }
 }

@@ -70,4 +70,49 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         safeClick(BTN_REJECT, "Reject button in User Access Requests Page");
         safeClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
     }
+
+    //Users Page
+
+
+    @Step("Adding Role from Uesrs Page")
+    public void addingRoleFromUsersPage(){
+        safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
+        safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
+        safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+        safeClick(ADD_USERS_ICON,"Add icon",MEDIUMWAIT);
+        safeTypeUsingChrod(USERS_EMAIL_TXTBOX,Email,"Email id",MEDIUMWAIT);
+        safeClick(ROLES_ADD_ICON,"Add icon",MEDIUMWAIT);
+    }
+
+    public void ClickingFinIShNdCloseButtons(){
+        safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
+        safeClick(LABEL_USER_ROLES,"Auth Settings",MEDIUMWAIT);
+    }
+
+ public void deletingaddedEmail()
+ {
+     safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+     waitForSecs(10);
+     safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(9);
+     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+     waitForSecs(5);
+     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+     waitForSecs(10);
+ }
+
+ public void editingUserConfigurations(){
+     safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
+     safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
+     waitForSecs(10);
+     safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(9);
+ }
 }

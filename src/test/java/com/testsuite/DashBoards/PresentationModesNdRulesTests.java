@@ -182,12 +182,14 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_457_AddNewRole()
     {
+        presentationModesNdRulesPages.clickingOnUserRoles();
         presentationModesNdRulesPages.addingNewUserRoles();
         presentationModesNdRulesPages.verifyingAddedUserRoles();
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_458_EditRole()
     {
+        presentationModesNdRulesPages.clickingOnUserRoles();
         presentationModesNdRulesPages.addingNewUserRoles();
         presentationModesNdRulesPages.editUserRolesConfig();
     }

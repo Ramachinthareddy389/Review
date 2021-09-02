@@ -17,4 +17,14 @@ public interface UserAccessRequestLocators {
     By BTN_REJECT = By.xpath("//span[text()='Reject']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
+
+    //Users Locators
+    By LABEL_USERS = By.xpath("//span[text()='Users']");
+    By USERS_EMAIL_TXTBOX    = By.xpath("//input[@id='email']");
+    By ADD_USERS_ICON = By.xpath("//i[@aria-label='Add New User']");
+    By ROLES_ADD_ICON = By.xpath("//i[@aria-label='Add']");
+    By BTN_FINISH = By.xpath("//span[text()='Finish']");
+    By LABEL_USER_ROLES = By.xpath("//span[text()='User Roles']");
+    By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
 }

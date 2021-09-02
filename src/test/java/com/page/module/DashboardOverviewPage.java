@@ -701,7 +701,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
         cal.add(Calendar.DATE, 2);
@@ -762,7 +762,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE, -28);
+        cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
         String expected = s1;
@@ -788,6 +788,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
        // cal.add(Calendar.MONTH);
+        cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
         String date = s1 + " " + "'" + s2;

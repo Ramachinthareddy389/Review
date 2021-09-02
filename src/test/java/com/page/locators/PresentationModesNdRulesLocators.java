@@ -93,5 +93,6 @@ public interface PresentationModesNdRulesLocators {
     By CHECKBOX7 = By.xpath("//span[text()='Manage Users']/../../../span/span/input");
     By CHECKBOX8 = By.xpath("//span[text()='Monitor']/../../../span/span/input");
     By RECORD_IN_ROLE_PAGE = By.xpath("//div[@title='Select Row']/following-sibling::div/span/span");
+    By BTN_FINISH_ROLE = By.xpath("//span[text()='Monitor']/../../../span/span/input/../../../../../../../../div[3]/div/button/span");
 
 }
