@@ -66,7 +66,7 @@ public class UserAccessRequestTests extends BaseSetup {
          presentationModesNdRulesPages.addingNewUserRoles();
          userAccessRequestPage.ClickingFinIShNdCloseButtons();
          presentationModesNdRulesPages.verifyingAddedUserRoles();
-         userAccessRequestPage.deletingaddedEmail();
+        userAccessRequestPage.deletingaddedEmail();
 
     }
 

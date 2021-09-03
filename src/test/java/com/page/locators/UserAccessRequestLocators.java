@@ -26,5 +26,10 @@ public interface UserAccessRequestLocators {
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
     By LABEL_USER_ROLES = By.xpath("//span[text()='User Roles']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
-    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove User']");
+    By TYPE_DRPDOWN = By.xpath("//input[@id='type']");
+    By TYPE_GHOSTTEXT = By.xpath("//input[@id='type']/../../../div[1]");
+    By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By BTN_SAVE = By.xpath("//div[@aria-label='Save User']");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 }

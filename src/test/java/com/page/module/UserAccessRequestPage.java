@@ -7,8 +7,10 @@ import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import java.util.List;
 import java.util.Random;
 
 public class UserAccessRequestPage extends SafeActions implements UserAccessRequestLocators {
@@ -22,8 +24,8 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     String TimeRanges = "TimeRanges" + "-" + random.nextInt(500);
     String Edit_TimeRange = "EditTimeRange" + "-" + random.nextInt(500);
     String ROLE = "role" + "-" + random.nextInt(500);
-    String Name_Add, Duration_Add, Dashboard_add, Timerange_add, Edited_Name_Add, Content_Add;
-    String Minute_Add, Hour_Add, Day_Add, Year_Add, Month_add, End_Minute_Add, End_Hour_Add, End_Day_Add, End_Year_Add, End_Month_add, Start_Value_Add, Start_Unit_add, End_Value_Add, End_Unit_add;
+    String Edit_Type_Add, Duration_Add, Dashboard_add, Timerange_add, Edited_Name_Add, Content_Add;
+
 
 
     public UserAccessRequestPage(WebDriver driver) {
@@ -105,7 +107,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
      waitForSecs(10);
  }
 
- public void editingUserConfigurations(){
+ public void editingUserConfigurations() {
      safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
      safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
      waitForSecs(10);
@@ -114,5 +116,36 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
      mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
      safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
      waitForSecs(9);
+     safeClick(TYPE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+     safeClearAndType(TYPE_DRPDOWN, "Business", "Server name into textbox", MEDIUMWAIT);
+     List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+
+     System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+     for (int i = 0; i < dbs1.size(); i++) {
+
+         if (dbs1.get(i).getText().equals("Business")) {
+
+             dbs1.get(i).click();
+             break;
+         }
+     }
+     Edit_Type_Add = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+     System.out.println(Edit_Type_Add);
+     safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+     waitForSecs(10);
+     safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+     safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+     safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(9);
+     Assert.assertEquals(Edit_Type_Add,"Business");
+     waitForSecs(9);
+     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+     waitForSecs(5);
+     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+     waitForSecs(10);
+
  }
 }

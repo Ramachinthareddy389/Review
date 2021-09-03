@@ -34,4 +34,18 @@ public interface AlertTemplateLocators
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
 
+    //Alert Locators
+    By LABEL_AUTOMATION = By.xpath("//span[text()='Automation']");
+    By LABEL_ALERT = By.xpath("//span[text() ='Alert']");
+    By DISTRIBUTION_LIST_GHOSTTEXT = By.xpath("//input[@id='alertGroupName']/../../../div[1]");
+    By DRPDOWN_DISTRIBUTION_LIST = By.xpath("//input[@id='alertGroupName']");
+    By SLA_GHOSTTEXT = By.xpath("//input[@id='sla']/../../../div[1]");
+    By DRPDOWN_SLA = By.xpath("//input[@id='sla']");
+    By DROPDOWN_LIST=By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By EMAIL_SUBJECT = By.xpath("//div[contains(@class,'ellipsis nw')]");
+    By BTN_DELETE = By.xpath("//span[text()='Delete']");
+    By LABEL_DAILY_INSIGHT = By.xpath("//span[text()='Daily']");
+    By INSIGHTS_PAGE_SIDE_MENU = By.xpath("//span[@title='Insights']/span");
+
+
 }
