@@ -22,7 +22,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     String dname = "BP";
     String dname1 = dname + random.nextInt(1500);
     String editBP = "BPEDIT";
-    String Alert = "alert" + random.nextInt(1500);
+    //String Alert = "alert" + random.nextInt(1500);
     String Bpstep = "Bp" + random.nextInt(1500);
 
     //Constructor to define/call methods
@@ -165,7 +165,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
     }
 
-    public void addingAlerts() {
+    public void addingAlerts(String Alert) {
         waitForSecs(30);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, Alert, "Name into textbox", MEDIUMWAIT);
@@ -209,7 +209,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
-    public void deletingAlert(){
+    public void deletingAlert(String Alert){
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -235,9 +235,6 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
             Assert.assertFalse(false);
         }
 
-        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
-        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
-        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
     }
 
     public void verifyingAddedAlertInInsightPage(){
@@ -246,11 +243,66 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         System.out.println(sla);
         Assert.assertTrue(sla);
         waitForSecs(30);
-        safeClick(INSIGHTS_PAGE_SIDE_MENU,"Insight page",MEDIUMWAIT);
-        waitForSecs(20);
-        safeClick(LABEL_AUTOMATION, "Datasources label from left side pane", MEDIUMWAIT);
-        waitForSecs(10);
         safeClick(LABEL_ALERT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
 
+
+    public void triggeringAnAlertWithNotify(String Alert){
+        safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LABEL_NOTIFY_ON_SUCCESS,"Success label",MEDIUMWAIT);
+        safeClick(LABEL_NOTIFY_ON_FAILURE,"Failure Label",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+
+    }
+
+    public void deletingEmails() {
+        waitForSecs(20);
+        driver.findElements(LABEL_MENU_BUTTON).get(1).click();
+        safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);
+        acceptAlert();
+    }
+
+    public void triggeringAlertBasedOnExecutionCount(String Alert){
+        safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT,"3","Execution count",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+    }
+
+    public void triggeringAnAlertWithSpecifiedquiteTime(String Alert){
+        safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT,"3","Execution count",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_QUITE_TIME,"4000","quite time",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+
+    }
 }

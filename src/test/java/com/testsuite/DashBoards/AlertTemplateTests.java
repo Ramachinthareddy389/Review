@@ -23,7 +23,7 @@ public class AlertTemplateTests extends BaseSetup {
     Random random = new Random();
     String dname = "testng";
     String dname1 = dname + random.nextInt(1500);
-
+    String Alert = "alert" + random.nextInt(1500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -62,20 +62,69 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_340_TriggerAnAlertbasedonSLAs() {
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts();
-        alertTemplatePage.deletingAlert();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.deletingAlert(Alert);
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("alertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
-        alertTemplatePage.VerifyingEmailSubject("Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        //alertTemplatePage.VerifyingEmailSubject("Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        emailPage.clickingOnEmptyInbox();
+        alertTemplatePage.deletingEmails();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_344_VerifytriggeredalertsinInsightspage()
     {
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts();
+        alertTemplatePage.addingAlerts(Alert);
         insightsPage.navigateToInsightsPage();
         alertTemplatePage.verifyingAddedAlertInInsightPage();
-        alertTemplatePage.deletingAlert();
+        alertTemplatePage.deletingAlert(Alert);
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public  void TC_341_TriggerAnAlertwithNotifications()
+    {
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.triggeringAnAlertWithNotify(Alert);
+        alertTemplatePage.deletingAlert(Alert);
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - Internal issue - Notification for "+Alert);
+        emailPage.clickingOnEmptyInbox();
+        alertTemplatePage.deletingEmails();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_343_TriggerAnAlertBasedonExecutionCount(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.triggeringAlertBasedOnExecutionCount(Alert);
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        emailPage.clickingOnEmptyInbox();
+        alertTemplatePage.deletingEmails();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_342_TriggerAnAlertwithSpecifiedQuiettime(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        emailPage.clickingOnEmptyInbox();
+        alertTemplatePage.deletingEmails();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_345_VerifyDatainAlertEmail(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
+        alertTemplatePage.deletingAlert(Alert);
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        emailPage.clickingHyperlinksInAlertEmails();
+        alertTemplatePage.deletingEmails();
     }
 }

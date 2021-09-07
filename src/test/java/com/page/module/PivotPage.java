@@ -80,7 +80,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         safeClick(DELETE_TABLE_PORTLET, "Delete icon in Table portlet", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE_PORTLET, "Confirm button in delete popup", MEDIUMWAIT);
         try {
-            waitForPageToLoad();
+        waitForSecs(15);
             if (driver.findElement(TABLE_PORTLET).isDisplayed())
                 Assert.fail("Table portlet is not deleted in Pivot page");
         } catch (NoSuchElementException e) {
@@ -152,7 +152,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         By DELETE_EXISTING_PIVOT = By.xpath("//div[@role='button']/span[contains(text(),'" + dashBoardData.pivotFieldPivotPage + "')]/following-sibling::i");
         waitUntilClickable(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
         safeClick(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
-        waitUntilClickable(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
+        safeClick(CHART_MEASURE_FIELD, "Measures Field in Chart Portlet", MEDIUMWAIT);
         safeClick(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
         String pivot = Keys.chord(dashBoardData.updatedPivotFieldPivotPage) + Keys.ENTER;
         driver.findElement(CHART_PIVOT_FIELD_INPUT).sendKeys(pivot);
@@ -204,7 +204,8 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         By DELETE_EXISTING_PIVOT = By.xpath("//div[@role='button']/span[contains(text(),'" + dashBoardData.pivotFieldPivotPage + "')]/following-sibling::i");
         waitUntilClickable(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
         safeClick(DELETE_EXISTING_PIVOT, "Delete existing data in Pivot field", MEDIUMWAIT);
-        waitUntilClickable(PIVOT_FIELD, "Pivot Field in Table Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(ORDER_BY_FIELD, "Order By Field in Table portlet", MEDIUMWAIT);
         safeClick(PIVOT_FIELD, "Pivot Field in Table Portlet", MEDIUMWAIT);
         String pivot = Keys.chord(dashBoardData.updatedPivotFieldPivotPage) + Keys.ENTER;
         driver.findElement(PIVOT_FIELD_INPUT).sendKeys(pivot);

@@ -5,6 +5,7 @@ import com.page.locators.EmailLocators;
 import com.page.locators.UserAccessRequestLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +33,9 @@ public class EmailPage extends SafeActions implements EmailLocators {
         String day= driver.findElement(By.xpath("//div[@class='mday']")).getText();
         Assert.assertEquals(day,"today");
         String subject = safeGetText(LABEL_RECEIVED_EMAIl, "text", MEDIUMWAIT);
-        if (subject.contains(title)) {
+        System.out.println(subject);
+        if (subject.equals(title)) {
+            Assert.assertEquals(subject,title);
             safeClick(LABEL_RECEIVED_EMAIl, "clicked on Label", MEDIUMWAIT);
         }
         driver.switchTo().defaultContent();
@@ -55,5 +58,64 @@ public class EmailPage extends SafeActions implements EmailLocators {
         String Notify = safeGetText(NOTIGY_REJECTED, "Notification Text", MEDIUMWAIT);
         String expectedNotify = "Request Rejected.";
         Assert.assertEquals(Notify, expectedNotify);
+    }
+
+    public void clickingOnEmptyInbox()
+    {
+        driver.switchTo().defaultContent();
+       /* int size = driver.findElements(By.tagName("iframe")).size();
+        System.out.println("Total Frames --" + size);
+        selectFrame(1);*/
+    }
+
+    public void clickingHyperlinksInAlertEmails(){
+        safeClick(HYPERLINK_MONITORING_DATALINK, "Monitoring hyper link", MEDIUMWAIT);
+        switchToWindow(1);
+        waitForSecs(10);
+        String url = getCurrentURL();
+        System.out.println(url);
+        String expectedURL = "http://qa.germainapm.com/germainapm/workspace/app/#TimeRange";
+        if(!url.contains(expectedURL)){
+            Assert.assertFalse(false,"Not Navigated to germain apm page");
+        }
+        String RCATitle =safeGetText(TITLE_RCA_PAGE,"RCA page tile",MEDIUMWAIT);
+        String expectedRCA ="RCA for User Click";
+        Assert.assertEquals(RCATitle,expectedRCA);
+        driver.close();
+        switchToWindow(0);
+        selectFrame(2);
+        safeClick(HYPERLINK_ALERT_DATALINK, "Alert hyper link", MEDIUMWAIT);
+        switchToWindow(1);
+        String AlertTitle =safeGetText(TITLE_RCA_PAGE,"RCA page tile",MEDIUMWAIT);
+        String expectedAlert ="RCA for Alert";
+        Assert.assertEquals(AlertTitle,expectedAlert);
+        driver.close();
+        waitForSecs(2);
+        switchToWindow(0);
+        selectFrame(2);
+        safeClick(HYPERLINK_TICKET_LINK, "Alert hyper link", MEDIUMWAIT);
+        switchToWindow(1);
+        String TicketTitle =safeGetText(TITLE_NEW_TICKET,"RCA page tile",MEDIUMWAIT);
+        waitForSecs(10);
+        String expectedTicket ="New Ticket";
+        Assert.assertEquals(TicketTitle,expectedTicket);
+        driver.close();
+        waitForSecs(2);
+        switchToWindow(0);
+        selectFrame(2);
+        safeClick(HYPERLINK_KPI_LINK, "Alert hyper link", MEDIUMWAIT);
+        switchToWindow(1);
+        waitForSecs(10);
+        String KPITitle =safeGetText(TITLE_RCA_PAGE,"RCA page tile",MEDIUMWAIT);
+        String expectedKPI ="Key Performance Indicators";
+        Assert.assertEquals(KPITitle,expectedKPI);
+        switchToWindow(1);
+        String editWindowTitle =safeGetText(HEADER_DB,"RCA page tile",MEDIUMWAIT);
+        String expectedEditKPITITLE = "User Click";
+        Assert.assertEquals(editWindowTitle,expectedEditKPITITLE);
+        driver.close();
+        waitForSecs(2);
+        switchToWindow(0);
+
     }
 }
