@@ -39,7 +39,8 @@ public class Email extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void emailVerification() throws InterruptedException {
-        emailPage.navigatingToEmail("testzenq@yopmail.com","Germain APM User Access Requested");
+
+        emailPage.navigatingToEmail("apmalertzenq@yopmail.com","Germain APM User Access Requested");
         emailPage.actionPerformingInMail();
 
     }

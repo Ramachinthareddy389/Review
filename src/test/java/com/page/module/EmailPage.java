@@ -106,13 +106,9 @@ public class EmailPage extends SafeActions implements EmailLocators {
         safeClick(HYPERLINK_KPI_LINK, "Alert hyper link", MEDIUMWAIT);
         switchToWindow(1);
         waitForSecs(10);
-        String KPITitle =safeGetText(TITLE_RCA_PAGE,"RCA page tile",MEDIUMWAIT);
+        String KPITitle =safeGetText(TITLE_KPI,"RCA page tile",MEDIUMWAIT);
         String expectedKPI ="Key Performance Indicators";
         Assert.assertEquals(KPITitle,expectedKPI);
-        switchToWindow(1);
-        String editWindowTitle =safeGetText(HEADER_DB,"RCA page tile",MEDIUMWAIT);
-        String expectedEditKPITITLE = "User Click";
-        Assert.assertEquals(editWindowTitle,expectedEditKPITITLE);
         driver.close();
         waitForSecs(2);
         switchToWindow(0);

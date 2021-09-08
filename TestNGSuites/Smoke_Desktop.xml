@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite thread-count="1" parallel="tests" verbose="10" name="Germain Suite"
+<suite thread-count="3" parallel="tests" verbose="10" name="Germain Suite"
 	   annotations="JDK"  preserve-order="true" >
 
 	<listeners>
