@@ -6,9 +6,13 @@ import com.page.locators.SoftwareLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -36,16 +40,16 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_ADDICON_SQL, "Add button", MEDIUMWAIT);
     }
 
-    public void addingNewSqlRecord(String Query,String alertTemplate,String TimeRange){
+    public void addingNewSqlRecord(String DistList,String Query,String alertTemplate,String TimeRange){
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, SQL, "Name Textbox", MEDIUMWAIT);
         safeClick(DISTRIBUTION_LIST_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_DISTRIBUTION_LIST, "SQLList", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_DISTRIBUTION_LIST, DistList, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("SQLList")) {
+            if (dbs1.get(i).getText().equals(DistList)) {
 
                 dbs1.get(i).click();
                 break;
@@ -173,4 +177,83 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_VALIDATE, "Validate button", MEDIUMWAIT);
         safeClick(CLOSE_EDITWINDOW, "Close sql edit window", MEDIUMWAIT);
     }
+
+    public void verifyingOnSuccessNdFailure(){
+        safeType(TEXTBOX_TYPESEARCH, SQL + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeCheck(CHKBOX_DATAMART_QUERY, "Data mart query check box", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(By.xpath("//button[@aria-label='" + Querys + "']")).click();
+        safeClick(BTN_VALIDATE, "Validate button", MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "Close sql edit window", MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LABEL_NOTIFY_ON_SUCCESS,"Success label",MEDIUMWAIT);
+        safeClick(LABEL_NOTIFY_ON_FAILURE,"Failure Label",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+
+
+    }
+
+    public void deletingEmails(){
+        waitForSecs(20);
+        driver.switchTo().defaultContent();
+        driver.findElements(LABEL_MENU_BUTTON).get(1).click();
+        safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);
+        acceptAlert();
+    }
+
+
+    public  void addingGermainAPmActionLog(String KPI){
+        waitForPageToLoad();
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitUntilClickable(BTN_ADD_METRIC, "Waiting for an Add metric icon");
+        safeClick(BTN_ADD_METRIC, "Add metric icon");
+        waitUntilClickable(LINK_ADD_METRIC, "Waiting for an Add metric link");
+        safeClick(LINK_ADD_METRIC, "Add metric link");
+        safeClick(DROPDWON_KPI, "KPI Label", MEDIUMWAIT);
+        // safeType(TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
+        waitForSecs(7);
+        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField2 = driver.findElement(TEXTBOX_KPI);
+        searchField2.sendKeys(del2 + KPI);
+        List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpi12.size(); i++) {
+            System.out.println(kpi12.get(i).getText());
+            if (kpi12.get(i).getText().equals(KPI)) {
+                kpi12.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_ADD_PORTLET, "Add Portlet", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+    }
+   public void verifyingInDrillThroughPage(){
+       Calendar cal = Calendar.getInstance();
+       SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
+       System.out.println(s.format(new Date(cal.getTimeInMillis())));
+       String currentDte = s.format(new Date(cal.getTimeInMillis()));
+       if(currentDte.contains(driver.findElements(TIMESTAMP_COLUMN).get(0).getText()))
+       {
+           List<WebElement> kpi12 = driver.findElements(COMPONET_COLUMN_VALUES);
+           for (int i = 0; i < kpi12.size(); i++) {
+               System.out.println(kpi12.get(i).getText());
+               if (kpi12.get(i).getText().equals("Report action"+SQL+ "executed successfully.")) {
+                   Assert.assertEquals(kpi12.get(i).getText(),"Report action"+SQL+ "executed successfully.");
+                   break;
+               }
+           }
+       }
+   }
 }

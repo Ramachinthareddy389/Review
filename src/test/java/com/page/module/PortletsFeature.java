@@ -257,7 +257,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Adding General Health portlet")
-    public void addingPortlet(String dname1) throws InterruptedException {
+    public void addingPortlet(String dname1,String KPI) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
@@ -270,11 +270,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(7);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(TEXTBOX_KPI);
-        searchField2.sendKeys(del2 + "User Click");
+        searchField2.sendKeys(del2 + KPI);
         List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi12.size(); i++) {
             System.out.println(kpi12.get(i).getText());
-            if (kpi12.get(i).getText().equals("User Click")) {
+            if (kpi12.get(i).getText().equals(KPI)) {
                 kpi12.get(i).click();
                 break;
             }

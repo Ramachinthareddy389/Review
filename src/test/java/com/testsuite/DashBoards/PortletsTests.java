@@ -56,7 +56,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortlet(dname1);
+        portletsFeature.addingPortlet(dname1,"User Click");
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.VerifyingGHPortlet(dname1);
         //portletsFeature.removingPortlet();
@@ -161,7 +161,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortlet(dname1);
+        portletsFeature.addingPortlet(dname1,"User Click");
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.validatingExportedGHPortlet(dname1 + "_" + "User Click.csv", dashBoardData.porletHeaders.split(","));
 

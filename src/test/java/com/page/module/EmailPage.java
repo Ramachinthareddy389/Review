@@ -34,8 +34,8 @@ public class EmailPage extends SafeActions implements EmailLocators {
         Assert.assertEquals(day,"today");
         String subject = safeGetText(LABEL_RECEIVED_EMAIl, "text", MEDIUMWAIT);
         System.out.println(subject);
-        if (subject.equals(title)) {
-            Assert.assertEquals(subject,title);
+        if (!subject.equals(title)) {
+            Assert.assertTrue(false);
             safeClick(LABEL_RECEIVED_EMAIl, "clicked on Label", MEDIUMWAIT);
         }
         driver.switchTo().defaultContent();

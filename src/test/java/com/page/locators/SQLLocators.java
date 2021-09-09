@@ -48,6 +48,23 @@ public interface SQLLocators {
     By SQL_QUERIES_ADD_ICON = By.xpath("//span[text()='SQL Queries']/../../following-sibling::div/button/span/i");
     By LABEL_SQL_QUERY = By.xpath("//span[text()='Name For SQL Query']");
     By TXTBOX_SQL_QUERY = By.xpath("//span[text()='Name For SQL Query']/../../following-sibling::div/input");
+    By BTN_SHOW_ADVANCED = By.xpath("//span[text()='Show Advanced']");
+    By LABEL_NOTIFY_ON_SUCCESS = By.xpath("//span[text()='Notify On Success']");
+    By LABEL_NOTIFY_ON_FAILURE = By.xpath("//span[text()='Notify On Failure']");
+    By DROPDOWN_KPI=By.xpath("//span[text()='KPI']");
+    By KPI_GHOSTTEXT = By.xpath("//input[@id='kpi']/../../../div[1]");
+    By TEXTBOX_KPI=By.xpath("//input[@id='kpi_0']");
+    By LISTOFDASHBOARDS= By.xpath("//div[@title='Dashboards']//ancestor::div[4]//following::div[2]/div/div/span/div/div/span");
+    By DROPDOWN_DASHBOARD_FOLDER=By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By LIST_PORTLETS=By.xpath("//div[@title='Dashboards']//ancestor::div[4]/following-sibling::div[4]/div/div/span/div/div/span");
+    By BTN_ADD_METRIC=By.xpath("//button[@type='button']/span/i[@title='Add Metric']");
+    By LINK_ADD_METRIC=By.xpath("//button[text()='Add Metric']");
+    By DROPDWON_KPI=By.xpath("//*[text()='KPI']/../../../div//div[contains(@class,'body1')]");
+    By BTN_DRILLTHROUGH=By.xpath("//div[@aria-label='Drillthrough']");
+    By Title_DRILLTHROUGH=By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
+    By BTN_ADD_PORTLET=By.xpath("//span[text()='Add Portlet']");
+    By COMPONET_COLUMN_VALUES = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[5]/span/span");
+    By TIMESTAMP_COLUMN = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");
 
 }
 
