@@ -61,6 +61,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.VerifyingGHPortlet(dname1);
         //portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -75,6 +78,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         // portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test", retryAnalyzer = com.testng.Retry.class)
@@ -88,6 +94,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         //  portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
 
@@ -100,7 +109,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingMapPortlet(mapPortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingMapPortlet(mapPortletName);
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -113,7 +124,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingFlowPortlet(flowPortletName);
         portletsFeature.removingPortlet();
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -126,7 +139,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.removingPortlet();
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -139,7 +154,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -152,7 +169,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.cloningPortletInDashboardPage();
         portletsFeature.verifyingClonedPortlet();
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -164,7 +183,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortlet(dname1,"User Click");
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.validatingExportedGHPortlet(dname1 + "_" + "User Click.csv", dashBoardData.porletHeaders.split(","));
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -178,6 +199,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         portletsFeature.validatingExportedATabularPortlet(tabularPortletName);
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -190,7 +214,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         portletsFeature.verifyingExportedNtabularPortlet(nTabularPortletName);
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -204,7 +230,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingMapPortlet(mapPortletName);
         portletsFeature.validatingExportedGHPortlet(mapPortletName + ".csv", dashBoardData.mapHeaders.split(","));
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -217,8 +245,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
-
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -230,7 +259,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.exportingGaugePortlet(gaugePortletName);
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -243,7 +274,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.exportingCounterPortlet(counterPortletName);
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
 
@@ -256,7 +289,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortletFromSearchBar();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigatingToDrillThroughPage(dname1);
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -269,7 +304,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.verifyingHoverMessageinFilterTabularportlet(tabularPortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyhoverFiltermessage();
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -283,7 +320,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigatingToDrilthroughPagesUsingTooltipOptions();
         portletsFeature.removingPortlet();
-
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -296,6 +335,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortletFromSearchBar();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingPortletAddedFromSearchBar();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
 
     }
 
@@ -320,6 +362,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
         dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
 
@@ -332,6 +377,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingPortletFromSearchBar();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(enabled = true)
@@ -346,6 +394,9 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.navigateToDrillthroughPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         portletsFeature.verifyTimeRangeInRCAPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(enabled = true)
@@ -359,6 +410,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToRCAPage();
         portletsFeature.maximisePortletInRCAPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -371,6 +425,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingFlowPortletUSingBPKPI(flowPortletName);
         portletsFeature.removingPortlet();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
 
     }
 }

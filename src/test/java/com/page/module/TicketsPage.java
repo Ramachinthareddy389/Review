@@ -42,6 +42,8 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         waitUntilClickable(TICKETS_PAGE_TITLE, "Tickets page Title", MEDIUMWAIT);
         if (!driver.findElement(TICKETS_PAGE_TITLE).isDisplayed())
             Assert.fail("Tickets page is not displayed properly");
+        waitUntilClickable(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
+        safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
     }
 
     @Step("Navigate to Tickets page")
@@ -56,11 +58,8 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Adding Ticket with assignee and Multiple Participants in Tickets page")
     public void addTicketWithAssigneeAndMultipleParticipants() {
-        //waitUntilClickable(TICKET_ROWS,"Ticket Rows in Tickets page",MEDIUMWAIT);
-        waitUntilClickable(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
-        safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
         waitUntilClickable(TICKET_TITLE, "", MEDIUMWAIT);
-        safeType(TICKET_TITLE, ticketTitle, "Ticket Title in Dashboard page", MEDIUMWAIT);
+        safeTypeUsingChrod(TICKET_TITLE, ticketTitle, "Ticket Title in Dashboard page", MEDIUMWAIT);
         safeClick(TICKET_SEVERITY, "Severity field", MEDIUMWAIT);
         waitUntilClickable(SEVERITY_OPTION, "", MEDIUMWAIT);
         safeClick(SEVERITY_OPTION, "Severity Option selection", MEDIUMWAIT);
@@ -118,7 +117,6 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Verifying added ticket in Tickets page")
     public void verifyAddedTicketInTicketsPage() throws InterruptedException {
-        waitForPageToLoad();
         waitForSecs(10);
         //waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
         waitUntilClickable(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
@@ -152,6 +150,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
             } else {
                 Assert.fail("Ticket added on Dashboard is not displayed in Tickets page");
             }
+            safeClick(CLOSE_BUTTON,"Closing Ticket",MEDIUMWAIT);
         }
     }
 
@@ -386,6 +385,24 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
                 Assert.fail("Ticket added on Dashboard is not displayed in Tickets page");
             }
         }
+    }
+
+
+    public void creatingTicketFrmDrillThrghPage(){
+       waitForSecs(10);
+       int i= driver.findElements(TICKET_ICON_FRM_DRILLTHRUGH).size();
+        System.out.println(i);
+        driver.findElements(TICKET_ICON_FRM_DRILLTHRUGH).get(1).click();
+
+    }
+
+    public void clickingOnTicketspage(){
+        waitForPageToLoad();
+        waitUntilClickable(TICKETS_SIDE_MENU, "Tickets Page in side menu", LONGWAIT);
+        safeClick(TICKETS_SIDE_MENU, "Tickets Page in side menu", LONGWAIT);
+        waitUntilClickable(TICKETS_PAGE_TITLE, "Tickets page Title", MEDIUMWAIT);
+        if (!driver.findElement(TICKETS_PAGE_TITLE).isDisplayed())
+            Assert.fail("Tickets page is not displayed properly");
     }
 
 }

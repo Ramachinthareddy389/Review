@@ -48,11 +48,11 @@ public class SQLTests extends BaseSetup {
     public void TC_276_AddSQLConfigwithDatamartQuery() throws InterruptedException
     {
           sqlPage.clickingOnAutomation();
-          sqlPage.addingNewSqlRecord("SQLList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
+          sqlPage.addingNewSqlRecord("DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
           sqlPage.verifyingaddedSQLConfigs();
           sqlPage.deletingSQLConfig();
           getDriver().get(dashBoardData.yopemail);
-          emailPage.navigatingToEmail("apmsqlzenq@yopmail.com","Germain Report - User Login Report - Germain Software - QA");
+          emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
           sqlPage.verifyingDataInEmail("Daily User Login Repor");
 
 

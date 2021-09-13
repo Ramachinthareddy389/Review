@@ -58,6 +58,7 @@ public class DashBoardTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.userName, PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
         dashboardPage.accessDashboardByUserAfterRemovingAccess();
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -103,6 +104,9 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.clickOnDashboard();
         dashboardPage.createTicketOnDashboard();
         dashboardPage.verifyTicketInTicketsPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -112,6 +116,9 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.PinDashboard();
         dashboardPage.Unpin_Pin_Dashboard_FromDashboardPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
     }
 
 

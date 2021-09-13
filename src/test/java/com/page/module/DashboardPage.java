@@ -192,6 +192,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         } else {
             Assert.fail("Ticket added on Dashboard is not displayed in Tickets page");
         }
+        safeClick(CLOSE_TICKET,"Close button",MEDIUMWAIT);
     }
 
 

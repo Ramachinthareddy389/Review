@@ -843,4 +843,15 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(LOGOUT, "Logout", MEDIUMWAIT);
     }
 
+    public void clickingDashBoardModule(){
+        if(!driver.findElement(All_FOLDER).isDisplayed()) {
+            safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
+            safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        }
+        else{
+            safeClick(All_FOLDER, "DashBoard Module on Home page", MEDIUMWAIT);
+        }
+
+    }
+
 }

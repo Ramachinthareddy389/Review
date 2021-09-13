@@ -3,7 +3,9 @@ package com.page.locators;
 import org.openqa.selenium.By;
 
 public interface EmailLocators {
-   By TXTBOX_EMAIl = By.xpath("//input[@placeholder='Enter your inbox here']");
+   By TXTBOX_EMAIl = By.xpath("//input[@id='identifierId']");
+   By BTN_NEXT = By.xpath("//span[text()='Next']");
+   By TXTBOX_PASSWORD = By.xpath("//div[text()='Enter your password']");
    By BTN_FORWARD = By.xpath("//button[@class='md']/i");
    By LABEL_RECEIVED_EMAIl = By.xpath("//div[@class='lms']");
    By FRAME = By.xpath("//iframe[@id='ifnoinb']");

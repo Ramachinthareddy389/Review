@@ -5,6 +5,7 @@ import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
 import com.page.module.DashboardOverviewPage;
 import com.page.module.LoginPage;
+import com.page.module.PortletsFeature;
 import com.page.module.TicketsPage;
 import com.selenium.Sync;
 import com.utilities.MailinatorAPI;
@@ -17,6 +18,7 @@ public class TicketsTest extends BaseSetup {
     private LoginPage loginPage;
     private TicketsPage ticketsPage;
     private DashboardOverviewPage dashboardOverviewPage;
+    private PortletsFeature portletsFeature;
 
 
     private String sModeOfExecution;
@@ -28,6 +30,7 @@ public class TicketsTest extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         ticketsPage = new TicketsPage(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
+        portletsFeature = new PortletsFeature(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -77,5 +80,45 @@ public class TicketsTest extends BaseSetup {
         ticketsPage.changeTicketSettingsInTicketsPage();
         ticketsPage.navigateToTicketsPage();
         ticketsPage.verifyChangedTicketSettingsInTicketsPage();
+    }
+
+    @Test(groups = "Smoke Test")
+    public  void TC_126_AddTicketFromDrillthroughpage() throws InterruptedException
+    {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        portletsFeature.navigateToDrillthroughPage();
+        ticketsPage.creatingTicketFrmDrillThrghPage();
+        ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
+        ticketsPage.clickingOnTicketspage();
+        ticketsPage.verifyAddedTicketInTicketsPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+
+    }
+
+    @Test(groups = "Smoke Test")
+    public void TC_127_AddTicketFromRCApage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToRCAFromDrillthroughPage();
+        ticketsPage.creatingTicketFrmDrillThrghPage();
+        ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
+        ticketsPage.clickingOnTicketspage();
+        ticketsPage.verifyAddedTicketInTicketsPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+
     }
 }

@@ -45,4 +45,7 @@ public interface TicketLocators {
     By CLOSE_BUTTON = By.xpath("//h6/../following-sibling::button");
     By TICKET_UPDATED_MESSAGE = By.xpath("//span[contains(@id,'snackbar') and contains(text(),'Ticket updated')]");
 
+
+    //Drillthrough Page Ticket locators
+    By TICKET_ICON_FRM_DRILLTHRUGH = By.xpath("//span/i[@class='fas fa-ticket-alt']");
 }
