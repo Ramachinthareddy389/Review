@@ -5,7 +5,12 @@ import org.openqa.selenium.By;
 public interface EmailLocators {
    By TXTBOX_EMAIl = By.xpath("//input[@id='identifierId']");
    By BTN_NEXT = By.xpath("//span[text()='Next']");
-   By TXTBOX_PASSWORD = By.xpath("//div[text()='Enter your password']");
+   By TXTBOX_PASSWORD = By.xpath("//input[@aria-label='Enter your password']");
+   By EMAIL_SUBJECT = By.xpath("//div[@class='y6']/span/span");
+   By BTN_DELETE = By.xpath("//div[@aria-label='Delete']/div/div");
+   By EMAIl_ATTACH_LABEL = By.xpath("//div[@class='aQA']/span");
+   By HEADER_IN_MAIL = By.xpath("//h3[text()='Daily User Login Report']");
+
    By BTN_FORWARD = By.xpath("//button[@class='md']/i");
    By LABEL_RECEIVED_EMAIl = By.xpath("//div[@class='lms']");
    By FRAME = By.xpath("//iframe[@id='ifnoinb']");

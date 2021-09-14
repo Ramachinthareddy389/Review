@@ -89,7 +89,7 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.triggeringAnAlertWithNotify(Alert);
         alertTemplatePage.deletingAlert(Alert);
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - Internal issue - Notification for "+Alert);
+        emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - Internal issue - Notification for "+Alert);
         emailPage.clickingOnEmptyInbox();
         alertTemplatePage.deletingEmails();
     }
@@ -100,9 +100,9 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAlertBasedOnExecutionCount(Alert);
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
-        emailPage.clickingOnEmptyInbox();
-        alertTemplatePage.deletingEmails();
+        emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+/*        emailPage.clickingOnEmptyInbox();
+        alertTemplatePage.deletingEmails();*/
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
@@ -111,9 +111,9 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
-        emailPage.clickingOnEmptyInbox();
-        alertTemplatePage.deletingEmails();
+        emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+
+
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
@@ -123,8 +123,8 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
         alertTemplatePage.deletingAlert(Alert);
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("apmalertzenq@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
         emailPage.clickingHyperlinksInAlertEmails();
-        alertTemplatePage.deletingEmails();
+        //alertTemplatePage.deletingEmails();
     }
 }

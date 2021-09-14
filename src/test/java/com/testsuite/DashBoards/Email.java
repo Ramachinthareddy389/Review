@@ -38,10 +38,11 @@ public class Email extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void emailVerification() throws InterruptedException {
+    public void emailVerification() throws InterruptedException
+    {
 
-        emailPage.navigatingToEmail("apmalertzenq@yopmail.com","Germain APM User Access Requested");
-        emailPage.actionPerformingInMail();
+        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+
 
     }
 

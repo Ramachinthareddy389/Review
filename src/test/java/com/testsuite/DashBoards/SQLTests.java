@@ -53,7 +53,8 @@ public class SQLTests extends BaseSetup {
           sqlPage.deletingSQLConfig();
           getDriver().get(dashBoardData.yopemail);
           emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
-          sqlPage.verifyingDataInEmail("Daily User Login Repor");
+          emailPage.verifyingDataforSqlTests();
+          //sqlPage.verifyingDataInEmail("Daily User Login Report");
 
 
     }
@@ -66,7 +67,7 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("apmsqlzenq@yopmail.com","Doesn't Matter");
+        emailPage.navigatingToEmail("testuser2832@gmail.com","Doesn't Matter");
         sqlPage.verifyingDataInEmail("Multi-Query-Report");
     }
 
@@ -77,8 +78,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingOnSuccessNdFailure();
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("apmsqlzenq@yopmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
-        sqlPage.deletingEmails();
+        emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
+
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
@@ -92,6 +93,18 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingGermainAPmActionLog("Germain APM Action Log");
         sqlPage.verifyingInDrillThroughPage();
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_284_VerifyAttachResultinEditSQLwindow(){
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord("SQLList","select name, value from GENERIC_METRIC order by id desc limit 10","Multi-Query Report eBay","None");
+        sqlPage.verifyingaddedSQLConfigs();
+        sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
+        sqlPage.deletingSQLConfig();
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("testuser2832@gmail.com","Doesn't Matter");
+        emailPage.verifyingDataforSqlTests();
     }
 
 }

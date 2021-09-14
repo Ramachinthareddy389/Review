@@ -23,7 +23,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
 
     Random random = new Random();
     String Server_Add, desc, techStack, category_Add, acess_Means, search_Tags;
-    String SQL = "Sql" + " - " + random.nextInt(500);
+    String SQL = "Sqltest123";
     String Querys = "Querys" + " - " + random.nextInt(500);
     String QryEdit = "QryEdit" + " - " + random.nextInt(500);
     String WebUXAgent = "WebUXAgent" + " - " + random.nextInt(500);
