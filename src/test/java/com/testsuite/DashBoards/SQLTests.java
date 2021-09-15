@@ -23,7 +23,7 @@ public class SQLTests extends BaseSetup {
     String dname = "Pivots";
     String dname1 = dname + random.nextInt(1500);
 
-
+    String SQL = "Sqltest"+ random.nextInt(1500);;
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -48,12 +48,12 @@ public class SQLTests extends BaseSetup {
     public void TC_276_AddSQLConfigwithDatamartQuery() throws InterruptedException
     {
           sqlPage.clickingOnAutomation();
-          sqlPage.addingNewSqlRecord("DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
-          sqlPage.verifyingaddedSQLConfigs();
+          sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
+          sqlPage.verifyingaddedSQLConfigs(SQL);
           sqlPage.deletingSQLConfig();
           getDriver().get(dashBoardData.yopemail);
           emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
-          emailPage.verifyingDataforSqlTests();
+          emailPage.verifyingDataforSqlTests(SQL);
           //sqlPage.verifyingDataInEmail("Daily User Login Report");
 
 
@@ -62,8 +62,8 @@ public class SQLTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_278_AddSQLConfigwithMultiplequeries(){
         sqlPage.clickingOnAutomation();
-        sqlPage.addingNewSqlRecord("SQLList","select name, value from GENERIC_METRIC order by id desc limit 10","Multi-Query Report eBay","None");
-        sqlPage.verifyingaddedSQLConfigs();
+        sqlPage.addingNewSqlRecord(SQL,"SQLList","select name, value from GENERIC_METRIC order by id desc limit 10","Multi-Query Report eBay","None");
+        sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.yopemail);
@@ -74,8 +74,8 @@ public class SQLTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_281_VerifyNotificationonSuccessNdFailureinEditSQLwindow(){
         sqlPage.clickingOnAutomation();
-        sqlPage.addingNewSqlRecord("germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
-        sqlPage.verifyingOnSuccessNdFailure();
+        sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
+        sqlPage.verifyingOnSuccessNdFailure(SQL);
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.yopemail);
         emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
@@ -85,26 +85,38 @@ public class SQLTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_282_VerifyLoggingEnabledinEditSQLwindow() throws InterruptedException {
         sqlPage.clickingOnAutomation();
-        sqlPage.addingNewSqlRecord("germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
+        sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         sqlPage.addingGermainAPmActionLog("Germain APM Action Log");
-        sqlPage.verifyingInDrillThroughPage();
+        sqlPage.verifyingInDrillThroughPage(SQL);
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_284_VerifyAttachResultinEditSQLwindow(){
         sqlPage.clickingOnAutomation();
-        sqlPage.addingNewSqlRecord("SQLList","select name, value from GENERIC_METRIC order by id desc limit 10","Multi-Query Report eBay","None");
-        sqlPage.verifyingaddedSQLConfigs();
-        sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
+        sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testuser2832@gmail.com","Doesn't Matter");
-        emailPage.verifyingDataforSqlTests();
+        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataforSqlTests(SQL);
     }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_283_VerifyRunonScheduleinEditSQLwindow(){
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
+        sqlPage.verifyingaddedSQLConfigs(SQL);
+        sqlPage.deletingSQLConfig();
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataonRunschedule("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+    }
+
 
 }

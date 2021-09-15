@@ -35,8 +35,9 @@ public class EmailPage extends SafeActions implements EmailLocators {
         System.out.println(a.size());
         for (int i = 0; i < a.size(); i++) {
             System.out.println(a.get(i).getText());
-            if (a.get(i).getText().contains(title)) //to click on a specific mail.
+            if (a.get(i).getText().contains(title))
             {
+                waitForSecs(10);
                 a.get(i).click();
                 break;
             }
@@ -46,15 +47,18 @@ public class EmailPage extends SafeActions implements EmailLocators {
     }
 
 
-public void verifyingDataforSqlTests(){
+public void verifyingDataforSqlTests(String name){
         boolean label = isElementDisplayed(HEADER_IN_MAIL);
         Assert.assertTrue(label);
         waitForSecs(20);
         String attach = safeGetText(EMAIl_ATTACH_LABEL,"Attachment",MEDIUMWAIT);
         System.out.println(attach);
-        String expectedText = "Sqltest123";
+        String expectedText = name+"_0"+".csv";
         Assert.assertEquals(attach,expectedText);
-    //safeClick(BTN_DELETE,"Select all checkbox",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_BACK,"click on back button",MEDIUMWAIT);
+        safeCheck(BTN_SELECT,"Selecting all",MEDIUMWAIT);
+        safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
 }
 
 
@@ -142,5 +146,22 @@ public void verifyingDataforSqlTests(){
         waitForSecs(2);
         switchToWindow(0);
 
+    }
+    public void verifyingDataonRunschedule(String Email,String title){
+        safeTypeUsingChrod(TXTBOX_EMAIl, Email, "Entering yop mail", MEDIUMWAIT);
+        safeClick(BTN_FORWARD, "Forward button", MEDIUMWAIT);
+        int size = driver.findElements(By.tagName("iframe")).size();
+        System.out.println("Total Frames --" + size);
+        selectFrame(0);
+        String day= driver.findElement(By.xpath("//div[@class='mday']")).getText();
+        Assert.assertEquals(day,"today");
+        String subject = safeGetText(LABEL_RECEIVED_EMAIl, "text", MEDIUMWAIT);
+        System.out.println(subject);
+        if (!subject.equals(title)) {
+            Assert.assertTrue(false);
+            safeClick(LABEL_RECEIVED_EMAIl, "clicked on Label", MEDIUMWAIT);
+        }
+        driver.switchTo().defaultContent();
+        selectFrame(2);
     }
 }

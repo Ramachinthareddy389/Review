@@ -23,7 +23,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
 
     Random random = new Random();
     String Server_Add, desc, techStack, category_Add, acess_Means, search_Tags;
-    String SQL = "Sqltest123";
+
     String Querys = "Querys" + " - " + random.nextInt(500);
     String QryEdit = "QryEdit" + " - " + random.nextInt(500);
     String WebUXAgent = "WebUXAgent" + " - " + random.nextInt(500);
@@ -40,9 +40,9 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_ADDICON_SQL, "Add button", MEDIUMWAIT);
     }
 
-    public void addingNewSqlRecord(String DistList,String Query,String alertTemplate,String TimeRange){
+    public void addingNewSqlRecord(String name,String DistList,String Query,String alertTemplate,String TimeRange){
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
-        safeType(TXTBOX_SERVERNAME, SQL, "Name Textbox", MEDIUMWAIT);
+        safeType(TXTBOX_SERVERNAME, name, "Name Textbox", MEDIUMWAIT);
         safeClick(DISTRIBUTION_LIST_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_DISTRIBUTION_LIST, DistList, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
@@ -114,10 +114,11 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        waitForSecs(10);
     }
 
-    public void verifyingaddedSQLConfigs() {
-        safeType(TEXTBOX_TYPESEARCH, SQL + "\n", "Alert Name into type search");
+    public void verifyingaddedSQLConfigs(String name) {
+        safeType(TEXTBOX_TYPESEARCH, name + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -125,7 +126,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         waitForSecs(9);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        String expectedText = SQL;
+        String expectedText = name;
         Assert.assertEquals(pageTitle, expectedText);
         safeCheck(CHKBOX_DATAMART_QUERY, "Data mart query check box", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
@@ -133,6 +134,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         driver.findElement(By.xpath("//button[@aria-label='" + Querys + "']")).click();
         safeClick(BTN_VALIDATE, "Validate button", MEDIUMWAIT);
         safeClick(CLOSE_EDITWINDOW, "Close sql edit window", MEDIUMWAIT);
+        waitForSecs(15);
 
     }
     public  void deletingSQLConfig(){
@@ -178,8 +180,8 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(CLOSE_EDITWINDOW, "Close sql edit window", MEDIUMWAIT);
     }
 
-    public void verifyingOnSuccessNdFailure(){
-        safeType(TEXTBOX_TYPESEARCH, SQL + "\n", "Alert Name into type search");
+    public void verifyingOnSuccessNdFailure(String name){
+        safeType(TEXTBOX_TYPESEARCH, name + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -239,7 +241,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
     }
-   public void verifyingInDrillThroughPage(){
+   public void verifyingInDrillThroughPage(String name){
        Calendar cal = Calendar.getInstance();
        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
        System.out.println(s.format(new Date(cal.getTimeInMillis())));
@@ -249,8 +251,8 @@ public class SQLPage extends SafeActions implements SQLLocators {
            List<WebElement> kpi12 = driver.findElements(COMPONET_COLUMN_VALUES);
            for (int i = 0; i < kpi12.size(); i++) {
                System.out.println(kpi12.get(i).getText());
-               if (kpi12.get(i).getText().equals("Report action"+SQL+ "executed successfully.")) {
-                   Assert.assertEquals(kpi12.get(i).getText(),"Report action"+SQL+ "executed successfully.");
+               if (kpi12.get(i).getText().equals("Report action"+name+ "executed successfully.")) {
+                   Assert.assertEquals(kpi12.get(i).getText(),"Report action"+name+ "executed successfully.");
                    break;
                }
            }

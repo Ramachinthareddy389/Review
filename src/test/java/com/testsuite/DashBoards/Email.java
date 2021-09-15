@@ -45,5 +45,12 @@ public class Email extends BaseSetup {
 
 
     }
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_454_VerifyAcceptRejectrequestemails() throws InterruptedException {
+
+        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain APM User Access Requested");
+        emailPage.actionPerformingInMail();
+
+    }
 
 }
