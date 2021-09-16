@@ -18,6 +18,7 @@ public class SQLTests extends BaseSetup {
     private LoginPage loginPage;
     private SQLPage sqlPage;
     private  DashboardOverviewPage dashboardOverviewPage;
+    private  ComponentPage componentPage;
     private String sModeOfExecution;
     Random random = new Random();
     String dname = "Pivots";
@@ -31,8 +32,9 @@ public class SQLTests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         portletsFeature = new PortletsFeature(getDriver());
         emailPage = new EmailPage(getDriver());
-        dashboardOverviewPage =new DashboardOverviewPage((getDriver()));
+        dashboardOverviewPage =new DashboardOverviewPage(getDriver());
         sqlPage = new SQLPage(getDriver());
+        componentPage= new ComponentPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -97,12 +99,14 @@ public class SQLTests extends BaseSetup {
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_284_VerifyAttachResultinEditSQLwindow(){
+        componentPage.addingEmailFromDistriist("DistributionList","testauto056@gmail.com");
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
         sqlPage.verifyingaddedSQLConfigs(SQL);
-        sqlPage.deletingSQLConfig();
+        //sqlPage.deletingSQLConfig();
+        componentPage.deleteDistributionList("DistributionList");
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.navigatingToEmail("testauto056@gmail.com","Germain Report - User Login Report - Germain Software - QA");
         emailPage.verifyingDataforSqlTests(SQL);
     }
 
@@ -114,8 +118,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
-        emailPage.verifyingDataonRunschedule("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.navigatingToEmail("testauto056@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataonRunschedule("testauto056@gmail.com","Germain Report - User Login Report - Germain Software - QA");
     }
 
 

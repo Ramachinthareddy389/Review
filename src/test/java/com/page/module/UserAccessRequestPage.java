@@ -17,7 +17,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Email = "accesauto"+ random.nextInt(500)+"@yopmail.com";
+    String Email = "test"+ random.nextInt(500)+"gmail.com";
     String Rules = "Rules" + "-" + random.nextInt(500);
     String Edit_Rule = "EditRule" + "-" + random.nextInt(500);
     String Edit_Presentation = "EditP_Presentation" + "-" + random.nextInt(500);
@@ -73,16 +73,27 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         safeClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
     }
 
+    public void requestAccessForExistingUser(String email){
+        safeClick(LABEL_REQUEST_ACCESS, "Request Access Label", MEDIUMWAIT);
+        waitForSecs(10);
+        safeTypeUsingChrod(TXTBOX_EMAIL, email, "Entering Email Id", MEDIUMWAIT);
+        waitForSecs(2);
+        safeClick(LABEL_REQUEST_ACCESS, "Request Access Label", MEDIUMWAIT);
+        String notify = safeGetText(NOTIFY_TEXT, "access request notification", MEDIUMWAIT);
+        Assert.assertEquals(notify, "Failed to request access.. Please contact an admin user to create an account");
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    }
+
     //Users Page
 
 
     @Step("Adding Role from Uesrs Page")
-    public void addingRoleFromUsersPage(){
+    public void addingRoleFromUsersPage(String email){
         safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
         safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
         safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
         safeClick(ADD_USERS_ICON,"Add icon",MEDIUMWAIT);
-        safeTypeUsingChrod(USERS_EMAIL_TXTBOX,Email,"Email id",MEDIUMWAIT);
+        safeTypeUsingChrod(USERS_EMAIL_TXTBOX,email,"Email id",MEDIUMWAIT);
         safeClick(ROLES_ADD_ICON,"Add icon",MEDIUMWAIT);
     }
 
@@ -148,4 +159,31 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
      waitForSecs(10);
 
  }
+
+ public void addingNewUser(String email){
+     safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
+     safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
+     safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+     safeClick(ADD_USERS_ICON,"Add icon",MEDIUMWAIT);
+     safeTypeUsingChrod(USERS_EMAIL_TXTBOX,email,"Email id",MEDIUMWAIT);
+ }
+
+    public void deletingCreatedUser(String email) {
+        waitForSecs(10);
+        safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
+        safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
+        safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, email + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        waitForSecs(9);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+
 }

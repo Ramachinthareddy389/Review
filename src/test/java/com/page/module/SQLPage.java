@@ -81,6 +81,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(CREDENTIALS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_CREDENTIALS, "cred wizard", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
@@ -93,6 +94,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, Querys, "Name Textbox", MEDIUMWAIT);

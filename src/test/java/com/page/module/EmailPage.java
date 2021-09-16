@@ -41,25 +41,32 @@ public class EmailPage extends SafeActions implements EmailLocators {
                 a.get(i).click();
                 break;
             }
+            else {
+                Assert.fail("Title is not displaying as expected.");
+            }
         }
         waitForSecs(10);
 
     }
 
 
-public void verifyingDataforSqlTests(String name){
+    public void verifyingDataforSqlTests(String name) {
         boolean label = isElementDisplayed(HEADER_IN_MAIL);
         Assert.assertTrue(label);
         waitForSecs(20);
-        String attach = safeGetText(EMAIl_ATTACH_LABEL,"Attachment",MEDIUMWAIT);
+        String attach = safeGetText(EMAIl_ATTACH_LABEL, "Attachment", MEDIUMWAIT);
         System.out.println(attach);
-        String expectedText = name+"_0"+".csv";
-        Assert.assertEquals(attach,expectedText);
+        String expectedText = name + "_0" + ".csv";
+        Assert.assertEquals(attach, expectedText);
         waitForSecs(5);
-        safeClick(BTN_BACK,"click on back button",MEDIUMWAIT);
-        safeCheck(BTN_SELECT,"Selecting all",MEDIUMWAIT);
-        safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
-}
+        safeClick(BTN_BACK, "click on back button", MEDIUMWAIT);
+        safeCheck(BTN_SELECT, "Selecting all", MEDIUMWAIT);
+        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        safeCheck(LABEL_MORE, "Selecting all", MEDIUMWAIT);
+        safeClick(BTN_TRASH, "Delete button", MEDIUMWAIT);
+        safeCheck(BTN_SELECT, "Selecting all", MEDIUMWAIT);
+        safeClick(BTN_DELETE_FOREVER, "Delete button", MEDIUMWAIT);
+    }
 
 
     public void actionPerformingInMail(){
@@ -163,5 +170,17 @@ public void verifyingDataforSqlTests(String name){
         }
         driver.switchTo().defaultContent();
         selectFrame(2);
+    }
+
+    public void deletingemailsfromgmail(){
+        waitForSecs(5);
+        safeClick(BTN_BACK, "click on back button", MEDIUMWAIT);
+        safeCheck(BTN_SELECT, "Selecting all", MEDIUMWAIT);
+        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        safeCheck(LABEL_MORE, "Selecting all", MEDIUMWAIT);
+        safeClick(BTN_TRASH, "Delete button", MEDIUMWAIT);
+        waitForSecs(5);
+         driver.findElements(BTN_SELECT).get(1).click();
+        safeClick(BTN_DELETE_FOREVER, "Delete button", MEDIUMWAIT);
     }
 }

@@ -9,6 +9,8 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class ComponentTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
@@ -16,6 +18,8 @@ public class ComponentTests extends BaseSetup {
     private HardwarePage hardwarePage;
     private HTTPPage httpPage;
     private String sModeOfExecution;
+    Random random = new Random();
+    String DistriList = "DistriList" + "-" + random.nextInt(500);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -106,22 +110,22 @@ public class ComponentTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test" )
     public  void TC_399_AddDistributionListwithAllDistributiontypes()
     {
-      componentPage.clickingOnAddDistributionList();
-      componentPage.verifyingAddedDistributionList();
+      componentPage.clickingOnAddDistributionList(DistriList,"rama.chinthareddy@zenq.com");
+      componentPage.verifyingAddedDistributionList(DistriList,"rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_400_AddMembersinEditDistributionListwindow(){
-        componentPage.clickingOnAddDistributionList();
-        componentPage.addMembersInEditDistributionListwindow();
-        componentPage.verifyingAddedDistributionList();
+        componentPage.clickingOnAddDistributionList(DistriList,"rama.chinthareddy@zenq.com");
+        componentPage.addMembersInEditDistributionListwindow(DistriList);
+        componentPage.verifyingAddedDistributionList(DistriList,"rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_401_EditDistributionListconfiguration()
     {
-        componentPage.clickingOnAddDistributionList();
-        componentPage.verifyingEditDistributionListConfig();
+        componentPage.clickingOnAddDistributionList("rama.chinthareddy@zenq.com",DistriList);
+        componentPage.verifyingEditDistributionListConfig(DistriList);
 
     }
 

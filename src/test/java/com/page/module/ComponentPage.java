@@ -389,24 +389,24 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
     //Distribution list
 
-    public void clickingOnAddDistributionList()
+    public void clickingOnAddDistributionList(String name,String email)
     {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_DISTRIBUTION_LISTS, "Credentials", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
-        safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, name, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeClick(LABEL_EMAIL_ADDRESS, "Server Feild", MEDIUMWAIT);
         safeClick(EMAIL_ADDRESS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_EMAIL_ADDRESS, "rama.chinthareddy@zenq.com", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESS, email, "Server name into textbox", MEDIUMWAIT);
         waitForSecs(20);
        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("rama.chinthareddy@zenq.com")) {
+            if (dbs1.get(i).getText().equals(email)) {
 
                 dbs1.get(i).click();
                 break;
@@ -417,20 +417,20 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public  void verifyingAddedDistributionList(){
-        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Distribution Name into type search");
+    public  void verifyingAddedDistributionList(String name,String email){
+        safeType(TEXTBOX_TYPESEARCH, name + "\n", "Distribution Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        String expectedText = Component;
+        String expectedText = name;
         Assert.assertEquals(pageTitle, expectedText);
         String distributionName = safeGetAttribute(TXTBOX_NAME,"value","Distribution List Name",MEDIUMWAIT);
         Assert.assertEquals(distributionName, expectedText);
         String actualText = safeGetText(MEMBERS_HYPERLINK, "Member hyperlink", MEDIUMWAIT);
-        expectedText = "rama.chinthareddy@zenq.com";
+        expectedText = email;
         Assert.assertEquals(actualText, expectedText);
         waitForSecs(10);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
@@ -439,8 +439,8 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(10);
     }
 
-    public void addMembersInEditDistributionListwindow(){
-        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Distribution Name into type search");
+    public void addMembersInEditDistributionListwindow(String name){
+        safeType(TEXTBOX_TYPESEARCH, name + "\n", "Distribution Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
@@ -469,9 +469,9 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
     }
 
-    public  void verifyingEditDistributionListConfig()
+    public  void verifyingEditDistributionListConfig(String name)
     {
-        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Distribution Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, name + "\n", "Distribution Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
@@ -491,5 +491,40 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+    public void addingEmailFromDistriist(String name,String email){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_DISTRIBUTION_LISTS, "Credentials", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, name, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(LABEL_EMAIL_ADDRESS, "Server Feild", MEDIUMWAIT);
+        safeClick(EMAIL_ADDRESS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESS, email, "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(DASHBOARD_LABEL, "Select or create dashboard text box", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+    public void deleteDistributionList(String name){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_DISTRIBUTION_LISTS, "Credentials", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, name + "\n", "Distribution Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        //safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        safeClick(BTN_DISTRIBUTION_LISTS, "Credentials", MEDIUMWAIT);
+
     }
 }

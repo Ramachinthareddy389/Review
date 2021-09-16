@@ -17,6 +17,7 @@ public class UserAccessRequestTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private PresentationModesNdRulesNdRulesPages presentationModesNdRulesPages;
+    private EmailPage emailPage;
 
     private String sModeOfExecution;
     Random random = new Random();
@@ -37,6 +38,7 @@ public class UserAccessRequestTests extends BaseSetup {
         portletsFeature = new PortletsFeature(getDriver());
         userAccessRequestPage = new UserAccessRequestPage(getDriver());
         presentationModesNdRulesPages = new PresentationModesNdRulesNdRulesPages(getDriver());
+        emailPage = new EmailPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -62,18 +64,41 @@ public class UserAccessRequestTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_467_AddNewRolesInAddNDEditUserwindow()
     {
-         userAccessRequestPage.addingRoleFromUsersPage();
+         userAccessRequestPage.addingRoleFromUsersPage("testauto056@gmail.com");
          presentationModesNdRulesPages.addingNewUserRoles();
          userAccessRequestPage.ClickingFinIShNdCloseButtons();
          presentationModesNdRulesPages.verifyingAddedUserRoles();
-        userAccessRequestPage.deletingaddedEmail();
+         userAccessRequestPage.deletingaddedEmail();
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_469_EditUserConfiguration(){
-        userAccessRequestPage.addingRoleFromUsersPage();
+        userAccessRequestPage.addingRoleFromUsersPage("testauto056@gmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
         userAccessRequestPage.editingUserConfigurations();
     }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_451_Verifyuseraccessrequestscreatedfromloginpageforexistingusers(){
+        userAccessRequestPage.signOut();
+        userAccessRequestPage.requestAccessForExistingUser("rama.chinthareddy@zenq.com");
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_464_AddNewUserwithWelcomeEmail(){
+        userAccessRequestPage.addingNewUser("testauto056@gmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        getDriver().get(dashBoardData.yopemail);
+        emailPage.navigatingToEmail("testauto056@gmail.com","Germain APM - Welcome");
+        emailPage.deletingemailsfromgmail();
+        getDriver().get(dashBoardData.openCartURL);
+        userAccessRequestPage.deletingCreatedUser("testauto056@gmail.com");
+
+
+    }
+
+
+
 }
