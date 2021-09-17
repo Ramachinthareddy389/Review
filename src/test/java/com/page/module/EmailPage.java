@@ -28,7 +28,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
     public void navigatingToEmail(String Email,String title) {
         safeTypeUsingChrod(TXTBOX_EMAIl, Email, "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_PASSWORD, "Sep@0809", "Entering yop mail", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_PASSWORD, "Zenq@123", "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
         waitForSecs(20);
         List<WebElement> a = driver.findElements(EMAIL_SUBJECT);

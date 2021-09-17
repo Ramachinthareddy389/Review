@@ -29,7 +29,7 @@ public class Email extends BaseSetup {
         emailPage = new EmailPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
-        getDriver().get(dashBoardData.yopemail);
+        getDriver().get(dashBoardData.gmail);
         (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
 /*        loginPage.verifyLoginPage();
@@ -37,20 +37,22 @@ public class Email extends BaseSetup {
         loginPage.clickLogInButton();*/
     }
 
+/*
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void emailVerification() throws InterruptedException
     {
 
-        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
 
 
     }
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_454_VerifyAcceptRejectrequestemails() throws InterruptedException {
 
-        emailPage.navigatingToEmail("testuser2832@gmail.com","Germain APM User Access Requested");
+        emailPage.navigatingToEmail("zentest75@gmail.com","Germain APM User Access Requested");
         emailPage.actionPerformingInMail();
 
     }
+*/
 
 }

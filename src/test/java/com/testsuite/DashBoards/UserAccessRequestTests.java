@@ -50,7 +50,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+/*    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_452_VerifyUserAccessRequestsCreatedFromloginPagefornewusers() throws InterruptedException
     {
         userAccessRequestPage.signOut();
@@ -59,12 +59,12 @@ public class UserAccessRequestTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
         userAccessRequestPage.verifyingRequestedUserInUserAccessRequestPage();
-    }
+    }*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_467_AddNewRolesInAddNDEditUserwindow()
     {
-         userAccessRequestPage.addingRoleFromUsersPage("testauto056@gmail.com");
+         userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
          presentationModesNdRulesPages.addingNewUserRoles();
          userAccessRequestPage.ClickingFinIShNdCloseButtons();
          presentationModesNdRulesPages.verifyingAddedUserRoles();
@@ -74,27 +74,29 @@ public class UserAccessRequestTests extends BaseSetup {
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_469_EditUserConfiguration(){
-        userAccessRequestPage.addingRoleFromUsersPage("testauto056@gmail.com");
+        userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
         userAccessRequestPage.editingUserConfigurations();
     }
 
+/*
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_451_Verifyuseraccessrequestscreatedfromloginpageforexistingusers(){
+    public void TC_451_VerifyUseraccessRequestLoginpageforExistingusers(){
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestAccessForExistingUser("rama.chinthareddy@zenq.com");
     }
+*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_464_AddNewUserwithWelcomeEmail(){
-        userAccessRequestPage.addingNewUser("testauto056@gmail.com");
+        userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
-        getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testauto056@gmail.com","Germain APM - Welcome");
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain APM - Welcome");
         emailPage.deletingemailsfromgmail();
         getDriver().get(dashBoardData.openCartURL);
-        userAccessRequestPage.deletingCreatedUser("testauto056@gmail.com");
+        userAccessRequestPage.deletingCreatedUser("zenqtest75@gmail.com");
 
 
     }

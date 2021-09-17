@@ -17,15 +17,8 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Email = "test"+ random.nextInt(500)+"gmail.com";
-    String Rules = "Rules" + "-" + random.nextInt(500);
-    String Edit_Rule = "EditRule" + "-" + random.nextInt(500);
-    String Edit_Presentation = "EditP_Presentation" + "-" + random.nextInt(500);
-    String TimeRanges = "TimeRanges" + "-" + random.nextInt(500);
-    String Edit_TimeRange = "EditTimeRange" + "-" + random.nextInt(500);
-    String ROLE = "role" + "-" + random.nextInt(500);
-    String Edit_Type_Add, Duration_Add, Dashboard_add, Timerange_add, Edited_Name_Add, Content_Add;
-
+    String Email = "Zenqtest"+ random.nextInt(500)+"gmail.com";
+    String Edit_Type_Add;
 
 
     public UserAccessRequestPage(WebDriver driver) {

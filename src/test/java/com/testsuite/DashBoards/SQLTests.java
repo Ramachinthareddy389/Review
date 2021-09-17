@@ -46,15 +46,15 @@ public class SQLTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+   /* @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_276_AddSQLConfigwithDatamartQuery() throws InterruptedException
     {
           sqlPage.clickingOnAutomation();
           sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
           sqlPage.verifyingaddedSQLConfigs(SQL);
           sqlPage.deletingSQLConfig();
-          getDriver().get(dashBoardData.yopemail);
-          emailPage.navigatingToEmail("testuser2832@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+          getDriver().get(dashBoardData.gmail);
+          emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
           emailPage.verifyingDataforSqlTests(SQL);
           //sqlPage.verifyingDataInEmail("Daily User Login Report");
 
@@ -68,8 +68,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testuser2832@gmail.com","Doesn't Matter");
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zentest75@gmail.com","Doesn't Matter");
         sqlPage.verifyingDataInEmail("Multi-Query-Report");
     }
 
@@ -79,10 +79,10 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
         sqlPage.verifyingOnSuccessNdFailure(SQL);
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testuser2832@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
 
-    }
+    }*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_282_VerifyLoggingEnabledinEditSQLwindow() throws InterruptedException {
@@ -96,6 +96,7 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingInDrillThroughPage(SQL);
 
     }
+/*
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_284_VerifyAttachResultinEditSQLwindow(){
@@ -105,8 +106,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         //sqlPage.deletingSQLConfig();
         componentPage.deleteDistributionList("DistributionList");
-        getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testauto056@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
         emailPage.verifyingDataforSqlTests(SQL);
     }
 
@@ -117,10 +118,11 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.yopemail);
-        emailPage.navigatingToEmail("testauto056@gmail.com","Germain Report - User Login Report - Germain Software - QA");
-        emailPage.verifyingDataonRunschedule("testauto056@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataonRunschedule("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
     }
+*/
 
 
 }
