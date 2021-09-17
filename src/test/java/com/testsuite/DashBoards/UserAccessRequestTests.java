@@ -79,14 +79,14 @@ public class UserAccessRequestTests extends BaseSetup {
         userAccessRequestPage.editingUserConfigurations();
     }
 
-/*
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+
+/*    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_451_VerifyUseraccessRequestLoginpageforExistingusers(){
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestAccessForExistingUser("rama.chinthareddy@zenq.com");
-    }
-*/
+    }*/
+
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_464_AddNewUserwithWelcomeEmail(){
@@ -99,6 +99,50 @@ public class UserAccessRequestTests extends BaseSetup {
         userAccessRequestPage.deletingCreatedUser("zenqtest75@gmail.com");
 
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_466_VerifyUserSetupforNewUser(){
+        userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain APM - Welcome");
+        emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
+        userAccessRequestPage.signOut();
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
+        loginPage.clickLogInButton();
+        userAccessRequestPage.deletingCreatedUser("zenqtest75@gmail.com");
+        emailPage.clickingOnEmptyInbox();
+        emailPage.deletingemailsfromgmail();
+    }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_468_ResetPasswordinEditUserwindow()
+    {
+        userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain APM - Welcome");
+        emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
+        userAccessRequestPage.signOut();
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
+        loginPage.clickLogInButton();
+        userAccessRequestPage.resetPasswordFrmEditWindow("zenqtest75@gmail.com");
+        userAccessRequestPage.signOut();
+        emailPage.closingWindow();
+        emailPage.clickingOnEmptyInbox();
+        emailPage.verifyingResetPasswordEmail("Germain APM Password Reset");
+        emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
+        userAccessRequestPage.signOut();
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
+        loginPage.clickLogInButton();
+        userAccessRequestPage.deletingCreatedUser("zenqtest75@gmail.com");
+        emailPage.clickingOnEmptyInbox();
+        emailPage.deletingemailsfromgmail();
     }
 
 

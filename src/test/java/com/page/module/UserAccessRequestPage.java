@@ -171,11 +171,35 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        waitForSecs(9);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+
+    public void resetPasswordFrmEditWindow(String email){
+        waitForSecs(10);
+        safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
+        safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
+        safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, email + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_RESET_PASSWORD,"Reset password button",MEDIUMWAIT);
+        String notify = safeGetText(NOTIFY_MESSAGE, "access request notification", MEDIUMWAIT);
+        Assert.assertEquals(notify, "Are you sure you want to reset zenqtest75@gmail.com's password?");
+        safeClick(CONFIRM_DELETE,"Confirm button",MEDIUMWAIT);
+        String notify1 = safeGetText(NOTIFY_TEXT, "access request notification", MEDIUMWAIT);
+        Assert.assertEquals(notify1, "An email, with a link to reset password, has been sent to zenqtest75@gmail.com.");
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW,"Close edit window",MEDIUMWAIT);
+        waitForSecs(10);
+
+
+
     }
 
 

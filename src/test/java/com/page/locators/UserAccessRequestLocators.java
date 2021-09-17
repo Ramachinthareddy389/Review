@@ -17,6 +17,7 @@ public interface UserAccessRequestLocators {
     By BTN_REJECT = By.xpath("//span[text()='Reject']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By NOTIFY_MESSAGE= By.xpath("//span[text()='Cancel']/../.././../p");
 
     //Users Locators
     By LABEL_USERS = By.xpath("//span[text()='Users']");
@@ -32,4 +33,6 @@ public interface UserAccessRequestLocators {
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save User']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+    By BTN_RESET_PASSWORD = By.xpath("//span[text()='Reset Password']");
+
 }
