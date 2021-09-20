@@ -21,14 +21,6 @@ public class UserAccessRequestTests extends BaseSetup {
 
     private String sModeOfExecution;
     Random random = new Random();
-    String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
-    String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
-    String dname = "Pivots";
-    String dname1 = dname + random.nextInt(1500);
-    String flowPortletName = "Flow Portlet - " + random.nextInt(1000);
-    String mapPortletName = "Map Portlet - " + random.nextInt(1000);
-    String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
-    String counterPortletName = "Counter Portlet - " + random.nextInt(1000);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -50,7 +42,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
 
-/*    @Test(alwaysRun = true, groups = "Smoke Test")
+   @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_452_VerifyUserAccessRequestsCreatedFromloginPagefornewusers() throws InterruptedException
     {
         userAccessRequestPage.signOut();
@@ -59,7 +51,7 @@ public class UserAccessRequestTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
         userAccessRequestPage.verifyingRequestedUserInUserAccessRequestPage();
-    }*/
+    }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_467_AddNewRolesInAddNDEditUserwindow()
@@ -81,11 +73,11 @@ public class UserAccessRequestTests extends BaseSetup {
 
 
 
-/*    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_451_VerifyUseraccessRequestLoginpageforExistingusers(){
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestAccessForExistingUser("rama.chinthareddy@zenq.com");
-    }*/
+    }
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")

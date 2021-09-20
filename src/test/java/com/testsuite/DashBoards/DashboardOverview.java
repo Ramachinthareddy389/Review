@@ -3,7 +3,9 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
+import com.page.module.AlertTemplatePage;
 import com.page.module.DashboardOverviewPage;
+import com.page.module.EmailPage;
 import com.page.module.LoginPage;
 import com.selenium.Sync;
 
@@ -16,6 +18,8 @@ public class DashboardOverview extends BaseSetup {
     private DashboardOverviewPage dashboardOverviewPage;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
+    private EmailPage emailPage;
+    private AlertTemplatePage alertTemplatePage;
 
     private String sModeOfExecution;
 
@@ -25,6 +29,8 @@ public class DashboardOverview extends BaseSetup {
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
+        alertTemplatePage = new AlertTemplatePage(getDriver());
+        emailPage = new EmailPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -146,6 +152,31 @@ public class DashboardOverview extends BaseSetup {
 
     }
 
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_008_ShareDashboardWithExistingUser() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.verifySharingDashboardWithExistingUser();
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("access1234@yopmail.com","germain APM - shared this dashboard with you");
+        alertTemplatePage.deletingEmails();
+
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_009_ShareDashboardWithNewUser() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.verifySharingDashboardWithNewUser();
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("testzenq@yopmail.com","germain APM - shared this dashboard with you");
+        alertTemplatePage.deletingEmails();
+
+    }
 /*
     @AfterMethod()
     public void signOut()

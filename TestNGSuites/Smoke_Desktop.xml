@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite thread-count="3" parallel="tests" verbose="10" name="Germain Suite"
+<suite thread-count="2" parallel="tests" verbose="10" name="Germain Suite"
 	   annotations="JDK"  preserve-order="true" >
 
 	<listeners>
@@ -14,14 +14,20 @@
 		<parameter name="osVersion" value="10" />
 		<parameter name="session" value="Testing" />
 		<classes>
-
-		<!--	<class name="com.testsuite.DashBoards.OprationalTests"></class> -->
+            <class name="com.testsuite.DashBoards.AlertTemplateTests"></class>
+			<class name="com.testsuite.DashBoards.AuthenticationTests"></class>
+		    <class name="com.testsuite.DashBoards.OprationalTests"></class> 
 			<class name="com.testsuite.DashBoards.InsightsTest"></class>
 			<class name="com.testsuite.DashBoards.WizardsTests"></class>
 			<class name="com.testsuite.DashBoards.TicketsTest"></class>
 			<class name="com.testsuite.DashBoards.DashboardOverview"></class>
 			<class name="com.testsuite.DashBoards.HTTPTests"></class>
 			<class name="com.testsuite.DashBoards.LocalProgramTests"></class>
+			<class name="com.testsuite.DashBoards.BusinessProcessTests"></class>
+			<class name="com.testsuite.DashBoards.KPIsTests"></class>
+			<class name="com.testsuite.DashBoards.SSHNdWMITests"></class>
+			<class name="com.testsuite.DashBoards.UserAccessRequestTests"></class>
+			<class name="com.testsuite.DashBoards.ScriptTests"></class>
 
 		</classes>
 	</test>
@@ -32,32 +38,23 @@
 		<parameter name="osVersion" value="10" />
 		<parameter name="session" value="Testing" />
 		<classes>
-
+            <class name="com.testsuite.DashBoards.ComponentTests"></class>
 			<class name="com.testsuite.DashBoards.DataFieldExclusionsTests"></class>
 			<class name="com.testsuite.DashBoards.CorrelationTests"></class>
 			<class name="com.testsuite.DashBoards.DBInstancesTests"></class>
 			<class name="com.testsuite.DashBoards.SoftwareTests"></class>
 			<class name="com.testsuite.DashBoards.HardwareTests"></class>
 			<class name="com.testsuite.DashBoards.SLAsTests"></class>
-
-		</classes>
-	</test>
-
-	<test name="Portlets">
-		<parameter name="browser-Type" value="chrome" />
-		<parameter name="browserVersion" value="91" />
-		<parameter name="osName" value="WINDOWS" />
-		<parameter name="osVersion" value="10" />
-		<parameter name="session" value="Testing" />
-		<classes>
-		    <class name="com.testsuite.DashBoards.PortletsTests"></class>
+			<class name ="com.testsuite.DashBoards.SQLTests"></class>
+			<class name="com.testsuite.DashBoards.PortletsTests"></class>
 			<class name="com.testsuite.DashBoards.PivotTests"></class>
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
-			<class name="com.testsuite.DashBoards.BusinessProcessTests"></class>
-			<class name="com.testsuite.DashBoards.KPIsTests"></class>
-			<class name="com.testsuite.DashBoards.SSHNdWMITests"></class>
+			<class name="com.testsuite.DashBoards.MaintenanceTests"></class>
+			<class name="com.testsuite.DashBoards.PresentationModesNdRulesTests"></class>
+
 		</classes>
 	</test>
+
 
 
 </suite>

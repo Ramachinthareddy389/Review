@@ -46,7 +46,7 @@ public class SQLTests extends BaseSetup {
     }
 
 
-   /* @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_276_AddSQLConfigwithDatamartQuery() throws InterruptedException
     {
           sqlPage.clickingOnAutomation();
@@ -73,7 +73,7 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingDataInEmail("Multi-Query-Report");
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+  /*  @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_281_VerifyNotificationonSuccessNdFailureinEditSQLwindow(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
@@ -96,7 +96,7 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingInDrillThroughPage(SQL);
 
     }
-/*
+
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_284_VerifyAttachResultinEditSQLwindow(){
@@ -122,7 +122,7 @@ public class SQLTests extends BaseSetup {
         emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
         emailPage.verifyingDataonRunschedule("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
     }
-*/
+
 
 
 }

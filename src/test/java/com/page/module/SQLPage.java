@@ -55,6 +55,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(REPORT_TEMPLATE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_REPORT_TEMPLATE, alertTemplate, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
@@ -69,6 +70,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         }
         safeCheck(CHKBOX_ATTACH_RESULT,"Attach result checkbox",MEDIUMWAIT);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        waitForSecs(15);
         safeClick(DATABASE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_DATABASE, "Database Wizard", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
@@ -81,7 +83,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
                 break;
             }
         }
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(CREDENTIALS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_CREDENTIALS, "cred wizard", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);

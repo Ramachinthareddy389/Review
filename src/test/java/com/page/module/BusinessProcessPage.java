@@ -53,6 +53,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
+        waitForSecs(15);
         KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KPIS_add);
         waitForSecs(10);
@@ -69,6 +70,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
+        waitForSecs(10);
         KeyExp_add = safeGetText(KEYEXP_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KeyExp_add);
         waitForSecs(15);
@@ -90,6 +92,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(CREATE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_VALUE, "test", "Server name into textbox", MEDIUMWAIT);
         safeClick(CREATE_LABEL, "Select or create dashboard text box", MEDIUMWAIT);
@@ -113,6 +116,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
 
@@ -143,7 +147,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         }
 
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
 
@@ -225,7 +230,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
             Assert.fail("Business process details are invalid");
         }
        waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
     public void addingBPStepInEditConfigWindow() {
@@ -273,7 +279,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
     }
 
 
@@ -301,7 +308,13 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         Assert.assertEquals(actualText1, expectedText);
         waitForSecs(10);
         safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        waitForSecs(20);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(15);
     }
 
 

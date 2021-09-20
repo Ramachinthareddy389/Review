@@ -6,6 +6,7 @@ public class DashBoardData {
 	private ConfigManager appData   =   new ConfigManager("App");
 	public final String openCartURL  = appData.getProperty("App.URL");
 	public final String gmail  = appData.getProperty("gmail.Email");
+	public final String yopmail = appData.getProperty("yopmail");
 	public final String emailAddress = appData.getProperty("App.Username");
 	public final String password    = appData.getProperty("App.Password");
 	public final String dashboard   = appData.getProperty("App.Dashboard");

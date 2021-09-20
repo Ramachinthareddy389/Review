@@ -25,6 +25,10 @@ public interface DashBoardLocators {
     By DASHBOARD_LABEL=By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
     By USERICON=By.xpath("//button[@title='Presentation mode']/following-sibling::button");
     By LOGOUT=By.xpath("//span[text()='Logout']");
+    By ICON_SHARE_DASHBORD = By.xpath("//div[@aria-label='Share Dashboard With']/span/i");
+    By TXTBOX_SHARE_DASHBOARD_EMAIL = By.xpath("//input[@id='emails']");
+    By BTN_SHARE = By.xpath("//span[text()='Share']");
+    By NOTIFY_FOOTER_SHAREDASHBRD = By.xpath("//span[@id='client-snackbar']");
     By Count=By.xpath("//span[@class='MuiButton-label']/span[@aria-label='Count']");
 
     //Removing and Deleting of dashboards
@@ -38,7 +42,7 @@ public interface DashBoardLocators {
     By ICON_RENAME=By.xpath("//div[@aria-label='Rename Dashboard']");
     By TEXTBOX_RENAMEDASHBRD=By.xpath("//input[@id='InputDialog']");
     By BUTTON_RENAME=By.xpath("//span[text()='Rename']");
-
+    By NEW_EMAIL_TEXT = By.xpath("//div[contains(@class,'MuiListItem-root')]");
     //DashBoard Locators for cloning
 
     By FOLDER_TESTAUTOMATION= By.xpath("//span[text()='Dashboards > TestAutomation']");

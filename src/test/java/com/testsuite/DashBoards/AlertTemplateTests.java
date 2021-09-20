@@ -59,7 +59,7 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.verifyingEditedConfiguraions();
     }
 
-  /*  @Test(alwaysRun = true, groups = "Smoke Suite")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_340_TriggerAnAlertbasedonSLAs() {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
@@ -69,7 +69,7 @@ public class AlertTemplateTests extends BaseSetup {
         //alertTemplatePage.VerifyingEmailSubject("Germain Alert - User Click - germainApm - PERFORMANCE Issue");
         emailPage.clickingOnEmptyInbox();
         alertTemplatePage.deletingEmails();
-    }*/
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_344_VerifytriggeredalertsinInsightspage()
@@ -94,18 +94,18 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.deletingEmails();
     }*/
 
-/*    @Test(alwaysRun = true,groups = "Smoke Suite")
+   @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_343_TriggerAnAlertBasedonExecutionCount(){
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAlertBasedOnExecutionCount(Alert);
         getDriver().get(dashBoardData.gmail);
         emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
-*//*        emailPage.clickingOnEmptyInbox();
-        alertTemplatePage.deletingEmails();*//*
-    }*/
+//        emailPage.clickingOnEmptyInbox();
+        alertTemplatePage.deletingEmails();
+    }
 
- /*   @Test(alwaysRun = true,groups = "Smoke Suite")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_342_TriggerAnAlertwithSpecifiedQuiettime(){
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
@@ -126,5 +126,5 @@ public class AlertTemplateTests extends BaseSetup {
         emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
         emailPage.clickingHyperlinksInAlertEmails();
         //alertTemplatePage.deletingEmails();
-    }*/
+    }
 }

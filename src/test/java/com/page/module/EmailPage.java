@@ -107,22 +107,8 @@ public class EmailPage extends SafeActions implements EmailLocators {
 
 
     public void actionPerformingInMail() {
-        /*  safeClick(TXTBOX_EMAIl, "Entering yop mail", MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_EMAIl, Email, "Entering yop mail", MEDIUMWAIT);
-        safeClick(BTN_FORWARD, "Forward button", MEDIUMWAIT);
-        int size = driver.findElements(By.tagName("iframe")).size();
-        System.out.println("Total Frames --" + size);
-        selectFrame(0);
-        String day= driver.findElement(By.xpath("//div[@class='mday']")).getText();
-        Assert.assertEquals(day,"today");
-        String subject = safeGetText(LABEL_RECEIVED_EMAIl, "text", MEDIUMWAIT);
-        System.out.println(subject);
-        if (!subject.equals(title)) {
-            Assert.assertTrue(false);
-            safeClick(LABEL_RECEIVED_EMAIl, "clicked on Label", MEDIUMWAIT);
-        }
         driver.switchTo().defaultContent();
-        selectFrame(2);*/
+        selectFrame(2);
         safeClick(HYPERLINK_ACCEPT_REQUEST, "accept hyper link", MEDIUMWAIT);
         switchToWindow(1);
         waitForSecs(10);
@@ -224,5 +210,24 @@ public class EmailPage extends SafeActions implements EmailLocators {
         waitForSecs(5);
         driver.findElements(BTN_SELECT).get(1).click();
         safeClick(BTN_DELETE_FOREVER, "Delete button", MEDIUMWAIT);
+    }
+
+
+    public void navigatingToYopMail(String Email,String title){
+        safeTypeUsingChrod(TXTBOX_YOPMAIL, Email, "Entering yop mail", MEDIUMWAIT);
+        safeClick(BTN_FORWARD, "Forward button", MEDIUMWAIT);
+        refresh();
+        int size = driver.findElements(By.tagName("iframe")).size();
+        System.out.println("Total Frames --" + size);
+        selectFrame(0);
+        String day= driver.findElement(By.xpath("//div[@class='mday']")).getText();
+        Assert.assertEquals(day,"today");
+        String subject = safeGetText(LABEL_RECEIVED_EMAIl, "text", MEDIUMWAIT);
+        System.out.println(subject);
+        if (!subject.equals(title)) {
+            Assert.assertTrue(false);
+            safeClick(LABEL_RECEIVED_EMAIl, "clicked on Label", MEDIUMWAIT);
+        }
+        waitForSecs(20);
     }
 }

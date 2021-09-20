@@ -56,7 +56,8 @@ public class BusinessProcessTests extends BaseSetup {
 
 
     @Test(alwaysRun = true)
-    public void TC_162_AddBPStepineditconfigwindow() throws InterruptedException {
+    public void TC_162_AddBPStepineditconfigwindow() throws InterruptedException
+    {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.addingBPStepInEditConfigWindow();

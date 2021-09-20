@@ -47,7 +47,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
-        waitForPageToLoad();
+        waitForSecs(20);
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
         safeClick(FOLDER_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TEXTBOX_Folder, "Dashboards", "Server name into textbox", MEDIUMWAIT);
@@ -69,7 +69,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(20);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(30);
+        waitForSecs(45);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
@@ -852,6 +852,39 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             safeClick(All_FOLDER, "DashBoard Module on Home page", MEDIUMWAIT);
         }
 
+    }
+
+    public void verifySharingDashboardWithExistingUser(){
+        safeClick(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ICON_SHARE_DASHBORD,"Share icon",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_SHARE_DASHBOARD_EMAIL,"access1234@yopmail.com","Entering email",MEDIUMWAIT);
+        waitForSecs(15);
+        List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpi12.size(); i++) {
+            System.out.println(kpi12.get(i).getText());
+            if (kpi12.get(i).getText().equals("access1234@yopmail.com")) {
+                kpi12.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_SHARE,"Share button",MEDIUMWAIT);
+        String sharedDashbrd = safeGetText(NOTIFY_FOOTER_SHAREDASHBRD,"Shared dashboard notify",MEDIUMWAIT);
+        String expectedText ="Dashboard Shared";
+        Assert.assertEquals(sharedDashbrd,expectedText);
+    }
+
+    public void verifySharingDashboardWithNewUser(){
+        safeClick(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ICON_SHARE_DASHBORD,"Share icon",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_SHARE_DASHBOARD_EMAIL,"testzenq@yopmail.com","Entering email",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(NEW_EMAIL_TEXT, "dashboard name", MEDIUMWAIT);
+        safeClick(BTN_SHARE,"Share button",MEDIUMWAIT);
+        String sharedDashbrd = safeGetText(NOTIFY_FOOTER_SHAREDASHBRD,"Shared dashboard notify",MEDIUMWAIT);
+        String expectedText ="Dashboard Shared";
+        Assert.assertEquals(sharedDashbrd,expectedText);
     }
 
 }
