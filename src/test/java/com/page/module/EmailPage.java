@@ -216,6 +216,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
     public void navigatingToYopMail(String Email,String title){
         safeTypeUsingChrod(TXTBOX_YOPMAIL, Email, "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_FORWARD, "Forward button", MEDIUMWAIT);
+        waitForSecs(10);
         refresh();
         int size = driver.findElements(By.tagName("iframe")).size();
         System.out.println("Total Frames --" + size);
@@ -229,5 +230,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
             safeClick(LABEL_RECEIVED_EMAIl, "clicked on Label", MEDIUMWAIT);
         }
         waitForSecs(20);
+        driver.switchTo().defaultContent();
     }
+
 }

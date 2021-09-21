@@ -65,6 +65,7 @@ public interface SQLLocators {
     By BTN_ADD_PORTLET=By.xpath("//span[text()='Add Portlet']");
     By COMPONET_COLUMN_VALUES = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[5]/span/span");
     By TIMESTAMP_COLUMN = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");
-
+    By DROPDOWN_MONITORED = By.xpath("//input[@id='monitoredDatabase']");
+    By DROPDOWN_CREDENTIALS = By.xpath("//input[@id='credentials']");
 }
 

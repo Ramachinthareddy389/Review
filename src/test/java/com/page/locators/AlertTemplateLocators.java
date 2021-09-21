@@ -49,7 +49,7 @@ public interface AlertTemplateLocators
     By BTN_SHOW_ADVANCED = By.xpath("//span[text()='Show Advanced']");
     By LABEL_NOTIFY_ON_SUCCESS = By.xpath("//span[text()='Notify On Success']");
     By LABEL_NOTIFY_ON_FAILURE = By.xpath("//span[text()='Notify On Failure']");
-    By LABEL_MENU_BUTTON = By.xpath("//button[contains(@class,'md but textu')]/i");
+    By LABEL_MENU_BUTTON = By.xpath("//button[@id='delsel']/../../div[1]/button");
     By LABEL_EMPTY_TEXTBOX = By.xpath("//span[text()='Empty Inbox']");
     By TXTBOX_EXECUTION_COUNT = By.xpath("//input[@id='limitCount']");
     By TXTBOX_QUITE_TIME = By.xpath("//input[@id='quietTimePeriod']");

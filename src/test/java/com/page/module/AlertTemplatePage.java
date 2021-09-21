@@ -265,8 +265,8 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     }
 
     public void deletingEmails() {
-        waitForSecs(20);
-        driver.findElements(LABEL_MENU_BUTTON).get(1).click();
+        waitForSecs(30);
+        safeJavaScriptClick(LABEL_MENU_BUTTON,"Menu button",MEDIUMWAIT);
         safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);
         acceptAlert();
     }

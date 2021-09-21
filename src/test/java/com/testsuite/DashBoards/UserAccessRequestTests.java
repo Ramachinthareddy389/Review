@@ -15,6 +15,8 @@ public class UserAccessRequestTests extends BaseSetup {
     private UserAccessRequestPage userAccessRequestPage;
     private PortletsFeature portletsFeature;
     private DashBoardData dashBoardData;
+    private DashboardOverviewPage dashboardOverviewPage;
+    private AlertTemplatePage alertTemplatePage;
     private LoginPage loginPage;
     private PresentationModesNdRulesNdRulesPages presentationModesNdRulesPages;
     private EmailPage emailPage;
@@ -30,6 +32,8 @@ public class UserAccessRequestTests extends BaseSetup {
         portletsFeature = new PortletsFeature(getDriver());
         userAccessRequestPage = new UserAccessRequestPage(getDriver());
         presentationModesNdRulesPages = new PresentationModesNdRulesNdRulesPages(getDriver());
+        dashboardOverviewPage = new DashboardOverviewPage(getDriver());
+        alertTemplatePage = new AlertTemplatePage(getDriver());
         emailPage = new EmailPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
@@ -137,6 +141,15 @@ public class UserAccessRequestTests extends BaseSetup {
         emailPage.deletingemailsfromgmail();
     }
 
-
+@Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_453_Verifyuseraccessrequestsfortemporaryusers() throws InterruptedException {
+    dashboardOverviewPage.addingNewDashboard();
+    dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+    dashboardOverviewPage.searchingDashboard();
+    dashboardOverviewPage.verifySharingDashboardWithNewUser();
+    getDriver().get(dashBoardData.yopmail);
+    emailPage.navigatingToYopMail("testzenq@yopmail.com","germain APM - shared this dashboard with you");
+    alertTemplatePage.deletingEmails();
+    }
 
 }

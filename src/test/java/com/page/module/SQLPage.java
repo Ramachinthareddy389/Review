@@ -55,7 +55,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
                 break;
             }
         }
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(REPORT_TEMPLATE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_REPORT_TEMPLATE, alertTemplate, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
@@ -245,7 +245,8 @@ public class SQLPage extends SafeActions implements SQLLocators {
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
     }
-   public void verifyingInDrillThroughPage(String name){
+   public void verifyingInDrillThroughPage(String name)
+   {
        Calendar cal = Calendar.getInstance();
        SimpleDateFormat s = new SimpleDateFormat("MM/dd/yyyy");
        System.out.println(s.format(new Date(cal.getTimeInMillis())));
@@ -261,5 +262,43 @@ public class SQLPage extends SafeActions implements SQLLocators {
                }
            }
        }
+   }
+
+   public void verifyingNonDataMartQueryConfigs(String name){
+       safeType(TEXTBOX_TYPESEARCH, name + "\n", "Alert Name into type search");
+       System.out.println("entered dbtext");
+       waitForSecs(9);
+       mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+       safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+       waitForSecs(9);
+       String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+       System.out.println(pageTitle);
+       String expectedText = name;
+       Assert.assertEquals(pageTitle, expectedText);
+       safeClearAndType(DROPDOWN_MONITORED, "Siebel Database", "Server name into textbox", MEDIUMWAIT);
+       List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+       System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
+       for (int i = 0; i < dbs4.size(); i++) {
+
+           if (dbs4.get(i).getText().equals("Siebel Database")) {
+
+               dbs4.get(i).click();
+               break;
+           }
+       }
+       waitForSecs(10);
+       safeClearAndType(DROPDOWN_CREDENTIALS, "Siebel Lab Siebel User", "Server name into textbox", MEDIUMWAIT);
+       List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
+       System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+       for (int i = 0; i < dbs5.size(); i++) {
+
+           if (dbs5.get(i).getText().equals("Siebel Lab Siebel User")) {
+
+               dbs5.get(i).click();
+               break;
+           }
+       }
+       waitForSecs(10);
+       safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
    }
 }

@@ -123,6 +123,13 @@ public class SQLTests extends BaseSetup {
         emailPage.verifyingDataonRunschedule("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_277_AddSQLconfigwithNonDatamartQuery() {
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
+        sqlPage.verifyingNonDataMartQueryConfigs(SQL);
+        sqlPage.deletingSQLConfig();
+    }
 
 
 }
