@@ -614,5 +614,10 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(DASHBOARD_LABEL, "Select or create dashboard text box", MEDIUMWAIT);
         safeClick(BUTTON_CANCEL, "Cancel button", MEDIUMWAIT);
     }
-
+  public void verifyBreadcrumBackwardNavigationFromRCAPAge(){
+      safeClick(BREADCRUMB_DRILLTHROUGH, "Pivot Breadcrumb", MEDIUMWAIT);
+      safeClick(DASHBOARD_BREADCRUMB,"Dashboard BreadCrum",MEDIUMWAIT);
+      if (!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname2))
+          Assert.fail("Title for Dashboard page is not displayed properly");
+  }
 }

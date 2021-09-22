@@ -157,6 +157,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
      safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
      safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
      safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+     waitForSecs(10);
      safeClick(ADD_USERS_ICON,"Add icon",MEDIUMWAIT);
      safeTypeUsingChrod(USERS_EMAIL_TXTBOX,email,"Email id",MEDIUMWAIT);
  }

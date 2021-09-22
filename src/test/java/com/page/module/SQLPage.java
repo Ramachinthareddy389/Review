@@ -205,6 +205,14 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         waitForSecs(10);
 
+    }
+
+    public void verifyingExecutionCountInSQl(){
+        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT,"2","Execution Count",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
 
     }
 

@@ -54,7 +54,7 @@ public class SQLTests extends BaseSetup {
           sqlPage.verifyingaddedSQLConfigs(SQL);
           sqlPage.deletingSQLConfig();
           getDriver().get(dashBoardData.gmail);
-          emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+          emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
           emailPage.verifyingDataforSqlTests(SQL);
           //sqlPage.verifyingDataInEmail("Daily User Login Report");
 
@@ -69,7 +69,7 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com","Doesn't Matter");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Doesn't Matter");
         sqlPage.verifyingDataInEmail("Multi-Query-Report");
     }
 
@@ -80,7 +80,7 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingOnSuccessNdFailure(SQL);
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
 
     }*/
 
@@ -107,7 +107,7 @@ public class SQLTests extends BaseSetup {
         //sqlPage.deletingSQLConfig();
         componentPage.deleteDistributionList("DistributionList");
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
         emailPage.verifyingDataforSqlTests(SQL);
     }
 
@@ -119,8 +119,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.deletingSQLConfig();
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
-        emailPage.verifyingDataonRunschedule("zentest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataonRunschedule("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -131,5 +131,18 @@ public class SQLTests extends BaseSetup {
         sqlPage.deletingSQLConfig();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_286_VerifyExecutionCountIntervalinEditSQLwindow()
+    {
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
+        sqlPage.verifyingaddedSQLConfigs(SQL);
+        sqlPage.verifyingExecutionCountInSQl();
+        sqlPage.deletingSQLConfig();
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataforSqlTests(SQL);
+
+    }
 
 }

@@ -41,4 +41,5 @@ public interface EmailLocators {
    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
    By TITLE_KPI = By.xpath("//i[@aria-label='Add New Configuration']/../../../../../h5");
    By TXTBOX_YOPMAIL = By.xpath("//input[@id='login']");
+
 }

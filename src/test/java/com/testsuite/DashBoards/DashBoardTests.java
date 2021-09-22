@@ -169,4 +169,19 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.deletingDashboard();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_88_BreadcrumbNavigationfromPortletwithConstraintsinPivotpage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.verifyingPortletAddedFromSearchBar();
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        pivotPage.navigateToPivotPage();
+        dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
+        portletsFeature.navigateToRCApageFrmPivotPage();
+        dashboardPage.verifyBreadcrumBackwardNavigationFromRCAPAge();
+        dashboardPage.deletingDashboard();
+
+    }
 }

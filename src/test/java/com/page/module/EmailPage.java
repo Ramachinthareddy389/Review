@@ -28,6 +28,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
     public void navigatingToEmail(String Email, String title) {
         safeTypeUsingChrod(TXTBOX_EMAIl, Email, "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
+        waitForSecs(10);
         safeTypeUsingChrod(TXTBOX_PASSWORD, "Zenq@123", "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
         waitForSecs(30);
@@ -101,7 +102,8 @@ public class EmailPage extends SafeActions implements EmailLocators {
         safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
         safeCheck(LABEL_MORE, "Selecting all", MEDIUMWAIT);
         safeClick(BTN_TRASH, "Delete button", MEDIUMWAIT);
-        safeCheck(BTN_SELECT, "Selecting all", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElements(BTN_SELECT).get(1).click();
         safeClick(BTN_DELETE_FOREVER, "Delete button", MEDIUMWAIT);
     }
 

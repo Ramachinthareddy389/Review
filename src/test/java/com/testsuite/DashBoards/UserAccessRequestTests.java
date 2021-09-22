@@ -46,9 +46,8 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
 
-   @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_452_VerifyUserAccessRequestsCreatedFromloginPagefornewusers() throws InterruptedException
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_452_VerifyUserAccessRequestsCreatedFromLoginPageforNewusers() throws InterruptedException {
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestingTheAccessFromLoginPage();
         loginPage.verifyLoginPage();
@@ -57,52 +56,52 @@ public class UserAccessRequestTests extends BaseSetup {
         userAccessRequestPage.verifyingRequestedUserInUserAccessRequestPage();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_467_AddNewRolesInAddNDEditUserwindow()
-    {
-         userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
-         presentationModesNdRulesPages.addingNewUserRoles();
-         userAccessRequestPage.ClickingFinIShNdCloseButtons();
-         presentationModesNdRulesPages.verifyingAddedUserRoles();
-         userAccessRequestPage.deletingaddedEmail();
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_467_AddNewRolesInAddNDEditUserwindow() {
+        userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
+        presentationModesNdRulesPages.addingNewUserRoles();
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        presentationModesNdRulesPages.verifyingAddedUserRoles();
+        userAccessRequestPage.deletingaddedEmail();
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_469_EditUserConfiguration(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_469_EditUserConfiguration() {
         userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
         userAccessRequestPage.editingUserConfigurations();
     }
 
 
-
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_451_VerifyUseraccessRequestLoginpageforExistingusers(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_451_VerifyUseraccessRequestLoginpageforExistingusers() {
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestAccessForExistingUser("rama.chinthareddy@zenq.com");
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_464_AddNewUserwithWelcomeEmail(){
-        userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_464_AddNewUserwithWelcomeEmail()
+    {
+        userAccessRequestPage.addingNewUser("test123@yopmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain APM - Welcome");
-        emailPage.deletingemailsfromgmail();
+        getDriver().get(dashBoardData.yopmail);
+        // emailPage.navigatingToEmail("test123@yopmail.com","Germain APM - Welcome");
+        emailPage.navigatingToYopMail("test123@yopmail.com", "Germain APM - Welcome");
         getDriver().get(dashBoardData.openCartURL);
-        userAccessRequestPage.deletingCreatedUser("zenqtest75@gmail.com");
+        userAccessRequestPage.deletingCreatedUser("test123@yopmail.com");
 
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_466_VerifyUserSetupforNewUser(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_466_VerifyUserSetupforNewUser()
+    {
         userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain APM - Welcome");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM - Welcome");
         emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
         userAccessRequestPage.signOut();
         loginPage.verifyLoginPage();
@@ -114,13 +113,12 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_468_ResetPasswordinEditUserwindow()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_468_ResetPasswordinEditUserwindow() {
         userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain APM - Welcome");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM - Welcome");
         emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
         userAccessRequestPage.signOut();
         loginPage.verifyLoginPage();
@@ -141,15 +139,15 @@ public class UserAccessRequestTests extends BaseSetup {
         emailPage.deletingemailsfromgmail();
     }
 
-@Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_453_Verifyuseraccessrequestsfortemporaryusers() throws InterruptedException {
-    dashboardOverviewPage.addingNewDashboard();
-    dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
-    dashboardOverviewPage.searchingDashboard();
-    dashboardOverviewPage.verifySharingDashboardWithNewUser();
-    getDriver().get(dashBoardData.yopmail);
-    emailPage.navigatingToYopMail("testzenq@yopmail.com","germain APM - shared this dashboard with you");
-    alertTemplatePage.deletingEmails();
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_453_VerifyUserAccessRequestsForTemporaryUsers() throws InterruptedException {
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.verifySharingDashboardWithNewUser();
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("testzenq@yopmail.com", "germain APM - shared this dashboard with you");
+        alertTemplatePage.deletingEmails();
     }
 
 }

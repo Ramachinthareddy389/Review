@@ -1277,6 +1277,15 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
     }
 
+    public void navigateToRCApageFrmPivotPage(){
+        mouseHoverJScript(BY_LABEL_PIVOT, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        safeClick(TOOLTIPOPTION_1, "Pivot", MEDIUMWAIT);
+        waitForSecs(10);
+        String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Page title for RCA", MEDIUMWAIT);
+        System.out.println(Tooltip1);
+        Assert.assertEquals(Tooltip1, dashBoardData.tooltip1);
+    }
+
 }
 
 

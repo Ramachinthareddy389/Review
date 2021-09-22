@@ -34,6 +34,7 @@ public interface PortletLocators {
     By PortletFilters_TypeSearch=By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     By DROPDOWN_FEILDS=By.xpath("//div[text()='Color']");
     By BTN_APPLY=By.xpath("//span[text()='Apply']");
+    By BY_LABEL_PIVOT = By.xpath("//div[@aria-label='Label']/../../../following-sibling::div/descendant::span[8]");
     //Ticket on Dashboard
     By TICKET_ICON= By.xpath("//i[@class='fas fa-ticket-alt']");
     By TICKET_TITLE= By.xpath("//textarea[@id='TextArea']");

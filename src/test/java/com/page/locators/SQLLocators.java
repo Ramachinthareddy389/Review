@@ -67,5 +67,6 @@ public interface SQLLocators {
     By TIMESTAMP_COLUMN = By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");
     By DROPDOWN_MONITORED = By.xpath("//input[@id='monitoredDatabase']");
     By DROPDOWN_CREDENTIALS = By.xpath("//input[@id='credentials']");
+    By TXTBOX_EXECUTION_COUNT = By.xpath("//input[@id='limitCount']");
 }
 
