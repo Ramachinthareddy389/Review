@@ -203,5 +203,28 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
 
     }
 
+    public void changePasswordFrmUserProfile(){
+        safeClick(ICON_USER,"User profile icon",MEDIUMWAIT);
+        safeClick(BTN_SETTINGS,"Settings button",MEDIUMWAIT);
+        safeClick(BTN_CHANGEPASSWRD,"Change password",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_PASSWRD,"Test@123","Password textbox",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_CONFIRM_PASSWRD,"Test@123","Password textbox",MEDIUMWAIT);
+        safeClick(BTN_UPDATE_PASSWRD,"Change password",MEDIUMWAIT);
+        safeClick(CHANGPASSWORD_CLOSE,"Close button",MEDIUMWAIT);
 
+
+    }
+
+ public  void loginFromAfterLogout(){
+     safeTypeUsingChrod(PASSWORD_FIELD, "Zen@1234", "Entering password", MEDIUMWAIT);
+     safeClick(LOGIN_BTN, "Login button", MEDIUMWAIT);
+     waitForSecs(20);
+ }
+
+ public  void verifyingFunctionalityOfForgotPassword(){
+        safeClick(HYPERLINK_FORGOTPASSWD,"hyerlink",MEDIUMWAIT);
+        safeTypeUsingChrod(USERNAME_TXTBOX,"zenqtest75@gmail.com","Username",MEDIUMWAIT);
+        safeClick(BTN_RESET,"reset buttoin",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+ }
 }

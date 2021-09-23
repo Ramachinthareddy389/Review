@@ -47,7 +47,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(10);
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
         safeClick(FOLDER_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TEXTBOX_Folder, "Dashboards", "Server name into textbox", MEDIUMWAIT);
@@ -63,20 +63,20 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
             }
         }
 
-        waitForSecs(20);
+        waitForSecs(10);
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(10);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(45);
+        waitForSecs(10);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(20);
+        waitForSecs(10);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
@@ -510,6 +510,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Validating Last 30 Days of predefined time range from calendar ")
     public void validatingLast30Days(String time) {
+        waitForSecs(10);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_30_DAYS, "Last 30 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);

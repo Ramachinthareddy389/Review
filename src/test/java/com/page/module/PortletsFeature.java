@@ -119,12 +119,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
         waitUntilClickable(COUNTER_HEADER, "Counter header in Portlet Interface", MEDIUMWAIT);
         safeClick(COUNTER_HEADER, "Counter header in Portlet Interface", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
        // safeType(COUNTER_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(COUNTER_TEXTBOX_KPI);
         searchField2.sendKeys(del2 +dashBoardData.portletKPI);
+        waitForSecs(5);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
@@ -133,10 +135,12 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(COUNTER_PORTLET_NAME, "Portlet Name field in Counter portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + counterPortletName);
+        waitForSecs(10);
         safeClick(COUNTER_TEXTBOX_MEASURE, "Measure field", MEDIUMWAIT);
         safeType(COUNTER_TEXTBOX_MEASURE, "Count", "Enter Measure", MEDIUMWAIT);
         List<WebElement> measures = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
@@ -177,9 +181,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         if (!driver.findElement(FILTER_MESSAGE_COUNTER_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Counter portlet");
         try {
-            waitForSecs(5);
+            waitForSecs(20);
             if (driver.findElement(COUNTER_PORTLET_CHART).isDisplayed()) {
-                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../../../following-sibling::div/div/div/div/span/span[contains(text(),'" + dashBoardData.portletKPI + "')]");
+                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../../../following-sibling::div/div/div/div/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][1]");
                 waitUntilClickable(KPI_COUNTER_PORTLET, "", MEDIUMWAIT);
                 if (!driver.findElement(KPI_COUNTER_PORTLET).isDisplayed())
                     Assert.fail("KPI Name is not displayed in Counter portlet");
@@ -1017,9 +1021,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Arrays.sort(column2);
         Arrays.toString(column2);
         for (int i = 1; i <= column2.length; i++) {
-            double value = Double.parseDouble(column2[i + 2]);
-            String Double = String.format("%.2f", value);
-            System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" + secndRow);
+            String value = column2[i + 2];
+            //String Double = String.format("%.2f", value);
+            System.out.println("Exported CSV values  :" + value + "  Table Column Values:" + secndRow);
             // Assert.assertEquals(Double, list2.get(i).getText());
 
 

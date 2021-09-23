@@ -150,4 +150,27 @@ public class UserAccessRequestTests extends BaseSetup {
         alertTemplatePage.deletingEmails();
     }
 
+
+    @Test(alwaysRun = true)
+    public void TC_003_UpdatePasswordfromProfilewithCorrectrequirements(){
+        userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM - Welcome");
+        emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
+        userAccessRequestPage.changePasswordFrmUserProfile();
+        userAccessRequestPage.signOut();
+        loginPage.verifyLoginPage();
+        userAccessRequestPage.loginFromAfterLogout();
+
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_005_ResetpasswordusingForgotPasswordfield(){
+        userAccessRequestPage.signOut();
+        userAccessRequestPage.verifyingFunctionalityOfForgotPassword();
+        getDriver().get(dashBoardData.gmail);
+        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM - Welcome");
+    }
+
 }

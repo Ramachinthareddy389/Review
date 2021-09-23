@@ -11,10 +11,10 @@ import org.testng.annotations.Test;
 
 import java.awt.*;
 
-public class SSHNdWMITests extends BaseSetup {
+public class SSHNdWMINdClickTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
-    private SSHPage sshPage;
+    private SSHPageNdWMIClickPage sshPageNdWMIClickPage;
     private HardwarePage hardwarePage;
     private  HTTPPage httpPage;
     private String sModeOfExecution;
@@ -24,7 +24,7 @@ public class SSHNdWMITests extends BaseSetup {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        sshPage = new SSHPage(getDriver());
+        sshPageNdWMIClickPage = new SSHPageNdWMIClickPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         httpPage = new HTTPPage(getDriver());
         dashBoardData = new DashBoardData();
@@ -41,99 +41,99 @@ public class SSHNdWMITests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_293_AddSSHConfiguration() throws InterruptedException
     {
-        sshPage.clickingOnAutomation();
-        sshPage.addingSSH();
-        sshPage.verifyingAddedSSH();
+        sshPageNdWMIClickPage.clickingOnAutomation();
+        sshPageNdWMIClickPage.addingSSH();
+        sshPageNdWMIClickPage.verifyingAddedSSH();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_296_AddNewScriptFromAddEditSSHWindow()
     {
-        sshPage.clickingOnAutomation();
-        sshPage.addingSSH();
-        sshPage.AddedScriptInSSHEditWindow();
-        sshPage.verifyingaddedScriptInSSHPage();
+        sshPageNdWMIClickPage.clickingOnAutomation();
+        sshPageNdWMIClickPage.addingSSH();
+        sshPageNdWMIClickPage.AddedScriptInSSHEditWindow();
+        sshPageNdWMIClickPage.verifyingaddedScriptInSSHPage();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_300_EditSSHConfiguration()
     {
-        sshPage.clickingOnAutomation();
-        sshPage.addingSSH();
-        sshPage.addingEditedSSH();
-        sshPage.verifyingAfterSSHEditedConfigValues();
+        sshPageNdWMIClickPage.clickingOnAutomation();
+        sshPageNdWMIClickPage.addingSSH();
+        sshPageNdWMIClickPage.addingEditedSSH();
+        sshPageNdWMIClickPage.verifyingAfterSSHEditedConfigValues();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_311_AddWMIconfiguration()
     {
-        sshPage.clickingOnWMIInAutomation();
-        sshPage.addingSSH();
-        sshPage.verifyingAddedSSH();
+        sshPageNdWMIClickPage.clickingOnWMIInAutomation();
+        sshPageNdWMIClickPage.addingSSH();
+        sshPageNdWMIClickPage.verifyingAddedSSH();
 
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_314_AddnewScriptfromAddEditWMIwindow()
     {
-        sshPage.clickingOnWMIInAutomation();
-        sshPage.addingSSH();
-        sshPage.AddedScriptInSSHEditWindow();
+        sshPageNdWMIClickPage.clickingOnWMIInAutomation();
+        sshPageNdWMIClickPage.addingSSH();
+        sshPageNdWMIClickPage.AddedScriptInSSHEditWindow();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_318_EditWMIconfiguration()
     {
-        sshPage.clickingOnWMIInAutomation();
-        sshPage.addingSSH();
-        sshPage.addingEditedSSH();
-        sshPage.verifyingAfterSSHEditedConfigValues();
+        sshPageNdWMIClickPage.clickingOnWMIInAutomation();
+        sshPageNdWMIClickPage.addingSSH();
+        sshPageNdWMIClickPage.addingEditedSSH();
+        sshPageNdWMIClickPage.verifyingAfterSSHEditedConfigValues();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_329_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException
     {
-        sshPage.clickingOnClickModuleInAutomation();
-        sshPage.addingNewRecordingInClickPage();
-        sshPage.switchingToMainWindow();
-        sshPage.startedRecording();
-        sshPage.addingClickConfigurations();
-        sshPage.verifyingAddedClickActions();
+        sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();
+        sshPageNdWMIClickPage.addingNewRecordingInClickPage();
+        sshPageNdWMIClickPage.switchingToMainWindow();
+        sshPageNdWMIClickPage.startedRecording();
+        sshPageNdWMIClickPage.addingClickConfigurations();
+        sshPageNdWMIClickPage.verifyingAddedClickActions();
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_330_AddclickbyimportingexistingJSonfileinsystem() throws InterruptedException, AWTException
     {
-        sshPage.clickingOnClickModuleInAutomation();
-        sshPage.addingJSonFileUsingImport();
-        sshPage.addingClickConfigurations();
-        sshPage.verifyingAddedClickActions();
+        sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();
+        sshPageNdWMIClickPage.addingJSonFileUsingImport();
+        sshPageNdWMIClickPage.addingClickConfigurations();
+        sshPageNdWMIClickPage.verifyingAddedClickActions();
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_331_AddandeditcustomRuleClick()
     {
-        sshPage.clickingOnClickModuleInAutomation();
-        sshPage.addingCUStomeRole();
-        sshPage.verifyingCustomRulesConfigs();
+        sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();
+        sshPageNdWMIClickPage.addingCUStomeRole();
+        sshPageNdWMIClickPage.verifyingCustomRulesConfigs();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_332_EditClickByimportingexistingJSONfileinsystem() throws InterruptedException, AWTException {
-        sshPage.clickingOnClickModuleInAutomation();
-        sshPage.addingJSonFileUsingImport();
-        sshPage.addingClickConfigurations();
-        sshPage.addingElementSelectorsInEditSceanrioWindow();
+        sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();
+        sshPageNdWMIClickPage.addingJSonFileUsingImport();
+        sshPageNdWMIClickPage.addingClickConfigurations();
+        sshPageNdWMIClickPage.addingElementSelectorsInEditSceanrioWindow();
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_333_Exportactionsinsystemtoextensionwindow() throws InterruptedException, AWTException {
-        sshPage.clickingOnClickModuleInAutomation();
-        sshPage.addingNewRecordingInClickPage();
-        sshPage.switchingToMainWindow();
-        sshPage.verifyingExportingActionsOnClosingGermainApm();
+        sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();
+        sshPageNdWMIClickPage.addingNewRecordingInClickPage();
+        sshPageNdWMIClickPage.switchingToMainWindow();
+        sshPageNdWMIClickPage.verifyingExportingActionsOnClosingGermainApm();
     }
 }

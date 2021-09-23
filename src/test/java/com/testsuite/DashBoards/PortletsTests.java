@@ -121,7 +121,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingFlowPortlet(flowPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingFlowPortlet(flowPortletName);
         portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
@@ -151,7 +151,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();

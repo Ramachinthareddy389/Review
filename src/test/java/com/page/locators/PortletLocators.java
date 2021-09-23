@@ -21,7 +21,7 @@ public interface PortletLocators {
     By TEXTBOX_SHOWAS=By.xpath("//input[@id='showAs']");
     By DROPDOWN_KPI=By.xpath("//span[text()='KPI']");
     By KPI_GHOSTTEXT = By.xpath("//input[@id='kpi']/../../../div[1]");
-    By TEXTBOX_KPI=By.xpath("//input[@id='kpi_0']");
+    By TEXTBOX_KPI=By.xpath("//input[@id='kpi']");
     By DROPDOWN_MEASURE=By.xpath("//*[text()='Measure']/../../../div//div[contains(@class,'body1')]");
     By TEXTBOX_SUMMARY=By.xpath("//input[@id='kpiSummary_0']");
     By DROPDOWN_CHARTTYPE=By.xpath("//*[text()='Chart Type']/../../../div//div[contains(@class,'body1')]");

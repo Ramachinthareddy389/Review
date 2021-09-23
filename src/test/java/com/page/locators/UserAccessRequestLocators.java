@@ -35,4 +35,20 @@ public interface UserAccessRequestLocators {
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By BTN_RESET_PASSWORD = By.xpath("//span[text()='Reset Password']");
 
+
+    //
+
+    By ICON_USER = By.xpath("//span[@class='MuiIconButton-label']/descendant::i[contains(@class,'fas fa-user')]");
+    By BTN_SETTINGS = By.xpath("//span[text()='Settings']");
+    By BTN_CHANGEPASSWRD = By.xpath("//span[text()='Change Password']");
+    By TXTBOX_PASSWRD = By.xpath("//input[@id='password']");
+    By TXTBOX_CONFIRM_PASSWRD = By.xpath("//input[@id='confirmPassword']");
+    By BTN_UPDATE_PASSWRD = By.xpath("//span[text()='Update Password']");
+    By CHANGPASSWORD_CLOSE = By.xpath("//button[@aria-label='close']");
+    By PASSWORD_FIELD = By.xpath("//input[@type='password']");
+    By LOGIN_BTN = By.xpath("//span[normalize-space()='Login']");
+    By HYPERLINK_FORGOTPASSWD = By.xpath("//a[text()='Forgot Password']");
+    By USERNAME_TXTBOX = By.xpath("//input[@type='text']");
+    By BTN_RESET = By.xpath("//span[text()='Reset Password']");
+
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SSHPage extends SafeActions implements SSHLocators {
+public class SSHPageNdWMIClickPage extends SafeActions implements SSHLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
@@ -27,7 +27,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
     String Cred_add, server_Add, program_Add, sla_add, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
 
 
-    public SSHPage(WebDriver driver) {
+    public SSHPageNdWMIClickPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
