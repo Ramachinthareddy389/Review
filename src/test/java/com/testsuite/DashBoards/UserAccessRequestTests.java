@@ -170,7 +170,28 @@ public class UserAccessRequestTests extends BaseSetup {
         userAccessRequestPage.signOut();
         userAccessRequestPage.verifyingFunctionalityOfForgotPassword();
         getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM - Welcome");
+        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM Password Reset");
     }
 
+    @Test(alwaysRun = true)
+    public void TC_Login001_LoginwithinvalidUsernamendValidPassword()
+    {
+        userAccessRequestPage.signOut();
+        userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test12@yopmail.com","Test@123");
+
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_Login002_LoginwithvalidUsernamendInvalidPassword() {
+        {
+            userAccessRequestPage.signOut();
+            userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test123@yopmail.com", "Test@12");
+        }
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_Login003_LoginwithInvalidUsernamendInvalidPassword(){
+        userAccessRequestPage.signOut();
+        userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test12@yopmail.com", "Test@12");
+    }
 }

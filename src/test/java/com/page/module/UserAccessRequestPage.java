@@ -17,8 +17,9 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Email = "Zenqtest"+ random.nextInt(500)+"gmail.com";
+    String Email = "Zenqtest" + random.nextInt(500) + "gmail.com";
     String Edit_Type_Add;
+    String notify ="We were unable to authenticate the supplied username and password. One or both are incorrect. Please verify them and try again, or if you continue to have problems, consult with your system administrator about having your password reset.";
 
 
     public UserAccessRequestPage(WebDriver driver) {
@@ -66,7 +67,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         safeClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
     }
 
-    public void requestAccessForExistingUser(String email){
+    public void requestAccessForExistingUser(String email) {
         safeClick(LABEL_REQUEST_ACCESS, "Request Access Label", MEDIUMWAIT);
         waitForSecs(10);
         safeTypeUsingChrod(TXTBOX_EMAIL, email, "Entering Email Id", MEDIUMWAIT);
@@ -81,86 +82,85 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
 
 
     @Step("Adding Role from Uesrs Page")
-    public void addingRoleFromUsersPage(String email){
+    public void addingRoleFromUsersPage(String email) {
         safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
         safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
         safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
-        safeClick(ADD_USERS_ICON,"Add icon",MEDIUMWAIT);
-        safeTypeUsingChrod(USERS_EMAIL_TXTBOX,email,"Email id",MEDIUMWAIT);
-        safeClick(ROLES_ADD_ICON,"Add icon",MEDIUMWAIT);
+        safeClick(ADD_USERS_ICON, "Add icon", MEDIUMWAIT);
+        safeTypeUsingChrod(USERS_EMAIL_TXTBOX, email, "Email id", MEDIUMWAIT);
+        safeClick(ROLES_ADD_ICON, "Add icon", MEDIUMWAIT);
     }
 
-    public void ClickingFinIShNdCloseButtons(){
+    public void ClickingFinIShNdCloseButtons() {
         safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
-        safeClick(LABEL_USER_ROLES,"Auth Settings",MEDIUMWAIT);
+        safeClick(LABEL_USER_ROLES, "Auth Settings", MEDIUMWAIT);
     }
 
- public void deletingaddedEmail()
- {
-     safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
-     waitForSecs(10);
-     safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
-     System.out.println("entered dbtext");
-     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-     waitForSecs(9);
-     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
-     waitForSecs(5);
-     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-     waitForSecs(10);
- }
+    public void deletingaddedEmail() {
+        safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 
- public void editingUserConfigurations() {
-     safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
-     safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
-     waitForSecs(10);
-     safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
-     System.out.println("entered dbtext");
-     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-     waitForSecs(9);
-     safeClick(TYPE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-     safeClearAndType(TYPE_DRPDOWN, "Business", "Server name into textbox", MEDIUMWAIT);
-     List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+    public void editingUserConfigurations() {
+        safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(TYPE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TYPE_DRPDOWN, "Business", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
 
-     System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
-     for (int i = 0; i < dbs1.size(); i++) {
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
 
-         if (dbs1.get(i).getText().equals("Business")) {
+            if (dbs1.get(i).getText().equals("Business")) {
 
-             dbs1.get(i).click();
-             break;
-         }
-     }
-     Edit_Type_Add = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
-     System.out.println(Edit_Type_Add);
-     safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
-     waitForSecs(10);
-     safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
-     safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
-     safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
-     System.out.println("entered dbtext");
-     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-     waitForSecs(9);
-     Assert.assertEquals(Edit_Type_Add,"Business");
-     waitForSecs(9);
-     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
-     waitForSecs(5);
-     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-     waitForSecs(10);
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        Edit_Type_Add = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+        System.out.println(Edit_Type_Add);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
+        safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        Assert.assertEquals(Edit_Type_Add, "Business");
+        waitForSecs(9);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
 
- }
+    }
 
- public void addingNewUser(String email){
-     safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
-     safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
-     safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
-     waitForSecs(10);
-     safeClick(ADD_USERS_ICON,"Add icon",MEDIUMWAIT);
-     safeTypeUsingChrod(USERS_EMAIL_TXTBOX,email,"Email id",MEDIUMWAIT);
- }
+    public void addingNewUser(String email) {
+        safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
+        safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
+        safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ADD_USERS_ICON, "Add icon", MEDIUMWAIT);
+        safeTypeUsingChrod(USERS_EMAIL_TXTBOX, email, "Email id", MEDIUMWAIT);
+    }
 
     public void deletingCreatedUser(String email) {
         waitForSecs(10);
@@ -179,7 +179,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     }
 
 
-    public void resetPasswordFrmEditWindow(String email){
+    public void resetPasswordFrmEditWindow(String email) {
         waitForSecs(10);
         safeClick(LABEL_SYSTEM, "System Label", MEDIUMWAIT);
         safeClick(LABEL_AUTH_SETTINGS, "Auth Settings Label", MEDIUMWAIT);
@@ -189,42 +189,57 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(BTN_RESET_PASSWORD,"Reset password button",MEDIUMWAIT);
+        safeClick(BTN_RESET_PASSWORD, "Reset password button", MEDIUMWAIT);
         String notify = safeGetText(NOTIFY_MESSAGE, "access request notification", MEDIUMWAIT);
         Assert.assertEquals(notify, "Are you sure you want to reset zenqtest75@gmail.com's password?");
-        safeClick(CONFIRM_DELETE,"Confirm button",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         String notify1 = safeGetText(NOTIFY_TEXT, "access request notification", MEDIUMWAIT);
         Assert.assertEquals(notify1, "An email, with a link to reset password, has been sent to zenqtest75@gmail.com.");
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        safeClick(CLOSE_EDITWINDOW,"Close edit window",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "Close edit window", MEDIUMWAIT);
         waitForSecs(10);
 
 
+    }
+
+    public void changePasswordFrmUserProfile() {
+        safeClick(ICON_USER, "User profile icon", MEDIUMWAIT);
+        safeClick(BTN_SETTINGS, "Settings button", MEDIUMWAIT);
+        safeClick(BTN_CHANGEPASSWRD, "Change password", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_PASSWRD, "Test@123", "Password textbox", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_CONFIRM_PASSWRD, "Test@123", "Password textbox", MEDIUMWAIT);
+        safeClick(BTN_UPDATE_PASSWRD, "Change password", MEDIUMWAIT);
+        safeClick(CHANGPASSWORD_CLOSE, "Close button", MEDIUMWAIT);
+
 
     }
 
-    public void changePasswordFrmUserProfile(){
-        safeClick(ICON_USER,"User profile icon",MEDIUMWAIT);
-        safeClick(BTN_SETTINGS,"Settings button",MEDIUMWAIT);
-        safeClick(BTN_CHANGEPASSWRD,"Change password",MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_PASSWRD,"Test@123","Password textbox",MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_CONFIRM_PASSWRD,"Test@123","Password textbox",MEDIUMWAIT);
-        safeClick(BTN_UPDATE_PASSWRD,"Change password",MEDIUMWAIT);
-        safeClick(CHANGPASSWORD_CLOSE,"Close button",MEDIUMWAIT);
-
-
+    public void loginFromAfterLogout() {
+        safeTypeUsingChrod(PASSWORD_FIELD, "Zen@1234", "Entering password", MEDIUMWAIT);
+        safeClick(LOGIN_BTN, "Login button", MEDIUMWAIT);
+        waitForSecs(20);
     }
 
- public  void loginFromAfterLogout(){
-     safeTypeUsingChrod(PASSWORD_FIELD, "Zen@1234", "Entering password", MEDIUMWAIT);
-     safeClick(LOGIN_BTN, "Login button", MEDIUMWAIT);
-     waitForSecs(20);
- }
+    public void verifyingFunctionalityOfForgotPassword() {
+        safeClick(HYPERLINK_FORGOTPASSWD, "hyerlink", MEDIUMWAIT);
+        safeTypeUsingChrod(USERNAME_TXTBOX, "zenqtest75@gmail.com", "Username", MEDIUMWAIT);
+        safeClick(BTN_RESET, "reset buttoin", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    }
 
- public  void verifyingFunctionalityOfForgotPassword(){
-        safeClick(HYPERLINK_FORGOTPASSWD,"hyerlink",MEDIUMWAIT);
-        safeTypeUsingChrod(USERNAME_TXTBOX,"zenqtest75@gmail.com","Username",MEDIUMWAIT);
-        safeClick(BTN_RESET,"reset buttoin",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
- }
+    public void verifyinginvalidUsernamendValidPassword(String email,String passwrd)
+    {
+        safeType(EMAILADDRESS_FIELD, email, "'Email' field in 'Login' page", MEDIUMWAIT);
+        safeType(PASSWORD_FIELD,passwrd , "'Email' field in 'Login' page", MEDIUMWAIT);
+        safeClick(LOGIN_BTN, "Login button", MEDIUMWAIT);
+        waitForSecs(20);
+        boolean b = isElementEnabled(INVALID_NOTIFY);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        String locator = "//p[text()='" + notify + "']";
+        By notify_Text = By.xpath(locator);
+        boolean st= isElementDisplayed(notify_Text);
+        Assert.assertTrue(st);
+        System.out.println(st);
+    }
 }

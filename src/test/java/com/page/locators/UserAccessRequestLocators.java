@@ -50,5 +50,9 @@ public interface UserAccessRequestLocators {
     By HYPERLINK_FORGOTPASSWD = By.xpath("//a[text()='Forgot Password']");
     By USERNAME_TXTBOX = By.xpath("//input[@type='text']");
     By BTN_RESET = By.xpath("//span[text()='Reset Password']");
+    By EMAILADDRESS_FIELD = By.xpath("//input[@type='text']");
+    By INVALID_NOTIFY = By.xpath("//h6[text()='Authentication Failed']");
+
+
 
 }

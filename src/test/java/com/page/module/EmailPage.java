@@ -33,6 +33,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
         waitForSecs(30);
         safeClick(BTN_InBOX, "Inbox", MEDIUMWAIT);
+        waitForSecs(10);
         List<WebElement> a = driver.findElements(EMAIL_SUBJECT);
         System.out.println(a.size());
         for (int i = 0; i < a.size(); i++) {
@@ -78,7 +79,6 @@ public class EmailPage extends SafeActions implements EmailLocators {
         safeTypeUsingChrod(PASSWORD_FIELD, "Zen@1234", "Entering password", MEDIUMWAIT);
         safeClick(LOGIN_BTN, "Login button", MEDIUMWAIT);
         waitForSecs(20);
-        waitForSecs(10);
         String url = getCurrentURL();
         System.out.println(url);
         String expectedURL = "http://qa.germainapm.com/germainapm/workspace/app/#Explore()";
