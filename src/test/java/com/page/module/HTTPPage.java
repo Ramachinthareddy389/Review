@@ -278,6 +278,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         application_add = safeGetText(APPLICATION_NAME_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_HOSTNAME,"httptest","Enteering http value",MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LABEL_SERVERNAME, "Clickinng servername", MEDIUMWAIT);

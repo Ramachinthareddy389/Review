@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public interface HardwareLocators {
     By BTN_DATASOURCES = By.xpath("//span[text()='Data Sources']");
     By BTN_HARDWARE = By.xpath("//span[text()='Hardware']");
+    By BTN_COMPONENT = By.xpath("//span[contains(text(),'Components')]");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
     By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
     By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");

@@ -1051,12 +1051,13 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     @Step("Exporting Gauge Portlet")
     public void exportingGaugePortlet(String gaugePortletName) throws IOException {
-
+        waitForSecs(15);
         String gaugeData = safeGetText(GAUGEPORTLETDATA, "Gauge Portlet Data", MEDIUMWAIT);
         System.out.println(gaugeData);
         String gaugeData1 = gaugeData.replace(",", "");
         System.out.println(gaugeData1);
         String actualValue = "#" + gaugeData1;
+        waitForSecs(15);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
         //String downloadPath = "C:\\Users\\rama.chinthareddy\\Downloads";

@@ -26,6 +26,7 @@ public interface HTTPLocators {
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By TXTBOX_HOSTNAME = By.xpath("//input[@id='hostname']");
     By BTN_CLOSE = By.xpath("//span[text()='Close']");
     By BTN_NEXT = By.xpath("//span[text()='Next']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
