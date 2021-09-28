@@ -116,8 +116,9 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
 
     }

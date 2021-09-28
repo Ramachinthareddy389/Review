@@ -34,4 +34,14 @@ public interface ApmStateLocators {
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By TXTBOX_EDITED_APPNAME = By.xpath("//input[@id='monitoredApplication']/../../../div[1]");
     By TXTBOX_EDITED_SERVER = By.xpath("//input[@id='monitoredServer']/../../../div[1]");
+    By BTN_MOVE = By.xpath("//span[text()='Move']");
+    By DROPDOWN_MOVE_TO = By.xpath("//span[text()='Confirm']/../../descendant::input");
+    By BTN_DOWN_ARROW = By.xpath("//button[@aria-label='Open']");
+    By DROPDOWNVALUES_IN_MOVETO = By.xpath("//ul[contains(@class,'MuiAutocomplete-listbox')]/li/div");
+    By NOTIFY_FOOTER = By.xpath("//span[@id='client-snackbar']");
+    By ENGINE_LINK = By.xpath("//button[text()='Engine']");
+    By LIST_OF_COMPONENTS = By.xpath("//i[@title='Definition of monitoring components.']/../../following-sibling::div/div/div/button");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+    By MONITORED_ADD_ICON = By.xpath("//span[text()='Monitored Server']/../../../../../../button[@aria-label='Add']");
+    By APPLICATION_NAME_ADDICON = By.xpath("//span[text()='Application Name']/../../../../../../button[@aria-label='Add']");
 }

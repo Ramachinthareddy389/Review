@@ -178,7 +178,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         waitForSecs(10);
         safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(10);
+
     }
 
 

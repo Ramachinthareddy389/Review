@@ -354,6 +354,7 @@ public class SSHPageNdWMIClickPage extends SafeActions implements SSHLocators {
         driver.findElements(By.xpath("//center/input[@aria-label='Google Search']")).get(1).click();
         driver.navigate().back();
         System.out.println(tabs.size());
+        waitForSecs(15);
         System.out.println(driver.switchTo().window(tabs.get(3)));
         Record1 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
         System.out.println(Record1);
@@ -376,6 +377,7 @@ public class SSHPageNdWMIClickPage extends SafeActions implements SSHLocators {
 
         safeClick(LABEL_APP_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(LABEL_APP_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        waitForSecs(10);
         safeClearAndType(TXTBOX_APP_NAME, "Android", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
@@ -387,10 +389,11 @@ public class SSHPageNdWMIClickPage extends SafeActions implements SSHLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
         safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_CLOSE_CLICK_WINDOW, "close button", MEDIUMWAIT);
@@ -413,12 +416,14 @@ public class SSHPageNdWMIClickPage extends SafeActions implements SSHLocators {
         String expectedText2 = "Click on input submit";
         Assert.assertEquals(expectedText1, AddedScenario1);
         Assert.assertEquals(expectedText2, AddedScenario2);
+        waitForSecs(10);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+        driver.quit();
     }
 
     public void addingJSonFileUsingImport() throws InterruptedException, AWTException {
@@ -480,6 +485,7 @@ public class SSHPageNdWMIClickPage extends SafeActions implements SSHLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
         safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);

@@ -3,10 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.ApmStatePage;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.LoginPage;
-import com.page.module.PortletsFeature;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +18,8 @@ public class ApmStateTests extends BaseSetup {
     private LoginPage loginPage;
     private String sModeOfExecution;
     private ApmStatePage apmStatePage;
+    private HardwarePage hardwarePage;
+    private SoftwarePage softwarePage;
     Random random = new Random();
 
     String dname = "HttpScenario";
@@ -32,6 +31,8 @@ public class ApmStateTests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         portletsFeature = new PortletsFeature(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
+        softwarePage = new SoftwarePage(getDriver());
+        hardwarePage = new HardwarePage(getDriver());
         apmStatePage = new ApmStatePage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
@@ -59,5 +60,27 @@ public class ApmStateTests extends BaseSetup {
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
         apmStatePage.verifyingEditHttpConfigs();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Apm_003_MoveHTTPScenarioComponentDeploymentTootherEngine(){
+        apmStatePage.configuringHttpScenario();
+        apmStatePage.configuringServerPage();
+        apmStatePage.configuringDeploymentPage();
+        apmStatePage.movingHttpScenrioToOtherEngine();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Apm_004_AddMonitoredServerandApplicationfromEditWindow(){
+        apmStatePage.configuringHttpScenario();
+        apmStatePage.configuringServerPage();
+        apmStatePage.configuringDeploymentPage();
+        apmStatePage.addingMonitoredServer();
+        hardwarePage.addingNewHardware();
+        hardwarePage.navigatingToHardwarePage();
+        apmStatePage.navigatingToComponentsTab();
+        softwarePage.addingNewSoftware();
+
+
     }
 }

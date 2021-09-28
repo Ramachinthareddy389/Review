@@ -4,6 +4,7 @@ import com.page.locators.ApmStateLocators;
 import com.page.locators.UserAccessRequestLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -16,8 +17,8 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
     String dname = "HttpScenario";
     Random random = new Random();
     String dname1 = dname + random.nextInt(1500);
-    String dnameEdit = "Httpedit"+random.nextInt(1500);
-    String Server_add,AppName_add,Cred_add,Component_add,Edit_Server_add,Edit_MonitorName_add,Edit_App_add;
+    String dnameEdit = "Httpedit" + random.nextInt(1500);
+    String Server_add, AppName_add, Cred_add, Component_add, Edit_Server_add, Edit_MonitorName_add, Edit_App_add;
 
     public ApmStatePage(WebDriver driver) {
         super(driver);
@@ -124,7 +125,7 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public void verifyingHttpScenario(){
+    public void verifyingHttpScenario() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(15);
@@ -140,9 +141,8 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         System.out.println(AppName_add.equals(driver.findElement(TXTBOX_EDITED_APPNAME).getText()));
         System.out.println(Server_add.equals(driver.findElement(TXTBOX_EDITED_SERVER).getText()));
         if (dname1.equals(driver.findElement(TXTBOX_MONIOTOR_NAME).getAttribute("value")) && AppName_add.equals(driver.findElement(TXTBOX_EDITED_APPNAME).getText()) &&
-                Server_add.equals(driver.findElement(TXTBOX_EDITED_SERVER).getText()))
-        {
-         Assert.assertTrue(true);
+                Server_add.equals(driver.findElement(TXTBOX_EDITED_SERVER).getText())) {
+            Assert.assertTrue(true);
         } else {
             Assert.fail("Ticket details are invalid");
         }
@@ -152,7 +152,7 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         waitForSecs(2);
     }
 
-    public void verifyingEditHttpConfigs(){
+    public void verifyingEditHttpConfigs() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(15);
@@ -187,16 +187,15 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         }
 
         Edit_Server_add = safeGetText(TXTBOX_EDITED_SERVER, "Server textbox value", MEDIUMWAIT);
-         waitForSecs(15);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(30);
         System.out.println(dnameEdit.equals(driver.findElement(TXTBOX_MONIOTOR_NAME).getAttribute("value")));
         System.out.println(Edit_App_add.equals(driver.findElement(TXTBOX_EDITED_APPNAME).getText()));
         System.out.println(Edit_Server_add.equals(driver.findElement(TXTBOX_EDITED_SERVER).getText()));
 
         if (dnameEdit.equals(driver.findElement(TXTBOX_MONIOTOR_NAME).getAttribute("value")) && Edit_App_add.equals(driver.findElement(TXTBOX_EDITED_APPNAME).getText()) &&
-                Edit_Server_add.equals(driver.findElement(TXTBOX_EDITED_SERVER).getText()))
-        {
+                Edit_Server_add.equals(driver.findElement(TXTBOX_EDITED_SERVER).getText())) {
             Assert.assertTrue(true);
         } else {
             Assert.fail("Ticket details are invalid");
@@ -206,4 +205,76 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(2);
     }
+
+    public void movingHttpScenrioToOtherEngine() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_MOVE, "Move button", MEDIUMWAIT);
+        safeClick(DROPDOWN_MOVE_TO, "Move to", MEDIUMWAIT);
+        waitForSecs(5);
+        driver.findElement(DROPDOWN_MOVE_TO).clear();
+      /*  safeClick(BTN_DOWN_ARROW,"Move To dropdown",MEDIUMWAIT);
+        waitForSecs(10);*/
+        safeType(DROPDOWN_MOVE_TO, "QA Node Engine", "QA Node Name", MEDIUMWAIT);
+        List<WebElement> dbs5 = driver.findElements(DROPDOWNVALUES_IN_MOVETO);
+        System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+        for (int i = 0; i < dbs5.size(); i++) {
+
+            if (dbs5.get(i).getText().equals("QA Node Engine")) {
+
+                dbs5.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm ", MEDIUMWAIT);
+        waitForSecs(5);
+        String FooterValue = safeGetText(NOTIFY_FOOTER, "Footer notifications", MEDIUMWAIT);
+        String expectedText = "Item moved/copied";
+        Assert.assertEquals(FooterValue, expectedText);
+        safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ENGINE_LINK, "Engine link", MEDIUMWAIT);
+        waitForSecs(15);
+        List<WebElement> dbs6 = driver.findElements(LIST_OF_COMPONENTS);
+        System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
+        for (int i = 0; i < dbs6.size(); i++) {
+
+            if (dbs6.get(i).getText().equals(dname1)) {
+
+                Assert.assertTrue(true);
+                break;
+            } else {
+                Assert.fail("Http scenario not moving to engine");
+            }
+        }
+        safeClick(CLOSE_EDITWINDOW,"close windoq",MEDIUMWAIT);
+    }
+  public void addingMonitoredServer(){
+      safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+      System.out.println("entered dbtext");
+      waitForSecs(15);
+      mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+      safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+      waitForSecs(10);
+      safeClick(MONITORED_ADD_ICON,"Add icon",MEDIUMWAIT);
+  }
+
+  public void navigatingToComponentsTab(){
+      safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
+      safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+      safeClick(COMPONENTS_TAB, "Nodes Tab", MEDIUMWAIT);
+      safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+      System.out.println("entered dbtext");
+      waitForSecs(15);
+      mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+      safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+      waitForSecs(10);
+      safeClick(APPLICATION_NAME_ADDICON,"Add icon",MEDIUMWAIT);
+  }
+
 }

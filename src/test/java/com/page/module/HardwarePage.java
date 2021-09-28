@@ -29,10 +29,11 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     public void clickingOnHardware() {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_HARDWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
     }
 
     public void addingNewHardware() {
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+
         safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -541,6 +542,22 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
         waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
+    }
+
+    public void navigatingToHardwarePage(){
+        safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_HARDWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = DbTitle;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
     }
 }
 

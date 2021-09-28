@@ -48,6 +48,7 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.verifyingCorrelationDetails();
     }
 
+/*
     @Test(alwaysRun = true)
     public void TC_173_EditCorrelationScenarioconfig() throws InterruptedException {
         correlationPage.clickingOnCorrelation();
@@ -55,6 +56,7 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.editCorrelationConfig();
         correlationPage.verifyingEditedCorrelationDetails();
     }
+*/
 
     @Test(alwaysRun = true)
     public void TC_175_AddTypesinEditCorrelationScenariowindow()
@@ -82,7 +84,7 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.verifyingAddedStreamCorrelationScenarios();
     }
 
-    @Test(alwaysRun = true)
+/*    @Test(alwaysRun = true)
     public void TC_178_EditStreamCorrelationScenarioconfig(){
         correlationPage.clickingOnCorrelation();
         correlationPage.AddingCorrrlationStreamPage();
@@ -94,5 +96,5 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.EditRightStreamFeildsWithNewValues();
         correlationPage.verifyingEditedStreamCorrelationValues();
 
-    }
+    }*/
 }
