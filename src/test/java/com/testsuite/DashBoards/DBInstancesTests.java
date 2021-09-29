@@ -45,12 +45,12 @@ public class DBInstancesTests extends BaseSetup {
         dbInstancesPage.verifyingDbInstanceNameDetails();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+/*    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC133_EditConfiguration() throws InterruptedException {
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.ediingConfiguration();
-    }
+    }*/
 
 
 }

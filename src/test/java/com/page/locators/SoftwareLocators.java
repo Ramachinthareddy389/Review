@@ -8,7 +8,7 @@ public interface SoftwareLocators {
         By BTN_SOFTWARE = By.xpath("//span[text()='Software']");
         By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
         By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
-        By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
+        By TXTBOX_SERVERNAME = By.xpath("//h6[text()='Software']/../../../../../div[2]/descendant::input[1]");
         By LABEL_DESC = By.xpath("//label[@id='description-label']");
         By TXTBOX_DESC = By.xpath("//input[@id='description']");
         By LABEL_CATEGORY = By.xpath("//span[text()='Category']");

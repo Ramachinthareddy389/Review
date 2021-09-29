@@ -42,14 +42,14 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.verifyingHardwareNameDetails();
 
     }
-
+/*
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_142_EditingHardwareConfiguration() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.ediingConfiguration();
         hardwarePage.verifyingEditedHardwareNameDetails();
-    }
+    }*/
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_148_AddLocalMonitoringAgentsinEditconfigwindow() throws InterruptedException {

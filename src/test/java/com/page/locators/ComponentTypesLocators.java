@@ -75,4 +75,5 @@ public interface ComponentTypesLocators
     By BTN_REMOVE_MEMBER = By.xpath("//span[text()='Members']/../../../div/div/div/div[@aria-label='Remove Configuration']");
     By EMAIL_ADDRESS_GHOSTTEXT_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[1]");
     By TXTBOX_EMAIL_ADDRESSS_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[2]/div/input");
+    By TXTBOX_SOFT_NAME = By.xpath("//h6[text()='Credentials']/../../../../../div[2]/descendant::input[1]");
 }

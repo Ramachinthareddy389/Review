@@ -34,7 +34,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
 
     public void addingNewHardware() {
 
-        safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+       // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
@@ -558,6 +558,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         String expectedText = DbTitle;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
     }
 }
 

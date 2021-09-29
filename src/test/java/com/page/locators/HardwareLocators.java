@@ -8,7 +8,7 @@ public interface HardwareLocators {
     By BTN_COMPONENT = By.xpath("//span[contains(text(),'Components')]");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
     By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
-    By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
+    By TXTBOX_SERVERNAME = By.xpath("//span[text()='Server Name']/../../following-sibling::div/input");
     By LABEL_ENVIRONMENT = By.xpath("//span[text()='Environment']");
     By ENVIRONMENT_GHOSTEXT = By.xpath("//input[@id='environment']/../../../div[1]");
     By TXTBOX_ENVIRONMENT = By.xpath("//input[@id='environment']");

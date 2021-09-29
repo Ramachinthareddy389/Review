@@ -73,15 +73,16 @@ public class ComponentTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test" )
+/*    @Test(alwaysRun = true,groups = "Smoke Test" )
     public  void TC_384_EditCredentialsconfiguration()
     {
         componentPage.clickingOnAddCredentials();
         componentPage.addingNewCredentials();
         componentPage.editCredentialsConfigs();
         componentPage.verifyingEditedAddedCredentials();
-    }
+    }*/
 
+/*
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_374_EditallComponentTypeconfigurations()
     {
@@ -91,6 +92,7 @@ public class ComponentTests extends BaseSetup {
         componentPage.adding2ndComponent();
         componentPage.verifyingEditedAllComponentTypes();
     }
+*/
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
@@ -100,12 +102,14 @@ public class ComponentTests extends BaseSetup {
         componentPage.addingNewCredentials();
         componentPage.changePasswordInEditCredWindow();
     }
+/*
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_393_EditDisplaySettingsConfiguration()
     {
        componentPage.clickingOnDisplaySettings();
     }
+*/
 
     @Test(alwaysRun = true,groups = "Smoke Test" )
     public  void TC_399_AddDistributionListwithAllDistributiontypes()

@@ -47,7 +47,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dataFeildExclusionsPage.verifyingFeildExclusionDetails();
 
     }
-
+/*
     @Test(alwaysRun = true)
     public void TC_188_EditDataFieldExclusionconfig () throws InterruptedException {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();
@@ -55,7 +55,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dataFeildExclusionsPage.editBusinessConfig();
         dataFeildExclusionsPage.verifyingEditedDataExcusionDetails();
 
-    }
+    }*/
 
 
     @Test(alwaysRun = true)

@@ -44,4 +44,7 @@ public interface ApmStateLocators {
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By MONITORED_ADD_ICON = By.xpath("//span[text()='Monitored Server']/../../../../../../button[@aria-label='Add']");
     By APPLICATION_NAME_ADDICON = By.xpath("//span[text()='Application Name']/../../../../../../button[@aria-label='Add']");
+    By BTN_SHOW_ADVANCED = By.xpath("//span[text()='Show Advanced']");
+    By CREDENTIALS_ADDICON = By.xpath("//span[text()='Credentials']/../../../../../../button[@aria-label='Add']");
+    By BTN_COPY = By.xpath("//span[text()='Copy']");
 }

@@ -34,11 +34,12 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_SOFTWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         waitForSecs(10);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
     }
 
     public void addingNewSoftware() {
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
-        safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+        waitForSecs(10);
+        //safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
@@ -201,5 +202,29 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+    }
+
+    public void navigatingToSoftwarePage()
+    {
+        safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_SOFTWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = DbTitle;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(5);
     }
 }

@@ -20,6 +20,7 @@ public class ApmStateTests extends BaseSetup {
     private ApmStatePage apmStatePage;
     private HardwarePage hardwarePage;
     private SoftwarePage softwarePage;
+    private ComponentPage componentPage;
     Random random = new Random();
 
     String dname = "HttpScenario";
@@ -34,6 +35,7 @@ public class ApmStateTests extends BaseSetup {
         softwarePage = new SoftwarePage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         apmStatePage = new ApmStatePage(getDriver());
+        componentPage = new ComponentPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -77,10 +79,36 @@ public class ApmStateTests extends BaseSetup {
         apmStatePage.configuringDeploymentPage();
         apmStatePage.addingMonitoredServer();
         hardwarePage.addingNewHardware();
+        apmStatePage.savingHardware();
         hardwarePage.navigatingToHardwarePage();
         apmStatePage.navigatingToComponentsTab();
         softwarePage.addingNewSoftware();
+        apmStatePage.savingHardware();
+        softwarePage.navigatingToSoftwarePage();
+        apmStatePage.deletingHttpScenarionInComponentsTab();
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Apm_005_AddCredentialsfromEditWindow(){
+        apmStatePage.configuringHttpScenario();
+        apmStatePage.configuringServerPage();
+        apmStatePage.configuringDeploymentPage();
+        apmStatePage.addingCredentialsInHttpEditWindow();
+        componentPage.addingNewCredentials();
+        apmStatePage.savingHardware();
+        componentPage.navigatingToCredWindow();
+        apmStatePage.deletingHttpScenarionInComponentsTab();
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Apm_006_CopyHTTPScenarioComponentDeploymenttootherEngine()
+    {
+        apmStatePage.configuringHttpScenario();
+        apmStatePage.configuringServerPage();
+        apmStatePage.configuringDeploymentPage();
+        apmStatePage.copiyingHttpScenarioInTOOtherEngine();
 
     }
 }

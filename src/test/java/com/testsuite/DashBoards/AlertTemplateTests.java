@@ -51,13 +51,13 @@ public class AlertTemplateTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true)
+ /*   @Test(alwaysRun = true)
     public void TC_366_EditAlertTemplateConfiguration() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate();
         alertTemplatePage.EditingAlertTemplateConfig();
         alertTemplatePage.verifyingEditedConfiguraions();
-    }
+    }*/
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_340_TriggerAnAlertbasedonSLAs() {

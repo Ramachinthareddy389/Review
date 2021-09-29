@@ -45,7 +45,7 @@ public class SLAsTests extends BaseSetup {
         slAsPage.addingSLAAction();
         slAsPage.verifyingSLAsPage();
     }
-
+/*
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_215_EditSLAconfigforallTypes()
     {
@@ -54,7 +54,7 @@ public class SLAsTests extends BaseSetup {
         slAsPage.addingSLAAction();
         slAsPage.editSLAsConfig();
         slAsPage.verifyingEditedSLADetails();
-    }
+    }*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_214_AddThresholdinFactBasedSLAeditwindow()

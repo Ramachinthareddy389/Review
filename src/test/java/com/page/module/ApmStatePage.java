@@ -26,14 +26,17 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
     }
 
     public void configuringHttpScenario() {
+        waitForSecs(10);
         safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
         safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(COMPONENTS_TAB, "Nodes Tab", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         safeClick(COMPONENT_HTTP_SCENARIO, "Components scenario", MEDIUMWAIT);
     }
 
     public void configuringServerPage() {
+        waitForSecs(10);
         safeClearAndType(TXTBOX_SERVER, "QA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
@@ -243,38 +246,145 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         List<WebElement> dbs6 = driver.findElements(LIST_OF_COMPONENTS);
         System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
         for (int i = 0; i < dbs6.size(); i++) {
-
+            System.out.println(dbs6.get(i).getAttribute("aria-label"));
+            waitForSecs(5);
+            System.out.println(dname1);
+            waitForSecs(5);
             if (dbs6.get(i).getText().equals(dname1)) {
 
                 Assert.assertTrue(true);
                 break;
-            } else {
-                Assert.fail("Http scenario not moving to engine");
             }
         }
-        safeClick(CLOSE_EDITWINDOW,"close windoq",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "close windoq", MEDIUMWAIT);
     }
-  public void addingMonitoredServer(){
-      safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
-      System.out.println("entered dbtext");
-      waitForSecs(15);
-      mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-      safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-      waitForSecs(10);
-      safeClick(MONITORED_ADD_ICON,"Add icon",MEDIUMWAIT);
-  }
 
-  public void navigatingToComponentsTab(){
-      safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
-      safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
-      safeClick(COMPONENTS_TAB, "Nodes Tab", MEDIUMWAIT);
-      safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
-      System.out.println("entered dbtext");
-      waitForSecs(15);
-      mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-      safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-      waitForSecs(10);
-      safeClick(APPLICATION_NAME_ADDICON,"Add icon",MEDIUMWAIT);
-  }
+    public void addingMonitoredServer() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(MONITORED_ADD_ICON, "Add icon", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 
+    public void navigatingToComponentsTab() {
+        safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
+        safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(COMPONENTS_TAB, "Nodes Tab", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(APPLICATION_NAME_ADDICON, "Add icon", MEDIUMWAIT);
+    }
+
+    public void savingHardware(){
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"Close window",MEDIUMWAIT);
+    }
+
+    public void deletingHttpScenarionInComponentsTab(){
+        safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Nodes Tab", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
+    }
+ public void addingCredentialsInHttpEditWindow(){
+     safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     waitForSecs(15);
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(10);
+     safeClick(BTN_SHOW_ADVANCED,"Show advanced button",MEDIUMWAIT);
+     safeClick(CREDENTIALS_ADDICON,"Credentials add icon",MEDIUMWAIT);
+ }
+
+ public void copiyingHttpScenarioInTOOtherEngine(){
+     safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     waitForSecs(15);
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(10);
+     safeClick(BTN_COPY,"Copy button",MEDIUMWAIT);
+     safeClick(DROPDOWN_MOVE_TO, "Move to", MEDIUMWAIT);
+     waitForSecs(5);
+     driver.findElement(DROPDOWN_MOVE_TO).clear();
+      /*  safeClick(BTN_DOWN_ARROW,"Move To dropdown",MEDIUMWAIT);
+        waitForSecs(10);*/
+     safeType(DROPDOWN_MOVE_TO, "QA Node Engine", "QA Node Name", MEDIUMWAIT);
+     List<WebElement> dbs5 = driver.findElements(DROPDOWNVALUES_IN_MOVETO);
+     System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+     for (int i = 0; i < dbs5.size(); i++) {
+
+         if (dbs5.get(i).getText().equals("QA Node Engine")) {
+
+             dbs5.get(i).click();
+             break;
+         }
+     }
+     waitForSecs(15);
+     safeClick(CONFIRM_DELETE, "Confirm ", MEDIUMWAIT);
+     waitForSecs(2);
+     String FooterValue = safeGetText(NOTIFY_FOOTER, "Footer notifications", MEDIUMWAIT);
+     String expectedText = "Item moved/copied";
+     Assert.assertEquals(FooterValue, expectedText);
+     waitForSecs(10);
+     safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
+     waitForSecs(10);
+     safeClick(ENGINE_LINK, "Engine link", MEDIUMWAIT);
+     waitForSecs(15);
+     List<WebElement> dbs6 = driver.findElements(LIST_OF_COMPONENTS);
+     System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
+     for (int i = 0; i < dbs6.size(); i++) {
+         System.out.println(dbs6.get(i).getAttribute("aria-label"));
+         waitForSecs(5);
+         System.out.println(dname1);
+         waitForSecs(5);
+         if (dbs6.get(i).getText().equals(dname1)) {
+
+             Assert.assertTrue(true);
+             break;
+         }
+     }
+     safeClick(CLOSE_EDITWINDOW, "close windoq", MEDIUMWAIT);
+
+     safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+     waitForSecs(10);
+     safeClick(COMPONENTS_TAB, "Nodes Tab", MEDIUMWAIT);
+     safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     waitForSecs(15);
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(10);
+     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+     waitForSecs(5);
+     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+     waitForSecs(2);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(10);
+     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+     waitForSecs(5);
+     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+     waitForSecs(2);
+ }
 }

@@ -48,7 +48,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingKPIsPage();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+/*    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_200_EditKPIconfiguration()
     {
         kpIsPage.clickingOnCorrelation();
@@ -57,7 +57,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.addingSLAAction();
         kpIsPage.editKPISConfig();
         kpIsPage.verifyingEditedKPISDetails();
-    }
+    }*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_201_AddSLAsinEditKPIconfigwindow(){

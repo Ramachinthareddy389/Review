@@ -125,8 +125,8 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 //Credentails config
 
     public void addingNewCredentials() {
-        safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_NAME, Cred, "Name into textbox", MEDIUMWAIT);
+       // safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_SOFT_NAME, Cred, "Name into textbox", MEDIUMWAIT);
         safeClick(LABEL_USERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_USERNAME, Cred, "Name into textbox", MEDIUMWAIT);
 
@@ -526,5 +526,20 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         //safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         safeClick(BTN_DISTRIBUTION_LISTS, "Credentials", MEDIUMWAIT);
 
+    }
+
+    public void navigatingToCredWindow(){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_CREDENTIALS, "Credentials", MEDIUMWAIT);
+        waitForSecs(20);
+        safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(DELETE_ALERT,"Delete Alert",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete", MEDIUMWAIT);
     }
 }
