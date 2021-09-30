@@ -8,6 +8,7 @@ public interface ApmStateLocators {
     By COMPONENTS_TAB = By.xpath("//span[contains(text(),'Components')]");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
     By COMPONENT_HTTP_SCENARIO = By.xpath("//li[contains(text(),'HTTP Scenario Component Deployment')]");
+    By COMPONENT_PARSER_DEPLOY = By.xpath("//li[contains(text(),'Parser Deployment')]");
     By TXTBOX_SERVER = By.xpath("//input[@id='monitoredServer']");
     By TXTBOX_CREDENTIALS = By.xpath("//input[@id='credentials']");
     By TXTBOX_APPNAME = By.xpath("//input[@id='monitoredApplication']");

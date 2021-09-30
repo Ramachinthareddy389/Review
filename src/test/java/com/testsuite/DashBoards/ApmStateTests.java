@@ -111,4 +111,22 @@ public class ApmStateTests extends BaseSetup {
         apmStatePage.copiyingHttpScenarioInTOOtherEngine();
 
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Apm_007_AddNewParserDeploymentcomponent()
+    {
+        apmStatePage.configuringParserDepoly();
+        apmStatePage.monitoringPage();
+        apmStatePage.configuringDeploymentPage();
+        apmStatePage.verifyingParsementDeploymentConfigs();
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Apm_008_EditExistingParserDeploymentcomponent(){
+        apmStatePage.configuringParserDepoly();
+        apmStatePage.monitoringPage();
+        apmStatePage.configuringDeploymentPage();
+       apmStatePage .verifyingEditParsementDeployConfig();
+    }
 }
