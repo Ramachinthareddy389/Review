@@ -42,8 +42,9 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         waitUntilClickable(TICKETS_PAGE_TITLE, "Tickets page Title", MEDIUMWAIT);
         if (!driver.findElement(TICKETS_PAGE_TITLE).isDisplayed())
             Assert.fail("Tickets page is not displayed properly");
-        waitUntilClickable(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
-        safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
+        waitForSecs(10);
+      //  waitUntilClickable(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
+       // safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
     }
 
     @Step("Navigate to Tickets page")
@@ -58,6 +59,8 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Adding Ticket with assignee and Multiple Participants in Tickets page")
     public void addTicketWithAssigneeAndMultipleParticipants() {
+        safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
+        waitForSecs(10);
         waitUntilClickable(TICKET_TITLE, "", MEDIUMWAIT);
         safeTypeUsingChrod(TICKET_TITLE, ticketTitle, "Ticket Title in Dashboard page", MEDIUMWAIT);
         safeClick(TICKET_SEVERITY, "Severity field", MEDIUMWAIT);
@@ -125,7 +128,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         safeClick(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, ticketTitle + "\n", "Searching Ticket Title", MEDIUMWAIT);
         waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
-        By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])[2]");
+        By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])");
         waitForSecs(15);
         //waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
         if (driver.findElement(TitleCheck).isDisplayed()) {
@@ -150,7 +153,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
             } else {
                 Assert.fail("Ticket added on Dashboard is not displayed in Tickets page");
             }
-            safeClick(CLOSE_BUTTON,"Closing Ticket",MEDIUMWAIT);
+          //  safeClick(CLOSE_BUTTON,"Closing Ticket",MEDIUMWAIT);
         }
     }
 

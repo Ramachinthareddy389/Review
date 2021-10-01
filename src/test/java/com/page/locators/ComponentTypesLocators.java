@@ -76,4 +76,10 @@ public interface ComponentTypesLocators
     By EMAIL_ADDRESS_GHOSTTEXT_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[1]");
     By TXTBOX_EMAIL_ADDRESSS_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[2]/div/input");
     By TXTBOX_SOFT_NAME = By.xpath("//h6[text()='Credentials']/../../../../../div[2]/descendant::input[1]");
+
+    //Auto Config
+    By LABEL_AUTO_CONFIG =By.xpath("//span[text()='Auto Config']");
+    By TXTAREA_CRITERIA = By.xpath("//textarea[@class='inputarea']");
+    By BTN_VALIDATE = By.xpath("//span[text()='Validate']");
+
 }

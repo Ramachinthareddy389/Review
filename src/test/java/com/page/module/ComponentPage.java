@@ -16,10 +16,12 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
+    String AutoConfig = "AutoConfig"+ "-" + random.nextInt(500);
+    String EditConfig = "editConfig"+ "-" + random.nextInt(500);
     String Component = "Component" + "-" + random.nextInt(500);
     String Cred = "Cred" + "-" + random.nextInt(500);
     String credEdited = "credEdited" + "-" + random.nextInt(500);
-    String Name_Add, KPIS_add, Edited_Cred_Name, Edited_Cred_User_Name, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
+    String Name_Add,Criteria_Add, KPIS_add, Edited_Cred_Name, Edited_Cred_User_Name, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
 
 
     public ComponentPage(WebDriver driver) {
@@ -540,6 +542,61 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(20);
         safeClick(DELETE_ALERT,"Delete Alert",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete", MEDIUMWAIT);
+    }
+
+    public void addingAutoConfig(){
+        waitForSecs(20);
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_ENGINE_SETTINGS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeClick(LABEL_AUTO_CONFIG, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, AutoConfig, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        safeType(TXTAREA_CRITERIA, AutoConfig, "Name into textbox", MEDIUMWAIT);
+        Criteria_Add = safeGetAttribute(TXTAREA_CRITERIA, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Criteria_Add);
+        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+    }
+
+    public  void verifyingAddedAutoConfig(){
+        safeType(TEXTBOX_TYPESEARCH, AutoConfig + "\n", "Distribution Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        String actualText = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        String expectedText = AutoConfig;
+        Assert.assertEquals(actualText,expectedText);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT,"Delete Alert",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE,"Confirm delete", MEDIUMWAIT);
+    }
+
+    public void editAutoConfig(){
+        safeType(TEXTBOX_TYPESEARCH, AutoConfig + "\n", "Distribution Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        safeTypeUsingChrod(TXTAREA_CRITERIA, EditConfig, "Name into textbox", MEDIUMWAIT);
+        Criteria_Add = safeGetAttribute(TXTAREA_CRITERIA, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Criteria_Add);
+        safeClick(BTN_VALIDATE,"Validate button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_SAVE,"Save configuaration",MEDIUMWAIT);
+        waitForSecs(10);
+        String actualText = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(5);
+        String expectedText = EditConfig;
+        Assert.assertEquals(actualText,expectedText);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT,"Delete Alert",MEDIUMWAIT);
         safeClick(CONFIRM_DELETE,"Confirm delete", MEDIUMWAIT);
     }
 }
