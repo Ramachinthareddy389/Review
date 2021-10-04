@@ -3389,4 +3389,19 @@ public class SafeActions extends Sync
 			Assert.fail("Unable to enter '" + text + "' text in  -"+ friendlyWebElementName+" Some Exception");
 		}
 	}
+
+	public void safeClickingOnSearchingConfig(By locator, String config){
+		mouseHoverJScript(locator, "Database Name", "Mouse hover", MEDIUMWAIT);
+		waitForSecs(20);
+		List<WebElement> dbs1 = driver.findElements(locator);
+		System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+		for (int i = 0; i < dbs1.size(); i++) {
+
+			if (dbs1.get(i).getText().equals(config)) {
+
+				dbs1.get(i).click();
+				break;
+			}
+		}
+	}
 }

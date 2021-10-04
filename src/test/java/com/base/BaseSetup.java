@@ -266,7 +266,6 @@ public class BaseSetup implements TimeOuts {
 
 
 
-/*
 
 @AfterClass(alwaysRun = true)
 	public void CloseBrowser() {
@@ -275,7 +274,6 @@ public class BaseSetup implements TimeOuts {
 			driver.quit();
 		}
 	}
-*/
 
 
 

@@ -144,4 +144,17 @@ public class ComponentTests extends BaseSetup {
         componentPage.addingAutoConfig();
         componentPage.editAutoConfig();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_Auto_003_RepplyToServers(){
+        componentPage.addingAutoConfig();
+        componentPage.repplyToServers();
+    }
+
+    @Test(alwaysRun = true,groups ="Smoke Test")
+    public void TC_Auto_004_AddProfileBindingsInEditAutoConfigwindow(){
+        componentPage.addingAutoConfig();
+        componentPage.addingProfileBinding();
+        componentPage.verifyingAddedProfileBinding();
+    }
 }

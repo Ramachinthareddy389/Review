@@ -2,9 +2,8 @@ package com.page.locators;
 
 import org.openqa.selenium.By;
 
-public interface ComponentTypesLocators
-{
-    By BTN_SYSTEM= By.xpath("//span[text()='System']");
+public interface ComponentTypesLocators {
+    By BTN_SYSTEM = By.xpath("//span[text()='System']");
     By BTN_ENGINE_SETTINGS = By.xpath("//span[text()='Engine Settings']");
     By BTN_COMPONENT_TYPES = By.xpath("//span[text()='Component Types']");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
@@ -20,9 +19,9 @@ public interface ComponentTypesLocators
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
-    By DASHBOARD_LABEL=By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
+    By DASHBOARD_LABEL = By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
 
-   // By ADDED_TEXT_HTML_TITLE = By.xpath("//span[text()='HTML Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
+    // By ADDED_TEXT_HTML_TITLE = By.xpath("//span[text()='HTML Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
 
 
     //2nd Component
@@ -36,7 +35,7 @@ public interface ComponentTypesLocators
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By CUSTOMRULE_CHKBOX = By.xpath("//span[text()='Custom Rule']/../../../span/span/input");
 
-//3rd component
+    //3rd component
     By TXTBOX_FILE_PATTERN = By.xpath("//input[@id='pattern']");
     By TXTBOX_TARGET_QUEUE = By.xpath("//input[@id='queueName']");
     By TXTBOX_EXECUTABLE = By.xpath("//input[@id='command']");
@@ -61,16 +60,16 @@ public interface ComponentTypesLocators
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     //Display Settings
-     By LABEL_DISPLAY_SETTINGS = By.xpath("//span[text()='Display Settings']");
-     By TXTBOX_IDENTIFIER = By.xpath("//input[@id='identifier']");
-     By EDITWINDOW_TITLE = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By LABEL_DISPLAY_SETTINGS = By.xpath("//span[text()='Display Settings']");
+    By TXTBOX_IDENTIFIER = By.xpath("//input[@id='identifier']");
+    By EDITWINDOW_TITLE = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
 
-     //Distribution List
-     By BTN_DISTRIBUTION_LISTS = By.xpath("//span[text()='Distribution Lists']");
-     By LABEL_EMAIL_ADDRESS = By.xpath("//input[@id='name']/../../../div[1]/../../../../label/p/span[1]");
-     By EMAIL_ADDRESS_GHOSTEXT = By.xpath("//input[@id='name']/../../../div[1]");
-     By TXTBOX_EMAIL_ADDRESS = By.xpath("//input[@id='name']");
-     By MEMBERS_HYPERLINK = By.xpath("//span[text()='Members']/../../../div/div/div/button");
+    //Distribution List
+    By BTN_DISTRIBUTION_LISTS = By.xpath("//span[text()='Distribution Lists']");
+    By LABEL_EMAIL_ADDRESS = By.xpath("//input[@id='name']/../../../div[1]/../../../../label/p/span[1]");
+    By EMAIL_ADDRESS_GHOSTEXT = By.xpath("//input[@id='name']/../../../div[1]");
+    By TXTBOX_EMAIL_ADDRESS = By.xpath("//input[@id='name']");
+    By MEMBERS_HYPERLINK = By.xpath("//span[text()='Members']/../../../div/div/div/button");
     By MEMBER_ADDICON = By.xpath("//span[text()='Members']/../../following-sibling::div/button/span/i");
     By BTN_REMOVE_MEMBER = By.xpath("//span[text()='Members']/../../../div/div/div/div[@aria-label='Remove Configuration']");
     By EMAIL_ADDRESS_GHOSTTEXT_EDIT_WINDOW = By.xpath("//input[@id='name']/../../../div[2]/../div[1]");
@@ -78,8 +77,13 @@ public interface ComponentTypesLocators
     By TXTBOX_SOFT_NAME = By.xpath("//h6[text()='Credentials']/../../../../../div[2]/descendant::input[1]");
 
     //Auto Config
-    By LABEL_AUTO_CONFIG =By.xpath("//span[text()='Auto Config']");
+    By LABEL_AUTO_CONFIG = By.xpath("//span[text()='Auto Config']");
     By TXTAREA_CRITERIA = By.xpath("//textarea[@class='inputarea']");
     By BTN_VALIDATE = By.xpath("//span[text()='Validate']");
+    By BTN_REAPPLY_TO_SERVERS = By.xpath("//span[text()='Reapply to Servers']");
+    By PROFILE_BINDINGS_ADDICON = By.xpath("//span[text()='Profile Bindings']/../../following-sibling::div/button/span/i");
+    By NOTIFY_FOOTER = By.xpath("//span[@id='client-snackbar']");
+    By ADDED_PROFILE_BINDING = By.xpath("//span[text()='Profile Bindings']/../../following-sibling::div/div/descendant::button");
+
 
 }

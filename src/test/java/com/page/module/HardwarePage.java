@@ -29,11 +29,11 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     public void clickingOnHardware() {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_HARDWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+
     }
 
     public void addingNewHardware() {
-
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
        // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -66,6 +66,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
                 break;
             }
         }
+        waitForSecs(10);
         Type_add = safeGetText(TYPE_GHOSTTEXT, "OS Family value", MEDIUMWAIT);
         System.out.println(Type_add);
         safeClick(LABEL_HOSTNAME, "Name Feild", MEDIUMWAIT);
@@ -114,29 +115,37 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = DbTitle;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
-        if (Server_Add.equals(driver.findElement(TXTBOX_SERVERNAME).getAttribute("value")) && Host_Add.equals(driver.findElement(TXTBOX_HOSTNAME).getAttribute("value")) &&
-                Environment_add.equals(driver.findElement(ENVIRONMENT_GHOSTEXT).getText()) && Type_add.equals(driver.findElement(TYPE_GHOSTTEXT).getText()) &&
-                OSName_add.equals(driver.findElement(OSNAME_GHOSTEXT).getText()) && OSFamily_add.equals(driver.findElement(OSFAMILY_GHOSTEXT).getText())) {
+        System.out.println(Server_Add.equals(driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value")));
+        System.out.println(Host_Add.equals(driver.findElement(TXTBOX_EDITED_HOSTNAME).getAttribute("value")));
+        System.out.println(OSName_add.equals(driver.findElement(TXTBOX_EDITED_OSNAME).getText()));
+        System.out.println(Environment_add.equals(driver.findElement(TXTBOX_EDITED_ENVIRON).getText()));
+        System.out.println(OSFamily_add.equals(driver.findElement(TXTBOX_EDITED_OSFAMILY).getText()));
+        System.out.println(Type_add.equals(driver.findElement(TXTBOX_EDITED_TYPE).getText()));
+
+        if (Server_Add.equals(driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value")) && Host_Add.equals(driver.findElement(TXTBOX_EDITED_HOSTNAME).getAttribute("value")) &&
+                Environment_add.equals(driver.findElement(TXTBOX_EDITED_ENVIRON).getText()) && Type_add.equals(driver.findElement(TXTBOX_EDITED_TYPE).getText()) &&
+                OSName_add.equals(driver.findElement(TXTBOX_EDITED_OSNAME).getText()) && OSFamily_add.equals(driver.findElement(TXTBOX_EDITED_OSFAMILY).getText())) {
             System.out.println("Ticket details are valid");
-            String text = driver.findElement(TXTBOX_SERVERNAME).getAttribute("value");
+            String text = driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value");
             System.out.println(text);
             waitForSecs(7);
-            System.out.println("Name: " + driver.findElement(TXTBOX_SERVERNAME).getAttribute("value") + " Database Name: " + driver.findElement(TXTBOX_HOSTNAME).getAttribute("value") +
-                    " Instance Name: " + driver.findElement(ENVIRONMENT_GHOSTEXT).getText() + " Port: " + driver.findElement(TYPE_GHOSTTEXT).getText() +
-                    " Vendor: " + driver.findElement(OSNAME_GHOSTEXT).getText() + "Server Name :" + driver.findElement(OSFAMILY_GHOSTEXT).getText());
+            System.out.println("Name: " + driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value") + " Database Name: " + driver.findElement(TXTBOX_EDITED_HOSTNAME).getAttribute("value") +
+                    " Instance Name: " + driver.findElement(TXTBOX_EDITED_ENVIRON).getText() + " Port: " + driver.findElement(TXTBOX_EDITED_TYPE).getText() +
+                    " Vendor: " + driver.findElement(TXTBOX_EDITED_OSNAME).getText() + "Server Name :" + driver.findElement(TXTBOX_EDITED_OSFAMILY).getText());
         } else {
             Assert.fail("Ticket details are invalid");
         }
         waitForSecs(5);
-        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
     }
 
     public void ediingConfiguration() {
@@ -236,19 +245,17 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, EditTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        safeClickingOnSearchingConfig(LISTOFDBS,EditTitle);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = EditTitle;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
-        if (Server_Add.equals(driver.findElement(TXTBOX_SERVERNAME).getAttribute("value")) && Host_Add.equals(driver.findElement(TXTBOX_HOSTNAME).getAttribute("value")) &&
+        if (Server_Add.equals(driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value")) && Host_Add.equals(driver.findElement(TXTBOX_HOSTNAME).getAttribute("value")) &&
                 Environment_add.equals(driver.findElement(ENVIRONMENT_GHOSTEXT).getText()) && Type_add.equals(driver.findElement(TYPE_GHOSTTEXT).getText()) &&
                 OSName_add.equals(driver.findElement(OSNAME_GHOSTEXT).getText()) && OSFamily_add.equals(driver.findElement(OSFAMILY_GHOSTEXT).getText())) {
             System.out.println("Ticket details are valid");
-            String text = driver.findElement(TXTBOX_SERVERNAME).getAttribute("value");
+            String text = driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value");
             System.out.println(text);
             waitForSecs(7);
             System.out.println("Name: " + driver.findElement(TXTBOX_SERVERNAME).getAttribute("value") + " Database Name: " + driver.findElement(TXTBOX_HOSTNAME).getAttribute("value") +
@@ -258,16 +265,17 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
             Assert.fail("Ticket details are invalid");
         }
         waitForSecs(5);
-        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
     }
 
     public void addingLocalMonitoringAgentsUsingJVMAgentInEditConfiguration() {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
         safeClick(LOCALAGENTADDICON, "Local agent icon", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(LOCALAGENTMONITORINGDROPDOWN);
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
@@ -345,7 +353,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        waitForSecs(3);
+        waitForSecs(10);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li[contains(text(),'" + NodeJS + "')]");
         boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
         System.out.println(Monitoring_Agents);
@@ -382,13 +390,15 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(LABEL_AGENT, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_LABEL_AGENT, WebUXAgent, "Entering the label name", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        waitForSecs(3);
+        waitForSecs(15);
         By ADDEDAGENT_LABEL = By.xpath("//h4[text()='Local Monitoring Agents:']//../div/ul/li[contains(text(),'" + WebUXAgent + "')]");
         boolean Monitoring_Agents = driver.findElement(ADDEDAGENT_LABEL).isDisplayed();
         //String Monitoring_Agents=safeGetText(ADDEDAGENT_LABEL,"Added Local Monitoring Agents",MEDIUMWAIT);
@@ -400,7 +410,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println(Monitoring_Agents_Ref);
         Assert.assertTrue(Monitoring_Agents_Ref);
         waitForSecs(5);
-        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
     }
 
     public void configuringNodeInAPMModule() {
@@ -409,8 +424,9 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(NODES_TAB, "Nodes Tab", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_SERVERNAME, NodeJS, "Name into textbox", MEDIUMWAIT);
-        Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TXTBOX_EDITED_SERVERNAME, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_EDITED_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
         safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_HOSTNAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
@@ -426,9 +442,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        safeClickingOnSearchingConfig(LISTOFDBS,NodeJS);
         safeClick(ENGINES_ADDICON, " Engine Add Icon", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(LABLE_NAME, "Name Feild", MEDIUMWAIT);
@@ -461,9 +475,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(15);
+        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
         safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
         safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
         safeClick(DROPDOWN1,"Apache HTTP Server",MEDIUMWAIT);
@@ -541,7 +553,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
         safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(CLOSE_EDITWINDOW,"edit window",MEDIUMWAIT);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
     }
 
     public void navigatingToHardwarePage(){
@@ -550,15 +567,18 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = DbTitle;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
-        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
     }
 }
 

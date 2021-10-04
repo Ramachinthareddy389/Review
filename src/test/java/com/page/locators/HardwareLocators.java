@@ -77,5 +77,13 @@ public interface HardwareLocators {
     By DROPDOWN11  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Salesforce Application']");
     By DROPDOWN12  = By.xpath("//div[@id='menu-']/div/ul/li[text()='Siebel App Server']");
     By DROPDOWN13  = By.xpath("//div[@id='menu-']/div/ul/li[text()='DB2 Database Server']");
+    By TXTBOX_EDITED_SERVERNAME = By.xpath("//input[@id='name']");
+    By TXTBOX_EDITED_HOSTNAME = By.xpath("//input[@id='hostname']");
+    By TXTBOX_EDITED_ENVIRON = By.xpath("//input[@id='environment']/../../../div[1]");
+    By TXTBOX_EDITED_TYPE = By.xpath("//input[@id='type']/../../../div[1]");
+    By TXTBOX_EDITED_OSFAMILY = By.xpath("//input[@id='osFamily']/../../../div[1]");
+    By TXTBOX_EDITED_OSNAME = By.xpath("//input[@id='osName']/../../../div[1]");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
 
 }
