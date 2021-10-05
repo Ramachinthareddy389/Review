@@ -177,6 +177,14 @@ public class DashboardOverview extends BaseSetup {
         alertTemplatePage.deletingEmails();
 
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_003_CheckPortletsPerRowinDashboardpage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.clickingOnDashboardSection();
+        dashboardOverviewPage.checkPortletsPerRow();
+
+    }
 /*
     @AfterMethod()
     public void signOut()

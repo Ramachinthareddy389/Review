@@ -888,4 +888,43 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Assert.assertEquals(sharedDashbrd,expectedText);
     }
 
+    public void checkPortletsPerRow(){
+        safeType(TEXTBOX_TYPESEARCH, "QA - cloned" + "\n", "Dashboard Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        safeClickingOnSearchingConfig(LISTOFDASHBOARDS,"QA - cloned");
+        waitForSecs(10);
+        safeClick(PORTLETS_PER_REVIEW_ICON,"Per review icon",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LABEL_TWO_COLUMNS,"2 Columns",MEDIUMWAIT);
+        waitForSecs(5);
+        List<WebElement> prodsCount = driver.findElements(NUMBER_OF_PORTLETS);
+        System.out.println("Total number of products are " + prodsCount.size());
+        System.out.println(prodsCount.get(0).getLocation());
+        System.out.println(prodsCount.get(1).getLocation());
+        System.out.println(prodsCount.get(2).getLocation());
+        System.out.println(prodsCount.get(3).getLocation());
+        System.out.println(prodsCount.get(4).getLocation());
+        System.out.println(prodsCount.get(5).getLocation());
+        System.out.println(prodsCount.get(6).getLocation());
+        System.out.println(prodsCount.get(7).getLocation());
+        System.out.println(prodsCount.get(8).getLocation());
+        System.out.println(prodsCount.get(9).getLocation());
+        System.out.println(prodsCount.get(10).getLocation());
+        waitForSecs(10);
+        int x=  prodsCount.get(0).getLocation().getY();
+        System.out.println(x);
+        Assert.assertEquals(prodsCount.get(0).getLocation().getY(),113);
+        int y=  prodsCount.get(1).getLocation().getY();
+        System.out.println(y);
+        Assert.assertEquals(prodsCount.get(1).getLocation().getY(), 113);
+        int z=  prodsCount.get(2).getLocation().getY();
+        System.out.println(z);
+        Assert.assertNotEquals(prodsCount.get(2).getLocation().getY(), 113);
+
+
+
+
+    }
+
 }
