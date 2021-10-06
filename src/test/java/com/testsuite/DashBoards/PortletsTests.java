@@ -430,6 +430,34 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
 
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_031_AddMultipleMeasuresForGHPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortlet(dname1,"User Click");
+        //portletsFeature.VerifyingGHPortlet(dname1);
+        portletsFeature.addingMultipleMeasuresInGHPortlet();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_032_AddMultipleMeasuresForTabularPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingTabularPortlet();
+        portletsFeature.addingtabularPortlet1(tabularPortletName);
+        //portletsFeature.VerifyingGHPortlet(dname1);
+        portletsFeature.addingMultipleMeasuresqTabularPortlet();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
 }
 
 

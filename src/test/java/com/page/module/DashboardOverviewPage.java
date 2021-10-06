@@ -788,7 +788,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
-       // cal.add(Calendar.MONTH);
+        // cal.add(Calendar.MONTH);
         cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
@@ -832,11 +832,11 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     }
 
     @Step("Clicking on Dashboards section")
-    public void clickingOnDashboardSection()
-    {
+    public void clickingOnDashboardSection() {
         safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
     }
+
     @Step("Logout the application")
     public void signOut() {
         waitForPageToLoad();
@@ -844,22 +844,21 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(LOGOUT, "Logout", MEDIUMWAIT);
     }
 
-    public void clickingDashBoardModule(){
-        if(!driver.findElement(All_FOLDER).isDisplayed()) {
+    public void clickingDashBoardModule() {
+        if (!driver.findElement(All_FOLDER).isDisplayed()) {
             safeClick(DASHBOARD_MODULE, "DashBoard Module on Home page", MEDIUMWAIT);
             safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        }
-        else{
+        } else {
             safeClick(All_FOLDER, "DashBoard Module on Home page", MEDIUMWAIT);
         }
 
     }
 
-    public void verifySharingDashboardWithExistingUser(){
+    public void verifySharingDashboardWithExistingUser() {
         safeClick(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(ICON_SHARE_DASHBORD,"Share icon",MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_SHARE_DASHBOARD_EMAIL,"access1234@yopmail.com","Entering email",MEDIUMWAIT);
+        safeClick(ICON_SHARE_DASHBORD, "Share icon", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_SHARE_DASHBOARD_EMAIL, "access1234@yopmail.com", "Entering email", MEDIUMWAIT);
         waitForSecs(15);
         List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi12.size(); i++) {
@@ -869,34 +868,34 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
                 break;
             }
         }
-        safeClick(BTN_SHARE,"Share button",MEDIUMWAIT);
-        String sharedDashbrd = safeGetText(NOTIFY_FOOTER_SHAREDASHBRD,"Shared dashboard notify",MEDIUMWAIT);
-        String expectedText ="Dashboard Shared";
-        Assert.assertEquals(sharedDashbrd,expectedText);
+        safeClick(BTN_SHARE, "Share button", MEDIUMWAIT);
+        String sharedDashbrd = safeGetText(NOTIFY_FOOTER_SHAREDASHBRD, "Shared dashboard notify", MEDIUMWAIT);
+        String expectedText = "Dashboard Shared";
+        Assert.assertEquals(sharedDashbrd, expectedText);
     }
 
-    public void verifySharingDashboardWithNewUser(){
+    public void verifySharingDashboardWithNewUser() {
         safeClick(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(ICON_SHARE_DASHBORD,"Share icon",MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_SHARE_DASHBOARD_EMAIL,"testzenq@yopmail.com","Entering email",MEDIUMWAIT);
+        safeClick(ICON_SHARE_DASHBORD, "Share icon", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_SHARE_DASHBOARD_EMAIL, "testzenq@yopmail.com", "Entering email", MEDIUMWAIT);
         waitForSecs(15);
         safeClick(NEW_EMAIL_TEXT, "dashboard name", MEDIUMWAIT);
-        safeClick(BTN_SHARE,"Share button",MEDIUMWAIT);
-        String sharedDashbrd = safeGetText(NOTIFY_FOOTER_SHAREDASHBRD,"Shared dashboard notify",MEDIUMWAIT);
-        String expectedText ="Dashboard Shared";
-        Assert.assertEquals(sharedDashbrd,expectedText);
+        safeClick(BTN_SHARE, "Share button", MEDIUMWAIT);
+        String sharedDashbrd = safeGetText(NOTIFY_FOOTER_SHAREDASHBRD, "Shared dashboard notify", MEDIUMWAIT);
+        String expectedText = "Dashboard Shared";
+        Assert.assertEquals(sharedDashbrd, expectedText);
     }
 
-    public void checkPortletsPerRow(){
+    public void checkPortletsPerRow() {
         safeType(TEXTBOX_TYPESEARCH, "QA - cloned" + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        safeClickingOnSearchingConfig(LISTOFDASHBOARDS,"QA - cloned");
+        safeClickingOnSearchingConfig(LISTOFDASHBOARDS, "QA - cloned");
         waitForSecs(10);
-        safeClick(PORTLETS_PER_REVIEW_ICON,"Per review icon",MEDIUMWAIT);
+        safeClick(PORTLETS_PER_REVIEW_ICON, "Per review icon", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(LABEL_TWO_COLUMNS,"2 Columns",MEDIUMWAIT);
+        safeClick(LABEL_TWO_COLUMNS, "2 Columns", MEDIUMWAIT);
         waitForSecs(5);
         List<WebElement> prodsCount = driver.findElements(NUMBER_OF_PORTLETS);
         System.out.println("Total number of products are " + prodsCount.size());
@@ -912,19 +911,20 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(prodsCount.get(9).getLocation());
         System.out.println(prodsCount.get(10).getLocation());
         waitForSecs(10);
-        int x=  prodsCount.get(0).getLocation().getY();
+        int x = prodsCount.get(0).getLocation().getY();
         System.out.println(x);
-        Assert.assertEquals(prodsCount.get(0).getLocation().getY(),113);
-        int y=  prodsCount.get(1).getLocation().getY();
+        Assert.assertEquals(prodsCount.get(0).getLocation().getY(), 113);
+        int y = prodsCount.get(1).getLocation().getY();
         System.out.println(y);
         Assert.assertEquals(prodsCount.get(1).getLocation().getY(), 113);
-        int z=  prodsCount.get(2).getLocation().getY();
+        int z = prodsCount.get(2).getLocation().getY();
         System.out.println(z);
         Assert.assertNotEquals(prodsCount.get(2).getLocation().getY(), 113);
 
 
-
-
     }
+
+
+
 
 }

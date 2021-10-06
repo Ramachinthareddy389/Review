@@ -21,8 +21,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String appliedFilter ="Cumulative transaction duration of all requests between 2 consecutive clicks (in seconds). It will contain async and sync transactions.";
-    String appliedFilterBPKPI ="No description provided";
+    String appliedFilter = "Cumulative transaction duration of all requests between 2 consecutive clicks (in seconds). It will contain async and sync transactions.";
+    String appliedFilterBPKPI = "No description provided";
     String file_name;
     String downloadPath;
     String appliedBPFilter = "No description provided";
@@ -53,7 +53,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Thread.sleep(3000);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(GAUGE_TEXTBOX_KPI);
-        searchField2.sendKeys(del2 +"User Click");
+        searchField2.sendKeys(del2 + "User Click");
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
@@ -121,11 +121,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(COUNTER_HEADER, "Counter header in Portlet Interface", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-       // safeType(COUNTER_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        // safeType(COUNTER_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(COUNTER_TEXTBOX_KPI);
-        searchField2.sendKeys(del2 +dashBoardData.portletKPI);
+        searchField2.sendKeys(del2 + dashBoardData.portletKPI);
         waitForSecs(5);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
@@ -261,7 +261,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Adding General Health portlet")
-    public void addingPortlet(String dname1,String KPI) throws InterruptedException {
+    public void addingPortlet(String dname1, String KPI) throws InterruptedException {
         waitForPageToLoad();
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
@@ -270,7 +270,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(LINK_ADD_METRIC, "Waiting for an Add metric link");
         safeClick(LINK_ADD_METRIC, "Add metric link");
         safeClick(DROPDWON_KPI, "KPI Label", MEDIUMWAIT);
-       // safeType(TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
+        // safeType(TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
         waitForSecs(7);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(TEXTBOX_KPI);
@@ -294,7 +294,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         System.out.println("Total no 0f dashboards:::====> " + kpi1.size());
         for (int i = 0; i < kpi1.size(); i++) {
 
-            if (kpi1.get(i).getText().contains("Color Distribution - Trend Chart")) {
+            if (kpi1.get(i).getText().contains("Measure - Trend Chart")) {
 
                 kpi1.get(i).click();
                 break;
@@ -363,7 +363,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(NTABULAR_HEADER, "N Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(NTABULAR_HEADER, "N Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-       // safeType(NTABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        // safeType(NTABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         waitForSecs(2);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(NTABULAR_TEXTBOX_KPI);
@@ -517,7 +517,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-       // safeType(TABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        // safeType(TABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(TABULAR_TEXTBOX_KPI);
         searchField2.sendKeys(del2 + dashBoardData.portletKPI);
@@ -707,7 +707,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        safeClick(KPI_GHOSTTEXT,"KPI ghost text",MEDIUMWAIT);
+        safeClick(KPI_GHOSTTEXT, "KPI ghost text", MEDIUMWAIT);
         //safeJavaScriptClearAndType(FLOW_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
@@ -758,7 +758,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
                 break;
             }
         }*/
-       // safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
+        // safeClick(FLOW_FILTER_POSITION, "Filter Position Dropdown Option", MEDIUMWAIT);
         waitForSecs(20);
         safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
     }
@@ -775,7 +775,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             Assert.fail("Filter icon is not displayed for Flow Portlet");
         mouseHoverJScript(FILTER_FLOW_PORTLET, "Filter icon", "Filter icon in Flow Portlet", MEDIUMWAIT);
         By FILTER_MESSAGE_FLOW_PORTLET = By.cssSelector(".MuiTooltip-tooltip.MuiTooltip-tooltipPlacementTop>div>div>div:nth-child(2)");
-        String text=safeGetText(FILTER_MESSAGE_FLOW_PORTLET,"Information text",MEDIUMWAIT);
+        String text = safeGetText(FILTER_MESSAGE_FLOW_PORTLET, "Information text", MEDIUMWAIT);
         System.out.println(text);
         if (!text.contains(appliedFilter))
             Assert.fail("Filter Message is not displayed properly in Flow portlet");
@@ -858,7 +858,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String[] column2 = s2.split(":");
         Arrays.sort(column2);
         Arrays.toString(column2);
-        for (int i = 1; i <= column2.length-1; i++) {
+        for (int i = 1; i <= column2.length - 1; i++) {
             double value = Double.parseDouble(column2[i + 2]);
             String Double = String.format("%.2f", value);
             System.out.println("Exported CSV values  :" + Double + "  Table Column Values:" + list2.get(i).getText());
@@ -899,7 +899,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(MAP_HEADER, "Map header in Portlet Interface", MEDIUMWAIT);
         safeClick(MAP_HEADER, "Map header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-      //  safeType(MAP_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        //  safeType(MAP_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(1000);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(MAP_TEXTBOX_KPI);
@@ -1199,7 +1199,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     }
 
     @Step("Navigate to RCA Drill through page")
-    public  void navigateToRCADrillThroughPage(){
+    public void navigateToRCADrillThroughPage() {
         waitForPageToLoad();
         mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_1, "RCA", MEDIUMWAIT);
@@ -1210,7 +1210,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Adding Flow Portlet using BP KPI")
-    public  void addingFlowPortletUsingBPKPI(String flowPortletName) throws InterruptedException {
+    public void addingFlowPortletUsingBPKPI(String flowPortletName) throws InterruptedException {
         waitForPageToLoad();
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForPageToLoad();
@@ -1221,7 +1221,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        safeClick(KPI_GHOSTTEXT,"KPI ghost text",MEDIUMWAIT);
+        safeClick(KPI_GHOSTTEXT, "KPI ghost text", MEDIUMWAIT);
         //safeJavaScriptClearAndType(FLOW_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
@@ -1262,7 +1262,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             Assert.fail("Filter icon is not displayed for Flow Portlet");
         mouseHoverJScript(FILTER_FLOW_PORTLET, "Filter icon", "Filter icon in Flow Portlet", MEDIUMWAIT);
         By FILTER_MESSAGE_FLOW_PORTLET = By.cssSelector(".MuiTooltip-tooltip.MuiTooltip-tooltipPlacementTop>div>div>div:nth-child(2)");
-        String text=safeGetText(FILTER_MESSAGE_FLOW_PORTLET,"Information text",MEDIUMWAIT);
+        String text = safeGetText(FILTER_MESSAGE_FLOW_PORTLET, "Information text", MEDIUMWAIT);
         System.out.println(text);
         if (!text.contains(appliedFilterBPKPI))
             Assert.fail("Filter Message is not displayed properly in Flow portlet");
@@ -1282,13 +1282,73 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
     }
 
-    public void navigateToRCApageFrmPivotPage(){
+    public void navigateToRCApageFrmPivotPage() {
         mouseHoverJScript(BY_LABEL_PIVOT, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_1, "Pivot", MEDIUMWAIT);
         waitForSecs(10);
         String Tooltip1 = safeGetText(Title_DRILLTHROUGH, "Page title for RCA", MEDIUMWAIT);
         System.out.println(Tooltip1);
         Assert.assertEquals(Tooltip1, dashBoardData.tooltip1);
+    }
+
+    public void addingMultipleMeasuresInGHPortlet() {
+        safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElements(MEASURE_ADD_ICON).get(1).click();
+        safeClearAndType(MEASURE_TXTBOX, "Count", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Count")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(CHKBOX_SHOW_LEGEND,"Show Legend",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        String text =driver.findElements(LEGENDS).get(0).getText();
+        System.out.println(text);
+        String expectedText = "Avg Duration";
+        Assert.assertEquals(text,expectedText);
+        String text2 =driver.findElements(LEGENDS).get(1).getText();
+        System.out.println(text2);
+        String expectedText1 = "#";
+        Assert.assertEquals(text2,expectedText1);
+
+
+
+    }
+
+    public void addingMultipleMeasuresqTabularPortlet(){
+        safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClearAndType(MEASURE_TXTBOX, "Min Color Threshold", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Min Color Threshold")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(CHKBOX_SHOW_LEGEND,"Show Legend",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        String text =driver.findElements(LEGENDS).get(0).getText();
+        System.out.println(text);
+        String expectedText = "Avg Duration";
+        Assert.assertEquals(text,expectedText);
+        String text2 =driver.findElements(LEGENDS).get(1).getText();
+        System.out.println(text2);
+        String expectedText1 = "#";
+        Assert.assertEquals(text2,expectedText1);
     }
 
 }

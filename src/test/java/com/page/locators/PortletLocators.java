@@ -167,5 +167,11 @@ public interface PortletLocators {
     By TIME_SESSION_RCA = By.xpath("//span[contains(text(),'Time')]/../following-sibling::div/span/span");
     By CALENDAR_TIME_RANGE = By.xpath("//div[contains(@class,'DateTimePicker')]/descendant::span[contains(@style,'nowrap')]");
 
-
+    By EDIT_PENCIL_ICON = By.xpath("//div[@aria-label ='Edit']/span/i");
+    By MEASURE_ADD_ICON = By.xpath("//i[@aria-label='Add']");
+    By MEASURE_TXTBOX = By.xpath("//input[@id='kpi_0_measure_1']");
+    By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By BTN_SAVE = By.xpath("//span[text()='Save']");
+    By CHKBOX_SHOW_LEGEND = By.xpath("//span[text() ='Show Legend']");
+    By LEGENDS = By.xpath("//*[local-name()='tspan']");
 }
