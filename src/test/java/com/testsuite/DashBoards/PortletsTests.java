@@ -452,8 +452,33 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
-        //portletsFeature.VerifyingGHPortlet(dname1);
-        portletsFeature.addingMultipleMeasuresqTabularPortlet();
+        portletsFeature.addingMultipleMeasuresTabularPortlet();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_033_AddMultipleMeasuresForNTabularPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingNTabularPortlet(nTabularPortletName);
+        portletsFeature.addingMultipleMeasuresInNTabularPortlet();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_034_AddMultipleMeasuresforGaugePortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+        portletsFeature.addingMultipleMeasuresInGaugePortlet();
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();

@@ -69,7 +69,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(10);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")

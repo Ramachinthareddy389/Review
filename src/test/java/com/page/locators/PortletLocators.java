@@ -170,8 +170,14 @@ public interface PortletLocators {
     By EDIT_PENCIL_ICON = By.xpath("//div[@aria-label ='Edit']/span/i");
     By MEASURE_ADD_ICON = By.xpath("//i[@aria-label='Add']");
     By MEASURE_TXTBOX = By.xpath("//input[@id='kpi_0_measure_1']");
+    By MEASURE_TXTBOX_TABULAR = By.xpath("//input[@id='measures']");
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By BTN_SAVE = By.xpath("//span[text()='Save']");
     By CHKBOX_SHOW_LEGEND = By.xpath("//span[text() ='Show Legend']");
     By LEGENDS = By.xpath("//*[local-name()='tspan']");
+    By NTABULAR_KPI_ONE = By.xpath("//input[contains(@id,'kpi_1')]");
+    By NTABULAR_MEASURE_TXTBOX = By.xpath("//input[@id='kpiMeasure_1']");
+    By GAUGE_PORTLET_BAR1 = By.xpath("//div[contains(@class,'GaugeChart')]/../div[1]/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][1]");
+    By GAUGE_PORTLET_BAR2 = By.xpath("//div[contains(@class,'GaugeChart')]/../div[1]/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][2]");
+    By SHOWCONSTRAINT_VALUE_CHKBOX = By.xpath("//span[text() ='Show Constraint Value']");
 }

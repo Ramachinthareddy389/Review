@@ -67,11 +67,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
         searchField.sendKeys(del + gaugePortletName);
         safeClick(GAUGE_TEXTBOX_MEASURE, "Measure field", MEDIUMWAIT);
-        safeType(GAUGE_TEXTBOX_MEASURE, "Count", "Enter Measure", MEDIUMWAIT);
+        safeType(GAUGE_TEXTBOX_MEASURE, "Min Color Threshold", "Enter Measure", MEDIUMWAIT);
         List<WebElement> measures = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < measures.size(); i++) {
             System.out.println(measures.get(i).getText());
-            if (measures.get(i).getText().equalsIgnoreCase("Count")) {
+            if (measures.get(i).getText().equalsIgnoreCase("Min Color Threshold")) {
                 measures.get(i).click();
                 break;
             }
@@ -1323,10 +1323,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     }
 
-    public void addingMultipleMeasuresqTabularPortlet(){
+    public void addingMultipleMeasuresTabularPortlet(){
         safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
         waitForSecs(10);
-        safeClearAndType(MEASURE_TXTBOX, "Min Color Threshold", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(MEASURE_TXTBOX_TABULAR, "Min Color Threshold", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
@@ -1338,17 +1338,79 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             }
         }
         waitForSecs(15);
-        safeClick(CHKBOX_SHOW_LEGEND,"Show Legend",MEDIUMWAIT);
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
-        String text =driver.findElements(LEGENDS).get(0).getText();
+        boolean text =driver.findElement(By.xpath("//div[@aria-label='Avg Duration (s)']")).isDisplayed();
         System.out.println(text);
-        String expectedText = "Avg Duration";
-        Assert.assertEquals(text,expectedText);
-        String text2 =driver.findElements(LEGENDS).get(1).getText();
+        Assert.assertTrue(text);
+        boolean text2 =driver.findElement(By.xpath("//div[@aria-label='Min Color Threshold (s)']")).isDisplayed();
         System.out.println(text2);
-        String expectedText1 = "#";
-        Assert.assertEquals(text2,expectedText1);
+        Assert.assertTrue(text2);
+
+    }
+
+    public void addingMultipleMeasuresInNTabularPortlet(){
+        safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElements(MEASURE_ADD_ICON).get(0).click();
+        safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
+        // safeType(NTABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        waitForSecs(2);
+        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField2 = driver.findElement(NTABULAR_KPI_ONE);
+        searchField2.sendKeys(del2 + dashBoardData.portletKPI);
+        List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis.size(); i++) {
+            System.out.println(kpis.get(i).getText());
+            if (kpis.get(i).getText().equalsIgnoreCase(dashBoardData.portletKPI)) {
+                kpis.get(i).click();
+                break;
+            }
+        }
+        safeClearAndType(NTABULAR_MEASURE_TXTBOX, "Min Color Threshold", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("Min Color Threshold")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        waitForSecs(15);
+        boolean text =driver.findElement(By.xpath("//span[text()='Avg Duration (s)']")).isDisplayed();
+        System.out.println(text);
+        Assert.assertTrue(text);
+        boolean text2 =driver.findElement(By.xpath("//span[text()='Min Color Threshold (s)']")).isDisplayed();
+        System.out.println(text2);
+        Assert.assertTrue(text2);
+
+    }
+
+    public void addingMultipleMeasuresInGaugePortlet(){
+        safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(MEASURE_ADD_ICON).click();
+        waitForSecs(15);
+        safeClick(SHOWCONSTRAINT_VALUE_CHKBOX,"Show Constraint value checkbox",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(GAUGE_PORTLET_BAR2, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        boolean text =driver.findElement(By.xpath("//p[text()='Avg Duration']")).isDisplayed();
+        System.out.println(text);
+        Assert.assertTrue(text);
+        waitForSecs(10);
+        mouseHoverJScript(GAUGE_PORTLET_BAR1, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean text2 =driver.findElement(By.xpath("//p[text()='Min Color Threshold']")).isDisplayed();
+        System.out.println(text2);
+        Assert.assertTrue(text2);
+        refresh();
+        waitForSecs(10);
     }
 
 }
