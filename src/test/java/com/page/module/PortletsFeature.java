@@ -3,6 +3,7 @@ package com.page.module;
 import com.datamanager.ConfigManager;
 import com.opencsv.CSVReader;
 import com.page.data.DashBoardData;
+import com.page.locators.DashBoardLocators;
 import com.page.locators.PortletLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
@@ -15,6 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class PortletsFeature extends SafeActions implements PortletLocators {
@@ -30,6 +32,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     String appliedKPIFilter = null;
     private WebDriver driver1;
     String sessionTime = null;
+    String expectedText;
 
 
     public PortletsFeature(WebDriver driver) {
@@ -84,7 +87,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        waitForSecs(15);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+        //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
@@ -159,7 +164,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+       // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
@@ -416,7 +422,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(KPI_FILTER_OPTION, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
         appliedKPIFilter = driver.findElement(TEXTBOX_KPI_FILTERS).getAttribute("value");
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        waitForSecs(10);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+        //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         safeClick(NTABULAR_LABEL_FIELD, "Label Field", MEDIUMWAIT);
         safeType(NTABULAR_LABEL_FIELD_TEXTBOX, dashBoardData.nTabularPortletLabel, "Label Field", MEDIUMWAIT);
@@ -433,7 +442,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+        //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
@@ -556,7 +566,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+       //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
@@ -671,7 +682,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+        //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
@@ -948,7 +960,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(PortletFilters_TypeSearch).sendKeys(Keys.ENTER);
-        safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+       // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         waitForSecs(5);
@@ -1382,10 +1395,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
         waitForSecs(15);
-        boolean text =driver.findElement(By.xpath("//span[text()='Avg Duration (s)']")).isDisplayed();
+        boolean text =driver.findElement(By.xpath("//span[text()='Sample Label']")).isDisplayed();
         System.out.println(text);
         Assert.assertTrue(text);
-        boolean text2 =driver.findElement(By.xpath("//span[text()='Min Color Threshold (s)']")).isDisplayed();
+        boolean text2 =driver.findElement(By.xpath("//span[text()='Min Color Threshold']")).isDisplayed();
         System.out.println(text2);
         Assert.assertTrue(text2);
 
@@ -1411,6 +1424,207 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Assert.assertTrue(text2);
         refresh();
         waitForSecs(10);
+    }
+
+    public void addingMultipleMeasuresInCounterPortlet(){
+        safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(MEASURE_ADD_ICON).click();
+        safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
+        waitForSecs(15);
+        String text =driver.findElements(LEGENDS).get(0).getText();
+        System.out.println(text);
+        String expectedText = "# not null (User Click):";
+        Assert.assertEquals(text,expectedText);
+        String text2 =driver.findElements(LEGENDS).get(2).getText();
+        System.out.println(text2);
+        String expectedText1 = "Avg Duration not null (User Click):";
+        Assert.assertEquals(text2,expectedText1);
+    }
+
+    public void addingDataOnlyAboveSLA(){
+        safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DATA_ONLY_ABOVE_SLA,"Data only above sla checkbox",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
+        String text= safeGetText(LABEL_DATAABOVE_SLA,"Above SLA value",MEDIUMWAIT);
+        System.out.println(text);
+        String expectedText="RED,YELLOW,ORANGE";
+        Assert.assertEquals(text,expectedText);
+    }
+    @Step("Validating hours option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingHours() throws InterruptedException {
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        waitForSecs(7);
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_LAST_30_DAYS, "Last 30 Days button", MEDIUMWAIT);
+        waitForSecs(7);
+        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+       // safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_HOURLY, "Hourly option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title", "Hourly text", MEDIUMWAIT);
+        System.out.println(text);
+        expectedText = "Hourly";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("d. MMM");
+        SimpleDateFormat f1 = new SimpleDateFormat("d");
+        cal.add(Calendar.DATE, -29);
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        cal.add(Calendar.DATE, 2);
+        String s2 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s3 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s4 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s5 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s6 = f.format(new Date(cal.getTimeInMillis()));
+
+        cal.add(Calendar.DATE, 2);
+        String s7 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s8 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s9 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s10 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s11 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s12 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s13 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s14 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);
+        String s15 = f.format(new Date(cal.getTimeInMillis()));
+        String[] expected = {s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15};
+        List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
+        for (int i = 0; i <= expected.length - 1; i++) {
+            String optionValue = allOptions.get(i).getText();
+            Assert.assertEquals(optionValue, expected[i]);
+            if (optionValue.equals(expected[i])) {
+                System.out.println(expected[i]);
+                System.out.println("passed on: " + optionValue);
+            } else {
+                System.out.println("failed on: " + optionValue);
+            }
+        }
+
+    }
+
+    @Step("Validating Daily option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingDaily() throws InterruptedException {
+        waitForSecs(7);
+        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+       // safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_DAILY, "Daily option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_Daily, "Daily text", 5000);
+        System.out.println(text);
+        expectedText = "DAILY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("d. MMM");
+        SimpleDateFormat f1 = new SimpleDateFormat("d");
+        cal.add(Calendar.DATE, -29);
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        String expected = s1;
+        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(expected, actualText);
+
+
+    }
+
+    @Step("Validating Monthly option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingMonthly() throws InterruptedException {
+        waitForSecs(7);
+       // safeClick(BTN_TREND_GRANULARITY, " Trend Granularity");
+        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+        waitForSecs(7);
+        safeClick(BTN_MONTHLY, "Monthly option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
+        System.out.println(text);
+        expectedText = "MONTHLY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("MMM");
+        SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        // cal.add(Calendar.MONTH);
+        cal.add(Calendar.DATE, -29);
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        String s2 = f1.format(new Date(cal.getTimeInMillis()));
+        String date = s1 + " " + "'" + s2;
+        System.out.println(date);
+        String expected = date;
+        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(expected, actualText);
+
+
+    }
+
+    @Step("Validating Yearly option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingYEARLY() throws InterruptedException {
+        waitForSecs(7);
+        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+        //safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_YEARLY, "Yearly option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_yearly, "Yearly text", 5000);
+        System.out.println(text);
+        expectedText = "YEARLY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy");
+        SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(s1, actualText);
+    }
+    @Step("Validating Minutely option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingMinutely() throws InterruptedException {
+        waitForSecs(7);
+        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+        //safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_MINUTE, "Minute option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
+        System.out.println(text);
+        expectedText = "Minutely";
+        Assert.assertEquals(text, expectedText);
+        String expected = "00:00";
+        List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
+        for (int i = 0; i < allOptions.size() - 1; i++) {
+            String optionValue = allOptions.get(i).getText();
+            Assert.assertEquals(optionValue, expected);
+            if (optionValue.equals(expected)) {
+                System.out.println(expected);
+                System.out.println("passed on: " + optionValue);
+            } else {
+                System.out.println("failed on: " + optionValue);
+            }
+        }
+
     }
 
 }

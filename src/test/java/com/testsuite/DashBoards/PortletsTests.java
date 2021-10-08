@@ -483,6 +483,44 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_035_AddMultipleMeasuresforCounterPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingCounterPortlet(counterPortletName);
+        portletsFeature.addingMultipleMeasuresInCounterPortlet();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_037_EnableDataOnlyAboveSLAInGHportletInterface() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingPortlet(dname1,"User Click");
+        portletsFeature.addingDataOnlyAboveSLA();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_039_SetTrendGranularityinGHportletInterface() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SearchinDashboard();
+        portletsFeature.validaingTrendGranularityUSingHours();
+        portletsFeature.validaingTrendGranularityUSingDaily();
+        portletsFeature.validaingTrendGranularityUSingMonthly();
+        portletsFeature.validaingTrendGranularityUSingYEARLY();
+        portletsFeature.validaingTrendGranularityUSingMinutely();
+    }
 }
 
 

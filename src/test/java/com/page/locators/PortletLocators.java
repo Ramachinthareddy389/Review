@@ -59,6 +59,7 @@ public interface PortletLocators {
     By GAUGE_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
     By GAUGE_TEXTBOX_MEASURE =By.xpath("//input[@id='Measure_0']");
     By IS_NOT_PORTLET_FILTER = By.xpath("//button/span[contains(text(),'is')]");
+    By SELECT_DRPDOWN = By.xpath("//span[contains(@aria-label,'Deactivate and pin filter')]/following-sibling::select");
 
     //Counter Portlet
     By COUNTER_HEADER = By.xpath("//button/span[contains(text(),'Counter')]");
@@ -180,4 +181,25 @@ public interface PortletLocators {
     By GAUGE_PORTLET_BAR1 = By.xpath("//div[contains(@class,'GaugeChart')]/../div[1]/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][1]");
     By GAUGE_PORTLET_BAR2 = By.xpath("//div[contains(@class,'GaugeChart')]/../div[1]/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][2]");
     By SHOWCONSTRAINT_VALUE_CHKBOX = By.xpath("//span[text() ='Show Constraint Value']");
+    By DATA_ONLY_ABOVE_SLA = By.xpath("//span[text()='Data Only Above SLA']");
+    By LABEL_DATAABOVE_SLA = By.xpath("//span[@color='textPrimary']");
+    By CALENDAR_ICON =By.xpath("//div[contains(@class, 'DateTimePicker')]//i");
+
+    //Trend Granularity
+    By BTN_TREND_GRANULARITY=By.xpath("//div[@aria-label='Trend Granularity']");
+    By BTN_AUTO   = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[1]");
+    By BTN_MINUTE = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[2]");
+    By BTN_HOURLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[3]");
+    By BTN_DAILY  = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[4]");
+    By BTN_MONTHLY= By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[5]");
+    By BTN_YEARLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[6]");
+    By GHPORTLET_LABELS=By.cssSelector(".highcharts-axis-labels.highcharts-xaxis-labels>text");
+    By NTABULAR_LABELS_Hourly=By.xpath("//div[@aria-label='Hourly']");
+    By NTABULAR_LABELS_Daily=By.xpath("//div[@aria-label='Daily']");
+    By NTABULAR_LABELS_Monthly=By.xpath("//div[@aria-label='Monthly']");
+    By NTABULAR_LABELS_yearly=By.xpath("//div[@aria-label='Yearly']");
+    By NTABULAR_LABELS_minutely=By.xpath("//div[@aria-label='Minutely']");
+    By CLOSE_ERROR_POPUP = By.xpath("//button/span[contains(text(),'Close')]");
+    By BTN_LAST_30_DAYS=By.xpath("//span[text()='Last 30 Days']");
+
 }
