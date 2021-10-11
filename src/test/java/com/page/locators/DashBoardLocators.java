@@ -207,4 +207,5 @@ By NUMBER_OF_PORTLETS = By.xpath("//div[contains(@class,'DraggableContainer')]/d
 By PORTLETS_PER_REVIEW_ICON = By.xpath("//div[@aria-label = 'Portlets Per Row']/span/i");
 By LABEL_TWO_COLUMNS = By.xpath("//li[text() = '2 Columns']");
 
+
 }

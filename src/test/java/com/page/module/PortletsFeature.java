@@ -1461,10 +1461,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+      /*  safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_LAST_30_DAYS, "Last 30 Days button", MEDIUMWAIT);
-        waitForSecs(7);
+        waitForSecs(7);*/
         driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
        // safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
         waitForSecs(7);
@@ -1477,7 +1477,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE, -29);
+
+        cal.add(Calendar.DATE, -30);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
         cal.add(Calendar.DATE, 2);
@@ -1627,6 +1628,30 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     }
 
+    public void verifyingMaximizeFunctionality(){
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        waitForSecs(7);
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_MAXIMIZE,"Maximize portlet",MEDIUMWAIT);
+       boolean b= isElementDisplayed(BTN_RESTORE);
+       Assert.assertTrue(b);
+        safeClick(BTN_RESTORE,"Restore portlet",MEDIUMWAIT);
+    }
+
+    public void verifyingRestoreFunctionality(){
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        waitForSecs(7);
+        safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_MAXIMIZE,"Maximize portlet",MEDIUMWAIT);
+        safeClick(BTN_RESTORE,"Maximize portlet",MEDIUMWAIT);
+        boolean b= isElementDisplayed(BTN_MAXIMIZE);
+        Assert.assertTrue(b);
+
+    }
 }
 
 

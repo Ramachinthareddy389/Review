@@ -193,7 +193,7 @@ public interface PortletLocators {
     By BTN_DAILY  = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[4]");
     By BTN_MONTHLY= By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[5]");
     By BTN_YEARLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[6]");
-    By GHPORTLET_LABELS=By.cssSelector(".highcharts-axis-labels.highcharts-xaxis-labels>text");
+    By GHPORTLET_LABELS=By.cssSelector(".highcharts-axis-labels.highcharts-xaxis-labels>text>tspan");
     By NTABULAR_LABELS_Hourly=By.xpath("//div[@aria-label='Hourly']");
     By NTABULAR_LABELS_Daily=By.xpath("//div[@aria-label='Daily']");
     By NTABULAR_LABELS_Monthly=By.xpath("//div[@aria-label='Monthly']");
@@ -201,5 +201,8 @@ public interface PortletLocators {
     By NTABULAR_LABELS_minutely=By.xpath("//div[@aria-label='Minutely']");
     By CLOSE_ERROR_POPUP = By.xpath("//button/span[contains(text(),'Close')]");
     By BTN_LAST_30_DAYS=By.xpath("//span[text()='Last 30 Days']");
+    By BTN_MAXIMIZE = By.xpath("//div[@aria-label='Maximize']");
+    By BTN_RESTORE = By.xpath("//div[@aria-label='Restore']");
+
 
 }

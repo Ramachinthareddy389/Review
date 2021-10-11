@@ -521,6 +521,36 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.validaingTrendGranularityUSingYEARLY();
         portletsFeature.validaingTrendGranularityUSingMinutely();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_040_SetTrendGranularityinNTabularPortletInterface() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+        portletsFeature.addingNTabularPortlet(nTabularPortletName);
+        portletsFeature.validaingTrendGranularityUSingHours();
+        portletsFeature.validaingTrendGranularityUSingDaily();
+        portletsFeature.validaingTrendGranularityUSingMonthly();
+        portletsFeature.validaingTrendGranularityUSingYEARLY();
+        portletsFeature.validaingTrendGranularityUSingMinutely();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_046_MaximizeGHPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SearchinDashboard();
+        portletsFeature.verifyingMaximizeFunctionality();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_047_RestoreGHPortlet() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.ClickAll();
+        dashboardOverviewPage.SearchinDashboard();
+        portletsFeature.verifyingRestoreFunctionality();
+    }
 }
 
 
