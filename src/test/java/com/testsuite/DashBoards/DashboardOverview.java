@@ -185,6 +185,28 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.checkPortletsPerRow();
 
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_106_AddDashboardFolderToExistingFolder() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingFolder();
+        dashboardOverviewPage.addingDashboardFolderToExistingfolder();
+
+
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_108_DeleteDashboardFolder() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingFolder();
+        dashboardOverviewPage.deletingDashboardFolder();
+
+
+    }
+
 /*
     @AfterMethod()
     public void signOut()

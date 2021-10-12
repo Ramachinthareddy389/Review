@@ -551,6 +551,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.SearchinDashboard();
         portletsFeature.verifyingRestoreFunctionality();
     }
+
 }
 
 

@@ -1652,6 +1652,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Assert.assertTrue(b);
 
     }
+
 }
 
 

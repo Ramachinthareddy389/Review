@@ -687,7 +687,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(10);
 
-       // safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        // safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);
         //safeClick(BTN_LAST_30_DAYS, "Last 30 Days button", MEDIUMWAIT);
         waitForSecs(7);
@@ -924,7 +924,43 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     }
 
+    public void addingDashboardFolderToExistingfolder() {
+        waitForSecs(10);
+        mouseHoverJScript(LISTOFFOLDER, "text", "mouse", MEDIUMWAIT);
+        safeClick(ADD_FOLDER_ICON, "text", 5000);
+        safeClick(FOLDER_TAB, "Folder tab", MEDIUMWAIT);
+        safeClick(SELECT_GHOSTTXET, "Select or create dashboard text box", MEDIUMWAIT);
+        driver.findElement(By.xpath("//*[@id='folderKey']")).sendKeys("Application", Keys.ENTER);
+/*    String actualText = safeGetText(DASHBOARD_LABEL, "dashboard name", MEDIUMWAIT);
+    System.out.println(actualText);
+    safeClearAndType(TEXTBOX_Folder, "Dashboards", "Server name into textbox", MEDIUMWAIT);
+    waitForSecs(10);*/
+        waitForSecs(10);
+        List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs.size());
+        for (int i = 0; i < dbs.size(); i++) {
 
+            if (dbs.get(i).getText().contains("Application")) {
 
+                dbs.get(i).click();
+                break;
+            }
+        }
+        safeClick(ADD_BUTTON, "Add button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void deletingDashboardFolder() {
+        mouseHoverJScript(LISTOFFOLDER, "text", "mouse", MEDIUMWAIT);
+        safeClick(DELETE_FOLDER, "Remove button from folder", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(CONFIRM_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(BTN_CLEAR, "Clear button", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, "Dashboards" + ">" + dname1 + ">" + "Application" + "\n", "Dashboard Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+
+    }
 
 }
