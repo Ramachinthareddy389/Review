@@ -88,4 +88,8 @@ public class InsightsPage extends SafeActions implements InsightsLocators {
                 Assert.fail("Column is not displayed as per Group By in Insights page");
         }
     }
+
+    public void clickingOnCalendar(){
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+    }
 }

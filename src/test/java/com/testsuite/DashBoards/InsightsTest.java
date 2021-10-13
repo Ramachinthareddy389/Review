@@ -55,4 +55,22 @@ public class InsightsTest extends BaseSetup {
         insightsPage.verifyGroupByInInsightsPage();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_103_ApplyTimeRangeinCalendar() throws InterruptedException {
+        insightsPage.navigateToInsightsPage();
+        insightsPage.clickingOnCalendar();
+        dashboardOverviewPage.ValidatingCurrentHour();
+        dashboardOverviewPage.validatingLastHour();
+        dashboardOverviewPage.validatingBusinessHours("09:00 AM", "05:00 PM");
+        dashboardOverviewPage.validatingLast12hours();
+        dashboardOverviewPage.validatingThisMonth("12:00 AM");
+        dashboardOverviewPage.validatingLastMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        dashboardOverviewPage.validatingToday("12:00 AM");
+        dashboardOverviewPage.validatingYesterday("12:00 AM");
+        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
+        dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
+    }
+
 }

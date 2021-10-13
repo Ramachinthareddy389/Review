@@ -184,4 +184,6 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.deletingDashboard();
 
     }
+
+
 }

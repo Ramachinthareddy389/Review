@@ -193,6 +193,7 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.addingFolder();
         dashboardOverviewPage.addingDashboardFolderToExistingfolder();
+        dashboardOverviewPage. deletingDashboardFolder();
 
 
     }
@@ -202,9 +203,19 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.addingNewFolder();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.addingFolder();
-        dashboardOverviewPage.deletingDashboardFolder();
+        dashboardOverviewPage.deletingFolder();
 
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_107_AddDashboardtoExistingFolder() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboardFolder();
+        dashboardOverviewPage.addingDashboardToExistingFolder();
+        dashboardOverviewPage.deletingFolder();
     }
 
 /*
