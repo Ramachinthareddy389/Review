@@ -216,4 +216,7 @@ public interface DashBoardLocators {
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
 
 
+    By PIN_FOLDER = By.xpath("//div[@aria-label='Pin this folder']");
+
+    By UNPIN_FOLDER = By.xpath("//div[@aria-label='Unpin this folder']");
 }

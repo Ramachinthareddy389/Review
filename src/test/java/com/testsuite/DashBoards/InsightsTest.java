@@ -73,4 +73,9 @@ public class InsightsTest extends BaseSetup {
         dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
     }
 
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_099_SetTrendGranularityinInsightsTrendPortlet(){
+
+    }
 }

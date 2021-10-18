@@ -105,20 +105,20 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.createTicketOnDashboard();
         dashboardPage.verifyTicketInTicketsPage();
         dashboardOverviewPage.clickingDashBoardModule();
-        dashboardOverviewPage.searchingDashboard();
-        dashboardOverviewPage.deletingDashboard();
+        dashboardPage.searchingDashboard();
+        dashboardPage.deleteDashboard();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC112_PinUnPinDashboard() throws InterruptedException {
+    public void TC21_PinUnPinDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         dashboardPage.PinDashboard();
         dashboardPage.Unpin_Pin_Dashboard_FromDashboardPage();
         dashboardOverviewPage.clickingDashBoardModule();
-        dashboardOverviewPage.searchingDashboard();
-        dashboardOverviewPage.deletingDashboard();
+        dashboardPage.searchingDashboard();
+        dashboardPage.deleteDashboard();
     }
 
 

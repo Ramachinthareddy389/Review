@@ -3,10 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.AlertTemplatePage;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.EmailPage;
-import com.page.module.LoginPage;
+import com.page.module.*;
 import com.selenium.Sync;
 
 import jvm.PasswordDecoder;
@@ -19,7 +16,9 @@ public class DashboardOverview extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private EmailPage emailPage;
+    private PortletsFeature portletsFeature;
     private AlertTemplatePage alertTemplatePage;
+    private DashboardPage dashboardPage;
 
     private String sModeOfExecution;
 
@@ -30,7 +29,9 @@ public class DashboardOverview extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         alertTemplatePage = new AlertTemplatePage(getDriver());
+        dashboardPage = new DashboardPage(getDriver());
         emailPage = new EmailPage(getDriver());
+        portletsFeature = new PortletsFeature(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -218,6 +219,28 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.deletingFolder();
     }
 
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_112_PinUnpinDashboardFolder() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewFolder();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.addingFolder();
+        dashboardOverviewPage.PinningDashboardFolder();
+        dashboardOverviewPage.searchingDashboardFolder();
+        dashboardOverviewPage.Unpin_Pin_Dashboard_Folder_FromDashboardPage();
+        dashboardOverviewPage.searchingDashboardFolder();
+        dashboardOverviewPage.deletingFolder();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_115_ApplyFilterusingFilterIconDisplayedinAnycolumn() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.searchingDashboard();
+
+    }
 /*
     @AfterMethod()
     public void signOut()

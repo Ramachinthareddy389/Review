@@ -3,10 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.LoginPage;
-import com.page.module.PortletsFeature;
-import com.page.module.TicketsPage;
+import com.page.module.*;
 import com.selenium.Sync;
 import com.utilities.MailinatorAPI;
 import jvm.PasswordDecoder;
@@ -19,8 +16,8 @@ public class TicketsTest extends BaseSetup {
     private TicketsPage ticketsPage;
     private DashboardOverviewPage dashboardOverviewPage;
     private PortletsFeature portletsFeature;
-
-
+    private PivotPage pivotPage;
+    private  DashboardPage dashboardPage;
     private String sModeOfExecution;
 
     @BeforeMethod(alwaysRun = true)
@@ -29,6 +26,8 @@ public class TicketsTest extends BaseSetup {
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
         ticketsPage = new TicketsPage(getDriver());
+        dashboardPage = new DashboardPage(getDriver());
+        pivotPage = new PivotPage(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         portletsFeature = new PortletsFeature(getDriver());
         dashBoardData = new DashBoardData();
@@ -120,5 +119,21 @@ public class TicketsTest extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
 
+    }
+
+    @Test(groups = "Smoke Test")
+    public void TC_125_AddTicketFromPivotPage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        //dashboardPage.clickOnDashboard();
+        portletsFeature.addingPortletFromSearchBar();
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        pivotPage.navigateToPivotPage();
+        dashboardPage.createTicketOnDashboard();
+        dashboardPage.verifyTicketInTicketsPage();
+        dashboardOverviewPage.clickingDashBoardModule();
+        dashboardPage.searchingDashboard();
+        dashboardPage.deleteDashboard();
     }
 }

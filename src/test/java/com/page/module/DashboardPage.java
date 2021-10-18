@@ -620,4 +620,38 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
       if (!driver.findElement(DASHBOARD_TITLE).getText().equalsIgnoreCase(dname2))
           Assert.fail("Title for Dashboard page is not displayed properly");
   }
+
+    @Step("Adding dashbaord in Dashboard overview page")
+    public void searchingDashboard() throws InterruptedException {
+        safeType(TEXTBOX_TYPESEARCH, dname2 + "\n", "Dashboard Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(10);
+        String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, dname2);
+    }
+
+    @Step("Deleting dashboard from the application ")
+    public void deleteDashboard() throws InterruptedException {
+        waitForPageToLoad();
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        waitUntilClickable(FOLDER_DELETE, "text", 5000);
+        safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BUTTON_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(40);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+        mouseHoverJScript(COLUMN_FOLDER, "text", "mouse", MEDIUMWAIT);
+        safeClick(BUTTON_ADDFOLDER, "Add folder", MEDIUMWAIT);
+        waitUntilClickable(By.xpath("//*[text()='Dashboard']/../../../div//div[contains(@class,'body1')]"), "text", 5000);
+        safeClick(TEXTBOX_CHOSE_DASHBOARD, "Select or create dashboard text box", MEDIUMWAIT);
+        driver.findElement(By.xpath("//*[@id='dashboardKey']")).sendKeys(dname2, Keys.ENTER);
+        String actualText = safeGetText(DASHBOARD_LABEL, "dashboard name", MEDIUMWAIT);
+        System.out.println(actualText);
+        String expectedText = "Create" + " " + "\"" + dname2 + "\"";
+        Assert.assertEquals(actualText, expectedText);
+        safeClick(DASHBOARD_LABEL, "Select or create dashboard text box", MEDIUMWAIT);
+        safeClick(BUTTON_CANCEL, "Cancel button", MEDIUMWAIT);
+    }
+
 }

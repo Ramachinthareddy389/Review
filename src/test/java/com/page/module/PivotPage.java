@@ -28,6 +28,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Page title for pivot", MEDIUMWAIT);
         System.out.println(Tooltip3);
         Assert.assertEquals(Tooltip3, dashBoardData.tooltip3);
+        waitForSecs(15);
     }
 
     @Step("Adding Table Portlet in Pivot page")

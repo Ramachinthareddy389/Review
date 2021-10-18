@@ -686,10 +686,9 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(10);
-
-        // safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);
-        //safeClick(BTN_LAST_30_DAYS, "Last 30 Days button", MEDIUMWAIT);
+        safeClick(BTN_TODAY, "ToDay button", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
         waitForSecs(7);
@@ -702,12 +701,16 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE, -29);
+       // cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
-        cal.add(Calendar.DATE, 2);
-        String s2 = f.format(new Date(cal.getTimeInMillis()));
-        cal.add(Calendar.DATE, 2);
+        cal.add(Calendar.HOUR, 2);
+        SimpleDateFormat f2 = new SimpleDateFormat("h:00 am");
+        //SimpleDateFormat f3 = new SimpleDateFormat("d");
+        String s2 = f2.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s2);
+   /*     String s2 = f.format(new Date(cal.getTimeInMillis()));
+        cal.add(Calendar.DATE, 2);*/
         String s3 = f.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 2);
         String s4 = f.format(new Date(cal.getTimeInMillis()));
@@ -715,7 +718,6 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         String s5 = f.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 2);
         String s6 = f.format(new Date(cal.getTimeInMillis()));
-
         cal.add(Calendar.DATE, 2);
         String s7 = f.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 2);
@@ -1007,4 +1009,49 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(actualText);
 
     }
+
+    public void PinningDashboardFolder()
+    {
+        waitForSecs(10);
+        mouseHoverJScript(LISTOFFOLDER, "text", "mouse", MEDIUMWAIT);
+        safeClick(PIN_FOLDER, "pin button", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(ICON_PIN, "pin button", MEDIUMWAIT);
+        waitForSecs(20);
+        By pinnedDashboard = By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'" + dname1 + "')]");
+        WebElement pinnedDashboardElement = driver.findElement(pinnedDashboard);
+        Boolean pinnedDashboard_Visibility = pinnedDashboardElement.isDisplayed();
+        System.out.println("Dashboard is visible: " + pinnedDashboard_Visibility);
+        Assert.assertTrue(pinnedDashboard_Visibility, "Pinned Dashboard is displayed");
+        waitForSecs(10);
+        mouseHoverJScript(LISTOFFOLDER, "text", "mouse", MEDIUMWAIT);
+    }
+
+    @Step("Unpin Dashboard")
+    public void Unpin_Pin_Dashboard_Folder_FromDashboardPage() throws InterruptedException {
+        Boolean flag = false;
+        waitForPageToLoad();
+        safeClick(UNPIN_FOLDER, "Unpin Dashboard", MEDIUMWAIT);
+        waitForSecs(5);
+        By pinnedDashboard = By.xpath("//div[@class='menu-icon-hover']/following-sibling::span/span[contains(text(),'Dashboards')]/../../following-sibling::div/div/a/span/span[contains(text(),'" + dname1 + "')]");
+        try {
+            driver.findElement(pinnedDashboard).isDisplayed();
+            flag = true;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        if (flag)
+            Assert.fail("Pinned Dashboard is still displayed");
+        System.out.println("Unpinned Dashboard Verification is completed in Dashboard page");
+        waitForSecs(7);
+        safeClick(PIN_FOLDER, "Pin Dashboard from Dashboard page", MEDIUMWAIT);
+        safeClick(ICON_PIN, "Pin Dashboard from Dashboard page", MEDIUMWAIT);
+        waitForSecs(5);
+        WebElement pinnedDashboardElement = driver.findElement(pinnedDashboard);
+        Boolean pinnedDashboard_Visibility = pinnedDashboardElement.isDisplayed();
+        System.out.println("Dashboard is visible: " + pinnedDashboard_Visibility);
+        Assert.assertTrue(pinnedDashboard_Visibility, "Pinned Dashboard is displayed");
+        safeClick(BTN_CLEAR,"Clearing search",MEDIUMWAIT);
+    }
+
 }
