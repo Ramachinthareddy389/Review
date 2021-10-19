@@ -1,8 +1,10 @@
 package com.page.module;
 
+import com.page.data.DashBoardData;
 import com.page.locators.BusinessProcessLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +16,7 @@ import java.util.Random;
 public class BusinessProcessPage extends SafeActions implements BusinessProcessLocators {
     private WebDriver driver;
     String expectedText = "Create" + " May2021129" + "";
+    private DashBoardData dashBoardData = new DashBoardData();
     static int j;
     String Name_Add, KPIS_add, KeyExp_add, StepName_Add, SLA_Add, EditKey_Exp_add, Edited_KPIS_add, Edited_Name_Add;
     Random random = new Random();
@@ -318,5 +321,61 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(15);
     }
 
+    public void viewDataWithFeildsForViewIcon(){
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(EYE_ICON,"Eye iocn",MEDIUMWAIT);
+        isElementDisplayed(KPIS_TEXT);
+        waitForSecs(5);
+        List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.KPIS_VALUES[i]));
+            System.out.println(wizardName);
+        }
 
+
+        for (int j = 0; j < dashBoardData.KPIS_VALUES.length; j++) {
+            System.out.println("Values are " + dashBoardData.KPIS_VALUES[j]);
+        }
+        safeClick(CLOSE_WINDOW,"Closing window");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+
+    public void navigateToDrillThroughPage(){
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DRILLTHROUGH_LABEL,"Drill through label",MEDIUMWAIT);
+        waitForSecs(9);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dname1+" BP");
+        safeClick(BTN_BUSIPROCESS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(15);
+    }
 }
+
+

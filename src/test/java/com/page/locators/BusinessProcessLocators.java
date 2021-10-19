@@ -57,4 +57,17 @@ public interface BusinessProcessLocators {
     By ADDED_BPMETRIC =By.xpath("//span[text()='BP Step Metrics']/../../../div/div/div/button");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+    By KPIS_TEXT = By.xpath("//h6[text()='KPIs']");
+    By ENABLED_TEXT = By.xpath("//p[text()='Enabled']");
+    By NAME_TEXT = By.xpath("//p[text()='Name']");
+    By PROPERTY_TEXT = By.xpath("//p[text()='Property']");
+    By FACTCLASS_TEXT = By.xpath("//p[text()='Fact Class']");
+    By UNITS_TEXT = By.xpath("//p[text()='Units']");
+    By BUCKET_GRANULARITY = By.xpath("//p[text()='Bucket Granularity']");
+    By LISTOF_KPIS = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p");
+    By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+    By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By DRILLTHROUGH_LABEL = By.xpath("//a[text()='View Drillthrough']");
+    By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
 }

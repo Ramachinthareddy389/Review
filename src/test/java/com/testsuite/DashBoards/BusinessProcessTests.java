@@ -76,6 +76,19 @@ public class BusinessProcessTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true)
+    public void TC_164_ViewDataForFieldsWithViewIconInEditConfigWindow(){
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.viewDataWithFeildsForViewIcon();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_165_NavigatetoDrillthroughPageFromEditConfigWindow(){
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.navigateToDrillThroughPage();
+    }
 
 }
 

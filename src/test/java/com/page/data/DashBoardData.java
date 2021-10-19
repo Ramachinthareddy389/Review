@@ -64,6 +64,8 @@ public class DashBoardData {
 	public final String[] groupByOptions            = portletsData.getProperty("GroupBy_Options").split(",");
 	private ConfigManager wizardData = new ConfigManager("Wizard");
 	public final String[] all = wizardData.getProperty("WIZARDS").split(";");
+	public final String[] KPIS = wizardData.getProperty("KPI_ATTRIBUTES").split(";");
+	public final String[] KPIS_VALUES = wizardData.getProperty("KPI_VALUES").split(";");
 	public final String[] monitoring = wizardData.getProperty("MONITORING").split(";");
 	public final String[] analytics = wizardData.getProperty("ANALYTICS").split(";");
 	public final String[] automation = wizardData.getProperty("AUTOMATION").split(";");
