@@ -59,15 +59,17 @@ public interface BusinessProcessLocators {
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
     By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
     By KPIS_TEXT = By.xpath("//h6[text()='KPIs']");
-    By ENABLED_TEXT = By.xpath("//p[text()='Enabled']");
-    By NAME_TEXT = By.xpath("//p[text()='Name']");
-    By PROPERTY_TEXT = By.xpath("//p[text()='Property']");
-    By FACTCLASS_TEXT = By.xpath("//p[text()='Fact Class']");
-    By UNITS_TEXT = By.xpath("//p[text()='Units']");
-    By BUCKET_GRANULARITY = By.xpath("//p[text()='Bucket Granularity']");
     By LISTOF_KPIS = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
     By DRILLTHROUGH_LABEL = By.xpath("//a[text()='View Drillthrough']");
     By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By KPIS_LINKS = By.xpath("//div[@title='Select Row']/../descendant::button[1]");
+    By ENABLED_STATUS =By.xpath("//div[@aria-label='Enable Configuration']");
+    By DISABLED_STATUS = By.xpath("//input[@value='Disabled']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By REMOVE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Remove Configuration']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS=By.xpath("//div[text()='Name']");
 }

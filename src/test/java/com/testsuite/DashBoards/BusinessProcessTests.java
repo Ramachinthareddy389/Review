@@ -90,5 +90,26 @@ public class BusinessProcessTests extends BaseSetup {
         businessProcessPage.navigateToDrillThroughPage();
     }
 
+    @Test(alwaysRun = true)
+    public void TC_166_NavigateToKPIsPageByClickingOnKpiUnderKPISColumn(){
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.navigateToKpiPageByClickingOnKPIS();
+    }
+    @Test(alwaysRun = true)
+    public void TC_170_VerifyIconsinEditConfigWindow(){
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.verifyingIconsInEditWindow();
+
+    }
+
+    @Test(alwaysRun = true)
+    public void  ()
+    {
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.applyingFilters();
+    }
 }
 

@@ -56,10 +56,9 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
                 break;
             }
         }
-        waitForSecs(15);
+        waitForSecs(20);
         KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KPIS_add);
-        waitForSecs(10);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_KEYEXP, "name", "Server name into textbox", MEDIUMWAIT);
@@ -151,8 +150,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         }
 
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
     }
 
 
@@ -233,9 +232,9 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         } else {
             Assert.fail("Business process details are invalid");
         }
-       waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
     }
 
     public void addingBPStepInEditConfigWindow() {
@@ -246,8 +245,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
-       // safeClick(BTN_CLOSE,"Close after deleting BPs steps",MEDIUMWAIT);
-        safeClick(BTN_SAVE,"Save Button",MEDIUMWAIT);
+        // safeClick(BTN_CLOSE,"Close after deleting BPs steps",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save Button", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BPSTEPS_ADDICON, "BP Steps add icon", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
@@ -269,7 +268,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
             }
         }
         safeClearAndType(TXTBOX_BPSTEPS_VALUE, "test", "Server name into textbox", MEDIUMWAIT);
-      //  safeClick(LABEL_SLA, "Name Feild", MEDIUMWAIT);
+        //  safeClick(LABEL_SLA, "Name Feild", MEDIUMWAIT);
         //safeType(TXTBOX_SLA, "2", "Name into textbox", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
@@ -281,54 +280,53 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         expectedText = editBP1;
         Assert.assertEquals(actualText, expectedText);
         safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
     }
 
 
-    public void validatingBPStepMetrics()
-    {
+    public void validatingBPStepMetrics() {
         String actualText = safeGetText(ADDED_BPSTEPS, "Added BP Steps", MEDIUMWAIT);
         expectedText = editBP1;
         Assert.assertEquals(actualText, expectedText);
-        safeClick(ADDED_BPSTEPS,"Added Bp steps");
-        safeClick(BPSTEP_METRICS_ADDICON,"Added BP Metric icon",MEDIUMWAIT);
+        safeClick(ADDED_BPSTEPS, "Added Bp steps");
+        safeClick(BPSTEP_METRICS_ADDICON, "Added BP Metric icon", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEl_METRIC_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_METRIC_NAME, "BP Metric", "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_METRIC_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
         waitForSecs(5);
-        safeClick(TXTBOX_METRIC_EXP,"Metric Exp",MEDIUMWAIT);
-        WebElement metric=driver.findElement(TXTBOX_METRIC_EXP);
+        safeClick(TXTBOX_METRIC_EXP, "Metric Exp", MEDIUMWAIT);
+        WebElement metric = driver.findElement(TXTBOX_METRIC_EXP);
         metric.sendKeys("test");
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
-        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close Button", MEDIUMWAIT);
         waitForSecs(5);
         String actualText1 = safeGetText(ADDED_BPMETRIC, "Added BP Steps", MEDIUMWAIT);
         expectedText = "BP Metric";
         Assert.assertEquals(actualText1, expectedText);
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
     }
 
-    public void viewDataWithFeildsForViewIcon(){
+    public void viewDataWithFeildsForViewIcon() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(EYE_ICON,"Eye iocn",MEDIUMWAIT);
+        safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
         isElementDisplayed(KPIS_TEXT);
         waitForSecs(5);
         List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
@@ -342,27 +340,27 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         for (int j = 0; j < dashBoardData.KPIS_VALUES.length; j++) {
             System.out.println("Values are " + dashBoardData.KPIS_VALUES[j]);
         }
-        safeClick(CLOSE_WINDOW,"Closing window");
+        safeClick(CLOSE_WINDOW, "Closing window");
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
 
     }
 
-    public void navigateToDrillThroughPage(){
+    public void navigateToDrillThroughPage() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(DRILLTHROUGH_LABEL,"Drill through label",MEDIUMWAIT);
+        safeClick(DRILLTHROUGH_LABEL, "Drill through label", MEDIUMWAIT);
         waitForSecs(9);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dname1+" BP");
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dname1 + " BP");
         safeClick(BTN_BUSIPROCESS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -371,11 +369,73 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
     }
+
+    public void navigateToKpiPageByClickingOnKPIS() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        safeClick(KPIS_LINKS, "KPi Hyper Link", MEDIUMWAIT);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, "Key Performance Indicators");
+        safeClick(BTN_BUSIPROCESS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
+    public void verifyingIconsInEditWindow() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + dname1 + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
+
+    public void applyingFilters(){
+        safeClick(TYPE_SEARCH, "Text",MEDIUMWAIT);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+    }
 }
+
+
 
 
