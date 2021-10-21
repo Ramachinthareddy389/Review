@@ -59,23 +59,21 @@ public class CorrelationTests extends BaseSetup {
 */
 
     @Test(alwaysRun = true)
-    public void TC_175_AddTypesinEditCorrelationScenariowindow()
-    {
+    public void TC_175_AddTypesinEditCorrelationScenariowindow() {
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.verifyingTypesInCorrelationScenarioWindow();
     }
 
     @Test(alwaysRun = true)
-    public void TC_176_AddFactTypeinEditCorrelationScenariowindow()
-    {
+    public void TC_176_AddFactTypeinEditCorrelationScenariowindow() {
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.validatingEditTypeinEditCorrelationScenariowindow();
     }
 
     @Test(alwaysRun = true)
-    public void TC_177_AddStreamCorrelationScenarioconfig(){
+    public void TC_177_AddStreamCorrelationScenarioconfig() {
         correlationPage.clickingOnCorrelation();
         correlationPage.AddingCorrrlationStreamPage();
         correlationPage.AddingLeftStreamPage();
@@ -97,4 +95,15 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.verifyingEditedStreamCorrelationValues();
 
     }*/
+
+
+    @Test(alwaysRun = true)
+    public void TC_174_NavigateToCorrelationDocumentPage() {
+
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.navigatingToCorrelationDocumentPage();
+    }
+
+
 }

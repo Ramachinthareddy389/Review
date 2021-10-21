@@ -70,6 +70,8 @@ public interface BusinessProcessLocators {
     By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
     By REMOVE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Remove Configuration']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
     By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
-    By DROPDOWN_FEILDS=By.xpath("//div[text()='Name']");
+    By DROPDOWN_FEILDS=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
 }

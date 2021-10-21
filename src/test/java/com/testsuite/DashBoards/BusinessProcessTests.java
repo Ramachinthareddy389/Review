@@ -105,7 +105,7 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void  ()
+    public void TC_168_ApplyFilters()
     {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();

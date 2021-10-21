@@ -3,6 +3,7 @@ package com.page.module;
 import com.page.locators.CorrelationLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -177,9 +178,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Business process details are invalid");
         }
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
 
     }
@@ -267,8 +268,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Business process details are invalid");
         }
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }
 
@@ -343,9 +344,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         expectedText = dname1 + "123";
         Assert.assertEquals(actualText, expectedText);
         waitForSecs(10);
-        waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }
 
@@ -379,10 +379,10 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         String expectedTextAfterEdit = "FactCounter";
         Assert.assertEquals(After_Edit_Type, expectedTextAfterEdit);
         waitForSecs(10);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }
 
@@ -487,6 +487,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
                 break;
             }
         }
+        waitForSecs(10);
         Rstream_KPIS_add = safeGetText(RSTREAM_KPIS_VALUE, "Server textbox value", MEDIUMWAIT);
         System.out.println(Rstream_KPIS_add);
         waitForSecs(20);
@@ -553,17 +554,16 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(10);
         System.out.println(Correlation_Name_Add + ":" + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + Correlation_LStream_Add + ":" + driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value") +
-                TimeToLive_LStream_add + driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Lstream_KPIS_add + ":"+driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText() + Lstream_PartitionKey_add + driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText() + Lstream_OrderKey_add + driver.findElement(EDITED_LSTREAM_ORDER_BY).getText() + Correlation_RStream_Add + ":" + driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value") + TimeToLive_RStream_add + ":" + driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Rstream_KPIS_add + ":" + driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText() + Rstream_PartitionKey_add + ":" + driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText() + Rstream_OrderKey_add + ":" + driver.findElement(EDITED_RSTREAM_ORDER_BY).getText() + CostFun_add + ":" + driver.findElement(EDITED_COST_FUNCTION).getText() + PairFun_add + ":" + driver.findElement(EDITED_PAIR_FUNCTION).getText());
+                TimeToLive_LStream_add + driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Lstream_KPIS_add + ":" + driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText() + Lstream_PartitionKey_add + driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText() + Lstream_OrderKey_add + driver.findElement(EDITED_LSTREAM_ORDER_BY).getText() + Correlation_RStream_Add + ":" + driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value") + TimeToLive_RStream_add + ":" + driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Rstream_KPIS_add + ":" + driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText() + Rstream_PartitionKey_add + ":" + driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText() + Rstream_OrderKey_add + ":" + driver.findElement(EDITED_RSTREAM_ORDER_BY).getText() + CostFun_add + ":" + driver.findElement(EDITED_COST_FUNCTION).getText() + PairFun_add + ":" + driver.findElement(EDITED_PAIR_FUNCTION).getText());
         if (Correlation_Name_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && Correlation_LStream_Add.equals(driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value")) &&
-                TimeToLive_LStream_add.equals(driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Lstream_KPIS_add.equals(driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText()) && Lstream_PartitionKey_add.equals(driver.findElement(EDITED_LSTREAM_PARTITION_VALUE).getText()) && Lstream_OrderKey_add.equals(driver.findElement(EDITED_LSTREAM_ORDER_VALUE).getText()) && Correlation_RStream_Add.equals(driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")) && TimeToLive_RStream_add.equals(driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Rstream_KPIS_add.equals(driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText()) && Rstream_PartitionKey_add.equals(driver.findElement(EDITED_RSTREAM_PARTITION_VALUE).getText()) && Rstream_OrderKey_add.equals(driver.findElement(EDITED_RSTREAM_ORDER_VALUE).getText()) && CostFun_add.equals(driver.findElement(EDITED_COST_FUNCTION).getText()) && PairFun_add.equals(driver.findElement(EDITED_PAIR_FUNCTION).getText()))
-        {
+                TimeToLive_LStream_add.equals(driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Lstream_KPIS_add.equals(driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText()) && Lstream_PartitionKey_add.equals(driver.findElement(EDITED_LSTREAM_PARTITION_VALUE).getText()) && Lstream_OrderKey_add.equals(driver.findElement(EDITED_LSTREAM_ORDER_VALUE).getText()) && Correlation_RStream_Add.equals(driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")) && TimeToLive_RStream_add.equals(driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Rstream_KPIS_add.equals(driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText()) && Rstream_PartitionKey_add.equals(driver.findElement(EDITED_RSTREAM_PARTITION_VALUE).getText()) && Rstream_OrderKey_add.equals(driver.findElement(EDITED_RSTREAM_ORDER_VALUE).getText()) && CostFun_add.equals(driver.findElement(EDITED_COST_FUNCTION).getText()) && PairFun_add.equals(driver.findElement(EDITED_PAIR_FUNCTION).getText())) {
             System.out.println("Valid Details");
         } else {
             Assert.fail("Stream Correlation process details are invalid");
         }
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
 
     }
 
@@ -735,7 +735,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(BTN_SAVE, "Saave button", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW, "Edited Close window", MEDIUMWAIT);
-        safeClick(BTN_CLEAR,"Clear Button",MEDIUMWAIT);
+        safeClick(BTN_CLEAR, "Clear Button", MEDIUMWAIT);
     }
 
     public void verifyingEditedStreamCorrelationValues() {
@@ -752,7 +752,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
         System.out.println(Edited_Name_Add + ":" + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + Edited_LStreamName_Add + ":" + driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value") +
-            Edited_LStreamTimeToLive_Add + driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Edited_LStreamKpis_Add + driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText() + Edited_LStreamPartition_Add + driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText() + Edited_LStreamOrderby_Add + driver.findElement(EDITED_LSTREAM_ORDER_BY).getText() + Edited_RStreamName_Add + ":" + driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value") + Edited_RStreamTimeToLive_Add + ":" + driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Edited_RStreamKpis_Add+ ":" + driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText() + Edited_RStreamPartition_Add+ ":" + driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText() + Edited_RStreamOrderby_Add + ":" + driver.findElement(EDITED_RSTREAM_ORDER_BY).getText() + EditedCostFun_add + ":" + driver.findElement(EDITED_COST_FUNCTION).getText() +EditedPairFun_add+ ":" + driver.findElement(EDITED_PAIR_FUNCTION).getText());
+                Edited_LStreamTimeToLive_Add + driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Edited_LStreamKpis_Add + driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText() + Edited_LStreamPartition_Add + driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText() + Edited_LStreamOrderby_Add + driver.findElement(EDITED_LSTREAM_ORDER_BY).getText() + Edited_RStreamName_Add + ":" + driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value") + Edited_RStreamTimeToLive_Add + ":" + driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value") + Edited_RStreamKpis_Add + ":" + driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText() + Edited_RStreamPartition_Add + ":" + driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText() + Edited_RStreamOrderby_Add + ":" + driver.findElement(EDITED_RSTREAM_ORDER_BY).getText() + EditedCostFun_add + ":" + driver.findElement(EDITED_COST_FUNCTION).getText() + EditedPairFun_add + ":" + driver.findElement(EDITED_PAIR_FUNCTION).getText());
         System.out.println(Edited_Name_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && Edited_LStreamName_Add.equals(driver.findElement(EDITED_LSTREAM_NAME_TXTBOX).getAttribute("value")) &&
                 Edited_LStreamTimeToLive_Add.equals(driver.findElement(EDITED_LSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Edited_LStreamKpis_Add.equals(driver.findElement(EDITED_LSTREAM_KPI_VALUE).getText()) && Edited_LStreamPartition_Add.equals(driver.findElement(EDITED_LSTREAM_PARTITION_KEY).getText()) && Edited_LStreamOrderby_Add.equals(driver.findElement(EDITED_LSTREAM_ORDER_BY).getText()) && Edited_RStreamName_Add.equals(driver.findElement(EDITED_RSTREAM_NAME_TXTBOX).getAttribute("value")) && Edited_RStreamTimeToLive_Add.equals(driver.findElement(EDITED_RSTREAM_TIMETOLIVE_TXTBOX).getAttribute("value")) && Edited_RStreamKpis_Add.equals(driver.findElement(EDITED_RSTREAM_KPI_VALUE).getText()) && Edited_RStreamPartition_Add.equals(driver.findElement(EDITED_RSTREAM_PARTITION_KEY).getText()) && Edited_RStreamOrderby_Add.equals(driver.findElement(EDITED_RSTREAM_ORDER_BY).getText()) && EditedCostFun_add.equals(driver.findElement(EDITED_COST_FUNCTION).getText()) && EditedPairFun_add.equals(driver.findElement(EDITED_PAIR_FUNCTION).getText()));
 
@@ -763,11 +763,38 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             Assert.fail("Stream Correlation process details are invalid");
         }
         waitForSecs(10);
-        safeClick(DELETE_ALERT,"Delete Slas",MEDIUMWAIT);
-        safeClick(CONFIRM_DELETE,"Confirm delete",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
 
     }
 
+    public void navigatingToCorrelationDocumentPage() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(30);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(CORRELATION_HYPERLINK, "Hyperlink in Edit window", MEDIUMWAIT);
+        switchToWindow(1);
+        System.out.println(getCurrentURL());
+        String actualText =getCurrentURL();
+        String expectedText = "https://germainapm.atlassian.net/wiki/spaces/germainAPM/pages/424214529/Analytics+-+Correlation+engine+for+facts";
+        Assert.assertEquals(actualText,expectedText);
+        driver.close();
+        switchToWindow(0);
+        safeClick(BTN_CORRELATION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(30);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 
+ 
 }

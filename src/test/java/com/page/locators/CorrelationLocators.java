@@ -59,7 +59,7 @@ public interface CorrelationLocators {
     By DROPDOWN_KPIS_STREAM = By.xpath("//span[text()='Time To Live']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div/div/input[@id='kpis']");
     By LABEL_PARTITION_KEY = By.xpath("//span[text()='Partition Key']");
     By GHOSTTEXT_PARTITION_KEY = By.xpath("//input[@id='partitionKey']/../../../div[1]");
-    By DROPDOWN_PARTITION_KEY = By.xpath("//input[@id='partitionKey']/../../../div[1]");
+    By DROPDOWN_PARTITION_KEY = By.xpath("//input[@id='partitionKey']");
     By GHOSTTEXT_ORDER_BY = By.xpath("//input[@id='orderBy']/../../../div[1]");
     By LABEL_ORDER_BY = By.xpath("//span[text()='Order By']");
     By DROPDOWN_ORDER_BY = By.xpath("//input[@id='orderBy']");
@@ -69,7 +69,7 @@ public interface CorrelationLocators {
     By LABEL_RSTREAM_KPIS = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/label/p/span[text()='Kpis']");
     By GHOSTTEXT_KPIS_RSTREAM = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div/div/div/div[text()='Select or Add...']");
     By DROPDOWN_KPIS_RSTREAM = By.xpath("//input[@id='kpis']");
-    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div//input[@id='kpis']/../../../div/span");
+    By RSTREAM_KPIS_VALUE = By.xpath("//span[text()='Time To Live (in seconds)']/../../../../../following-sibling::div/div/div/div/div/div//input[@id='kpis']/../../../div[1]/div/div");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
     By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
@@ -106,5 +106,7 @@ public interface CorrelationLocators {
     By EDITED_RSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Right Stream Partition Key']");
     By EDITED_RSTREAM_ORDER_LABEL = By.xpath("//span[text()='Right Stream OrderBy']");
     By EDITED_RSTREAM_KPIS_LABEL = By.xpath("//span[text()='Right Stream KPIs']");
+    By CORRELATION_HYPERLINK = By.xpath("//a[text()=' Correlation Scenario guide and example available in germain APM Documentation']");
+    By STREAM_CORRELATION_HYPERLINK = By.xpath("//a[text()='Stream Correlation Scenario configuation guide and example available in germain APM Documentation']");
 
 }
