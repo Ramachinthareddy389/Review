@@ -191,7 +191,8 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeType(TXTBOX_CONFIRM_PASSWRD, "test", "Confirm password textbox", MEDIUMWAIT);
         safeClick(BTN_UPDATE_PASSWRD, "update password button", MEDIUMWAIT);
         waitForSecs(30);
-        acceptAlert();
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+       // acceptAlert();
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = Cred;

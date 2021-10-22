@@ -39,7 +39,7 @@ public interface CorrelationLocators {
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By BTN_CLOSE = By.xpath("//span[text()='Close']");
     By ADDED_NAME_GENERATOR = By.xpath("//div[@class='view-lines']/div/span/span");
-    By TXTBOX_EDITED_KPIS = By.xpath("//input[@id='kpis']/../../../div/span");
+    By TXTBOX_EDITED_KPIS = By.xpath("//input[@id='kpis']/../../../div[1]/div/div");
     By LABEL_EDITED_FACTTYPE = By.xpath("//span[text()='Fact Type']");
     By TXTBOX_EDITED_FACTTYPE = By.xpath("//input[@id='factClass']/../../../div[1]");
     By HYPERLINK_TYPES = By.xpath("//span[text()='Types']/../../../div/div/div/button");
@@ -94,8 +94,8 @@ public interface CorrelationLocators {
     By EDITED_LSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Left Stream Partition Key']");
     By EDITED_LSTREAM_ORDER_LABEL = By.xpath("//span[text()='Left Stream OrderBy']");
     By EDITED_LSTREAM_KPIS_LABEL = By.xpath("//span[text()='Left Stream KPIs']");
-    By EDITED_LSTREAM_KPI_VALUE = By.xpath("//input[@id='leftStream.kpis']/../../../div/span");
-    By EDITED_RSTREAM_KPI_VALUE = By.xpath("//input[@id='rightStream.kpis']/../../../div/span");
+    By EDITED_LSTREAM_KPI_VALUE = By.xpath("//input[@id='leftStream.kpis']/../../../div[1]/div/div");
+    By EDITED_RSTREAM_KPI_VALUE = By.xpath("//input[@id='rightStream.kpis']/../../../div[1]/div/div");
     By EDITED_LSTREAM_PARTITION_VALUE = By.xpath("//input[@id='leftStream.partitionKey']/../../../div[1]");
     By EDITED_LSTREAM_ORDER_VALUE = By.xpath("//input[@id='leftStream.orderBy']/../../../div[1]");
     By EDITED_RSTREAM_PARTITION_VALUE = By.xpath("//input[@id='rightStream.partitionKey']/../../../div[1]");
@@ -108,5 +108,9 @@ public interface CorrelationLocators {
     By EDITED_RSTREAM_KPIS_LABEL = By.xpath("//span[text()='Right Stream KPIs']");
     By CORRELATION_HYPERLINK = By.xpath("//a[text()=' Correlation Scenario guide and example available in germain APM Documentation']");
     By STREAM_CORRELATION_HYPERLINK = By.xpath("//a[text()='Stream Correlation Scenario configuation guide and example available in germain APM Documentation']");
-
+    By KPIS_LINKS = By.xpath("//div[@title='Select Row']/../descendant::button[1]");
+    By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS =By.xpath("//div[@aria-label='Enable Configuration']");
 }

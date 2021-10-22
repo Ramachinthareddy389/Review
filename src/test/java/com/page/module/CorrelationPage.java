@@ -563,8 +563,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-
+        waitForSecs(10);
     }
 
     public void EditStreamCorrelationScenarios() {
@@ -795,6 +796,87 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }
+    public void navigateToStreamCoorelationDoc(){
+        safeType(TEXTBOX_TYPESEARCH, Stream_Correlation + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(15);
+        waitForSecs(9);
+        safeClick(STREAM_CORRELATION_HYPERLINK, "Hyperlink in Edit window", MEDIUMWAIT);
+        switchToWindow(1);
+        System.out.println(getCurrentURL());
+        String actualText =getCurrentURL();
+        String expectedText = "https://germainapm.atlassian.net/wiki/spaces/germainAPM/pages/532807717/Correlation";
+        Assert.assertEquals(actualText,expectedText);
+        driver.close();
+        waitForSecs(5);
+        switchToWindow(0);
+        safeClick(BTN_CORRELATION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, Stream_Correlation + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(30);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 
- 
+    public void navigateToKpiPageByClickingOnKPIS(){
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(15);
+        safeClick(KPIS_LINKS, "KPi Hyper Link", MEDIUMWAIT);
+        waitForSecs(15);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, "Key Performance Indicators");
+        waitForSecs(10);
+        safeClick(BTN_CORRELATION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(10);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void verifyIconsInEditWindow(){
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(20);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + dname1 + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
 }

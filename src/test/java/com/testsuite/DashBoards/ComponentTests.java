@@ -139,7 +139,7 @@ public class ComponentTests extends BaseSetup {
          componentPage.verifyingAddedAutoConfig();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = false,groups = "Smoke Test")
     public void TC_Auto_002_EditAutoConfig(){
         componentPage.addingAutoConfig();
         componentPage.editAutoConfig();

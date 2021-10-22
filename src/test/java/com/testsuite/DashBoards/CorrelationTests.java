@@ -58,14 +58,14 @@ public class CorrelationTests extends BaseSetup {
     }
 */
 
-    @Test(alwaysRun = true)
+    @Test(alwaysRun = true,retryAnalyzer = com.testng.Retry.class)
     public void TC_175_AddTypesinEditCorrelationScenariowindow() {
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.verifyingTypesInCorrelationScenarioWindow();
     }
 
-    @Test(alwaysRun = true)
+    @Test(alwaysRun = true,retryAnalyzer = com.testng.Retry.class)
     public void TC_176_AddFactTypeinEditCorrelationScenariowindow() {
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
@@ -97,12 +97,29 @@ public class CorrelationTests extends BaseSetup {
     }*/
 
 
-    @Test(alwaysRun = true)
+    @Test(alwaysRun = true,retryAnalyzer = com.testng.Retry.class)
     public void TC_174_NavigateToCorrelationDocumentPage() {
 
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.navigatingToCorrelationDocumentPage();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_179_NavigateToStreamCorrelationDocumentPage() {
+        correlationPage.clickingOnCorrelation();
+        correlationPage.AddingCorrrlationStreamPage();
+        correlationPage.AddingLeftStreamPage();
+        correlationPage.AddingRightStreamPage();
+        correlationPage.AddingStreamFunction();
+        correlationPage.navigateToStreamCoorelationDoc();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_180_NavigatetoKPIsPageByClickingonKpiUnderKPISColumn(){
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.navigateToKpiPageByClickingOnKPIS();
     }
 
 
