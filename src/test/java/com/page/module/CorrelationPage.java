@@ -1,5 +1,6 @@
 package com.page.module;
 
+import com.page.data.DashBoardData;
 import com.page.locators.CorrelationLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
@@ -15,6 +16,7 @@ import java.util.Random;
 public class CorrelationPage extends SafeActions implements CorrelationLocators {
     private WebDriver driver;
     String expectedText = "Create" + " May2021129" + "";
+    private DashBoardData dashBoardData = new DashBoardData();
     static int j;
     String Name_Add, KPIS_add, KeyExp_add, StepName_Add, FeildExclusion_add, Name_Add1, Type_add, Genarator_add, Retention_add, Type_add1, Retension_Name_Add, Edited_Name_Add, Edited_Type_add, Edited_KPIS_add, After_Edit_Type;
     String Correlation_Name_Add, Correlation_LStream_Add, TimeToLive_LStream_add, Lstream_KPIS_add, Lstream_PartitionKey_add, Lstream_OrderKey_add;
@@ -93,6 +95,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         }
         KPIS_add = safeGetText(KPIS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(KPIS_add);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_EDITED_NAME, dname1, "Name into textbox", MEDIUMWAIT);
@@ -878,5 +881,66 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
     }
+
+    public void applyingFilters(){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+dname1+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName =safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName,dname1);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+
+    public void verifyingIconsInEditWindow() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + dname1 + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(20);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
+
+
 
 }

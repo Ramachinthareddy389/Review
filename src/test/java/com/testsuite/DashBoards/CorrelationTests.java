@@ -122,5 +122,19 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.navigateToKpiPageByClickingOnKPIS();
     }
 
+    @Test(alwaysRun = true)
+    public void TC_182_ApplyFilters(){
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.applyingFilters();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_184_VerifyIconsInEditConfigWindow(){
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.verifyingIconsInEditWindow();
+    }
+
 
 }
