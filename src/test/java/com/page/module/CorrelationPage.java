@@ -783,9 +783,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(CORRELATION_HYPERLINK, "Hyperlink in Edit window", MEDIUMWAIT);
         switchToWindow(1);
         System.out.println(getCurrentURL());
-        String actualText =getCurrentURL();
+        String actualText = getCurrentURL();
         String expectedText = "https://germainapm.atlassian.net/wiki/spaces/germainAPM/pages/424214529/Analytics+-+Correlation+engine+for+facts";
-        Assert.assertEquals(actualText,expectedText);
+        Assert.assertEquals(actualText, expectedText);
         driver.close();
         switchToWindow(0);
         safeClick(BTN_CORRELATION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
@@ -799,7 +799,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }
-    public void navigateToStreamCoorelationDoc(){
+
+    public void navigateToStreamCoorelationDoc() {
         safeType(TEXTBOX_TYPESEARCH, Stream_Correlation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -810,9 +811,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(STREAM_CORRELATION_HYPERLINK, "Hyperlink in Edit window", MEDIUMWAIT);
         switchToWindow(1);
         System.out.println(getCurrentURL());
-        String actualText =getCurrentURL();
+        String actualText = getCurrentURL();
         String expectedText = "https://germainapm.atlassian.net/wiki/spaces/germainAPM/pages/532807717/Correlation";
-        Assert.assertEquals(actualText,expectedText);
+        Assert.assertEquals(actualText, expectedText);
         driver.close();
         waitForSecs(5);
         switchToWindow(0);
@@ -828,7 +829,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(10);
     }
 
-    public void navigateToKpiPageByClickingOnKPIS(){
+    public void navigateToKpiPageByClickingOnKPIS() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(15);
@@ -851,7 +852,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(10);
     }
 
-    public void verifyIconsInEditWindow(){
+    public void verifyIconsInEditWindow() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -882,24 +883,24 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(15);
     }
 
-    public void applyingFilters(){
+    public void applyingFilters() {
         waitForSecs(10);
-        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'"+dname1+"')]");
-        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        String BPName =safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         System.out.println(BPName);
         Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
         Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
-        Assert.assertEquals(BPName,dname1);
+        Assert.assertEquals(BPName, dname1);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
@@ -940,7 +941,75 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(15);
     }
 
+    public void viewDataWithFeildsForViewIcon() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
+        isElementDisplayed(KPIS_TEXT);
+        waitForSecs(5);
+        List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.KPIS_VALUES[i]));
+            System.out.println(wizardName);
+        }
 
 
+        for (int j = 0; j < dashBoardData.KPIS_VALUES.length; j++) {
+            System.out.println("Values are " + dashBoardData.KPIS_VALUES[j]);
+        }
+        safeClick(CLOSE_WINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+
+    public void verifyingPageIcons() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        //mouseHoverJScript(SELECTROW_CHKBOX, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b1 = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE,"clone button",MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label","Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = dname1+" - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+
+    }
 
 }

@@ -136,5 +136,18 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.verifyingIconsInEditWindow();
     }
 
+    @Test(alwaysRun = true)
+    public void TC_186_ViewDataForfieldsWithViewIconInEditConfigWindow()
+    {
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.viewDataWithFeildsForViewIcon();
+    }
 
+    @Test(alwaysRun = true)
+    public void TC_181_VerifyPageIcons(){
+        correlationPage.clickingOnCorrelation();
+        correlationPage.addingNewCorrelation();
+        correlationPage.verifyingPageIcons();
+    }
 }

@@ -83,7 +83,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test", retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_25_AddingNTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();

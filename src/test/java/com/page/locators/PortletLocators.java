@@ -33,6 +33,8 @@ public interface PortletLocators {
     By TEXTBOX_PORTLET_FILTERS=By.xpath("//input[@id='portletFilters']");
     By PortletFilters_TypeSearch=By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
     By DROPDOWN_FEILDS=By.xpath("//div[text()='Color']");
+    By DROPDOWN_VALUE = By.xpath("//div[contains(text(),'Add filter')]");
+    By LABEl_IS = By.xpath("//span[text()='is']");
     By BTN_APPLY=By.xpath("//span[text()='Apply']");
     By BY_LABEL_PIVOT = By.xpath("//div[@aria-label='Label']/../../../following-sibling::div/descendant::span[8]");
     //Ticket on Dashboard
@@ -59,7 +61,7 @@ public interface PortletLocators {
     By GAUGE_PORTLET_NAME = By.xpath("//*[text()='Portlet Name']");
     By GAUGE_TEXTBOX_MEASURE =By.xpath("//input[@id='Measure_0']");
     By IS_NOT_PORTLET_FILTER = By.xpath("//button/span[contains(text(),'is')]");
-    By SELECT_DRPDOWN = By.xpath("//span[contains(@aria-label,'Deactivate and pin filter')]/following-sibling::select");
+    By SELECT_DRPDOWN = By.xpath("//li[text()='is not']");
 
     //Counter Portlet
     By COUNTER_HEADER = By.xpath("//button/span[contains(text(),'Counter')]");

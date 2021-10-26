@@ -13,7 +13,7 @@ public interface CorrelationLocators {
     By TXTBOX_RETENSION = By.xpath("//div[contains(@class,'WizardStep')]/div/div[5]/div/div/div/input[@id='retention']");
     By LABEL_TYPE = By.xpath("//span[text()='Type']");
     By TYPE_GHOSTEXT = By.xpath("//input[@id='factClass']/../../../div[1]");
-    By TXTBOX_TYPE= By.xpath("//input[@id='factClass']");
+    By TXTBOX_TYPE = By.xpath("//input[@id='factClass']");
     By LABEL_KPIS = By.xpath("//input[@id='kpis']/../../../div[1]/../../../../label/p/span[1]");
     By KPIS_GHOSTEXT = By.xpath("//input[@id='kpis']/../../../div[1]");
     By TXTBOX_KPIS = By.xpath("//input[@id='kpis']");
@@ -45,7 +45,7 @@ public interface CorrelationLocators {
     By HYPERLINK_TYPES = By.xpath("//span[text()='Types']/../../../div/div/div/button");
     By TXTBOX_EDITED_RETENTION = By.xpath("//input[@id='retention']");
     By TXTBOX_EDITED_NAME = By.xpath("//input[@id='name']");//Edited
-    By BTN_REMOVETYPES= By.xpath("//span[text()='Types']/../../../div/div/div/div[@aria-label='Remove Configuration']");
+    By BTN_REMOVETYPES = By.xpath("//span[text()='Types']/../../../div/div/div/div[@aria-label='Remove Configuration']");
     By TYPES_ADDICON = By.xpath("//span[text()='Types']/../../following-sibling::div/button/span/i");
     By FILTERS_GHOSTTEXT_IN_TYPES = By.xpath("//span[text()='Filters']/../../../../../div[4]/div/div/div/div/div/div/div/div/div/div[text()='Select or Create...']");
     //Stream correlation locators
@@ -90,7 +90,7 @@ public interface CorrelationLocators {
     By EDITED_COST_FUNCTION = By.xpath("//span[text()='Cost Function']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
     By EDITED_PAIR_FUNCTION = By.xpath("//span[text()='Pair Function']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
     By EDITED_NAME_LABEl = By.xpath("//span[text()='Name']");
-    By EDITED_LSTREAM_LABEL =By.xpath("//span[text()='Left Stream Name']");
+    By EDITED_LSTREAM_LABEL = By.xpath("//span[text()='Left Stream Name']");
     By EDITED_LSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Left Stream Partition Key']");
     By EDITED_LSTREAM_ORDER_LABEL = By.xpath("//span[text()='Left Stream OrderBy']");
     By EDITED_LSTREAM_KPIS_LABEL = By.xpath("//span[text()='Left Stream KPIs']");
@@ -102,21 +102,21 @@ public interface CorrelationLocators {
     By EDITED_RSTREAM_ORDER_VALUE = By.xpath("//input[@id='rightStream.orderBy']/../../../div[1]");
     By BTN_MAXIMIZE = By.xpath("//div[@aria-label='Maximize']/span/i");
 
-    By EDITED_RSTREAM_LABEL =By.xpath("//span[text()='Right Stream Name']");
+    By EDITED_RSTREAM_LABEL = By.xpath("//span[text()='Right Stream Name']");
     By EDITED_RSTREAM_PARTITION_LABEL = By.xpath("//span[text()='Right Stream Partition Key']");
     By EDITED_RSTREAM_ORDER_LABEL = By.xpath("//span[text()='Right Stream OrderBy']");
     By EDITED_RSTREAM_KPIS_LABEL = By.xpath("//span[text()='Right Stream KPIs']");
     By CORRELATION_HYPERLINK = By.xpath("//a[text()=' Correlation Scenario guide and example available in germain APM Documentation']");
     By STREAM_CORRELATION_HYPERLINK = By.xpath("//a[text()='Stream Correlation Scenario configuation guide and example available in germain APM Documentation']");
     By KPIS_LINKS = By.xpath("//div[@title='Select Row']/../descendant::button[1]");
-    By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By Title_DRILLTHROUGH = By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
     By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
-    By ENABLED_STATUS =By.xpath("//div[@aria-label='Enable Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
 
     By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
     By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
-    By DROPDOWN_FEILDS=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
 
     By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
@@ -124,4 +124,12 @@ public interface CorrelationLocators {
     By LISTOF_KPIS = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='Correlation Scenarios']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Correlation Scenarios']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Correlation Scenarios']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='Correlation Scenarios']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='Correlation Scenarios']/..//div[@aria-label='Remove Selected Configuration']");
+
 }
