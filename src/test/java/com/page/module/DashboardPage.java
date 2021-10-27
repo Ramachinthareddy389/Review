@@ -556,7 +556,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         safeClick(TEXTBOX_TYPESEARCH, "Search box in Drillthrough page", MEDIUMWAIT);
         String constraint = Keys.chord(dashBoardData1.constraint_DrillthroughPage) + Keys.ENTER;
         driver.findElement(TEXTBOX_TYPESEARCH).sendKeys(constraint);
-        waitUntilClickable(FILTER_VALUE_DRILLTHROUGH, "Filter value in Drillthrough page", MEDIUMWAIT);
+        //waitUntilClickable(FILTER_VALUE_DRILLTHROUGH, "Filter value in Drillthrough page", MEDIUMWAIT);
         filterValue_Drillthrough = driver.findElement(FILTER_VALUE_DRILLTHROUGH).getText();
         if (!driver.findElement(FILTER_VALUE_DRILLTHROUGH).getText().equalsIgnoreCase(driver.findElement(BREADCRUMB_DRILLTHROUGH).getText()))
             Assert.fail("Breadcrumb is not updated as per the applied constraint");

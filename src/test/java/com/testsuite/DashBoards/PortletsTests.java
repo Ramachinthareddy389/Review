@@ -165,8 +165,8 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+        //portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.cloningPortletInDashboardPage();
         portletsFeature.verifyingClonedPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
@@ -286,9 +286,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.navigatingToDrillThroughPage(dname1);
+        portletsFeature.navigatingToDrillThroughPage(gaugePortletName);
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
@@ -316,7 +316,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigatingToDrilthroughPagesUsingTooltipOptions();
         portletsFeature.removingPortlet();
@@ -332,9 +332,9 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+       // portletsFeature.verifyingPortletAddedFromSearchBar();
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
@@ -347,7 +347,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         portletsFeature.navigatingToDrillThroughPage(dname1);
         dashboardOverviewPage.clickingOnCalenderIcon();
         dashboardOverviewPage.ValidatingCurrentHour();
@@ -374,7 +374,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage();
         dashboardOverviewPage.clickingDashBoardModule();
@@ -388,8 +388,8 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+        //portletsFeature.verifyingPortletAddedFromSearchBar();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
@@ -405,8 +405,8 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToRCAPage();
         portletsFeature.maximisePortletInRCAPage();

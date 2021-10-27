@@ -222,7 +222,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(SEARCH_BAR_ADD_METRIC, "Search bar in Add Metric Window", MEDIUMWAIT);
         driver.findElement(SEARCH_BAR_ADD_METRIC).sendKeys(dashBoardData.portletQuery, Keys.ENTER, Keys.ENTER);
     }
-
+/*
     @Step("Verifying portlet added from search bar")
     public void verifyingPortletAddedFromSearchBar() {
         waitForPageToLoad();
@@ -230,7 +230,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(PORTLET_TITLE, "Counter Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(PORTLET_TITLE).isDisplayed())
             Assert.fail("Counter portlet added is not displayed in Dashboard page");
-    }
+    }*/
 
 
     @Step("Verifying portlet added from search bar")
@@ -239,7 +239,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
-        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dashBoardData.portletQuery);
+        Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dname1);
 
     }
 

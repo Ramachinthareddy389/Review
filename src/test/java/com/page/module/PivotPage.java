@@ -20,14 +20,14 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
     }
 
     @Step("Navigating to Pivot page from tooltip")
-    public void navigateToPivotPage() {
-        waitForPageToLoad();
+    public void navigateToPivotPage(String gaugePortletName) {
+       waitForSecs(10);
         mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_3, "Pivot", MEDIUMWAIT);
         waitForPageToLoad();
         String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Page title for pivot", MEDIUMWAIT);
         System.out.println(Tooltip3);
-        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3);
+        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3+" "+gaugePortletName);
         waitForSecs(15);
     }
 

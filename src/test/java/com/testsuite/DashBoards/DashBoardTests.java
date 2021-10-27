@@ -10,6 +10,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class DashBoardTests extends BaseSetup {
     private DashboardPage dashboardPage;
     private DashBoardData dashBoardData;
@@ -19,6 +21,8 @@ public class DashBoardTests extends BaseSetup {
     private PivotPage pivotPage;
 
     private String sModeOfExecution;
+    Random random = new Random();
+    String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -127,10 +131,10 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        pivotPage.navigateToPivotPage();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyStandardBreadcrumbNavigation();
@@ -142,10 +146,10 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        pivotPage.navigateToPivotPage();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyStandardBreadcrumbNavigation();
@@ -158,8 +162,8 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage();
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
@@ -174,10 +178,10 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingPortletFromSearchBar();
-        portletsFeature.verifyingPortletAddedFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
         //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        pivotPage.navigateToPivotPage();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
         portletsFeature.navigateToRCApageFrmPivotPage();
         dashboardPage.verifyBreadcrumBackwardNavigationFromRCAPAge();

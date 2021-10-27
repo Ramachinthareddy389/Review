@@ -23,6 +23,7 @@ public class PivotTests extends BaseSetup {
     Random random = new Random();
     String dname = "testng";
     String dname1 = dname + random.nextInt(1500);
+    String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -49,10 +50,10 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        portletsFeature.verifyingPortletAddedFromSearchBar();
-        pivotPage.navigateToPivotPage();
+       // portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addTablePortletInPivotPage();
         pivotPage.verifyTablePortletInPivotPage();
         pivotPage.removeTablePortletInPivotPage();
@@ -64,10 +65,10 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        portletsFeature.verifyingPortletAddedFromSearchBar();
-        pivotPage.navigateToPivotPage();
+       // portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addChartPortletInPivotPage();
         pivotPage.verifyChartPortletInPivotPage();
         pivotPage.removeChartPortletInPivotPage();
@@ -79,10 +80,10 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        portletsFeature.verifyingPortletAddedFromSearchBar();
-        pivotPage.navigateToPivotPage();
+        //portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addDataInTablePortletInPivotPage();
         pivotPage.verifyDataInTablePortletInPivotPage();
         pivotPage.removeTablePortletInPivotPage();

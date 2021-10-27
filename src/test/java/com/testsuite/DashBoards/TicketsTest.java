@@ -10,6 +10,8 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class TicketsTest extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
@@ -19,7 +21,8 @@ public class TicketsTest extends BaseSetup {
     private PivotPage pivotPage;
     private  DashboardPage dashboardPage;
     private String sModeOfExecution;
-
+    Random random = new Random();
+    String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -129,7 +132,7 @@ public class TicketsTest extends BaseSetup {
         //dashboardPage.clickOnDashboard();
         portletsFeature.addingPortletFromSearchBar();
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        pivotPage.navigateToPivotPage();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.createTicketOnDashboard();
         dashboardPage.verifyTicketInTicketsPage();
         dashboardOverviewPage.clickingDashBoardModule();

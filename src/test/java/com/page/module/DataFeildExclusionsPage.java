@@ -4,6 +4,7 @@ import com.page.locators.CorrelationLocators;
 import com.page.locators.DataFeildExclusionLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -108,8 +109,10 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         }
 
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW, "Edit window", MEDIUMWAIT);
-        waitForSecs(2);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
 
@@ -193,6 +196,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         mouseHoverJScript(ICON_INFROMATIONINDRILLTHRGH, "Information icon in System header", "Drillthrogh Page", MEDIUMWAIT);
         waitForSecs(2);
         mouseHoverJScript(LABEL_SYSTEM, "System name label", "Popup", MEDIUMWAIT);
+        waitForSecs(15);
         safeClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
     }
 
@@ -202,13 +206,68 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
     }
 
     public void addingDataFieldExclusionDetailsFromRCApage(){
+        waitForSecs(10);
         mouseHoverJScript(ICON_INFORMATION_RCA_PAGE, "Information icon in System header", "Drillthrogh Page", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(LABEL_SYSTEM,"SYstem Name Label",MEDIUMWAIT);
         mouseHoverJScript(LABEL_SYSTEM, "System name label", "Popup", MEDIUMWAIT);
         safeClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
     }
+    public void applyingFilters(){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+dname1+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        //driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName =safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName,dname1);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
 
-
+    }
+    public void verifyingIconsInEditWindow() {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + dname1 + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
 
 }

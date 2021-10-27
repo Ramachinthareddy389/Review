@@ -17,11 +17,13 @@ public class DataFieldExclusionsTests extends BaseSetup {
     private DataFeildExclusionsPage dataFeildExclusionsPage;
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
-
     private String sModeOfExecution;
     Random random = new Random();
     String dname = "testng";
+    String port = "portlets";
     String dname1 = dname + random.nextInt(1500);
+    String dname12 = port + random.nextInt(1500);
+    String gaugePortletName = "Gauge Portlet - " + random.nextInt(1000);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -40,6 +42,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
     }
+
     @Test(alwaysRun = true)
     public void TC_187_AddDataFieldExclusionconfig() throws InterruptedException {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();
@@ -64,7 +67,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingPortlet(dname1, "User Click");
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigatingToDrillThroughPage(dname1);
         dataFeildExclusionsPage.addingDataExclusionFromDrillThroughPage();
@@ -74,7 +77,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToRCADrillThroughPage();
         dataFeildExclusionsPage.addingDataFieldExclusionDetailsFromRCApage();
@@ -83,7 +86,18 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dataFeildExclusionsPage.verifyingFeildExclusionDetails();
 
     }
+    @Test(alwaysRun = true)
+    public void TC_195_ApplyFiltersInDataFieldExclusion() {
+        dataFeildExclusionsPage.clickingOnDataFeildExclusion();
+        dataFeildExclusionsPage.addingNewDataFieldExclusion();
+        dataFeildExclusionsPage.applyingFilters();
+    }
 
-
+    @Test(alwaysRun = true)
+    public void TC_197_VerifyIconsInEditConfigWindowInDataFieldExclusion(){
+        dataFeildExclusionsPage.clickingOnDataFeildExclusion();
+        dataFeildExclusionsPage.addingNewDataFieldExclusion();
+        dataFeildExclusionsPage.verifyingIconsInEditWindow();
+    }
 
 }

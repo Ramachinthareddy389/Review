@@ -97,11 +97,11 @@ public class SQLPage extends SafeActions implements SQLLocators {
             }
         }
         waitForSecs(10);
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, Querys, "Name Textbox", MEDIUMWAIT);
         safeType(SQL_TEXTAREA,Query,"Query",MEDIUMWAIT);
-        safeClick(SQLQUERY_TIMERANGE_GHOSTTEXT,"TimRange ghost text",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+  /*      safeClick(SQLQUERY_TIMERANGE_GHOSTTEXT,"TimRange ghost text",MEDIUMWAIT);
         safeClearAndType(TXTBOX_SQL_QUERY_TIMERANGE, TimeRange, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5= driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
@@ -113,7 +113,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
                 break;
             }
         }
-        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
+        safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);*/
         safeCheck(CHKBOX_RUNSCHEDULE,"Run Schedule checkbox",MEDIUMWAIT);
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         safeClick(BTN_FINISH,"Finish Button",MEDIUMWAIT);
