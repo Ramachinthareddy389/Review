@@ -165,7 +165,7 @@ public class DashBoardTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
       //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyBreadcrumbNavigationWithConstraintsInDrillthroughPage();

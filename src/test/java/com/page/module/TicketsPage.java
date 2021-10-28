@@ -59,9 +59,9 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Adding Ticket with assignee and Multiple Participants in Tickets page")
     public void addTicketWithAssigneeAndMultipleParticipants() {
-        safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
+        //safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
         waitForSecs(10);
-        waitUntilClickable(TICKET_TITLE, "", MEDIUMWAIT);
+        //waitUntilClickable(TICKET_TITLE, "", MEDIUMWAIT);
         safeTypeUsingChrod(TICKET_TITLE, ticketTitle, "Ticket Title in Dashboard page", MEDIUMWAIT);
         safeClick(TICKET_SEVERITY, "Severity field", MEDIUMWAIT);
         waitUntilClickable(SEVERITY_OPTION, "", MEDIUMWAIT);

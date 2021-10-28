@@ -91,9 +91,9 @@ public class TicketsTest extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         ticketsPage.creatingTicketFrmDrillThrghPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
         ticketsPage.clickingOnTicketspage();
@@ -110,9 +110,9 @@ public class TicketsTest extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         portletsFeature.navigateToRCAFromDrillthroughPage();
         ticketsPage.creatingTicketFrmDrillThrghPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
@@ -130,7 +130,7 @@ public class TicketsTest extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         //dashboardPage.clickOnDashboard();
-        portletsFeature.addingPortletFromSearchBar();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.createTicketOnDashboard();

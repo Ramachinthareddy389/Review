@@ -219,4 +219,13 @@ public interface DashBoardLocators {
     By PIN_FOLDER = By.xpath("//div[@aria-label='Pin this folder']");
 
     By UNPIN_FOLDER = By.xpath("//div[@aria-label='Unpin this folder']");
+
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By TYPE_SEARCH_DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Dashboard Display Name']");
+    By BTN_FILTER = By.xpath("//div[@aria-label='Filter']");
+    By FILTERED_VALUE = By.xpath("//span[contains(@aria-label,'Deactivate and pin filter: Dashboard Key is')]/following-sibling::span/span");
 }

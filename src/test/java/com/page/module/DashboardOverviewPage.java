@@ -133,7 +133,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Deleting dashboard from the application ")
     public void deletingDashboard() throws InterruptedException {
-        waitForPageToLoad();
+        waitForSecs(10);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
         safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
@@ -1052,6 +1052,44 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println("Dashboard is visible: " + pinnedDashboard_Visibility);
         Assert.assertTrue(pinnedDashboard_Visibility, "Pinned Dashboard is displayed");
         safeClick(BTN_CLEAR,"Clearing search",MEDIUMWAIT);
+    }
+
+    public  void applyFilterusingFilterIconDisplayedinAnycolumn(){
+        waitForSecs(10);
+        driver.findElements(By.xpath("//i[contains(@class,'fa fa-caret-down')]")).get(1).click();
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        safeClick(BTN_FILTER,"Filter button",MEDIUMWAIT);
+        String filter_Value= safeGetText(FILTERED_VALUE,"Filter dashboard",MEDIUMWAIT);
+        System.out.println(filter_Value);
+        String DbName = safeGetText(LISTOFDASHBOARDS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(DbName);
+        Assert.assertEquals(filter_Value,DbName);
+        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+
+    }
+
+    public void applyingFilters() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(TYPE_SEARCH_DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        waitForSecs(10);
+      //  By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
+        safeType(TYPE_SEARCH, dname1, "text", MEDIUMWAIT);
+        //driver.findElement(SeachedText).click();
+        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        waitForSecs(10);
+        //mouseHoverJScript(LISTOFFOLDER, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDASHBOARDS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, dname1);
+
+
     }
 
 }

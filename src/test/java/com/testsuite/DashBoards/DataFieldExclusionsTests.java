@@ -86,6 +86,13 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dataFeildExclusionsPage.verifyingFeildExclusionDetails();
 
     }
+
+    @Test(alwaysRun = true)
+    public  void TC_194_VerifyPageIcons(){
+        dataFeildExclusionsPage.clickingOnDataFeildExclusion();
+        dataFeildExclusionsPage.addingNewDataFieldExclusion();
+        dataFeildExclusionsPage.verifyingPageIconsInDataExclusionPage();
+    }
     @Test(alwaysRun = true)
     public void TC_195_ApplyFiltersInDataFieldExclusion() {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();

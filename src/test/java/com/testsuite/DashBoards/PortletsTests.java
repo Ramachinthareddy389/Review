@@ -376,7 +376,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
@@ -391,7 +391,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
         //portletsFeature.verifyingPortletAddedFromSearchBar();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.navigateToDrillthroughPage();
+        portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         portletsFeature.navigateToRCAFromDrillthroughPage();
         portletsFeature.verifyTimeRangeInRCAPage();
         dashboardOverviewPage.clickingDashBoardModule();

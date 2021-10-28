@@ -1170,14 +1170,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Navigate to Drillthrough page using '3 option' tooltip")
-    public void navigateToDrillthroughPage() {
+    public void navigateToDrillthroughPage(String gaugePortletName) {
         waitForPageToLoad();
         mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_2, "Drillthrough", MEDIUMWAIT);
         waitForPageToLoad();
         String Tooltip2 = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
         System.out.println(Tooltip2);
-        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2);
+        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2+" "+gaugePortletName);
     }
 
     @Step("Navigate to RCA page from Drillthrough page")

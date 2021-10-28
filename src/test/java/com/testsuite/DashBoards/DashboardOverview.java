@@ -238,8 +238,18 @@ public class DashboardOverview extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.applyFilterusingFilterIconDisplayedinAnycolumn();
         dashboardOverviewPage.searchingDashboard();
+        dashboardOverviewPage.deletingDashboard();
+    }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_10_ApplyAnyFilterInDashboardPage() throws InterruptedException {
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        dashboardOverviewPage.addingNewDashboard();
+        dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.applyingFilters();
+        dashboardOverviewPage.deletingDashboard();
     }
 /*
     @AfterMethod()

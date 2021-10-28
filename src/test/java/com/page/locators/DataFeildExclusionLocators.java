@@ -42,5 +42,12 @@ public interface DataFeildExclusionLocators {
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
     By REMOVE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Remove Configuration']");
     By ENABLED_STATUS =By.xpath("//div[@aria-label='Enable Configuration']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='Exclusions']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Exclusions']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Exclusions']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='Exclusions']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='Exclusions']/..//div[@aria-label='Remove Selected Configuration']");
 
 }
