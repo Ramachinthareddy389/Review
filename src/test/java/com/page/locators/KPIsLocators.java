@@ -64,4 +64,12 @@ public interface KPIsLocators {
     By SELECT_ALL_CKHBOX = By.xpath("//input[@type='checkbox'][@aria-label='Select All']");
     By DELETE_SLAS = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By EYE_ICON = By.xpath("//button[@aria-label='view']");
+    By KPIS_TEXT = By.xpath("//h6[text()='KPIs']");
+    By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+    By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
 }

@@ -3,12 +3,10 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.DashboardOverviewPage;
-import com.page.module.KPIsPage;
-import com.page.module.LoginPage;
-import com.page.module.PortletsFeature;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,8 +16,11 @@ public class KPIsTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private KPIsPage kpIsPage;
-
+    private AlertTemplatePage alertTemplatePage;
     private String sModeOfExecution;
+    Random random = new Random();
+    String dname = "testng";
+    String dname1 = dname + random.nextInt(1500);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -28,6 +29,7 @@ public class KPIsTests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         kpIsPage = new KPIsPage(getDriver());
         dashBoardData = new DashBoardData();
+        alertTemplatePage = new AlertTemplatePage(getDriver());
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
         (new Sync(getDriver())).waitForPageToLoad();
@@ -39,12 +41,11 @@ public class KPIsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC199_AddKPIconfigurationwithallSLATypes() throws InterruptedException
-    {
+    public void TC199_AddKPIconfigurationwithallSLATypes() throws InterruptedException {
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.verifyingKPIsPage();
     }
 
@@ -59,46 +60,69 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingEditedKPISDetails();
     }*/
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_201_AddSLAsinEditKPIconfigwindow(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_201_AddSLAsinEditKPIconfigwindow() {
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.addingSLASInEditConfigWindow();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.verifyingAddedSLASInEditConfigWindow();
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_202_AddThresholdinFactBasedSLAeditwindowinKPIpage(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_202_AddThresholdinFactBasedSLAeditwindowinKPIpage() {
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.addingThresholdValueInEditKPIswindow();
         kpIsPage.verifyingAddedThresholdInEditWindow();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_203_NavigatetoDrillthroughpagefromKPIeditconfigwindow(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_203_NavigatetoDrillthroughpagefromKPIeditconfigwindow() {
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.navigateToDrillThrghPageFrmKpiEditWindow();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_206_AddActionsinEditSLAconfigwindowinKPIspage(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_206_AddActionsinEditSLAconfigwindowinKPIspage() {
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.addingActionsInEditSLAConfigWindow();
         kpIsPage.verifyingActionsInEditSLAConfigWindow();
 
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_210_VerifyIconsInEditConfigWindow() {
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction(dname1);
+        kpIsPage.verifyingIconsInEditConfigWindow();
+
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_212_ViewDataForFieldsWithViewIconInEditConfigWindow() {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction("ALERTTEMPLATE");
+        kpIsPage.viewDataWithFeildsForViewIcon();
+        alertTemplatePage.clickingOnAlertTemplate();
+        kpIsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
 }

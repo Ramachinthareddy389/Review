@@ -130,8 +130,22 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
         By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])");
         waitForSecs(15);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(TYPE_SEARCH_DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        waitForSecs(10);
+        //  By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
+        safeType(TYPE_SEARCH, ticketTitle, "text", MEDIUMWAIT);
+        //driver.findElement(SeachedText).click();
+        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        waitForSecs(10);
         //waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
         if (driver.findElement(TitleCheck).isDisplayed()) {
+            mouseHoverJScript(TitleCheck,"Title of ticket ","Title",MEDIUMWAIT);
             safeClick(TitleCheck, "Ticket Title in Tickets page", MEDIUMWAIT);
             waitForSecs(10);
             if (Assignee_Add.equals(driver.findElement(TICKET_ASSIGNEE).getText()) || Severity_Add.equals(driver.findElement(TICKET_SEVERITY).getText()) ||

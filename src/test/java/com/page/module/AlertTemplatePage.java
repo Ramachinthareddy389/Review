@@ -34,10 +34,11 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     public void clickingOnAlertTemplate() {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+
     }
 
-    public void addIngAlertTemplate() {
+    public void addIngAlertTemplate(String dname1) {
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         waitForSecs(30);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, dname1, "Name into textbox", MEDIUMWAIT);
@@ -70,7 +71,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public void verifyingAlertTemplateDetails() {
+    public void verifyingAlertTemplateDetails(String dname1) {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -133,7 +134,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
-    public void verifyingEditedConfiguraions() {
+    public void verifyingEditedConfiguraions(String dname1) {
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = dname1;

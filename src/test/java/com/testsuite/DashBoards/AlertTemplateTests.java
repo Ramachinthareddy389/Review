@@ -46,18 +46,18 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true)
     public void TC_355_AddAlertTemplateConfiguration() throws InterruptedException {
         alertTemplatePage.clickingOnAlertTemplate();
-        alertTemplatePage.addIngAlertTemplate();
-        alertTemplatePage.verifyingAlertTemplateDetails();
+        alertTemplatePage.addIngAlertTemplate(dname1);
+        alertTemplatePage.verifyingAlertTemplateDetails(dname1);
 
     }
 
- /*   @Test(alwaysRun = true)
+    @Test(alwaysRun = false)
     public void TC_366_EditAlertTemplateConfiguration() {
         alertTemplatePage.clickingOnAlertTemplate();
-        alertTemplatePage.addIngAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.EditingAlertTemplateConfig();
-        alertTemplatePage.verifyingEditedConfiguraions();
-    }*/
+        alertTemplatePage.verifyingEditedConfiguraions(dname1);
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_340_TriggerAnAlertbasedonSLAs() {
