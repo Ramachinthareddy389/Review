@@ -46,7 +46,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = false, groups = "Smoke Test")
     public void TC_452_VerifyUserAccessRequestsCreatedFromLoginPageforNewusers() throws InterruptedException {
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestingTheAccessFromLoginPage();

@@ -354,17 +354,32 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     @Step("Verifying GHPortlet")
     public void VerifyingGHPortlet(String dname1) {
-        waitForSecs(15);
-        waitUntilClickable(All_FOLDER, "Add metric link");
-        safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
-        waitForSecs(5);
-        safeType(TEXTBOX_TYPESEARCH, dname1, "Dashboard Name in textbox", VERYLONGWAIT);
-        WebElement type = driver.findElement(TEXTBOX_TYPESEARCH);
-        type.sendKeys(Keys.ENTER);
-        waitForSecs(10);
-        mouseHoverJScript(LIST_PORTLETS, "text", "mouse", MEDIUMWAIT);
-        String text = safeGetText(LIST_PORTLETS, "List of Portlets", MEDIUMWAIT);
-        Assert.assertEquals(text, dname1);
+        waitForPageToLoad();
+        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + dname1 + "']");
+        waitUntilClickable(NTABULAR_PORTLET_TITLE, "GH Portlet Title", MEDIUMWAIT);
+        if (!driver.findElement(NTABULAR_PORTLET_TITLE).isDisplayed())
+            Assert.fail("GH portlet added is not displayed in Dashboard page");
+        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + dname1 + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
+        if (!driver.findElement(FILTER_NTABULAR_PORTLET).isDisplayed())
+            Assert.fail("Filter icon is not displayed for N Tabular Portlet");
+        mouseHoverJScript(FILTER_NTABULAR_PORTLET, "Filter icon", "Filter icon in N Tabular Portlet", MEDIUMWAIT);
+        By FILTER_MESSAGE_NTABULAR_PORTLET = By.xpath("//span[contains(@aria-label,'" + appliedFilter + "')]");
+        if (!driver.findElement(FILTER_MESSAGE_NTABULAR_PORTLET).isDisplayed())
+            Assert.fail("Portlet Filter Message is not displayed properly in N Tabular portlet");
+        By KPI_FILTER_MESSAGE_NTABULAR_PORTLET = By.xpath("//span[contains(@aria-label,'" + appliedKPIFilter + "')]");
+        if (!driver.findElement(KPI_FILTER_MESSAGE_NTABULAR_PORTLET).isDisplayed())
+            Assert.fail("KPI Filter Message is not displayed properly in N Tabular portlet");
+        try {
+            waitForSecs(5);
+            if (driver.findElement(NTABULAR_PORTLET_CHART).isDisplayed()) {
+                System.out.println("Data is displaying in GH Portlet");
+            }
+        } catch (Exception e) {
+            if (!driver.findElement(NO_DATA_AVAILABLE_PORTLET).isDisplayed())
+                Assert.fail("No Data Available label is not displayed in N Tabular portlet");
+            System.out.println("Data is not available in N Tabular Portlet");
+        }
+
     }
 
 
@@ -556,9 +571,28 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
         safeClick(TABULAR_MEASURES_FIELD, "Pivots Field", MEDIUMWAIT);
         String measureData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
-        driver.findElement(TABULAR_MEASURES_FIELD_INPUT).sendKeys(measureData + dashBoardData.portletMeasureData, Keys.ENTER);
+        driver.findElement(TABULAR_MEASURES_FIELD_INPUT).sendKeys(measureData + dashBoardData.portletMeasureData);
+        waitForSecs(10);
+        List<WebElement> kpi2 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpi2.size(); i++) {
+            System.out.println(kpi2.get(i).getText());
+            if (kpi2.get(i).getText().equalsIgnoreCase(dashBoardData.portletMeasureData)) {
+                kpi2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
         safeClick(TABULAR_PIVOT_FIELD, "Pivots Field", MEDIUMWAIT);
-        String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData) + Keys.ENTER;
+        String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData) ;
+        List<WebElement> kpi3 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpi3.size(); i++) {
+            System.out.println(kpi3.get(i).getText());
+            if (kpi3.get(i).getText().equalsIgnoreCase(dashBoardData.tabularPortletPivotData)) {
+                kpi3.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
         driver.findElement(TABULAR_PIVOT_FIELD_INPUT).sendKeys(pivotdata);
         safeClick(ORDER_BY_FIELD, "Order By Field in Tabular portlet", MEDIUMWAIT);
         safeClick(ORDER_BY_OPTION, "Order By Field option in Tabular portlet", MEDIUMWAIT);
@@ -763,8 +797,17 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String deleteColumnLabelData = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         driver.findElement(FLOW_COLUMN_LABEL_INPUT).sendKeys(deleteColumnLabelData, dashBoardData.flowPortletColumnLabel);
         safeClick(FLOW_CLUSTER_BY_LABEL, "Cluster By Field", MEDIUMWAIT);
-        String clusterdata = Keys.chord("Name") + Keys.ENTER;
+        String clusterdata = Keys.chord("Name");
         driver.findElement(FLOW_CLUSTER_BY_INPUT).sendKeys(clusterdata);
+        List<WebElement> kpis1 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        for (int i = 0; i < kpis1.size(); i++) {
+            System.out.println(kpis1.get(i).getText());
+            if (kpis1.get(i).getText().equals("Name")) {
+                kpis1.get(i).click();
+                break;
+            }
+        }
+
         safeClick(FLOW_SHOW_USERS_CHECKBOX, "Show Users checkbox", MEDIUMWAIT);
       /*  safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
         safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);

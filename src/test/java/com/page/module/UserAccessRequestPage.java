@@ -17,7 +17,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Email = "Zenqtest" + random.nextInt(500) + "gmail.com";
+    String Email = "Zenqtest" + random.nextInt(500) + "@gmail.com";
     String Edit_Type_Add;
     String notify ="We were unable to authenticate the supplied username and password. One or both are incorrect. Please verify them and try again, or if you continue to have problems, consult with your system administrator about having your password reset.";
 
@@ -36,6 +36,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
 
     @Step("Requesting the Access from login page")
     public void requestingTheAccessFromLoginPage() {
+        waitForSecs(10);
         safeClick(LABEL_REQUEST_ACCESS, "Request Access Label", MEDIUMWAIT);
         waitForSecs(10);
         safeTypeUsingChrod(TXTBOX_EMAIL, Email, "Entering Email Id", MEDIUMWAIT);

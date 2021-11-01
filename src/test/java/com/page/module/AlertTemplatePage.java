@@ -45,8 +45,9 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        waitForSecs(40);
+        waitForSecs(20);
         safeClick(LABEL_TEXT_TITLE, "Text title label", MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         textTitle = driver.findElement(ADDED_TEXT_AREA).getText();
         safeClick(LABEL_TEXT_CONTENT, "Text Content", MEDIUMWAIT);

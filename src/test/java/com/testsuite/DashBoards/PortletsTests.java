@@ -25,7 +25,7 @@ public class PortletsTests extends BaseSetup {
     Random random = new Random();
     String tabularPortletName = "Tabular Portlet - " + random.nextInt(1000);
     String nTabularPortletName = "N Tabular Portlet - " + random.nextInt(1000);
-    String dname = "Pivots";
+    String dname = "GH Portlet";
     String dname1 = dname + random.nextInt(1500);
     String flowPortletName = "Flow Portlet - " + random.nextInt(1000);
     String mapPortletName = "Map Portlet - " + random.nextInt(1000);
@@ -57,7 +57,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1,"User Click");
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.VerifyingGHPortlet(dname1);
         //portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
@@ -74,7 +74,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+      //  dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         // portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
@@ -90,7 +90,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingNTabularPortlet(nTabularPortletName);
         //  portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
@@ -107,7 +107,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingMapPortlet(mapPortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+      //  dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingMapPortlet(mapPortletName);
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
@@ -121,7 +121,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingFlowPortlet(flowPortletName);
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingFlowPortlet(flowPortletName);
         portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
@@ -136,7 +136,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+      //  dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
         portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
@@ -151,7 +151,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingCounterPortlet(counterPortletName);
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
         portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();

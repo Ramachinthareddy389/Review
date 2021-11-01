@@ -125,4 +125,28 @@ public class KPIsTests extends BaseSetup {
         alertTemplatePage.clickingOnAlertTemplate();
         kpIsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_207_VerifyPageIconsInKPIPage(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction("ALERTTEMPLATE");
+        kpIsPage.verifyingPageIcons();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_208_ApplyFiltersInKPIPage(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
+        kpIsPage.clickingOnCorrelation();
+        kpIsPage.addingKPIPage();
+        kpIsPage.addingSLASettingsPage();
+        kpIsPage.addingSLAAction("ALERTTEMPLATE");
+        kpIsPage.applyingFilters();
+    }
+
+
 }
