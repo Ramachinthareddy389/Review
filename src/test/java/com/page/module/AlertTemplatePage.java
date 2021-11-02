@@ -34,12 +34,11 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     public void clickingOnAlertTemplate() {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        waitForSecs(30);
     }
 
     public void addIngAlertTemplate(String dname1) {
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
-        waitForSecs(30);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -307,4 +306,11 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
 
     }
+
+    public void navigateToAlertTemplateWindow(){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+    }
+
+
 }
