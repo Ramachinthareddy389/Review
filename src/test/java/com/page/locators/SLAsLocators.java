@@ -54,7 +54,15 @@ public interface SLAsLocators {
     By TXTBOX_ACTIONS_NAME= By.xpath("//input[@id='name']/../../../div[text()='Select or Add...']/../div[2]/div/input");
     By HYPERLINK_ACTIONS = By.xpath("//span[text()='Actions']/../../../div/div/div/button");
     By ALERT_TEMPLATE_ADDICON = By.xpath("//span[text()='Alert Template']/../../../../../following-sibling::button");
-    By KPIS_LINKS = By.xpath("//div[@title='Select Row']/../descendant::button[1]");
     By Title_DRILLTHROUGH = By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By TITLE_IN_ALERTTEMPLATE = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='Service Level Agreements']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Service Level Agreements']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Service Level Agreements']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='Service Level Agreements']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='Service Level Agreements']/..//div[@aria-label='Remove Selected Configuration']");
 
 }

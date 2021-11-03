@@ -94,12 +94,33 @@ public class SLAsTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_218_NavigateToKPIsPageonClickingAnyKPIUnderKPINameColumn(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_218_NavigateToKPIsPageonClickingAnyKPIUnderKPINameColumn() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction();
         slAsPage.navigateToKPIPageFromSLAPage();
+        slAsPage.clickingSLAsPage();
+        slAsPage.deletingCreatedSLAs();
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_219_NavigateToAlertTemplatesPageonClickingnAlertTempUnderSLASPAge(){
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction();
+        slAsPage.navigateToAlertTemplatePageFrmSLAPage();
+        slAsPage.clickingSLAsPage();
+        slAsPage.deletingCreatedSLAs();
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_220_VerifyPageIconsInSLAsPage(){
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction();
+        slAsPage.verifyingPageIconsInSLApage();
     }
 }
