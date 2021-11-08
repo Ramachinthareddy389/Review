@@ -123,4 +123,22 @@ public class SLAsTests extends BaseSetup {
         slAsPage.addingSLAAction();
         slAsPage.verifyingPageIconsInSLApage();
     }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_221_ApplyFiltersInSLAsPage(){
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction();
+        slAsPage.applyingFilters();
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public  void TC_223_VerifyIconsinEditonfigWindow(){
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction();
+        slAsPage.verifyingIconsInEditWindow();
+    }
 }
