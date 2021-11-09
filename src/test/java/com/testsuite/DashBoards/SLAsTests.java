@@ -47,7 +47,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_213_AddSLAConfigforAllTypes() throws InterruptedException {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.verifyingSLAsPage();
     }
 /*
@@ -65,7 +65,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_214_AddThresholdinFactBasedSLAeditwindow() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.addingThresholdValueInEditSLAswindow();
         slAsPage.verifyingAddedThresholdInEditWindow();
     }
@@ -75,7 +75,7 @@ public class SLAsTests extends BaseSetup {
 
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.addingActionsInEditSLAConfigWindow();
         slAsPage.verifyingActionsInEditSLAConfigWindow();
 
@@ -85,7 +85,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_217_AddAlertTemplateInEditSLAConfigWindow() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.addingAlertTemplateInEditSLAConfigWindow();
         alertTemplatePage.addIngAlertTemplate(AlertTemplate);
         slAsPage.verifyingAddedAlertTemplateInSLAEditWindow(AlertTemplate);
@@ -98,7 +98,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_218_NavigateToKPIsPageonClickingAnyKPIUnderKPINameColumn() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.navigateToKPIPageFromSLAPage();
         slAsPage.clickingSLAsPage();
         slAsPage.deletingCreatedSLAs();
@@ -109,7 +109,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_219_NavigateToAlertTemplatesPageonClickingnAlertTempUnderSLASPAge(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.navigateToAlertTemplatePageFrmSLAPage();
         slAsPage.clickingSLAsPage();
         slAsPage.deletingCreatedSLAs();
@@ -120,7 +120,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_220_VerifyPageIconsInSLAsPage(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.verifyingPageIconsInSLApage();
     }
 
@@ -129,7 +129,7 @@ public class SLAsTests extends BaseSetup {
     public void TC_221_ApplyFiltersInSLAsPage(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.applyingFilters();
 
     }
@@ -138,7 +138,19 @@ public class SLAsTests extends BaseSetup {
     public  void TC_223_VerifyIconsinEditonfigWindow(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.verifyingIconsInEditWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_225_ViewDataforFieldswithViewIconInEditConfigWindow(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
+        slAsPage.viewDataWithFeildsForViewIcon();
+        alertTemplatePage.clickingOnAlertTemplate();
+        slAsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
 }

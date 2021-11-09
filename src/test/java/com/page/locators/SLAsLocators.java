@@ -71,4 +71,9 @@ public interface SLAsLocators {
     By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
     By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+    By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+    By KPIS_TEXT = By.xpath("//h6[text()='KPIs']");
+    By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+    By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By HYPERLINK_SLAs = By.xpath("//span[text()='SLAs']/../../../div/div/div/button");
 }

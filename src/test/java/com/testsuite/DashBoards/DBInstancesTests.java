@@ -53,4 +53,12 @@ public class DBInstancesTests extends BaseSetup {
     }*/
 
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_134_VerifyPageIconsInDbinstancesPage(){
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances();
+        dbInstancesPage.verifyingPageIconsInDbinstancespage();
+    }
+
+
 }

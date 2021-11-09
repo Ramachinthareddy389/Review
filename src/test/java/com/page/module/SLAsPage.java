@@ -89,16 +89,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
     }
 
-    public void addingSLAAction() {
+    public void addingSLAAction(String sla) {
         safeClick(LABEL_ALERT_TEMP, "Server Feild", MEDIUMWAIT);
         safeClick(ALERT_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ALERT, "SLA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ALERT, sla, "Server name into textbox", MEDIUMWAIT);
         waitForSecs(5);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("SLA")) {
+            if (dbs2.get(i).getText().equals(sla)) {
 
                 dbs2.get(i).click();
                 break;
@@ -513,5 +513,54 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(15);
     }
 
+    public void viewDataWithFeildsForViewIcon() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+       // safeClick(HYPERLINK_SLAs, "Added BP Steps", MEDIUMWAIT);
+        //waitForSecs(10);
+        safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
+        isElementDisplayed(KPIS_TEXT);
+        waitForSecs(5);
+        List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.SLA_VALUES[i]));
+            System.out.println(wizardName);
+        }
+
+
+        for (int j = 0; j < dashBoardData.SLA_VALUES.length - 1; j++) {
+            System.out.println("Values are " + dashBoardData.SLA_VALUES[j]);
+        }
+        safeClick(CLOSE_WINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+
+    }
+    public void deleteinAlertTemplate(String dname1) {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 
 }

@@ -32,7 +32,20 @@ public interface DBInstancesLocators
    By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
-
-
+   By BTN_ENABLE = By.xpath("//h5[text()='Databases']/..//div[@aria-label='Enable Selected Configuration']");
+   By BTN_DISABLE = By.xpath("//h5[text()='Databases']/..//div[@aria-label='Disable Selected Configuration']");
+   By BTN_CLONE = By.xpath("//h5[text()='Databases']/..//div[@aria-label='Clone Selected Configuration']");
+   By BTN_STATUS = By.xpath("//h5[text()='Databases']/..//div[@aria-disabled='true']");
+   By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+   By BTN_DELETE = By.xpath("//h5[text()='Databases']/..//div[@aria-label='Remove Selected Configuration']");
+   By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+   By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+   By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+   By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+   By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+   By LABEL_SAVE = By.xpath("//span[text()='Save']");
+   By Title_DRILLTHROUGH = By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+   By TITLE_IN_ALERTTEMPLATE = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+   By KPINAME_TXTBOX = By.xpath("//input[@id='name']");
 
 }

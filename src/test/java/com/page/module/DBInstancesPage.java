@@ -110,7 +110,10 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         } else {
             Assert.fail("Ticket details are invalid");
         }
-        safeClick(CLOSE_EDITWINDOW,"Edit window",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
     public void ediingConfiguration() {
@@ -135,4 +138,111 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         System.out.println(EditedText);
         Assert.assertEquals(EditedText, "test123");
     }
+
+    public void verifyingPageIconsInDbinstancespage() {
+        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(30);
+        By SELECTROW_CHKBOX1 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span[text()='Dbinstancename']/../../parent::div/descendant::input[1]");
+        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        By ELEMENT_STATUS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span/mark[text()='Dbinstancename']/../../..//parent::div/div[1]/descendant::input");
+       // isElementSelected(ELEMENT_STATUS);
+        boolean b1 =  driver.findElement(ELEMENT_STATUS).isSelected();
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(ELEMENT_STATUS);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        waitForSecs(9);
+        By SELECTROW_CHKBOX2 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span/mark[text()='Dbinstancename']/../../../parent::div/descendant::input[1]");
+        safeJavaScriptClick(SELECTROW_CHKBOX2, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = "Dbinstancename"+" - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+
+    }
+
+    public void applyingFilters() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(20);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'Dbinstancename')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        //  mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, "Dbinstancename");
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+
+    }
+    public void navigateToHardwarePageFrmDbinstnacePage() {
+        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(10);
+        By locator = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span[text()='Dbinstancename']/../../following-sibling::div[2]/span/button");
+        // mouseHoverJScript(locator, "Database Name", "Mouse hover", MEDIUMWAIT);
+        waitForSecs(30);
+        safeClick(locator, "KPi Hyper Link", MEDIUMWAIT);
+        waitForSecs(15);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, "Hardware");
+        waitForSecs(10);
+        String pageTitle = safeGetText(TITLE_IN_ALERTTEMPLATE, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String alertName = safeGetAttribute(KPINAME_TXTBOX, "value", "Added Alert template", MEDIUMWAIT);
+        System.out.println(alertName);
+        Assert.assertEquals(pageTitle, alertName);
+        waitForSecs(5);
+        safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
+        safeClick(BTN_DBINSTANCES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+
 }
