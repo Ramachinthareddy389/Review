@@ -48,11 +48,12 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
+        portletsFeature.addingGaugePortletForAllThenavgations(gaugePortletName);
         dashboardPage.setAllowedUsersInDashboardVisibility();
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.userName, PasswordDecoder.passwordDecrypt(dashBoardData.userPassword));
         loginPage.clickLogInButton();
-        dashboardPage.accessDashboardByAllowedUser();
+        dashboardPage.accessDashboardByAllowedUser(gaugePortletName);
         loginPage.clickLogoutButton();
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
@@ -131,13 +132,13 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingGaugePortlet(gaugePortletName);
+        portletsFeature.addingGaugePortletForAllThenavgations(gaugePortletName);
       //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
-        dashboardPage.verifyStandardBreadcrumbNavigation();
+        dashboardPage.verifyStandardBreadcrumbNavigation(gaugePortletName);
         dashboardPage.deletingDashboard();
     }
 
@@ -146,14 +147,14 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingGaugePortlet(gaugePortletName);
+        portletsFeature.addingGaugePortletForAllThenavgations(gaugePortletName);
       //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.navigateToDrillthroughPageFromPivotPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
-        dashboardPage.verifyStandardBreadcrumbNavigation();
-        dashboardPage.verifyStandardBreadcrumbBackwardNavigation();
+        dashboardPage.verifyStandardBreadcrumbNavigation(gaugePortletName);
+        dashboardPage.verifyStandardBreadcrumbBackwardNavigation(gaugePortletName);
         dashboardPage.deletingDashboard();
     }
 
@@ -162,14 +163,14 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingGaugePortlet(gaugePortletName);
+        portletsFeature.addingGaugePortletForAllThenavgations(gaugePortletName);
       //  portletsFeature.verifyingPortletAddedFromSearchBar();
         // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
         portletsFeature.navigateToRCAFromDrillthroughPage();
         dashboardPage.verifyBreadcrumbNavigationWithConstraintsInDrillthroughPage();
-        dashboardPage.verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage();
+        dashboardPage.verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage(gaugePortletName);
         dashboardPage.deletingDashboard();
     }
 
@@ -178,7 +179,7 @@ public class DashBoardTests extends BaseSetup {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
-        portletsFeature.addingGaugePortlet(gaugePortletName);
+        portletsFeature.addingGaugePortletForAllThenavgations(gaugePortletName);
       //  portletsFeature.verifyingPortletAddedFromSearchBar();
         //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage(gaugePortletName);

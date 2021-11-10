@@ -59,6 +59,18 @@ public class DBInstancesTests extends BaseSetup {
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.verifyingPageIconsInDbinstancespage();
     }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_135_ApplyFiltersInDbinstancePage(){
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances();
+        dbInstancesPage.applyingFilters();
+    }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_136_NavigateToServerPageByClickingonServersUnderServerColumn(){
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances();
+        dbInstancesPage.navigateToHardwarePageFrmDbinstnacePage();
+    }
 
 }

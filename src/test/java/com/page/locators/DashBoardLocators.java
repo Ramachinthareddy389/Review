@@ -144,7 +144,7 @@ public interface DashBoardLocators {
     By CLOSE_TICKET = By.xpath("//h6/../following-sibling::button");
     //Dashboard Visibility - Allowed Users
     By ERROR_MESSAGE = By.xpath("//p[contains(text(),'Unable to access Dashboard')]");
-    By DASHBAORD_VISIBILITY_ICON = By.xpath("//div[@aria-label='Update Dashboard Visibility']");
+    By DASHBAORD_VISIBILITY_ICON = By.xpath("//div[@aria-label='Update Dashboard Visibility']/span/i");
     By ALLOWED_USERS_FIELD = By.xpath("//label[@for='allowedUsers']/following-sibling::div/div");
     By BTN_SAVE_DASHBOARD_VISIBILITY = By.xpath("//span[contains(text(),'Save')]");
     By ADD_METRIC_ICON = By.xpath("//i[@aria-label='Add Metric']");
@@ -198,7 +198,7 @@ public interface DashBoardLocators {
     By Title_DRILLTHROUGH = By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
 
     //Breadcrumb with Constraints
-    By FILTER_VALUE_DRILLTHROUGH = By.xpath("//button[contains(@title,'Switch to \"is not\"')]/following-sibling::span/span");
+    By FILTER_VALUE_DRILLTHROUGH = By.xpath("//div[@aria-label='Pin this filter']/parent::div/span/span[2]/span");
     By BREADCRUMB_DRILLTHROUGH = By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::span[2]");
 
     //

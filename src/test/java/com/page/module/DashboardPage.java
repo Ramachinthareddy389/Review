@@ -209,9 +209,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
         waitUntilClickable(SEARCH_BAR_ADD_METRIC, "Search bar in Add Metric Window", MEDIUMWAIT);
-        safeClick(SEARCH_BAR_ADD_METRIC, "Search bar in Add Metric Window", MEDIUMWAIT);
+       // safeClick(SEARCH_BAR_ADD_METRIC, "Search bar in Add Metric Window", MEDIUMWAIT);
         driver.findElement(SEARCH_BAR_ADD_METRIC).sendKeys(dashBoardData1.portletQuery, Keys.ENTER, Keys.ENTER);
-        waitForPageToLoad();
+        //waitForPageToLoad();
         By PORTLET_TITLE = By.xpath("//span[@aria-label='" + dashBoardData1.portletQuery + "']");
         waitUntilClickable(PORTLET_TITLE, "Counter Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(PORTLET_TITLE).isDisplayed())
@@ -220,9 +220,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("Set 'Allowed Users' in 'Dashboard Visibility'")
     public void setAllowedUsersInDashboardVisibility() throws InterruptedException {
-        waitForPageToLoad();
-        safeClick(LISTOFDASHBOARDS, "Dashboard in Dashboards Overview page", MEDIUMWAIT);
-        addingAndVerifyingSamplePortlet();
+       // waitForPageToLoad();
+       // safeClick(LISTOFDASHBOARDS, "Dashboard in Dashboards Overview page", MEDIUMWAIT);
+
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON, "Dashboard Visibility icon", MEDIUMWAIT);
         safeClick(DASHBAORD_VISIBILITY_ICON, "Dashboard Visibility icon", MEDIUMWAIT);
         waitUntilClickable(ALLOWED_USERS_FIELD, "Allowed Users Field", MEDIUMWAIT);
@@ -247,7 +247,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     }
 
     @Step("Accessing Dashboard by Allowed user")
-    public void accessDashboardByAllowedUser() throws InterruptedException {
+    public void accessDashboardByAllowedUser(String gaugePortletName) throws InterruptedException {
         boolean flag = false;
         try {
             safeClick(CLOSE_ERROR_POPUP, "Close button in error popup", MEDIUMWAIT);
@@ -265,7 +265,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitUntilClickable(HEADER_DASHBOARD, "", MEDIUMWAIT);
         if (!driver.findElement(HEADER_DASHBOARD).isDisplayed())
             Assert.fail("Dashboard page is not displayed for user after giving access");
-        By PORTLET_TITLE = By.xpath("//span[@aria-label='" + dashBoardData1.portletQuery + "']");
+        By PORTLET_TITLE = By.xpath("//span[@aria-label='" + gaugePortletName+ "']");
         waitUntilClickable(PORTLET_TITLE, "Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(PORTLET_TITLE).isDisplayed())
             Assert.fail("Portlet added is not displayed in Dashboard page");
@@ -295,9 +295,11 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitUntilClickable(DASHBAORD_VISIBILITY_ICON, "Dashboard Visibility icon", MEDIUMWAIT);
         safeClick(DASHBAORD_VISIBILITY_ICON, "Dashboard Visibility icon", MEDIUMWAIT);
         waitUntilClickable(ALLOWED_USERS_FIELD, "Allowed Users Field", MEDIUMWAIT);
-        By DELETE_ALLOWED_USER = By.xpath("//span[contains(text(),'" + dashBoardData1.userName + "')]/following-sibling::i");
-        waitUntilClickable(DELETE_ALLOWED_USER, "Delete icon for Allowed User", MEDIUMWAIT);
+        By DELETE_ALLOWED_USER = By.xpath("//div[contains(text(),'" + dashBoardData1.userName + "')]/../following-sibling::button/descendant::i");
+        //waitUntilClickable(DELETE_ALLOWED_USER, "Delete icon for Allowed User", MEDIUMWAIT);
+        waitForSecs(15);
         safeClick(DELETE_ALLOWED_USER, "Delete icon for Allowed User", MEDIUMWAIT);
+        waitForSecs(15);
         safeClick(BTN_SAVE_DASHBOARD_VISIBILITY, "Save button in Dashboard Visibility", MEDIUMWAIT);
     }
 
@@ -517,13 +519,14 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
 
     @Step("Verify Standard Breadcrumb navigation")
-    public void verifyStandardBreadcrumbNavigation() throws InterruptedException {
+    public void verifyStandardBreadcrumbNavigation(String gaugePortletName) throws InterruptedException {
         waitUntilClickable(DASHBOARD_BREADCRUMB, "Dashboard Breadcrumb", MEDIUMWAIT);
         System.out.println("Breadcrumb is " + driver.findElement(DASHBOARD_BREADCRUMB).getText() + " dNAME IS " + dname2);
         if (!driver.findElements(DASHBOARD_BREADCRUMB).get(0).getText().equalsIgnoreCase(dname2))
             Assert.fail("Breadcrumb for Dashboard is not displayed properly");
-        System.out.println("Breadcrumb for Pivot is " + driver.findElement(PIVOT_BREADCRUMB).getText() + "portlet name is " + dashBoardData1.portletQuery);
-        if (!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(dashBoardData1.portletQuery))
+        waitForSecs(10);
+        System.out.println("Breadcrumb for Pivot is " + driver.findElement(PIVOT_BREADCRUMB).getText() + "portlet name is " + gaugePortletName);
+        if (!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(gaugePortletName))
             Assert.fail("Breadcrumb for Pivot is not displayed properly");
         System.out.println("Breadcrumb for Drillthrough is " + driver.findElement(DRILLTHROUGH_BREADCRUMB).getText() + "portlet name is " + portletName_Pivot);
         if (!driver.findElement(DRILLTHROUGH_BREADCRUMB).getText().equalsIgnoreCase(portletName_Pivot))
@@ -531,7 +534,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     }
 
     @Step("Verify Standard Breadcrumb Backward navigation")
-    public void verifyStandardBreadcrumbBackwardNavigation() throws InterruptedException {
+    public void verifyStandardBreadcrumbBackwardNavigation(String gaugePortletName) throws InterruptedException {
         waitUntilClickable(DRILLTHROUGH_BREADCRUMB, "Drillthrough Breadcrumb", MEDIUMWAIT);
         safeClick(DRILLTHROUGH_BREADCRUMB, "Drillthrough Breadcrumb", MEDIUMWAIT);
         if (!driver.findElement(DRILLTHROUGH_BREADCRUMB).getText().equalsIgnoreCase(portletName_Pivot))
@@ -540,9 +543,9 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
             Assert.fail("Title for Drillthrough page is not displayed properly");
         waitUntilClickable(PIVOT_BREADCRUMB, "Pivot Page Breadcrumb", MEDIUMWAIT);
         safeClick(PIVOT_BREADCRUMB, "Pivot Page Breadcrumb", MEDIUMWAIT);
-        if (!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(dashBoardData1.portletQuery))
+        if (!driver.findElement(PIVOT_BREADCRUMB).getText().equalsIgnoreCase(gaugePortletName))
             Assert.fail("Breadcrumb for Pivot is not displayed properly");
-        if (!driver.findElement(Title_DRILLTHROUGH).getText().contains(dashBoardData1.portletQuery))
+        if (!driver.findElement(Title_DRILLTHROUGH).getText().contains(gaugePortletName))
             Assert.fail("Title for Pivot page is not displayed properly");
         waitUntilClickable(DASHBOARD_BREADCRUMB, "Dashboard Breadcrumb", MEDIUMWAIT);
         safeClick(DASHBOARD_BREADCRUMB, "Dashboard Breadcrumb", MEDIUMWAIT);
@@ -574,12 +577,12 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     }
 
     @Step("Verify Standard Breadcrumb navigation with constraints in Drillthrough page")
-    public void verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage() throws InterruptedException {
+    public void verifyBreadcrumbBackwardNavigationWithConstraintsInDrillthroughPage(String gaugePortletName) throws InterruptedException {
         waitUntilClickable(BREADCRUMB_DRILLTHROUGH, "Drillthrough Breadcrumb", MEDIUMWAIT);
         safeClick(BREADCRUMB_DRILLTHROUGH, "Drillthrough Breadcrumb", MEDIUMWAIT);
         if (!driver.findElement(BREADCRUMB_DRILLTHROUGH).getText().equalsIgnoreCase(filterValue_Drillthrough))
             Assert.fail("Breadcrumb with constraints for Drillthrough is not displayed properly on backward navigation");
-        if (!driver.findElement(Title_DRILLTHROUGH).getText().contains(dashBoardData1.portletQuery))
+        if (!driver.findElement(Title_DRILLTHROUGH).getText().contains(gaugePortletName))
             Assert.fail("Title for Drillthrough page is not displayed properly");
         waitUntilClickable(DASHBOARD_BREADCRUMB, "Dashboard Breadcrumb", MEDIUMWAIT);
         safeClick(DASHBOARD_BREADCRUMB, "Dashboard Breadcrumb", MEDIUMWAIT);
