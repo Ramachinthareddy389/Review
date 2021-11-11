@@ -16,9 +16,10 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     Random random = new Random();
     String Server_Add, Type_add, OSFamily_add, Host_Add, OSName_add, Environment_add, Hostmachine_add, software_add;
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
+    String HostName = "HostName" + "-" + random.nextInt(500);
     String EditTitle = "Andriod" + " - " + random.nextInt(500);
     String NodeJS = "NodeJs" + " - " + random.nextInt(500);
-    String Engine="Engine"  + " - " + random.nextInt(500);
+    String Engine = "Engine" + " - " + random.nextInt(500);
     String WebUXAgent = "WebUXAgent" + " - " + random.nextInt(500);
 
     public HardwarePage(WebDriver driver) {
@@ -34,7 +35,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
 
     public void addingNewHardware() {
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
-       // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+        // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
@@ -70,7 +71,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         Type_add = safeGetText(TYPE_GHOSTTEXT, "OS Family value", MEDIUMWAIT);
         System.out.println(Type_add);
         safeClick(LABEL_HOSTNAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_HOSTNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_HOSTNAME, HostName, "Name into textbox", MEDIUMWAIT);
         Host_Add = safeGetAttribute(TXTBOX_HOSTNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Host_Add);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
@@ -115,7 +116,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
+        safeClickingOnSearchingConfig(LISTOFDBS, DbTitle);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = DbTitle;
@@ -245,7 +246,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, EditTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS,EditTitle);
+        safeClickingOnSearchingConfig(LISTOFDBS, EditTitle);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = EditTitle;
@@ -275,7 +276,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
+        safeClickingOnSearchingConfig(LISTOFDBS, DbTitle);
         safeClick(LOCALAGENTADDICON, "Local agent icon", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(LOCALAGENTMONITORINGDROPDOWN);
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
@@ -442,14 +443,14 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS,NodeJS);
+        safeClickingOnSearchingConfig(LISTOFDBS, NodeJS);
         safeClick(ENGINES_ADDICON, " Engine Add Icon", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(LABLE_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, Engine, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
-        safeClick(BTN_SHOW_ADVANCED,"Show advanced");
+        safeClick(BTN_SHOW_ADVANCED, "Show advanced");
         safeClick(LABEL_MONITORED_SERVER, "Monitored Server", MEDIUMWAIT);
         safeClick(MONITORED_SERVER_GHOSTEXT, "Monitored Server host text", MEDIUMWAIT);
         safeClearAndType(TXTBOX_MONITORED, DbTitle, "Monitored name into textbox", MEDIUMWAIT);
@@ -463,95 +464,95 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
                 break;
             }
         }
-            safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-            safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-            safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
-            safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-            waitForSecs(3);
-        }
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(3);
+    }
 
 
     public void validatingHttpProfiles() {
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
+        safeClickingOnSearchingConfig(LISTOFDBS, DbTitle);
         safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
-        safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
-        safeClick(DROPDOWN1,"Apache HTTP Server",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN, "Monitoring profiles dropdown", MEDIUMWAIT);
+        safeClick(DROPDOWN1, "Apache HTTP Server", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button", MEDIUMWAIT);
         waitForSecs(4);
-        safeClick(LOG_DIRCT_LABEL,"Log Direct Label",MEDIUMWAIT);
-        safeType(TXTBOX_LOG_DIRCT,"Log Directory","Access log directory",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(LOG_DIRCT_LABEL, "Log Direct Label", MEDIUMWAIT);
+        safeType(TXTBOX_LOG_DIRCT, "Log Directory", "Access log directory", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(5);
         List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
-        for (int i =0; i <=2; i++) {
-                String wizardName = wizards.get(i).getText();
-            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.HttpServer[i]));
-            System.out.println(DbTitle+" - "+dashBoardData.HttpServer[i]);
+        for (int i = 0; i <= 2; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (DbTitle + " - " + dashBoardData.HttpServer[i]));
+            System.out.println(DbTitle + " - " + dashBoardData.HttpServer[i]);
             System.out.println(wizardName);
             wizards.get(i).click();
-            String color =wizards.get(i).getCssValue("color");
+            String color = wizards.get(i).getCssValue("color");
             System.out.println(color);
         }
 
-        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
-        safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
-        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close Button", MEDIUMWAIT);
+        safeClick(BTN_REMOVE_PROFILE, "Delete Profile", MEDIUMWAIT);
+        safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
     }
 
-    public void validatingBIPApServer(){
+    public void validatingBIPApServer() {
         waitForSecs(10);
         safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
-        safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
-        safeClick(DROPDOWN2,"BIP App Server",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
-        safeClick(LOG_DIRCT_LABEL,"Log Direct Label",MEDIUMWAIT);
-        safeType(TXTBOX_LOG_DIRCT,"Log Directory","Access log directory",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN, "Monitoring profiles dropdown", MEDIUMWAIT);
+        safeClick(DROPDOWN2, "BIP App Server", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button", MEDIUMWAIT);
+        safeClick(LOG_DIRCT_LABEL, "Log Direct Label", MEDIUMWAIT);
+        safeType(TXTBOX_LOG_DIRCT, "Log Directory", "Access log directory", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(5);
 
         List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
-        for (int i = 0; i <=4; i++) {
+        for (int i = 0; i <= 4; i++) {
             String wizardName = wizards.get(i).getText();
-            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.Bpsever[i]));
-            System.out.println(DbTitle+" - "+dashBoardData.Bpsever[i]);
+            Assert.assertEquals(wizardName, (DbTitle + " - " + dashBoardData.Bpsever[i]));
+            System.out.println(DbTitle + " - " + dashBoardData.Bpsever[i]);
             System.out.println(wizardName);
             wizards.get(i).click();
-            String color =wizards.get(i).getCssValue("color");
+            String color = wizards.get(i).getCssValue("color");
             System.out.println(color);
         }
-        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
-        safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
-        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close Button", MEDIUMWAIT);
+        safeClick(BTN_REMOVE_PROFILE, "Delete Profile", MEDIUMWAIT);
+        safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
     }
 
 
-    public void validatingApacheTomcatServer(){
+    public void validatingApacheTomcatServer() {
         waitForSecs(10);
         safeClick(ENGINE_MONITORIN_GPROFILES, "Monitoring profile add icon", MEDIUMWAIT);
-        safeClick(APPLYPROFILEDROPDOWN,"Monitoring profiles dropdown",MEDIUMWAIT);
-        safeClick(DROPDOWN3,"BIP App Server",MEDIUMWAIT);
-        safeClick(BTN_APPLY,"Apply button",MEDIUMWAIT);
-        safeClick(LOG_DIRCT_LABEL,"Log Direct Label",MEDIUMWAIT);
-        safeType(TXTBOX_LOG_DIRCT,"Log Directory","Access log directory",MEDIUMWAIT);
-        safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN, "Monitoring profiles dropdown", MEDIUMWAIT);
+        safeClick(DROPDOWN3, "BIP App Server", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button", MEDIUMWAIT);
+        safeClick(LOG_DIRCT_LABEL, "Log Direct Label", MEDIUMWAIT);
+        safeType(TXTBOX_LOG_DIRCT, "Log Directory", "Access log directory", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(5);
 
         List<WebElement> wizards = driver.findElements(SUCESS_MSGS);
-        for (int i = 0; i <=3; i++) {
+        for (int i = 0; i <= 3; i++) {
             String wizardName = wizards.get(i).getText();
-            Assert.assertEquals(wizardName, (DbTitle+" - "+dashBoardData.TomcatServer[i]));
-            System.out.println(DbTitle+" - "+dashBoardData.TomcatServer[i]);
+            Assert.assertEquals(wizardName, (DbTitle + " - " + dashBoardData.TomcatServer[i]));
+            System.out.println(DbTitle + " - " + dashBoardData.TomcatServer[i]);
             System.out.println(wizardName);
             wizards.get(i).click();
-            String color =wizards.get(i).getCssValue("color");
+            String color = wizards.get(i).getCssValue("color");
             System.out.println(color);
         }
-        safeClick(BTN_CLOSE,"Close Button",MEDIUMWAIT);
-        safeClick(BTN_REMOVE_PROFILE,"Delete Profile",MEDIUMWAIT);
-        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close Button", MEDIUMWAIT);
+        safeClick(BTN_REMOVE_PROFILE, "Delete Profile", MEDIUMWAIT);
+        safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
@@ -561,13 +562,13 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(2);
     }
 
-    public void navigatingToHardwarePage(){
+    public void navigatingToHardwarePage() {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_HARDWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS,DbTitle);
+        safeClickingOnSearchingConfig(LISTOFDBS, DbTitle);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = DbTitle;
@@ -579,6 +580,103 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(2);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(2);
+    }
+
+
+    public void verifyingPageIconsInHardwarePage() {
+        safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(30);
+        By SELECTROW_CHKBOX1 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span/mark[text()='" + DbTitle + "']/../../../parent::div/descendant::input[1]");
+        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(20);
+        By ELEMENT_STATUS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span/mark[text()='" + DbTitle + "']/../../..//parent::div/div[1]/descendant::input");
+        // isElementSelected(ELEMENT_STATUS);
+        boolean b1 = driver.findElement(ELEMENT_STATUS).isSelected();
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(ELEMENT_STATUS);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        waitForSecs(9);
+        By SELECTROW_CHKBOX2 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span/mark[text()='" + DbTitle + "']/../../../parent::div/descendant::input[1]");
+        safeJavaScriptClick(SELECTROW_CHKBOX2, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = DbTitle + " - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_EDIT, "Edit button", MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED,"Show Advanced button",MEDIUMWAIT);
+        List<WebElement> chkboxes =driver.findElements(CHEKBOXES_EDITWINDOW);
+        for(int i=0;i<=chkboxes.size()-1;i++) {
+          chkboxes.get(i).click();
+        }
+        waitForSecs(10);
+        safeClick(BTN_APPLY_CHANGES, "Apply changes", MEDIUMWAIT);
+        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_APPLY_PROFILE,"Apply profile button",MEDIUMWAIT);
+        safeClick(APPLYPROFILEDROPDOWN, "Monitoring profiles dropdown", MEDIUMWAIT);
+        safeClick(DROPDOWN1, "Apache HTTP Server", MEDIUMWAIT);
+        safeClick(BTN_APPLY, "Apply button", MEDIUMWAIT);
+        waitForSecs(4);
+        By popup = By.xpath("//p[text()='Please select the node and engine that are responsible for monitoring the Apache HTTP Server']");
+        boolean nodePopup=  isElementDisplayed(popup);
+        Assert.assertTrue(nodePopup);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        safeClick(LISTOFDBS,"added Hardware",MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
+
+    public void applyingFiltersInHarwarePage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + DbTitle +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        //  mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, DbTitle);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+
     }
 }
 

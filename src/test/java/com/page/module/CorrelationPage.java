@@ -949,7 +949,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
-        isElementDisplayed(KPIS_TEXT);
+        boolean b=isElementDisplayed(KPIS_TEXT);
+        Assert.assertTrue(b);
         waitForSecs(5);
         List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
         for (int i = 0; i <= wizards.size() - 1; i++) {

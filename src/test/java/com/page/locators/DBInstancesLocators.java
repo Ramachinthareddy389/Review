@@ -47,5 +47,14 @@ public interface DBInstancesLocators
    By Title_DRILLTHROUGH = By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
    By TITLE_IN_ALERTTEMPLATE = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
    By KPINAME_TXTBOX = By.xpath("//input[@id='name']");
+   By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+   By SERVER_TEXT = By.xpath("//h6[text()='Server']");
+   By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+   By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+   By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+   By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+   By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+
+
 
 }

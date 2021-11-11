@@ -74,4 +74,5 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.validatingApacheTomcatServer();
     }
 
+ 
 }

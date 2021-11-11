@@ -511,6 +511,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         portletName_Pivot = driver.findElement(FIRST_PORTLET_PIVOT).getText();
         By DRILLTHROUGH_TABLE_PORTLET = By.xpath("//span[contains(@aria-label,'" + portletName_Pivot + "')]/../../../descendant::div[contains(@aria-label,'Drillthrough')]");
         waitUntilClickable(DRILLTHROUGH_TABLE_PORTLET, "Drillthrough icon in Table portlet", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(DRILLTHROUGH_TABLE_PORTLET, "Drillthrough icon in Table portlet", MEDIUMWAIT);
         waitUntilClickable(Title_DRILLTHROUGH, "Drillthrough Title", MEDIUMWAIT);
         if (!driver.findElement(Title_DRILLTHROUGH).getText().contains(portletName_Pivot))

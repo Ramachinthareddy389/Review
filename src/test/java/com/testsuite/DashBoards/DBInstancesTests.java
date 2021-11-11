@@ -16,6 +16,7 @@ public class DBInstancesTests extends BaseSetup {
     private LoginPage loginPage;
     private DashboardOverviewPage dashboardOverviewPage;
     private DBInstancesPage dbInstancesPage;
+    private AlertTemplatePage alertTemplatePage;
 
 
     private String sModeOfExecution;
@@ -28,6 +29,7 @@ public class DBInstancesTests extends BaseSetup {
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         dbInstancesPage = new DBInstancesPage(getDriver());
         dashboardPage = new DashboardPage(getDriver());
+        alertTemplatePage = new AlertTemplatePage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -71,6 +73,20 @@ public class DBInstancesTests extends BaseSetup {
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.navigateToHardwarePageFrmDbinstnacePage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_137_ViewDataForFieldswithViewIconinEditConfigWindow(){
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances();
+        dbInstancesPage.viewDataWithFeildsForViewIcon();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_138_VerifyIconsinDbinstancesEditConfigWindow(){
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances();
+        dbInstancesPage.verifyingIconsInEditWindow();
     }
 
 }

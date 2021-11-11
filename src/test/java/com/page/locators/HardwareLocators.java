@@ -85,5 +85,20 @@ public interface HardwareLocators {
     By TXTBOX_EDITED_OSNAME = By.xpath("//input[@id='osName']/../../../div[1]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_STATUS = By.xpath("//h5[text()='Hardware']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='Hardware']/..//div[@aria-label='Remove Selected Configuration']");
 
+    By BTN_ENABLE = By.xpath("//h5[text()='Hardware']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Hardware']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Hardware']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_EDIT = By.xpath("//h5[text()='Hardware']/..//div[@aria-label='Edit Selected Configuration']");
+    By CHEKBOXES_EDITWINDOW = By.xpath("//h6[text() ='Editing 1 Hardware']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By BTN_APPLY_PROFILE = By.xpath("//h5[text()='Hardware']/..//div[@aria-label='Apply Profile']");
+    By BTN_APPLY_CHANGES = By.xpath("//span[text()='Apply changes']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
 }
