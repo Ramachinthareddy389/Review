@@ -29,7 +29,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
         safeTypeUsingChrod(TXTBOX_EMAIl, Email, "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
         waitForSecs(10);
-        safeTypeUsingChrod(TXTBOX_PASSWORD, "Zenq@123", "Entering yop mail", MEDIUMWAIT);
+       // safeTypeUsingChrod(TXTBOX_PASSWORD, "Zenq@123", "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Forward button", MEDIUMWAIT);
         waitForSecs(30);
         safeClick(BTN_InBOX, "Inbox", MEDIUMWAIT);
@@ -68,6 +68,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
     }
 
     public void clickingOnSetPasswordHyperlinkFrmWelcomepage() {
+     selectFrame(2);
         safeClick(HYPELINK_SET_PASSWRD, "Clicking on set password hyperlink from welcome email", MEDIUMWAIT);
         switchToWindow(1);
         safeTypeUsingChrod(TXTBOX_PASSWRD, "Zen@1234", "Entering password", MEDIUMWAIT);

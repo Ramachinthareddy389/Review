@@ -153,10 +153,10 @@ public class UserAccessRequestTests extends BaseSetup {
 
     @Test(alwaysRun = true)
     public void TC_003_UpdatePasswordfromProfilewithCorrectrequirements(){
-        userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
+        userAccessRequestPage.addingNewUser("test1zenq@yopmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM - Welcome");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("test1zenq@yopmail.com", "Germain APM - Welcome");
         emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
         userAccessRequestPage.changePasswordFrmUserProfile();
         userAccessRequestPage.signOut();

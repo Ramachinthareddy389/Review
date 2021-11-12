@@ -73,6 +73,20 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.validatingBIPApServer();
         hardwarePage.validatingApacheTomcatServer();
     }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_143_VerifyPageIconsInHardwarepage(){
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        hardwarePage.verifyingPageIconsInHardwarePage();
 
- 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_144_ApplyFiltersInHardwarePage(){
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        hardwarePage.applyingFiltersInHarwarePage();
+    }
+
+
 }

@@ -529,11 +529,11 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingNTabularPortlet(nTabularPortletName);
-        portletsFeature.validaingTrendGranularityUSingHours();
-        portletsFeature.validaingTrendGranularityUSingDaily();
-        portletsFeature.validaingTrendGranularityUSingMonthly();
-        portletsFeature.validaingTrendGranularityUSingYEARLY();
-        portletsFeature.validaingTrendGranularityUSingMinutely();
+        portletsFeature.validaingTrendGranularityUSingHoursForTablularPortlet();
+        portletsFeature.validaingTrendGranularityUSingDailyForTabular();
+        portletsFeature.validaingTrendGranularityUSingMonthlyForTabular();
+        portletsFeature.validaingTrendGranularityUSingYEARLYForTabular();
+        portletsFeature.validaingTrendGranularityUSingMinutelyForTAbular();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")

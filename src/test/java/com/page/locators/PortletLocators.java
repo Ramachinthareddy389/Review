@@ -177,6 +177,7 @@ public interface PortletLocators {
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By BTN_SAVE = By.xpath("//span[text()='Save']");
     By CHKBOX_SHOW_LEGEND = By.xpath("//span[text() ='Show Legend']");
+    By CHKBOX_SHOW_KPINAME = By.xpath("//span[text()='Show KPI Name']");
     By LEGENDS = By.xpath("//*[local-name()='tspan']");
     By NTABULAR_KPI_ONE = By.xpath("//input[contains(@id,'kpi_1')]");
     By NTABULAR_MEASURE_TXTBOX = By.xpath("//input[@id='kpiMeasure_1']");
@@ -188,7 +189,7 @@ public interface PortletLocators {
     By CALENDAR_ICON =By.xpath("//div[contains(@class, 'DateTimePicker')]//i");
 
     //Trend Granularity
-    By BTN_TREND_GRANULARITY=By.xpath("//div[@aria-label='Trend Granularity']");
+    By BTN_TREND_GRANULARITY=By.xpath("//div[@aria-label='Compare To']/parent::span/following-sibling::span/descendant::i");
     By BTN_AUTO   = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[1]");
     By BTN_MINUTE = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[2]");
     By BTN_HOURLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[3]");
@@ -196,13 +197,19 @@ public interface PortletLocators {
     By BTN_MONTHLY= By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[5]");
     By BTN_YEARLY = By.xpath("//*[@id='-trendgranularity-menu']/div[3]/ul/li[6]");
     By GHPORTLET_LABELS=By.cssSelector(".highcharts-axis-labels.highcharts-xaxis-labels>text>tspan");
+    By LABEL_YEAR = By.cssSelector(".highcharts-axis-labels.highcharts-xaxis-labels>text");
+    By TABULAR_PORTLET_HOURLY = By.xpath("//div[@aria-label='Hourly']/../../following-sibling::div/div/div");
+    By TABULAR_PORTLET_DAILY = By.xpath("//div[@aria-label='Daily']/../../following-sibling::div/div/div");
+    By TABULAR_PORTLET_MONTHLY = By.xpath("//div[@aria-label='Monthly']/../../following-sibling::div/div/div");
+    By TABULAR_PORTLET_YEARLY = By.xpath("//div[@aria-label='Yearly']/../../following-sibling::div/div/div");
+    By TABULAR_PORTLET_MINUTELY = By.xpath("//div[@aria-label='Minutely']/../../following-sibling::div/div/div");
     By NTABULAR_LABELS_Hourly=By.xpath("//div[@aria-label='Hourly']");
     By NTABULAR_LABELS_Daily=By.xpath("//div[@aria-label='Daily']");
     By NTABULAR_LABELS_Monthly=By.xpath("//div[@aria-label='Monthly']");
     By NTABULAR_LABELS_yearly=By.xpath("//div[@aria-label='Yearly']");
     By NTABULAR_LABELS_minutely=By.xpath("//div[@aria-label='Minutely']");
     By CLOSE_ERROR_POPUP = By.xpath("//button/span[contains(text(),'Close')]");
-    By BTN_LAST_30_DAYS=By.xpath("//span[text()='Last 30 Days']");
+    By BTN_TODAY=By.xpath("//span[text()='Today']");
     By BTN_MAXIMIZE = By.xpath("//div[@aria-label='Maximize']");
     By BTN_RESTORE = By.xpath("//div[@aria-label='Restore']");
 

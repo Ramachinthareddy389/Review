@@ -89,9 +89,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE,"Apply filters text",MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS,"Is label",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN,"is not",MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
@@ -171,9 +171,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE,"Apply filters text",MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS,"Is label",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN,"is not",MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
@@ -447,9 +447,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(Filters_TypeSearch, "Application Name", "Enter Text in KPI Filters field");
         safeJavaScriptClick(KPI_FILTER_OPTION, "Selecting field", MEDIUMWAIT);
         safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE,"Apply filters text",MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS,"Is label",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN,"is not",MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         safeClick(NTABULAR_LABEL_FIELD, "Label Field", MEDIUMWAIT);
         safeType(NTABULAR_LABEL_FIELD_TEXTBOX, dashBoardData.nTabularPortletLabel, "Label Field", MEDIUMWAIT);
@@ -468,9 +468,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE,"Apply filters text",MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS,"Is label",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN,"is not",MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
@@ -583,7 +583,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
         waitForSecs(10);
         safeClick(TABULAR_PIVOT_FIELD, "Pivots Field", MEDIUMWAIT);
-        String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData) ;
+        String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData);
         List<WebElement> kpi3 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi3.size(); i++) {
             System.out.println(kpi3.get(i).getText());
@@ -617,9 +617,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE,"Apply filters text",MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS,"Is label",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN,"is not",MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
@@ -737,7 +737,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeSelectListBox(SELECT_DRPDOWN,"is not","is not",MEDIUMWAIT);
+        safeSelectListBox(SELECT_DRPDOWN, "is not", "is not", MEDIUMWAIT);
         //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
@@ -1021,15 +1021,15 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
         waitForSecs(20);
         safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
-       // safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        // safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
         waitForSecs(20);
         safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
         safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE,"Apply filters text",MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS,"Is label",MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN,"is not",MEDIUMWAIT);
-       // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
+        // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         waitForSecs(5);
@@ -1221,7 +1221,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         String Tooltip2 = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
         System.out.println(Tooltip2);
-        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2+" "+gaugePortletName);
+        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2 + " " + gaugePortletName);
     }
 
     @Step("Navigate to RCA page from Drillthrough page")
@@ -1389,23 +1389,23 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             }
         }
         waitForSecs(15);
-        safeClick(CHKBOX_SHOW_LEGEND,"Show Legend",MEDIUMWAIT);
+        safeClick(CHKBOX_SHOW_KPINAME, "KPI name", MEDIUMWAIT);
+        safeClick(CHKBOX_SHOW_LEGEND, "Show Legend", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
-        String text =driver.findElements(LEGENDS).get(0).getText();
+        String text = driver.findElements(LEGENDS).get(0).getText();
         System.out.println(text);
         String expectedText = "Avg Duration";
-        Assert.assertEquals(text,expectedText);
-        String text2 =driver.findElements(LEGENDS).get(1).getText();
+        Assert.assertEquals(text, expectedText);
+        String text2 = driver.findElements(LEGENDS).get(1).getText();
         System.out.println(text2);
         String expectedText1 = "#";
-        Assert.assertEquals(text2,expectedText1);
-
+        Assert.assertEquals(text2, expectedText1);
 
 
     }
 
-    public void addingMultipleMeasuresTabularPortlet(){
+    public void addingMultipleMeasuresTabularPortlet() {
         safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
         waitForSecs(10);
         safeClearAndType(MEASURE_TXTBOX_TABULAR, "Min Color Threshold", "Server name into textbox", MEDIUMWAIT);
@@ -1422,16 +1422,16 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(15);
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
-        boolean text =driver.findElement(By.xpath("//div[@aria-label='Avg Duration (s)']")).isDisplayed();
+        boolean text = driver.findElement(By.xpath("//div[@aria-label='Avg Duration (s)']")).isDisplayed();
         System.out.println(text);
         Assert.assertTrue(text);
-        boolean text2 =driver.findElement(By.xpath("//div[@aria-label='Min Color Threshold (s)']")).isDisplayed();
+        boolean text2 = driver.findElement(By.xpath("//div[@aria-label='Min Color Threshold (s)']")).isDisplayed();
         System.out.println(text2);
         Assert.assertTrue(text2);
 
     }
 
-    public void addingMultipleMeasuresInNTabularPortlet(){
+    public void addingMultipleMeasuresInNTabularPortlet() {
         safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElements(MEASURE_ADD_ICON).get(0).click();
@@ -1464,93 +1464,93 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
         waitForSecs(15);
-        boolean text =driver.findElement(By.xpath("//span[text()='Sample Label']")).isDisplayed();
+        boolean text = driver.findElement(By.xpath("//span[text()='Sample Label']")).isDisplayed();
         System.out.println(text);
         Assert.assertTrue(text);
-        boolean text2 =driver.findElement(By.xpath("//span[text()='Min Color Threshold']")).isDisplayed();
+        boolean text2 = driver.findElement(By.xpath("//span[text()='Min Color Threshold']")).isDisplayed();
         System.out.println(text2);
         Assert.assertTrue(text2);
 
     }
 
-    public void addingMultipleMeasuresInGaugePortlet(){
+    public void addingMultipleMeasuresInGaugePortlet() {
         safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElement(MEASURE_ADD_ICON).click();
         waitForSecs(15);
-        safeClick(SHOWCONSTRAINT_VALUE_CHKBOX,"Show Constraint value checkbox",MEDIUMWAIT);
+        safeClick(SHOWCONSTRAINT_VALUE_CHKBOX, "Show Constraint value checkbox", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
         mouseHoverJScript(GAUGE_PORTLET_BAR2, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
-        boolean text =driver.findElement(By.xpath("//p[text()='Avg Duration']")).isDisplayed();
+        boolean text = driver.findElement(By.xpath("//p[text()='Avg Duration (User Click)']")).isDisplayed();
         System.out.println(text);
         Assert.assertTrue(text);
         waitForSecs(10);
         mouseHoverJScript(GAUGE_PORTLET_BAR1, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         waitForSecs(10);
-        boolean text2 =driver.findElement(By.xpath("//p[text()='Min Color Threshold']")).isDisplayed();
+        boolean text2 = driver.findElement(By.xpath("//p[text()='Avg Color Threshold (User Click)']")).isDisplayed();
         System.out.println(text2);
         Assert.assertTrue(text2);
         refresh();
         waitForSecs(10);
     }
 
-    public void addingMultipleMeasuresInCounterPortlet(){
+    public void addingMultipleMeasuresInCounterPortlet() {
         safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElement(MEASURE_ADD_ICON).click();
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
-        String text =driver.findElements(LEGENDS).get(0).getText();
+        String text = driver.findElements(LEGENDS).get(0).getText();
         System.out.println(text);
-        String expectedText = "# not null (User Click):";
-        Assert.assertEquals(text,expectedText);
-        String text2 =driver.findElements(LEGENDS).get(2).getText();
+        String expectedText = "Avg Color Threshold not null (User Click):";
+        Assert.assertEquals(text, expectedText);
+        String text2 = driver.findElements(LEGENDS).get(2).getText();
         System.out.println(text2);
         String expectedText1 = "Avg Duration not null (User Click):";
-        Assert.assertEquals(text2,expectedText1);
+        Assert.assertEquals(text2, expectedText1);
     }
 
-    public void addingDataOnlyAboveSLA(){
+    public void addingDataOnlyAboveSLA() {
         safeClick(EDIT_PENCIL_ICON, "Pencil icon", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(DATA_ONLY_ABOVE_SLA,"Data only above sla checkbox",MEDIUMWAIT);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(DATA_ONLY_ABOVE_SLA, "Data only above sla checkbox", MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
-        String text= safeGetText(LABEL_DATAABOVE_SLA,"Above SLA value",MEDIUMWAIT);
+        String text = safeGetText(LABEL_DATAABOVE_SLA, "Above SLA value", MEDIUMWAIT);
         System.out.println(text);
-        String expectedText="RED,YELLOW,ORANGE";
-        Assert.assertEquals(text,expectedText);
+        String expectedText = "RED,YELLOW,ORANGE";
+        Assert.assertEquals(text, expectedText);
     }
+
     @Step("Validating hours option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingHours() throws InterruptedException {
         waitForSecs(15);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
-        waitForSecs(10);
-      /*  safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(20);
+      safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(BTN_LAST_30_DAYS, "Last 30 Days button", MEDIUMWAIT);
-        waitForSecs(7);*/
-        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
-       // safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        safeClick(BTN_TODAY,"Today button", MEDIUMWAIT);
         waitForSecs(7);
-        safeClick(BTN_HOURLY, "Hourly option from Trend Granularity");
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
         waitForSecs(7);
-        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title", "Hourly text", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_HOURLY, "Hourly option from Trend Granularity", MEDIUMWAIT);
+        waitForSecs(7);
+/*        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title", "Hourly text", MEDIUMWAIT);
         System.out.println(text);
         expectedText = "Hourly";
-        Assert.assertEquals(text, expectedText);
+        Assert.assertEquals(text, expectedText);*/
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-
-        cal.add(Calendar.DATE, -30);
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+      /*  cal.add(Calendar.DATE, -30);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
-        cal.add(Calendar.DATE, 2);
+       cal.add(Calendar.DATE, 2);
         String s2 = f.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 2);
         String s3 = f.format(new Date(cal.getTimeInMillis()));
@@ -1578,8 +1578,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         cal.add(Calendar.DATE, 2);
         String s14 = f.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 2);
-        String s15 = f.format(new Date(cal.getTimeInMillis()));
-        String[] expected = {s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15};
+        String s15 = f.format(new Date(cal.getTimeInMillis()));*/
+        String[] expected = {s1,"1:00 am","2:00 am","3:00 am","4:00 am","5:00 am","6:00 am","7:00 am","8:00 am","9:00 am","10:00 am", "11:00 am", "12:00 pm", "1:00 pm","2:00 pm","3:00 pm","4:00 pm","5:00 pm","6:00 pm","7:00 pm","8:00 pm","9:00 pm","10:00 pm", "11:00 pm"};
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
         for (int i = 0; i <= expected.length - 1; i++) {
             String optionValue = allOptions.get(i).getText();
@@ -1597,19 +1597,19 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Validating Daily option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingDaily() throws InterruptedException {
         waitForSecs(7);
-        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
-       // safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
+        // safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
         waitForSecs(7);
         safeClick(BTN_DAILY, "Daily option from Trend Granularity");
         waitForSecs(7);
-        String text = safeGetText(NTABULAR_LABELS_Daily, "Daily text", 5000);
+       /* String text = safeGetText(NTABULAR_LABELS_Daily, "Daily text", 5000);
         System.out.println(text);
         expectedText = "DAILY";
-        Assert.assertEquals(text, expectedText);
+        Assert.assertEquals(text, expectedText);*/
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-        cal.add(Calendar.DATE, -29);
+       // cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
         String expected = s1;
@@ -1623,25 +1623,26 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Validating Monthly option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingMonthly() throws InterruptedException {
         waitForSecs(7);
-       // safeClick(BTN_TREND_GRANULARITY, " Trend Granularity");
-        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+        // safeClick(BTN_TREND_GRANULARITY, " Trend Granularity");
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(BTN_MONTHLY, "Monthly option from Trend Granularity");
         waitForSecs(7);
-        String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
+  /*      String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
         System.out.println(text);
         expectedText = "MONTHLY";
-        Assert.assertEquals(text, expectedText);
+        Assert.assertEquals(text, expectedText);*/
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
         // cal.add(Calendar.MONTH);
-        cal.add(Calendar.DATE, -29);
+       // cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
         String date = s1 + " " + "'" + s2;
         System.out.println(date);
         String expected = date;
+        waitForSecs(20);
         WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
         String actualText = allOptions.getText();
         Assert.assertEquals(expected, actualText);
@@ -1652,7 +1653,136 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Validating Yearly option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingYEARLY() throws InterruptedException {
         waitForSecs(7);
-        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
+        //safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_YEARLY, "Yearly option from Trend Granularity");
+      /*  waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_yearly, "Yearly text", 5000);
+        System.out.println(text);
+        expectedText = "YEARLY";
+        Assert.assertEquals(text, expectedText);*/
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy");
+        SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        waitForSecs(20);
+        WebElement allOptions = driver.findElement(LABEL_YEAR);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(s1, actualText);
+    }
+
+    @Step("Validating Minutely option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingMinutely() throws InterruptedException {
+        waitForSecs(7);
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
+        //safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
+        waitForSecs(7);
+        safeClick(BTN_MINUTE, "Minute option from Trend Granularity");
+        waitForSecs(7);
+    /*    String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
+        System.out.println(text);
+        expectedText = "Minutely";
+        Assert.assertEquals(text, expectedText);*/
+        String[] expected = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00"};
+        List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
+        for (int i = 0; i < allOptions.size() - 1; i++) {
+            String optionValue = allOptions.get(i).getText();
+            Assert.assertEquals(optionValue, expected[i]);
+            if (optionValue.equals(expected)) {
+                System.out.println(expected);
+                System.out.println("passed on: " + optionValue);
+            } else {
+                System.out.println("failed on: " + optionValue);
+            }
+        }
+
+    }
+
+    @Step("Validating hours option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingHoursForTablularPortlet() throws InterruptedException {
+        waitForSecs(20);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_TODAY,"Today button", MEDIUMWAIT);
+        waitForSecs(7);
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
+        waitForSecs(7);
+        safeJavaScriptClick(BTN_HOURLY, "Hourly option from Trend Granularity", MEDIUMWAIT);
+        String text = safeGetAttribute(NTABULAR_LABELS_Hourly, "title", "Hourly text", MEDIUMWAIT);
+        System.out.println(text);
+        expectedText = "Hourly";
+        Assert.assertEquals(text, expectedText);
+        String[] expected = {"12:00 AM","1:00 AM","2:00 AM","3:00 AM","4:00 AM","5:00 AM","6:00 AM","7:00 AM","8:00 AM","9:00 AM"};
+        List<WebElement> allOptions = driver.findElements(TABULAR_PORTLET_HOURLY);
+        for (int i = 0; i <= 9; i++) {
+            String optionValue = allOptions.get(i).getText();
+            Assert.assertEquals(optionValue, expected[i]);
+            if (optionValue.equals(expected[i])) {
+                System.out.println(expected[i]);
+                System.out.println("passed on: " + optionValue);
+            } else {
+                System.out.println("failed on: " + optionValue);
+            }
+        }
+
+    }
+    @Step("Validating Daily option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingDailyForTabular() throws InterruptedException {
+        waitForSecs(7);
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
+        waitForSecs(7);
+        safeClick(BTN_DAILY, "Daily option from Trend Granularity");
+        waitForSecs(7);
+        String text = safeGetText(NTABULAR_LABELS_Daily, "Daily text", 5000);
+        System.out.println(text);
+        expectedText = "DAILY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("MM/d");
+        SimpleDateFormat f1 = new SimpleDateFormat("d");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s1);
+        String expected = s1;
+        WebElement allOptions = driver.findElement(TABULAR_PORTLET_DAILY);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(expected, actualText);
+
+
+    }
+
+    @Step("Validating Monthly option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingMonthlyForTabular() throws InterruptedException {
+        waitForSecs(7);
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
+        waitForSecs(7);
+        safeClick(BTN_MONTHLY, "Monthly option from Trend Granularity");
+        waitForSecs(7);
+       String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
+        System.out.println(text);
+        expectedText = "MONTHLY";
+        Assert.assertEquals(text, expectedText);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat f = new SimpleDateFormat("MM");
+        SimpleDateFormat f1 = new SimpleDateFormat("yy");
+        String s1 = f.format(new Date(cal.getTimeInMillis()));
+        String s2 = f1.format(new Date(cal.getTimeInMillis()));
+        String date = s1;
+        System.out.println(date);
+        String expected = date;
+        waitForSecs(20);
+        WebElement allOptions = driver.findElement(TABULAR_PORTLET_MONTHLY);
+        String actualText = allOptions.getText();
+        Assert.assertEquals(expected, actualText);
+
+
+    }
+
+    @Step("Validating Yearly option in trendGranularity in dashboard overview page")
+    public void validaingTrendGranularityUSingYEARLYForTabular() throws InterruptedException {
+        waitForSecs(7);
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
         //safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
         waitForSecs(7);
         safeClick(BTN_YEARLY, "Yearly option from Trend Granularity");
@@ -1666,27 +1796,29 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
-        WebElement allOptions = driver.findElement(GHPORTLET_LABELS);
+        waitForSecs(20);
+        WebElement allOptions = driver.findElement(TABULAR_PORTLET_YEARLY);
         String actualText = allOptions.getText();
         Assert.assertEquals(s1, actualText);
     }
+
     @Step("Validating Minutely option in trendGranularity in dashboard overview page")
-    public void validaingTrendGranularityUSingMinutely() throws InterruptedException {
+    public void validaingTrendGranularityUSingMinutelyForTAbular() throws InterruptedException {
         waitForSecs(7);
-        driver.findElements(BTN_TREND_GRANULARITY).get(1).click();
+        safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
         //safeClick(BTN_TREND_GRANULARITY, "Trend Granularity");
         waitForSecs(7);
         safeClick(BTN_MINUTE, "Minute option from Trend Granularity");
         waitForSecs(7);
-        String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
+       String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
         System.out.println(text);
         expectedText = "Minutely";
         Assert.assertEquals(text, expectedText);
-        String expected = "00:00";
-        List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
-        for (int i = 0; i < allOptions.size() - 1; i++) {
+        String[] expected = {"12:00 AM","12:01 AM","12:02 AM","12:03 AM","12:04 AM","12:05 AM","12:06 AM","12:07 AM","12:08 AM","12:09 AM","12:10 AM","TOTAL"};
+        List<WebElement> allOptions = driver.findElements(TABULAR_PORTLET_MINUTELY);
+        for (int i = 0; i < 9; i++) {
             String optionValue = allOptions.get(i).getText();
-            Assert.assertEquals(optionValue, expected);
+            Assert.assertEquals(optionValue, expected[i]);
             if (optionValue.equals(expected)) {
                 System.out.println(expected);
                 System.out.println("passed on: " + optionValue);
@@ -1697,27 +1829,28 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     }
 
-    public void verifyingMaximizeFunctionality(){
+
+    public void verifyingMaximizeFunctionality() {
         waitForSecs(15);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_MAXIMIZE,"Maximize portlet",MEDIUMWAIT);
-       boolean b= isElementDisplayed(BTN_RESTORE);
-       Assert.assertTrue(b);
-        safeClick(BTN_RESTORE,"Restore portlet",MEDIUMWAIT);
+        safeClick(BTN_MAXIMIZE, "Maximize portlet", MEDIUMWAIT);
+        boolean b = isElementDisplayed(BTN_RESTORE);
+        Assert.assertTrue(b);
+        safeClick(BTN_RESTORE, "Restore portlet", MEDIUMWAIT);
     }
 
-    public void verifyingRestoreFunctionality(){
+    public void verifyingRestoreFunctionality() {
         waitForSecs(15);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_MAXIMIZE,"Maximize portlet",MEDIUMWAIT);
-        safeClick(BTN_RESTORE,"Maximize portlet",MEDIUMWAIT);
-        boolean b= isElementDisplayed(BTN_MAXIMIZE);
+        safeClick(BTN_MAXIMIZE, "Maximize portlet", MEDIUMWAIT);
+        safeClick(BTN_RESTORE, "Maximize portlet", MEDIUMWAIT);
+        boolean b = isElementDisplayed(BTN_MAXIMIZE);
         Assert.assertTrue(b);
 
     }
