@@ -45,6 +45,8 @@ public class SLAsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_213_AddSLAConfigforAllTypes() throws InterruptedException {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -150,7 +152,6 @@ public class SLAsTests extends BaseSetup {
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.viewDataWithFeildsForViewIcon();
-        alertTemplatePage.clickingOnAlertTemplate();
         slAsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
 }

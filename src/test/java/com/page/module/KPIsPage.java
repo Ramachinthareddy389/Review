@@ -177,7 +177,10 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
             Assert.fail("KPIs details are invalid");
         }
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW, "Edit window", MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
     public void editKPISConfig() {
@@ -273,7 +276,10 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(BTN_REMOVE_SLAS, "Delete button", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
     public void addingThresholdValueInEditKPIswindow() {
@@ -343,7 +349,10 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
-        safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
     public void navigateToDrillThrghPageFrmKpiEditWindow() {
@@ -374,12 +383,12 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(ACTIONS_ADD_ICON, "Actions Icon", MEDIUMWAIT);
         safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ACTIONS_NAME, "user logon report", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS_NAME, "user-login-report", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("user-login-report")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("user-login-report")) {
 
                 dbs3.get(i).click();
                 break;
@@ -392,7 +401,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
 
     public void verifyingActionsInEditSLAConfigWindow() {
         String actualText = safeGetText(HYPERLINK_ACTIONS, "Added BP Steps", MEDIUMWAIT);
-        String expectedText = "QA HTTP";
+        String expectedText = "user-login-report";
         Assert.assertEquals(actualText, expectedText);
         safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);

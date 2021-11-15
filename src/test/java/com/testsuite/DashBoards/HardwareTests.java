@@ -88,5 +88,15 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.applyingFiltersInHarwarePage();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_145_VerifyIconsInHardwareEditConfigWindow(){
+        hardwarePage.clickingOnHardware();
+        hardwarePage.addingNewHardware();
+        hardwarePage.VerifyIconsInHardwareEditConfigWindow();
+
+    }
+
+
+
 
 }

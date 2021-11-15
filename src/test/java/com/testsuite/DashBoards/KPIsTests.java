@@ -42,6 +42,8 @@ public class KPIsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC199_AddKPIconfigurationwithallSLATypes() throws InterruptedException {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
@@ -62,6 +64,8 @@ public class KPIsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_201_AddSLAsinEditKPIconfigwindow() {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
@@ -75,6 +79,8 @@ public class KPIsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_202_AddThresholdinFactBasedSLAeditwindowinKPIpage() {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
@@ -85,6 +91,8 @@ public class KPIsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_203_NavigatetoDrillthroughpagefromKPIeditconfigwindow() {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
@@ -94,6 +102,8 @@ public class KPIsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_206_AddActionsinEditSLAconfigwindowinKPIspage() {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
@@ -105,6 +115,8 @@ public class KPIsTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_210_VerifyIconsInEditConfigWindow() {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();

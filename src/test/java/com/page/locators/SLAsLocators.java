@@ -28,7 +28,7 @@ public interface SLAsLocators {
     By TXTBOX_ACTIONS= By.xpath("//input[@id='actions']");
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
-    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
+    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
@@ -76,4 +76,6 @@ public interface SLAsLocators {
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
     By HYPERLINK_SLAs = By.xpath("//span[text()='SLAs']/../../../div/div/div/button");
+    By BTN_SYSTEM= By.xpath("//span[text()='System']");
+    By BTN_ALERT_TEMPLATES = By.xpath("//span[text()='Alert Templates']");
 }

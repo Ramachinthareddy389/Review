@@ -111,5 +111,12 @@ public class BusinessProcessTests extends BaseSetup {
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.applyingFilters();
     }
+
+    @Test(alwaysRun = true)
+    public void TC_167_VerifyPageIconsBPWindow(){
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.verifyingPageIcons();
+    }
 }
 

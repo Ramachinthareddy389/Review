@@ -93,7 +93,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(LABEL_ALERT_TEMP, "Server Feild", MEDIUMWAIT);
         safeClick(ALERT_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ALERT, sla, "Server name into textbox", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(20);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
@@ -106,7 +106,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         }
         Alert_add = safeGetText(ALERT_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Alert_add);
-        waitForSecs(5);
+        waitForSecs(10);
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ACTIONS, "QA Alert", "Server name into textbox", MEDIUMWAIT);
@@ -125,9 +125,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     }
 
     public void verifyingSLAsPage() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -222,9 +229,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
 
 
     public void addingThresholdValueInEditSLAswindow() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -262,9 +276,10 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT_EDITED, "Server textbox", MEDIUMWAIT);
         safeClearAndType(ACTIONS_TXTBOX_EDITED, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(10);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-        for (int i = 0; i < dbs2.size(); i++) {
+        for (int i = 0; i < dbs3.size(); i++) {
 
             if (dbs3.get(i).getText().equals("QA Test")) {
 
@@ -272,8 +287,9 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
                 break;
             }
         }
-        Alert_add = safeGetText(ALERT_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
+/*        Alert_add = safeGetText(ACTIONS_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Alert_add);
+        waitForSecs(10);*/
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
 
@@ -293,9 +309,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     }
 
     public void addingActionsInEditSLAConfigWindow() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -307,23 +330,25 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ACTIONS_NAME, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("QA HTTP")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("QA HTTP")) {
 
                 dbs3.get(i).click();
                 break;
             }
         }
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
     public void verifyingActionsInEditSLAConfigWindow() {
         String actualText = safeGetText(HYPERLINK_ACTIONS, "Added BP Steps", MEDIUMWAIT);
-        String expectedText = "QA HTTP";
+        String expectedText = "QA Http";
         Assert.assertEquals(actualText, expectedText);
         safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
@@ -336,17 +361,30 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     }
 
     public void addingAlertTemplateInEditSLAConfigWindow() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClickingOnSearchingConfig(LISTOFDBS, slasName + "SLA");
         safeClick(ALERT_TEMPLATE_ADDICON, "Add icon of Alert template", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void verifyingAddedAlertTemplateInSLAEditWindow(String AlertTemplate) {
+        waitForSecs(10);
         String alertName = safeGetText(TXTBOX_EDITED_ALERT, "Added Alert template", MEDIUMWAIT);
         System.out.println(alertName);
         Assert.assertEquals(alertName, AlertTemplate);
+        waitForSecs(10);
+        safeClick(BTN_SAVE,"Save buuton",MEDIUMWAIT);
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Edit window", MEDIUMWAIT);
         safeJavaScriptClick(SELECT_ALL_CKHBOX, "All Checkbox", MEDIUMWAIT);
@@ -355,9 +393,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     }
 
     public void navigateToKPIPageFromSLAPage() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
         waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         By locator = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span[text()='" + slasName + "SLA" + "']/../../following-sibling::div[2]/span/button");
         // mouseHoverJScript(locator, "Database Name", "Mouse hover", MEDIUMWAIT);
         waitForSecs(20);
@@ -371,11 +416,19 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     }
 
     public void deletingCreatedSLAs() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
         waitForSecs(10);
-        safeClickingOnSearchingConfig(LISTOFDBS, slasName + "SLA");
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
@@ -383,9 +436,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     }
 
     public void navigateToAlertTemplatePageFrmSLAPage() {
-        safeType(TEXTBOX_TYPESEARCH, slasName + "SLA" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
         waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         By locator = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span[text()='" + slasName + "SLA" + "']/../../following-sibling::div[3]/span/button");
         // mouseHoverJScript(locator, "Database Name", "Mouse hover", MEDIUMWAIT);
         waitForSecs(30);
@@ -551,6 +611,9 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
 
     }
     public void deleteinAlertTemplate(String dname1) {
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);

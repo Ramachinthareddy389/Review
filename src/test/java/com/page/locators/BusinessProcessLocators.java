@@ -74,4 +74,11 @@ public interface BusinessProcessLocators {
     By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By DROPDOWN_FEILDS=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Name']");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='Business Processes']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Business Processes']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Business Processes']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='Business Processes']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='Business Processes']/..//div[@aria-label='Remove Selected Configuration']");
 }
