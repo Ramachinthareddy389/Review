@@ -46,6 +46,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
+        waitForSecs(10);
         safeType(TEXTBOX_DASHBOARD_WINDOW, dname1, "Dashboard name in textbox", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LISTBOX_Folder, "Folder", MEDIUMWAIT);
@@ -69,17 +70,18 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(10);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(10);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(10);
+        waitForSecs(20);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
+        waitForSecs(10);
     }
 
     @Step("Adding Folder in Dashboard overview Page")

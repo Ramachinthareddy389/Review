@@ -54,4 +54,19 @@ public class SoftwareTests extends BaseSetup {
 
     }*/
 
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_155_VerifyPageIconsInSoftwarepage(){
+        softwarePage.clickingOnSoftware();
+        softwarePage.addingNewSoftware();
+        softwarePage.verifyingPageIconsInSoftwarepage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_156_ApplyFiltersInSoftwarePage(){
+        softwarePage.clickingOnSoftware();
+        softwarePage.addingNewSoftware();
+        softwarePage.applyingFiltersInSoftwarePage();
+    }
+
 }

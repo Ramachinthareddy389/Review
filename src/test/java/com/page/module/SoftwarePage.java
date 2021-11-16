@@ -227,4 +227,84 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(5);
     }
+
+    public void verifyingPageIconsInSoftwarepage() {
+        safeType(TEXTBOX_TYPESEARCH, DbTitle + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        //mouseHoverJScript(SELECTROW_CHKBOX, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b1 = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE,"clone button",MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label","Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = DbTitle+" - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_EDIT,"Edit button",MEDIUMWAIT);
+        boolean editTitle=  isElementDisplayed(EDIT_HEADER);
+        Assert.assertTrue(editTitle);
+        List<WebElement> chkboxes =driver.findElements(CHEKBOXES_EDITWINDOW);
+        for(int i=0;i<=chkboxes.size()-1;i++) {
+            chkboxes.get(i).click();
+        }
+        waitForSecs(10);
+        safeClick(BTN_APPLY_CHANGES, "Apply changes", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+    }
+
+
+    public void applyingFiltersInSoftwarePage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + DbTitle +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, DbTitle);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
 }

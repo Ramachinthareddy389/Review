@@ -250,23 +250,25 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(DASHBOARD_FIELD_CLONE_PORTLET, "Dashboard Field in Clone Portlet window", MEDIUMWAIT);
         safeClick(DASHBOARD_FIELD_CLONE_PORTLET, "Dashboard Field in Clone Portlet window", MEDIUMWAIT);
         waitUntilClickable(DROPDOWN_DASHBOARDS, "Dropdown list of Dashboards", MEDIUMWAIT);
+        waitForSecs(10);
         String clonedPortlet = Keys.chord(dashBoardData.DB_clonedPortlet) + Keys.ENTER;
         driver.findElement(DASHBOARD_OPTION_CLONE_PORTLET).sendKeys(clonedPortlet);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.DB_clonedPortlet);
         safeClick(BTN_CLONE_PORTLET_WINDOW, "Clone button in Clone Portlet window", MEDIUMWAIT);
         waitUntilElementDisappears(DASHBOARD_FIELD_CLONE_PORTLET, "Dashboard Field in Clone Portlet window", LONGWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section", MEDIUMWAIT);
     }
 
     @Step("Verifying Cloned portlet in Dashboard page")
-    public void verifyingClonedPortlet() {
+    public void verifyingClonedPortlet(String gaugePortletName) {
         waitForPageToLoad();
         safeType(TEXTBOX_TYPESEARCH, dashBoardData.DB_clonedPortlet + "\n", "Search box in Dashboards Overview page", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        By CLONED_PORTLET_DASHBOARD = By.xpath("//span[contains(@aria-label,'" + dashBoardData.portletQuery + "')]");
+        By CLONED_PORTLET_DASHBOARD = By.xpath("//span[contains(@aria-label,'" + gaugePortletName + "')]");
         waitUntilClickable(CLONED_PORTLET_DASHBOARD, "Cloned portlet in Dashboard page", MEDIUMWAIT);
         if (!driver.findElement(CLONED_PORTLET_DASHBOARD).isDisplayed())
             Assert.fail("Cloned Portlet is not displayed in Dashboard page");
-        By REMOVE_CLONED_PORTLET = By.xpath("//span[contains(@aria-label,'" + dashBoardData.portletQuery + "')]/../../following-sibling::div/div[contains(@aria-label,'Close')]");
+        By REMOVE_CLONED_PORTLET = By.xpath("//span[contains(@aria-label,'" + gaugePortletName + "')]/../../following-sibling::div/div[contains(@aria-label,'Close')]");
         safeClick(REMOVE_CLONED_PORTLET, "Remove icon of Cloned Portlet", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE_PORTLET, "Confirm button in Delete popup", MEDIUMWAIT);
         try {
@@ -346,8 +348,21 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
         String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TEXTBOX_DECIMAL_PLACES);
-        searchField1.sendKeys(del + 5);
+        searchField1.sendKeys(del1 + 5);
         waitForSecs(10);
+        safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        waitForSecs(20);
+        safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
+        safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
+        safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
+        waitForSecs(5);
+        System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
+        appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
         safeClick(BTN_ADD_PORTLET, "Add Portlet", MEDIUMWAIT);
     }
 
@@ -453,10 +468,13 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         safeClick(NTABULAR_LABEL_FIELD, "Label Field", MEDIUMWAIT);
         safeType(NTABULAR_LABEL_FIELD_TEXTBOX, dashBoardData.nTabularPortletLabel, "Label Field", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(ORDER_BY_FIELD, "Order By Field in N Tabular portlet", MEDIUMWAIT);
         safeClick(NTABULAR_ORDER_BY_OPTION, "Order By Field option in N Tabular portlet", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(ORDER_DIRECTION_FIELD, "Order Direction Field in N Tabular portlet", MEDIUMWAIT);
         safeClick(ORDER_DIRECTION_OPTION, "Order Direction Field option in N Tabular portlet", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(NTABULAR_SHOW_KPI_NAME_CHECKBOX, "Show KPI Name checkbox", MEDIUMWAIT);
         String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
@@ -1061,6 +1079,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String firstRow = driver.findElement(NtabularFirstRow).getText();
         String secndRow = driver.findElement(NTABULARSENDROW).getText();
         String thirdRow = driver.findElement(NTABULARTHIRDROW).getText();
+        String secnd2 =secndRow+".00";
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
@@ -1101,10 +1120,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String[] column2 = s2.split(":");
         Arrays.sort(column2);
         Arrays.toString(column2);
-        for (int i = 1; i <= column2.length; i++) {
+        for (int i = 0; i <= column2.length+1; i++) {
             String value = column2[i + 2];
             //String Double = String.format("%.2f", value);
-            System.out.println("Exported CSV values  :" + value + "  Table Column Values:" + secndRow);
+            System.out.println("Exported CSV values  :" + value + "  Table Column Values:" + secnd2);
             // Assert.assertEquals(Double, list2.get(i).getText());
 
 

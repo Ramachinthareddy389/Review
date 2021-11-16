@@ -168,7 +168,7 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
         //portletsFeature.verifyingPortletAddedFromSearchBar();
         portletsFeature.cloningPortletInDashboardPage();
-        portletsFeature.verifyingClonedPortlet();
+        portletsFeature.verifyingClonedPortlet(gaugePortletName);
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
