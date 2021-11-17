@@ -49,6 +49,9 @@ public interface SoftwareLocators {
         By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
         By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
         By LABEL_SAVE = By.xpath("//span[text()='Save']");
+        By REFERENCED_ITEM_LINK = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]");
+        By REFERENCED_TEXT = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]/button");
+
     }
 
 

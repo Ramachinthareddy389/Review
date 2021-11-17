@@ -753,5 +753,85 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(15);
 
     }
+    public void navigateToReferenceWindowFromSoftwareEditWindow(){
+        safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_HARDWARE, "Software label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + dashBoardData.HardwareConfigRcrd +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
+        System.out.println(refName);
+        String splititem[]= refName.split(">");
+        String cpName=splititem[2];
+        System.out.println(cpName);
+        waitForSecs(10);
+        safeClick(REFERENCED_ITEM_LINK,"referenced item",MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label","Db page title", MEDIUMWAIT);
+        pageTitle = " "+pageTitle;
+        System.out.println(pageTitle);
+        Assert.assertEquals(cpName,pageTitle);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+    }
+
+    public void verifyingViewDataForDataFeildsWithviewIconInreferWindow(){
+        safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_HARDWARE, "Software label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + dashBoardData.HardwareConfigRcrd +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(REFERENCED_ITEM_LINK,"referenced item",MEDIUMWAIT);
+        waitForSecs(10);
+        waitForSecs(9);
+        safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
+        boolean b=isElementDisplayed(KPIS_TEXT);
+        Assert.assertTrue(b);
+        waitForSecs(5);
+        List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
+        for (int i = 0; i <= wizards.size()-1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.HARDWARE_VALUES[i]));
+            System.out.println(wizardName);
+        }
+
+
+        for (int j = 0; j < dashBoardData.HARDWARE_VALUES.length-1; j++) {
+            System.out.println("Values are " + dashBoardData.HARDWARE_VALUES[j]);
+        }
+        safeClick(CLOSE_WINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+    }
+
 }
 

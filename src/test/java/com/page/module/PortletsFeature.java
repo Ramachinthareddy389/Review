@@ -253,7 +253,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(10);
         String clonedPortlet = Keys.chord(dashBoardData.DB_clonedPortlet) + Keys.ENTER;
         driver.findElement(DASHBOARD_OPTION_CLONE_PORTLET).sendKeys(clonedPortlet);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.DB_clonedPortlet);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.DB_clonedPortlet);
         safeClick(BTN_CLONE_PORTLET_WINDOW, "Clone button in Clone Portlet window", MEDIUMWAIT);
         waitUntilElementDisappears(DASHBOARD_FIELD_CLONE_PORTLET, "Dashboard Field in Clone Portlet window", LONGWAIT);
         safeClick(All_FOLDER, "All folder on dashboards section", MEDIUMWAIT);
@@ -1079,7 +1079,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String firstRow = driver.findElement(NtabularFirstRow).getText();
         String secndRow = driver.findElement(NTABULARSENDROW).getText();
         String thirdRow = driver.findElement(NTABULARTHIRDROW).getText();
-        String secnd2 =secndRow+".00";
+        String secnd2 = secndRow + ".00";
         waitForSecs(7);
         safeClick(BTN_EXPORT, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
@@ -1113,17 +1113,29 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Arrays.toString(labels);
         for (int i = 1; i < labels.length - 1; i++) {
             if (labels[i + 2].equals(firstRow)) {
-                System.out.println("Exported CSV values  :" + labels[i + 2] + "  Table Column Values:" + firstRow);
+                System.out.println("Exported 1st CSV values  :" + labels[i + 2] + "  Table Column Values:" + firstRow);
                 //Assert.assertEquals(labels[i + 1], firstRow);
             }
         }
         String[] column2 = s2.split(":");
         Arrays.sort(column2);
         Arrays.toString(column2);
-        for (int i = 0; i <= column2.length+1; i++) {
+        System.out.println(column2.length);
+        for (int i = 1; i > column2.length - 1; i++) {
             String value = column2[i + 2];
             //String Double = String.format("%.2f", value);
-            System.out.println("Exported CSV values  :" + value + "  Table Column Values:" + secnd2);
+            System.out.println("Exported 2nd CSV values  :" + value + "  Table Column Values:" + secnd2);
+            // Assert.assertEquals(Double, list2.get(i).getText());
+
+
+        }
+        String[] column3 = s3.split(":");
+        Arrays.sort(column3);
+        Arrays.toString(column3);
+        for (int i = 1; i <= column3.length - 1; i++) {
+            String value = column3[i + 2];
+            //String Double = String.format("%.2f", value);
+            System.out.println("Exported 3rd CSV values  :" + value + "  Table Column Values:" + thirdRow);
             // Assert.assertEquals(Double, list2.get(i).getText());
 
 
@@ -1317,9 +1329,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
-        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");
-        waitUntilClickable(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(FLOW_HEADER, "Flow header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
         safeClick(KPI_GHOSTTEXT, "KPI ghost text", MEDIUMWAIT);
@@ -1328,17 +1337,17 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(FLOW_TEXTBOX_KPI);
         searchField2.sendKeys(del2 + dashBoardData.portletBPKPI);
-        waitForSecs(10);
+        waitForSecs(20);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
+        waitForSecs(10);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
             if (kpis.get(i).getText().equals(dashBoardData.portletBPKPI)) {
-                waitForSecs(20);
                 kpis.get(i).click();
                 break;
             }
         }
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(FLOW_PORTLET_NAME, "Portlet Name field in Flow portlet Interface");
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
@@ -1414,11 +1423,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(15);
         String text = driver.findElements(LEGENDS).get(0).getText();
         System.out.println(text);
-        String expectedText = "Avg Duration";
+        String expectedText = "Avg Duration not null";
         Assert.assertEquals(text, expectedText);
         String text2 = driver.findElements(LEGENDS).get(1).getText();
         System.out.println(text2);
-        String expectedText1 = "#";
+        String expectedText1 = "# not null";
         Assert.assertEquals(text2, expectedText1);
 
 
@@ -1482,7 +1491,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(15);
         safeClick(BTN_SAVE, "Saving Portlet", MEDIUMWAIT);
         waitForSecs(15);
-        waitForSecs(15);
         boolean text = driver.findElement(By.xpath("//span[text()='Sample Label']")).isDisplayed();
         System.out.println(text);
         Assert.assertTrue(text);
@@ -1539,7 +1547,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
         String text = safeGetText(LABEL_DATAABOVE_SLA, "Above SLA value", MEDIUMWAIT);
         System.out.println(text);
-        String expectedText = "RED,YELLOW,ORANGE";
+        String expectedText = "RED,YELLOW,ORANGE, not none";
         Assert.assertEquals(text, expectedText);
     }
 
@@ -1550,9 +1558,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(7);
         safeClick(LISTOFDASHBOARDS, "Dashboard Name", MEDIUMWAIT);
         waitForSecs(20);
-      safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(BTN_TODAY,"Today button", MEDIUMWAIT);
+        safeClick(BTN_TODAY, "Today button", MEDIUMWAIT);
         waitForSecs(7);
         safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
         waitForSecs(7);
@@ -1598,7 +1606,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String s14 = f.format(new Date(cal.getTimeInMillis()));
         cal.add(Calendar.DATE, 2);
         String s15 = f.format(new Date(cal.getTimeInMillis()));*/
-        String[] expected = {s1,"1:00 am","2:00 am","3:00 am","4:00 am","5:00 am","6:00 am","7:00 am","8:00 am","9:00 am","10:00 am", "11:00 am", "12:00 pm", "1:00 pm","2:00 pm","3:00 pm","4:00 pm","5:00 pm","6:00 pm","7:00 pm","8:00 pm","9:00 pm","10:00 pm", "11:00 pm"};
+        String[] expected = {s1, "1:00 am", "2:00 am", "3:00 am", "4:00 am", "5:00 am", "6:00 am", "7:00 am", "8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"};
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
         for (int i = 0; i <= expected.length - 1; i++) {
             String optionValue = allOptions.get(i).getText();
@@ -1628,7 +1636,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat f = new SimpleDateFormat("d. MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("d");
-       // cal.add(Calendar.DATE, -29);
+        // cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
         String expected = s1;
@@ -1655,7 +1663,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         SimpleDateFormat f = new SimpleDateFormat("MMM");
         SimpleDateFormat f1 = new SimpleDateFormat("yy");
         // cal.add(Calendar.MONTH);
-       // cal.add(Calendar.DATE, -29);
+        // cal.add(Calendar.DATE, -29);
         String s1 = f.format(new Date(cal.getTimeInMillis()));
         String s2 = f1.format(new Date(cal.getTimeInMillis()));
         String date = s1 + " " + "'" + s2;
@@ -1704,7 +1712,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         System.out.println(text);
         expectedText = "Minutely";
         Assert.assertEquals(text, expectedText);*/
-        String[] expected = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00"};
+        String[] expected = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "00:00"};
         List<WebElement> allOptions = driver.findElements(GHPORTLET_LABELS);
         for (int i = 0; i < allOptions.size() - 1; i++) {
             String optionValue = allOptions.get(i).getText();
@@ -1724,7 +1732,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(20);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(BTN_TODAY,"Today button", MEDIUMWAIT);
+        safeClick(BTN_TODAY, "Today button", MEDIUMWAIT);
         waitForSecs(7);
         safeJavaScriptClick(BTN_TREND_GRANULARITY, "Trend granularity button", MEDIUMWAIT);
         waitForSecs(7);
@@ -1733,7 +1741,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         System.out.println(text);
         expectedText = "Hourly";
         Assert.assertEquals(text, expectedText);
-        String[] expected = {"12:00 AM","1:00 AM","2:00 AM","3:00 AM","4:00 AM","5:00 AM","6:00 AM","7:00 AM","8:00 AM","9:00 AM"};
+        String[] expected = {"12:00 AM", "1:00 AM", "2:00 AM", "3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM"};
         List<WebElement> allOptions = driver.findElements(TABULAR_PORTLET_HOURLY);
         for (int i = 0; i <= 9; i++) {
             String optionValue = allOptions.get(i).getText();
@@ -1747,6 +1755,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
 
     }
+
     @Step("Validating Daily option in trendGranularity in dashboard overview page")
     public void validaingTrendGranularityUSingDailyForTabular() throws InterruptedException {
         waitForSecs(7);
@@ -1778,7 +1787,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(7);
         safeClick(BTN_MONTHLY, "Monthly option from Trend Granularity");
         waitForSecs(7);
-       String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
+        String text = safeGetText(NTABULAR_LABELS_Monthly, "Monthly text", 5000);
         System.out.println(text);
         expectedText = "MONTHLY";
         Assert.assertEquals(text, expectedText);
@@ -1829,11 +1838,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(7);
         safeClick(BTN_MINUTE, "Minute option from Trend Granularity");
         waitForSecs(7);
-       String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
+        String text = safeGetAttribute(NTABULAR_LABELS_minutely, "title", "Minute text", 5000);
         System.out.println(text);
         expectedText = "Minutely";
         Assert.assertEquals(text, expectedText);
-        String[] expected = {"12:00 AM","12:01 AM","12:02 AM","12:03 AM","12:04 AM","12:05 AM","12:06 AM","12:07 AM","12:08 AM","12:09 AM","12:10 AM","TOTAL"};
+        String[] expected = {"12:00 AM", "12:01 AM", "12:02 AM", "12:03 AM", "12:04 AM", "12:05 AM", "12:06 AM", "12:07 AM", "12:08 AM", "12:09 AM", "12:10 AM", "TOTAL"};
         List<WebElement> allOptions = driver.findElements(TABULAR_PORTLET_MINUTELY);
         for (int i = 0; i < 9; i++) {
             String optionValue = allOptions.get(i).getText();

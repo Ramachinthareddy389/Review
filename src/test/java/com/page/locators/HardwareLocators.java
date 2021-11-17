@@ -105,9 +105,11 @@ public interface HardwareLocators {
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
     By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
     By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
-    By KPIS_TEXT = By.xpath("//h6[text()='KPIs']");
+    By KPIS_TEXT = By.xpath("//h6[text()='Monitored Server']");
     By LISTOF_KPIS = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By REFERENCED_TEXT = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]/button");
+    By REFERENCED_ITEM_LINK = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]");
 
 }

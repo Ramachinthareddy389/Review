@@ -67,6 +67,8 @@ public class DashBoardData {
 	public final String[] KPIS = wizardData.getProperty("KPI_ATTRIBUTES").split(";");
 	public final String[] KPIS_VALUES = wizardData.getProperty("KPI_VALUES").split(";");
 	public  final String[] SERVER_VALUES = wizardData.getProperty("SERVER_VALUES").split(";");
+	public  final String[] 	HARDWARE_VALUES = wizardData.getProperty("HARDWARE_VALUES").split(";");
+
 	public final String[] SLA_VALUES = wizardData.getProperty("SLA_VALUES").split(";");
 	public final String[] monitoring = wizardData.getProperty("MONITORING").split(";");
 	public final String[] analytics = wizardData.getProperty("ANALYTICS").split(";");
@@ -79,6 +81,8 @@ public class DashBoardData {
 	public  final String[] HttpServer = HardwareData.getProperty("HTTPSERVER").split(";");
 	public  final String[] Bpsever = HardwareData.getProperty("BPSERVER").split(";");
 	public  final String[] TomcatServer = HardwareData.getProperty("TOMCATPROFILE").split(";");
+	public final String SoftwareConfigRcrd = HardwareData.getProperty("SOFTWARE_CONFIG_RECRD");
+	public final String HardwareConfigRcrd = HardwareData.getProperty("HARDWARE_CONFIG_RECRD");
 
 
 }

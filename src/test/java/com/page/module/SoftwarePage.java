@@ -307,4 +307,39 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         waitForSecs(15);
     }
 
+    public void navigateToReferenceWindowFromSoftwareEditWindow(){
+        safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_SOFTWARE, "Software label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + dashBoardData.SoftwareConfigRcrd +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
+        System.out.println(refName);
+        String splititem[]= refName.split(">");
+        String cpName=splititem[2];
+        System.out.println(cpName);
+        waitForSecs(10);
+        safeClick(REFERENCED_ITEM_LINK,"referenced item",MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label","Db page title", MEDIUMWAIT);
+        pageTitle = " "+pageTitle;
+        System.out.println(pageTitle);
+        Assert.assertEquals(cpName,pageTitle);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+    }
+
 }

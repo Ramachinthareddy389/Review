@@ -326,7 +326,7 @@ public class PortletsTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = false, groups = "Smoke Test")
     public void TC_058_AddingPortletFromSearchBar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -348,7 +348,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        portletsFeature.navigatingToDrillThroughPage(dname1);
+        portletsFeature.navigatingToDrillThroughPage(gaugePortletName);
         dashboardOverviewPage.clickingOnCalenderIcon();
         dashboardOverviewPage.ValidatingCurrentHour();
         dashboardOverviewPage.validatingLastHour();

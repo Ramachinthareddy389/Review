@@ -96,6 +96,18 @@ public class HardwareTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_149_ViewDataForFieldswithViewIconInReferEditConfigWindow(){
+        hardwarePage.verifyingViewDataForDataFeildsWithviewIconInreferWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_151_NavigateToComponentEditwindowinReferencesSection(){
+        hardwarePage. navigateToReferenceWindowFromSoftwareEditWindow();
+    }
+
+
+
 
 
 
