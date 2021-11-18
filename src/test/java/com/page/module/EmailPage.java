@@ -84,6 +84,10 @@ public class EmailPage extends SafeActions implements EmailLocators {
         System.out.println(url);
         String expectedURL = "http://qa.germainapm.com/germainapm/workspace/app/#Explore()";
         Assert.assertEquals(url, expectedURL);
+        boolean welText = isElementDisplayed(welcomeText);
+        if (welText == true) {
+            safeClick(BTN_QUITTOUR, "Close button in welcome popup", MEDIUMWAIT);
+        }
         boolean operational_Module = isElementDisplayed(LABEL_OPERATIONAL);
         Assert.assertTrue(operational_Module);
     }
@@ -215,7 +219,15 @@ public class EmailPage extends SafeActions implements EmailLocators {
         safeClick(BTN_DELETE_FOREVER, "Delete button", MEDIUMWAIT);
     }
 
+    public void deletingEmails(String email) {
+        waitForSecs(30);
+        safeClick(LABEL_MENU_BUTTON,"Menu button",MEDIUMWAIT);
+        safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);
+        acceptAlert();
 
+
+
+    }
     public void navigatingToYopMail(String Email,String title){
         safeTypeUsingChrod(TXTBOX_YOPMAIL, Email, "Entering yop mail", MEDIUMWAIT);
         safeClick(BTN_FORWARD, "Forward button", MEDIUMWAIT);

@@ -69,6 +69,20 @@ public class SoftwareTests extends BaseSetup {
         softwarePage.applyingFiltersInSoftwarePage();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_154_NavigateToReferencesEditWindowInEditConfigwindow(){
+        softwarePage.navigateToReferenceWindowFromSoftwareEditWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_159_VerifyIconsInEditConfigWindow(){
+        softwarePage.clickingOnSoftware();
+        softwarePage.addingNewSoftware();
+        softwarePage.VerifyIconsInSoftwareEditConfigWindow();
+    }
+
+
+
 
 
 }

@@ -265,6 +265,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     }
 
     public void deletingEmails() {
+
         waitForSecs(30);
         safeClick(LABEL_MENU_BUTTON,"Menu button",MEDIUMWAIT);
         safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);

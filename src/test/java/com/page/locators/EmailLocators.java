@@ -24,8 +24,8 @@ public interface EmailLocators {
    By PASSWORD_FIELD = By.xpath("//input[@type='password']");
    By LOGIN_BTN = By.xpath("//span[normalize-space()='Login']");
    By LABEL_OPERATIONAL = By.xpath("//span[text()='Operational']");
-
-
+   By BTN_QUITTOUR = By.xpath("//button[@title ='Quit Tour']");
+   By welcomeText = By.xpath("//p[text()='Welcome and THANK YOU! :)']");
    By BTN_FORWARD = By.xpath("//button[@class='md']/i");
    By LABEL_RECEIVED_EMAIl = By.xpath("//div[@class='lms']");
    By FRAME = By.xpath("//iframe[@id='ifnoinb']");
@@ -41,5 +41,7 @@ public interface EmailLocators {
    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
    By TITLE_KPI = By.xpath("//i[@aria-label='Add New Configuration']/../../../../../h5");
    By TXTBOX_YOPMAIL = By.xpath("//input[@id='login']");
+   By LABEL_MENU_BUTTON = By.xpath("//button[@id='delsel']/../../div[1]/button");
+   By LABEL_EMPTY_TEXTBOX = By.xpath("//span[text()='Empty Inbox']");
 
 }

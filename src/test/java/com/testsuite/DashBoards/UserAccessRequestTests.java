@@ -58,19 +58,19 @@ public class UserAccessRequestTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_467_AddNewRolesInAddNDEditUserwindow() {
-        userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
+        userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@yopmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         presentationModesNdRulesPages.verifyingAddedUserRoles();
-        userAccessRequestPage.deletingaddedEmail();
+        userAccessRequestPage.deletingaddedEmail("zenqtest75@yopmail.com");
 
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_469_EditUserConfiguration() {
-        userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@gmail.com");
+        userAccessRequestPage.addingRoleFromUsersPage("zenqtest79@yopmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
-        userAccessRequestPage.editingUserConfigurations();
+        userAccessRequestPage.editingUserConfigurations("zenqtest79@yopmail.com");
     }
 
 
@@ -153,24 +153,35 @@ public class UserAccessRequestTests extends BaseSetup {
 
     @Test(alwaysRun = true)
     public void TC_003_UpdatePasswordfromProfilewithCorrectrequirements(){
-        userAccessRequestPage.addingNewUser("test1zenq@yopmail.com");
+        userAccessRequestPage.addingNewUser("zenqtest003@yopmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         getDriver().get(dashBoardData.yopmail);
-        emailPage.navigatingToYopMail("test1zenq@yopmail.com", "Germain APM - Welcome");
+        emailPage.navigatingToYopMail("zenqtest003@yopmail.com", "Germain APM - Welcome");
         emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
         userAccessRequestPage.changePasswordFrmUserProfile();
         userAccessRequestPage.signOut();
         loginPage.verifyLoginPage();
-        userAccessRequestPage.loginFromAfterLogout();
+        userAccessRequestPage.loginFromAfterLogout("zenqtest003@yopmail.com");
+        userAccessRequestPage.signOut();
+        loginPage.verifyLoginPage();
+        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
+        loginPage.clickLogInButton();
+        userAccessRequestPage.deletingCreatedUser("zenqtest003@yopmail.com");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.deletingEmails("zenqtest003@yopmail.com");
+
 
     }
 
     @Test(alwaysRun = true)
     public void TC_005_ResetpasswordusingForgotPasswordfield(){
         userAccessRequestPage.signOut();
-        userAccessRequestPage.verifyingFunctionalityOfForgotPassword();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain APM Password Reset");
+        userAccessRequestPage.verifyingFunctionalityOfForgotPassword("test1zenq@yopmail.com");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("test1zenq@yopmail.com", "Germain APM Password Reset");
+        emailPage.clickingOnSetPasswordHyperlinkFrmWelcomepage();
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.deletingemailsfromgmail();
     }
 
     @Test(alwaysRun = true)

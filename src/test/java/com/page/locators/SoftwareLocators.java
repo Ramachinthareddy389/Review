@@ -8,7 +8,7 @@ public interface SoftwareLocators {
         By BTN_SOFTWARE = By.xpath("//span[text()='Software']");
         By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
         By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
-        By TXTBOX_SERVERNAME = By.xpath("//h6[text()='Software']/../../../../../div[2]/descendant::input[1]");
+        By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
         By LABEL_DESC = By.xpath("//label[@id='description-label']");
         By TXTBOX_DESC = By.xpath("//input[@id='description']");
         By LABEL_CATEGORY = By.xpath("//span[text()='Category']");
@@ -51,7 +51,9 @@ public interface SoftwareLocators {
         By LABEL_SAVE = By.xpath("//span[text()='Save']");
         By REFERENCED_ITEM_LINK = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]");
         By REFERENCED_TEXT = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]/button");
-
+        By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+        By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+        By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
     }
 
 

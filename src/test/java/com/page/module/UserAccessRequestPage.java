@@ -17,7 +17,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String Email = "Zenqtest" + random.nextInt(500) + "@gmail.com";
+    String Email = "Zenqtest" + random.nextInt(500) + "@yopmail.com";
     String Edit_Type_Add;
     String notify ="We were unable to authenticate the supplied username and password. One or both are incorrect. Please verify them and try again, or if you continue to have problems, consult with your system administrator about having your password reset.";
 
@@ -98,10 +98,10 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         safeClick(LABEL_USER_ROLES, "Auth Settings", MEDIUMWAIT);
     }
 
-    public void deletingaddedEmail() {
+    public void deletingaddedEmail(String email) {
         safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
         waitForSecs(10);
-        safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, email + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
@@ -112,11 +112,11 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         waitForSecs(10);
     }
 
-    public void editingUserConfigurations() {
+    public void editingUserConfigurations(String email) {
         safeClick(BTN_FINISH, "System Label", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Auth Settings Label", MEDIUMWAIT);
         waitForSecs(10);
-        safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, email + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
@@ -140,7 +140,7 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
         safeClick(LABEL_USERS, "Users Label", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, Email + "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, email + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
@@ -215,15 +215,18 @@ public class UserAccessRequestPage extends SafeActions implements UserAccessRequ
 
     }
 
-    public void loginFromAfterLogout() {
-        safeTypeUsingChrod(PASSWORD_FIELD, "Zen@1234", "Entering password", MEDIUMWAIT);
+    public void loginFromAfterLogout(String sEmailAddresss) {
+        safeType(EMAILADDRESS_FIELD, sEmailAddresss, "'Email' field in 'Login' page", MEDIUMWAIT);
+        safeTypeUsingChrod(PASSWORD_FIELD, "Test@123", "Entering password", MEDIUMWAIT);
         safeClick(LOGIN_BTN, "Login button", MEDIUMWAIT);
         waitForSecs(20);
+        boolean operational_Module = isElementDisplayed(LABEL_OPERATIONAL);
+        Assert.assertTrue(operational_Module);
     }
 
-    public void verifyingFunctionalityOfForgotPassword() {
+    public void verifyingFunctionalityOfForgotPassword(String mail) {
         safeClick(HYPERLINK_FORGOTPASSWD, "hyerlink", MEDIUMWAIT);
-        safeTypeUsingChrod(USERNAME_TXTBOX, "zenqtest75@gmail.com", "Username", MEDIUMWAIT);
+        safeTypeUsingChrod(USERNAME_TXTBOX, mail, "Username", MEDIUMWAIT);
         safeClick(BTN_RESET, "reset buttoin", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }

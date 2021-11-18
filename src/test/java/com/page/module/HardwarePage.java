@@ -833,5 +833,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(10);
     }
 
+
+
 }
 
