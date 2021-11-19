@@ -33,7 +33,18 @@ public interface AlertTemplateLocators
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
-
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='Alert Templates']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Alert Templates']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Alert Templates']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='Alert Templates']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE1 = By.xpath("//h5[text()='Alert Templates']/..//div[@aria-label='Remove Selected Configuration']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     //Alert Locators
     By LABEL_AUTOMATION = By.xpath("//span[text()='Automation']");
     By LABEL_ALERT = By.xpath("//span[text() ='Alert']");

@@ -123,21 +123,21 @@ public class CorrelationTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_182_ApplyFilters(){
+    public void TC_182_ApplyFiltersInCorrelationWindow(){
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.applyingFilters();
     }
 
     @Test(alwaysRun = true)
-    public void TC_184_VerifyIconsInEditConfigWindow(){
+    public void TC_184_VerifyIconsInCorrelationEditConfigWindow(){
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.verifyingIconsInEditWindow();
     }
 
     @Test(alwaysRun = true)
-    public void TC_186_ViewDataForfieldsWithViewIconInEditConfigWindow()
+    public void TC_186_ViewDataForfieldsWithViewIconInCorrelationEditConfigWindow()
     {
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
@@ -145,7 +145,7 @@ public class CorrelationTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_181_VerifyPageIcons(){
+    public void TC_181_VerifyPageIconsInCorrelationWindow(){
         correlationPage.clickingOnCorrelation();
         correlationPage.addingNewCorrelation();
         correlationPage.verifyingPageIcons();

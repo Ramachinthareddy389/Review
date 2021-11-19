@@ -127,4 +127,19 @@ public class AlertTemplateTests extends BaseSetup {
         emailPage.clickingHyperlinksInAlertEmails();
         //alertTemplatePage.deletingEmails();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_360_VerifyPageIconsInAlertTemplatePage(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
+        alertTemplatePage.verifyingPageIcons(dname1);
+    }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_361_ApplyFiltersInAlertTemplatePage(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
+        alertTemplatePage.applyingFilters(dname1);
+    }
 }

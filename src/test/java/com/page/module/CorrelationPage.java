@@ -894,7 +894,6 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
-        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         System.out.println(BPName);
