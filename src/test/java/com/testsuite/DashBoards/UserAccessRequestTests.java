@@ -167,7 +167,7 @@ public class UserAccessRequestTests extends BaseSetup {
         loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
         loginPage.clickLogInButton();
         userAccessRequestPage.deletingCreatedUser("zenqtest003@yopmail.com");
-        getDriver().get(dashBoardData.yopmail);
+        //getDriver().get(dashBoardData.yopmail);
         emailPage.deletingEmails("zenqtest003@yopmail.com");
 
 

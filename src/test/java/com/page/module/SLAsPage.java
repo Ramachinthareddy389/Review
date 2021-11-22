@@ -610,6 +610,22 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
 
     }
+    public void validatingSLATitleInSlAPAge(){
+        By SLATitle = By.xpath("//h5[text()='CPU Usage - raw - " +  slasName + "SLA" + "']");
+        System.out.println(SLATitle);
+        boolean b= isElementDisplayed(SLATitle);
+        Assert.assertTrue(b);
+        By SLAPageTitle = By.xpath("//h5[text()='Service Level Agreements']");
+        System.out.println(SLAPageTitle);
+        boolean b1= isElementDisplayed(SLAPageTitle);
+        Assert.assertTrue(b1);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+    }
     public void deleteinAlertTemplate(String dname1) {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);

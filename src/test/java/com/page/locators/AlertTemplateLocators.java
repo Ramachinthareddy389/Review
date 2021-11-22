@@ -45,6 +45,10 @@ public interface AlertTemplateLocators
     By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+    By SLAS_HYPER_LINK = By.xpath("//span[text()='Used By SLAs']/../../following-sibling::div/descendant::button");
     //Alert Locators
     By LABEL_AUTOMATION = By.xpath("//span[text()='Automation']");
     By LABEL_ALERT = By.xpath("//span[text() ='Alert']");

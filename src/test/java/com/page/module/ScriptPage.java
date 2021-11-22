@@ -17,7 +17,7 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
     String EDITSCRIPT = "EDITSCRIPT" + " - " + random.nextInt(500);
-    String SCRIPT = "SCRIPT" + "-" + random.nextInt(500);
+    String SCRIPT = "Script" + "-" + random.nextInt(500);
     String script_add, server_Add, type_add, sla_add, script_Add, content_add;
 
 
@@ -192,15 +192,17 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
+        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
         safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(ACTION_SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(ACTION_SLA_TXTBOX, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(ACTION_SLA_TXTBOX, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-        for (int i = 0; i < dbs3.size(); i++) {
+        for (int i = 0; i < dbs3.size()-1; i++) {
 
-            if (dbs3.get(i).getText().equals("User Click - raw - User Click SLA")) {
+            if (dbs3.get(i).getText().equals("Native User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -209,11 +211,15 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         String sla = safeGetText(ACTION_SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(sla);
         String[] parts = sla.split(" - ");
+        waitForSecs(10);
+        sla_add = parts[2]; // 004
+        System.out.println(sla_add);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        sla_add = parts[2]; // 004
-        System.out.println(sla_add);
+        waitForSecs(10);
+
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);

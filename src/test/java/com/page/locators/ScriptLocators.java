@@ -21,6 +21,7 @@ public interface ScriptLocators {
     By TXTBOX_SLA = By.xpath("//input[@id='sla']");
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
+    By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");

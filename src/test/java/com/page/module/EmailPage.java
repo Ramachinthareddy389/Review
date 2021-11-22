@@ -220,6 +220,7 @@ public class EmailPage extends SafeActions implements EmailLocators {
     }
 
     public void deletingEmails(String email) {
+        switchToWindow(0);
         waitForSecs(30);
         safeClick(LABEL_MENU_BUTTON,"Menu button",MEDIUMWAIT);
         safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);

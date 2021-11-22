@@ -18,6 +18,7 @@ public class AlertTemplateTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private EmailPage emailPage;
+    private  SLAsPage slAsPage;
 
     private String sModeOfExecution;
     Random random = new Random();
@@ -33,6 +34,7 @@ public class AlertTemplateTests extends BaseSetup {
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
         insightsPage = new InsightsPage(getDriver());
         emailPage = new EmailPage(getDriver());
+        slAsPage = new SLAsPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -55,7 +57,7 @@ public class AlertTemplateTests extends BaseSetup {
     public void TC_366_EditAlertTemplateConfiguration() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
-        alertTemplatePage.EditingAlertTemplateConfig();
+        alertTemplatePage.EditingAlertTemplateConfig(dname1);
         alertTemplatePage.verifyingEditedConfiguraions(dname1);
     }
 
@@ -142,4 +144,26 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.applyingFilters(dname1);
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_363_VerifyIconsInEditConfigWindow(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
+        alertTemplatePage.verifyingIconsInEditWindow(dname1);
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_359_NavigateToSLAsPageFromAlertTemplateEditwindow(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(dname1);
+        slAsPage.clickingOnSLAs();
+        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLAAction(dname1);
+        alertTemplatePage.NavigateToSLAsPageFromAlertTemplateEditwindow(dname1);
+        slAsPage.validatingSLATitleInSlAPAge();
+        slAsPage.deleteinAlertTemplate(dname1);
+
+
+    }
+
 }

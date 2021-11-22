@@ -20,7 +20,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     String Name_Add, textTitle, textContent, htmlTitle, htmlContent, smsTitle, smsContent, Edited_Name_Add;
     Random random = new Random();
     String dname = "BP";
-    String dname1 = dname + random.nextInt(1500);
+    //String dname1 = dname + random.nextInt(1500);
     String editBP = "BPEDIT";
     //String Alert = "alert" + random.nextInt(1500);
     String Bpstep = "Bp" + random.nextInt(1500);
@@ -99,7 +99,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     }
 
 
-    public void EditingAlertTemplateConfig() {
+    public void EditingAlertTemplateConfig(String dname1) {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -219,6 +219,51 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
+
+    }
+
+    public void verifyingIconsInEditWindow(String dname1) {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + dname1 + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(20);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
+    public void NavigateToSLAsPageFromAlertTemplateEditwindow(String dname1){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(SLAS_HYPER_LINK,"Slas hyper link",MEDIUMWAIT);
+
 
     }
 
