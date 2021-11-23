@@ -145,14 +145,14 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.applyingFilters(dname1);
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_363_VerifyIconsInEditConfigWindow(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.verifyingIconsInEditWindow(dname1);
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_359_NavigateToSLAsPageFromAlertTemplateEditwindow(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);

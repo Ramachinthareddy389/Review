@@ -70,6 +70,7 @@ public class DashBoardData {
 	public  final String[] 	HARDWARE_VALUES = wizardData.getProperty("HARDWARE_VALUES").split(";");
 
 	public final String[] SLA_VALUES = wizardData.getProperty("SLA_VALUES").split(";");
+	public final String[] UXSETTING_VALUES = wizardData.getProperty("UXSETTINGS_VALUES").split(";");
 	public final String[] monitoring = wizardData.getProperty("MONITORING").split(";");
 	public final String[] analytics = wizardData.getProperty("ANALYTICS").split(";");
 	public final String[] automation = wizardData.getProperty("AUTOMATION").split(";");
