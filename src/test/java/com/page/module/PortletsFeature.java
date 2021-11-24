@@ -235,8 +235,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     @Step("Verifying portlet added from search bar")
     public void navigatingToDrillThroughPage(String dname1) {
-        waitForPageToLoad();
-        safeClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
+        waitForSecs(20);
+        safeJavaScriptClick(BTN_DRILLTHROUGH, "Drillthrough button", MEDIUMWAIT);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dashBoardData.drillthrghpage + " " + dname1);
@@ -369,7 +369,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     @Step("Verifying GHPortlet")
     public void VerifyingGHPortlet(String dname1) {
-        waitForPageToLoad();
+        waitForSecs(10);
         By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + dname1 + "']");
         waitUntilClickable(NTABULAR_PORTLET_TITLE, "GH Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(NTABULAR_PORTLET_TITLE).isDisplayed())

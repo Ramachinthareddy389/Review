@@ -55,5 +55,17 @@ public class UXSettingsTests extends BaseSetup {
         uxSettingsPage.verifyingPageIconsInUXSettingsPage();
     }
 
- 
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_232_ApplyFiltersInUXSettingWindow(){
+        uxSettingsPage.ClickingOnUXSettings();
+        uxSettingsPage.applyingFiltersInUxSettingsWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_234_VerifyIconsInUxSetingsEditConfigWindow() {
+        uxSettingsPage.ClickingOnUXSettings();
+        uxSettingsPage.VerifyIconsInUxSetingsEditConfigWindow();
+    }
+
 }

@@ -72,7 +72,7 @@ public interface PortletLocators {
     By SEARCH_BAR_ADD_METRIC = By.xpath("//div[contains(@placeholder,'Search insights')]");
     By NO_DATA_AVAILABLE_PORTLET = By.xpath("//div[contains(text(),'No aggregate data available')]");
     By COUNTER_PORTLET_CHART = By.xpath("//div[contains(@class,'CounterChart')]");
-    By BTN_DRILLTHROUGH=By.xpath("//div[@aria-label='Drillthrough']");
+    By BTN_DRILLTHROUGH=By.xpath(" //div[@aria-label='Drillthrough']/span/i");
     By Title_DRILLTHROUGH=By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
     By PORTLET_BAR=By.xpath("//div[contains(@class,'GaugeChart')]/../div[1]/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan']");
     By TOOLTIPOPTION_1=By.xpath("//a[text()='View the worst (RCA)']");

@@ -96,6 +96,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         String FactType = safeGetText(TXTBOX_FACTTYPE, "Server textbox value", MEDIUMWAIT);
         System.out.println(FactType);
         String expectedFactType = "SLA";
+        waitForSecs(20);
         if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) &&
                 FeildName_add.equals(driver.findElement(FEILDNAME_GHOSTEXT).getText()) && expectedFactType.equals(driver.findElement(TXTBOX_FACTTYPE).getText())) {
             System.out.println("Data Field Exclusion details are valid");
@@ -197,7 +198,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         waitForSecs(2);
         mouseHoverJScript(LABEL_SYSTEM, "System name label", "Popup", MEDIUMWAIT);
         waitForSecs(15);
-        safeClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
+        safeJavaScriptClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
     }
 
     public void navigatingToDataExclusionModule(){
@@ -206,11 +207,13 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
     }
 
     public void addingDataFieldExclusionDetailsFromRCApage(){
-        waitForSecs(10);
+        waitForSecs(20);
         mouseHoverJScript(ICON_INFORMATION_RCA_PAGE, "Information icon in System header", "Drillthrogh Page", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
         safeClick(LABEL_SYSTEM,"SYstem Name Label",MEDIUMWAIT);
+        waitForSecs(5);
         mouseHoverJScript(LABEL_SYSTEM, "System name label", "Popup", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
     }
     public void applyingFilters(){
