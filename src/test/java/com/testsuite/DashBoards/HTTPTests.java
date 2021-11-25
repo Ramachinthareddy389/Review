@@ -3,10 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.HTTPPage;
-import com.page.module.HardwarePage;
-import com.page.module.KPIsPage;
-import com.page.module.LoginPage;
+import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
@@ -20,9 +17,11 @@ public class HTTPTests extends BaseSetup {
     private LoginPage loginPage;
     private HTTPPage httpPage;
     private HardwarePage hardwarePage;
+    private AlertTemplatePage alertTemplatePage;
+    private SLAsPage slAsPage;
     private String sModeOfExecution;
     Random random = new Random();
-    String NodeJS = "NodeJs" + " - " + random.nextInt(500);
+    String alertTemp = "ALERTTEMPLATE";
     String Engine="Engine"  + " - " + random.nextInt(500);
 
     @BeforeMethod(alwaysRun = true)
@@ -32,6 +31,8 @@ public class HTTPTests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         httpPage  = new HTTPPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
+        alertTemplatePage=new AlertTemplatePage(getDriver());
+        slAsPage = new SLAsPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -43,7 +44,7 @@ public class HTTPTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_237_AddHTTPActionconfiguration() throws InterruptedException
     {
         httpPage.clickingOnAutomation();
@@ -52,7 +53,7 @@ public class HTTPTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_238_AddSLAsinEditHTTPActionwindow()
     {
         httpPage.clickingOnAutomation();
@@ -61,7 +62,7 @@ public class HTTPTests extends BaseSetup {
         httpPage.addingSLA();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_243_AddHTTPScenarioconfiguration()
     {
         hardwarePage.clickingOnHardware();
@@ -72,7 +73,7 @@ public class HTTPTests extends BaseSetup {
 
 
     }
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_244_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException
     {
         hardwarePage.clickingOnHardware();
@@ -83,7 +84,7 @@ public class HTTPTests extends BaseSetup {
         httpPage.verifyingHttpScenario();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_245_AddScenarioTargetsinEditHTTPScenariowindow() throws InterruptedException, AWTException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
@@ -94,5 +95,11 @@ public class HTTPTests extends BaseSetup {
         httpPage.verifyingHttpScenario();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_247_VerifyPageIconsInHttpPage(){
+        httpPage.clickingOnAutomation();
+        httpPage.addingHTTPPage();
+        httpPage.verifyingPageIcons();
+    }
 
 }

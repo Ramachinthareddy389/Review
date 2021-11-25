@@ -53,7 +53,7 @@ public class AlertTemplateTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = false)
+    @Test(alwaysRun = true)
     public void TC_366_EditAlertTemplateConfiguration() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);

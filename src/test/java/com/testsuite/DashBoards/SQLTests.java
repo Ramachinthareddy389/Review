@@ -53,8 +53,8 @@ public class SQLTests extends BaseSetup {
           sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
           sqlPage.verifyingaddedSQLConfigs(SQL);
           sqlPage.deletingSQLConfig();
-          getDriver().get(dashBoardData.gmail);
-          emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+          getDriver().get(dashBoardData.yopmail);
+          emailPage.navigatingToYopMail("zenqtest75@yopmail.com","Germain Report - User Login Report - Germain Software - QA");
           emailPage.verifyingDataforSqlTests(SQL);
           //sqlPage.verifyingDataInEmail("Daily User Login Report");
 
@@ -68,21 +68,23 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.addingQueryFromSQLEditWindow("select name from GENERIC_EVENT order by id desc limit 10");
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Doesn't Matter");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zenqtest75@yopmail.com","Doesn't Matter");
         sqlPage.verifyingDataInEmail("Multi-Query-Report");
     }
 
-  /*  @Test(alwaysRun = true,groups = "Smoke Test")
+/*
+   @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_281_VerifyNotificationonSuccessNdFailureinEditSQLwindow(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
         sqlPage.verifyingOnSuccessNdFailure(SQL);
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zenqtest75@yopmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
 
-    }*/
+    }
+*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_282_VerifyLoggingEnabledinEditSQLwindow() throws InterruptedException {
@@ -106,8 +108,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         //sqlPage.deletingSQLConfig();
         componentPage.deleteDistributionList("DistributionList");
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zenqtest75@yopmail.com","Germain Report - User Login Report - Germain Software - QA");
         emailPage.verifyingDataforSqlTests(SQL);
     }
 
@@ -118,9 +120,9 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
-        emailPage.verifyingDataonRunschedule("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zenqtest75@yopmail.com","Germain Report - User Login Report - Germain Software - QA");
+        emailPage.verifyingDataonRunschedule("zenqtest75@yopmail.com","Germain Report - User Login Report - Germain Software - QA");
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -139,8 +141,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingaddedSQLConfigs(SQL);
         sqlPage.verifyingExecutionCountInSQl();
         sqlPage.deletingSQLConfig();
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zenqtest75@gmail.com","Germain Report - User Login Report - Germain Software - QA");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zenqtest75@yopmail.com","Germain Report - User Login Report - Germain Software - QA");
         emailPage.verifyingDataforSqlTests(SQL);
 
     }

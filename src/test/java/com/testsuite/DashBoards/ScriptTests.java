@@ -46,7 +46,7 @@ public class ScriptTests  extends BaseSetup {
 
     }
 
- /*   @Test(alwaysRun = true,groups = "Smoke Test")
+   @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_268_EditScriptConfigurartion()
     {
         scriptPage.clickingOnAutomation();
@@ -54,7 +54,7 @@ public class ScriptTests  extends BaseSetup {
         scriptPage.editScriptConfigurationWindow();
         scriptPage.verifyingAddedScript();
     }
-*/
+
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_270_AddSLAinAddScriptwindow()
     {
