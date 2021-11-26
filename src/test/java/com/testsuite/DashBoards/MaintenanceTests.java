@@ -47,7 +47,7 @@ public class MaintenanceTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_408_AddActionsinEditMaintenancewindow() {
+    public void TC_408_AddActionsinEditMaintenancewindow() throws InterruptedException {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.addActionsInEditMaintenanceWindow();

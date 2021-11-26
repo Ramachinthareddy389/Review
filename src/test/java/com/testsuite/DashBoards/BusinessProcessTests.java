@@ -6,6 +6,7 @@ import com.page.data.DashBoardData;
 import com.page.module.*;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -95,11 +96,6 @@ public class BusinessProcessTests extends BaseSetup {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.navigateToKpiPageByClickingOnKPIS();
-    }
-    @Test(alwaysRun = true)
-    public void TC_170_VerifyIconsinEditConfigWindow(){
-        businessProcessPage.clickingOnBP();
-        businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.verifyingIconsInEditWindow();
 
     }

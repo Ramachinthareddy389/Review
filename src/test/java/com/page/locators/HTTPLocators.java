@@ -23,11 +23,13 @@ public interface HTTPLocators {
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
+    By BTN_SAVE_DISABLED = By.xpath("//div[@aria-label='Save Configuration'][@aria-disabled ='true']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By TXTBOX_HOSTNAME = By.xpath("//input[@id='hostname']");
     By BTN_CLOSE = By.xpath("//span[text()='Close']");
+    By CLOSE_ICON = By.xpath("//button[@aria-label='close']");
     By BTN_NEXT = By.xpath("//span[text()='Next']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By HYPERLINK_SLAs = By.xpath("//span[text()='Triggered By SLAs']/../../../div/div/button");

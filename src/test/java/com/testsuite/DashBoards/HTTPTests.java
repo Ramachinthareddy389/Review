@@ -101,5 +101,19 @@ public class HTTPTests extends BaseSetup {
         httpPage.addingHTTPPage();
         httpPage.verifyingPageIcons();
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_248_ApplyFiltersInHttpPage(){
+        httpPage.clickingOnAutomation();
+        httpPage.addingHTTPPage();
+        httpPage.applyingFiltersInHttpPage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_250_VerifyIconsInHttpActionsEditConfigwindow()
+    {
+        httpPage.clickingOnAutomation();
+        httpPage.addingHTTPPage();
+        httpPage.VerifyIconsInHttpActionsEditConfigwindow();
+    }
 
 }

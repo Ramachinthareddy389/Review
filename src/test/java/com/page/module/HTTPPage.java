@@ -683,13 +683,13 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
             }
         }
         waitForSecs(10);
-        System.out.println(driver.findElement((BTN_SAVE)).isEnabled());
-        if(driver.findElement((BTN_SAVE)).isEnabled()==true) {
+        System.out.println(driver.findElement((BTN_SAVE_DISABLED)).isDisplayed());
+        if(driver.findElement((BTN_SAVE)).isEnabled()==false) {
             safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         }
         waitForSecs(10);
         safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(5);
         isElementDisplayed(KPIS_TEXT);
         waitForSecs(5);
         List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
@@ -703,14 +703,16 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         for (int j = 0; j < dashBoardData.SLA_VALUES.length - 1; j++) {
             System.out.println("Values are " + dashBoardData.SLA_VALUES[j]);
         }
-        safeClick(BTN_CLOSE, "Closing window");
+        safeClick(CLOSE_ICON, "Closing window");
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Closing window");
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(10);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-
+        waitForSecs(10);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(5);
     }
 }
 

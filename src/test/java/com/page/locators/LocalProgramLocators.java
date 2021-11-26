@@ -18,7 +18,7 @@ public interface LocalProgramLocators {
     By TXTBOX_SLA = By.xpath("//input[@id='sla']");
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
-    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
+    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5   ");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
@@ -35,9 +35,14 @@ public interface LocalProgramLocators {
     By CONTENT_TEXTAREA = By.cssSelector("textarea.inputarea");
     By LABEL_NAME = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/label[@id='name-label']");
     By TXTBOX_NAME = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/div/input[@id='name']");
-    By EDITED_SCRIPT = By.xpath("//input[@id='script']/../../../div[1]");
+    By EDITED_SCRIPT = By.xpath("//input[@id='name']/../../../div[1]");
     By TARGET_BY_SLA_ADD_ICON = By.xpath("//span[text()='Triggered By SLAs']/../../../div/button/span/i");
     By ACTION_SLA_GHOSTTEXT = By.xpath("//input[@id='names']/../../../div[1]");
     By ACTION_SLA_TXTBOX = By.xpath("//input[@id='names']");
-
+    By SCRIPT_LINK= By.xpath("//div[@title='Select Row']/../descendant::button[1]");
+    By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
 }

@@ -4,6 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.LocalProgramLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -46,19 +47,20 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+       waitForSecs(10);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("User Click - raw - User Click SLA")) {
+            if (dbs3.get(i).getText().equals("Native User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
             }
         }
+        waitForSecs(10);
         String sla = safeGetText(SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
-        System.out.println(sla);
         System.out.println(sla);
         String[] parts = sla.split(" - ");
         sla_add = parts[2]; // 004
@@ -69,12 +71,19 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
     }
 
     public void verifyingLocalprogrames(){
-        safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Dropdown field", MEDIUMWAIT);
+        waitForSecs(10);
+        By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(10);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = LCLPRGM;
@@ -108,7 +117,7 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
 
     }
-    public void verifyingAddedScriptInLocalPrograms(){
+    public void addingScriptInLocalProgramsEditWindow(){
         safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -123,6 +132,7 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(LABEL_TYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_TYPE, "python", "Server name into textbox", MEDIUMWAIT);
+       waitForSecs(10);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
@@ -133,19 +143,30 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
                 break;
             }
         }
+        waitForSecs(10);
         String sla = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(sla);
         safeClick(CONTENT_TEXTAREA,"Metric Exp",MEDIUMWAIT);
         WebElement metric=driver.findElement(CONTENT_TEXTAREA);
         metric.sendKeys("test123");
+       waitForSecs(10);
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        waitForSecs(15);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+    }
 
-        safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+    public void verifyingAddedScriptInLocalProgramsEditwindow(){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         String addedScript = safeGetText(EDITED_SCRIPT,"Script",MEDIUMWAIT);
@@ -156,14 +177,19 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-
     }
 
     public void verifyingAddedSLAsInLocalProgramsWindow(){
-        safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
@@ -195,6 +221,47 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         Assert.assertEquals(sla_add, driver.findElement(HYPERLINK_SLAs).getText());
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+    }
+
+    public void navigateToScriptPageFrmLocalProgrammes(){
+        waitForSecs(10);
+        safeClick(CLOSE_EDITWINDOW,"edit wondow",MEDIUMWAIT);
+        safeClick(SCRIPT_LINK, "Script Hyper Link", MEDIUMWAIT);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, "Scripts");
+        String addedScript = safeGetText(EDITED_SCRIPT,"Script",MEDIUMWAIT);
+        System.out.println(addedScript);
+        waitForSecs(5);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+
+    }
+
+    public void deletingCreatedLocalProgram(){
+        safeClick(BTN_LOCAL_PRGMS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);

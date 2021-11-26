@@ -39,7 +39,7 @@ public class LocalProgramTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_253_AddLocalProgramConfiguration() throws InterruptedException
     {
         localProgramPage.clickingOnAutomation();
@@ -48,21 +48,24 @@ public class LocalProgramTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_254_AddScriptinAddEditLocalProgramwindow() throws InterruptedException
     {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalPrograms();
-        localProgramPage.verifyingAddedScriptInLocalPrograms();
+        localProgramPage.addingScriptInLocalProgramsEditWindow();
+        localProgramPage.verifyingAddedScriptInLocalProgramsEditwindow();
 
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_255_AddSLAsinAddEditLocalProgramWindow()
     {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.verifyingAddedSLAsInLocalProgramsWindow();
     }
+
+
 }
