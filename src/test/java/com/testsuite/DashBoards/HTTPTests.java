@@ -116,4 +116,15 @@ public class HTTPTests extends BaseSetup {
         httpPage.VerifyIconsInHttpActionsEditConfigwindow();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_252_ViewDataForFieldswithViewIconInEditConfigwindow(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addIngAlertTemplate(alertTemp);
+        httpPage.clickingOnAutomation();
+        httpPage.addingHTTPPage();
+        httpPage.viewDataWithFeildsForViewIcon(alertTemp);
+        slAsPage.deleteinAlertTemplate(alertTemp);
+    }
+
+
 }

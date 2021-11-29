@@ -67,5 +67,12 @@ public class LocalProgramTests extends BaseSetup {
         localProgramPage.verifyingAddedSLAsInLocalProgramsWindow();
     }
 
-
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_259_NavigateToScriptPageFrmLocalProgramPage() throws InterruptedException {
+        localProgramPage.clickingOnAutomation();
+        localProgramPage.addingLocalPrograms();
+        localProgramPage.addingScriptInLocalProgramsEditWindow();
+        localProgramPage.navigateToScriptPageFrmLocalProgrammes();
+        localProgramPage.deletingCreatedLocalProgram();
+    }
 }

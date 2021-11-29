@@ -8,7 +8,8 @@ public interface CorrelationLocators {
     By BTN_ADDICON_CORRELATION = By.xpath("//h5[text()='Correlation Scenarios']/../div/div/button/span/i[@aria-label='Add New Configuration']");
     By LABEL_NAME = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/label[@id='name-label']");
     By TXTBOX_NAME = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/div/input[@id='name']");
-    By TXTBOX_NAME_GENERATOR = By.cssSelector("textarea.inputarea");
+    By TXTBOX_NAME_GENERATOR = By.xpath("//textarea[@class='inputarea']");
+    By NUMBER = By.xpath("//div[text()='1']");
     By LABEL_RETENSION = By.xpath("//label[@id='retention-label']");
     By TXTBOX_RETENSION = By.xpath("//div[contains(@class,'WizardStep')]/div/div[5]/div/div/div/input[@id='retention']");
     By LABEL_TYPE = By.xpath("//span[text()='Type']");

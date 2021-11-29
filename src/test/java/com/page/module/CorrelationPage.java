@@ -69,10 +69,12 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Type_add);
         waitForSecs(20);
         Type_add1 = Type_add.replaceAll("\\s+", "");
-        waitForSecs(5);
-        safeClick(TXTBOX_NAME_GENERATOR, "Metric Exp", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(NUMBER, "Metric Exp", MEDIUMWAIT);
         WebElement metric = driver.findElement(TXTBOX_NAME_GENERATOR);
         metric.sendKeys("test");
+        waitForSecs(10);
+       // safeType(TXTBOX_NAME_GENERATOR,"test","Generator value",MEDIUMWAIT);
         Genarator_add = safeGetText(ADDED_NAME_GENERATOR, "Server textbox value", MEDIUMWAIT);
         safeClick(LABEL_RETENSION, "Name Feild", MEDIUMWAIT);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
@@ -200,14 +202,20 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_EDITED_NAME);
         searchField.sendKeys(del5 + editBP1);
+        //safeJavaScriptType(TXTBOX_EDITED_RETENTION,"4000","Value",MEDIUMWAIT);
         Edited_Name_Add = safeGetAttribute(TXTBOX_EDITED_NAME, "value", "Name textbox value", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(10);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_RETENSION, "Name Feild", MEDIUMWAIT);
-        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
-        WebElement searchField1 = driver.findElement(TXTBOX_EDITED_RETENTION);
-        searchField1.sendKeys(del1 + "4000");
+         String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField5 = driver.findElement(TXTBOX_EDITED_RETENTION);
+        searchField5.sendKeys(del1 + "4000");
         Retension_Name_Add = safeGetAttribute(TXTBOX_EDITED_RETENTION, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Retension_Name_Add);
+        waitForSecs(10);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_EDITED_FACTTYPE, "Server Feild", MEDIUMWAIT);
         safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(TXTBOX_EDITED_FACTTYPE, "FlowNode", "Server name into textbox", MEDIUMWAIT);
@@ -796,6 +804,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(9);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }
