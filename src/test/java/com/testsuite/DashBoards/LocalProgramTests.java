@@ -65,6 +65,7 @@ public class LocalProgramTests extends BaseSetup {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.verifyingAddedSLAsInLocalProgramsWindow();
+        localProgramPage.deletingCreatedLocalProgram();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
@@ -75,4 +76,22 @@ public class LocalProgramTests extends BaseSetup {
         localProgramPage.navigateToScriptPageFrmLocalProgrammes();
         localProgramPage.deletingCreatedLocalProgram();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_260_NavigateToSLAsPageOnClickingAnySLAUnderTriggeredBySLAsColumn(){
+        localProgramPage.clickingOnAutomation();
+        localProgramPage.addingLocalProgramWithoutSla();
+        localProgramPage.verifyingAddedSLAsInLocalProgramsWindow();
+        localProgramPage.navigateToSLAPageFrmLocalPrgms();
+        localProgramPage.deletingCreatedLocalProgram();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_261_VerifyPageIconsInLocalPrgm(){
+        localProgramPage.clickingOnAutomation();
+        localProgramPage.addingLocalProgramWithoutSla();
+        localProgramPage.verifyingPageIconsInLocalPrgms();
+    }
+
+
 }
