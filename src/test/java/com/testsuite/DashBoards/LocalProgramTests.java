@@ -93,5 +93,18 @@ public class LocalProgramTests extends BaseSetup {
         localProgramPage.verifyingPageIconsInLocalPrgms();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_262_ApplyFiltersInLocalPrgm(){
+        localProgramPage.clickingOnAutomation();
+        localProgramPage.addingLocalProgramWithoutSla();
+        localProgramPage.applyingFiltersInLocalprgmPage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_264_VerifyIconsInLocalPrgmsEditConfigWindows(){
+        localProgramPage.clickingOnAutomation();
+        localProgramPage.addingLocalProgramWithoutSla();
+        localProgramPage.VerifyIconsInLocalPrgrmsEditConfigwindow();
+    }
 
 }
