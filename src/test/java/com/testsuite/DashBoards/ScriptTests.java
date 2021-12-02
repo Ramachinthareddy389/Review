@@ -37,30 +37,41 @@ public class ScriptTests  extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_253_AddScriptconfigurationwithallConnectionTypes() throws InterruptedException
     {
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
+        scriptPage.searchingForScript();
         scriptPage.verifyingAddedScript();
 
     }
 
-   @Test(alwaysRun = true,groups = "Smoke Test")
+   @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_268_EditScriptConfigurartion()
     {
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
         scriptPage.editScriptConfigurationWindow();
         scriptPage.verifyingAddedScript();
+
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_270_AddSLAinAddScriptwindow()
     {
         scriptPage.clickingOnAutomation();
         scriptPage.addinSLA();
         scriptPage.verifyingAddedSLAsScriptWindow();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_269_NavigateToActionsPageFromScriptEditWindow(){
+        scriptPage.clickingOnAutomation();
+        scriptPage.addingScripts();
+        scriptPage.searchingForScript();
+        scriptPage.navigatingToActionPageFrmScriptWindow();
+    }
+
 
 }

@@ -5,6 +5,7 @@ import com.page.locators.LocalProgramLocators;
 import com.page.locators.ScriptLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,7 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
     String EDITSCRIPT = "EDITSCRIPT" + " - " + random.nextInt(500);
     String SCRIPT = "Script" + "-" + random.nextInt(500);
     String script_add, server_Add, type_add, sla_add, script_Add, content_add;
-
+    String NotifyText = "Some entries could not be deleted. Please try deleting them individually.";
 
     public ScriptPage(WebDriver driver) {
         super(driver);
@@ -76,11 +77,17 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         String sla = safeGetText(SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(sla);
         System.out.println(sla);
-       // String[] parts = sla.split(" - ");
+        // String[] parts = sla.split(" - ");
         //sla_add = parts[2]; // 004
         //System.out.println(sla_add);
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void searchingForScript() {
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -92,14 +99,14 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         String expectedText = SCRIPT;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(10);
+
     }
 
     public void verifyingAddedScript() {
-        if (server_Add.equals(driver.findElement(TXTBOX_SERVERNAME).getAttribute("value")) && type_add.equals(driver.findElement(TYPE_GHOSTTEXT).getText()))
-        {
+
+        if (server_Add.equals(driver.findElement(TXTBOX_SERVERNAME).getAttribute("value")) && type_add.equals(driver.findElement(TYPE_GHOSTTEXT).getText())) {
             Assert.assertTrue(true);
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
@@ -110,9 +117,15 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         waitForSecs(10);
     }
 
-    public void editScriptConfigurationWindow(){
+    public void editScriptConfigurationWindow() {
+        safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
-       // safeType(TXTBOX_SERVERNAME, EDITSCRIPT, "Name Textbox", MEDIUMWAIT);
+        // safeType(TXTBOX_SERVERNAME, EDITSCRIPT, "Name Textbox", MEDIUMWAIT);
         String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
         searchField.sendKeys(del5 + EDITSCRIPT);
@@ -138,10 +151,11 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         searchField2.sendKeys(del5 + "test123");
         content_add = safeGetText(CONTENT_TEXTAREA, "Server textbox value", MEDIUMWAIT);
         System.out.println(content_add);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
-    public void addinSLA(){
+    public void addinSLA() {
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, SCRIPT, "Name Textbox", MEDIUMWAIT);
         server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -182,25 +196,25 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         String expectedText = SCRIPT;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(10);
-        safeClick(USED_BY_ACTIONS_HYPERLINK,"Used by actions hyper link",MEDIUMWAIT);
+        safeClick(USED_BY_ACTIONS_HYPERLINK, "Used by actions hyper link", MEDIUMWAIT);
     }
 
-    public void verifyingAddedSLAsScriptWindow(){
+    public void verifyingAddedSLAsScriptWindow() {
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
-        safeClick(TARGET_BY_SLA_ADD_ICON,"Add icon",MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED, "Advanced button", MEDIUMWAIT);
+        safeClick(TARGET_BY_SLA_ADD_ICON, "Add icon", MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(ACTION_SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(ACTION_SLA_TXTBOX, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         waitForSecs(20);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-        for (int i = 0; i < dbs3.size()-1; i++) {
+        for (int i = 0; i < dbs3.size() - 1; i++) {
 
             if (dbs3.get(i).getText().equals("Native User Click - raw - User Click SLA")) {
 
@@ -232,5 +246,159 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void navigatingToActionPageFrmScriptWindow() {
+        waitForSecs(10);
+        safeClick(USED_BY_ACTIONS_HYPERLINK, "Used by actions hyper link", MEDIUMWAIT);
+        String Title = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(Title);
+        String expectedText = SCRIPT + "-action";
+        Assert.assertEquals(Title, expectedText);
+        waitForSecs(10);
+        By pageTitle = By.xpath("//h5[text()='Actions']");
+        boolean page = isElementDisplayed(pageTitle);
+        Assert.assertTrue(page);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_SCRIPT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(5);
+    }
+
+    public void verifyingPageIconsinScriptPage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + SCRIPT + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b1 = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = SCRIPT + " - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        String Notify = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
+        System.out.println(Notify);
+        if(Notify.equals(NotifyText)) {
+            mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+            safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+            waitForSecs(9);
+            safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+            waitForSecs(5);
+            safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+            waitForSecs(10);
+            safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+            waitForSecs(10);
+
+    }
+
+}
+
+    public void applyingFiltersInScriptPage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + SCRIPT + "')]");
+        waitForSecs(10);
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        waitForSecs(10);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, SCRIPT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+
+
+    public void verifyingIconsInScriptEditWindow() {
+        safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + SCRIPT + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(20);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 }

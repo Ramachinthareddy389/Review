@@ -106,5 +106,11 @@ public class LocalProgramTests extends BaseSetup {
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.VerifyIconsInLocalPrgrmsEditConfigwindow();
     }
-
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_266_ViewDataForFieldsWithViewIconInLocalPrgmsEditConfigWindows(){
+        localProgramPage.clickingOnAutomation();
+        localProgramPage.addingLocalPrograms();
+        localProgramPage.addingScriptInLocalProgramsEditWindow();
+        localProgramPage.validateTheFeildsViewIconInLocalPrgrmsWindow();
+    }
 }

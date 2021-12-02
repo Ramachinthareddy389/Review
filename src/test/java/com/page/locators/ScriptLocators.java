@@ -22,7 +22,7 @@ public interface ScriptLocators {
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
     By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
-    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
+    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
@@ -35,5 +35,19 @@ public interface ScriptLocators {
     By ACTION_SLA_GHOSTTEXT = By.xpath("//input[@id='names']/../../../div[1]");
     By ACTION_SLA_TXTBOX = By.xpath("//input[@id='names']");
     By HYPERLINK_SLAs = By.xpath("//span[text()='Triggered By SLAs']/../../../div/div/button");
-
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='Scripts']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='Scripts']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='Scripts']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='Scripts']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='Scripts']/..//div[@aria-label='Remove Selected Configuration']");
+    By FOOTERTEXT = By.xpath("//span[@id='client-snackbar']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
 }
