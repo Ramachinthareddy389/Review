@@ -54,7 +54,7 @@ public class OprationalTests extends BaseSetup {
     public void TC_092_validatingDrillthroughUsingOperational() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         OperationalPage.validatingDrillthroughUsingOperational();
     }
 
@@ -63,7 +63,7 @@ public class OprationalTests extends BaseSetup {
     public void TC_094_VerifyCountofKPI() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
-        dashboardOverviewPage.validatingThisMonth("12:00 AM");
+       // dashboardOverviewPage.validatingThisMonth("12:00 AM");
         OperationalPage.validatingCountOfKPI();
     }
 

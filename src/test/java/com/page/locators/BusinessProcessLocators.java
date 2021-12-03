@@ -36,7 +36,7 @@ public interface BusinessProcessLocators {
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
     By CREATE_LABEL = By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
-    By TXTBOX_EDITED_KPIS = By.xpath("//input[@id='kpis']/../../../div[2]/span");
+    By TXTBOX_EDITED_KPIS = By.xpath("//input[@id='kpis']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
  // Business Process Steps
     By BPSTEPS_ADDICON = By.xpath("//span[text()='BP Steps']/../../following-sibling::div/button/span/i");

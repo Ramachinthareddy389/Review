@@ -139,8 +139,8 @@ public interface PortletLocators {
     By BTN_MAXIMIZE_PORTLET = By.xpath("//div[@aria-label='Maximize']");
     By FLOW_PORTLET_GRAPH = By.xpath("//*[local-name()='svg' and contains(@id,'graph')]");
 
-    By SLACOLUMNS=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div[1]/span/div/div/span[4]");
-    By USERNAME_COLUMN_PORTLET=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a[2]/div/div/div[2]/span/span");
+    By SLACOLUMNS=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/descendant::span[1]/descendant::span[4]");
+    By USERNAME_COLUMN_PORTLET=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/descendant::span[text()='<default>']");
     By SLAFILTERICON=By.xpath("//span[contains(@aria-label,'user.name')]");
     By TABULAR_COLUMN1=By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[1]/span/span");
     By TABULAR_COLUMN2 =By.xpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/a/div/div/div[2]/span/span");

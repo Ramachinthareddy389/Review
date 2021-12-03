@@ -68,5 +68,31 @@ public interface SQLLocators {
     By DROPDOWN_MONITORED = By.xpath("//input[@id='monitoredDatabase']");
     By DROPDOWN_CREDENTIALS = By.xpath("//input[@id='credentials']");
     By TXTBOX_EXECUTION_COUNT = By.xpath("//input[@id='limitCount']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//h5[text()='SQL Report']/..//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//h5[text()='SQL Report']/..//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//h5[text()='SQL Report']/..//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//h5[text()='SQL Report']/..//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//h5[text()='SQL Report']/..//div[@aria-label='Remove Selected Configuration']");
+    By BTN_EDIT = By.xpath("//h5[text()='SQL Report']/..//div[@aria-label='Edit Selected Configuration']");
+    By CHEKBOXES_EDITWINDOW = By.xpath("//h6[text() ='Editing 1 SQL Report']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By BTN_APPLY_CHANGES = By.xpath("//span[text()='Apply changes']");
+    By EDIT_HEADER = By.xpath("//h6[text()='Editing 1 SQL Report']");
+    By BTN_CONFIRM = By.xpath("//span[text()='Confirm']");
+    By BTN_EXECUTE = By.xpath("//h5[text()='SQL Report']/..//div[@aria-label='Execute']");
+    By FOOTERTEXT = By.xpath("//span[@id='client-snackbar']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+    By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+    By KPIS_TEXT = By.xpath("//h6[text()='Distribution List]");
+    By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+    By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By CLOSE_ICON = By.xpath("//button[@aria-label='close']");
 }
 

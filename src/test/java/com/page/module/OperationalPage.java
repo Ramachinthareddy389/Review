@@ -46,6 +46,7 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         driver.findElements(ICONS_RAWINSTANCES).get(0).click();
         String text = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
         System.out.println(text);
+        waitForSecs(10);
         Assert.assertEquals(text, dashBoardData.drillthrghpage + " " + kpi);
         String appNameIndrilthrgh = safeGetText(APPNAME_IN_DRILLTHROUGH, "Application Name", MEDIUMWAIT);
         System.out.println(appNameIndrilthrgh);

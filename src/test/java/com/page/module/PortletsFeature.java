@@ -535,8 +535,8 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
 
     @Step("Navigate to RCA/Pivot/Drillthrough page using '3 option' tooltip")
-    public void navigatingToDrilthroughPagesUsingTooltipOptions() {
-        waitForPageToLoad();
+    public void navigatingToDrilthroughPagesUsingTooltipOptions(String gaugePortletName) {
+        waitForSecs(10);
         mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_1, "RCA", MEDIUMWAIT);
         waitForPageToLoad();
@@ -550,7 +550,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         String Tooltip2 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for Raw instances", MEDIUMWAIT);
         System.out.println(Tooltip2);
-        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2);
+        Assert.assertEquals(Tooltip2, dashBoardData.tooltip2+" "+gaugePortletName);
         waitForPageToLoad();
         safeClick(HYPERLINKDBINDRILLTHROUGH, "Dashboard Name Hyper link in Drillthrough Page", MEDIUMWAIT);
         mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
@@ -558,7 +558,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Drill through page title for pivot instances", MEDIUMWAIT);
         System.out.println(Tooltip3);
-        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3);
+        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3+" "+gaugePortletName);
         safeClick(HYPERLINKDBINDRILLTHROUGH, "Dashboard Name Hyper link in Drillthrough Page", MEDIUMWAIT);
 
     }
@@ -570,8 +570,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForPageToLoad();
         waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
-/*        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");*/
         waitUntilClickable(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
@@ -602,6 +600,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(10);
         safeClick(TABULAR_PIVOT_FIELD, "Pivots Field", MEDIUMWAIT);
         String pivotdata = Keys.chord(dashBoardData.tabularPortletPivotData);
+        driver.findElement(TABULAR_PIVOT_FIELD_INPUT).sendKeys(pivotdata);
         List<WebElement> kpi3 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi3.size(); i++) {
             System.out.println(kpi3.get(i).getText());
@@ -611,7 +610,6 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             }
         }
         waitForSecs(10);
-        driver.findElement(TABULAR_PIVOT_FIELD_INPUT).sendKeys(pivotdata);
         safeClick(ORDER_BY_FIELD, "Order By Field in Tabular portlet", MEDIUMWAIT);
         safeClick(ORDER_BY_OPTION, "Order By Field option in Tabular portlet", MEDIUMWAIT);
         safeClick(ORDER_DIRECTION_FIELD, "Order Direction Field in Tabular portlet", MEDIUMWAIT);
@@ -750,16 +748,18 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         String deleteDecimalPlaces = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
-        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
-        safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
-        safeType(Filters_TypeSearch, "Color", "Enter Text in portlets");
-        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        driver.findElement(Filters_TypeSearch).sendKeys(Keys.ENTER);
-        safeSelectListBox(SELECT_DRPDOWN, "is not", "is not", MEDIUMWAIT);
-        //safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
+        waitForSecs(20);
+        safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
+        safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
+        safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
+       waitForSecs(10);
         safeClick(BTN_ADD_PORTLET, "Add portlet button", MEDIUMWAIT);
         waitForSecs(5);
 

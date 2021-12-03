@@ -43,6 +43,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeType(TXTBOX_SERVERNAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
+        waitForSecs(10);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
@@ -120,9 +121,9 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         }
         waitForSecs(15);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-
+        waitForSecs(20);
     }
 
     public void verifyingBusinessProcessDetails() {
@@ -152,6 +153,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 
@@ -168,6 +170,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         searchField.sendKeys(del + editBP1);
         Edited_Name_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         waitForSecs(5);
+        safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_KPIS, "Database DB Time", "Server name into textbox", MEDIUMWAIT);
@@ -184,12 +188,13 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         Edited_KPIS_add = safeGetText(TXTBOX_EDITED_KPIS, "Server textbox value", MEDIUMWAIT);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
         safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "bucket", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KEYEXP, "user.name", "Server name into textbox", MEDIUMWAIT);
+       waitForSecs(10);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("bucket")) {
+            if (dbs2.get(i).getText().equals("user.name")) {
 
                 dbs2.get(i).click();
                 break;
@@ -198,6 +203,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(10);
         EditKey_Exp_add = safeGetText(KEYEXP_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(EditKey_Exp_add);
+        waitForSecs(10);
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, editBP1 + "\n", "Alert Name into type search");
@@ -235,6 +241,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void addingBPStepInEditConfigWindow() {
@@ -284,6 +291,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 
@@ -463,6 +471,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         By SeachedText = By.xpath("//div[contains(text(),'"+dname1+"')]");
         mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
         driver.findElement(SeachedText).click();
+        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        waitForSecs(10);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         boolean b1 = isElementSelected(SELECTROW_CHKBOX);
@@ -496,7 +506,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
         waitForSecs(15);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-
+        waitForSecs(10);
     }
 
 }

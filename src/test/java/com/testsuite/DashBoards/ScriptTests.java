@@ -73,5 +73,17 @@ public class ScriptTests  extends BaseSetup {
         scriptPage.navigatingToActionPageFrmScriptWindow();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_271_VerifyPageIconsInScriptPage(){
+        scriptPage.clickingOnAutomation();
+        scriptPage.addingScripts();
+        scriptPage.verifyingPageIconsinScriptPage();
+    }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_272_ApplyFiltersInScriptPage(){
+        scriptPage.clickingOnAutomation();
+        scriptPage.addingScripts();
+        scriptPage.applyingFiltersInScriptPage();
+    }
 }

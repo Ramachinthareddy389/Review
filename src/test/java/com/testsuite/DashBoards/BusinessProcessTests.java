@@ -46,19 +46,18 @@ public class BusinessProcessTests extends BaseSetup {
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.verifyingBusinessProcessDetails();
     }
-/*
+
     @Test(alwaysRun = true)
     public void TC_161_EditBusinessProcessConfiguration() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.editBusinessConfig();
         businessProcessPage.verifyingEditedBusinessProcessNameDetails();
-    }*/
+    }
 
 
     @Test(alwaysRun = true)
-    public void TC_162_AddBPStepineditconfigwindow() throws InterruptedException
-    {
+    public void TC_162_AddBPStepineditconfigwindow() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.addingBPStepInEditConfigWindow();
@@ -68,8 +67,7 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_163_AddBPStepMetricinEditBPStepwindow() throws InterruptedException
-    {
+    public void TC_163_AddBPStepMetricinEditBPStepwindow() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.addingBPStepInEditConfigWindow();
@@ -78,41 +76,48 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_164_ViewDataForFieldsWithViewIconInEditConfigWindow(){
+    public void TC_164_ViewDataForFieldsWithViewIconInEditConfigWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.viewDataWithFeildsForViewIcon();
     }
 
     @Test(alwaysRun = true)
-    public void TC_165_NavigatetoDrillthroughPageFromEditConfigWindow(){
+    public void TC_165_NavigatetoDrillthroughPageFromEditConfigWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.navigateToDrillThroughPage();
     }
 
     @Test(alwaysRun = true)
-    public void TC_166_NavigateToKPIsPageByClickingOnKpiUnderKPISColumn(){
+    public void TC_166_NavigateToKPIsPageByClickingOnKpiUnderKPISColumn() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.navigateToKpiPageByClickingOnKPIS();
-        businessProcessPage.verifyingIconsInEditWindow();
+
 
     }
 
     @Test(alwaysRun = true)
-    public void TC_168_ApplyFiltersInBPWindow()
-    {
+    public void TC_168_ApplyFiltersInBPWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.applyingFilters();
     }
 
     @Test(alwaysRun = true)
-    public void TC_167_VerifyPageIconsBPWindow(){
+    public void TC_167_VerifyPageIconsBPWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.verifyingPageIcons();
+    }
+
+
+    @Test(alwaysRun = true)
+    public void TC_170_verifyingPageIconsInBusinessProcessEditWindow() {
+        businessProcessPage.clickingOnBP();
+        businessProcessPage.addingNewBusinessProcess();
+        businessProcessPage.verifyingIconsInEditWindow();
     }
 }
 

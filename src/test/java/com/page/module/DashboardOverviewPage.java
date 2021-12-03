@@ -70,11 +70,12 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(10);
         System.out.println("after finish");
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
     }
 
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
+        waitForSecs(10);
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
@@ -136,7 +137,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     @Step("Deleting dashboard from the application ")
     public void deletingDashboard() throws InterruptedException {
         waitForSecs(10);
-        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDASHBOARDS,  "text","mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
         safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);
         waitForSecs(5);
@@ -463,14 +464,19 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s1 = s.format(new Date(cal.getTimeInMillis()));
         System.out.println(s1);
+        SimpleDateFormat s5 = new SimpleDateFormat("yyyy");
+        System.out.println(s5.format(new Date(cal.getTimeInMillis())));
+        String s6 = s5.format(new Date(cal.getTimeInMillis()));
+        System.out.println(s6);
         SimpleDateFormat s2 = new SimpleDateFormat("yyyy");
+        cal.add(Calendar.YEAR,1);
         System.out.println(s2.format(new Date(cal.getTimeInMillis())));
         String s3 = s2.format(new Date(cal.getTimeInMillis()));
         System.out.println(s3);
         cal.add(Calendar.MONTH, 1);
         System.out.println(s.format(new Date(cal.getTimeInMillis())));
         String s4 = s.format(new Date(cal.getTimeInMillis()));
-        String date1 = s1 + "/01" + "/" + s3;
+        String date1 = s1 + "/01" + "/" + s6;
         String date2 = s4 + "/01" + "/" + s3;
         System.out.println("Current date and time is " + date1 + " " + time + " " + "-" + date2 + " " + time);
         String expectedText = date1 + " " + time + " " + "-" + date2 + " " + time;
