@@ -166,15 +166,25 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
 
     @Step("Verifying Ticket in Tickets page")
     public void verifyTicketInTicketsPage() throws InterruptedException {
-        waitUntilClickable(TICKETS_PAGE_URL, "Ticket Page in side menu", MEDIUMWAIT);
+        waitForSecs(20);
         safeClick(TICKETS_PAGE_URL, "Tickets page", MEDIUMWAIT);
         waitForSecs(15);
         waitUntilClickable(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
         safeClick(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
         waitUntilClickable(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
         safeClick(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, ticketTitle + "\n", "Searching Ticket Title", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Title", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + ticketTitle + "')]");
+        waitForSecs(10);
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        waitForSecs(10);
         By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])[2]");
         waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
         if (driver.findElement(TitleCheck).isDisplayed()) {

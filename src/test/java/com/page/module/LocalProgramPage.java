@@ -134,7 +134,7 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         waitForSecs(10);
         safeClick(SCRIPT_ADDICON,"Add icon",MEDIUMWAIT);
         safeClick(LABEL_NAME,"Name Label",MEDIUMWAIT);
-        safeType(TXTBOX_NAME,"SCRIPT","Name Textbox",MEDIUMWAIT);
+        safeType(TXTBOX_NAME,SCRIPT,"Name Textbox",MEDIUMWAIT);
         script_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(script_Add);
         safeClick(LABEL_TYPE, "Server Feild", MEDIUMWAIT);
@@ -157,9 +157,9 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(CONTENT_TEXTAREA,"Metric Exp",MEDIUMWAIT);
         WebElement metric=driver.findElement(CONTENT_TEXTAREA);
         metric.sendKeys("test123");
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(BTN_FINISH,"Finish button",MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
         waitForSecs(20);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);

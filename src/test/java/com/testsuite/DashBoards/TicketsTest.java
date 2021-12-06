@@ -92,7 +92,7 @@ public class TicketsTest extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+     //   dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         ticketsPage.creatingTicketFrmDrillThrghPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
@@ -111,7 +111,7 @@ public class TicketsTest extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+     //   dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToDrillthroughPage(gaugePortletName);
         portletsFeature.navigateToRCAFromDrillthroughPage();
         ticketsPage.creatingTicketFrmDrillThrghPage();
@@ -131,7 +131,7 @@ public class TicketsTest extends BaseSetup {
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         //dashboardPage.clickOnDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.createTicketOnDashboard();
         dashboardPage.verifyTicketInTicketsPage();
