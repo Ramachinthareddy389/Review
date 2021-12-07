@@ -119,7 +119,7 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForPageToLoad();
         safeClick(SEVERITY_OPTION, "Severity Option selection", MEDIUMWAIT);
         safeClick(TICKET_PRIORITY, "Priority field", MEDIUMWAIT);
-        waitForPageToLoad();
+        waitForSecs(10);
         safeClick(PRIORITY_OPTION, "Priority Option selection", MEDIUMWAIT);
         safeClick(TICKET_STATUS, "Status field", MEDIUMWAIT);
         waitForPageToLoad();
@@ -176,10 +176,12 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "Title", "Enter Text in portlets");
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        waitForSecs(10);
         By SeachedText = By.xpath("//div[contains(text(),'" + ticketTitle + "')]");
         waitForSecs(10);
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);

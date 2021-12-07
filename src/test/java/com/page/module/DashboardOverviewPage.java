@@ -518,8 +518,9 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Validating Last 30 Days of predefined time range from calendar ")
     public void validatingLast30Days(String time) {
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_LAST_30_DAYS, "Last 30 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";
@@ -592,7 +593,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Validating Last7Days option of predefined time range from calendar ")
     public void validatingLast7Days(String time) {
-        waitForSecs(5);
+        waitForSecs(15);
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
         safeClick(BTN_LAST_7_DAYS, "Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);

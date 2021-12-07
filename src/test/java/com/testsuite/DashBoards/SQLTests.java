@@ -156,4 +156,18 @@ public class SQLTests extends BaseSetup {
     }
 
 
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_288_ApplyFiltersInSQLPage(){
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
+        sqlPage.applyingFiltersInSQLPage(SQL);
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_290_VerifyIconsInEditConfigWindows(){
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
+        sqlPage.VerifyIconsInSQLPageEditConfigwindow(SQL);
+    }
 }

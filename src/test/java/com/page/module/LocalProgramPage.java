@@ -394,10 +394,16 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
     }
 
     public void VerifyIconsInLocalPrgrmsEditConfigwindow()
-    {
-        safeType(TEXTBOX_TYPESEARCH, LCLPRGM + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
+    { waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -432,9 +438,11 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         isElementDisplayed(KPIS_TEXT);
         waitForSecs(5);
         List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
-        for (int i = 0; i <= wizards.size() - 1; i++) {
+        String wizardName1 = wizards.get(0).getText();
+        Assert.assertEquals(wizardName1,SCRIPT);
+        for (int i = 1; i <= wizards.size() -1; i++) {
             String wizardName = wizards.get(i).getText();
-            Assert.assertEquals(wizardName, (dashBoardData.SCRIPT_VALUES[i]));
+            Assert.assertEquals(wizardName, (dashBoardData.SCRIPT_VALUES[i-1]));
             System.out.println(wizardName);
         }
 
