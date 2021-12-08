@@ -51,7 +51,7 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+      //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
        // portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addTablePortletInPivotPage();
@@ -66,7 +66,7 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
        // portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addChartPortletInPivotPage();
@@ -81,24 +81,24 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
+      //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
         //portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addDataInTablePortletInPivotPage();
         pivotPage.verifyDataInTablePortletInPivotPage();
         pivotPage.removeTablePortletInPivotPage();
     }
-/*
+
     @Test(alwaysRun = true)
     public void TC_076_EditingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        portletsFeature.verifyingPortletAddedFromSearchBar();
-        pivotPage.navigateToPivotPage();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+        //dashboardOverviewPage.validatingLast30Days("12:00 AM");
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addChartPortletInPivotPage();
         pivotPage.verifyChartPortletInPivotPage();
         pivotPage.editChartPortletInPivotPage();
@@ -111,13 +111,13 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
-        portletsFeature.addingPortletFromSearchBar();
-        dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        portletsFeature.verifyingPortletAddedFromSearchBar();
-        pivotPage.navigateToPivotPage();
+        portletsFeature.addingGaugePortlet(gaugePortletName);
+      //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
+      //  portletsFeature.verifyingPortletAddedFromSearchBar();
+        pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addTablePortletInPivotPage();
         pivotPage.verifyTablePortletInPivotPage();
         pivotPage.editTablePortletInPivotPage();
         pivotPage.verifyEditedTablePortletInPivotPage();
-    }*/
+    }
 }

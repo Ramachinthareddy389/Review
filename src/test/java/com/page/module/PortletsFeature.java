@@ -45,10 +45,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitForSecs(10);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForSecs(10);
-        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        //waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
      /*   waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
-        safeClick(LINK_ADD_METRIC, "Clicking on add metric link");*/
+     //   safeClick(LINK_ADD_METRIC, "Clicking on add metric link");*/
         waitUntilClickable(GAUGE_HEADER, "Gauge header in Portlet Interface", MEDIUMWAIT);
         safeClick(GAUGE_HEADER, "Gauge header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
@@ -120,10 +120,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
 
     @Step("Adding Counter Portlet")
     public void addingCounterPortlet(String counterPortletName) throws InterruptedException {
-        waitForPageToLoad();
+        waitForSecs(10);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
-        waitForPageToLoad();
-        waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
+        waitForSecs(10);
+      // waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
         safeClick(BTN_ADD_METRIC, "Clicking on Add metric icon");
 /*        waitUntilClickable(LINK_ADD_METRIC, "Clicking on add metric link");
         safeClick(LINK_ADD_METRIC, "Clicking on add metric link");*/

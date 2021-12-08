@@ -170,4 +170,12 @@ public class SQLTests extends BaseSetup {
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
         sqlPage.VerifyIconsInSQLPageEditConfigwindow(SQL);
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_292_ViewDataForFieldsWithViewIconInEditConfigWindows(){
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
+        sqlPage.validateTheFeildsViewIconInSQlEditWindow(SQL);
+    }
+
 }

@@ -119,7 +119,7 @@ public interface DashBoardLocators {
     By TEXTBOX_DECIMAL_PLACES = By.xpath("//input[@id='decimalPlaces']");
     By TEXTBOX_PORTLET_FILTERS = By.xpath("//input[@id='portletFilters']");
     By PortletFilters_TypeSearch = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/div/div/input[@placeholder='Type or select below']");
-    By DROPDOWN_FEILDS = By.xpath("//div[text()='Color']");
+    By DROPDOWN_FEILDS = By.xpath("//div[text()='Dashboard Display Name']");
     By BTN_APPLY = By.xpath("//span[text()='Apply']");
 
     //Ticket on Dashboard

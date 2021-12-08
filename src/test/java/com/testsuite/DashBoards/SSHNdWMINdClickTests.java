@@ -55,14 +55,15 @@ public class SSHNdWMINdClickTests extends BaseSetup {
         sshPageNdWMIClickPage.verifyingaddedScriptInSSHPage();
     }
 
- /*   @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_300_EditSSHConfiguration()
     {
         sshPageNdWMIClickPage.clickingOnAutomation();
         sshPageNdWMIClickPage.addingSSH();
         sshPageNdWMIClickPage.addingEditedSSH();
         sshPageNdWMIClickPage.verifyingAfterSSHEditedConfigValues();
-    }*/
+    }
+
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_311_AddWMIconfiguration()

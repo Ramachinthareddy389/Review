@@ -76,9 +76,16 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
         waitForSecs(10);
-        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Dashboard Name into type search");
-        System.out.println("entered dbtext");
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Dashboard Display Name", "Enter Text in portlets");
         waitForSecs(20);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();;
+        waitForSecs(10);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
@@ -98,7 +105,7 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
 
     @Step("Removing dashboard from Dashboard overview page")
     public void removingDashboard() {
-        waitForPageToLoad();
+        waitForSecs(10);
         mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         waitUntilClickable(FOLDER_DELETE, "text", 5000);
         safeClick(FOLDER_DELETE, "Remove button from folder", MEDIUMWAIT);

@@ -30,6 +30,12 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         safeClick(BUTTON_OPERATIONAL, "Operational ICon", MEDIUMWAIT);
         waitForSecs(2);
         safeClick(BUTTON_OPERATIONAL, "Operational ICon", MEDIUMWAIT);
+        By err =By.xpath("//i[contains(@class,'fas fa-exclamation-triangle')]");
+        boolean b= isElementDisplayed(err);
+        if(b==true)
+        {
+            Assert.fail("Kpi is not found error is displaying");
+        }
 
     }
 
@@ -40,6 +46,7 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         System.out.println(b);
         String AppName = driver.findElements(APP_NAMES).get(0).getText();
         System.out.println(AppName);
+        waitForSecs(10);
         driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
         String kpi = driver.findElements(KPINAMES).get(0).getText();
         System.out.println(kpi);
@@ -51,7 +58,7 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         String appNameIndrilthrgh = safeGetText(APPNAME_IN_DRILLTHROUGH, "Application Name", MEDIUMWAIT);
         System.out.println(appNameIndrilthrgh);
         String expectedText = "Application Name" + " " + "is" + " " + appNameIndrilthrgh;
-        String actulaText = "Application Name" + " " + "is" + " " + AppName;
+        String actulaText = "Application Name" + " " + "is" + " " + kpi;
         Assert.assertEquals(expectedText, actulaText);
     }
 
