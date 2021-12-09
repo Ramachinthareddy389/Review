@@ -81,7 +81,7 @@ public class SSHNdWMINdClickTests extends BaseSetup {
         sshPageNdWMIClickPage.addingSSH();
         sshPageNdWMIClickPage.AddedScriptInSSHEditWindow();
     }
-/*
+
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_318_EditWMIconfiguration()
     {
@@ -89,7 +89,7 @@ public class SSHNdWMINdClickTests extends BaseSetup {
         sshPageNdWMIClickPage.addingSSH();
         sshPageNdWMIClickPage.addingEditedSSH();
         sshPageNdWMIClickPage.verifyingAfterSSHEditedConfigValues();
-    }*/
+    }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_329_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException
@@ -122,7 +122,7 @@ public class SSHNdWMINdClickTests extends BaseSetup {
     }
 
 
- /*   @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_332_EditClickByimportingexistingJSONfileinsystem() throws InterruptedException, AWTException {
         sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();
         sshPageNdWMIClickPage.addingJSonFileUsingImport();
@@ -130,7 +130,7 @@ public class SSHNdWMINdClickTests extends BaseSetup {
         sshPageNdWMIClickPage.addingElementSelectorsInEditSceanrioWindow();
 
     }
-*/
+
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_333_Exportactionsinsystemtoextensionwindow() throws InterruptedException, AWTException {
         sshPageNdWMIClickPage.clickingOnClickModuleInAutomation();

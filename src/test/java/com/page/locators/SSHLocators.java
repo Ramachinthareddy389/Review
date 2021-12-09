@@ -54,7 +54,7 @@ public interface SSHLocators {
     By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
     By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
-    By SLA_LINK = By.xpath("//div[@title='Select Row']/../descendant::button[text()='User Click SLA']");
+    By SLA_LINK = By.xpath("//div[@title='Select Row']/../descendant::button[text()='Agent Desktop Click']");
     By SLA_TXTBOX = By.xpath("//input[@id='slaName']");
     By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
     By BTN_ENABLE = By.xpath("//h5[text()='Secure Shell']/..//div[@aria-label='Enable Selected Configuration']");
@@ -78,6 +78,10 @@ public interface SSHLocators {
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
     By CLOSE_ICON = By.xpath("//button[@aria-label='close']");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+    By SCRIPT_LINK= By.xpath("//div[@title='Select Row']/../descendant::button[2]");
+    By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By EDIT_TXTBOX_SCRIPT =By.xpath("//input[@id='name']");
     //WMI Locators
 
     By BTN_WMI = By.xpath("//span[text()='WMI']");
