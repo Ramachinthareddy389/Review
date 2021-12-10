@@ -74,7 +74,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingTabularPortlet();
         portletsFeature.addingtabularPortlet1(tabularPortletName);
-      //  dashboardOverviewPage.validatingLast7Days("12:00 AM");
+       dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingTabularPortlet(tabularPortletName);
         // portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();

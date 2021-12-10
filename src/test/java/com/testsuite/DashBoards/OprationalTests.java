@@ -51,11 +51,13 @@ public class OprationalTests extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_092_validatingDrillthroughUsingOperational() throws InterruptedException {
+    public void TC_092_validatingPivotNdDrillthroughUsingOperational() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
        // dashboardOverviewPage.validatingLast30Days("12:00 AM");
-        OperationalPage.validatingDrillthroughUsingOperational();
+        OperationalPage.validatingPivotPageUsingOperational();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.validatingDrillthroughPageUsingOprtaional();
     }
 
 
@@ -85,5 +87,43 @@ public class OprationalTests extends BaseSetup {
         dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
         dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
 
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_OPR_008_ViewingDataAvailabilityInAppComponentsTabOfOperationalPage(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToAppComponentsTab();
+        OperationalPage.validatingDataAvailabilityInAppComponentsTab();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_OPR_009_NavigatingToPivotDrillthroughPageUsingTheDataAvailableInAppComponentsTab(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToAppComponentsTab();
+        OperationalPage.validatingPivotPageUsingOperational();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToAppComponentsTab();
+        OperationalPage.validatingDrillthroughPageUsingOprtaional();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_OPR_011_ViewingDataAvailabilityInDatabasesTabOfOperationalPage(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToDatabaseTab();
+        OperationalPage.validatingDataAvailabilityInAppComponentsTab();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_OPR_012_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInDatabasesTab(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToDatabaseTab();
+        OperationalPage.validatingPivotPageUsingOperational();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToDatabaseTab();
+        OperationalPage.validatingDrillthroughPageUsingOprtaional();
     }
 }
