@@ -41,7 +41,7 @@ public class KPIsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC199_AddKPIconfigurationwithallSLATypes() throws InterruptedException {
+    public void TC_KPIs_001_AddKPIconfigurationwithallSLATypes() throws InterruptedException {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -51,19 +51,19 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingKPIsPage();
     }
 
-/*    @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_200_EditKPIconfiguration()
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_KPIs_002_EditKPIconfiguration()
     {
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();
-        kpIsPage.addingSLAAction();
+        kpIsPage.addingSLAAction(dname1);
         kpIsPage.editKPISConfig();
         kpIsPage.verifyingEditedKPISDetails();
-    }*/
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_201_AddSLAsinEditKPIconfigwindow() {
+    public void TC_KPIs_003_AddSLAsinEditKPIconfigwindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -78,7 +78,7 @@ public class KPIsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_202_AddThresholdinFactBasedSLAeditwindowinKPIpage() {
+    public void TC_KPIs_004_AddThresholdinFactBasedSLAeditwindowinKPIpage() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -90,7 +90,7 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_203_NavigatetoDrillthroughpagefromKPIeditconfigwindow() {
+    public void TC_KPIs_005_NavigatetoDrillthroughpagefromKPIeditconfigwindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -101,7 +101,7 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_206_AddActionsinEditSLAconfigwindowinKPIspage() {
+    public void TC_KPIs_008_AddActionsinEditSLAconfigwindowinKPIspage() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -114,7 +114,7 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_210_VerifyIconsInEditConfigWindow() {
+    public void TC_KPIs_012_VerifyIconsInEditConfigWindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -126,7 +126,7 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_212_ViewDataForFieldsWithViewIconInEditConfigWindow() {
+    public void TC_KPIs_014_ViewDataForFieldsWithViewIconInEditConfigWindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         kpIsPage.clickingOnCorrelation();
@@ -139,7 +139,7 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_207_VerifyPageIconsInKPIPage(){
+    public void TC_KPIs_009_VerifyPageIconsInKPIPage(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         kpIsPage.clickingOnCorrelation();
@@ -150,7 +150,7 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_208_ApplyFiltersInKPIPage(){
+    public void TC_KPIs_010_ApplyFiltersInKPIPage(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         kpIsPage.clickingOnCorrelation();

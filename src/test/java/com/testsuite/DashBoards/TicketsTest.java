@@ -44,7 +44,7 @@ public class TicketsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_122_Upload_Attachment_To_Ticket() throws InterruptedException {
+    public void TC_Tickets_002_Upload_Attachment_To_Ticket() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
         ticketsPage.verifyAddedTicketInTicketsPage();
@@ -53,14 +53,14 @@ public class TicketsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_123_Verify_Status_Assigned_To_In_Tickets_Page() throws InterruptedException {
+    public void TC_Tickets_003_Verify_Status_Assigned_To_In_Tickets_Page() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.setPaginationInTicketsPage();
         ticketsPage.verifyStatusAndAssignedToInTicketsPage();
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_121_Add_Ticket_With_Assignee_And_Multiple_Participants() throws InterruptedException {
+    public void TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
         ticketsPage.verifyAddedTicketInTicketsPage();
@@ -68,14 +68,14 @@ public class TicketsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_131_Verify_Status_Assigned_To_Filters_In_Tickets_Page() throws InterruptedException {
+    public void TC_Tickets_011_Verify_Status_Assigned_To_Filters_In_Tickets_Page() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.setPaginationInTicketsPage();
         ticketsPage.verifyStatusAndAssignedToFiltersInTicketsPage();
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_130_Change_Ticket_Settings_In_Tickets_Page() throws InterruptedException {
+    public void TC_Tickets_010_Change_Ticket_Settings_In_Tickets_Page() throws InterruptedException {
         ticketsPage.navigateToTicketsPage();
         ticketsPage.addTicketWithAssigneeAndMultipleParticipants();
         ticketsPage.verifyAddedTicketInTicketsPage();
@@ -85,7 +85,7 @@ public class TicketsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public  void TC_126_AddTicketFromDrillthroughpage() throws InterruptedException
+    public  void TC_Tickets_006_AddTicketFromDrillthroughpage() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -105,7 +105,7 @@ public class TicketsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_127_AddTicketFromRCApage() throws InterruptedException {
+    public void TC_Tickets_007_AddTicketFromRCApage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -125,7 +125,7 @@ public class TicketsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_125_AddTicketFromPivotPage() throws InterruptedException {
+    public void TC_Tickets_005_AddTicketFromPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();

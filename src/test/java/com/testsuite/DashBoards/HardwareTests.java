@@ -36,23 +36,22 @@ public class HardwareTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_141_AddNewHardwareConfiguration() throws InterruptedException {
+    public void TC_Hware_001_AddNewHardwareConfiguration() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.verifyingHardwareNameDetails();
 
     }
-/*
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_142_EditingHardwareConfiguration() throws InterruptedException {
+    public void TC_Hware_002_EditingHardwareConfiguration() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.ediingConfiguration();
         hardwarePage.verifyingEditedHardwareNameDetails();
-    }*/
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_148_AddLocalMonitoringAgentsinEditconfigwindow() throws InterruptedException {
+    public void TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.addingLocalMonitoringAgentsUsingJVMAgentInEditConfiguration();
@@ -63,7 +62,7 @@ public class HardwareTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_147_ApplyReapplyMonitoringProfileswindowEditconfigwindow() throws InterruptedException {
+    public void TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow() throws InterruptedException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.configuringNodeInAPMModule();
@@ -74,7 +73,7 @@ public class HardwareTests extends BaseSetup {
         hardwarePage.validatingApacheTomcatServer();
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_143_VerifyPageIconsInHardwarepage(){
+    public void TC_Hware_003_VerifyPageIconsInHardwarepage(){
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.verifyingPageIconsInHardwarePage();
@@ -82,14 +81,14 @@ public class HardwareTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_144_ApplyFiltersInHardwarePage(){
+    public void TC_Hware_004_ApplyFiltersInHardwarePage(){
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.applyingFiltersInHarwarePage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_145_VerifyIconsInHardwareEditConfigWindow(){
+    public void TC_Hware_005_VerifyIconsInHardwareEditConfigWindow(){
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         hardwarePage.VerifyIconsInHardwareEditConfigWindow();
@@ -97,12 +96,12 @@ public class HardwareTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_149_ViewDataForFieldswithViewIconInReferEditConfigWindow(){
+    public void TC_Hware_009_ViewDataForFieldswithViewIconInReferEditConfigWindow(){
         hardwarePage.verifyingViewDataForDataFeildsWithviewIconInreferWindow();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_151_NavigateToComponentEditwindowinReferencesSection(){
+    public void TC_Hware_011_NavigateToComponentEditwindowinReferencesSection(){
         hardwarePage. navigateToReferenceWindowFromSoftwareEditWindow();
     }
 

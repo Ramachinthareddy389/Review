@@ -45,7 +45,7 @@ public class PivotTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_071_AddingTablePortletInPivotPage() throws InterruptedException {
+    public void TC_Pivot_001_AddingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -60,7 +60,7 @@ public class PivotTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_072_AddingChartPortletInPivotPage() throws InterruptedException {
+    public void TC_Pivot_002_AddingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -75,7 +75,7 @@ public class PivotTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_075_VerifyingDataInPortletInPivotPage() throws InterruptedException {
+    public void TC_Pivot_005_VerifyingDataInPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -90,7 +90,7 @@ public class PivotTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_076_EditingChartPortletInPivotPage() throws InterruptedException {
+    public void TC_Pivot_006_EditingChartPortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -106,7 +106,7 @@ public class PivotTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_077_EditingTablePortletInPivotPage() throws InterruptedException {
+    public void TC_Pivot_007_EditingTablePortletInPivotPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();

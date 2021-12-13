@@ -51,7 +51,7 @@ public class OprationalTests extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_092_validatingPivotNdDrillthroughUsingOperational() throws InterruptedException {
+    public void TC_Oper_003_validatingPivotNdDrillthroughUsingOperational() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
        // dashboardOverviewPage.validatingLast30Days("12:00 AM");
@@ -62,7 +62,7 @@ public class OprationalTests extends BaseSetup {
 
 
     @Test(groups = "Smoke Test")
-    public void TC_094_VerifyCountofKPI() throws InterruptedException {
+    public void TC_Oper_005_VerifyCountofKPI() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
        // dashboardOverviewPage.validatingThisMonth("12:00 AM");
@@ -70,7 +70,7 @@ public class OprationalTests extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_090_ApplyTimeRangeinCalendar() throws InterruptedException {
+    public void TC_Oper_001_ApplyTimeRangeinCalendar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
         dashboardOverviewPage.clickingOnCalenderIcon();

@@ -43,7 +43,7 @@ public class AuthenticationTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_365_AddAuthenticationConfiguration() throws InterruptedException
+    public void TC_Auth_001_AddAuthenticationConfiguration() throws InterruptedException
     {
         authenticationPage.clickingOnAuthentication();
         authenticationPage.addingJDBCAuthentication();
@@ -56,7 +56,7 @@ public class AuthenticationTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public  void TC_366_Editalltypesofproviders()
+    public  void TC_Auth_002_Editalltypesofproviders()
     {
         authenticationPage.clickingOnAuthentication();
         authenticationPage.addingJDBCAuthentication();
@@ -66,7 +66,7 @@ public class AuthenticationTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public  void TC_367_UpdateManagerPasswordinEditLDAPProviderwindow()
+    public  void TC_Auth_003_UpdateManagerPasswordinEditLDAPProviderwindow()
     {
         authenticationPage.clickingOnAuthentication();
         authenticationPage.addingLADPAuthentication();

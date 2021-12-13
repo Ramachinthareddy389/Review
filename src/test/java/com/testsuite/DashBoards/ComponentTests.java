@@ -41,7 +41,7 @@ public class ComponentTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_373_AddallComponentTypeconfigurations() throws InterruptedException
+    public void TC_CompTypes_001_AddallComponentTypeconfigurations() throws InterruptedException
     {
        componentPage.clickingOnAutomation();
        componentPage.adding1stComponent();
@@ -65,7 +65,7 @@ public class ComponentTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_383_AddCredentialsconfiguration()
+    public  void TC_Creds_001_AddCredentialsconfiguration()
     {
        componentPage.clickingOnAddCredentials();
        componentPage.addingNewCredentials();
@@ -73,18 +73,17 @@ public class ComponentTests extends BaseSetup {
 
     }
 
-/*    @Test(alwaysRun = true,groups = "Smoke Test" )
-    public  void TC_384_EditCredentialsconfiguration()
+    @Test(alwaysRun = true,groups = "Smoke Test" )
+    public  void TC_Creds_002_EditCredentialsconfiguration()
     {
         componentPage.clickingOnAddCredentials();
         componentPage.addingNewCredentials();
         componentPage.editCredentialsConfigs();
         componentPage.verifyingEditedAddedCredentials();
-    }*/
+    }
 
-/*
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_374_EditallComponentTypeconfigurations()
+    public  void TC_CompTypes_002_EditallComponentTypeconfigurations()
     {
         componentPage.clickingOnAutomation();
         componentPage.adding1stComponent();
@@ -92,41 +91,38 @@ public class ComponentTests extends BaseSetup {
         componentPage.adding2ndComponent();
         componentPage.verifyingEditedAllComponentTypes();
     }
-*/
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_385_ChangePasswordInCredentialsEditwindow()
+    public  void TC_Creds_003_ChangePasswordInCredentialsEditwindow()
     {
         componentPage.clickingOnAddCredentials();
         componentPage.addingNewCredentials();
         componentPage.changePasswordInEditCredWindow();
     }
-/*
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_393_EditDisplaySettingsConfiguration()
+    public  void TC_DisplaySettings_001_EditDisplaySettingsConfiguration()
     {
        componentPage.clickingOnDisplaySettings();
     }
-*/
 
     @Test(alwaysRun = true,groups = "Smoke Test" )
-    public  void TC_399_AddDistributionListwithAllDistributiontypes()
+    public  void TC_DLs_001_AddDistributionListwithAllDistributiontypes()
     {
       componentPage.clickingOnAddDistributionList(DistriList,"rama.chinthareddy@zenq.com");
       componentPage.verifyingAddedDistributionList(DistriList,"rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_400_AddMembersinEditDistributionListwindow(){
+    public  void TC_DLs_002_AddMembersinEditDistributionListwindow(){
         componentPage.clickingOnAddDistributionList(DistriList,"rama.chinthareddy@zenq.com");
         componentPage.addMembersInEditDistributionListwindow(DistriList);
         componentPage.verifyingAddedDistributionList(DistriList,"rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_401_EditDistributionListconfiguration()
+    public  void TC_DLs_003_EditDistributionListconfiguration()
     {
         componentPage.clickingOnAddDistributionList("rama.chinthareddy@zenq.com",DistriList);
         componentPage.verifyingEditDistributionListConfig(DistriList);

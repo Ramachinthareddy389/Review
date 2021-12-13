@@ -47,7 +47,7 @@ public class UserAccessRequestTests extends BaseSetup {
 
 
     @Test(alwaysRun = false, groups = "Smoke Test")
-    public void TC_452_VerifyUserAccessRequestsCreatedFromLoginPageforNewusers() throws InterruptedException {
+    public void TC_UserAccessReq_002_VerifyUserAccessRequestsCreatedFromLoginPageforNewusers() throws InterruptedException {
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestingTheAccessFromLoginPage();
         loginPage.verifyLoginPage();
@@ -57,7 +57,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_467_AddNewRolesInAddNDEditUserwindow() {
+    public void TC_Users_004_AddNewRolesInAddNDEditUserwindow() {
         userAccessRequestPage.addingRoleFromUsersPage("zenqtest75@yopmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
@@ -67,7 +67,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_469_EditUserConfiguration() {
+    public void TC_Users_006_EditUserConfiguration() {
         userAccessRequestPage.addingRoleFromUsersPage("zenqtest79@yopmail.com");
         presentationModesNdRulesPages.addingNewUserRoles();
         userAccessRequestPage.editingUserConfigurations("zenqtest79@yopmail.com");
@@ -75,14 +75,14 @@ public class UserAccessRequestTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_451_VerifyUseraccessRequestLoginpageforExistingusers() {
+    public void TC_UserAccessReq_001_VerifyUseraccessRequestLoginpageforExistingusers() {
         userAccessRequestPage.signOut();
         userAccessRequestPage.requestAccessForExistingUser("rama.chinthareddy@zenq.com");
     }
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_464_AddNewUserwithWelcomeEmail()
+    public void TC_Users_001_AddNewUserwithWelcomeEmail()
     {
         userAccessRequestPage.addingNewUser("test123@yopmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
@@ -96,7 +96,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_466_VerifyUserSetupforNewUser()
+    public void TC_Users_003_VerifyUserSetupforNewUser()
     {
         userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
@@ -114,7 +114,7 @@ public class UserAccessRequestTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_468_ResetPasswordinEditUserwindow() {
+    public void TC_Users_005_ResetPasswordinEditUserwindow() {
         userAccessRequestPage.addingNewUser("zenqtest75@gmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         getDriver().get(dashBoardData.gmail);
@@ -140,7 +140,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_453_VerifyUserAccessRequestsForTemporaryUsers() throws InterruptedException {
+    public void TC_UserAccessReq_003_VerifyUserAccessRequestsForTemporaryUsers() throws InterruptedException {
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
@@ -152,7 +152,7 @@ public class UserAccessRequestTests extends BaseSetup {
 
 
     @Test(alwaysRun = true)
-    public void TC_003_UpdatePasswordfromProfilewithCorrectrequirements(){
+    public void TC_Login_006_UpdatePasswordfromProfilewithCorrectrequirements(){
         userAccessRequestPage.addingNewUser("zenqtest003@yopmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         getDriver().get(dashBoardData.yopmail);
@@ -174,7 +174,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_005_ResetpasswordusingForgotPasswordfield(){
+    public void TC_Login_008_ResetpasswordusingForgotPasswordfield(){
         userAccessRequestPage.signOut();
         userAccessRequestPage.verifyingFunctionalityOfForgotPassword("test1zenq@yopmail.com");
         getDriver().get(dashBoardData.yopmail);
@@ -185,7 +185,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_Login001_LoginwithinvalidUsernamendValidPassword()
+    public void TC_Login_002_LoginwithinvalidUsernamendValidPassword()
     {
         userAccessRequestPage.signOut();
         userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test12@yopmail.com","Test@123");
@@ -193,7 +193,7 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_Login002_LoginwithvalidUsernamendInvalidPassword() {
+    public void TC_Login_003_LoginwithvalidUsernamendInvalidPassword() {
         {
             userAccessRequestPage.signOut();
             userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test123@yopmail.com", "Test@12");
@@ -201,8 +201,14 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_Login003_LoginwithInvalidUsernamendInvalidPassword(){
+    public void TC_Login_004_LoginwithInvalidUsernamendInvalidPassword(){
         userAccessRequestPage.signOut();
         userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test12@yopmail.com", "Test@12");
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_Login_005_LogoutApplication(){
+        userAccessRequestPage.signOut();
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
     }
 }

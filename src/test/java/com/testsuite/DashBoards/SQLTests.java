@@ -47,7 +47,7 @@ public class SQLTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_276_AddSQLConfigwithDatamartQuery() throws InterruptedException
+    public void TC_SQL_001_AddSQLConfigwithDatamartQuery() throws InterruptedException
     {
           sqlPage.clickingOnAutomation();
           sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
@@ -62,7 +62,7 @@ public class SQLTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_278_AddSQLConfigwithMultiplequeries(){
+    public  void TC_SQL_003_AddSQLConfigwithMultiplequeries(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"SQLList","select name, value from GENERIC_METRIC order by id desc limit 10","Multi-Query Report eBay","None");
         sqlPage.verifyingaddedSQLConfigs(SQL);
@@ -73,9 +73,8 @@ public class SQLTests extends BaseSetup {
         sqlPage.verifyingDataInEmail("Multi-Query-Report");
     }
 
-/*
    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_281_VerifyNotificationonSuccessNdFailureinEditSQLwindow(){
+    public void TC_SQL_006_VerifyNotificationonSuccessNdFailureinEditSQLwindow(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
         sqlPage.verifyingOnSuccessNdFailure(SQL);
@@ -84,10 +83,9 @@ public class SQLTests extends BaseSetup {
         emailPage.navigatingToYopMail("zenqtest75@yopmail.com", "Germain Alert - Internal issue - Notification for 'AlertsTest'");
 
     }
-*/
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_282_VerifyLoggingEnabledinEditSQLwindow() throws InterruptedException {
+    public void TC_SQL_007_VerifyLoggingEnabledinEditSQLwindow() throws InterruptedException {
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"germain-admin","select name, value from GENERIC_METRIC order by id desc limit 10","User login report 1","None");
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
@@ -101,7 +99,7 @@ public class SQLTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_284_VerifyAttachResultinEditSQLwindow(){
+    public  void TC_SQL_009_VerifyAttachResultinEditSQLwindow(){
         componentPage.addingEmailFromDistriist("DistributionList","testauto056@gmail.com");
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
@@ -115,7 +113,7 @@ public class SQLTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_283_VerifyRunonScheduleinEditSQLwindow(){
+    public void TC_SQL_008_VerifyRunonScheduleinEditSQLwindow(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
         sqlPage.verifyingaddedSQLConfigs(SQL);
@@ -126,7 +124,7 @@ public class SQLTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_277_AddSQLconfigwithNonDatamartQuery() {
+    public void TC_SQL_002_AddSQLconfigwithNonDatamartQuery() {
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
         sqlPage.verifyingNonDataMartQueryConfigs(SQL);
@@ -134,7 +132,7 @@ public class SQLTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_286_VerifyExecutionCountIntervalinEditSQLwindow()
+    public void TC_SQL_011_VerifyExecutionCountIntervalinEditSQLwindow()
     {
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?","User login report 1","Today");
@@ -149,7 +147,7 @@ public class SQLTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_287_VerifyPageIconsInSQLPage(){
+    public void TC_SQL_012_VerifyPageIconsInSQLPage(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
         sqlPage.verifyingPageIconsInSQlPage(SQL);
@@ -158,21 +156,21 @@ public class SQLTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_288_ApplyFiltersInSQLPage(){
+    public void TC_SQL_013_ApplyFiltersInSQLPage(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
         sqlPage.applyingFiltersInSQLPage(SQL);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_290_VerifyIconsInEditConfigWindows(){
+    public void TC_SQL_015_VerifyIconsInEditConfigWindows(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
         sqlPage.VerifyIconsInSQLPageEditConfigwindow(SQL);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_292_ViewDataForFieldsWithViewIconInEditConfigWindows(){
+    public void TC_SQL_017_ViewDataForFieldsWithViewIconInEditConfigWindows(){
         sqlPage.clickingOnAutomation();
         sqlPage.addingNewSqlRecord(SQL,"DistributionList","select count(*) from SIEBEL.S_USER where CREATED >= ? and CREATED < ?","User login report 1","Today");
         sqlPage.validateTheFeildsViewIconInSQlEditWindow(SQL);

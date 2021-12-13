@@ -38,7 +38,7 @@ public class MaintenanceTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_407_AddMaintenanceConfiguration() throws InterruptedException {
+    public void TC_Maintenance_001_AddMaintenanceConfiguration() throws InterruptedException {
 
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
@@ -47,7 +47,7 @@ public class MaintenanceTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_408_AddActionsinEditMaintenancewindow() throws InterruptedException {
+    public void TC_Maintenance_002_AddActionsinEditMaintenancewindow() throws InterruptedException {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.addActionsInEditMaintenanceWindow();
@@ -59,14 +59,14 @@ public class MaintenanceTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_410_VerifyRecurringCheckboxinEditMaintenancewindow() {
+    public void TC_Maintenance_004_VerifyRecurringCheckboxinEditMaintenancewindow() {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.verifyingReaccuranceOfCheckBoxInEditMaintenanceWindow();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_409_VerifyScheduleinEditMaintenancewindow() {
+    public void TC_Maintenance_003_VerifyScheduleinEditMaintenancewindow() {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();
         maintenancePage.VerifyScheduleinEditMaintenancewindow();
@@ -74,7 +74,7 @@ public class MaintenanceTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_411_VerifyGlobalMaintenancePeriod()
+    public void TC_Maintenance_005_VerifyGlobalMaintenancePeriod()
     {
         maintenancePage.clickingOnMaintenance();
         maintenancePage.addingMaintenanceConfig();

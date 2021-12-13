@@ -39,43 +39,42 @@ public class SoftwareTests extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_152_AddSoftwareConfiguration() throws InterruptedException {
+    public void TC_Sware_001_AddSoftwareConfiguration() throws InterruptedException {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.verifyingSoftwareNameDetails();
     }
-/*
     @Test(groups = "Smoke Test")
-    public void TC_153_EditSoftwareConfiguration() throws InterruptedException {
+    public void TC_Sware_002_EditSoftwareConfiguration() throws InterruptedException {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.editConfiugurationSoftwareDetails();
         softwarePage.verifyingEditSoftwareNameDetails();
 
-    }*/
+    }
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_155_VerifyPageIconsInSoftwarepage(){
+    public void TC_Sware_004_VerifyPageIconsInSoftwarepage(){
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.verifyingPageIconsInSoftwarepage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_156_ApplyFiltersInSoftwarePage(){
+    public void TC_Sware_005_ApplyFiltersInSoftwarePage(){
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.applyingFiltersInSoftwarePage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_154_NavigateToReferencesEditWindowInEditConfigwindow(){
+    public void TC_Sware_003_NavigateToReferencesEditWindowInEditConfigwindow(){
         softwarePage.navigateToReferenceWindowFromSoftwareEditWindow();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_159_VerifyIconsInEditConfigWindow(){
+    public void TC_Sware_008_VerifyIconsInEditConfigWindow(){
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware();
         softwarePage.VerifyIconsInSoftwareEditConfigWindow();

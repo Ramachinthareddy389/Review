@@ -44,7 +44,7 @@ public class SLAsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_213_AddSLAConfigforAllTypes() throws InterruptedException {
+    public void TC_SLAs_001_AddSLAConfigforAllTypes() throws InterruptedException {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         slAsPage.clickingOnSLAs();
@@ -52,19 +52,18 @@ public class SLAsTests extends BaseSetup {
         slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.verifyingSLAsPage();
     }
-/*
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_215_EditSLAconfigforallTypes()
+    public void TC_SLAs_003_EditSLAconfigforallTypes()
     {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
-        slAsPage.addingSLAAction();
+        slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.editSLAsConfig();
         slAsPage.verifyingEditedSLADetails();
-    }*/
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_214_AddThresholdinFactBasedSLAeditwindow() {
+    public void TC_SLAs_002_AddThresholdinFactBasedSLAeditwindow() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -73,7 +72,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_216_AddActionsinEditSLAconfigwindow() {
+    public void TC_SLAs_004_AddActionsinEditSLAconfigwindow() {
 
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
@@ -84,7 +83,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_217_AddAlertTemplateInEditSLAConfigWindow() {
+    public void TC_SLAs_005_AddAlertTemplateInEditSLAConfigWindow() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -97,7 +96,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_218_NavigateToKPIsPageonClickingAnyKPIUnderKPINameColumn() {
+    public void TC_SLAs_006_NavigateToKPIsPageonClickingAnyKPIUnderKPINameColumn() {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -108,7 +107,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_219_NavigateToAlertTemplatesPageonClickingnAlertTempUnderSLASPAge(){
+    public void TC_SLAs_007_NavigateToAlertTemplatesPageonClickingnAlertTempUnderSLASPAge(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -119,7 +118,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_220_VerifyPageIconsInSLAsPage(){
+    public void TC_SLAs_008_VerifyPageIconsInSLAsPage(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -128,7 +127,7 @@ public class SLAsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_221_ApplyFiltersInSLAsPage(){
+    public void TC_SLAs_009_ApplyFiltersInSLAsPage(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -137,7 +136,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_223_VerifyIconsinEditonfigWindow(){
+    public  void TC_SLAs_011_VerifyIconsinEditonfigWindow(){
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage();
         slAsPage.addingSLAAction("ALERTTEMPLATE");
@@ -145,7 +144,7 @@ public class SLAsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_225_ViewDataforFieldswithViewIconInEditConfigWindow(){
+    public void TC_SLAs_013_ViewDataforFieldswithViewIconInEditConfigWindow(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         slAsPage.clickingOnSLAs();

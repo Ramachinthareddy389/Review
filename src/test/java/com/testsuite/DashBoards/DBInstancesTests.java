@@ -41,49 +41,49 @@ public class DBInstancesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC132_AddNewConfiguration() throws InterruptedException {
+    public void TC_DBInstances_001_AddNewConfiguration() throws InterruptedException {
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.verifyingDbInstanceNameDetails();
     }
 
-/*    @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC133_EditConfiguration() throws InterruptedException {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_DBInstances_002_EditConfiguration() throws InterruptedException {
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.ediingConfiguration();
-    }*/
+    }
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_134_VerifyPageIconsInDbinstancesPage(){
+    public void TC_DBInstances_003_VerifyPageIconsInDbinstancesPage(){
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.verifyingPageIconsInDbinstancespage();
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_135_ApplyFiltersInDbinstancePage(){
+    public void TC_DBInstances_004_ApplyFiltersInDbinstancePage(){
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.applyingFilters();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_136_NavigateToServerPageByClickingonServersUnderServerColumn(){
+    public void TC_DBInstances_004_NavigateToServerPageByClickingonServersUnderServerColumn(){
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.navigateToHardwarePageFrmDbinstnacePage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_137_ViewDataForFieldswithViewIconinEditConfigWindow(){
+    public void TC_DBInstances_006_ViewDataForFieldswithViewIconinEditConfigWindow(){
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.viewDataWithFeildsForViewIcon();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_138_VerifyIconsinDbinstancesEditConfigWindow(){
+    public void TC_DBInstances_007_VerifyIconsinDbinstancesEditConfigWindow(){
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.verifyingIconsInEditWindow();

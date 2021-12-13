@@ -41,14 +41,14 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_160_AddBusinessProcessConfiguration() throws InterruptedException {
+    public void TC_BusiProcess_001_AddBusinessProcessConfiguration() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.verifyingBusinessProcessDetails();
     }
 
     @Test(alwaysRun = true)
-    public void TC_161_EditBusinessProcessConfiguration() throws InterruptedException {
+    public void TC_BusiProcess_002_EditBusinessProcessConfiguration() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.editBusinessConfig();
@@ -57,7 +57,7 @@ public class BusinessProcessTests extends BaseSetup {
 
 
     @Test(alwaysRun = true)
-    public void TC_162_AddBPStepineditconfigwindow() throws InterruptedException {
+    public void TC_BusiProcess_003_AddBPStepineditconfigwindow() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.addingBPStepInEditConfigWindow();
@@ -67,7 +67,7 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_163_AddBPStepMetricinEditBPStepwindow() throws InterruptedException {
+    public void TC_BusiProcess_004_AddBPStepMetricinEditBPStepwindow() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.addingBPStepInEditConfigWindow();
@@ -76,21 +76,21 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_164_ViewDataForFieldsWithViewIconInEditConfigWindow() {
+    public void TC_BusiProcess_005_ViewDataForFieldsWithViewIconInEditConfigWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.viewDataWithFeildsForViewIcon();
     }
 
     @Test(alwaysRun = true)
-    public void TC_165_NavigatetoDrillthroughPageFromEditConfigWindow() {
+    public void TC_BusiProcess_006_NavigatetoDrillthroughPageFromEditConfigWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.navigateToDrillThroughPage();
     }
 
     @Test(alwaysRun = true)
-    public void TC_166_NavigateToKPIsPageByClickingOnKpiUnderKPISColumn() {
+    public void TC_BusiProcess_007_NavigateToKPIsPageByClickingOnKpiUnderKPISColumn() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.navigateToKpiPageByClickingOnKPIS();
@@ -99,14 +99,14 @@ public class BusinessProcessTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_168_ApplyFiltersInBPWindow() {
+    public void TC_BusiProcess_009_ApplyFiltersInBPWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.applyingFilters();
     }
 
     @Test(alwaysRun = true)
-    public void TC_167_VerifyPageIconsBPWindow() {
+    public void TC_BusiProcess_008_VerifyPageIconsBPWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.verifyingPageIcons();
@@ -114,7 +114,7 @@ public class BusinessProcessTests extends BaseSetup {
 
 
     @Test(alwaysRun = true)
-    public void TC_170_verifyingPageIconsInBusinessProcessEditWindow() {
+    public void TC_BusiProcess_011_verifyingPageIconsInBusinessProcessEditWindow() {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
         businessProcessPage.verifyingIconsInEditWindow();

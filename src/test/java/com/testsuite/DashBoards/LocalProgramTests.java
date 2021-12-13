@@ -40,7 +40,7 @@ public class LocalProgramTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_253_AddLocalProgramConfiguration() throws InterruptedException
+    public void TC_LProgram_001_AddLocalProgramConfiguration() throws InterruptedException
     {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalPrograms();
@@ -49,7 +49,7 @@ public class LocalProgramTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_254_AddScriptinAddEditLocalProgramwindow() throws InterruptedException
+    public void TC_LProgram_002_AddScriptinAddEditLocalProgramwindow() throws InterruptedException
     {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalPrograms();
@@ -60,7 +60,7 @@ public class LocalProgramTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_255_AddSLAsinAddEditLocalProgramWindow()
+    public void TC_LProgram_003_AddSLAsinAddEditLocalProgramWindow()
     {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
@@ -69,7 +69,7 @@ public class LocalProgramTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_259_NavigateToScriptPageFrmLocalProgramPage() throws InterruptedException {
+    public void TC_LProgram_007_NavigateToScriptPageFrmLocalProgramPage() throws InterruptedException {
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalPrograms();
         localProgramPage.addingScriptInLocalProgramsEditWindow();
@@ -78,7 +78,7 @@ public class LocalProgramTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_260_NavigateToSLAsPageOnClickingAnySLAUnderTriggeredBySLAsColumn(){
+    public void TC_LProgram_008_NavigateToSLAsPageOnClickingAnySLAUnderTriggeredBySLAsColumn(){
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.verifyingAddedSLAsInLocalProgramsWindow();
@@ -87,27 +87,27 @@ public class LocalProgramTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_261_VerifyPageIconsInLocalPrgm(){
+    public void TC_LProgram_009_VerifyPageIconsInLocalPrgm(){
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.verifyingPageIconsInLocalPrgms();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_262_ApplyFiltersInLocalPrgm(){
+    public void TC_LProgram_010_ApplyFiltersInLocalPrgm(){
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.applyingFiltersInLocalprgmPage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_264_VerifyIconsInLocalPrgmsEditConfigWindows(){
+    public void TC_LProgram_012_VerifyIconsInLocalPrgmsEditConfigWindows(){
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalProgramWithoutSla();
         localProgramPage.VerifyIconsInLocalPrgrmsEditConfigwindow();
     }
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_266_ViewDataForFieldsWithViewIconInLocalPrgmsEditConfigWindows(){
+    public void TC_LProgram_014_ViewDataForFieldsWithViewIconInLocalPrgmsEditConfigWindows(){
         localProgramPage.clickingOnAutomation();
         localProgramPage.addingLocalPrograms();
         localProgramPage.addingScriptInLocalProgramsEditWindow();

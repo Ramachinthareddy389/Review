@@ -51,7 +51,7 @@ public class PortletsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC023_AddingGeneralHealthPortlet() throws InterruptedException {
+    public void TC_Portlet_001_AddingGeneralHealthPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -67,7 +67,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_24_AddingTabularPortlet() throws InterruptedException {
+    public void TC_Portlet_002_AddingTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -84,7 +84,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_25_AddingNTabularPortlet() throws InterruptedException {
+    public void TC_Portlet_003_AddingNTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -101,7 +101,7 @@ public class PortletsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_26_AddingMapPortlet() throws InterruptedException {
+    public void TC_Portlet_004_AddingMapPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -115,7 +115,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_27_AddingFlowPortlet() throws InterruptedException {
+    public void TC_Portlet_005_AddingFlowPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -130,7 +130,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_28_AddingGaugePortlet() throws InterruptedException {
+    public void TC_Portlet_007_AddingGaugePortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -145,7 +145,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_29_AddingCounterPortlet() throws InterruptedException {
+    public void TC_Portlet_008_AddingCounterPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -160,7 +160,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_45_ClonePortletToAnotherDashboard() throws InterruptedException {
+    public void TC_Portlet_024_ClonePortletToAnotherDashboard() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -175,7 +175,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_048_ExportGHPortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_027_ExportGHPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -189,7 +189,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_049_ExportTabularportlet() throws InterruptedException, IOException {
+    public void TC_Portlet_028_ExportTabularportlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -205,7 +205,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_50_ExportNTabularPortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_029_ExportNTabularPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -221,7 +221,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_051_ExportMapPortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_030_ExportMapPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -237,7 +237,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_O52_RemovePortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_031_RemovePortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -251,7 +251,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_53_ExportingGaugePortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_032_ExportingGaugePortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -265,7 +265,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_54_ExportingCounterPortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_033_ExportingCounterPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -281,7 +281,7 @@ public class PortletsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_055_NavigatetoDrillthroughpage() throws InterruptedException {
+    public void TC_Portlet_034_NavigatetoDrillthroughpage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -295,7 +295,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_056_VerifyHovermessageinFilterIconInTabularPortlet() throws InterruptedException, IOException {
+    public void TC_Portlet_035_VerifyHovermessageinFilterIconInTabularPortlet() throws InterruptedException, IOException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -311,7 +311,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_057_NavigateDrillthroughpageUsing3optionTooltip() throws InterruptedException {
+    public void TC_Portlet_036_NavigateDrillthroughpageUsing3optionTooltip() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -327,7 +327,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = false, groups = "Smoke Test")
-    public void TC_058_AddingPortletFromSearchBar() throws InterruptedException {
+    public void TC_Portlet_037_AddingPortletFromSearchBar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -342,7 +342,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_066_ApplyingTimeRangeinCalendar() throws InterruptedException {
+    public void TC_Drillthrough_006_ApplyingTimeRangeinCalendar() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -369,7 +369,7 @@ public class PortletsTests extends BaseSetup {
 
 
     @Test(enabled = true)
-    public void TC_061_NavigateToDrillthroughpageUsing3optionTooltip() throws InterruptedException {
+    public void TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -383,7 +383,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(enabled = true)
-    public void TC_080_VerifyingTimeRangeInRCAPage() throws InterruptedException {
+    public void TC_RCA_003_VerifyingTimeRangeInRCAPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -400,7 +400,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(enabled = true)
-    public void TC_082_MaximisePortletInRCAPage() throws InterruptedException {
+    public void TC_RCA_005_MaximisePortletInRCAPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -416,7 +416,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_27_1_AddingFlowPortletUsingBPKPI() throws InterruptedException {
+    public void TC_Portlet_006_AddingFlowPortletUsingBPKPI() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -432,7 +432,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_031_AddMultipleMeasuresForGHPortlet() throws InterruptedException {
+    public void TC_Portlet_010_AddMultipleMeasuresForGHPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -445,7 +445,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_032_AddMultipleMeasuresForTabularPortlet() throws InterruptedException {
+    public void TC_Portlet_011_AddMultipleMeasuresForTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -459,7 +459,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_033_AddMultipleMeasuresForNTabularPortlet() throws InterruptedException {
+    public void TC_Portlet_012_AddMultipleMeasuresForNTabularPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -472,7 +472,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_034_AddMultipleMeasuresforGaugePortlet() throws InterruptedException {
+    public void TC_Portlet_013_AddMultipleMeasuresforGaugePortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -485,7 +485,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_035_AddMultipleMeasuresforCounterPortlet() throws InterruptedException {
+    public void TC_Portlet_014_AddMultipleMeasuresforCounterPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -498,7 +498,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_037_EnableDataOnlyAboveSLAInGHportletInterface() throws InterruptedException {
+    public void TC_Portlet_016_EnableDataOnlyAboveSLAInGHportletInterface() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -511,7 +511,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_039_SetTrendGranularityinGHportletInterface() throws InterruptedException {
+    public void TC_Portlet_018_SetTrendGranularityinGHportletInterface() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SearchinDashboard();
@@ -523,7 +523,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_040_SetTrendGranularityinNTabularPortletInterface() throws InterruptedException {
+    public void TC_Portlet_019_SetTrendGranularityinNTabularPortletInterface() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
@@ -537,7 +537,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_046_MaximizeGHPortlet() throws InterruptedException {
+    public void TC_Portlet_025_MaximizeGHPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SearchinDashboard();
@@ -545,7 +545,7 @@ public class PortletsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_047_RestoreGHPortlet() throws InterruptedException {
+    public void TC_Portlet_026_RestoreGHPortlet() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.ClickAll();
         dashboardOverviewPage.SearchinDashboard();

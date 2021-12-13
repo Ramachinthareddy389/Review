@@ -35,28 +35,28 @@ public class InsightsTest extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_098_Navigate_To_Drillthrough_From_Insights_Page() throws InterruptedException {
+    public void TC_Insigh_002_Navigate_To_Drillthrough_From_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
         insightsPage.navigateToDrillthroughFromInsightsPage();
         insightsPage.verifyDrillthroughPageNavigatedFromInsightsPage();
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_100_Navigation_Using_3Option_Tooltip_From_Insights_Page() throws InterruptedException {
+    public void TC_Insigh_004_Navigation_Using_3Option_Tooltip_From_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
       //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
         insightsPage.navigationUsingTooltipOptions();
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_102_Verify_GroupBy_In_Insights_Page() throws InterruptedException {
+    public void TC_Insigh_006_Verify_GroupBy_In_Insights_Page() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
        // dashboardOverviewPage.validatingLast7Days("12:00 AM");
         insightsPage.verifyGroupByInInsightsPage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_103_ApplyTimeRangeinCalendar() throws InterruptedException {
+    public void TC_Insigh_007_ApplyTimeRangeinCalendar() throws InterruptedException {
         insightsPage.navigateToInsightsPage();
         insightsPage.clickingOnCalendar();
         dashboardOverviewPage.ValidatingCurrentHour();

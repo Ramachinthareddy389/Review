@@ -45,7 +45,7 @@ public class HTTPTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_237_AddHTTPActionconfiguration() throws InterruptedException
+    public void TC_HTTP_001_AddHTTPActionconfiguration() throws InterruptedException
     {
         httpPage.clickingOnAutomation();
         httpPage.addingHTTPPage();
@@ -54,7 +54,7 @@ public class HTTPTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_238_AddSLAsinEditHTTPActionwindow()
+    public void TC_HTTP_002_AddSLAsinEditHTTPActionwindow()
     {
         httpPage.clickingOnAutomation();
         httpPage.addingHTTPPage();
@@ -63,7 +63,7 @@ public class HTTPTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_243_AddHTTPScenarioconfiguration()
+    public void TC_HTTP_007_AddHTTPScenarioconfiguration()
     {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
@@ -74,7 +74,7 @@ public class HTTPTests extends BaseSetup {
 
     }
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_244_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException
+    public void TC_HTTP_008_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException
     {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
@@ -85,7 +85,7 @@ public class HTTPTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_245_AddScenarioTargetsinEditHTTPScenariowindow() throws InterruptedException, AWTException {
+    public void TC_HTTP_009_AddScenarioTargetsinEditHTTPScenariowindow() throws InterruptedException, AWTException {
         hardwarePage.clickingOnHardware();
         hardwarePage.addingNewHardware();
         httpPage.configuringNodeInAPMModule();
@@ -96,20 +96,20 @@ public class HTTPTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_247_VerifyPageIconsInHttpPage(){
+    public void TC_HTTP_011_VerifyPageIconsInHttpPage(){
         httpPage.clickingOnAutomation();
         httpPage.addingHTTPPage();
         httpPage.verifyingPageIcons();
     }
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_248_ApplyFiltersInHttpPage(){
+    public void TC_HTTP_012_ApplyFiltersInHttpPage(){
         httpPage.clickingOnAutomation();
         httpPage.addingHTTPPage();
         httpPage.applyingFiltersInHttpPage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_250_VerifyIconsInHttpActionsEditConfigwindow()
+    public void TC_HTTP_014_VerifyIconsInHttpActionsEditConfigwindow()
     {
         httpPage.clickingOnAutomation();
         httpPage.addingHTTPPage();
@@ -117,7 +117,7 @@ public class HTTPTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_252_ViewDataForFieldswithViewIconInEditConfigwindow(){
+    public void TC_HTTP_016_ViewDataForFieldswithViewIconInEditConfigwindow(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(alertTemp);
         httpPage.clickingOnAutomation();

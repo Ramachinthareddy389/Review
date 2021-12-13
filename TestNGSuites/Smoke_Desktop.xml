@@ -50,7 +50,7 @@
 			<class name="com.testsuite.DashBoards.PivotTests"></class>
 			<class name="com.testsuite.DashBoards.DashBoardTests"></class>
 			<class name="com.testsuite.DashBoards.MaintenanceTests"></class>
-			<class name="com.testsuite.DashBoards.PresentationModesNdRulesTests"></class>
+			<class name="com.testsuite.DashBoards.PresentationModesNdRolesTests"></class>
 
 		</classes>
 	</test>

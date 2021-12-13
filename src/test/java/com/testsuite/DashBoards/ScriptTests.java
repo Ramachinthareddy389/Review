@@ -38,7 +38,7 @@ public class ScriptTests  extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_253_AddScriptconfigurationwithallConnectionTypes() throws InterruptedException
+    public void TC_Script_001_AddScriptconfigurationwithallConnectionTypes() throws InterruptedException
     {
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
@@ -48,7 +48,7 @@ public class ScriptTests  extends BaseSetup {
     }
 
    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_268_EditScriptConfigurartion()
+    public void TC_Script_002_EditScriptConfigurartion()
     {
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
@@ -58,7 +58,7 @@ public class ScriptTests  extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_270_AddSLAinAddScriptwindow()
+    public void TC_Script_004_AddSLAinAddScriptwindow()
     {
         scriptPage.clickingOnAutomation();
         scriptPage.addinSLA();
@@ -66,7 +66,7 @@ public class ScriptTests  extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_269_NavigateToActionsPageFromScriptEditWindow(){
+    public void TC_Script_003_NavigateToActionsPageFromScriptEditWindow(){
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
         scriptPage.searchingForScript();
@@ -74,21 +74,21 @@ public class ScriptTests  extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_271_VerifyPageIconsInScriptPage(){
+    public void TC_Script_005_VerifyPageIconsInScriptPage(){
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
         scriptPage.verifyingPageIconsinScriptPage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_272_ApplyFiltersInScriptPage(){
+    public void TC_Script_006_ApplyFiltersInScriptPage(){
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
         scriptPage.applyingFiltersInScriptPage();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_274_VerifyIconsInScriptPageEditConfigwindow(){
+    public void TC_Script_008_VerifyIconsInScriptPageEditConfigwindow(){
         scriptPage.clickingOnAutomation();
         scriptPage.addingScripts();
         scriptPage.verifyingIconsInScriptEditWindow();

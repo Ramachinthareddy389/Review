@@ -42,7 +42,7 @@ public class UXSettingsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_230_NavigatetoEditwindowOfWebUXAgentsInApplicationProfileEditWindow() throws InterruptedException
+    public void TC_UXSet_005_NavigatetoEditwindowOfWebUXAgentsInApplicationProfileEditWindow() throws InterruptedException
     {
         uxSettingsPage.ClickingOnUXSettings();
         uxSettingsPage.verifyingTheNavigationOfWebExAgentWindow();
@@ -50,20 +50,20 @@ public class UXSettingsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_231_VerifyPageIconsInUXSettingWindow(){
+    public void TC_UXSet_006_VerifyPageIconsInUXSettingWindow(){
         uxSettingsPage.ClickingOnUXSettings();
         uxSettingsPage.verifyingPageIconsInUXSettingsPage();
     }
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_232_ApplyFiltersInUXSettingWindow(){
+    public void TC_UXSet_007_ApplyFiltersInUXSettingWindow(){
         uxSettingsPage.ClickingOnUXSettings();
         uxSettingsPage.applyingFiltersInUxSettingsWindow();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_234_VerifyIconsInUxSetingsEditConfigWindow() {
+    public void TC_UXSet_011_VerifyIconsInUxSetingsEditConfigWindow() {
         uxSettingsPage.ClickingOnUXSettings();
         uxSettingsPage.VerifyIconsInUxSetingsEditConfigWindow();
     }

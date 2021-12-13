@@ -9,7 +9,7 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class PresentationModesNdRulesTests extends BaseSetup {
+public class PresentationModesNdRolesTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private DashboardOverviewPage dashboardOverviewPage;
@@ -38,7 +38,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_418_AddNewPresentationwithDashboards() throws InterruptedException {
+    public void TC_PresenModes_001_AddNewPresentationwithDashboards() throws InterruptedException {
         presentationModesNdRulesPages.clickingOnPresentationModes();
         presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
         presentationModesNdRulesPages.addingTimeRangesAndDurationConfigs();
@@ -49,7 +49,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_419_AddNewPresentationwithViews() throws InterruptedException {
+    public void TC_PresenModes_002_AddNewPresentationwithViews() throws InterruptedException {
         presentationModesNdRulesPages.clickingOnPresentationModes();
         presentationModesNdRulesPages.uncheckDashBoardCheckBox();
         presentationModesNdRulesPages.addingPresentationModeConfigWithViews();
@@ -60,7 +60,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_420_AddDashboardsViewsinEditPresentationModewindow()
+    public void TC_PresenModes_003_AddDashboardsViewsinEditPresentationModewindow()
     {
         presentationModesNdRulesPages.clickingOnPresentationModes();
         presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
@@ -82,7 +82,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_422_VerifyPresentationmodesinPresentationbutton() {
+    public void TC_PresenModes_005_VerifyPresentationmodesinPresentationbutton() {
         presentationModesNdRulesPages.clickingOnPresentationModes();
         presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
         presentationModesNdRulesPages.addingTimeRangesAndDurationConfigs();
@@ -90,7 +90,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_424_EditDashboardNdViewconfigurationinEditPresentationModewindow()
+    public  void TC_PresenModes_007_EditDashboardNdViewconfigurationinEditPresentationModewindow()
     {
         presentationModesNdRulesPages.clickingOnPresentationModes();
         presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
@@ -111,21 +111,21 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_431_AddRuleconfiguration()
+    public void TC_Rules_001_AddRuleconfiguration()
     {
       presentationModesNdRulesPages.addRuleConfiguration();
       presentationModesNdRulesPages.verifyingAddedRules();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_432_EditRuleConfiguration()
+    public void TC_Rules_002_EditRuleConfiguration()
     {
         presentationModesNdRulesPages.addRuleConfiguration();
         presentationModesNdRulesPages.EditRulesConfig();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_440_AddAbsoluteTimeRange()
+    public void TC_TimeRanges_001_AddAbsoluteTimeRange()
     {
        presentationModesNdRulesPages.addingTimeRanges();
        presentationModesNdRulesPages.startPageConfigs();
@@ -135,7 +135,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_441_AddRelativeTimeRange()
+    public void TC_TimeRanges_002_AddRelativeTimeRange()
     {
         presentationModesNdRulesPages.addingTimeRanges();
         presentationModesNdRulesPages.addingRelativeTimeRanges();
@@ -144,7 +144,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups ="Smoke Test")
-    public void TC_442_EditTimeRangeConfiguration()
+    public void TC_TimeRanges_003_EditTimeRangeConfiguration()
     {
         presentationModesNdRulesPages.addingTimeRanges();
         presentationModesNdRulesPages.startPageConfigs();
@@ -159,7 +159,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_444_VerifyTimeRangesinCalendar() throws InterruptedException {
+    public  void TC_TimeRanges_005_VerifyTimeRangesinCalendar() throws InterruptedException {
         presentationModesNdRulesPages.addingTimeRanges();
         presentationModesNdRulesPages.startPageConfigs();
         presentationModesNdRulesPages.endPageConfigs();
@@ -170,7 +170,7 @@ public class PresentationModesNdRulesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_445_VerifyTimeRangesinGuidedSearchPage()
+    public void TC_TimeRanges_006_VerifyTimeRangesinGuidedSearchPage()
     {
         presentationModesNdRulesPages.addingTimeRanges();
         presentationModesNdRulesPages.startPageConfigs();
@@ -180,14 +180,14 @@ public class PresentationModesNdRulesTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_457_AddNewRole()
+    public  void TC_UserRoles_001_AddNewRole()
     {
         presentationModesNdRulesPages.clickingOnUserRoles();
         presentationModesNdRulesPages.addingNewUserRoles();
         presentationModesNdRulesPages.verifyingAddedUserRoles();
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_458_EditRole()
+    public  void TC_UserRoles_002_EditRole()
     {
         presentationModesNdRulesPages.clickingOnUserRoles();
         presentationModesNdRulesPages.addingNewUserRoles();

@@ -46,7 +46,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_355_AddAlertTemplateConfiguration() throws InterruptedException {
+    public void TC_AleTemp_001_AddAlertTemplateConfiguration() throws InterruptedException {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.verifyingAlertTemplateDetails(dname1);
@@ -54,7 +54,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_366_EditAlertTemplateConfiguration() {
+    public void TC_AleTemp_002_EditAlertTemplateConfiguration() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.EditingAlertTemplateConfig(dname1);
@@ -62,7 +62,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_340_TriggerAnAlertbasedonSLAs() {
+    public void TC_Alerts_001_TriggerAnAlertbasedonSLAs() {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.deletingAlert(Alert);
@@ -74,7 +74,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_344_VerifytriggeredalertsinInsightspage()
+    public void TC_Alerts_005_VerifytriggeredalertsinInsightspage()
     {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
@@ -82,9 +82,8 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.verifyingAddedAlertInInsightPage();
         alertTemplatePage.deletingAlert(Alert);
     }
-/*
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public  void TC_341_TriggerAnAlertwithNotifications()
+    public  void TC_Alerts_002_TriggerAnAlertwithNotifications()
     {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
@@ -94,10 +93,10 @@ public class AlertTemplateTests extends BaseSetup {
         emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - Internal issue - Notification for "+Alert);
         emailPage.clickingOnEmptyInbox();
         alertTemplatePage.deletingEmails();
-    }*/
+    }
 
    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_343_TriggerAnAlertBasedonExecutionCount(){
+    public void TC_Alerts_004_TriggerAnAlertBasedonExecutionCount(){
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAlertBasedOnExecutionCount(Alert);
@@ -108,7 +107,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_342_TriggerAnAlertwithSpecifiedQuiettime(){
+    public void TC_Alerts_003_TriggerAnAlertwithSpecifiedQuiettime(){
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
@@ -119,7 +118,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_345_VerifyDatainAlertEmail(){
+    public void TC_Alerts_006_VerifyDatainAlertEmail(){
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
@@ -131,7 +130,7 @@ public class AlertTemplateTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_360_VerifyPageIconsInAlertTemplatePage(){
+    public void TC_AleTemp_006_VerifyPageIconsInAlertTemplatePage(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.verifyingPageIcons(dname1);
@@ -139,21 +138,21 @@ public class AlertTemplateTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_361_ApplyFiltersInAlertTemplatePage(){
+    public void TC_AleTemp_007_ApplyFiltersInAlertTemplatePage(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.applyingFilters(dname1);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_363_VerifyIconsInEditConfigWindow(){
+    public void TC_AleTemp_009_VerifyIconsInEditConfigWindow(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.verifyingIconsInEditWindow(dname1);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_359_NavigateToSLAsPageFromAlertTemplateEditwindow(){
+    public void TC_AleTemp_005_NavigateToSLAsPageFromAlertTemplateEditwindow(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         slAsPage.clickingOnSLAs();
