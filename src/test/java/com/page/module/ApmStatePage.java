@@ -282,6 +282,12 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         waitForSecs(10);
         safeClick(APPLICATION_NAME_ADDICON, "Add icon", MEDIUMWAIT);
     }
+public void addingMonitoredIcon(){
+    safeClick(MONITORED_ADD_ICON, "Add icon", MEDIUMWAIT);
+    waitForSecs(10);
+
+
+}
 
     public void savingHardware() {
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);

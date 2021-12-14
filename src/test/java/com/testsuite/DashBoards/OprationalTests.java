@@ -126,4 +126,41 @@ public class OprationalTests extends BaseSetup {
         OperationalPage.navigateToDatabaseTab();
         OperationalPage.validatingDrillthroughPageUsingOprtaional();
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_OPR_014_ViewingDataAvailabilityInEnvironmentTabOfOperationalPage(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToEnvironmentTab();
+        OperationalPage.validatingDataAvailabilityInAppComponentsTab();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_015_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInEnvironmentTab(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToEnvironmentTab();
+        OperationalPage.validatingPivotPageUsingOperational();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToEnvironmentTab();
+        OperationalPage.validatingDrillthroughPageUsingOprtaional();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_017_ViewingDataAvailabilityInHostTabOfOperationalPage(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToHostTab();
+        OperationalPage.validatingDataAvailabilityInAppComponentsTab();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_015_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInHostTab(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToHostTab();
+        OperationalPage.validatingPivotPageUsingOperational();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToHostTab();
+        OperationalPage.validatingDrillthroughPageUsingOprtaional();
+    }
+
 }

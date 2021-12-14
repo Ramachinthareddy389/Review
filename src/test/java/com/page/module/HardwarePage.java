@@ -16,7 +16,6 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     Random random = new Random();
     String Server_Add, Type_add, OSFamily_add, Host_Add, OSName_add, Environment_add, Hostmachine_add, software_add;
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
-    String HostName = "HostName" + "-" + random.nextInt(500);
     String EditTitle = "Andriod" + " - " + random.nextInt(500);
     String NodeJS = "NodeJs" + " - " + random.nextInt(500);
     String Engine = "Engine" + " - " + random.nextInt(500);
@@ -30,11 +29,11 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     public void clickingOnHardware() {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_HARDWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
     }
 
-    public void addingNewHardware() {
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+    public void addingNewHardware(String Hostname) {
+
         // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -71,7 +70,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         Type_add = safeGetText(TYPE_GHOSTTEXT, "OS Family value", MEDIUMWAIT);
         System.out.println(Type_add);
         safeClick(LABEL_HOSTNAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_HOSTNAME, HostName, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_HOSTNAME, Hostname, "Name into textbox", MEDIUMWAIT);
         Host_Add = safeGetAttribute(TXTBOX_HOSTNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Host_Add);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);

@@ -23,7 +23,7 @@ public class HTTPTests extends BaseSetup {
     Random random = new Random();
     String alertTemp = "ALERTTEMPLATE";
     String Engine="Engine"  + " - " + random.nextInt(500);
-
+    String HostName = "HostTest" + "-" + random.nextInt(500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -66,7 +66,7 @@ public class HTTPTests extends BaseSetup {
     public void TC_HTTP_007_AddHTTPScenarioconfiguration()
     {
         hardwarePage.clickingOnHardware();
-        hardwarePage.addingNewHardware();
+        hardwarePage.addingNewHardware(HostName);
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
         httpPage.addingHttpScenario();
@@ -77,7 +77,7 @@ public class HTTPTests extends BaseSetup {
     public void TC_HTTP_008_AddHTTPScenariofromharfileconfiguration() throws InterruptedException, AWTException
     {
         hardwarePage.clickingOnHardware();
-        hardwarePage.addingNewHardware();
+        hardwarePage.addingNewHardware(HostName);
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
         httpPage.addingHTTPScenarioUsingharFile();
@@ -87,7 +87,7 @@ public class HTTPTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_HTTP_009_AddScenarioTargetsinEditHTTPScenariowindow() throws InterruptedException, AWTException {
         hardwarePage.clickingOnHardware();
-        hardwarePage.addingNewHardware();
+        hardwarePage.addingNewHardware(HostName);
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
         httpPage.addingHttpScenarioUsinharFile();

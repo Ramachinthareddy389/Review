@@ -25,6 +25,8 @@ public class ApmStateTests extends BaseSetup {
 
     String dname = "HttpScenario";
     String dname1 = dname + random.nextInt(1500);
+    String HostName = "HostTest" + "-" + random.nextInt(500);
+    String HostName1 = "Hostname" + "-" + random.nextInt(500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -78,11 +80,13 @@ public class ApmStateTests extends BaseSetup {
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
         apmStatePage.addingMonitoredServer();
-        hardwarePage.addingNewHardware();
+        hardwarePage.addingNewHardware(HostName);
         apmStatePage.savingHardware();
         hardwarePage.navigatingToHardwarePage();
         apmStatePage.navigatingToComponentsTab();
         softwarePage.addingNewSoftware();
+        apmStatePage.addingMonitoredIcon();
+        hardwarePage.addingNewHardware(HostName1);
         apmStatePage.savingHardware();
         softwarePage.navigatingToSoftwarePage();
         apmStatePage.deletingHttpScenarionInComponentsTab();

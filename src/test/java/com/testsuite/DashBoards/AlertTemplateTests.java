@@ -66,9 +66,9 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.deletingAlert(Alert);
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
-        //alertTemplatePage.VerifyingEmailSubject("Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+      //  alertTemplatePage.VerifyingEmailSubject("Germain Alert - User Click - germainApm - PERFORMANCE Issue");
         emailPage.clickingOnEmptyInbox();
         alertTemplatePage.deletingEmails();
     }
@@ -89,10 +89,10 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAnAlertWithNotify(Alert);
         alertTemplatePage.deletingAlert(Alert);
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - Internal issue - Notification for "+Alert);
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - Internal issue - Notification for "+Alert);
         emailPage.clickingOnEmptyInbox();
-        alertTemplatePage.deletingEmails();
+       // alertTemplatePage.deletingEmails();
     }
 
    @Test(alwaysRun = true,groups = "Smoke Suite")
@@ -100,10 +100,10 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAlertBasedOnExecutionCount(Alert);
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
 //        emailPage.clickingOnEmptyInbox();
-        alertTemplatePage.deletingEmails();
+    //    alertTemplatePage.deletingEmails();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
@@ -111,8 +111,8 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.clickingOnAlerts();
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
 
 
     }
@@ -123,8 +123,8 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
         alertTemplatePage.deletingAlert(Alert);
-        getDriver().get(dashBoardData.gmail);
-        emailPage.navigatingToEmail("zentest75@gmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
+        getDriver().get(dashBoardData.yopmail);
+        emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
         emailPage.clickingHyperlinksInAlertEmails();
         //alertTemplatePage.deletingEmails();
     }

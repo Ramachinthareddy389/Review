@@ -67,7 +67,9 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         String kpi1 = driver.findElements(KPINAMES).get(0).getText();
         System.out.println(kpi1);
         driver.findElements(ICONS_RAWINSTANCES).get(0).click();
-        safeClick(BTN_CLEAR,"Clear button",MEDIUMWAIT);
+        if(isElementDisplayed(BTN_CLEAR)) {
+            safeClick(BTN_CLEAR, "Clear button", MEDIUMWAIT);
+        }
         String text1 = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
         System.out.println(text1);
         waitForSecs(10);
@@ -132,6 +134,19 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     public void navigateToDatabaseTab() {
         waitForSecs(10);
         safeClick(TAB_DATABASES, "App Components tab", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+
+    public void navigateToEnvironmentTab() {
+        waitForSecs(10);
+        safeClick(TAB_ENVIRONMENTS, "App Components tab", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void navigateToHostTab() {
+        waitForSecs(10);
+        safeClick(TAB_HOSTS, "App Components tab", MEDIUMWAIT);
         waitForSecs(10);
     }
 }

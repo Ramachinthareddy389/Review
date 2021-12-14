@@ -332,6 +332,8 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
 
 
     }
