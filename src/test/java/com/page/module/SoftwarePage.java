@@ -214,7 +214,7 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(25);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = DbTitle;

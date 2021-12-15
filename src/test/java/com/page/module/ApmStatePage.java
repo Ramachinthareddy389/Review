@@ -239,6 +239,7 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         String FooterValue = safeGetText(NOTIFY_FOOTER, "Footer notifications", MEDIUMWAIT);
         String expectedText = "Item moved/copied";
         Assert.assertEquals(FooterValue, expectedText);
+        waitForSecs(20);
         safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(ENGINE_LINK, "Engine link", MEDIUMWAIT);
@@ -396,7 +397,7 @@ public void addingMonitoredIcon(){
     }
 
     public void configuringParserDepoly() {
-        waitForSecs(10);
+        waitForSecs(30);
         safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
         safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
         waitForSecs(10);
@@ -497,9 +498,10 @@ public void verifyingEditParsementDeployConfig(){
     } else {
         Assert.fail("Ticket details are invalid");
     }
+    waitForSecs(15);
     safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
-    waitForSecs(5);
+    waitForSecs(15);
     safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-    waitForSecs(2);
+    waitForSecs(15);
 }
 }

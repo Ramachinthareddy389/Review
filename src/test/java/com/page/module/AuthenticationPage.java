@@ -154,6 +154,7 @@ public class AuthenticationPage extends SafeActions implements AuthenticationLoc
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         String exp=  safeGetAttribute(TXTBOX_URL,"value","url value",MEDIUMWAIT);
         Assert.assertEquals(exp,"URLs");
+        safeClick(CLOSE_EDITWINDOW,"Close edit window",MEDIUMWAIT);
     }
 
     public  void updatingManagerPassword()
@@ -174,9 +175,7 @@ public class AuthenticationPage extends SafeActions implements AuthenticationLoc
         safeType(TXTBOX_CONFIRM_PASSWORD,"test1","Confirm password",MEDIUMWAIT);
         safeClick(BTN_UPDATE_PASSWORD,"Update password",MEDIUMWAIT);
         waitForSecs(15);
-        driver.switchTo().alert().accept();
-        System.out.println("Updated Password");
-        waitForSecs(30);
+        safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);

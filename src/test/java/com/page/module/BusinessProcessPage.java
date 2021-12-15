@@ -129,7 +129,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
     public void verifyingBusinessProcessDetails() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(20);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -247,10 +247,10 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
     public void addingBPStepInEditConfigWindow() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(15);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(15);
         safeClick(BTN_REMOVEBPSTEPS, "Delete button", MEDIUMWAIT);
         // safeClick(BTN_CLOSE,"Close after deleting BPs steps",MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save Button", MEDIUMWAIT);
@@ -280,6 +280,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(5);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void verifyingAddedBPStepsInEditConfigWindow() {
@@ -406,7 +407,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
     public void verifyingIconsInEditWindow() {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(20);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);

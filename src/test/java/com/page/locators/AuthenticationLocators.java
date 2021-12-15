@@ -52,4 +52,5 @@ public interface AuthenticationLocators {
     By TXTBOX_PASSWORD = By.xpath("//input[@id='password']");
     By TXTBOX_CONFIRM_PASSWORD = By.xpath("//input[@id='confirmPassword']");
     By BTN_UPDATE_PASSWORD = By.xpath("//span[text()='Update Password']");
+    By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
 }

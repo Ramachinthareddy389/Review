@@ -120,4 +120,3 @@ public class BusinessProcessTests extends BaseSetup {
         businessProcessPage.verifyingIconsInEditWindow();
     }
 }
-
