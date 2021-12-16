@@ -153,7 +153,7 @@ public class OprationalTests extends BaseSetup {
         OperationalPage.validatingDataAvailabilityInAppComponentsTab();
     }
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_Oper_015_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInHostTab(){
+    public void TC_Oper_018_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInHostTab(){
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
         OperationalPage.navigateToHostTab();
@@ -162,5 +162,38 @@ public class OprationalTests extends BaseSetup {
         OperationalPage.navigateToHostTab();
         OperationalPage.validatingDrillthroughPageUsingOprtaional();
     }
-
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_026_ViewingDataAvailabilityInUsersTabOfOperationalPage(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToUsersTab();
+        OperationalPage.validatingDataAvailabilityInAppComponentsTab();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_027_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInUsersTab(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToUsersTab();
+        OperationalPage.validatingPivotPageUsingServerNdBusiProcessTabs();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToUsersTab();
+        OperationalPage.validatingDrillthroughPageUsingServerNdBUsiProcessTabs();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_029_ViewingDataAvailabilityInTrendsTabOfOperationalPage(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToTrendTab();
+        OperationalPage.validatingDataAvailabilityInAppComponentsTab();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Oper_030_NavigatingToPivotNdDrillthroughPageUsingTheDataAvailableInTrendsTab(){
+        dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToTrendTab();
+        OperationalPage.validatingPivotPageUsingServerNdBusiProcessTabs();
+        OperationalPage.clickingOperationButton();
+        OperationalPage.navigateToUsersTab();
+        OperationalPage.validatingDrillthroughPageUsingServerNdBUsiProcessTabs();
+    }
 }

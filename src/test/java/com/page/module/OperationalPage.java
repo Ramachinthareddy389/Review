@@ -29,7 +29,7 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
     @Step("Clicking on Operational button")
     public void clickingOperationButton() {
         safeClick(BUTTON_OPERATIONAL, "Operational ICon", MEDIUMWAIT);
-        waitForSecs(2);
+        waitForSecs(20);
     }
 
     @Step("validatingDrillthroughUsingOperational")
@@ -41,6 +41,7 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         System.out.println(AppName);
         waitForSecs(10);
         driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
+        waitForSecs(10);
         String kpi = driver.findElements(KPINAMES).get(0).getText();
         System.out.println(kpi);
         driver.findElements(ICONS_PIVOTINSTANCES).get(0).click();
@@ -58,12 +59,25 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
 
     public void validatingDrillthroughPageUsingOprtaional(){
        waitForSecs(10);
-        boolean b1 = driver.findElements(TRENDCHARTS).get(1).isDisplayed();
-        System.out.println(b1);
-        String AppName1 = driver.findElements(APP_NAMES).get(0).getText();
-        System.out.println(AppName1);
-        waitForSecs(10);
-        driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
+      int i=  driver.findElements(TRENDCHARTS).size();
+        System.out.println(i);
+      if(i>1) {
+          boolean b1 = driver.findElements(TRENDCHARTS).get(1).isDisplayed();
+          System.out.println(b1);
+          String AppName1 = driver.findElements(APP_NAMES).get(0).getText();
+          System.out.println(AppName1);
+          waitForSecs(10);
+          driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
+      }
+      else{
+          waitForSecs(15);
+          boolean b = driver.findElement(TRENDCHARTS).isDisplayed();
+          System.out.println(b);
+          String AppName = driver.findElement(APP_NAMES).getText();
+          System.out.println(AppName);
+          waitForSecs(10);
+          driver.findElement(ICONS_DRILLTHROUGH).click();
+      }
         String kpi1 = driver.findElements(KPINAMES).get(0).getText();
         System.out.println(kpi1);
         driver.findElements(ICONS_RAWINSTANCES).get(0).click();
@@ -129,6 +143,87 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
             e.printStackTrace();
         }
     }
+    @Step("validatingDrillthroughUsingOperational")
+    public void validatingPivotPageUsingServerNdBusiProcessTabs() {
+        waitForSecs(10);
+        int i=  driver.findElements(TRENDCHARTS).size();
+        System.out.println(i);
+        if(i>1) {
+            boolean b1 = driver.findElements(TRENDCHARTS).get(1).isDisplayed();
+            System.out.println(b1);
+            String AppName1 = driver.findElements(APP_NAMES).get(0).getText();
+            System.out.println(AppName1);
+            waitForSecs(10);
+            driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
+        }
+        else{
+            waitForSecs(15);
+            boolean b = driver.findElement(TRENDCHARTS).isDisplayed();
+            System.out.println(b);
+            String AppName = driver.findElement(APP_NAMES).getText();
+            System.out.println(AppName);
+            waitForSecs(10);
+            driver.findElement(ICONS_DRILLTHROUGH).click();
+        }
+        waitForSecs(10);
+        String kpi = driver.findElements(KPINAMES).get(0).getText();
+        System.out.println(kpi);
+        driver.findElements(ICONS_PIVOTINSTANCES).get(0).click();
+        waitForSecs(10);
+        String text = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
+        System.out.println(text);
+        waitForSecs(10);
+        Assert.assertEquals(text, dashBoardData.pivot_DrillthroughPage + " " + kpi);
+        String appNameInPivot = safeGetText(APPNAME_IN_PIVOT, "Application Name", MEDIUMWAIT);
+        System.out.println(appNameInPivot);
+        String expectedText1 = "Application Name" + " " + "is" + " " + appNameInPivot;
+        String actulaText1 = "Application Name" + " " + "is" + " " + kpi;
+        Assert.assertEquals(expectedText1, actulaText1);
+
+
+    }
+
+    public void validatingDrillthroughPageUsingServerNdBUsiProcessTabs(){
+        waitForSecs(10);
+        int i=  driver.findElements(TRENDCHARTS).size();
+        System.out.println(i);
+        if(i>1) {
+            boolean b1 = driver.findElements(TRENDCHARTS).get(1).isDisplayed();
+            System.out.println(b1);
+            String AppName1 = driver.findElements(APP_NAMES).get(0).getText();
+            System.out.println(AppName1);
+            waitForSecs(10);
+            driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
+        }
+        else{
+            waitForSecs(15);
+            boolean b = driver.findElement(TRENDCHARTS).isDisplayed();
+            System.out.println(b);
+            String AppName = driver.findElement(APP_NAMES).getText();
+            System.out.println(AppName);
+            waitForSecs(10);
+            driver.findElement(ICONS_DRILLTHROUGH).click();
+        }
+        String kpi1 = driver.findElements(KPINAMES).get(0).getText();
+        System.out.println(kpi1);
+        driver.findElements(ICONS_RAWINSTANCES).get(0).click();
+        if(isElementDisplayed(BTN_CLEAR)) {
+            safeClick(BTN_CLEAR, "Clear button", MEDIUMWAIT);
+        }
+        String text1 = safeGetText(Title_DRILLTHROUGH, "Page title for Drillthrough", MEDIUMWAIT);
+        System.out.println(text1);
+        waitForSecs(10);
+        Assert.assertEquals(text1, dashBoardData.drillthrghpage + " " + kpi1);
+        String appNameIndrilthrgh = safeGetText(APPNAME_IN_DRILLTHROUGH, "Application Name", MEDIUMWAIT);
+        System.out.println(appNameIndrilthrgh);
+        String expectedText = "Application Name" + " " + "is" + " " + appNameIndrilthrgh;
+        String actulaText = "Application Name" + " " + "is" + " " + "Browser Inactivities";
+        Assert.assertEquals(expectedText, actulaText);
+        waitForSecs(15);
+
+    }
+
+
 
 
     public void navigateToDatabaseTab() {
@@ -149,4 +244,18 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         safeClick(TAB_HOSTS, "App Components tab", MEDIUMWAIT);
         waitForSecs(10);
     }
+    public void navigateToUsersTab() {
+        waitForSecs(10);
+        safeClick(TAB_USERS, "App Components tab", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void navigateToTrendTab() {
+        waitForSecs(10);
+        mouseHoverJScript(TAB_TREND,"tab trends","tab trend",MEDIUMWAIT);
+        safeJavaScriptClick(TAB_TREND, "Trend tab", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_TREND, "Trend tab", MEDIUMWAIT);
+
+        waitForSecs(10);
+    }
 }
+
