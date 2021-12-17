@@ -79,6 +79,15 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.clickingOnWMIInAutomation();
         sshPage.addingSSH();
         sshPage.AddedScriptInSSHEditWindow();
+        sshPage.deletingAddedSSh();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_WMI_005_NavigatetoScriptPageonClickingAnyScriptUnderSCRIPTColumnInWMIPAge(){
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.AddedScriptInSSHEditWindow();
+        sshPage.navigateToScriptPageFrmSSHPage();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
@@ -173,5 +182,13 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingIconsInSSHEditWindow();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_SSH_018_ViewDataforFieldsWithViewIconinSSHEditconfigwindow()
+    {
+        sshPage.clickingOnAutomation();
+        sshPage.addingSSH();
+        sshPage.validateTheFeildsViewIconInSSHWindow();
+
     }
 }

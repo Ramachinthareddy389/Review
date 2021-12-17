@@ -172,22 +172,21 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
 
+    }
+
+    public void deletingAddedSSh(){
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
-        String addedScript = safeGetText(EDITED_SCRIPT, "Script", MEDIUMWAIT);
-        System.out.println(addedScript);
-        Assert.assertEquals(script_Add, addedScript);
+        waitForSecs(15);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
-
     }
 
     @Step("Verifying added script in SSH edit window")
@@ -219,6 +218,9 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_ADDICON_WMI, "Add button", MEDIUMWAIT);
         waitForSecs(10);
     }
+     public void navigateToWMIpage(){
+         safeClick(BTN_WMI, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+     }
 
     @Step("Editing/modifying the values in SSH edit window")
     public void addingEditedSSH() {
