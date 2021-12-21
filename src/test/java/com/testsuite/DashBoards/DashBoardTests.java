@@ -127,7 +127,7 @@ public class DashBoardTests extends BaseSetup {
     }
 
 
-    @Test(groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_Breadcrumb_001_Verify_Standard_Breadcrumb_Navigation() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -142,7 +142,7 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.deletingDashboard();
     }
 
-    @Test(groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_Breadcrumb_002_Verify_Standard_Breadcrumb_Backward_Navigation() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -158,7 +158,7 @@ public class DashBoardTests extends BaseSetup {
         dashboardPage.deletingDashboard();
     }
 
-    @Test(groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();

@@ -368,7 +368,7 @@ public class PortletsTests extends BaseSetup {
     }
 
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -382,7 +382,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_RCA_003_VerifyingTimeRangeInRCAPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
@@ -399,7 +399,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.deletingDashboard();
     }
 
-    @Test(enabled = true)
+    @Test(alwaysRun = true)
     public void TC_RCA_005_MaximisePortletInRCAPage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();

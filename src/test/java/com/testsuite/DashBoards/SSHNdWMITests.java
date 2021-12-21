@@ -100,6 +100,24 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_WMI_006_NavigatetoSLAsPageOnClickingAnySLAUnderTriggeredBySLAsColumnInWMIPAge(){
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.navigateToSLAPageFrmSSHPage();
+        sshPage.navigateToWMIpage();
+        sshPage.deletingAddedSSh();
+    }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_WMI_014_ApplyFiltersInSSHPage()
+    {
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.applyingFiltersInSSHPage();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException
     {
         sshPage.clickingOnClickModuleInAutomation();
@@ -145,8 +163,10 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.switchingToMainWindow();
         sshPage.verifyingExportingActionsOnClosingGermainApm();
     }
+
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_SSH_013_VerifyPageIconsInSSHPage(){
+    public void TC_SSH_013_VerifyPageIconsInSSHPage()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingPageIconsInSSH();
@@ -154,7 +174,8 @@ public class SSHNdWMITests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_SSH_005_NavigatetoScriptPageOnClickingAnyScriptUnderSCRIPTColumn(){
+    public void TC_SSH_005_NavigatetoScriptPageOnClickingAnyScriptUnderSCRIPTColumn()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.addingScriptInLocalProgramsEditWindow();
@@ -163,7 +184,8 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_SSH_006_NavigateToSLAspageonclickinganySLAunderTriggeredBySLAsColumn(){
+    public void TC_SSH_006_NavigateToSLAspageonclickinganySLAunderTriggeredBySLAsColumn()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.navigateToSLAPageFrmSSHPage();
@@ -172,13 +194,15 @@ public class SSHNdWMITests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_SSH_014_ApplyFiltersInSSHPage(){
+    public void TC_SSH_014_ApplyFiltersInSSHPage()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.applyingFiltersInSSHPage();
     }
     @Test(alwaysRun = true,groups ="Smoke Suite")
-    public void TC_SSH_016_VerifyIconsInSSHEditConfigWindow(){
+    public void TC_SSH_016_VerifyIconsInSSHEditConfigWindow()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingIconsInSSHEditWindow();
