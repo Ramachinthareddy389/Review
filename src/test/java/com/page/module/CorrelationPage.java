@@ -99,13 +99,15 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(KPIS_add);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_EDITED_NAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add1 = safeGetAttribute(TXTBOX_EDITED_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add1);
+        waitForSecs(20);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
-        safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KEYEXP, "color", "Server name into textbox", MEDIUMWAIT);
+        //safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_NAME_GENERATOR, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs5.size(); i++) {
@@ -136,7 +138,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             }
         }
         safeClearAndType(TXTBOX_FILTESR_VALUE, "test", "Server name into textbox", MEDIUMWAIT);
-        safeClick(LABEL_FIELD_EXCLUSIONS, "Server Feild", MEDIUMWAIT);
+     /*   safeClick(LABEL_FIELD_EXCLUSIONS, "Server Feild", MEDIUMWAIT);
         safeClick(FIELD_EXCLUSIONS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_FIELD_EXCLUSIONS, "pid", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs6 = driver.findElements(DROPDOWN_SERVER);
@@ -150,7 +152,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
             }
         }
         FeildExclusion_add = safeGetText(FIELD_EXCLUSIONS_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
-        System.out.println(FeildExclusion_add);
+        System.out.println(FeildExclusion_add);*/
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
 
@@ -161,8 +163,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println("entered dbtext");
         waitForSecs(30);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        waitForSecs(20);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(10);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = dname1;
@@ -197,16 +200,16 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(10);
         safeClick(EDITED_NAME_LABEl, "Name Feild", MEDIUMWAIT);
         String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_EDITED_NAME);
         searchField.sendKeys(del5 + editBP1);
         //safeJavaScriptType(TXTBOX_EDITED_RETENTION,"4000","Value",MEDIUMWAIT);
         Edited_Name_Add = safeGetAttribute(TXTBOX_EDITED_NAME, "value", "Name textbox value", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(LABEL_RETENSION, "Name Feild", MEDIUMWAIT);
          String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField5 = driver.findElement(TXTBOX_EDITED_RETENTION);
@@ -215,9 +218,9 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Retension_Name_Add);
         waitForSecs(10);
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
-        waitForSecs(10);
-        safeClick(LABEL_EDITED_FACTTYPE, "Server Feild", MEDIUMWAIT);
-        safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        waitForSecs(20);
+       // safeClick(LABEL_EDITED_FACTTYPE, "Server Feild", MEDIUMWAIT);
+       // safeClick(TYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(TXTBOX_EDITED_FACTTYPE, "FlowNode", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
@@ -805,6 +808,8 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(9);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
     }

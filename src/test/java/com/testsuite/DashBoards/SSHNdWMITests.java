@@ -116,6 +116,21 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.addingSSH();
         sshPage.applyingFiltersInSSHPage();
     }
+    @Test(alwaysRun = true,groups ="Smoke Suite")
+    public void TC_WMI_016_VerifyIconsInSSHEditConfigWindow()
+    {
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.verifyingIconsInSSHEditWindow();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_WMI_018_ViewDataforFieldsWithViewIconinSSHEditconfigwindow()
+    {
+        sshPage.clickingOnWMIInAutomation();
+        sshPage.addingSSH();
+        sshPage.validateTheFeildsViewIconInSSHWindow();
+
+    }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException
