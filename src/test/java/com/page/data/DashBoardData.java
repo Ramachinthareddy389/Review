@@ -13,6 +13,7 @@ public class DashBoardData {
 	public final String allpages  = appData.getProperty("App.Allpages");
 	public final String LabelNewDashboard = appData.getProperty("App.LabelNewDashboard");
 	public ConfigManager ticketData  = new ConfigManager("Ticket");
+	public ConfigManager germainJSON  = new ConfigManager("germainapm-recorder-output");
 	public final String ticketTitle  = ticketData.getProperty("TicketTitle");
 	public final String ticketAssignee = ticketData.getProperty("TicketAssignee");
 	public final String ticketParticipant = ticketData.getProperty("TicketParticipant");
