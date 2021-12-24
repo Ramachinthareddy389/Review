@@ -325,6 +325,11 @@ public class SSHPage extends SafeActions implements SSHLocators {
 
     }
 
+
+    public void navigatingToClickPage(){
+        waitForSecs(10);
+        safeClick(BTN_CLICK, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+    }
     public void addingNewRecordingInClickPage() throws InterruptedException, AWTException {
         safeClick(LABEL_RECORD, "Record option", MEDIUMWAIT);
         waitForSecs(15);
@@ -377,6 +382,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeType(TXTBOX_BRSER_DRIVER_PATH, "Click", "Name Textbox", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, SSH, "Name Textbox", MEDIUMWAIT);
 
@@ -394,7 +400,21 @@ public class SSHPage extends SafeActions implements SSHLocators {
             }
         }
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
+        safeType(TXTBOX_SLA_THRESHOLD,"1","Threshold Value",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA_ACTIONS, "QA", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs4.get(i).getText().equals("QA")) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClick(BTN_NEXT, "Skip button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
@@ -513,12 +533,26 @@ public class SSHPage extends SafeActions implements SSHLocators {
             }
         }
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
+        safeType(TXTBOX_SLA_THRESHOLD,"1","Threshold Value",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA_ACTIONS, "QA", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs4.get(i).getText().equals("QA")) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClick(BTN_NEXT, "Skip button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_SKIP, "Skip button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_CLOSE_CLICK_WINDOW, "close button", MEDIUMWAIT);
+       safeClick(BTN_CLOSE_CLICK_WINDOW, "close button", MEDIUMWAIT);
     }
 
     public void verifyingCustomRulesConfigs() {
@@ -541,6 +575,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(10);
 
     }
+
 
     public void addingElementSelectorsInEditSceanrioWindow() {
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
@@ -590,7 +625,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_CLOSE_CLICK_WINDOW, "close button", MEDIUMWAIT);
         waitForSecs(20);
         AddedScenario1 = safeGetText(HYPERLINK_ADDED_SELECTOR, "Hyperlink value", MEDIUMWAIT);
-        Assert.assertEquals(SSH, AddedScenario1);
+        Assert.assertEquals("Click", AddedScenario1);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
@@ -747,6 +782,51 @@ public class SSHPage extends SafeActions implements SSHLocators {
         }
     }
 
+    public void  verifyingEditIconFunctionalityInClick() {
+        waitForSecs(10);
+        safeClick(BTN_EDIT, "Edit button", MEDIUMWAIT);
+        boolean editTitle = isElementDisplayed(EDIT_HEADER_CLICK);
+        Assert.assertTrue(editTitle);
+        List<WebElement> chkboxes = driver.findElements(CHEKBOXES_EDITWINDOW_CLICK);
+        for (int i = 0; i <= chkboxes.size() - 1; i++) {
+            chkboxes.get(i).click();
+        }
+        waitForSecs(10);
+        safeClick(BTN_APPLY_CHANGES, "Apply changes", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_PLAY, "Button execute", MEDIUMWAIT);
+        String actualText = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, "Action(s) queued");
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        try {
+            if(isElementDisplayed(FOOTERTEXT)) {
+                String Notify = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
+                System.out.println(Notify);
+                if (Notify.equals(NotifyText)) {
+                    mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+                    safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+                    waitForSecs(9);
+                    safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+                    waitForSecs(5);
+                    safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+                    waitForSecs(10);
+                    safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+                    waitForSecs(10);
+                }
+            }
+
+        } catch (Exception e) {
+        }
+    }
     public void  verifyingEditIconFunctionalityInSSH(){
         waitForSecs(10);
         safeClick(BTN_EDIT, "Edit button", MEDIUMWAIT);
@@ -787,32 +867,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
 
         }
     }
-    public void applyFiletrsInClickPage(){
-        waitForSecs(10);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        waitForSecs(10);
-        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        waitForSecs(10);
-        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'" + SSH + "')]");
-        waitForSecs(10);
-        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
-        driver.findElement(SeachedText).click();
-        waitForSecs(10);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        System.out.println(BPName);
-        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
-        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
-        Assert.assertEquals(BPName, SSH);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
-        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
-        waitForSecs(20);
-        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(15);
-    }
+
 
     public void applyingFiltersInSSHPage() {
         waitForSecs(10);
@@ -839,9 +894,38 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
+        waitForSecs(15);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        }catch (Exception e){
+            System.out.println("Confirm delete buttom is not displaying");
+        }
+
+    }
+
+    public void navigateToSLAsEditWindowFrmClickEditWindow(){
+        safeClick(HYPERLINK_LINKED_SLAS,"Linked Slas",MEDIUMWAIT);
+        waitForSecs(10);
+        String actual=safeGetAttribute(TXTBOX_SLANAME,"value","Sla name",MEDIUMWAIT);
+        Assert.assertEquals(actual,SSH+" SLA");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
+    }
 
+    public void deletingCreatedConfig(){
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
 
     public void verifyingIconsInSSHEditWindow() {
@@ -873,10 +957,15 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
-        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(15);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        }catch (Exception e){
+            System.out.println("Confirm delete buttom is not displaying");
+        }
     }
-
 
     public void validateTheFeildsViewIconInSSHWindow() {
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");

@@ -68,10 +68,13 @@ public interface SSHLocators {
     By BTN_APPLY_CHANGES = By.xpath("//span[text()='Apply changes']");
     By EDIT_HEADER = By.xpath("//h6[text()='Editing 1 Secure Shell']");
     By CHEKBOXES_EDITWINDOW_WMI = By.xpath("//h6[text() ='Editing 1 Windows Management Instrumentation']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By EDIT_HEADER_CLICK = By.xpath("//h6[text()='Editing 1 Click']");
+    By CHEKBOXES_EDITWINDOW_CLICK = By.xpath("//h6[text() ='Editing 1 Click']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
     By BTN_APPLY_CHANGES_WMI = By.xpath("//span[text()='Apply changes']");
     By EDIT_HEADER_WMI = By.xpath("//h6[text()='Editing 1 Windows Management Instrumentation']");
     By BTN_CONFIRM = By.xpath("//span[text()='Confirm']");
     By BTN_EXECUTE = By.xpath("//div[@aria-label='Execute']");
+    By BTN_PLAY = By.xpath("//div[@aria-label='Play']");
     By FOOTERTEXT = By.xpath("//span[@id='client-snackbar']");
     By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
@@ -85,6 +88,8 @@ public interface SSHLocators {
     By SCRIPT_LINK= By.xpath("//div[@title='Select Row']/../descendant::button[2]");
     By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
     By EDIT_TXTBOX_SCRIPT =By.xpath("//input[@id='name']");
+     By HYPERLINK_LINKED_SLAS = By.xpath("//span[text()='Linked SLAs']/../../../div/button");
+   By TXTBOX_SLANAME = By.xpath("//input[@id='slaName']");
     //WMI Locators
 
     By BTN_WMI = By.xpath("//span[text()='WMI']");
@@ -121,4 +126,6 @@ public interface SSHLocators {
     By SELECTOR_TYPE_GHOSTTEXT = By.xpath("//label/p/span[text()='Primary element selector type']/../../../div/div/div/div/div/input[@id ='primaryBy']/../../../div[1]");
     By TXTBOX_SELECTOR_TYPE = By.xpath("//label/p/span[text()='Primary element selector type']/../../../div/div/div/div/div/input[@id ='primaryBy']");
     By HYPERLINK_ADDED_SELECTOR = By.xpath("//span[text()='Scenario Steps']/../../../div/div/div[4]/button");
+    By TXTBOX_SLA_THRESHOLD= By.xpath("//input[@id='threshold']");
+    By TXTBOX_SLA_ACTIONS = By.xpath("//input[@id='actions']");
 }

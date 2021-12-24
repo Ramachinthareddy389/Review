@@ -116,6 +116,7 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.clickingOnWMIInAutomation();
         sshPage.addingSSH();
         sshPage.applyingFiltersInSSHPage();
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
@@ -123,6 +124,7 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.clickingOnWMIInAutomation();
         sshPage.addingSSH();
         sshPage.verifyingIconsInSSHEditWindow();
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
@@ -178,13 +180,33 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Click_006_VerifyPageIconsInClickPage(){
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingCUStomeRole();
+        sshPage.navigatingToClickPage();
+        sshPage.verifyingPageIconsInSSH();
+        sshPage.verifyingEditIconFunctionalityInClick();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Click_007_ApplyFiltersInClickPage(){
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingCUStomeRole();
-        sshPage.applyFiletrsInClickPage();
+        sshPage.applyingFiltersInSSHPage();
+
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Click_009_VerifyIconsInEditConfigWindows(){
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingCUStomeRole();
+        sshPage.verifyingIconsInSSHEditWindow();
+    }
+
+
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_SSH_013_VerifyPageIconsInSSHPage() {
+    public void TC_SSH_013_VerifyPageIconsInSSHPage()
+    {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.clickingOnSSH();
@@ -216,6 +238,7 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.applyingFiltersInSSHPage();
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
@@ -223,6 +246,7 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.verifyingIconsInSSHEditWindow();
+
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")

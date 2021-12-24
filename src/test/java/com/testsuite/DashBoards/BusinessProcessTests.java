@@ -47,7 +47,7 @@ public class BusinessProcessTests extends BaseSetup {
         businessProcessPage.verifyingBusinessProcessDetails();
     }
 
-    @Test(alwaysRun = true)
+    @Test(enabled = false)
     public void TC_BusiProcess_002_EditBusinessProcessConfiguration() throws InterruptedException {
         businessProcessPage.clickingOnBP();
         businessProcessPage.addingNewBusinessProcess();
