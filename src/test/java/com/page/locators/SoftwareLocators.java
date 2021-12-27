@@ -8,7 +8,7 @@ public interface SoftwareLocators {
         By BTN_SOFTWARE = By.xpath("//span[text()='Software']");
         By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
         By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
-        By TXTBOX_SERVERNAME = By.xpath("//h6[text()='Software']/ancestor::div[4]/following-sibling::div/descendant::input[1]");
+        By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
         By LABEL_DESC = By.xpath("//label[@id='description-label']");
         By TXTBOX_DESC = By.xpath("//input[@id='description']");
         By LABEL_CATEGORY = By.xpath("//span[text()='Category']");
@@ -25,7 +25,7 @@ public interface SoftwareLocators {
         By BTN_CLOSE = By.xpath("//span[text()='Close']");
         By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
         By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
-        By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
+        By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
         By EDITED_ACESSMEANS = By.xpath("//input[@id='accessMeans']");
         By EDITED_SEARCHTAGS = By.xpath("//input[@id='searchTags']");
         By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");

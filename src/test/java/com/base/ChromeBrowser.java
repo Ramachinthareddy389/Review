@@ -7,12 +7,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.datamanager.ConfigManager;
 import com.testng.Assert;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * This class defines all methods required to initialize ChromeDriver So far
@@ -61,7 +64,8 @@ public class ChromeBrowser implements IBrowser {
      prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
      //prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
     // prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-     
+
+
 
 		
 		ChromeOptions options = new ChromeOptions();

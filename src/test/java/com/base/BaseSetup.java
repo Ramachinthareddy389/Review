@@ -34,14 +34,7 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.Reporter;
 import org.testng.SkipException;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.awt.*;
 import java.io.File;
@@ -140,7 +133,7 @@ public class BaseSetup implements TimeOuts {
 	 */
 	@Parameters({ "deviceName", "deviceVersion", "deviceUrl", "udid", "platformName", "browser-Type", "browserVersion",
 			"osName", "osVersion", "session" })
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public void initializeBaseSetup(@Optional("Android Mobile Phone") String deviceName,
 			@Optional("6.0.1") String deviceVersion, @Optional("http://0.0.0.0:4723/wd/hub") String deviceUrl,
 			@Optional("1fa71036") String udid, @Optional("Desktop") String sPlatform,
@@ -267,14 +260,13 @@ public class BaseSetup implements TimeOuts {
 
 
 
-/*
-@AfterClass(alwaysRun = true)
+@AfterMethod(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
 		if (driver != null) {
 			driver.quit();
 		}
-	}*/
+	}
 
 
 
@@ -433,7 +425,7 @@ public class BaseSetup implements TimeOuts {
 					(int) sz.getHeight());
 			driver.manage().window().setSize(dim);
 		}
-		//setPageLoadTimeOut(VERYLONGWAIT);
+		setPageLoadTimeOut(VERYLONGWAIT);
 	}
 
 	public void step(String stepMessage) {

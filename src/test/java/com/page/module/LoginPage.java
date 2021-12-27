@@ -17,8 +17,10 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
 
     //Constructor to define/call methods
     public LoginPage(WebDriver driver) {
+
         super(driver);
         this.driver = driver;
+
     }
 
     /**

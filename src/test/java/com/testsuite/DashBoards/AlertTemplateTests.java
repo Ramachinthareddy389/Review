@@ -25,6 +25,7 @@ public class AlertTemplateTests extends BaseSetup {
     String dname = "testng";
     String dname1 = dname + random.nextInt(1500);
     String Alert = "alert" + random.nextInt(1500);
+    String slasName = "SLAs" + random.nextInt(3000);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -128,6 +129,24 @@ public class AlertTemplateTests extends BaseSetup {
         emailPage.clickingHyperlinksInAlertEmails();
         //alertTemplatePage.deletingEmails();
     }
+    @Test(alwaysRun = true,groups = "Smoke SUite")
+    public void TC_Alerts_008_VerifyPageIconsinAlertPage()
+    {
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.navigatingToAlertPage();
+        alertTemplatePage.verifyingPageIcons(Alert);
+        alertTemplatePage.verifyingEditIconFunctionalityInAlerts();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Alerts_009_ApplyFiltersInAlertsPage(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.navigatingToAlertPage();
+        alertTemplatePage.applyingFilters(Alert);
+    }
+
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_AleTemp_006_VerifyPageIconsInAlertTemplatePage(){
@@ -156,10 +175,10 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction(dname1);
         alertTemplatePage.NavigateToSLAsPageFromAlertTemplateEditwindow(dname1);
-        slAsPage.validatingSLATitleInSlAPAge();
+        slAsPage.validatingSLATitleInSlAPAge(slasName);
         slAsPage.deleteinAlertTemplate(dname1);
 
 

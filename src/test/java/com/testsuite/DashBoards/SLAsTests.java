@@ -23,7 +23,7 @@ public class SLAsTests extends BaseSetup {
     private String sModeOfExecution;
     Random random = new Random();
     String AlertTemplate = "Alerttemplate" + random.nextInt(3000);
-
+    String slasName = "SLAs" + random.nextInt(3000);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -48,36 +48,36 @@ public class SLAsTests extends BaseSetup {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.verifyingSLAsPage();
+        slAsPage.verifyingSLAsPage(slasName);
     }
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_SLAs_003_EditSLAconfigforallTypes()
     {
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.editSLAsConfig();
+        slAsPage.editSLAsConfig(slasName);
         slAsPage.verifyingEditedSLADetails();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_SLAs_002_AddThresholdinFactBasedSLAeditwindow() {
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.addingThresholdValueInEditSLAswindow();
+        slAsPage.addingThresholdValueInEditSLAswindow(slasName);
         slAsPage.verifyingAddedThresholdInEditWindow();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_SLAs_004_AddActionsinEditSLAconfigwindow() {
+    public void TC_SLAs_004_AddActionsinEditSLAconfigwindow(){
 
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.addingActionsInEditSLAConfigWindow();
+        slAsPage.addingActionsInEditSLAConfigWindow(slasName);
         slAsPage.verifyingActionsInEditSLAConfigWindow();
 
     }
@@ -85,9 +85,9 @@ public class SLAsTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_SLAs_005_AddAlertTemplateInEditSLAConfigWindow() {
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.addingAlertTemplateInEditSLAConfigWindow();
+        slAsPage.addingAlertTemplateInEditSLAConfigWindow(slasName);
         alertTemplatePage.addIngAlertTemplate(AlertTemplate);
         slAsPage.verifyingAddedAlertTemplateInSLAEditWindow(AlertTemplate);
         alertTemplatePage.navigateToAlertTemplateWindow();
@@ -98,49 +98,49 @@ public class SLAsTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_SLAs_006_NavigateToKPIsPageonClickingAnyKPIUnderKPINameColumn() {
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.navigateToKPIPageFromSLAPage();
+        slAsPage.navigateToKPIPageFromSLAPage(slasName);
         slAsPage.clickingSLAsPage();
-        slAsPage.deletingCreatedSLAs();
+        slAsPage.deletingCreatedSLAs(slasName);
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_SLAs_007_NavigateToAlertTemplatesPageonClickingnAlertTempUnderSLASPAge(){
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.navigateToAlertTemplatePageFrmSLAPage();
+        slAsPage.navigateToAlertTemplatePageFrmSLAPage(slasName);
         slAsPage.clickingSLAsPage();
-        slAsPage.deletingCreatedSLAs();
+        slAsPage.deletingCreatedSLAs(slasName);
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_SLAs_008_VerifyPageIconsInSLAsPage(){
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.verifyingPageIconsInSLApage();
+        slAsPage.verifyingPageIconsInSLApage(slasName);
     }
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_SLAs_009_ApplyFiltersInSLAsPage(){
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.applyingFilters();
+        slAsPage.applyingFilters(slasName);
 
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_SLAs_011_VerifyIconsinEditonfigWindow(){
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.verifyingIconsInEditWindow();
+        slAsPage.verifyingIconsInEditWindow(slasName);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
@@ -148,9 +148,9 @@ public class SLAsTests extends BaseSetup {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         slAsPage.clickingOnSLAs();
-        slAsPage.addingSLASettingsPage();
+        slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
-        slAsPage.viewDataWithFeildsForViewIcon();
+        slAsPage.viewDataWithFeildsForViewIcon(slasName);
         slAsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
 }

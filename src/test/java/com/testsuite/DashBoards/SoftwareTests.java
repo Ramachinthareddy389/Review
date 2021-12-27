@@ -12,12 +12,16 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class SoftwareTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private SoftwarePage softwarePage;
     private DashboardOverviewPage dashboardOverviewPage;
-
+    Random random = new Random();
+    String DbTitle = "Module_soft" + " - " + random.nextInt(500);
+    String EditTitle = "Module_Sft_Edit" + " - " + random.nextInt(500);
 
     private String sModeOfExecution;
 
@@ -41,31 +45,29 @@ public class SoftwareTests extends BaseSetup {
     @Test(groups = "Smoke Test")
     public void TC_Sware_001_AddSoftwareConfiguration() throws InterruptedException {
         softwarePage.clickingOnSoftware();
-        softwarePage.addingNewSoftware();
-        softwarePage.verifyingSoftwareNameDetails();
+        softwarePage.addingNewSoftware(DbTitle);
+        softwarePage.verifyingSoftwareNameDetails(DbTitle);
     }
     @Test(groups = "Smoke Test")
     public void TC_Sware_002_EditSoftwareConfiguration() throws InterruptedException {
         softwarePage.clickingOnSoftware();
-        softwarePage.addingNewSoftware();
-        softwarePage.editConfiugurationSoftwareDetails();
-        softwarePage.verifyingEditSoftwareNameDetails();
+        softwarePage.addingNewSoftware(DbTitle);
+        softwarePage.editConfiugurationSoftwareDetails(DbTitle,EditTitle);
+        softwarePage.verifyingEditSoftwareNameDetails(EditTitle);
 
     }
-
-
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_Sware_004_VerifyPageIconsInSoftwarepage(){
         softwarePage.clickingOnSoftware();
-        softwarePage.addingNewSoftware();
-        softwarePage.verifyingPageIconsInSoftwarepage();
+        softwarePage.addingNewSoftware(DbTitle);
+        softwarePage.verifyingPageIconsInSoftwarepage(DbTitle);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_Sware_005_ApplyFiltersInSoftwarePage(){
         softwarePage.clickingOnSoftware();
-        softwarePage.addingNewSoftware();
-        softwarePage.applyingFiltersInSoftwarePage();
+        softwarePage.addingNewSoftware(DbTitle);
+        softwarePage.applyingFiltersInSoftwarePage(DbTitle);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
@@ -76,8 +78,8 @@ public class SoftwareTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_Sware_008_VerifyIconsInEditConfigWindow(){
         softwarePage.clickingOnSoftware();
-        softwarePage.addingNewSoftware();
-        softwarePage.VerifyIconsInSoftwareEditConfigWindow();
+        softwarePage.addingNewSoftware(DbTitle);
+        softwarePage.VerifyIconsInSoftwareEditConfigWindow(DbTitle);
     }
 
 
