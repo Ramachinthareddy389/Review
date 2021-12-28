@@ -58,6 +58,11 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(9);
     }
 
+    public void navigatingToSLAsPage() {
+        waitForSecs(9);
+        safeClick(BTN_SLAS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+    }
+
     public void addingSLASettingsPage(String slasName) {
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, slasName + "SLA", "Name into textbox", MEDIUMWAIT);
@@ -203,8 +208,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
             safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
             waitForSecs(5);
             safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
     }
@@ -243,7 +247,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
             safeJavaScriptClick(SELECT_ALL_CKHBOX, "All Checkbox", MEDIUMWAIT);
             safeClick(DELETE_SLAS, "Delete Slas", MEDIUMWAIT);
             safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        }catch (UnhandledAlertException e) {
+        } catch (UnhandledAlertException e) {
 
         }
     }
@@ -343,35 +347,40 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
+        safeClick(HYPERLINK_THRESHOLD, "Threshold Hyperlink", MEDIUMWAIT);
+        waitForSecs(10);
         try {
-            safeClick(HYPERLINK_THRESHOLD, "Threshold Hyperlink", MEDIUMWAIT);
-            waitForSecs(10);
-            safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
-            waitForSecs(10);
-            safeClick(BTN_SAVE, "Save Button", MEDIUMWAIT);
-            waitForSecs(5);
-            safeClick(ACTIONS_ADD_ICON, "Actions Icon", MEDIUMWAIT);
-            safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
-            safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-            safeClearAndType(TXTBOX_ACTIONS_NAME, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
-            waitForSecs(20);
-            List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
-            System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-            for (int i = 0; i < dbs3.size(); i++) {
-
-                if (dbs3.get(i).getText().equalsIgnoreCase("QA HTTP")) {
-
-                    dbs3.get(i).click();
-                    break;
-                }
+            if (isElementDisplayed(BTN_REMOVE_ACTIONS)) {
+                safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
+                waitForSecs(10);
+                safeClick(BTN_SAVE, "Save Button", MEDIUMWAIT);
             }
-            waitForSecs(10);
-            safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
-            safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        } catch (UnhandledAlertException e) {
-
+        } catch (Exception e) {
+            System.out.println("Remove actions button not clickable.");
         }
+        waitForSecs(5);
+        safeClick(ACTIONS_ADD_ICON, "Actions Icon", MEDIUMWAIT);
+        safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
+        safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS_NAME, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        for (int i = 0; i < dbs3.size(); i++) {
+
+            if (dbs3.get(i).getText().equalsIgnoreCase("QA HTTP")) {
+
+                dbs3.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+
+
     }
+
 
     public void verifyingActionsInEditSLAConfigWindow() {
         try {
@@ -386,7 +395,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
             safeJavaScriptClick(SELECT_ALL_CKHBOX, "All Checkbox", MEDIUMWAIT);
             safeClick(DELETE_SLAS, "Delete Slas", MEDIUMWAIT);
             safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        }catch (UnhandledAlertException e) {
+        } catch (UnhandledAlertException e) {
         }
     }
 
@@ -414,7 +423,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         System.out.println(alertName);
         Assert.assertEquals(alertName, AlertTemplate);
         waitForSecs(10);
-        safeClick(BTN_SAVE,"Save buuton",MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save buuton", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Edit window", MEDIUMWAIT);
         safeJavaScriptClick(SELECT_ALL_CKHBOX, "All Checkbox", MEDIUMWAIT);
@@ -504,8 +513,10 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + slasName + "SLA" + "')]");
         waitForSecs(30);
-        By SELECTROW_CHKBOX1 = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span[text()='" + slasName + "SLA" + "']/../../../../parent::div/descendant::input[1]");
-        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(SeachedText,"Slas page","searching config",MEDIUMWAIT);
+        safeClick(SeachedText,"Slas page",MEDIUMWAIT);
+        By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
         By ELEMENT_STATUS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span/mark[text()='" + slasName + "SLA" + "']/../../..//parent::div/div[1]/span");
         boolean b1 = isElementSelected(ELEMENT_STATUS);
@@ -521,7 +532,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         boolean row = isElementSelected(ELEMENT_STATUS);
         System.out.println(row);
         Assert.assertFalse(row);
-        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
         waitForSecs(10);
@@ -534,7 +545,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
-        safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
         waitForSecs(15);
@@ -623,7 +634,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-       // safeClick(HYPERLINK_SLAs, "Added BP Steps", MEDIUMWAIT);
+        // safeClick(HYPERLINK_SLAs, "Added BP Steps", MEDIUMWAIT);
         //waitForSecs(10);
         safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
         isElementDisplayed(KPIS_TEXT);
@@ -646,14 +657,15 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
 
     }
-    public void validatingSLATitleInSlAPAge(String slasName){
-        By SLATitle = By.xpath("//h5[text()='CPU Usage - raw - " +  slasName + "SLA" + "']");
+
+    public void validatingSLATitleInSlAPAge(String slasName) {
+        By SLATitle = By.xpath("//h5[text()='CPU Usage - raw - " + slasName + "SLA" + "']");
         System.out.println(SLATitle);
-        boolean b= isElementDisplayed(SLATitle);
+        boolean b = isElementDisplayed(SLATitle);
         Assert.assertTrue(b);
         By SLAPageTitle = By.xpath("//h5[text()='Service Level Agreements']");
         System.out.println(SLAPageTitle);
-        boolean b1= isElementDisplayed(SLAPageTitle);
+        boolean b1 = isElementDisplayed(SLAPageTitle);
         Assert.assertTrue(b1);
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
@@ -662,6 +674,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(15);
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
     }
+
     public void deleteinAlertTemplate(String dname1) {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
@@ -677,7 +690,8 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
     }
-    public void serchingForCreatedConfig(String DbTitle){
+
+    public void serchingForCreatedConfig(String DbTitle) {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -685,7 +699,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'" + DbTitle +"')]");
+        By SeachedText = By.xpath("//div[contains(text(),'" + DbTitle + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         waitForSecs(10);

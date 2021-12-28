@@ -406,8 +406,14 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-        waitForSecs(10);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        }catch (Exception e){
+            System.out.println("Confirm delete buttom is not displaying");
+        }
 
 
     }

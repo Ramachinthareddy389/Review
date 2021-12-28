@@ -894,7 +894,6 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
-        waitForSecs(15);
         try {
             if (isElementDisplayed(CONFIRM_DELETE)) {
                 safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);

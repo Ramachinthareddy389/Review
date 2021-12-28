@@ -42,7 +42,9 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         safeJavaScriptClick(BUTTON_ADD_DASHBOARD, "Add button on dashboards section", MEDIUMWAIT);
         safeClick(LABEL_NEW_DASHBOARD, "All folder on dashboards section ", MEDIUMWAIT);
     }
-
+public void clickingOnAllModule(){
+    safeClick(All_FOLDER, "All folder on dashboards section ", MEDIUMWAIT);
+}
 
     @Step("To enter the required fields for creating a new Dashboard and click on Finish button")
     public void enterAddrequirefeildsInDashBoardPage() throws InterruptedException {
@@ -78,14 +80,17 @@ public class DashboardOverviewPage extends SafeActions implements DashBoardLocat
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "Dashboard Display Name", "Enter Text in portlets");
         waitForSecs(20);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
-        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
-        driver.findElement(SeachedText).click();;
         waitForSecs(10);
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(SeachedText).click();;
+        waitForSecs(20);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);

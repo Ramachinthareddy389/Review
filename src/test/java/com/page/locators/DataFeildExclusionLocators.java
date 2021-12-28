@@ -27,10 +27,10 @@ public interface DataFeildExclusionLocators {
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By LABEL_FACTTYPE = By.xpath("//span[text()='Fact Type']");
     By TXTBOX_FACTTYPE = By.xpath("//input[@id='factType']/../../../div[1]");
-
+    By MENU_ICON = By.xpath("//i[contains(@class,'fas fa-bars')]");
     By ICON_INFROMATIONINDRILLTHRGH = By.xpath("//a[contains(@href,'#RCA')][1]/div/div/div[5]/span/div/i");
-    By LABEL_SYSTEM = By.xpath("//div[text()='System hostname']");
-    By ICON_EYE = By.xpath("//div[text()='System hostname']/following-sibling::span/div/div/div[2]/span/i");
+    By LABEL_TARGET = By.xpath("(//span[text()='qa_cloud_germainapm_com'])[1]");
+    By ICON_EYE = By.xpath("//span[text()='qa_cloud_germainapm_com']/following-sibling::div/span/i[@class='fas fa-eye-slash']");
     By ICON_INFORMATION_RCA_PAGE = By.xpath("//i[contains(@class,'fas fa-info-circle')]/../../../../div/span[text()='System']/../following-sibling::div/span/div/i");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");

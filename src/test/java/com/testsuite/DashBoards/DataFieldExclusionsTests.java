@@ -52,7 +52,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_DfExclusion_002_EditDataFieldExclusionconfig () throws InterruptedException {
+    public void TC_DfExclusion_002_EditDataFieldExclusionconfig() throws InterruptedException {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();
         dataFeildExclusionsPage.addingNewDataFieldExclusion();
         dataFeildExclusionsPage.editBusinessConfig();
@@ -68,6 +68,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1, "User Click");
+        dataFeildExclusionsPage.clickingOnMenuIcon();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigatingToDrillThroughPage(dname1);
         dataFeildExclusionsPage.addingDataExclusionFromDrillThroughPage();
@@ -76,8 +77,10 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dataFeildExclusionsPage.verifyingFeildExclusionDetails();
         dashboardOverviewPage.addingNewDashboard();
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
+        dashboardOverviewPage.clickingOnAllModule();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
+        dataFeildExclusionsPage.clickingOnMenuIcon();
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.navigateToRCADrillThroughPage();
         dataFeildExclusionsPage.addingDataFieldExclusionDetailsFromRCApage();
@@ -88,11 +91,12 @@ public class DataFieldExclusionsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public  void TC_DfExclusion_008_VerifyPageIcons(){
+    public void TC_DfExclusion_008_VerifyPageIcons() {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();
         dataFeildExclusionsPage.addingNewDataFieldExclusion();
         dataFeildExclusionsPage.verifyingPageIconsInDataExclusionPage();
     }
+
     @Test(alwaysRun = true)
     public void TC_DfExclusion_009_ApplyFiltersInDataFieldExclusion() {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();
@@ -101,7 +105,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_DfExclusion_011_VerifyIconsInEditConfigWindowInDataFieldExclusion(){
+    public void TC_DfExclusion_011_VerifyIconsInEditConfigWindowInDataFieldExclusion() {
         dataFeildExclusionsPage.clickingOnDataFeildExclusion();
         dataFeildExclusionsPage.addingNewDataFieldExclusion();
         dataFeildExclusionsPage.verifyingIconsInEditWindow();

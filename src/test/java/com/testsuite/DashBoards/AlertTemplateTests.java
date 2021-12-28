@@ -183,5 +183,11 @@ public class AlertTemplateTests extends BaseSetup {
 
 
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Alerts_011_VerifyIconsinEditconfigWindows(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.verifyingIconsInEditWindow(Alert);
+    }
 
 }

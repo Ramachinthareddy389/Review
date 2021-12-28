@@ -39,12 +39,13 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         safeClick(LABEl_TYPE, "Type Label", MEDIUMWAIT);
         safeClick(TYPE_GHOSTTEXT, "Type", MEDIUMWAIT);
+       waitForSecs(10);
         safeClearAndType(TXTBOX_TYPE, "bat", "Entering type", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("bat")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("bat")) {
 
                 dbs3.get(i).click();
                 break;
@@ -52,23 +53,24 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         }
         type_add = safeGetText(TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(type_add);
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(LABEL_CONTENT, "Server Feild", MEDIUMWAIT);
         safeClearAndType(CONTENT_TEXTAREA, "test", "Server name into textbox", MEDIUMWAIT);
         content_add = safeGetText(CONTENT_TEXTAREA, "Server textbox value", MEDIUMWAIT);
         System.out.println(content_add);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_NEXT, "NExt button", MEDIUMWAIT);
         safeCheck(CHKBOX_RUNSCHEDULE, "Run Schedule checkbox", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "- raw -", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "Native Mouse Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
         for (int i = 0; i < dbs4.size(); i++) {
 
-            if (dbs4.get(i).getText().equals("- raw -")) {
+            if (dbs4.get(i).getText().equalsIgnoreCase("Native Mouse Click - raw - User Click SLA")) {
 
                 dbs4.get(i).click();
                 break;
@@ -166,7 +168,7 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("bat")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("bat")) {
 
                 dbs3.get(i).click();
                 break;
@@ -216,7 +218,7 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size() - 1; i++) {
 
-            if (dbs3.get(i).getText().equals("Native User Click - raw - User Click SLA")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("Native User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -230,10 +232,10 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         System.out.println(sla_add);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         waitForSecs(10);
-
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -263,7 +265,16 @@ public class ScriptPage extends SafeActions implements ScriptLocators {
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(15);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        }catch (Exception e){
+            System.out.println("Confirm delete buttom is not displaying");
+        }
+
         safeClick(BTN_SCRIPT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, SCRIPT + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");

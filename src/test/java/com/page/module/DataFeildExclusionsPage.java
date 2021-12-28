@@ -192,16 +192,21 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Edit window", MEDIUMWAIT);
     }
+    public void clickingOnMenuIcon(){
+        safeClick(MENU_ICON,"Menu Icon",MEDIUMWAIT);
+        waitForSecs(10);
+    }
 
     public void addingDataExclusionFromDrillThroughPage() {
         mouseHoverJScript(ICON_INFROMATIONINDRILLTHRGH, "Information icon in System header", "Drillthrogh Page", MEDIUMWAIT);
         waitForSecs(2);
-        mouseHoverJScript(LABEL_SYSTEM, "System name label", "Popup", MEDIUMWAIT);
-        waitForSecs(15);
+        mouseHoverJScript(LABEL_TARGET, "System name label", "Popup", MEDIUMWAIT);
+        waitForSecs(5);
         safeJavaScriptClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
     }
 
     public void navigatingToDataExclusionModule(){
+        safeClick(MENU_ICON,"Menu icon",MEDIUMWAIT);
         safeClick(BTN_ANALYTICS, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_DATAFIELD_EXCLUSION, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
@@ -210,9 +215,9 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
         waitForSecs(20);
         mouseHoverJScript(ICON_INFORMATION_RCA_PAGE, "Information icon in System header", "Drillthrogh Page", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(LABEL_SYSTEM,"SYstem Name Label",MEDIUMWAIT);
+        safeClick(LABEL_TARGET,"SYstem Name Label",MEDIUMWAIT);
         waitForSecs(5);
-        mouseHoverJScript(LABEL_SYSTEM, "System name label", "Popup", MEDIUMWAIT);
+        mouseHoverJScript(LABEL_TARGET, "System name label", "Popup", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(ICON_EYE, "Data field exclusion eye icon", MEDIUMWAIT);
     }

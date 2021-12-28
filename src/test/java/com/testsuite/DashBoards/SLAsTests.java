@@ -122,6 +122,7 @@ public class SLAsTests extends BaseSetup {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
+        slAsPage.navigatingToSLAsPage();
         slAsPage.verifyingPageIconsInSLApage(slasName);
     }
 

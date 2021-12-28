@@ -203,6 +203,19 @@ public class SSHNdWMITests extends BaseSetup {
         sshPage.verifyingIconsInSSHEditWindow();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Click_011_NavigatetoSLAEditWindowfrmClickEditWindow() throws InterruptedException, AWTException {
+        sshPage.clickingOnClickModuleInAutomation();
+        sshPage.addingNewRecordingInClickPage();
+        sshPage.switchingToMainWindow();
+        sshPage.startedRecording();
+        sshPage.addingClickConfigurations();
+        sshPage.applyingFiltersInSSHPage();
+        sshPage.navigateToSLAsEditWindowFrmClickEditWindow();
+        sshPage.deletingCreatedConfig();
+
+    }
+
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_SSH_013_VerifyPageIconsInSSHPage()
