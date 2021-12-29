@@ -64,12 +64,22 @@ public class ComponentTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public  void TC_CompTypes_002_EditallComponentTypeconfigurations()
+    {
+        componentPage.clickingOnAutomation();
+        componentPage.adding1stComponent();
+        componentPage.verifyingEditedAllComponentTypes();
+        componentPage.adding2ndComponent();
+        componentPage.verifyingEditedAllComponentTypes();
+    }
+
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_Creds_001_AddCredentialsconfiguration()
     {
-       componentPage.clickingOnAddCredentials();
-       componentPage.addingNewCredentials();
-       componentPage.verifyingAddedCredentials();
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials();
+        componentPage.verifyingAddedCredentials();
 
     }
 
@@ -81,18 +91,6 @@ public class ComponentTests extends BaseSetup {
         componentPage.editCredentialsConfigs();
         componentPage.verifyingEditedAddedCredentials();
     }
-
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_CompTypes_002_EditallComponentTypeconfigurations()
-    {
-        componentPage.clickingOnAutomation();
-        componentPage.adding1stComponent();
-        componentPage.verifyingEditedAllComponentTypes();
-        componentPage.adding2ndComponent();
-        componentPage.verifyingEditedAllComponentTypes();
-    }
-
-
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_Creds_003_ChangePasswordInCredentialsEditwindow()
     {

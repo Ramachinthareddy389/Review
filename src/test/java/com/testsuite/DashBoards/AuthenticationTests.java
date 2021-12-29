@@ -72,4 +72,6 @@ public class AuthenticationTests extends BaseSetup {
         authenticationPage.addingLADPAuthentication();
         authenticationPage.updatingManagerPassword();
     }
+
+
 }

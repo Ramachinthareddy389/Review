@@ -49,6 +49,7 @@ public interface AlertTemplateLocators
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
     By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
     By SLAS_HYPER_LINK = By.xpath("//span[text()='Used By SLAs']/../../following-sibling::div/descendant::button");
+
     //Alert Locators
     By LABEL_AUTOMATION = By.xpath("//span[text()='Automation']");
     By LABEL_ALERT = By.xpath("//span[text() ='Alert']");
@@ -80,4 +81,12 @@ public interface AlertTemplateLocators
     By BTN_EXECUTE = By.xpath("//div[@aria-label='Execute']");
     By BTN_PLAY = By.xpath("//div[@aria-label='Play']");
     By FOOTERTEXT = By.xpath("//span[@id='client-snackbar']");
+    By SLAS_HYPERLINK = By.xpath("//span[text()='Triggered By SLAs']/../../following-sibling::div/descendant::button[2]");
+    By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+    By KPIS_TEXT = By.xpath("//h6[text()='Distribution List']");
+    By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+    By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By SLA_LINK = By.xpath("//div[@title='Select Row']/../descendant::button[text()='User Click SLA']");
+    By Title_DRILLTHROUGH=By.xpath("//div[contains(@class,'MuiContainer-root ')]/div//following-sibling::div/div/h5");
+    By SLA_TXTBOX = By.xpath("//input[@id='slaName']");
 }

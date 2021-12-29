@@ -35,11 +35,12 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     public void clickingOnAlertTemplate() {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
-        waitForSecs(30);
+
     }
 
     public void addIngAlertTemplate(String dname1) {
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        waitForSecs(30);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -156,6 +157,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         waitForSecs(10);
 
     }
+
     public void verifyingPageIcons(String AlertTemplate) {
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -195,15 +197,19 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(15);
         waitForSecs(25);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_ENABLE, "Enable config button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
     }
-    public void  verifyingEditIconFunctionalityInAlerts(){
+
+    public void verifyingEditIconFunctionalityInAlerts() {
         waitForSecs(10);
         safeClick(BTN_EDIT, "Edit button", MEDIUMWAIT);
         boolean editTitle = isElementDisplayed(EDIT_HEADER_WMI);
@@ -229,24 +235,24 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_DELETE1, "Delete button", MEDIUMWAIT);
         waitForSecs(15);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-       try {
-           String Notify = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
-           System.out.println(Notify);
-           if (Notify.equals(NotifyText)) {
-               mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-               safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-               waitForSecs(9);
-               safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
-               waitForSecs(5);
-               safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-               waitForSecs(10);
-               safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-               waitForSecs(10);
+        try {
+            String Notify = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
+            System.out.println(Notify);
+            if (Notify.equals(NotifyText)) {
+                mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+                safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+                waitForSecs(9);
+                safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+                waitForSecs(5);
+                safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+                waitForSecs(10);
+                safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+                waitForSecs(10);
 
-           }
-       }catch (Exception e){
+            }
+        } catch (Exception e) {
 
-       }
+        }
     }
 
     public void applyingFilters(String alertTemplate) {
@@ -278,7 +284,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
                 safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
                 waitForSecs(15);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Confirm delete buttom is not displaying");
         }
 
@@ -318,22 +324,20 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
                 safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
                 waitForSecs(15);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Confirm delete buttom is not displaying");
         }
 
     }
 
-    public void NavigateToSLAsPageFromAlertTemplateEditwindow(String dname1){
-        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
-        safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
+    public void NavigateToSLAsPageFromAlertTemplateEditwindow(String dname1) {
         safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        safeClick(SLAS_HYPER_LINK,"Slas hyper link",MEDIUMWAIT);
+        safeClick(SLAS_HYPER_LINK, "Slas hyper link", MEDIUMWAIT);
 
 
     }
@@ -347,7 +351,8 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(LABEL_ALERT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
     }
-    public void navigatingToAlertPage(){
+
+    public void navigatingToAlertPage() {
         safeClick(LABEL_ALERT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
 
@@ -375,13 +380,13 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(DRPDOWN_SLA, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(DRPDOWN_SLA, "Native Mouse Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         waitForSecs(10);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_LIST);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().contains("User Click - raw - User Click SLA")) {
+            if (dbs2.get(i).getText().equalsIgnoreCase("Native Mouse Click - raw - User Click SLA")) {
 
                 dbs2.get(i).click();
                 break;
@@ -395,7 +400,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
-    public void deletingAlert(String Alert){
+    public void deletingAlert(String Alert) {
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -411,7 +416,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
                 safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
                 waitForSecs(15);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Confirm delete buttom is not displaying");
         }
 
@@ -420,19 +425,17 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     public void VerifyingEmailSubject(String Subject) {
         String EmailSubject = safeGetText(EMAIL_SUBJECT, "Alert subject", MEDIUMWAIT);
-        if(EmailSubject.contains(Subject))
-        {
+        if (EmailSubject.contains(Subject)) {
             Assert.assertTrue(true);
-        }
-        else {
+        } else {
             Assert.assertFalse(false);
         }
 
     }
 
-    public void verifyingAddedAlertInInsightPage(){
-        safeClick(LABEL_DAILY_INSIGHT,"Daily tal",MEDIUMWAIT);
-        boolean sla= driver.findElement(By.xpath("//div[text()='User Click']")).isDisplayed();
+    public void verifyingAddedAlertInInsightPage() {
+        safeClick(LABEL_DAILY_INSIGHT, "Daily tal", MEDIUMWAIT);
+        boolean sla = driver.findElement(By.xpath("//div[text()='User Click']")).isDisplayed();
         System.out.println(sla);
         Assert.assertTrue(sla);
         waitForSecs(30);
@@ -440,70 +443,196 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     }
 
 
-    public void triggeringAnAlertWithNotify(String Alert){
+    public void triggeringAnAlertWithNotify(String Alert) {
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED, "Advanced button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(LABEL_NOTIFY_ON_SUCCESS,"Success label",MEDIUMWAIT);
-        safeClick(LABEL_NOTIFY_ON_FAILURE,"Failure Label",MEDIUMWAIT);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeClick(LABEL_NOTIFY_ON_SUCCESS, "Success label", MEDIUMWAIT);
+        safeClick(LABEL_NOTIFY_ON_FAILURE, "Failure Label", MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
 
     }
 
     public void deletingEmails() {
 
         waitForSecs(30);
-        safeClick(LABEL_MENU_BUTTON,"Menu button",MEDIUMWAIT);
+        safeClick(LABEL_MENU_BUTTON, "Menu button", MEDIUMWAIT);
         safeClick(LABEL_EMPTY_TEXTBOX, "Empty textbox", MEDIUMWAIT);
         acceptAlert();
     }
 
-    public void triggeringAlertBasedOnExecutionCount(String Alert){
+    public void triggeringAlertBasedOnExecutionCount(String Alert) {
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED, "Advanced button", MEDIUMWAIT);
         waitForSecs(10);
-        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT,"3","Execution count",MEDIUMWAIT);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT, "3", "Execution count", MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
     }
 
-    public void triggeringAnAlertWithSpecifiedquiteTime(String Alert){
+    public void triggeringAnAlertWithSpecifiedquiteTime(String Alert) {
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_SHOW_ADVANCED,"Advanced button",MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED, "Advanced button", MEDIUMWAIT);
         waitForSecs(10);
-        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT,"3","Execution count",MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_QUITE_TIME,"4000","quite time",MEDIUMWAIT);
-        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_EXECUTION_COUNT, "3", "Execution count", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_QUITE_TIME, "4000", "quite time", MEDIUMWAIT);
+        safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
 
     }
 
-    public void navigateToAlertTemplateWindow(){
+    public void navigateToAlertTemplateWindow() {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
 
+    public void NavigateToSLAsPageFromAlertEditwindow(String dname1) {
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(SLAS_HYPERLINK, "Slas hyper link", MEDIUMWAIT);
 
+
+    }
+
+    public void validatingSLAsEditWindow(){
+        By SLATitle = By.xpath("//h5[text()='User Click SLA']");
+        System.out.println(SLATitle);
+        boolean b = isElementDisplayed(SLATitle);
+        Assert.assertTrue(b);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        Assert.assertEquals(Name_Add,"User Click SLA");
+        safeClick(CLOSE_EDITWINDOW,"Alert Edit window",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        } catch (Exception e) {
+            System.out.println("Confirm delete buttom is not displaying");
+        }
+
+    }
+
+    public void verifyingTheViewDataForFeidlsInAlertsEditWindow(String Alert){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + Alert +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
+        isElementDisplayed(KPIS_TEXT);
+        waitForSecs(5);
+        String actTxt=  safeGetText(LIST_OF_KPIS_VALUES,"Alert View Icon Value",MEDIUMWAIT);
+        String expectedTxt ="DistributionList";
+        Assert.assertEquals(actTxt,expectedTxt);
+        waitForSecs(5);
+        safeClick(CLOSE_WINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        } catch (Exception e) {
+            System.out.println("Confirm delete buttom is not displaying");
+        }
+    }
+
+    public void navigateToSLAPageFrmAlertspage(String Alert){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + Alert +"')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        safeClick(SLA_LINK,"Sla Hyper link",MEDIUMWAIT);
+        String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
+        System.out.println(actualText);
+        Assert.assertEquals(actualText, "Service Level Agreements");
+        waitForSecs(10);
+        String SLAname = safeGetAttribute(SLA_TXTBOX,"value","Script",MEDIUMWAIT);
+        System.out.println(SLAname);
+        Assert.assertEquals(SLAname, "User Click SLA");
+        waitForSecs(5);
+        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        waitForSecs(5);
+
+    }
+    public void deletingCreatedAlerts(String Alert){
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + Alert + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        String Notify= safeGetText(FOOTERTEXT,"Notification",MEDIUMWAIT);
+        System.out.println(Notify);
+        Assert.assertEquals(Notify,NotifyText);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 }
+

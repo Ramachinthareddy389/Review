@@ -53,4 +53,19 @@ public interface AuthenticationLocators {
     By TXTBOX_CONFIRM_PASSWORD = By.xpath("//input[@id='confirmPassword']");
     By BTN_UPDATE_PASSWORD = By.xpath("//span[text()='Update Password']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
 }

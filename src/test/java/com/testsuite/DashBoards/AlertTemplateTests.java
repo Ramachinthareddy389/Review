@@ -177,6 +177,7 @@ public class AlertTemplateTests extends BaseSetup {
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction(dname1);
+        alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.NavigateToSLAsPageFromAlertTemplateEditwindow(dname1);
         slAsPage.validatingSLATitleInSlAPAge(slasName);
         slAsPage.deleteinAlertTemplate(dname1);
@@ -189,5 +190,22 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.addingAlerts(Alert);
         alertTemplatePage.verifyingIconsInEditWindow(Alert);
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Alerts_013_NavigatetoSLAEditWindowfrmAlertsEditwindow(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.NavigateToSLAsPageFromAlertEditwindow(Alert);
+        alertTemplatePage.validatingSLAsEditWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Alerts_014_ViewDataforFieldsWithViewIconinEditConfigWindows(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.verifyingTheViewDataForFeidlsInAlertsEditWindow(Alert);
+
+    }
+
 
 }
