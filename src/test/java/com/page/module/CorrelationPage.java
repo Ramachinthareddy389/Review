@@ -5,10 +5,7 @@ import com.page.locators.CorrelationLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.List;
 import java.util.Random;
@@ -155,7 +152,7 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(FeildExclusion_add);*/
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-
+        waitForSecs(20);
     }
 
     public void verifyingCorrelationDetails() {
@@ -415,14 +412,14 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeType(TXTBOX_NAME, "LeftStream", "Name into textbox", MEDIUMWAIT);
         Correlation_LStream_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Correlation_LStream_Add);
-
+       waitForSecs(10);
         safeClick(LABEL_TIME_TO_LIVE, "Name Feild", MEDIUMWAIT);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TXT_BOX_TIME_TO_LIVE);
         searchField1.sendKeys(del + "5000");
         TimeToLive_LStream_add = safeGetAttribute(TXT_BOX_TIME_TO_LIVE, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(TimeToLive_LStream_add);
-
+        waitForSecs(10);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
@@ -615,7 +612,6 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         searchField2.sendKeys(del2 + "7000");
         Edited_LStreamTimeToLive_Add = safeGetAttribute(EDITED_LSTREAM_TIMETOLIVE_TXTBOX, "value", "Timetolive", MEDIUMWAIT);
         System.out.println(Edited_LStreamTimeToLive_Add);
-
         safeClick(EDITED_LSTREAM_KPIS_LABEL, "Server Feild", MEDIUMWAIT);
         safeClick(CLOSINGADDED_KPIS, "ClosingKpis's", MEDIUMWAIT);
         safeClick(EDITED_LEFT_KPIS_GHSOTTXET, "Server textbox", MEDIUMWAIT);
@@ -810,8 +806,14 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         waitForSecs(9);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(10);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        } catch (Exception e) {
+            System.out.println("Confirm delete buttom is not displaying");
+        }
     }
 
     public void navigateToStreamCoorelationDoc() {

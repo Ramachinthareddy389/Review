@@ -72,6 +72,19 @@ public class AuthenticationTests extends BaseSetup {
         authenticationPage.addingLADPAuthentication();
         authenticationPage.updatingManagerPassword();
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Auth_004_VerifyPageIcons(){
+        authenticationPage.clickingOnAuthentication();
+        authenticationPage.addingJDBCAuthentication();
+        authenticationPage.navigatingToAuthPage();
+        authenticationPage.verifyingPageIcons();
+    }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Auth_005_ApplyFilters(){
+        authenticationPage.clickingOnAuthentication();
+        authenticationPage.addingJDBCAuthentication();
+        authenticationPage.applyingFiltersInAlertsPage();
+    }
 
 }

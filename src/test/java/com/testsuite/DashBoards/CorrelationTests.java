@@ -97,7 +97,7 @@ public class CorrelationTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true)
     public void TC_Corr_003_NavigateToCorrelationDocumentPage() {
 
         correlationPage.clickingOnCorrelation();

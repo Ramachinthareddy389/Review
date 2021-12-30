@@ -389,6 +389,7 @@ public class BaseSetup implements TimeOuts {
 	public String getBrowserName() {
 		//efDriver = new MyEventFiringWebDriver((RemoteWebDriver) driver);
 		Capabilities caps = efDriver.getCapabilities();
+
 		return caps.getBrowserName();
 	}
 
