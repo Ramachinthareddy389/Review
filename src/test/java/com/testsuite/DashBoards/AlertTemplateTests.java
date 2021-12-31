@@ -206,6 +206,13 @@ public class AlertTemplateTests extends BaseSetup {
         alertTemplatePage.verifyingTheViewDataForFeidlsInAlertsEditWindow(Alert);
 
     }
-
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Alerts_015_NavigatetoSLAsPageonClickingAnySLAUnderTriggeredBySLAsColumn(){
+        alertTemplatePage.clickingOnAlerts();
+        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.navigateToSLAPageFrmAlertspage(Alert);
+        alertTemplatePage.navigatingToAlertPage();
+        alertTemplatePage.deletingCreatedAlerts(Alert);
+    }
 
 }

@@ -86,5 +86,10 @@ public class AuthenticationTests extends BaseSetup {
         authenticationPage.addingJDBCAuthentication();
         authenticationPage.applyingFiltersInAlertsPage();
     }
-
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Auth_007_VerifyIconsinEditConfigWindows(){
+        authenticationPage.clickingOnAuthentication();
+        authenticationPage.addingJDBCAuthentication();
+        authenticationPage.verifyingIconsInEditWindow();
+    }
 }
