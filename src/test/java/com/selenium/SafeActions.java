@@ -3397,7 +3397,7 @@ public class SafeActions extends Sync
 		System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
 		for (int i = 0; i < dbs1.size(); i++) {
 
-			if (dbs1.get(i).getText().equals(config)) {
+			if (dbs1.get(i).getText().equalsIgnoreCase(config)) {
 
 				dbs1.get(i).click();
 				break;

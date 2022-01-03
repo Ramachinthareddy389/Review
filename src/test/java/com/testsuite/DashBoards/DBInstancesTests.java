@@ -69,7 +69,7 @@ public class DBInstancesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_DBInstances_004_NavigateToServerPageByClickingonServersUnderServerColumn(){
+    public void TC_DBInstances_005_NavigateToServerPageByClickingonServersUnderServerColumn(){
         dbInstancesPage.clickingOnDbInstances();
         dbInstancesPage.addingNewDbinstances();
         dbInstancesPage.navigateToHardwarePageFrmDbinstnacePage();

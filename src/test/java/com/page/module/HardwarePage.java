@@ -29,12 +29,13 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     public void clickingOnHardware() {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_HARDWARE, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+
     }
 
     public void addingNewHardware(String Hostname) {
 
         // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
@@ -73,7 +74,9 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeType(TXTBOX_HOSTNAME, Hostname, "Name into textbox", MEDIUMWAIT);
         Host_Add = safeGetAttribute(TXTBOX_HOSTNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Host_Add);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(LABEL_OSFAMILY, "Vendor Feild", MEDIUMWAIT);
         safeClick(OSFAMILY_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
         safeClearAndType(TXTBOX_OSFAMILY, "ANDROID", "Vendor name into textbox", MEDIUMWAIT);
@@ -81,7 +84,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals("ANDROID")) {
+            if (db1.get(i).getText().equalsIgnoreCase("ANDROID")) {
 
                 db1.get(i).click();
                 break;
@@ -91,12 +94,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println(OSFamily_add);
         safeClick(LABEL_OSNAME, "Vendor Feild", MEDIUMWAIT);
         safeClick(OSNAME_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_OSNAME, "Windows 10", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_OSNAME, "Linux", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
 
-            if (db2.get(i).getText().equals("Windows 10")) {
+            if (db2.get(i).getText().equalsIgnoreCase("Linux")) {
 
                 db2.get(i).click();
                 break;
@@ -104,6 +107,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         OSName_add = safeGetText(OSNAME_GHOSTEXT, "OS Family value", MEDIUMWAIT);
         System.out.println(OSName_add);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
@@ -162,29 +166,30 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(5);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
-        safeClick(LABEL_ENVIRONMENT, "Server Feild", MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+   /*     safeClick(LABEL_ENVIRONMENT, "Server Feild", MEDIUMWAIT);
         safeClick(ENVIRONMENT_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ENVIRONMENT, "Lab", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Lab")) {
+            if (dbs1.get(i).getText().equals("Create"+"Lab")) {
 
                 dbs1.get(i).click();
                 break;
             }
         }
         Environment_add = safeGetText(ENVIRONMENT_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
-        System.out.println(Environment_add);
+        System.out.println(Environment_add);*/
+        waitForSecs(10);
         safeClick(LABEL_TYPE, "Vendor Feild", MEDIUMWAIT);
-        safeClick(TYPE_GHOSTTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_TYPE, "Desktop", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_TYPE, "Unknown", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db.size());
         for (int i = 0; i < db.size(); i++) {
 
-            if (db.get(i).getText().equals("Desktop")) {
+            if (db.get(i).getText().equalsIgnoreCase("Unknown")) {
 
                 db.get(i).click();
                 break;
@@ -207,7 +212,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals("IOS")) {
+            if (db1.get(i).getText().equalsIgnoreCase("IOS")) {
 
                 db1.get(i).click();
                 break;
@@ -215,7 +220,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         OSFamily_add = safeGetText(OSFAMILY_GHOSTEXT, "OS Family value", MEDIUMWAIT);
         System.out.println(OSFamily_add);
-        safeClick(LABEL_OSNAME, "Vendor Feild", MEDIUMWAIT);
+      /*  safeClick(LABEL_OSNAME, "Vendor Feild", MEDIUMWAIT);
         safeClick(OSNAME_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
         safeClearAndType(TXTBOX_OSNAME, "Linux", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db2 = driver.findElements(DROPDOWN_SERVER);
@@ -229,7 +234,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
             }
         }
         OSName_add = safeGetText(OSNAME_GHOSTEXT, "OS Family value", MEDIUMWAIT);
-        System.out.println(OSName_add);
+        System.out.println(OSName_add);*/
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
         safeType(TEXTBOX_TYPESEARCH, EditTitle + "\n", "Alert Name into type search");
@@ -252,8 +257,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
         if (Server_Add.equals(driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value")) && Host_Add.equals(driver.findElement(TXTBOX_HOSTNAME).getAttribute("value")) &&
-                Environment_add.equals(driver.findElement(ENVIRONMENT_GHOSTEXT).getText()) && Type_add.equals(driver.findElement(TYPE_GHOSTTEXT).getText()) &&
-                OSName_add.equals(driver.findElement(OSNAME_GHOSTEXT).getText()) && OSFamily_add.equals(driver.findElement(OSFAMILY_GHOSTEXT).getText())) {
+              Type_add.equals(driver.findElement(TYPE_GHOSTTEXT).getText()) && OSFamily_add.equals(driver.findElement(OSFAMILY_GHOSTEXT).getText())) {
             System.out.println("Ticket details are valid");
             String text = driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value");
             System.out.println(text);
@@ -281,7 +285,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
 
-            if (db2.get(i).getText().equals("JVM (Java, etc) Agent")) {
+            if (db2.get(i).getText().equalsIgnoreCase("JVM (Java, etc) Agent")) {
 
                 db2.get(i).click();
                 break;
@@ -289,12 +293,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         safeClick(LABEL_SOFTWARE, "Vendor Feild", MEDIUMWAIT);
         safeClick(SOFTWARE_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, "_NET", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, "Android", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals("_NET")) {
+            if (db1.get(i).getText().equalsIgnoreCase("Android")) {
 
                 db1.get(i).click();
                 break;
@@ -327,7 +331,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
 
-            if (db2.get(i).getText().equals("NodeJS")) {
+            if (db2.get(i).getText().equalsIgnoreCase("NodeJS")) {
 
                 db2.get(i).click();
                 break;
@@ -335,12 +339,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         safeClick(LABEL_SOFTWARE, "Vendor Feild", MEDIUMWAIT);
         safeClick(SOFTWARE_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, "_NET", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, "Android", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals("_NET")) {
+            if (db1.get(i).getText().equalsIgnoreCase("Android")) {
 
                 db1.get(i).click();
                 break;
@@ -371,7 +375,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println("Total no 0f dashboards:::====> " + db2.size());
         for (int i = 0; i < db2.size(); i++) {
 
-            if (db2.get(i).getText().equals("Web UX Agent")) {
+            if (db2.get(i).getText().equalsIgnoreCase("Web UX Agent")) {
 
                 db2.get(i).click();
                 break;
@@ -379,12 +383,12 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         }
         safeClick(LABEL_SOFTWARE, "Vendor Feild", MEDIUMWAIT);
         safeClick(SOFTWARE_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SOFTWARE, "_NET", "Vendor name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SOFTWARE, "Android", "Vendor name into textbox", MEDIUMWAIT);
         List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals("_NET")) {
+            if (db1.get(i).getText().equalsIgnoreCase("Android")) {
 
                 db1.get(i).click();
                 break;
@@ -457,7 +461,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         System.out.println("Total no 0f dashboards:::====> " + db1.size());
         for (int i = 0; i < db1.size(); i++) {
 
-            if (db1.get(i).getText().equals(DbTitle)) {
+            if (db1.get(i).getText().equalsIgnoreCase(DbTitle)) {
 
                 db1.get(i).click();
                 break;
@@ -642,6 +646,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         boolean nodePopup=  isElementDisplayed(popup);
         Assert.assertTrue(nodePopup);
         safeClick(BTN_CLOSE,"Close button",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LISTOFDBS,"added Hardware",MEDIUMWAIT);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
@@ -771,16 +776,24 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(9);
         String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
         System.out.println(refName);
-        String splititem[]= refName.split(">");
-        String cpName=splititem[2];
-        System.out.println(cpName);
+        if(refName.contains(">")) {
+            String splititem[] = refName.split(">");
+            String cpName = splititem[2];
+            System.out.println(cpName);
+            waitForSecs(10);
+
+            safeClick(REFERENCED_ITEM_LINK, "referenced item", MEDIUMWAIT);
+            waitForSecs(10);
+            String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+            pageTitle = " " + pageTitle;
+            System.out.println(pageTitle);
+            Assert.assertEquals(cpName, pageTitle);
+        }
+        safeClick(REFERENCED_TEXT, "referenced item", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(REFERENCED_ITEM_LINK,"referenced item",MEDIUMWAIT);
-        waitForSecs(10);
-        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label","Db page title", MEDIUMWAIT);
-        pageTitle = " "+pageTitle;
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        Assert.assertEquals(cpName,pageTitle);
+        Assert.assertEquals(refName, pageTitle);
         safeClick(CLOSE_EDITWINDOW, "Closing window");
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Closing window");
@@ -794,9 +807,10 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + dashBoardData.HardwareConfigRcrd +"')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
@@ -806,9 +820,8 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(9);
         String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(REFERENCED_ITEM_LINK,"referenced item",MEDIUMWAIT);
-        waitForSecs(10);
-        waitForSecs(9);
+        safeClick(REFERENCED_TEXT,"referenced item",MEDIUMWAIT);
+        waitForSecs(15);
         safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
         boolean b=isElementDisplayed(KPIS_TEXT);
         Assert.assertTrue(b);

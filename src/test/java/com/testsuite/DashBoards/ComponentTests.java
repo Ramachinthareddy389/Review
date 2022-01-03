@@ -73,7 +73,21 @@ public class ComponentTests extends BaseSetup {
         componentPage.adding2ndComponent();
         componentPage.verifyingEditedAllComponentTypes();
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_CompTypes_005_VerifyPageIcons(){
+        componentPage.clickingOnAutomation();
+        componentPage.adding1stComponent();
+        componentPage.navigatingToComponentPage();
+        componentPage.verifyingPageIcons();
+    }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_CompTypes_006_ApplyFilters(){
+        componentPage.clickingOnAutomation();
+        componentPage.adding1stComponent();
+        componentPage.navigatingToComponentPage();
+        componentPage.applyingFilters();
+    }
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_Creds_001_AddCredentialsconfiguration()
     {

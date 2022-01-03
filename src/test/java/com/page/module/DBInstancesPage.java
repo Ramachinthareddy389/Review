@@ -37,14 +37,14 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         safeClick(LABEL_SERVER, "Server Feild", MEDIUMWAIT);
         safeClick(SERVER_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SERVER, "Oracle Database Server", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SERVER, "test_cloud_germainapm_com", "Server name into textbox", MEDIUMWAIT);
 
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
 
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Oracle Database Server")) {
+            if (dbs1.get(i).getText().equalsIgnoreCase("test_cloud_germainapm_com")) {
 
                 dbs1.get(i).click();
                 break;
@@ -58,7 +58,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         System.out.println("Total no 0f dashboards:::====> " + db.size());
         for (int i = 0; i < db.size(); i++) {
 
-            if (db.get(i).getText().equals("ORACLE")) {
+            if (db.get(i).getText().equalsIgnoreCase("ORACLE")) {
 
                 db.get(i).click();
                 break;

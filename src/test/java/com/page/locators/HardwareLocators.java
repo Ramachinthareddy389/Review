@@ -8,7 +8,7 @@ public interface HardwareLocators {
     By BTN_COMPONENT = By.xpath("//span[contains(text(),'Components')]");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
     By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
-    By TXTBOX_SERVERNAME = By.xpath("//span[text()='Server Name']/../../following-sibling::div/input");
+    By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
     By LABEL_ENVIRONMENT = By.xpath("//span[text()='Environment']");
     By ENVIRONMENT_GHOSTEXT = By.xpath("//input[@id='environment']/../../../div[1]");
     By TXTBOX_ENVIRONMENT = By.xpath("//input[@id='environment']");
@@ -104,7 +104,7 @@ public interface HardwareLocators {
     By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
     By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
-    By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+    By EYE_ICON = By.xpath("(//i[@class='far fa-eye'])[2]");
     By KPIS_TEXT = By.xpath("//h6[text()='Monitored Server']");
     By LISTOF_KPIS = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");

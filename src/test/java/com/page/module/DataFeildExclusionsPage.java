@@ -198,6 +198,7 @@ public class DataFeildExclusionsPage extends SafeActions implements DataFeildExc
     }
 
     public void addingDataExclusionFromDrillThroughPage() {
+        waitForSecs(10);
         mouseHoverJScript(ICON_INFROMATIONINDRILLTHRGH, "Information icon in System header", "Drillthrogh Page", MEDIUMWAIT);
         waitForSecs(2);
         mouseHoverJScript(LABEL_TARGET, "System name label", "Popup", MEDIUMWAIT);

@@ -69,7 +69,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1, "User Click");
         dataFeildExclusionsPage.clickingOnMenuIcon();
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.navigatingToDrillThroughPage(dname1);
         dataFeildExclusionsPage.addingDataExclusionFromDrillThroughPage();
         dataFeildExclusionsPage.addingNewDataFieldExclusion();
@@ -81,7 +81,7 @@ public class DataFieldExclusionsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
         dataFeildExclusionsPage.clickingOnMenuIcon();
-        dashboardOverviewPage.validatingLast7Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.navigateToRCADrillThroughPage();
         dataFeildExclusionsPage.addingDataFieldExclusionDetailsFromRCApage();
         dataFeildExclusionsPage.addingNewDataFieldExclusion();
