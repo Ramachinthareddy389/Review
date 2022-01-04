@@ -761,7 +761,6 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         safeClick(BTN_DATASOURCES, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_HARDWARE, "Software label from Datasources sub mneu", MEDIUMWAIT);
         waitForSecs(10);
-        waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);

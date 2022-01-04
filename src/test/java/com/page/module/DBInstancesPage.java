@@ -30,10 +30,10 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         safeClick(BTN_DBINSTANCES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
 
-    public void addingNewDbinstances() {
+    public void addingNewDbinstances(String Dbinstancename) {
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_NAME, "Dbinstancename", "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Dbinstancename, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         safeClick(LABEL_SERVER, "Server Feild", MEDIUMWAIT);
         safeClick(SERVER_GHOSTEXT, "Server textbox", MEDIUMWAIT);
@@ -85,8 +85,8 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
 
     }
 
-    public void verifyingDbInstanceNameDetails() {
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+    public void verifyingDbInstanceNameDetails(String dbinstance) {
+        safeType(TEXTBOX_TYPESEARCH, dbinstance + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -94,7 +94,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         waitForSecs(9);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        String expectedText = "Dbinstancename";
+        String expectedText = dbinstance;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
         if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && DatabaseName_Add.equals(driver.findElement(TXTBOX_DATABASENAME).getAttribute("value")) &&
@@ -116,8 +116,8 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         waitForSecs(15);
     }
 
-    public void ediingConfiguration() {
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+    public void ediingConfiguration(String dbinstance) {
+        safeType(TEXTBOX_TYPESEARCH, dbinstance + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -139,14 +139,14 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         Assert.assertEquals(EditedText, "test123");
     }
 
-    public void verifyingPageIconsInDbinstancespage() {
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+    public void verifyingPageIconsInDbinstancespage(String dbinstance) {
+        safeType(TEXTBOX_TYPESEARCH, dbinstance + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(30);
-        By SELECTROW_CHKBOX1 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span[text()='Dbinstancename']/../../parent::div/descendant::input[1]");
+        By SELECTROW_CHKBOX1 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span[text()="+dbinstance+"]/../../parent::div/descendant::input[1]");
         safeJavaScriptClick(SELECTROW_CHKBOX1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(20);
-        By ELEMENT_STATUS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span/mark[text()='Dbinstancename']/../../..//parent::div/div[1]/descendant::input");
+        By ELEMENT_STATUS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span/mark[text()="+dbinstance+"]/../../..//parent::div/div[1]/descendant::input");
        // isElementSelected(ELEMENT_STATUS);
         boolean b1 =  driver.findElement(ELEMENT_STATUS).isSelected();
         System.out.println(b1);
@@ -162,14 +162,14 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         System.out.println(row);
         Assert.assertFalse(row);
         waitForSecs(9);
-        By SELECTROW_CHKBOX2 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span/mark[text()='Dbinstancename']/../../../parent::div/descendant::input[1]");
+        By SELECTROW_CHKBOX2 = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span/span/mark[text()="+dbinstance+"]/../../../parent::div/descendant::input[1]");
         safeJavaScriptClick(SELECTROW_CHKBOX2, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
         waitForSecs(10);
         String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        String expectedText = "Dbinstancename"+" - Cloned";
+        String expectedText = dbinstance+" - Cloned";
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
@@ -184,7 +184,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
 
     }
 
-    public void applyingFilters() {
+    public void applyingFilters(String dbinstance) {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -192,7 +192,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(20);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'Dbinstancename')]");
+        By SeachedText = By.xpath("//div[contains(text(),"+dbinstance+")]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
@@ -201,7 +201,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         System.out.println(BPName);
         Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
         Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
-        Assert.assertEquals(BPName, "Dbinstancename");
+        Assert.assertEquals(BPName, dbinstance);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
@@ -211,11 +211,11 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
 
 
     }
-    public void navigateToHardwarePageFrmDbinstnacePage() {
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+    public void navigateToHardwarePageFrmDbinstnacePage(String dbinstance) {
+        safeType(TEXTBOX_TYPESEARCH, dbinstance + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(10);
-        By locator = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span[text()='Dbinstancename']/../../following-sibling::div[2]/span/button");
+        By locator = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span[text()="+dbinstance+"]/../../following-sibling::div[2]/span/button");
         // mouseHoverJScript(locator, "Database Name", "Mouse hover", MEDIUMWAIT);
         waitForSecs(30);
         safeClick(locator, "KPi Hyper Link", MEDIUMWAIT);
@@ -232,7 +232,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
         safeClick(BTN_DBINSTANCES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, dbinstance + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -245,8 +245,8 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
 
     }
 
-  public void viewDataWithFeildsForViewIcon() {
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+  public void viewDataWithFeildsForViewIcon(String dbinstance) {
+        safeType(TEXTBOX_TYPESEARCH, dbinstance+ "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -276,8 +276,8 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
 
     }
 
-    public void verifyingIconsInEditWindow() {
-        safeType(TEXTBOX_TYPESEARCH, "Dbinstancename" + "\n", "Alert Name into type search");
+    public void verifyingIconsInEditWindow(String dbinstance) {
+        safeType(TEXTBOX_TYPESEARCH, dbinstance + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -290,7 +290,7 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         Assert.assertTrue(b);
         safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
         waitForSecs(10);
-        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + "Dbinstancename" + " - Cloned']");
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + dbinstance + " - Cloned']");
         if (!driver.findElement(Cloned).isDisplayed())
             Assert.fail("Cloned business process not displayed");
         waitForSecs(20);

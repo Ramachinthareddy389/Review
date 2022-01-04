@@ -19,7 +19,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     Random random = new Random();
     String AutoConfig = "AutoConfig" + "-" + random.nextInt(500);
     String EditConfig = "editConfig" + "-" + random.nextInt(500);
-    String Component = "Component" + "-" + random.nextInt(500);
+
     String Cred = "Cred" + "-" + random.nextInt(500);
     String credEdited = "credEdited" + "-" + random.nextInt(500);
     String Name_Add, Criteria_Add, KPIS_add, Edited_Cred_Name, Edited_Cred_User_Name, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
@@ -41,7 +41,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     public void navigatingToComponentPage(){
         safeClick(BTN_COMPONENT_TYPES, "Add button", MEDIUMWAIT);
     }
-    public void adding1stComponent() {
+    public void adding1stComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(2).click();
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
@@ -60,7 +60,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public void verifyingAddedComponent() {
+    public void verifyingAddedComponent(String Component) {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -80,7 +80,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     }
 
 
-    public void adding2ndComponent() {
+    public void adding2ndComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(3).click();
         safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
@@ -117,7 +117,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
-    public void verifyingPageIcons() {
+    public void verifyingPageIcons(String Component) {
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -169,7 +169,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(15);
     }
 
-    public void applyingFilters() {
+    public void applyingFilters(String Component) {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -203,7 +203,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         }
 
     }
-    public void verifyingIconsInEditWindow() {
+    public void verifyingIconsInEditWindow(String Component) {
         safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -242,18 +242,55 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         }
     }
 
+    public void ViewDataforFieldswithViewIconinEditconfigWindows(String Component){
+        safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(HYPERLINK_QUERIES,"Queries hyperlink",MEDIUMWAIT);
+        waitForSecs(10);
+        waitForSecs(9);
+        safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
+        isElementDisplayed(KPIS_TEXT_COMP);
+        waitForSecs(5);
+        List<WebElement> wizards = driver.findElements(LIST_OF_KPIS_VALUES);
+        for (int i = 0; i <= wizards.size() - 1; i++) {
+            String wizardName = wizards.get(i).getText();
+            Assert.assertEquals(wizardName, (dashBoardData.KPIS_VALUES[i]));
+            System.out.println(wizardName);
+        }
+
+
+        for (int j = 0; j < dashBoardData.KPIS_VALUES.length; j++) {
+            System.out.println("Values are " + dashBoardData.KPIS_VALUES[j]);
+        }
+        safeClick(CLOSE_WINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
 
     //Credentials
 
     public void clickingOnAddCredentials() {
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_CREDENTIALS, "Credentials", MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+
     }
 
 //Credentails config
 
-    public void addingNewCredentials() {
+    public void addingNewCredentials(String Cred) {
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         // safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_SOFT_NAME, Cred, "Name into textbox", MEDIUMWAIT);
         safeClick(LABEL_USERNAME, "Name Feild", MEDIUMWAIT);
@@ -265,7 +302,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
     }
 
-    public void verifyingAddedCredentials() {
+    public void verifyingAddedCredentials(String Cred) {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -284,7 +321,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(10);
     }
 
-    public void editCredentialsConfigs() {
+    public void editCredentialsConfigs(String Cred) {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -306,7 +343,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLEAR, "Save button", MEDIUMWAIT);
     }
 
-    public void changePasswordInEditCredWindow() {
+    public void changePasswordInEditCredWindow(String Cred) {
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Cred + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -351,8 +388,49 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
     }
+    public void navigateToReferenceWindowFromSoftwareEditWindow(String Cred,String Query){
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(), "+Cred +")]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+ /*       String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
+        System.out.println(refName);
+        if(refName.contains(">")) {
+            String splititem[] = refName.split(">");
+            String cpName = splititem[2];
+            System.out.println(cpName);
+            waitForSecs(10);
 
-    public void adding3rdComponent() {
+            safeClick(REFERENCED_ITEM_LINK, "referenced item", MEDIUMWAIT);
+            waitForSecs(10);
+            String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+            pageTitle = " " + pageTitle;
+            System.out.println(pageTitle);
+            Assert.assertEquals(cpName, pageTitle);
+        }*/
+        safeClick(REFERENCED_TEXT, "referenced item", MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        Assert.assertEquals(Query, pageTitle);
+        safeClick(CLOSE_EDITWINDOW, "Closing window");
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Closing window");
+        waitForSecs(10);
+        safeClick(CONFIRM_DELETE,"Delete button",MEDIUMWAIT);
+        waitForSecs(2);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(2);
+    }
+    public void adding3rdComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(4).click();
         //safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
@@ -362,13 +440,14 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(20);
         safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
+        waitForSecs(10);
         safeType(TXTBOX_FILE_PATTERN, "File Pattern", "File Pattern", MEDIUMWAIT);
         safeType(TXTBOX_TARGET_QUEUE, "Target Queue", "File Pattern", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
     }
 
-    public void adding4thComponent() {
+    public void adding4thComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(5).click();
         //safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
@@ -383,7 +462,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
     }
 
-    public void adding5thComponent() {
+    public void adding5thComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(6).click();
         //safeClick(LABEL_COMPONENT_NAME, "Name Feild", MEDIUMWAIT);
@@ -397,7 +476,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
     }
 
-    public void adding8thComponent() {
+    public void adding8thComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(9).click();
         safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
@@ -411,7 +490,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
     }
 
-    public void adding9thComponent() {
+    public void adding9thComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(10).click();
         safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
@@ -424,7 +503,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
     }
 
-    public void adding10thComponent() {
+    public void adding10thComponent(String Component) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         driver.findElements(LIST_COMPONENT_TYPES).get(11).click();
         safeType(TXTBOX_NAME, Component, "Name into textbox", MEDIUMWAIT);
@@ -450,7 +529,11 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
-    public void verifyingEditedAllComponentTypes() {
+    public void verifyingEditedAllComponentTypes(String Component) {
+        if(isElementDisplayed(BTN_CLEAR)) {
+            waitForSecs(5);
+            safeClick(BTN_CLEAR, "Clear button", MEDIUMWAIT);
+        }
         waitForSecs(20);
         safeType(TEXTBOX_TYPESEARCH, Component + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
@@ -466,6 +549,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(20);
         safeClick(BTN_CLEAR, "Save button", MEDIUMWAIT);
+        waitForSecs(5);
         safeType(TEXTBOX_TYPESEARCH, credEdited + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -711,9 +795,9 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTBOX_NAME, EditConfig, "Name textbox value", MEDIUMWAIT);
         waitForSecs(5);
-        safeTypeUsingChrod(TXTAREA_CRITERIA, EditConfig, "Name into textbox", MEDIUMWAIT);
+        safeTypeUsingChrod(TXTAREA_CRITERIA, "value", "Name into textbox", MEDIUMWAIT);
         Criteria_Add = safeGetAttribute(TXTAREA_CRITERIA, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Criteria_Add);
         safeClick(BTN_VALIDATE, "Validate button", MEDIUMWAIT);

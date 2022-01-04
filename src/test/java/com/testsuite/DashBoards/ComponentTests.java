@@ -17,18 +17,27 @@ public class ComponentTests extends BaseSetup {
     private ComponentPage componentPage;
     private HardwarePage hardwarePage;
     private HTTPPage httpPage;
+    private SQLPage sqlPage;
+    private DBInstancesPage dbInstancesPage;
     private String sModeOfExecution;
     Random random = new Random();
     String DistriList = "DistriList" + "-" + random.nextInt(500);
+    String SQL = "Sqltest" + random.nextInt(1500);
+    String dbinstance = "test" + random.nextInt(500);
+    String Cred = "Cred" + "-" + random.nextInt(500);
+    String Querys = "Querys" + " - " + random.nextInt(500);
+    String Component = "Component" + "-" + random.nextInt(500);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
         sys = new ConfigManager();
         loginPage = new LoginPage(getDriver());
-        componentPage= new ComponentPage(getDriver());
+        componentPage = new ComponentPage(getDriver());
         hardwarePage = new HardwarePage(getDriver());
         httpPage = new HTTPPage(getDriver());
+        dbInstancesPage = new DBInstancesPage(getDriver());
+        sqlPage = new SQLPage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -41,126 +50,141 @@ public class ComponentTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_CompTypes_001_AddallComponentTypeconfigurations() throws InterruptedException
-    {
-       componentPage.clickingOnAutomation();
-       componentPage.adding1stComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding2ndComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding3rdComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding4thComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding5thComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding8thComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding9thComponent();
-        componentPage.verifyingAddedComponent();
-        componentPage.adding10thComponent();
-        componentPage.verifyingAddedComponent();
+    public void TC_CompTypes_001_AddallComponentTypeconfigurations() throws InterruptedException {
+        componentPage.clickingOnAutomation();
+        componentPage.adding1stComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding2ndComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding3rdComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding4thComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding5thComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding8thComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding9thComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
+        componentPage.adding10thComponent(Component);
+        componentPage.verifyingAddedComponent(Component);
 
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public  void TC_CompTypes_002_EditallComponentTypeconfigurations()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_CompTypes_002_EditallComponentTypeconfigurations() {
         componentPage.clickingOnAutomation();
-        componentPage.adding1stComponent();
-        componentPage.verifyingEditedAllComponentTypes();
-        componentPage.adding2ndComponent();
-        componentPage.verifyingEditedAllComponentTypes();
+        componentPage.adding1stComponent(Component);
+        componentPage.verifyingEditedAllComponentTypes(Component);
+        componentPage.adding2ndComponent(Component);
+        componentPage.verifyingEditedAllComponentTypes(Component);
     }
-    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_CompTypes_005_VerifyPageIcons(){
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_CompTypes_005_VerifyPageIcons() {
         componentPage.clickingOnAutomation();
-        componentPage.adding1stComponent();
+        componentPage.adding1stComponent(Component);
         componentPage.navigatingToComponentPage();
-        componentPage.verifyingPageIcons();
+        componentPage.verifyingPageIcons(Component);
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_CompTypes_006_ApplyFilters() {
+        componentPage.clickingOnAutomation();
+        componentPage.adding1stComponent(Component);
+        componentPage.navigatingToComponentPage();
+        componentPage.applyingFilters(Component);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_CompTypes_006_ApplyFilters(){
+    public void TC_CompTypes_008_VerifyIconsinEditconfigWindow(){
         componentPage.clickingOnAutomation();
-        componentPage.adding1stComponent();
+        componentPage.adding1stComponent(Component);
         componentPage.navigatingToComponentPage();
-        componentPage.applyingFilters();
+        componentPage.verifyingIconsInEditWindow(Component);
     }
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_Creds_001_AddCredentialsconfiguration()
-    {
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_CompTypes_010_ViewDataforFieldsWithViewIconinEditConfigWindows() {
+        componentPage.clickingOnAutomation();
+        componentPage.adding2ndComponent(Component);
+        componentPage.ViewDataforFieldswithViewIconinEditconfigWindows(Component);
+    }
+
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Creds_001_AddCredentialsconfiguration() {
         componentPage.clickingOnAddCredentials();
-        componentPage.addingNewCredentials();
-        componentPage.verifyingAddedCredentials();
+        componentPage.addingNewCredentials(Cred);
+        componentPage.verifyingAddedCredentials(Cred);
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test" )
-    public  void TC_Creds_002_EditCredentialsconfiguration()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Creds_002_EditCredentialsconfiguration() {
         componentPage.clickingOnAddCredentials();
-        componentPage.addingNewCredentials();
-        componentPage.editCredentialsConfigs();
+        componentPage.addingNewCredentials(Cred);
+        componentPage.editCredentialsConfigs(Cred);
         componentPage.verifyingEditedAddedCredentials();
     }
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_Creds_003_ChangePasswordInCredentialsEditwindow()
-    {
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Creds_003_ChangePasswordInCredentialsEditwindow() {
         componentPage.clickingOnAddCredentials();
-        componentPage.addingNewCredentials();
-        componentPage.changePasswordInEditCredWindow();
+        componentPage.addingNewCredentials(Cred);
+        componentPage.changePasswordInEditCredWindow(Cred);
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_DisplaySettings_001_EditDisplaySettingsConfiguration()
-    {
-       componentPage.clickingOnDisplaySettings();
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_DisplaySettings_001_EditDisplaySettingsConfiguration() {
+
+        componentPage.clickingOnDisplaySettings();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test" )
-    public  void TC_DLs_001_AddDistributionListwithAllDistributiontypes()
-    {
-      componentPage.clickingOnAddDistributionList(DistriList,"rama.chinthareddy@zenq.com");
-      componentPage.verifyingAddedDistributionList(DistriList,"rama.chinthareddy@zenq.com");
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_DLs_001_AddDistributionListwithAllDistributiontypes() {
+        componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
+        componentPage.verifyingAddedDistributionList(DistriList, "rama.chinthareddy@zenq.com");
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_DLs_002_AddMembersinEditDistributionListwindow(){
-        componentPage.clickingOnAddDistributionList(DistriList,"rama.chinthareddy@zenq.com");
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_DLs_002_AddMembersinEditDistributionListwindow() {
+        componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.addMembersInEditDistributionListwindow(DistriList);
-        componentPage.verifyingAddedDistributionList(DistriList,"rama.chinthareddy@zenq.com");
+        componentPage.verifyingAddedDistributionList(DistriList, "rama.chinthareddy@zenq.com");
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public  void TC_DLs_003_EditDistributionListconfiguration()
-    {
-        componentPage.clickingOnAddDistributionList("rama.chinthareddy@zenq.com",DistriList);
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_DLs_003_EditDistributionListconfiguration() {
+        componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingEditDistributionListConfig(DistriList);
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Auto_001_AddAutoConfig(){
-         componentPage.addingAutoConfig();
-         componentPage.verifyingAddedAutoConfig();
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Auto_001_AddAutoConfig() {
+        componentPage.addingAutoConfig();
+        componentPage.verifyingAddedAutoConfig();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Auto_002_EditAutoConfig(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Auto_002_EditAutoConfig() {
         componentPage.addingAutoConfig();
         componentPage.editAutoConfig();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Auto_003_RepplyToServers(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Auto_003_RepplyToServers() {
         componentPage.addingAutoConfig();
         componentPage.repplyToServers();
     }
 
-    @Test(alwaysRun = true,groups ="Smoke Test")
-    public void TC_Auto_004_AddProfileBindingsInEditAutoConfigwindow(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Auto_004_AddProfileBindingsInEditAutoConfigwindow() {
         componentPage.addingAutoConfig();
         componentPage.addingProfileBinding();
         componentPage.verifyingAddedProfileBinding();

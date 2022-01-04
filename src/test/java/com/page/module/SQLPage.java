@@ -24,7 +24,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
     Random random = new Random();
     String Server_Add, desc, techStack, category_Add, acess_Means, search_Tags;
 
-    String Querys = "Querys" + " - " + random.nextInt(500);
+
     String QryEdit = "QryEdit" + " - " + random.nextInt(500);
     String WebUXAgent = "WebUXAgent" + " - " + random.nextInt(500);
 
@@ -40,7 +40,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_ADDICON_SQL, "Add button", MEDIUMWAIT);
     }
 
-    public void addingNewSqlRecord(String name,String DistList,String Query,String alertTemplate,String TimeRange){
+    public void addingNewSqlRecord(String name,String DistList,String Query,String alertTemplate,String Database,String cred,String Querys,String TimeRange){
         safeClick(LABEL_SERVERNAME, "Name Label", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, name, "Name Textbox", MEDIUMWAIT);
         safeClick(DISTRIBUTION_LIST_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
@@ -72,12 +72,12 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(BTN_NEXT,"Next button",MEDIUMWAIT);
         waitForSecs(15);
         safeClick(DATABASE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_DATABASE, "Database Wizard", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_DATABASE, Database, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Database Wizard")) {
+            if (dbs3.get(i).getText().equals(Database)) {
 
                 dbs3.get(i).click();
                 break;
@@ -85,12 +85,12 @@ public class SQLPage extends SafeActions implements SQLLocators {
         }
         waitForSecs(15);
         safeClick(CREDENTIALS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_CREDENTIALS, "cred wizard", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_CREDENTIALS, cred, "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
         for (int i = 0; i < dbs4.size(); i++) {
 
-            if (dbs4.get(i).getText().equals("cred wizard")) {
+            if (dbs4.get(i).getText().equals(cred)) {
 
                 dbs4.get(i).click();
                 break;
@@ -121,7 +121,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         waitForSecs(10);
     }
 
-    public void verifyingaddedSQLConfigs(String name) {
+    public void verifyingaddedSQLConfigs(String name,String Querys) {
         safeType(TEXTBOX_TYPESEARCH, name + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
@@ -184,7 +184,7 @@ public class SQLPage extends SafeActions implements SQLLocators {
         safeClick(CLOSE_EDITWINDOW, "Close sql edit window", MEDIUMWAIT);
     }
 
-    public void verifyingOnSuccessNdFailure(String name){
+    public void verifyingOnSuccessNdFailure(String name,String Querys){
         safeType(TEXTBOX_TYPESEARCH, name + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);

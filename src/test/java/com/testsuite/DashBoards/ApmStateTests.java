@@ -28,6 +28,7 @@ public class ApmStateTests extends BaseSetup {
     String HostName = "HostTest" + "-" + random.nextInt(500);
     String HostName1 = "Hostname" + "-" + random.nextInt(500);
     String DbTitle = "Module_soft" + " - " + random.nextInt(500);
+    String Cred = "Cred" + "-" + random.nextInt(500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -100,7 +101,7 @@ public class ApmStateTests extends BaseSetup {
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
         apmStatePage.addingCredentialsInHttpEditWindow();
-        componentPage.addingNewCredentials();
+        componentPage.addingNewCredentials(Cred);
         apmStatePage.savingHardware();
         componentPage.navigatingToCredWindow();
         apmStatePage.deletingHttpScenarionInComponentsTab();

@@ -17,6 +17,8 @@ public interface ComponentTypesLocators {
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
+    By REFERENCED_TEXT = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]/button");
+    By REFERENCED_ITEM_LINK = By.xpath("//h4[text()='References To This Item']/following-sibling::ul/li[1]");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
     By DASHBOARD_LABEL = By.xpath("//div[contains(@class,'MuiListItem-button')][contains(@id,'react-select')]");
@@ -39,6 +41,7 @@ public interface ComponentTypesLocators {
     // By ADDED_TEXT_HTML_TITLE = By.xpath("//span[text()='HTML Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
     By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+    By KPIS_TEXT_COMP = By.xpath("//h6[text()='Kpi']");
     By KPIS_TEXT = By.xpath("//h6[text()='Distribution List']");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
@@ -52,6 +55,7 @@ public interface ComponentTypesLocators {
     By TXTBOX_KPIS = By.xpath("//input[@id='kpi']");
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By CUSTOMRULE_CHKBOX = By.xpath("//span[text()='Custom Rule']/../../../span/span/input");
+    By HYPERLINK_QUERIES = By.xpath("(//div[@aria-label ='Remove Configuration'])[2]/preceding-sibling::button");
 
     //3rd component
     By TXTBOX_FILE_PATTERN = By.xpath("//input[@id='pattern']");
