@@ -116,7 +116,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClearAndType(TXTBOX_ACTIONS, "QA Alert", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-        for (int i = 0; i < dbs2.size(); i++) {
+        for (int i = 0; i < dbs3.size(); i++) {
 
             if (dbs3.get(i).getText().equals("QA Alert")) {
 

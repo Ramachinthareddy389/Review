@@ -40,7 +40,7 @@ public interface ApmStateLocators {
     By BTN_DOWN_ARROW = By.xpath("//button[@aria-label='Open']");
     By DROPDOWNVALUES_IN_MOVETO = By.xpath("//ul[contains(@class,'MuiAutocomplete-listbox')]/li/div");
     By NOTIFY_FOOTER = By.xpath("//span[@id='client-snackbar']");
-    By ENGINE_LINK = By.xpath("//button[text()='Engine']");
+    By ENGINE_LINK = By.xpath("(//div[@title='Select Row']/following-sibling::div/span/button)[1]");
     By LIST_OF_COMPONENTS = By.xpath("//i[@title='Definition of monitoring components.']/../../following-sibling::div/div/div/button");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By MONITORED_ADD_ICON = By.xpath("//span[text()='Monitored Server']/../../../../../../button[@aria-label='Add']");

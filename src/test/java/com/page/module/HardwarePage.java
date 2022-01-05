@@ -33,8 +33,6 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     }
 
     public void addingNewHardware(String Hostname) {
-
-        // safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -127,14 +125,14 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(5);
         System.out.println(Server_Add.equals(driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value")));
         System.out.println(Host_Add.equals(driver.findElement(TXTBOX_EDITED_HOSTNAME).getAttribute("value")));
-        System.out.println(OSName_add.equals(driver.findElement(TXTBOX_EDITED_OSNAME).getText()));
+     //   System.out.println(OSName_add.equals(driver.findElement(TXTBOX_EDITED_OSNAME).getText()));
         System.out.println(Environment_add.equals(driver.findElement(TXTBOX_EDITED_ENVIRON).getText()));
         System.out.println(OSFamily_add.equals(driver.findElement(TXTBOX_EDITED_OSFAMILY).getText()));
         System.out.println(Type_add.equals(driver.findElement(TXTBOX_EDITED_TYPE).getText()));
 
         if (Server_Add.equals(driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value")) && Host_Add.equals(driver.findElement(TXTBOX_EDITED_HOSTNAME).getAttribute("value")) &&
                 Environment_add.equals(driver.findElement(TXTBOX_EDITED_ENVIRON).getText()) && Type_add.equals(driver.findElement(TXTBOX_EDITED_TYPE).getText()) &&
-                OSName_add.equals(driver.findElement(TXTBOX_EDITED_OSNAME).getText()) && OSFamily_add.equals(driver.findElement(TXTBOX_EDITED_OSFAMILY).getText())) {
+              OSFamily_add.equals(driver.findElement(TXTBOX_EDITED_OSFAMILY).getText())) {
             System.out.println("Ticket details are valid");
             String text = driver.findElement(TXTBOX_EDITED_SERVERNAME).getAttribute("value");
             System.out.println(text);
@@ -819,7 +817,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         waitForSecs(9);
         String refName =safeGetText(REFERENCED_TEXT,"Referneced item name",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(REFERENCED_TEXT,"referenced item",MEDIUMWAIT);
+        safeJavaScriptClick(REFERENCED_TEXT,"referenced item",MEDIUMWAIT);
         waitForSecs(15);
         safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
         boolean b=isElementDisplayed(KPIS_TEXT);

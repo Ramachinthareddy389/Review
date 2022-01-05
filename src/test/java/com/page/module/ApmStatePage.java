@@ -37,12 +37,12 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
 
     public void configuringServerPage() {
         waitForSecs(10);
-        safeClearAndType(TXTBOX_SERVER, "QA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SERVER, "test_cloud_germainapm_com", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("QA")) {
+            if (dbs2.get(i).getText().equalsIgnoreCase("test_cloud_germainapm_com")) {
 
                 dbs2.get(i).click();
                 break;
@@ -51,7 +51,7 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         waitForSecs(10);
         Server_add = safeGetText(SERVER_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Server_add);
-        safeClearAndType(TXTBOX_CREDENTIALS, "QA Cred", "Server name into textbox", MEDIUMWAIT);
+/*        safeClearAndType(TXTBOX_CREDENTIALS, "QA Cred", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
@@ -63,13 +63,13 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
             }
         }
         Cred_add = safeGetText(CREDENTIALS_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
-        System.out.println(Cred_add);
-        safeClearAndType(TXTBOX_APPNAME, "_NET", "Server name into textbox", MEDIUMWAIT);
+        System.out.println(Cred_add);*/
+        safeClearAndType(TXTBOX_APPNAME, "Android", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
         for (int i = 0; i < dbs4.size(); i++) {
 
-            if (dbs4.get(i).getText().equals("_NET")) {
+            if (dbs4.get(i).getText().equalsIgnoreCase("Android")) {
 
                 dbs4.get(i).click();
                 break;
@@ -79,12 +79,12 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         System.out.println(AppName_add);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(15);
-        safeClearAndType(TXTBOX_COMPONENT_TYPE, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_COMPONENT_TYPE, "APM HTTP Monitor", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("QA HTTP")) {
+            if (dbs5.get(i).getText().equalsIgnoreCase("APM HTTP Monitor")) {
 
                 dbs5.get(i).click();
                 break;
@@ -100,24 +100,24 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
     public void configuringDeploymentPage() {
         safeTypeUsingChrod(TXTBOX_MONIOTOR_NAME, dname1, "Monitoring Name", MEDIUMWAIT);
         waitForSecs(20);
-        safeClearAndType(TXTBOX_MONITORING_NAME, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONITORING_NAME, "APM", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("QA Test")) {
+            if (dbs5.get(i).getText().equalsIgnoreCase("APM")) {
 
                 dbs5.get(i).click();
                 break;
             }
         }
         waitForSecs(15);
-        safeClearAndType(TXTBOX_ENGINE, "QA Test Engine", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ENGINE, "apm-self-monitoring", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs6 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
         for (int i = 0; i < dbs6.size(); i++) {
 
-            if (dbs6.get(i).getText().equals("QA Test Engine")) {
+            if (dbs6.get(i).getText().equalsIgnoreCase("apm-self-monitoring")) {
 
                 dbs6.get(i).click();
                 break;
@@ -222,12 +222,12 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         driver.findElement(DROPDOWN_MOVE_TO).clear();
       /*  safeClick(BTN_DOWN_ARROW,"Move To dropdown",MEDIUMWAIT);
         waitForSecs(10);*/
-        safeType(DROPDOWN_MOVE_TO, "QA Node Engine", "QA Node Name", MEDIUMWAIT);
+        safeType(DROPDOWN_MOVE_TO, "APM DefaultEngine", "QA Node Name", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWNVALUES_IN_MOVETO);
         System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
         for (int i = 0; i < dbs5.size(); i++) {
 
-            if (dbs5.get(i).getText().equals("QA Node Engine")) {
+            if (dbs5.get(i).getText().equalsIgnoreCase("APM DefaultEngine")) {
 
                 dbs5.get(i).click();
                 break;
@@ -235,7 +235,7 @@ public class ApmStatePage extends SafeActions implements ApmStateLocators {
         }
         waitForSecs(15);
         safeClick(CONFIRM_DELETE, "Confirm ", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(2);
         String FooterValue = safeGetText(NOTIFY_FOOTER, "Footer notifications", MEDIUMWAIT);
         String expectedText = "Item moved/copied";
         Assert.assertEquals(FooterValue, expectedText);

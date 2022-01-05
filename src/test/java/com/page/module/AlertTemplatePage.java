@@ -161,6 +161,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     public void verifyingPageIcons(String AlertTemplate) {
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(10);
@@ -203,10 +204,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_ENABLE, "Enable config button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
-        waitForSecs(10);
-        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(15);
+
     }
 
     public void verifyingEditIconFunctionalityInAlerts() {
@@ -618,7 +616,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         driver.findElement(SeachedText).click();
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
+        safeClick(BTN_REMOVE, "Delete button", MEDIUMWAIT);
         waitForSecs(15);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         String Notify= safeGetText(FOOTERTEXT,"Notification",MEDIUMWAIT);
@@ -631,8 +629,14 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-        waitForSecs(10);
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        } catch (Exception e) {
+            System.out.println("Confirm delete buttom is not displaying");
+        }
     }
 }
 

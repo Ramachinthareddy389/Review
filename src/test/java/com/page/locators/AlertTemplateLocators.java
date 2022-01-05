@@ -60,6 +60,7 @@ public interface AlertTemplateLocators
     By DROPDOWN_LIST=By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By EMAIL_SUBJECT = By.xpath("//div[contains(@class,'ellipsis nw')]");
     By BTN_DELETE = By.xpath("//span[text()='Delete']");
+    By BTN_REMOVE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By LABEL_DAILY_INSIGHT = By.xpath("//span[text()='Daily']");
     By INSIGHTS_PAGE_SIDE_MENU = By.xpath("//span[@title='Insights']/span");
     By BTN_SHOW_ADVANCED = By.xpath("//span[text()='Show Advanced']");
