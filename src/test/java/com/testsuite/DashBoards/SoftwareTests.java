@@ -64,19 +64,22 @@ public class SoftwareTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Sware_005_ApplyFiltersInSoftwarePage(){
+    public void TC_Sware_005_ApplyFiltersInSoftwarePage()
+    {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware(DbTitle);
         softwarePage.applyingFiltersInSoftwarePage(DbTitle);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Sware_003_NavigateToReferencesEditWindowInEditConfigwindow(){
+    public void TC_Sware_003_NavigateToReferencesEditWindowInEditConfigwindow()
+    {
         softwarePage.navigateToReferenceWindowFromSoftwareEditWindow();
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Sware_008_VerifyIconsInEditConfigWindow(){
+    public void TC_Sware_008_VerifyIconsInEditConfigWindow()
+    {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware(DbTitle);
         softwarePage.VerifyIconsInSoftwareEditConfigWindow(DbTitle);

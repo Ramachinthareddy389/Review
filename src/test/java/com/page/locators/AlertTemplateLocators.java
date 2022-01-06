@@ -22,12 +22,12 @@ public interface AlertTemplateLocators
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
-    By ADDED_TEXT_AREA = By.xpath("//span[text()='Text Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
-    By ADDED_TEXT_CONTENT = By.xpath("//span[text()='Text Content']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
-    By ADDED_TEXT_HTML_TITLE = By.xpath("//span[text()='HTML Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
-    By ADDED_TEXT_HTM_CONTENT = By.xpath("//span[text()='HTML Content']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
-    By ADDED_TEXT_SMS_TITLE = By.xpath("//span[text()='SMS Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
-    By ADDED_TEXT_SMS_CONTENT = By.xpath("//span[text()='SMS Content']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
+    By ADDED_TEXT_AREA = By.xpath("(//div[@class='view-line']/span/span)[1]");
+    By ADDED_TEXT_CONTENT = By.xpath("(//div[@class='view-line']/span/span)[2]");
+    By ADDED_TEXT_HTML_TITLE = By.xpath("(//div[@class='view-line']/span/span)[1]");
+    By ADDED_TEXT_HTM_CONTENT = By.xpath("(//div[@class='view-line']/span/span)[2]");
+    By ADDED_TEXT_SMS_TITLE = By.xpath("(//div[@class='view-line']/span/span)[1]");
+    By ADDED_TEXT_SMS_CONTENT = By.xpath("(//div[@class='view-line']/span/span)[2]");
     By EDITED_TEXT_AREA = By.xpath("//div[@class='view-line']/span/span");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");

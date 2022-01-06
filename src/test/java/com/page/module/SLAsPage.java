@@ -207,7 +207,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
             System.out.println(Edited_Alert_add);
             safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
             waitForSecs(5);
-            safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
+           // safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
         } catch (Exception e) {
 
         }
@@ -223,6 +223,8 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + editedSLA + "SLA" + "')]");
+        safeClick(SeachedText,"Searched Text",MEDIUMWAIT);
+        waitForSecs(10);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
@@ -458,6 +460,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(10);
@@ -517,8 +520,8 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         safeClick(SeachedText,"Slas page",MEDIUMWAIT);
         By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
-        By ELEMENT_STATUS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span//span/mark[text()='" + slasName + "SLA" + "']/../../..//parent::div/div[1]/span");
+        waitForSecs(20);
+        By ELEMENT_STATUS = By.xpath("//div[@aria-label='Select Row']/following-sibling::div[2]/span//span[text()='" + slasName + "SLA" + "']/../../..//parent::div/div[1]/span/span/input");
         boolean b1 = isElementSelected(ELEMENT_STATUS);
         System.out.println(b1);
         Assert.assertTrue(b1);
@@ -538,7 +541,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         waitForSecs(10);
         String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
-        String expectedText = slasName + "SLA" + " - Cloned";
+        String expectedText = "CPU Usage - raw - "+slasName + "SLA" + " - Cloned";
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(5);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);

@@ -38,9 +38,12 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
-    public void addIngAlertTemplate(String dname1) {
+    public void addButtonInAlertTemplatePage() {
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
         waitForSecs(30);
+    }
+
+    public void addIngAlertTemplate(String dname1) {
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -59,6 +62,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(LABEL_HTML_TITLE, "Text title label", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         htmlTitle = driver.findElement(ADDED_TEXT_HTML_TITLE).getText();
+        waitForSecs(10);
         safeClick(LABEL_HTML_CONTENT, "Text Content", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         htmlContent = driver.findElement(ADDED_TEXT_HTM_CONTENT).getText();
@@ -518,15 +522,15 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
-    public void validatingSLAsEditWindow(){
+    public void validatingSLAsEditWindow() {
         By SLATitle = By.xpath("//h5[text()='User Click SLA']");
         System.out.println(SLATitle);
         boolean b = isElementDisplayed(SLATitle);
         Assert.assertTrue(b);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-        Assert.assertEquals(Name_Add,"User Click SLA");
-        safeClick(CLOSE_EDITWINDOW,"Alert Edit window",MEDIUMWAIT);
+        Assert.assertEquals(Name_Add, "User Click SLA");
+        safeClick(CLOSE_EDITWINDOW, "Alert Edit window", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
@@ -543,7 +547,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
-    public void verifyingTheViewDataForFeidlsInAlertsEditWindow(String Alert){
+    public void verifyingTheViewDataForFeidlsInAlertsEditWindow(String Alert) {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -551,7 +555,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'" + Alert +"')]");
+        By SeachedText = By.xpath("//div[contains(text(),'" + Alert + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
@@ -560,9 +564,9 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(EYE_ICON, "Eye iocn", MEDIUMWAIT);
         isElementDisplayed(KPIS_TEXT);
         waitForSecs(5);
-        String actTxt=  safeGetText(LIST_OF_KPIS_VALUES,"Alert View Icon Value",MEDIUMWAIT);
-        String expectedTxt ="DistributionList";
-        Assert.assertEquals(actTxt,expectedTxt);
+        String actTxt = safeGetText(LIST_OF_KPIS_VALUES, "Alert View Icon Value", MEDIUMWAIT);
+        String expectedTxt = "DistributionList";
+        Assert.assertEquals(actTxt, expectedTxt);
         waitForSecs(5);
         safeClick(CLOSE_WINDOW, "Closing window");
         waitForSecs(10);
@@ -580,7 +584,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         }
     }
 
-    public void navigateToSLAPageFrmAlertspage(String Alert){
+    public void navigateToSLAPageFrmAlertspage(String Alert) {
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -588,23 +592,24 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'" + Alert +"')]");
+        By SeachedText = By.xpath("//div[contains(text(),'" + Alert + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
-        safeClick(SLA_LINK,"Sla Hyper link",MEDIUMWAIT);
+        safeClick(SLA_LINK, "Sla Hyper link", MEDIUMWAIT);
         String actualText = safeGetText(Title_DRILLTHROUGH, "title", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, "Service Level Agreements");
         waitForSecs(10);
-        String SLAname = safeGetAttribute(SLA_TXTBOX,"value","Script",MEDIUMWAIT);
+        String SLAname = safeGetAttribute(SLA_TXTBOX, "value", "Script", MEDIUMWAIT);
         System.out.println(SLAname);
         Assert.assertEquals(SLAname, "User Click SLA");
         waitForSecs(5);
-        safeClick(CLOSE_EDITWINDOW,"Close Edit window",MEDIUMWAIT);
+        safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
         waitForSecs(5);
 
     }
-    public void deletingCreatedAlerts(String Alert){
+
+    public void deletingCreatedAlerts(String Alert) {
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
@@ -619,9 +624,9 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_REMOVE, "Delete button", MEDIUMWAIT);
         waitForSecs(15);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        String Notify= safeGetText(FOOTERTEXT,"Notification",MEDIUMWAIT);
+        String Notify = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
         System.out.println(Notify);
-        Assert.assertEquals(Notify,NotifyText);
+        Assert.assertEquals(Notify, NotifyText);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);

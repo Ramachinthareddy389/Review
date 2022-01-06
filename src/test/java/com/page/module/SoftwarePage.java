@@ -324,7 +324,7 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         waitForSecs(10);
         By SeachedText = By.xpath("//div[contains(text(),'" + dashBoardData.SoftwareConfigRcrd +"')]");
@@ -354,6 +354,7 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
 
     public void VerifyIconsInSoftwareEditConfigWindow(String DbTitle){
         waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);

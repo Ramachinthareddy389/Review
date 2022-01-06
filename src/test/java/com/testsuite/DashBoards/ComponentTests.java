@@ -137,6 +137,42 @@ public class ComponentTests extends BaseSetup {
         componentPage.changePasswordInEditCredWindow(Cred);
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Creds_004_NavigateToReferenceEditWindowFrmCredentialsEditWindow() {
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials(Cred);
+        dbInstancesPage.clickingOnDbInstances();
+        dbInstancesPage.addingNewDbinstances(dbinstance);
+        sqlPage.clickingOnAutomation();
+        sqlPage.addingNewSqlRecord(SQL, "DistributionList", "SELECT NAME, TIMESTAMP, USER_NAME, PATH FROM UX_SESSION WHERE TIMESTAMP > ? AND TIMESTAMP < ?", "ALERTTEMPLATE", dbinstance, Cred, Querys, "Today");
+        componentPage.clickingOnAddCredentials();
+        componentPage.navigateToReferenceWindowFromSoftwareEditWindow(Cred, Querys);
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Cred_005_VerifyPageIconsonCredWindow() {
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials(Cred);
+        componentPage.verifyingPageIcons(Cred);
+
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Cred_006_ApplyFiltersinCredWindow() {
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials(Cred);
+        componentPage.applyingFilters(Cred);
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void Tc_Cred_008_VerifyiconsinCredEditconfigwindow() {
+        componentPage.clickingOnAddCredentials();
+        componentPage.addingNewCredentials(Cred);
+        componentPage.verifyingIconsInEditWindow(Cred);
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_DisplaySettings_001_EditDisplaySettingsConfiguration() {

@@ -40,7 +40,7 @@ public class KPIsTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_001_AddKPIconfigurationwithallSLATypes() throws InterruptedException {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
@@ -51,7 +51,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingKPIsPage();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_002_EditKPIconfiguration()
     {
         kpIsPage.clickingOnCorrelation();
@@ -62,7 +62,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingEditedKPISDetails();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_003_AddSLAsinEditKPIconfigwindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
@@ -77,7 +77,7 @@ public class KPIsTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_004_AddThresholdinFactBasedSLAeditwindowinKPIpage() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
@@ -89,7 +89,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingAddedThresholdInEditWindow();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_005_NavigatetoDrillthroughpagefromKPIeditconfigwindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
@@ -100,7 +100,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.navigateToDrillThrghPageFrmKpiEditWindow();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_008_AddActionsinEditSLAconfigwindowinKPIspage() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
@@ -113,7 +113,7 @@ public class KPIsTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_012_VerifyIconsInEditConfigWindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
@@ -125,7 +125,7 @@ public class KPIsTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_014_ViewDataForFieldsWithViewIconInEditConfigWindow() {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
@@ -138,7 +138,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_KPIs_009_VerifyPageIconsInKPIPage(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
@@ -149,7 +149,7 @@ public class KPIsTests extends BaseSetup {
         kpIsPage.verifyingPageIcons();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_KPIs_010_ApplyFiltersInKPIPage(){
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
