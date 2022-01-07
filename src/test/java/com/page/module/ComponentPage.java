@@ -120,10 +120,9 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     public void verifyingPageIcons(String Component) {
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + Component + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
@@ -287,6 +286,10 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
     }
 
+    public void navigateToCredentialsWindow(){
+        safeClick(BTN_CREDENTIALS, "Credentials", MEDIUMWAIT);
+        waitForSecs(10);
+    }
 //Credentails config
 
     public void addingNewCredentials(String Cred) {
@@ -298,7 +301,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
 
         safeClick(LABEL_PASSWORD, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_PASSWORD, Cred, "Name into textbox", MEDIUMWAIT);
-        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "{Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
     }
 
@@ -572,10 +575,17 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(LABEL_DISPLAY_SETTINGS, "Display settings label", MEDIUMWAIT);
         waitForSecs(20);
-        safeType(TEXTBOX_TYPESEARCH, "ActionConfig" + "\n", "Alert Name into type search");
-        System.out.println("entered dbtext");
-        waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + "ActionConfig" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        //driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(20);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;

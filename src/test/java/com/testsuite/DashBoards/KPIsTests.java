@@ -41,7 +41,8 @@ public class KPIsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_001_AddKPIconfigurationwithallSLATypes() throws InterruptedException {
+    public void TC_KPIs_001_AddKPIconfigurationwithallSLATypes() throws InterruptedException
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -63,7 +64,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_003_AddSLAsinEditKPIconfigwindow() {
+    public void TC_KPIs_003_AddSLAsinEditKPIconfigwindow()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -78,7 +80,8 @@ public class KPIsTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_004_AddThresholdinFactBasedSLAeditwindowinKPIpage() {
+    public void TC_KPIs_004_AddThresholdinFactBasedSLAeditwindowinKPIpage()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -90,7 +93,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_005_NavigatetoDrillthroughpagefromKPIeditconfigwindow() {
+    public void TC_KPIs_005_NavigatetoDrillthroughpagefromKPIeditconfigwindow()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -101,7 +105,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_008_AddActionsinEditSLAconfigwindowinKPIspage() {
+    public void TC_KPIs_008_AddActionsinEditSLAconfigwindowinKPIspage()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -114,7 +119,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_012_VerifyIconsInEditConfigWindow() {
+    public void TC_KPIs_012_VerifyIconsInEditConfigWindow()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
@@ -126,7 +132,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_KPIs_014_ViewDataForFieldsWithViewIconInEditConfigWindow() {
+    public void TC_KPIs_014_ViewDataForFieldsWithViewIconInEditConfigWindow()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         kpIsPage.clickingOnCorrelation();
@@ -139,7 +146,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_KPIs_009_VerifyPageIconsInKPIPage(){
+    public void TC_KPIs_009_VerifyPageIconsInKPIPage()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         kpIsPage.clickingOnCorrelation();
@@ -150,7 +158,8 @@ public class KPIsTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_KPIs_010_ApplyFiltersInKPIPage(){
+    public void TC_KPIs_010_ApplyFiltersInKPIPage()
+    {
         alertTemplatePage.clickingOnAlertTemplate();
         alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         kpIsPage.clickingOnCorrelation();

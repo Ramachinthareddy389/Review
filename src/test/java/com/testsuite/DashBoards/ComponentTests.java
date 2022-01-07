@@ -154,6 +154,7 @@ public class ComponentTests extends BaseSetup {
     public void TC_Cred_005_VerifyPageIconsonCredWindow() {
         componentPage.clickingOnAddCredentials();
         componentPage.addingNewCredentials(Cred);
+        componentPage.navigateToCredentialsWindow();
         componentPage.verifyingPageIcons(Cred);
 
     }
@@ -198,6 +199,20 @@ public class ComponentTests extends BaseSetup {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingEditDistributionListConfig(DistriList);
 
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_DLs_004_VerifyPageIconsInDistributionList() {
+        componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
+        componentPage.verifyingPageIcons(DistriList);
+    }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_DLs_005_ApplyFiltersInDistributionList() {
+        componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
+        componentPage.applyingFilters(DistriList);
     }
 
 

@@ -43,13 +43,15 @@ public class SoftwareTests extends BaseSetup {
     }
 
     @Test(groups = "Smoke Test")
-    public void TC_Sware_001_AddSoftwareConfiguration() throws InterruptedException {
+    public void TC_Sware_001_AddSoftwareConfiguration() throws InterruptedException
+    {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware(DbTitle);
         softwarePage.verifyingSoftwareNameDetails(DbTitle);
     }
     @Test(groups = "Smoke Test")
-    public void TC_Sware_002_EditSoftwareConfiguration() throws InterruptedException {
+    public void TC_Sware_002_EditSoftwareConfiguration() throws InterruptedException
+    {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware(DbTitle);
         softwarePage.editConfiugurationSoftwareDetails(DbTitle,EditTitle);
@@ -57,7 +59,8 @@ public class SoftwareTests extends BaseSetup {
 
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Sware_004_VerifyPageIconsInSoftwarepage(){
+    public void TC_Sware_004_VerifyPageIconsInSoftwarepage()
+    {
         softwarePage.clickingOnSoftware();
         softwarePage.addingNewSoftware(DbTitle);
         softwarePage.verifyingPageIconsInSoftwarepage(DbTitle);

@@ -73,12 +73,12 @@ public interface KPIsLocators {
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
     By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
-    By BTN_ENABLE = By.xpath("//h5[text()='Key Performance Indicators']/..//div[@aria-label='Enable Selected Configuration']");
-    By BTN_DISABLE = By.xpath("//h5[text()='Key Performance Indicators']/..//div[@aria-label='Disable Selected Configuration']");
-    By BTN_CLONE = By.xpath("//h5[text()='Key Performance Indicators']/..//div[@aria-label='Clone Selected Configuration']");
-    By BTN_STATUS = By.xpath("//h5[text()='Key Performance Indicators']/..//div[@aria-disabled='true']");
+    By BTN_ENABLE = By.xpath("//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("///div[@aria-disabled='true']");
     By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
-    By BTN_DELETE = By.xpath("//h5[text()='Key Performance Indicators']/..//div[@aria-label='Remove Selected Configuration']");
+    By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
     By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
     By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");

@@ -53,5 +53,31 @@ public interface MaintenanceLocators {
      By BTN_CLEAR = By.xpath("//span[text()='Clear']");
      By GLOBAL_MAINTENANCE_LABEL = By.xpath("//span[text()='global-maintenance']");
      By GLOBAL_MAINTENANCE_STATUS = By.xpath("//span[text()='global-maintenance']/../../../div[3]/span/div/div");
-
+     By BTN_DELETE1 = By.xpath("//div[@aria-label='Remove Selected Configuration']");
+     By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+     By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+     By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+     By LABEL_SAVE = By.xpath("//span[text()='Save']");
+     By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+     By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+     By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+     By SLAS_HYPER_LINK = By.xpath("//span[text()='Used By SLAs']/../../following-sibling::div/descendant::button");
+     // By ADDED_TEXT_HTML_TITLE = By.xpath("//span[text()='HTML Title']/../../../div/section/div/div/div/div[2]/div/div[4]/div/span/span");
+     By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
+     By EYE_ICON = By.xpath("//i[@class='far fa-eye']");
+     By KPIS_TEXT_COMP = By.xpath("//h6[text()='Kpi']");
+     By KPIS_TEXT = By.xpath("//h6[text()='Actions]");
+     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+     By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+     By BTN_ENABLE = By.xpath("//div[@aria-label='Enable Selected Configuration']");
+     By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected Configuration']");
+     By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
+     By BTN_STATUS = By.xpath("//div[@aria-disabled='true']");
+     By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+     By BTN_EXECUTE = By.xpath("//div[contains(@aria-label,'Start Global Maintenance Period Now.')]");
+     By GLOBALTEXT = By.xpath("//span[text()='global-maintenance']");
+     By STOP_GBLMAINTENCE = By.xpath("//div[contains(@aria-label,'Stop Ongoing Global Maintenance Period')]");
+     By ACTIONS_DRPDOWN = By.xpath("//input[@id='actions']");
+     By BTN_MAXIMISE = By.xpath("//div[@aria-label='Maximize']");
 }

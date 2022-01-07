@@ -73,6 +73,8 @@ public class DashBoardData {
 	public final String[] SSH_VALUES =wizardData.getProperty("SSH_VALUES").split(";");
 	public final String[] SQL_VALUES = wizardData.getProperty("SQL_VALUES").split(";");
 	public final String[] SLA_VALUES = wizardData.getProperty("SLA_VALUES").split(";");
+	public final String[] ACTION_VALUES = wizardData.getProperty("ACTION_VALUES").split(";");
+	public final String[] PRESENTATION_VALUES =wizardData.getProperty("PRESENTATION_VALUES").split(";");
 	public final String[] UXSETTING_VALUES = wizardData.getProperty("UXSETTINGS_VALUES").split(";");
 	public final String[] monitoring = wizardData.getProperty("MONITORING").split(";");
 	public final String[] analytics = wizardData.getProperty("ANALYTICS").split(";");

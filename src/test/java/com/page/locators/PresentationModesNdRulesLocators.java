@@ -36,6 +36,26 @@ public interface PresentationModesNdRulesLocators {
     By DASHBOARDS_ADD_ICON = By.xpath("//span[text()='Dashboards']/../../following-sibling::div/button/span/i");
     By PLAY_BTN_ICON = By.xpath("//button[@title='Fullscreen mode']/following-sibling::button/span/i[contains(@class,'far fa-play-circle')]");
     By PLAYMODE_DRPDOWN = By.xpath("//ul/li[@role='menuitem']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//div[@aria-label='Enable Selected Configuration']");
+    By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected Configuration']");
+    By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Disable Configuration']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable Configuration']");
+    By EYE_ICON = By.xpath("//button[@aria-label='view']");
+    By KPIS_TEXT = By.xpath("//h6[text()='Dashboard']");
+    By DASHBOARDNAME_VALUE = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
+    By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span");
+    By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
 
     //Rules Configurations
     By LABEL_ENGINE_SETTINGS = By.xpath("//span[text()='Engine Settings']");
