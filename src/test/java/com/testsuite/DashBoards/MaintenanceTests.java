@@ -83,5 +83,12 @@ public class MaintenanceTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Maintenance_006_ApplyFiltersInMaintenanceWindow()
+    {
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.applyingFilters();
+    }
 
 }

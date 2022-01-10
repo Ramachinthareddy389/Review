@@ -71,7 +71,6 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         WebElement metric = driver.findElement(TXTBOX_NAME_GENERATOR);
         metric.sendKeys("test");
         waitForSecs(10);
-       // safeType(TXTBOX_NAME_GENERATOR,"test","Generator value",MEDIUMWAIT);
         Genarator_add = safeGetText(ADDED_NAME_GENERATOR, "Server textbox value", MEDIUMWAIT);
         safeClick(LABEL_RETENSION, "Name Feild", MEDIUMWAIT);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
@@ -103,7 +102,6 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         System.out.println(Name_Add1);
         waitForSecs(20);
         safeClick(LABEL_KEYEXP, "Server Feild", MEDIUMWAIT);
-        //safeClick(KEYEXP_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_NAME_GENERATOR, "color", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
@@ -477,7 +475,6 @@ public class CorrelationPage extends SafeActions implements CorrelationLocators 
         safeType(TXTBOX_NAME, "RightStream", "Name into textbox", MEDIUMWAIT);
         Correlation_RStream_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Correlation_RStream_Add);
-
         safeClick(LABEL_TIME_TO_LIVE_IN_SECONDS, "Name Feild", MEDIUMWAIT);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TXT_BOX_TIME_TO_LIVE);

@@ -182,20 +182,23 @@ public class ComponentTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_001_AddDistributionListwithAllDistributiontypes() {
+    public void TC_DLs_001_AddDistributionListwithAllDistributiontypes()
+    {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingAddedDistributionList(DistriList, "rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_002_AddMembersinEditDistributionListwindow() {
+    public void TC_DLs_002_AddMembersinEditDistributionListwindow()
+    {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.addMembersInEditDistributionListwindow(DistriList);
         componentPage.verifyingAddedDistributionList(DistriList, "rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_003_EditDistributionListconfiguration() {
+    public void TC_DLs_003_EditDistributionListconfiguration()
+    {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingEditDistributionListConfig(DistriList);
 
@@ -203,7 +206,8 @@ public class ComponentTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_DLs_004_VerifyPageIconsInDistributionList() {
+    public void TC_DLs_004_VerifyPageIconsInDistributionList()
+    {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingPageIcons(DistriList);
     }
@@ -215,6 +219,11 @@ public class ComponentTests extends BaseSetup {
         componentPage.applyingFilters(DistriList);
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_DLs_007_VerifyIconsinDistributionEditConfigWindow() {
+        componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
+        componentPage.verifyingIconsInEditWindow(DistriList);
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_Auto_001_AddAutoConfig() {

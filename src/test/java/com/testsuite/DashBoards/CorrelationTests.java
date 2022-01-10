@@ -60,7 +60,7 @@ public class CorrelationTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true,retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true)
     public void TC_Corr_004_AddTypesinEditCorrelationScenariowindow()
     {
         correlationPage.clickingOnCorrelation();
@@ -68,7 +68,7 @@ public class CorrelationTests extends BaseSetup {
         correlationPage.verifyingTypesInCorrelationScenarioWindow();
     }
 
-    @Test(alwaysRun = true,retryAnalyzer = com.testng.Retry.class)
+    @Test(alwaysRun = true)
     public void TC_Corr_005_AddFactTypeinEditCorrelationScenariowindow()
     {
         correlationPage.clickingOnCorrelation();
