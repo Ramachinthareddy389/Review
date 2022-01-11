@@ -44,7 +44,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Dash_012_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException {
+    public void TC_Dash_012_Verify_Dashboard_Visibility_AllowedUsers() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -67,7 +68,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Dash_013_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException {
+    public void TC_Dash_013_Verify_Dashboard_Visibility_RequiredRoles() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -88,7 +90,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Dash_014_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException {
+    public void TC_Dash_014_Verify_Dashboard_Visibility_OwnerRoles() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -102,7 +105,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Dash_020_CreateTicketOnDashboard() throws InterruptedException {
+    public void TC_Dash_020_CreateTicketOnDashboard() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -115,7 +119,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Dash_021_PinUnPinDashboard() throws InterruptedException {
+    public void TC_Dash_021_PinUnPinDashboard() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -128,7 +133,8 @@ public class DashBoardTests extends BaseSetup {
 
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Breadcrumb_001_Verify_Standard_Breadcrumb_Navigation() throws InterruptedException {
+    public void TC_Breadcrumb_001_Verify_Standard_Breadcrumb_Navigation() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -143,7 +149,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Breadcrumb_002_Verify_Standard_Breadcrumb_Backward_Navigation() throws InterruptedException {
+    public void TC_Breadcrumb_002_Verify_Standard_Breadcrumb_Backward_Navigation() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -159,7 +166,8 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA() throws InterruptedException {
+    public void TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
@@ -175,13 +183,12 @@ public class DashBoardTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Breadcrumb_004_BreadcrumbNavigationfromPortletwithConstraintsinPivotpage() throws InterruptedException {
+    public void TC_Breadcrumb_004_BreadcrumbNavigationfromPortletwithConstraintsinPivotpage() throws InterruptedException
+    {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();
         dashboardPage.enterAddrequirefeildsInDashBoardPage();
         portletsFeature.addingGaugePortletForAllThenavgations(gaugePortletName);
-      //  portletsFeature.verifyingPortletAddedFromSearchBar();
-        //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
         pivotPage.navigateToPivotPage(gaugePortletName);
         dashboardPage.applyAndVerifyConstraintsInDrillthroughPage();
         portletsFeature.navigateToRCApageFrmPivotPage();

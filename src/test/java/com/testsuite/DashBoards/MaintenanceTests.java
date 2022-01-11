@@ -91,4 +91,20 @@ public class MaintenanceTests extends BaseSetup {
         maintenancePage.applyingFilters();
     }
 
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Maintenance_008_VerifyIconsInMaintenanceEditconfigwindow(){
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.verifyingIconsInEditWindow();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Maintenance_009_VerifyPageIconsMaintenanceWindow(){
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.navigateToMaintenancePage();
+        maintenancePage.verifyingPageIcons();
+    }
+
 }

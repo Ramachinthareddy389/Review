@@ -119,7 +119,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         safeClick(LABEL_ALERT_TEMP, "Server Feild", MEDIUMWAIT);
         safeClick(ALERT_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ALERT, SLA, "Server name into textbox", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
@@ -132,7 +132,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         }
         Alert_add = safeGetText(ALERT_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Alert_add);
-        waitForSecs(5);
+        waitForSecs(10);
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_ACTIONS, "user-login-report", "Server name into textbox", MEDIUMWAIT);
