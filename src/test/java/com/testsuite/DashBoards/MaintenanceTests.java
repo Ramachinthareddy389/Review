@@ -107,4 +107,12 @@ public class MaintenanceTests extends BaseSetup {
         maintenancePage.verifyingPageIcons();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Maintenance_011_ViewDataForFieldsWithViewIconMaintenanceinEditConfigWindows()
+    {
+        maintenancePage.clickingOnMaintenance();
+        maintenancePage.addingMaintenanceConfig();
+        maintenancePage.navigateToMaintenancePage();
+        maintenancePage.viewDataWithFeildsForViewIcon();
+    }
 }

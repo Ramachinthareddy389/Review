@@ -56,8 +56,9 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
     @Step("Clicking on LogIn button")
     public void clickLogInButton() {
         safeClick(LOGIN_BTN, "'Login' button in 'Login' page ", VERYLONGWAIT);
+        waitForSecs(20);
+        safeClick(CANCEL_BTN,"Cancel button",MEDIUMWAIT);
         waitForSecs(10);
-
     }
 
     @Step("Clicking on Logout button")

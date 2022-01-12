@@ -56,6 +56,9 @@ public class KPIsTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_KPIs_002_EditKPIconfiguration()
     {
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
+        alertTemplatePage.addIngAlertTemplate(dname1);
         kpIsPage.clickingOnCorrelation();
         kpIsPage.addingKPIPage();
         kpIsPage.addingSLASettingsPage();

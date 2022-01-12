@@ -121,8 +121,8 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         waitForSecs(5);
         Server_Add1 = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add1);
-       // safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
-        waitForSecs(5);
+        safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_DESC, "Name Feild", MEDIUMWAIT);
         String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TXTBOX_DESC);
@@ -393,6 +393,7 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
 
 public void serchingForCreatedConfig(String DbTitle){
     waitForSecs(10);
+    safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
     safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
     safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
     waitForSecs(10);

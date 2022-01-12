@@ -49,12 +49,14 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(10);
         safeClick(LABEL_TEXT_TITLE, "Text title label", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         textTitle = driver.findElement(ADDED_TEXT_AREA).getText();
+        waitForSecs(10);
         safeClick(LABEL_TEXT_CONTENT, "Text Content", MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         textContent = driver.findElement(ADDED_TEXT_CONTENT).getText();
         waitForSecs(10);
@@ -66,13 +68,17 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(LABEL_HTML_CONTENT, "Text Content", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         htmlContent = driver.findElement(ADDED_TEXT_HTM_CONTENT).getText();
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_SMS_TITLE, "Text title label", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         smsTitle = driver.findElement(ADDED_TEXT_SMS_TITLE).getText();
+        waitForSecs(10);
         safeClick(LABEL_SMS_CONTENT, "Text Content", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         smsContent = driver.findElement(ADDED_TEXT_SMS_CONTENT).getText();
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }

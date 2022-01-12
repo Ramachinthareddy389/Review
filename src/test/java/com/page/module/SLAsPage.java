@@ -362,15 +362,16 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
         }
         waitForSecs(5);
         safeClick(ACTIONS_ADD_ICON, "Actions Icon", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_ACTIONS_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ACTIONS_NAME, "QA HTTP", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS_NAME, "user-login-report", "Server name into textbox", MEDIUMWAIT);
         waitForSecs(20);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equalsIgnoreCase("QA HTTP")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("user-login-report")) {
 
                 dbs3.get(i).click();
                 break;

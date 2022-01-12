@@ -109,6 +109,13 @@ public class PresentationModesNdRolesTests extends BaseSetup {
     }
 
 
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_PresenModes_008_VerifyPageIconsInPresentationMode() {
+        presentationModesNdRulesPages.clickingOnPresentationModes();
+        presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
+        presentationModesNdRulesPages.addingTimeRangesAndDurationConfigs();
+        presentationModesNdRulesPages.verifyingPageIconsInPresentationModes();
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_Rules_001_AddRuleconfiguration() {

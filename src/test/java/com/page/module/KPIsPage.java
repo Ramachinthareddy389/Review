@@ -196,6 +196,8 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         searchField.sendKeys(del5 + editKPi);
         Edited_Name_Add = safeGetAttribute(TXTBOX_EDITED_NAME, "value", "Name textbox value", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_FACTTYPE, "Server Feild", MEDIUMWAIT);
         safeClick(FACTTYPE_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(TXTBOX_EDITED_FACTTYPE, "FlowNode", "Server name into textbox", MEDIUMWAIT);
@@ -211,6 +213,7 @@ public class KPIsPage extends SafeActions implements KPIsLocators {
         }
         Edited_FactType_add = safeGetText(FACTTYPE_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Edited_FactType_add);
+        waitForSecs(10);
         safeClick(EDITED_FACTCATEGORY_LABEl, "Name Feild", MEDIUMWAIT);
         String del6 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField6 = driver.findElement(TXTBOX_EDITED_FACT_CATEGORY);

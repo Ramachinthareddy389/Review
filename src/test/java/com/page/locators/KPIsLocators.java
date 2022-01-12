@@ -76,7 +76,7 @@ public interface KPIsLocators {
     By BTN_ENABLE = By.xpath("//div[@aria-label='Enable Selected Configuration']");
     By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected Configuration']");
     By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
-    By BTN_STATUS = By.xpath("///div[@aria-disabled='true']");
+    By BTN_STATUS = By.xpath("//div[@aria-disabled='true']");
     By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
     By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");

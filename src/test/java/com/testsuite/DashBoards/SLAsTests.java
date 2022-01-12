@@ -139,10 +139,14 @@ public class SLAsTests extends BaseSetup {
 
     @Test(alwaysRun = true,groups = "Smoke Test")
     public  void TC_SLAs_011_VerifyIconsinEditonfigWindow(){
+        alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
+        alertTemplatePage.addIngAlertTemplate("ALERTTEMPLATE");
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage(slasName);
         slAsPage.addingSLAAction("ALERTTEMPLATE");
         slAsPage.verifyingIconsInEditWindow(slasName);
+        slAsPage.deleteinAlertTemplate("ALERTTEMPLATE");
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
