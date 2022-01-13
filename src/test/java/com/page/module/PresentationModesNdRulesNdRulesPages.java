@@ -450,6 +450,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         searchField.sendKeys(del + Edit_Rule);
         Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(5);
         String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1= driver.findElement(TEXTAREA_CONTENT);
         searchField1.sendKeys(del1 + "content");
@@ -459,6 +461,9 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
         waitForSecs(30);
         safeClick(CLOSE_EDITWINDOW,"Close Edit Window",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CLEAR,"Clear button",MEDIUMWAIT);
+        waitForSecs(10);
         safeType(TEXTBOX_TYPESEARCH, Edit_Rule + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
@@ -662,6 +667,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeTypeUsingChrod(TXTBOX_NAME, Edit_TimeRange, "Name into textbox", MEDIUMWAIT);
         Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(5);
         safeTypeUsingChrod(TXTBOX_START_EDIT_MINUTE, "5", "Name into textbox", MEDIUMWAIT);
         Minute_Add = safeGetAttribute(TXTBOX_START_EDIT_MINUTE, "value", "Name textbox value", MEDIUMWAIT);
         safeTypeUsingChrod(TXTBOX_START_EDIT_HOUR, "8", "Name into textbox", MEDIUMWAIT);
@@ -778,9 +785,9 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
     {
         waitForSecs(10);
         boolean startTime=  isElementSelected(CHKBOX_START_TIME_IN_EDIT);
-        Assert.assertFalse(startTime);
+        Assert.assertTrue(startTime);
         boolean endTime=  isElementSelected(CHKBOX_END_TIME_IN_EDIT);
-        Assert.assertFalse(endTime);
+        Assert.assertTrue(endTime);
         if (Edited_Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Start_Value_Add.equals(driver.findElement(TXTBOX_START_EDIT_VALUE).getAttribute("value")) &&  Start_Unit_add.equals(driver.findElement(TXTBOX_START_EDIT_UNIT).getText())&&End_Value_Add.equals(driver.findElement(TXTBOX_END_EDIT_VALUE).getAttribute("value")) &&  End_Unit_add.equals(driver.findElement(TXTBOX_END_EDIT_UNIT).getText())) {
             System.out.println("Business process details are valid");
             Assert.assertTrue(true);
