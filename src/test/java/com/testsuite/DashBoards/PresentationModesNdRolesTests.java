@@ -134,6 +134,13 @@ public class PresentationModesNdRolesTests extends BaseSetup {
         presentationModesNdRulesPages.verifyingIconsInPresentationEditConfigWindow();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_PresenModes_013_ViewDataForFieldsWithViewIconInEditconfigWindows(){
+        presentationModesNdRulesPages.clickingOnPresentationModes();
+        presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
+        presentationModesNdRulesPages.addingTimeRangesAndDurationConfigs();
+        presentationModesNdRulesPages.viewDataWithFeildsForViewIconInPresentationMode();
+    }
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_Rules_001_AddRuleconfiguration() {
         presentationModesNdRulesPages.addRuleConfiguration();
@@ -144,6 +151,12 @@ public class PresentationModesNdRolesTests extends BaseSetup {
     public void TC_Rules_002_EditRuleConfiguration() {
         presentationModesNdRulesPages.addRuleConfiguration();
         presentationModesNdRulesPages.EditRulesConfig();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Rules_005_VerifyPageIconsInRulesPage() {
+        presentationModesNdRulesPages.addRuleConfiguration();
+        presentationModesNdRulesPages.verifyingPageIconsInRulesPage();
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
