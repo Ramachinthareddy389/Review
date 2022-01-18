@@ -49,6 +49,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true)
     public void TC_AleTemp_001_AddAlertTemplateConfiguration() throws InterruptedException {
         alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.verifyingAlertTemplateDetails(dname1);
 
@@ -57,6 +58,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true)
     public void TC_AleTemp_002_EditAlertTemplateConfiguration() {
         alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.EditingAlertTemplateConfig(dname1);
         alertTemplatePage.verifyingEditedConfiguraions(dname1);
@@ -159,6 +161,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_AleTemp_007_ApplyFiltersInAlertTemplatePage(){
         alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.applyingFilters(dname1);
     }
@@ -166,6 +169,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_AleTemp_009_VerifyIconsInEditConfigWindow(){
         alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
         alertTemplatePage.addIngAlertTemplate(dname1);
         alertTemplatePage.verifyingIconsInEditWindow(dname1);
     }
@@ -173,6 +177,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_AleTemp_005_NavigateToSLAsPageFromAlertTemplateEditwindow(){
         alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
         alertTemplatePage.addIngAlertTemplate(dname1);
         slAsPage.clickingOnSLAs();
         slAsPage.addingSLASettingsPage(slasName);

@@ -134,13 +134,14 @@ public class PresentationModesNdRolesTests extends BaseSetup {
         presentationModesNdRulesPages.verifyingIconsInPresentationEditConfigWindow();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_PresenModes_013_ViewDataForFieldsWithViewIconInEditconfigWindows(){
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_PresenModes_013_ViewDataForFieldsWithViewIconInEditconfigWindows() {
         presentationModesNdRulesPages.clickingOnPresentationModes();
         presentationModesNdRulesPages.addingPresentationModeConfigWithDashboards();
         presentationModesNdRulesPages.addingTimeRangesAndDurationConfigs();
         presentationModesNdRulesPages.viewDataWithFeildsForViewIconInPresentationMode();
     }
+
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_Rules_001_AddRuleconfiguration() {
         presentationModesNdRulesPages.addRuleConfiguration();
@@ -154,10 +155,24 @@ public class PresentationModesNdRolesTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Rules_003_ValidateRuleInEditconfigWindow() {
+        presentationModesNdRulesPages.addRuleConfiguration();
+        presentationModesNdRulesPages.ValidateRuleInEditconfigWindow();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_Rules_005_VerifyPageIconsInRulesPage() {
         presentationModesNdRulesPages.addRuleConfiguration();
         presentationModesNdRulesPages.verifyingPageIconsInRulesPage();
     }
+    
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Rules_006_ApplyFiltersInRulesPage() {
+        presentationModesNdRulesPages.addRuleConfiguration();
+        presentationModesNdRulesPages.applyingFiltersInRulesPage();
+    }
+
+
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_TimeRanges_001_AddAbsoluteTimeRange() {
@@ -201,7 +216,7 @@ public class PresentationModesNdRolesTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_TimeRanges_006_VerifyTimeRangesinGuidedSearchPage() {
         presentationModesNdRulesPages.addingTimeRanges();
         presentationModesNdRulesPages.startPageConfigs();
@@ -210,17 +225,21 @@ public class PresentationModesNdRolesTests extends BaseSetup {
     }
 
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+
+    //Roles Page
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_UserRoles_001_AddNewRole() {
         presentationModesNdRulesPages.clickingOnUserRoles();
         presentationModesNdRulesPages.addingNewUserRoles();
         presentationModesNdRulesPages.verifyingAddedUserRoles();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_UserRoles_002_EditRole() {
         presentationModesNdRulesPages.clickingOnUserRoles();
         presentationModesNdRulesPages.addingNewUserRoles();
         presentationModesNdRulesPages.editUserRolesConfig();
     }
+
 }

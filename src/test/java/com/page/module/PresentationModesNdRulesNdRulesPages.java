@@ -98,8 +98,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
@@ -149,8 +149,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(BTN_REMOVE_DASHBOARDS, "Remove Dashboards", MEDIUMWAIT);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
@@ -199,8 +199,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
@@ -213,8 +213,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_NAME);
@@ -297,8 +297,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         System.out.println(BPName);
         Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
         Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
@@ -316,9 +316,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, Presentation + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
         waitForSecs(10);
@@ -335,8 +334,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
@@ -356,8 +355,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         waitForSecs(10);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(HYPERLINK_DASHBOARDS, "Added BP Steps", MEDIUMWAIT);
         waitForSecs(10);
@@ -402,7 +401,94 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TXTBOX_NAME, Rules, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-        safeType(TEXTAREA_CONTENT,"contentRules","Content Text are",MEDIUMWAIT);
+        safeType(TEXTAREA_CONTENT,"//\n" +
+                "// Router map used by Siebel Crash Parser on Windows.\n" +
+                "//\n" +
+                "package com.germainsoftware.apm.parser;\n" +
+                "\n" +
+                "dialect \"mvel\"\n" +
+                "\n" +
+                "import java.util.regex.*;\n" +
+                "import java.util.Date;\n" +
+                "import com.germainsoftware.apm.converter.Queues;\n" +
+                "import com.germainsoftware.apm.data.*;\n" +
+                "import com.germainsoftware.apm.data.model.*;\n" +
+                "import com.germainsoftware.apm.parser.LogEvent;\n" +
+                "import com.germainsoftware.apm.parser.DefaultLogEntry;\n" +
+                "\n" +
+                "global org.slf4j.Logger logger;\n" +
+                "global com.germainsoftware.apm.converter.DatamartConverter datamart;\n" +
+                "global com.germainsoftware.apm.parser.ParserState state;\n" +
+                "global com.germainsoftware.apm.router.RouterContext context;\n" +
+                "global com.germainsoftware.apm.state.model.MonitoredFile file;\n" +
+                "global com.germainsoftware.apm.parser.LogScanner scanner;\n" +
+                "\n" +
+                "// Redeclare Java base types\n" +
+                "declare DefaultLogEntry\n" +
+                "end\n" +
+                "\n" +
+                "rule \"Crash Entry\"\n" +
+                "when\n" +
+                "    $e : DefaultLogEntry( )\n" +
+                "then\n" +
+                "    // Each crash file contains a single crash, so just read lines until we get to \n" +
+                "    // the end of the file.\n" +
+                "    StringBuilder sb = new StringBuilder();\n" +
+                "    sb.append($e.rawText);\n" +
+                "    sb.append(System.lineSeparator());\n" +
+                "    boolean isDone = false;\n" +
+                "    while (scanner.peek() != null) {       \n" +
+                "        sb.append(scanner.peek());\n" +
+                "        sb.append(System.lineSeparator());\n" +
+                "        scanner.skipToken();        \n" +
+                "    }\n" +
+                "        \n" +
+                "    String crash = sb.toString();\n" +
+                "\n" +
+                "\n" +
+                "    Pattern p = Pattern.compile(\"Exception (\\\\w+) at (\\\\w+)\\\\s+Thread: (\\\\w+), Process (\\\\w+)(.*)\", Pattern.DOTALL);\n" +
+                "    Matcher m = p.matcher(crash);\n" +
+                "    if (!m.matches()) {\n" +
+                "        logger.warn(\"Could not match crash: {}\", crash);\n" +
+                "        return;\n" +
+                "    }    \n" +
+                "    logger.info(\"========================================11\");\n" +
+                "    long processId = Long.decode(m.group(4)); // both in base16 with 0x prefix\n" +
+                "    long threadId = Long.decode(m.group(3));\n" +
+                "    logger.info(\"processId: \"+processId);\n" +
+                "    logger.info(\"threadId: \"+threadId);\n" +
+                "    logger.info(\"========================================11\");\n" +
+                "\n" +
+                "    /*\n" +
+                "    Pattern p2 = Pattern.compile(\".+?- CALL STACK -\\\\s+((\\\\S+\\\\s+\\\\S+\\\\s+=.+\\r\\n)+).+?\", Pattern.DOTALL);\n" +
+                "    Matcher m2 = p2.matcher(crash);\n" +
+                "    String hashValue = null;\n" +
+                "    if (m2.matches()) {\n" +
+                "        String[] stackLines = m2.group(1).split(\"\\r\\n\");\n" +
+                "        StringBuilder stackBuilder = new StringBuilder();\n" +
+                "        stackBuilder.append(stackLines[0]);\n" +
+                "        stackBuilder.append(\"\\r\\n\");\n" +
+                "        stackBuilder.append(stackLines[1]);\n" +
+                "        stackBuilder.append(\"\\r\\n\");\n" +
+                "        stackBuilder.append(stackLines[2]);\n" +
+                "        stackBuilder.append(\"\\r\\n\");\n" +
+                "        String stack3 = stackBuilder.toString();\n" +
+                "        hashValue = Long.toString(((long)stack3.hashCode()) + 2147483648L);\n" +
+                "    } else {\n" +
+                "        hashValue = \"<no-stack>\";\n" +
+                "    }*/\n" +
+                "\n" +
+                "    GenericEvent ev = new GenericEvent();\n" +
+                "    ev.type = \"Siebel:Core Crash\";\n" +
+                "    ev.name = file.fullName;\n" +
+                "    ev.timestamp = DateTimeUtils.toOffsetDt(file.lastModified);\n" +
+                "    ev.details = crash;\n" +
+                "    ev.pid = Long.toString(processId);\n" +
+                "    ev.tid = Long.toString(threadId);\n" +
+                "    datamart.insert(ev, context);\n" +
+                "    \n" +
+                "    logger.debug(\"Found Siebel Core Crash: {}\", ev);\n" +
+                "end","Content Text are",MEDIUMWAIT);
         Content_Add = safeGetText(CONTENT_VAULUE,"Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
         safeClick(BTN_FINISH,"Finish",MEDIUMWAIT);
@@ -524,7 +610,81 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
 
     }
+    public void applyingFiltersInRulesPage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + Rules + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, Rules);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
 
+    }
+    public void verifyingIconsInRulesEditConfigWindow() {
+        safeType(TEXTBOX_TYPESEARCH, Rules + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + Rules + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(20);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+ public void ValidateRuleInEditconfigWindow(){
+     safeType(TEXTBOX_TYPESEARCH, Rules + "\n", "Alert Name into type search");
+     System.out.println("entered dbtext");
+     waitForSecs(9);
+     mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+     safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+     waitForSecs(9);
+     boolean validateRule = isElementEnabled(BTN_VALIDATERULE);
+     Assert.assertTrue(validateRule);
+     safeClick(BTN_VALIDATERULE,"Validate button",MEDIUMWAIT);
+     boolean notifyText= isElementDisplayed(NOTIFYTEXT);
+     Assert.assertTrue(notifyText);
+     waitForSecs(10);
+     safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+     waitForSecs(20);
+     safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+     waitForSecs(15);
+ }
     public void addingTimeRanges(){
         waitForSecs(20);
         safeClick(LABEL_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
@@ -595,8 +755,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
@@ -668,8 +828,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
@@ -700,8 +860,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeTypeUsingChrod(TXTBOX_NAME, Edit_TimeRange, "Name into textbox", MEDIUMWAIT);
         Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -777,8 +937,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeTypeUsingChrod(TXTBOX_NAME, Edit_TimeRange, "Name into textbox", MEDIUMWAIT);
         Edited_Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -866,8 +1026,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
@@ -897,15 +1057,112 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(20);
-        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
-        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
     }
+    public void verifyingPageIconsInTimeRangesPage() {
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        //mouseHoverJScript(SELECTROW_CHKBOX, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b1 = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE,"clone button",MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label","Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = TimeRanges+" - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
 
+    }
+    public void applyingFiltersInTimeRangesPage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + TimeRanges + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        waitForSecs(10);
+        Assert.assertEquals(BPName, TimeRanges);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+    public void verifyingIconsInTimeRangesEditConfigWindow() {
+        safeType(TEXTBOX_TYPESEARCH, TimeRanges + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + TimeRanges + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(20);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+        mouseHoverJScript(LISTOFDBS1, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS1, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
     //Roles
     public void clickingOnUserRoles(){
         waitForSecs(20);
@@ -1010,5 +1267,75 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
     }
+    public void verifyingPageIconsRolesPage() {
+        safeType(TEXTBOX_TYPESEARCH, ROLE + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        //mouseHoverJScript(SELECTROW_CHKBOX, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b1 = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        waitForSecs(10);
+        safeClick(BTN_EDIT, "Edit button", MEDIUMWAIT);
+        boolean editTitle = isElementDisplayed(EDIT_HEADER_WMI);
+        Assert.assertTrue(editTitle);
+        List<WebElement> chkboxes = driver.findElements(CHEKBOXES_EDITWINDOW_WMI);
+        for (int i = 0; i <= chkboxes.size() - 1; i++) {
+            chkboxes.get(i).click();
+        }
+        waitForSecs(10);
+        safeClick(BTN_APPLY_CHANGES_WMI, "Apply changes", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_DELETE,"Delete button",MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
 
+    }
+    public void applyingFiltersInRolesPage() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + ROLE + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        waitForSecs(10);
+        Assert.assertEquals(BPName, ROLE);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
+    public void verifyingIconsInRolesEditConfigWindow() {
+        safeType(TEXTBOX_TYPESEARCH, ROLE + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(9);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+
+    }
 }

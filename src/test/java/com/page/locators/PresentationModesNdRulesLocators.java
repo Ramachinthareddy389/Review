@@ -19,7 +19,8 @@ public interface PresentationModesNdRulesLocators {
     By BTN_FINISH = By.xpath("//span[text()='Finish']");
     By BTN_CLOSE = By.xpath("//span[text()='Close']");
     By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
-    By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
+    By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[1]/span/span");
+    By LISTOFDBS1= By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5/mark");
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
@@ -56,13 +57,24 @@ public interface PresentationModesNdRulesLocators {
     By DASHBOARDNAME_VALUE = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
-
+    By BTN_EDIT = By.xpath("//div[@aria-label='Edit Selected Configuration']");
+    By CHEKBOXES_EDITWINDOW = By.xpath("//h6[text() ='Editing 1 Roles']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By BTN_APPLY_CHANGES = By.xpath("//span[text()='Apply changes']");
+    By EDIT_HEADER = By.xpath("//h6[text()='Editing 1 Secure Shell']");
+    By CHEKBOXES_EDITWINDOW_WMI = By.xpath("//h6[text() ='Editing 1 Roles']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By EDIT_HEADER_CLICK = By.xpath("//h6[text()='Editing 1 Click']");
+    By CHEKBOXES_EDITWINDOW_CLICK = By.xpath("//h6[text() ='Editing 1 Click']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By BTN_APPLY_CHANGES_WMI = By.xpath("//span[text()='Apply changes']");
+    By EDIT_HEADER_WMI = By.xpath("//h6[text()='Editing 1 Roles']");
+    By BTN_CONFIRM = By.xpath("//span[text()='Confirm']");
     //Rules Configurations
     By LABEL_ENGINE_SETTINGS = By.xpath("//span[text()='Engine Settings']");
     By LABEL_RULES = By.xpath("//span[text()='Engine Settings']/../../following-sibling::div[1]/div/a[3]/span[2]/span[1]");
     By TEXTAREA_CONTENT = By.xpath("//textarea[@class='inputarea']");
     By CONTENT_VAULUE = By.xpath("//div[@class='view-line']/span/span");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+    By BTN_VALIDATERULE = By.xpath("//span[text()='Validate Rule']");
+    By NOTIFYTEXT = By.xpath("//p[text()='Validation passed']");
 
     //TimeRanges
     By LABEL_TIMERANGES = By.xpath("//span[text()='Time Ranges']");
