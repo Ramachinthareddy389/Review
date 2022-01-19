@@ -388,7 +388,7 @@ public class SLAsPage extends SafeActions implements SLAsLocators {
     public void verifyingActionsInEditSLAConfigWindow() {
         try {
             String actualText = safeGetText(HYPERLINK_ACTIONS, "Added BP Steps", MEDIUMWAIT);
-            String expectedText = "QA Http";
+            String expectedText = "user-login-report";
             Assert.assertEquals(actualText, expectedText);
             safeClick(BTN_REMOVE_ACTIONS, "Delete button", MEDIUMWAIT);
             safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);

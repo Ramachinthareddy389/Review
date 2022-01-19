@@ -52,34 +52,21 @@ public class ChromeBrowser implements IBrowser {
 	 * @return , returns the driver object after initiating Chrome browser
 	 */
 	private WebDriver initChromeDriver() {
+		String fileSeperator = System.getProperty("file.separator");
+		String path = System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "User-Click-Recorder---Selenium-germainAPM.crx";
+		log.info("Path of extention is -----------------"+path);
 		log.info("Launching google chrome with new profile..");
 		System.setProperty("webdriver.chrome.driver", getDriverPath());
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		prefs.put("download.default_directory", getDownloadLocation());
 		prefs.put("download.prompt_for_download", false);
-		
-        //Enable flash for desired sites
-        prefs.put("profile.default_content_setting_values.plugins", 1);
-     prefs.put("profile.content_settings.plugin_whitelist.adobe-flash-player", 1);
-     prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
-     //prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-    // prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-
-
-
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--test-type", "start-maximized");
 		options.setExperimentalOption("prefs", prefs);
-		options.addArguments("--disable-extensions");
-		options.addArguments("--disable-infobars");
-		options.addArguments("--use-fake-ui-for-media-stream");
-		//Below lines are Chrome browser version 54 and Above
-		 options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-component-update"));
-		 options.addArguments(Arrays.asList("--always-authorize-plugins","--allow-outdated-plugins"));
-
-		 //options.addArguments("headless");
-
+// options.addArguments("--disable-extensions");
+		options.addArguments("disable-infobars");
+		options.addArguments("--disable-application-cache");
+		options.addExtensions (new File(path));
 		log.info("chrome driver initialized..");
 		return new ChromeDriver(options);
 	}

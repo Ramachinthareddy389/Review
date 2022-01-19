@@ -163,7 +163,7 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_Click_004_EditClickByimportingexistingJSONfileinsystem() throws InterruptedException, AWTException {
+    public void TC_Click_004_EditClickByImportingExistingJSONFileInSystem() throws InterruptedException, AWTException {
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingJSonFileUsingImport();
         sshPage.addingClickConfigurations();
@@ -172,7 +172,7 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_Click_005_Exportactionsinsystemtoextensionwindow() throws InterruptedException, AWTException {
+    public void TC_Click_005_ExportActionsInSystemToExtensionWindow() throws InterruptedException, AWTException {
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingNewRecordingInClickPage();
         sshPage.switchingToMainWindow();

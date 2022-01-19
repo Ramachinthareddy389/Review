@@ -29,6 +29,7 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
     @Step("Verifying login page")
     public void verifyLoginPage() {
         waitForSecs(10);
+
         boolean bIsEmailAddressExists = isElementPresent(EMAILADDRESS_FIELD, MEDIUMWAIT);
         boolean bIsPasswordFieldExists = isElementPresent(PASSWORD_FIELD, MEDIUMWAIT);
         Assert.assertTrue(bIsEmailAddressExists || bIsPasswordFieldExists, "Email field/Password field textbox is not being displayed on 'Login' page");
@@ -57,8 +58,6 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
     public void clickLogInButton() {
         safeClick(LOGIN_BTN, "'Login' button in 'Login' page ", VERYLONGWAIT);
         waitForSecs(20);
-        safeClick(CANCEL_BTN,"Cancel button",MEDIUMWAIT);
-        waitForSecs(10);
     }
 
     @Step("Clicking on Logout button")

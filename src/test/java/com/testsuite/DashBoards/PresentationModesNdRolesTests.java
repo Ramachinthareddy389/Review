@@ -167,12 +167,17 @@ public class PresentationModesNdRolesTests extends BaseSetup {
     }
     
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_Rules_006_ApplyFiltersInRulesPage() {
+    public void TC_Rules_006_ApplyFiltersInRulesPage()
+    {
         presentationModesNdRulesPages.addRuleConfiguration();
         presentationModesNdRulesPages.applyingFiltersInRulesPage();
     }
 
-
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Rules_008_VerifyIconsinRulesEditConfigwindow() {
+        presentationModesNdRulesPages.addRuleConfiguration();
+        presentationModesNdRulesPages.verifyingIconsInRulesEditConfigWindow();
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_TimeRanges_001_AddAbsoluteTimeRange() {
@@ -224,7 +229,13 @@ public class PresentationModesNdRolesTests extends BaseSetup {
         presentationModesNdRulesPages.verifyingTimeRangesInGuidedSearchPage();
     }
 
-
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_TimeRanges_007_VerifyPageIconsInTimeRnges() {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.startPageConfigs();
+        presentationModesNdRulesPages.endPageConfigs();
+        presentationModesNdRulesPages.verifyingPageIconsInTimeRangesPage();
+    }
 
     //Roles Page
     @Test(alwaysRun = true, groups = "Smoke Suite")

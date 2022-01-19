@@ -25,7 +25,7 @@
 			<class name="com.testsuite.DashBoards.LocalProgramTests"></class>
 			<class name="com.testsuite.DashBoards.BusinessProcessTests"></class>
 			<class name="com.testsuite.DashBoards.KPIsTests"></class>
-			<class name="com.testsuite.DashBoards.SSHNdWMINdClickTests"></class>
+			<class name="com.testsuite.DashBoards.SSHNdWMITests"></class>
 			<class name="com.testsuite.DashBoards.UserAccessRequestTests"></class>
 			<class name="com.testsuite.DashBoards.ScriptTests"></class>
 
