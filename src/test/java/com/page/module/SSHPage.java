@@ -24,6 +24,9 @@ public class SSHPage extends SafeActions implements SSHLocators {
     String SCRIPT = "Script" + "-" + random.nextInt(500);
     String SSH = "SSH" + "-" + random.nextInt(500);
     String WMI = "WMI" + "-" + random.nextInt(500);
+    String Cred = "Cred" + "-" + random.nextInt(500);
+    String Hostname = "HostTest" + "-" + random.nextInt(500);
+    String DbTitle = "Hardware" + " - " + random.nextInt(500);
     String Cred_add, server_Add, program_Add, sla_add, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
     String NotifyText = "Unable to delete configuration entry while it is referenced by other objects.";
 
@@ -49,12 +52,12 @@ public class SSHPage extends SafeActions implements SSHLocators {
 
         safeClick(LABEl_SERVER, "Server Feild", MEDIUMWAIT);
         safeClick(SERVER_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SERVER, "QA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SERVER, "test_cloud_germainapm_com", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("QA")) {
+            if (dbs3.get(i).getText().equals("test_cloud_germainapm_com")) {
 
                 dbs3.get(i).click();
                 break;
@@ -62,9 +65,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         }
         monitoredServer_add = safeGetText(SERVER_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(monitoredServer_add);
-
-
-        safeClick(LABEl_CREDENTIALS, "Server Feild", MEDIUMWAIT);
+/*        safeClick(LABEl_CREDENTIALS, "Server Feild", MEDIUMWAIT);
         safeClick(CREDENTIALS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_CREDENTIALS, "QA Cred", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
@@ -76,7 +77,8 @@ public class SSHPage extends SafeActions implements SSHLocators {
                 dbs4.get(i).click();
                 break;
             }
-        }
+        }*/
+        addingCredentials();
         Cred_add = safeGetText(CREDENTIALS_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Cred_add);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
@@ -91,19 +93,21 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_SLA, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(10);
         List<WebElement> dbs7 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs7.size());
         for (int i = 0; i < dbs7.size(); i++) {
 
-            if (dbs7.get(i).getText().equals("Native User Click - raw - User Click SLA")) {
+            if (dbs7.get(i).getText().equalsIgnoreCase("Native User Click - raw - User Click SLA")) {
 
                 dbs7.get(i).click();
                 break;
             }
         }
+        waitForSecs(10);
         String sla2 = safeGetText(SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(sla2);
-
+        waitForSecs(10);
         String[] parts = sla2.split(" - ");
         sla_add = parts[2]; // 004
         System.out.println(sla_add);
@@ -111,14 +115,28 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
+    public void addingCredentials(){
+        waitForSecs(15);
+        safeClick(BTN_ADD_CREDENTIALS,"Click on add credentials",MEDIUMWAIT);
+        safeType(TXTBOX_SOFT_NAME, Cred, "Name into textbox", MEDIUMWAIT);
+        safeClick(LABEL_USERNAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_USERNAME, Cred, "Name into textbox", MEDIUMWAIT);
+
+        safeClick(LABEL_PASSWORD, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_PASSWORD, Cred, "Name into textbox", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "{Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "close button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
     @Step("Verifying configured values in SSH page")
     public void verifyingAddedSSH() {
         safeType(TEXTBOX_TYPESEARCH, SSH + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
-        waitForSecs(9);
+        waitForSecs(15);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(20);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = SSH;
@@ -128,6 +146,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         Assert.assertEquals(program_Add, driver.findElement(TXTBOX_PROGRAM).getAttribute("value"));
         Assert.assertEquals(server_Add, driver.findElement(TXTBOX_SERVERNAME).getAttribute("value"));
         Assert.assertEquals(monitoredServer_add, driver.findElement(EDITED_MONITORED_TXTBOX).getText());
+        waitForSecs(10);
         Assert.assertEquals(Cred_add, driver.findElement(EDITED_CREDENTIALS_TXTBOX).getText());
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
@@ -170,8 +189,9 @@ public class SSHPage extends SafeActions implements SSHLocators {
         metric.sendKeys("test123");
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
-
+        waitForSecs(10);
     }
 
     public void deletingAddedSSh() {
@@ -208,7 +228,14 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(5);
-
+        try {
+            if (isElementDisplayed(CONFIRM_DELETE)) {
+                safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        }catch (Exception e){
+            System.out.println("Confirm delete buttom is not displaying");
+        }
     }
 
     @Step("Navigating to WMI page from automation module")
@@ -243,22 +270,15 @@ public class SSHPage extends SafeActions implements SSHLocators {
         WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
         searchField.sendKeys(del5 + WMI);
         server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
-
-        safeClick(LABEL_MONITORED_SERVER, "Server Feild", MEDIUMWAIT);
-        safeClick(SERVER_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeType(TXTBOX_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
-        List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
-        for (int i = 0; i < dbs3.size(); i++) {
-
-            if (dbs3.get(i).getText().equals("QA Test")) {
-
-                dbs3.get(i).click();
-                break;
-            }
-        }
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_ADD_MONITOREDSERVER, "Server Feild", MEDIUMWAIT);
+        addingMoniteredServer();
+        waitForSecs(10);
         monitoredServer_add = safeGetText(EDITED_MONITORED_TXTBOX, "Server textbox value", MEDIUMWAIT);
-        safeClick(LABEL_EDITED_CREDENTIALS, "Server Feild", MEDIUMWAIT);
+        waitForSecs(15);
+        addingCredentials();
+      /*  safeClick(LABEL_EDITED_CREDENTIALS, "Server Feild", MEDIUMWAIT);
         safeClick(CREDENTIALS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_CREDENTIALS, "QA Datamart", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
@@ -270,9 +290,10 @@ public class SSHPage extends SafeActions implements SSHLocators {
                 dbs4.get(i).click();
                 break;
             }
-        }
+        }*/
         Cred_add = safeGetText(CREDENTIALS_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Cred_add);
+        waitForSecs(20);
         safeClick(LABEL_PROGRAM, "Server Feild", MEDIUMWAIT);
         String del6 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TXTBOX_PROGRAM);
@@ -286,7 +307,74 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_CLEAR, "clear button", MEDIUMWAIT);
 
     }
+public void addingMoniteredServer(){
+    safeType(TXTBOX_SERVER1, DbTitle, "Name into textbox", MEDIUMWAIT);
+    safeClick(LABEL_ENVIRONMENT, "Server Feild", MEDIUMWAIT);
+    safeClick(ENVIRONMENT_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+    safeClearAndType(TXTBOX_ENVIRONMENT, "Default", "Server name into textbox", MEDIUMWAIT);
+    List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+    System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+    for (int i = 0; i < dbs1.size(); i++) {
 
+        if (dbs1.get(i).getText().equals("Default")) {
+
+            dbs1.get(i).click();
+            break;
+        }
+    }
+    safeClick(LABEL_TYPE, "Vendor Feild", MEDIUMWAIT);
+    safeClick(TYPE_GHOSTTEXT, "Vendor Name ghost text", MEDIUMWAIT);
+    safeClearAndType(TXTBOX_TYPE, "Web Server", "Vendor name into textbox", MEDIUMWAIT);
+    List<WebElement> db = driver.findElements(DROPDOWN_SERVER);
+    System.out.println("Total no 0f dashboards:::====> " + db.size());
+    for (int i = 0; i < db.size(); i++) {
+
+        if (db.get(i).getText().equals("Web Server")) {
+
+            db.get(i).click();
+            break;
+        }
+    }
+    waitForSecs(10);
+
+    safeClick(LABEL_HOSTNAME, "Name Feild", MEDIUMWAIT);
+    safeType(TXTBOX_HOSTNAME, Hostname, "Name into textbox", MEDIUMWAIT);
+    waitForSecs(10);
+    safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+    waitForSecs(5);
+    safeClick(LABEL_OSFAMILY, "Vendor Feild", MEDIUMWAIT);
+    safeClick(OSFAMILY_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
+    safeClearAndType(TXTBOX_OSFAMILY, "ANDROID", "Vendor name into textbox", MEDIUMWAIT);
+    List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
+    System.out.println("Total no 0f dashboards:::====> " + db1.size());
+    for (int i = 0; i < db1.size(); i++) {
+
+        if (db1.get(i).getText().equalsIgnoreCase("ANDROID")) {
+
+            db1.get(i).click();
+            break;
+        }
+    }
+    safeClick(LABEL_OSNAME, "Vendor Feild", MEDIUMWAIT);
+    safeClick(OSNAME_GHOSTEXT, "Vendor Name ghost text", MEDIUMWAIT);
+    safeClearAndType(TXTBOX_OSNAME, "Linux", "Vendor name into textbox", MEDIUMWAIT);
+    List<WebElement> db2 = driver.findElements(DROPDOWN_SERVER);
+    System.out.println("Total no 0f dashboards:::====> " + db2.size());
+    for (int i = 0; i < db2.size(); i++) {
+
+        if (db2.get(i).getText().equalsIgnoreCase("Linux")) {
+
+            db2.get(i).click();
+            break;
+        }
+    }
+    waitForSecs(10);
+    safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+    safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+    waitForSecs(10);
+    safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    waitForSecs(10);
+}
     @Step("Verifying the edited values in SSH edit window ")
     public void verifyingAfterSSHEditedConfigValues() {
         safeType(TEXTBOX_TYPESEARCH, WMI + "\n", "Alert Name into type search");
@@ -1084,7 +1172,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         waitForSecs(10);
         String SLAname = safeGetAttribute(SLA_TXTBOX, "value", "Script", MEDIUMWAIT);
         System.out.println(SLAname);
-        Assert.assertEquals(SLAname, "Agent Desktop Click");
+        Assert.assertEquals(SLAname, "User Click SLA");
         waitForSecs(5);
         safeClick(CLOSE_EDITWINDOW, "Close Edit window", MEDIUMWAIT);
         waitForSecs(5);

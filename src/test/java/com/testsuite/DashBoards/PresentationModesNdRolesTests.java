@@ -236,6 +236,21 @@ public class PresentationModesNdRolesTests extends BaseSetup {
         presentationModesNdRulesPages.endPageConfigs();
         presentationModesNdRulesPages.verifyingPageIconsInTimeRangesPage();
     }
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_TimeRanges_008_ApplyFiltersInTimeRanges() {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.startPageConfigs();
+        presentationModesNdRulesPages.endPageConfigs();
+        presentationModesNdRulesPages.applyingFiltersInTimeRangesPage();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_TimeRanges_010_VerifyIconsinTimeRangesEditconfigWindow() {
+        presentationModesNdRulesPages.addingTimeRanges();
+        presentationModesNdRulesPages.startPageConfigs();
+        presentationModesNdRulesPages.endPageConfigs();
+        presentationModesNdRulesPages.verifyingIconsInTimeRangesEditConfigWindow();
+    }
 
     //Roles Page
     @Test(alwaysRun = true, groups = "Smoke Suite")

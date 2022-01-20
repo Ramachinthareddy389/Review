@@ -147,7 +147,7 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_Click_002_AddclickbyimportingexistingJSonfileinsystem() throws InterruptedException, AWTException {
+    public void TC_Click_002_AddClickByImportingExistingJSonFileinSystem() throws InterruptedException, AWTException {
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingJSonFileUsingImport();
         sshPage.addingClickConfigurations();
@@ -204,7 +204,7 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_Click_011_NavigatetoSLAEditWindowfrmClickEditWindow() throws InterruptedException, AWTException {
+    public void TC_Click_011_NavigatetoSLAEditWindowFrmClickEditWindow() throws InterruptedException, AWTException {
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingNewRecordingInClickPage();
         sshPage.switchingToMainWindow();
@@ -238,7 +238,7 @@ public class SSHNdWMITests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_SSH_006_NavigateToSLAspageonclickinganySLAunderTriggeredBySLAsColumn() {
+    public void TC_SSH_006_NavigateToSLAsPageonClickingAnySLAsUnderTriggeredBySLAsColumn() {
         sshPage.clickingOnAutomation();
         sshPage.addingSSH();
         sshPage.navigateToSLAPageFrmSSHPage();
