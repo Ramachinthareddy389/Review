@@ -1,20 +1,16 @@
 package com.base;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.datamanager.ConfigManager;
 import com.testng.Assert;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -53,7 +49,7 @@ public class ChromeBrowser implements IBrowser {
 	 */
 	private WebDriver initChromeDriver() {
 		String fileSeperator = System.getProperty("file.separator");
-		String path = System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "User-Click-Recorder---Selenium-germainAPM.crx";
+		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "User-Click-Recorder---Selenium-germainAPM.crx";
 		log.info("Path of extention is -----------------"+path);
 		log.info("Launching google chrome with new profile..");
 		System.setProperty("webdriver.chrome.driver", getDriverPath());
@@ -63,12 +59,14 @@ public class ChromeBrowser implements IBrowser {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--test-type", "start-maximized");
 		options.setExperimentalOption("prefs", prefs);
-// options.addArguments("--disable-extensions");
+//		options.addArguments("--disable-extensions");
 		options.addArguments("disable-infobars");
 		options.addArguments("--disable-application-cache");
 		options.addExtensions (new File(path));
 		log.info("chrome driver initialized..");
-		return new ChromeDriver(options);
+		DesiredCapabilities desiredCapabilities=DesiredCapabilities.chrome();
+		desiredCapabilities.setCapability(ChromeOptions.CAPABILITY,options);
+		return new ChromeDriver(desiredCapabilities);
 	}
 
 	/**
@@ -95,9 +93,6 @@ public class ChromeBrowser implements IBrowser {
 			log.info("Running with specified chrome profile");
 			options.addArguments("user-data-dir=" + UserDataPath);
 			options.addArguments("--profile-directory=" + ProfileName);
-			options.addArguments("--disable-extensions");
-			options.addArguments("--disable-infobars");
-			options.addArguments("headless");
 			log.info("Init chrome driver with custom profile is completed..");
 		} else {
 			log.info("Specified chrome profile does not exists in 'User Data' folder");
@@ -125,7 +120,7 @@ public class ChromeBrowser implements IBrowser {
 		else if (System.getProperty("os.name").toLowerCase().contains("mac"))
 			chromeLocation = chromeLocation + "chromedriver";
 		else if (System.getProperty("os.name").toLowerCase().contains("linux"))
-			chromeLocation+="chromedriver";
+			chromeLocation = chromeLocation + "chromedriver_linux64";
 
 		return chromeLocation;
 
@@ -135,7 +130,6 @@ public class ChromeBrowser implements IBrowser {
 	 * Method to retrieve the Chrome 'User Data' path given in Properties file
 	 * 
 	 * @return - returns chrome user data path
-	 * @throws Exception
 	 */
 	public String getUserDataPath() {
 		return sys.getProperty("ChromeUserDirectoryPath");
@@ -145,7 +139,6 @@ public class ChromeBrowser implements IBrowser {
 	 * Method to retrieve the Chrome 'User Data' path given in Properties file
 	 * 
 	 * @return - returns chrome user data path
-	 * @throws Exception
 	 */
 	public String getProfileName() {
 		return sys.getProperty("ChromeProfileFoldername");
@@ -155,7 +148,6 @@ public class ChromeBrowser implements IBrowser {
 	 * Method to retrieve the Chrome 'User Data' path given in Properties file
 	 * 
 	 * @return - returns chrome user data path
-	 * @throws Exception
 	 */
 	public boolean isUserDataDirPresent() {
 		String sUserData = getUserDataPath();
@@ -177,7 +169,6 @@ public class ChromeBrowser implements IBrowser {
 	 * Method to retrieve the Chrome 'User Data' path given in Properties file
 	 * 
 	 * @return - returns chrome user data path
-	 * @throws Exception
 	 */
 	public boolean isProfileDirPresent() {
 		String profilePath = getUserDataPath() + fileSeperator
@@ -200,7 +191,6 @@ public class ChromeBrowser implements IBrowser {
 	 * Method to get file download path location
 	 * 
 	 * @return - returns file download path
-	 * @throws IOException
 	 */
 	public String getDownloadLocation() {
 		String DownloadPath = System.getProperty("user.dir") + fileSeperator

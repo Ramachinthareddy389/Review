@@ -19,6 +19,7 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
     String Maintenance = "Maintenance" + "-" + random.nextInt(500);
     String Httpaction = "Httpaction" + "-" + random.nextInt(500);
     String Alert = "Alert" + "-" + random.nextInt(500);
+    String DistriList = "DistriList" + "-" + random.nextInt(500);
     String Name_Add, Duration_Add, sla_add, Edited_Cred_User_Name, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;
 
 
@@ -275,7 +276,8 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         waitForSecs(30);
         safeClick(LABEL_NAME_ALERT, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME_ALERT, Alert, "Name into textbox", MEDIUMWAIT);
-        safeClick(LABEL_DISTRIBUTION_LIST, "Server Feild", MEDIUMWAIT);
+        addingDistriList();
+/*        safeClick(LABEL_DISTRIBUTION_LIST, "Server Feild", MEDIUMWAIT);
         safeClick(DISTRIBUTION_LIST_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_DISTRIBUTION_LIST, "germain-admin", "Server name into textbox", MEDIUMWAIT);
         waitForSecs(30);
@@ -288,9 +290,35 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
                 dbs1.get(i).click();
                 break;
             }
-        }
+        }*/
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+    }
+
+    public void addingDistriList(){
+        safeClick(DISTRIBUTION_LIST_ADDICON,"Distribution List",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TXTBOX_DISTI_NAME, DistriList, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_DISTI_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        waitForSecs(10);
+        safeClick(BTN_NEXT_DISTRI, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESS, "rama.chinthareddy@zenq.com", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals("rama.chinthareddy@zenq.com")) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
@@ -348,25 +376,36 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(10);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("User Click - raw - User Click SLA")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("Native User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
             }
         }
+        waitForSecs(10);
         String sla = safeGetText(SLA_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(sla);
-        System.out.println(sla);
+        waitForSecs(10);
         String[] parts = sla.split(" - ");
         sla_add = parts[2]; // 004
         System.out.println(sla_add);
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void verifyingReaccuranceOfCheckBoxInEditMaintenanceWindow() {
@@ -402,7 +441,9 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         safeClick(CLOSE_EDITWINDOW, "Close window", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(BTN_PLAY, "Play button", MEDIUMWAIT);
+        if(isElementDisplayed(BTN_PLAY)) {
+            safeClick(BTN_PLAY, "Play button", MEDIUMWAIT);
+        }
         safeClick(BTN_PAUSE, "Play button", MEDIUMWAIT);
         safeClick(BTN_PLAY, "Play button", MEDIUMWAIT);
         safeClick(BTN_PAUSE, "Play button", MEDIUMWAIT);
@@ -420,6 +461,7 @@ public class MaintenancePage extends SafeActions implements MaintenanceLocators 
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
         waitForSecs(10);
+        safeClick(BTN_PAUSE, "Play button", MEDIUMWAIT);
     }
 
     public void verifyingGlobalMaintanennce() {

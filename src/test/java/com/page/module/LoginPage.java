@@ -49,6 +49,7 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
         else
             safeType(PASSWORD_FIELD, sPassword, "'Password' field in 'Login' page", MEDIUMWAIT);
         waitForPageToLoad(VERYSHORTWAIT);
+
     }
 
     /**

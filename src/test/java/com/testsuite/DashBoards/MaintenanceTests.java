@@ -53,7 +53,7 @@ public class MaintenanceTests extends BaseSetup {
         maintenancePage.addActionsInEditMaintenanceWindow();
         maintenancePage.addingHTTPactionInMaintennceWindow();
         maintenancePage.addingLocalProgrammes();
-        localProgramPage.addingLocalPrograms();
+
 
     }
 

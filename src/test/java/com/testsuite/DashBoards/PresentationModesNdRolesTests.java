@@ -268,4 +268,16 @@ public class PresentationModesNdRolesTests extends BaseSetup {
         presentationModesNdRulesPages.editUserRolesConfig();
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_UserRoles_003_VerifyPageIconsinRoles() {
+        presentationModesNdRulesPages.clickingOnUserRoles();
+        presentationModesNdRulesPages.addingNewUserRoles();
+        presentationModesNdRulesPages.verifyingPageIconsRolesPage();
+    }
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_UserRoles_004_ApplyfiltersinRoles() {
+        presentationModesNdRulesPages.clickingOnUserRoles();
+        presentationModesNdRulesPages.addingNewUserRoles();
+        presentationModesNdRulesPages.applyingFiltersInRolesPage();
+    }
 }

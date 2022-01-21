@@ -391,6 +391,7 @@ public void addingMoniteredServer(){
         Assert.assertEquals(program_Add, driver.findElement(TXTBOX_PROGRAM).getAttribute("value"));
         Assert.assertEquals(server_Add, driver.findElement(TXTBOX_SERVERNAME).getAttribute("value"));
         Assert.assertEquals(monitoredServer_add, driver.findElement(EDITED_MONITORED_TXTBOX).getText());
+        waitForSecs(10);
         Assert.assertEquals(Cred_add, driver.findElement(EDITED_CREDENTIALS_TXTBOX).getText());
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);

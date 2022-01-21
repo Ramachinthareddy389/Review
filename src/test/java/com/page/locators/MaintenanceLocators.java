@@ -9,6 +9,7 @@ public interface MaintenanceLocators {
      By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
      By LABEL_NAME = By.xpath("//label[@id='name-label']");
      By TXTBOX_NAME = By.xpath("//input[@id='name']");
+     By TXTBOX_DISTI_NAME = By.xpath("(//input[@id='name'])[3]");
      By BTN_FINISH = By.xpath("//span[text()='Finish']");
      By BTN_CLOSE = By.xpath("//span[text()='Close']");
      By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
@@ -18,6 +19,7 @@ public interface MaintenanceLocators {
      By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
      By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
      By ACTIONS_ADD_ICON = By.xpath("//span[text()='Actions']/../../../../../../button/span/i");
+     By DISTRIBUTION_LIST_ADDICON = By.xpath("//span[text()='Distribution List']/../../../../../../button/span/i");
      By ALERT_LABEL = By.xpath("//li[text()='Alert']");
      By HTTP_ACTION_LABEL = By.xpath("//li[text()='HTTP Action']");
      By LOCALPROGRAM_LABEL = By.xpath("//li[text()='Local Program']");
@@ -31,6 +33,10 @@ public interface MaintenanceLocators {
      By TXTBOX_DISTRIBUTION_LIST = By.xpath("//input[@id='alertGroupName']");
      By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
      By BTN_NEXT = By.xpath("//span[text()='Next']");
+     By BTN_NEXT_DISTRI = By.xpath("(//span[text()='Next'])[2]");
+     By LABEL_EMAIL_ADDRESS = By.xpath("//input[@id='name']/../../../div[1]/../../../../label/p/span[1]");
+     By EMAIL_ADDRESS_GHOSTEXT = By.xpath("//input[@id='name']/../../../div[1]");
+     By TXTBOX_EMAIL_ADDRESS = By.xpath("(//input[@id='name'])[3]");
      By LABEL_PATH = By.xpath("//label[@id='path-label']/p/span[text()='Path']");
      By TXTBOX_PATH= By.xpath("//input[@id='path']/../../../../div/div/div/input");
      By LABEL_REQUEST_METHOD = By.xpath("//span[text()='Request Method']");
@@ -40,7 +46,7 @@ public interface MaintenanceLocators {
      By CONTENT_TYPE_GHOSTTEXT = By.xpath("//input[@id='contentType']/../../../div[1]");
      By TXTBOX_CONTENT_TYPE = By.xpath("//input[@id='contentType']");
      By LABEL_SLA = By.xpath("//div[contains(@class,'WizardStep')]/div/div/div/div/div/div/label/p/span");
-     By TXTBOX_SLA = By.xpath("//input[@id='names']");
+     By TXTBOX_SLA = By.xpath("//input[@id='sla']");
      By LABEL_PROGRAM = By.xpath("//span[text()='Program']");
      By TXTBOX_PROGRAM = By.xpath("//input[@id='command']");
      By SLA_GHOSTTEXT = By.xpath("//input[@id='sla']/../../../div[1]");
