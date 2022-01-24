@@ -249,4 +249,25 @@ public class EmailPage extends SafeActions implements EmailLocators {
         driver.switchTo().defaultContent();
     }
 
+
+    public void navigatingToYopMailWithoutWelcomeMail(String Email,String title){
+        safeTypeUsingChrod(TXTBOX_YOPMAIL, Email, "Entering yop mail", MEDIUMWAIT);
+        safeClick(BTN_FORWARD, "Forward button", MEDIUMWAIT);
+        waitForSecs(10);
+        refresh();
+        int size = driver.findElements(By.tagName("iframe")).size();
+        System.out.println("Total Frames --" + size);
+        selectFrame(0);
+        String day= driver.findElement(By.xpath("//div[@class='mday']")).getText();
+        Assert.assertEquals(day,"today");
+        String subject = safeGetText(LABEL_RECEIVED_EMAIl, "text", MEDIUMWAIT);
+        System.out.println(subject);
+        if (!subject.equals(title)) {
+            Assert.assertTrue(true);
+
+        }
+        waitForSecs(20);
+        driver.switchTo().defaultContent();
+    }
+
 }

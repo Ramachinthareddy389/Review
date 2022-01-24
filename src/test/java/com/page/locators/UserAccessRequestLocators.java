@@ -34,8 +34,30 @@ public interface UserAccessRequestLocators {
     By BTN_SAVE = By.xpath("//div[@aria-label='Save User']");
     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
     By BTN_RESET_PASSWORD = By.xpath("//span[text()='Reset Password']");
-
-
+    By TXT_SEND_WELCOME_EMAIL = By.xpath("//span[text()='Send Welcome Email']");
+    By TXTBOX_TYPE = By.xpath("//input[@id ='type']");
+    By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
+    By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[contains(text(),'Type')]");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
+    By BTN_ENABLE = By.xpath("//div[@aria-label='Enable Selected User(s)']");
+    By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected User(s)']");
+    By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
+    By BTN_STATUS = By.xpath("//div[@aria-disabled='true']");
+    By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected User(s)']");
+    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+    By DISABLE_ICON = By.xpath("//div[@aria-label='Save User']/following-sibling::div[@aria-label='Disable User']");
+    By CLONE_ICON = By.xpath("//div[@aria-label='Save Configuration']/following-sibling::div[@aria-label='Clone Configuration']");
+    By ENABLED_STATUS = By.xpath("//div[@aria-label='Enable User']");
+    By EYE_ICON = By.xpath("//button[@aria-label='view']");
+    By KPIS_TEXT = By.xpath("//h6[text()='Dashboard']");
+    By BTN_SAVE_USER = By.xpath("//div[@aria-label='Save User']");
+    By BTN_EDIT = By.xpath("//div[@aria-label='Edit Selected Configuration']");
+    By CHEKBOXES_EDITWINDOW = By.xpath("//h6[text() ='Editing 1 Roles']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
+    By BTN_APPLY_CHANGES = By.xpath("//span[text()='Apply changes']");
+    By EDIT_HEADER = By.xpath("//h6[text()='Editing 1 Secure Shell']");
     //
 
     By ICON_USER = By.xpath("//span[@class='MuiIconButton-label']/descendant::i[contains(@class,'fas fa-user')]");

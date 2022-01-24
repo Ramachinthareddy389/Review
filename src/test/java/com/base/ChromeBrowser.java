@@ -64,9 +64,7 @@ public class ChromeBrowser implements IBrowser {
 		options.addArguments("--disable-application-cache");
 		options.addExtensions (new File(path));
 		log.info("chrome driver initialized..");
-		DesiredCapabilities desiredCapabilities=DesiredCapabilities.chrome();
-		desiredCapabilities.setCapability(ChromeOptions.CAPABILITY,options);
-		return new ChromeDriver(desiredCapabilities);
+		return new ChromeDriver(options);
 	}
 
 	/**

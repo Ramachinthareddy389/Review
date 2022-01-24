@@ -55,7 +55,7 @@ public interface MaintenanceLocators {
      By ICON_REFRESH_ICON = By.xpath("//div[@class='MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate']");
      By BTN_PLAY = By.xpath("//i[@class='fas fa-play-circle']");
      By BTN_PAUSE = By.xpath("//i[@class='fas fa-stop-circle']");
-     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']");
+     By CLOSE_EDITWINDOW = By.xpath("//div[@aria-label='Close Editor']/span/i");
      By BTN_CLEAR = By.xpath("//span[text()='Clear']");
      By GLOBAL_MAINTENANCE_LABEL = By.xpath("//span[text()='global-maintenance']");
      By GLOBAL_MAINTENANCE_STATUS = By.xpath("//span[text()='global-maintenance']/../../../div[3]/span/div/div");
