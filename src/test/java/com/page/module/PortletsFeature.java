@@ -370,11 +370,12 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Verifying GHPortlet")
     public void VerifyingGHPortlet(String dname1) {
         waitForSecs(10);
-        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + dname1 + "']");
+        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + dname1 +" (Minute)"+"']");
+        System.out.println(NTABULAR_PORTLET_TITLE);
         waitUntilClickable(NTABULAR_PORTLET_TITLE, "GH Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(NTABULAR_PORTLET_TITLE).isDisplayed())
             Assert.fail("GH portlet added is not displayed in Dashboard page");
-        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + dname1 + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
+        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + dname1  +" (Minute)"+"']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_NTABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for N Tabular Portlet");
         mouseHoverJScript(FILTER_NTABULAR_PORTLET, "Filter icon", "Filter icon in N Tabular Portlet", MEDIUMWAIT);

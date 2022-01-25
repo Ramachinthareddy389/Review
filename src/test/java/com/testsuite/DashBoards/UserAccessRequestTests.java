@@ -147,6 +147,20 @@ public class UserAccessRequestTests extends BaseSetup {
         emailPage.deletingemailsfromgmail();
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_Users_007_AddingTechnicalTypeUser() {
+        userAccessRequestPage.addingTechicalUser("TECHNICAL", "test12345@yopmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        userAccessRequestPage.verifyingAddedUser("TECHNICAL");
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Users_008_AddingBusinessTypeUser(){
+        userAccessRequestPage.addingTechicalUser("BUSINESS", "test12345@yopmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        userAccessRequestPage.verifyingAddedUser("BUSINESS");
+    }
+
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_UserAccessReq_003_VerifyUserAccessRequestsForTemporaryUsers() throws InterruptedException {
         dashboardOverviewPage.addingNewDashboard();

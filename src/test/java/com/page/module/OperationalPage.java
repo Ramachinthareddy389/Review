@@ -4,6 +4,7 @@ import com.page.data.DashBoardData;
 import com.page.locators.DashBoardLocators;
 import com.page.locators.OperationalLocators;
 import com.selenium.SafeActions;
+import com.selenium.Sync;
 import com.testng.Assert;
 import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.By;
@@ -39,7 +40,6 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         System.out.println(b);
         String AppName = driver.findElements(APP_NAMES).get(0).getText();
         System.out.println(AppName);
-        waitForSecs(10);
         driver.findElements(ICONS_DRILLTHROUGH).get(1).click();
         waitForSecs(10);
         String kpi = driver.findElements(KPINAMES).get(0).getText();
@@ -216,11 +216,15 @@ public class OperationalPage extends SafeActions implements OperationalLocators 
         Assert.assertEquals(text1, dashBoardData.drillthrghpage + " " + kpi1);
         String appNameIndrilthrgh = safeGetText(APPNAME_IN_DRILLTHROUGH, "Application Name", MEDIUMWAIT);
         System.out.println(appNameIndrilthrgh);
-        String expectedText = "Application Name" + " " + "is" + " " + appNameIndrilthrgh;
-        String actulaText = "Application Name" + " " + "is" + " " + "Browser Inactivities";
-        Assert.assertEquals(expectedText, actulaText);
-        waitForSecs(15);
+        String actulaText = "Application Name" + " " + "is" + " " + text1+"s";
 
+        if(appNameIndrilthrgh.equalsIgnoreCase("Browser Inactivities")) {
+            String expectedText = "Application Name" + " " + "is" + " " +"Drillthrough on "+ "Browser Inactivity";
+            Assert.assertEquals(expectedText, actulaText);
+            waitForSecs(15);
+        }
+        String expectedText = "Application Name" + " " + "is" + " " +"Drillthrough on "+ appNameIndrilthrgh;
+        Assert.assertEquals(expectedText, actulaText);
     }
 
 

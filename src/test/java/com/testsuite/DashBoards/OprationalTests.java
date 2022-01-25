@@ -54,7 +54,7 @@ public class OprationalTests extends BaseSetup {
     public void TC_Oper_003_validatingPivotNdDrillthroughUsingOperational() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
-       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         OperationalPage.validatingPivotPageUsingOperational();
         OperationalPage.clickingOperationButton();
         OperationalPage.validatingDrillthroughPageUsingOprtaional();
@@ -65,7 +65,7 @@ public class OprationalTests extends BaseSetup {
     public void TC_Oper_005_VerifyCountofKPI() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         OperationalPage.clickingOperationButton();
-       // dashboardOverviewPage.validatingThisMonth("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         OperationalPage.validatingCountOfKPI();
     }
 
@@ -142,6 +142,7 @@ public class OprationalTests extends BaseSetup {
         OperationalPage.validatingPivotPageUsingOperational();
         OperationalPage.clickingOperationButton();
         OperationalPage.navigateToEnvironmentTab();
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
         OperationalPage.validatingDrillthroughPageUsingOprtaional();
     }
 
