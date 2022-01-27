@@ -49,37 +49,38 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(LABEL_TEXT_TITLE,MEDIUMWAIT);
         safeClick(LABEL_TEXT_TITLE, "Text title label", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         textTitle = driver.findElement(ADDED_TEXT_AREA).getText();
-        waitForSecs(10);
+        isElementClickable(LABEL_TEXT_CONTENT,MEDIUMWAIT);
         safeClick(LABEL_TEXT_CONTENT, "Text Content", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementPresent(TXTBOX_USERNAME_QUERY,MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         textContent = driver.findElement(ADDED_TEXT_CONTENT).getText();
-        waitForSecs(10);
+        isElementVisible(BTN_NEXT,MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(LABEL_HTML_TITLE, "Text title label", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         htmlTitle = driver.findElement(ADDED_TEXT_HTML_TITLE).getText();
-        waitForSecs(10);
+        isElementClickable(LABEL_HTML_CONTENT,MEDIUMWAIT);
         safeClick(LABEL_HTML_CONTENT, "Text Content", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         htmlContent = driver.findElement(ADDED_TEXT_HTM_CONTENT).getText();
-        waitForSecs(10);
+        isElementVisible(BTN_NEXT,MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(LABEL_SMS_TITLE,MEDIUMWAIT);
         safeClick(LABEL_SMS_TITLE, "Text title label", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         smsTitle = driver.findElement(ADDED_TEXT_SMS_TITLE).getText();
-        waitForSecs(10);
+        isElementClickable(LABEL_SMS_CONTENT,MEDIUMWAIT);
         safeClick(LABEL_SMS_CONTENT, "Text Content", MEDIUMWAIT);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(1).sendKeys("testcontent");
         smsContent = driver.findElement(ADDED_TEXT_SMS_CONTENT).getText();
-        waitForSecs(10);
+        isElementClickable(BTN_FINISH,MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        isElementClickable(BTN_CLOSE,MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
     }
 
@@ -226,22 +227,22 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         for (int i = 0; i <= chkboxes.size() - 1; i++) {
             chkboxes.get(i).click();
         }
-        waitForSecs(10);
+        isElementClickable(BTN_APPLY_CHANGES_WMI,MEDIUMWAIT);
         safeClick(BTN_APPLY_CHANGES_WMI, "Apply changes", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_CONFIRM,MEDIUMWAIT);
         safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(SELECTROW_CHKBOX,MEDIUMWAIT);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_EXECUTE,MEDIUMWAIT);
         safeClick(BTN_EXECUTE, "Button execute", MEDIUMWAIT);
         String actualText = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, "Action(s) queued");
-        waitForSecs(10);
+        isElementClickable(SELECTROW_CHKBOX,MEDIUMWAIT);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_DELETE1,MEDIUMWAIT);
         safeClick(BTN_DELETE1, "Delete button", MEDIUMWAIT);
-        waitForSecs(15);
+        isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         try {
             String Notify = safeGetText(FOOTERTEXT, "Notification", MEDIUMWAIT);
@@ -249,13 +250,13 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
             if (Notify.equals(NotifyText)) {
                 mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
                 safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-                waitForSecs(9);
+                isElementClickable(DELETE_ALERT,MEDIUMWAIT);
                 safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
-                waitForSecs(5);
+                isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
                 safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-                waitForSecs(10);
+                isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
                 safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-                waitForSecs(10);
+                waitForPageToLoad();
 
             }
         } catch (Exception e) {

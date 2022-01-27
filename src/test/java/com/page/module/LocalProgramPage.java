@@ -72,32 +72,33 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
     }
 
     public void verifyingLocalprogrames(){
-        waitForSecs(10);
+        isElementClickable(SEARCH_ICON,MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementPresent(TYPE_SEARCH,MEDIUMWAIT);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        waitForSecs(10);
+        isElementClickable(DROPDOWN_FEILDS,MEDIUMWAIT);
         safeClick(DROPDOWN_FEILDS, "Dropdown field", MEDIUMWAIT);
         waitForSecs(10);
         By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementPresent(HEADER_DB,MEDIUMWAIT);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = LCLPRGM;
         Assert.assertEquals(pageTitle, expectedText);
-        waitForSecs(10);
+        isElementPresent(HYPERLINK_SLAs,MEDIUMWAIT);
         Assert.assertEquals(sla_add,driver.findElement(HYPERLINK_SLAs).getText());
         Assert.assertEquals(program_Add,driver.findElement(TXTBOX_PROGRAM).getAttribute("value"));
+        isElementClickable(DELETE_ALERT,MEDIUMWAIT);
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
-        waitForSecs(5);
+        isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForPageToLoad();
     }
 
     public void addingLocalProgramWithoutSla(){
@@ -297,18 +298,18 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
     }
     public void verifyingPageIconsInLocalPrgms() {
         safeClick(BTN_LOCAL_PRGMS, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
-        waitForSecs(10);
+        waitUntilClickable(SEARCH_ICON,"Search icon",MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(TYPE_SEARCH,MEDIUMWAIT);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        waitForSecs(10);
+        isElementClickable(DROPDOWN_FEILDS,MEDIUMWAIT);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        isElementVisible(SELECTROW_CHKBOX,MEDIUMWAIT);
         boolean b1 = isElementSelected(SELECTROW_CHKBOX);
         System.out.println(b1);
         Assert.assertTrue(b1);
@@ -322,26 +323,26 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         boolean row = isElementSelected(SELECTROW_CHKBOX);
         System.out.println(row);
         Assert.assertFalse(row);
+        isElementClickable(SELECTROW_CHKBOX,MEDIUMWAIT);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        isElementClickable(BTN_CLONE,MEDIUMWAIT);
         safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementPresent(HEADER_CLONED,MEDIUMWAIT);
         String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = LCLPRGM + " - Cloned";
         Assert.assertEquals(pageTitle, expectedText);
-        waitForSecs(5);
+        isElementClickable(DELETE_ALERT,MEDIUMWAIT);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
-        waitForSecs(20);
+        isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(15);
-        waitForSecs(25);
+        isElementClickable(SELECTROW_CHKBOX,MEDIUMWAIT);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(5);
+        isElementClickable(BTN_ENABLE,MEDIUMWAIT);
         safeClick(BTN_ENABLE, "Enable config button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(SELECTROW_CHKBOX,MEDIUMWAIT);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_EDIT,MEDIUMWAIT);
         safeClick(BTN_EDIT, "Edit button", MEDIUMWAIT);
         boolean editTitle = isElementDisplayed(EDIT_HEADER);
         Assert.assertTrue(editTitle);
@@ -349,31 +350,32 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         for (int i = 0; i <= chkboxes.size() - 1; i++) {
             chkboxes.get(i).click();
         }
-        waitForSecs(10);
+        isElementClickable(BTN_APPLY_CHANGES,MEDIUMWAIT);
         safeClick(BTN_APPLY_CHANGES, "Apply changes", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_CONFIRM,MEDIUMWAIT);
         safeClick(BTN_CONFIRM, "Confirm button", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(SELECTROW_CHKBOX,MEDIUMWAIT);
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_EXECUTE,MEDIUMWAIT);
         safeClick(BTN_EXECUTE,"Button execute",MEDIUMWAIT);
         String actualText= safeGetText(FOOTERTEXT,"Notification",MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText,"Action(s) queued");
         safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(BTN_DELETE,MEDIUMWAIT);;
         safeClick(BTN_DELETE, "Delete button", MEDIUMWAIT);
-        waitForSecs(15);
+        isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);;
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForPageToLoad();
 
     }
     public void applyingFiltersInLocalprgmPage() {
-        waitForSecs(10);
+        isElementClickable(SEARCH_ICON,MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementPresent(TYPE_SEARCH,MEDIUMWAIT);
         safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        waitForSecs(10);
+        isElementClickable(DROPDOWN_FEILDS,MEDIUMWAIT);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
@@ -385,11 +387,11 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
         Assert.assertEquals(BPName, LCLPRGM);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(10);
+        isElementClickable(DELETE_ALERT,MEDIUMWAIT);
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
-        waitForSecs(20);
+        isElementClickable(CONFIRM_DELETE,MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
-        waitForSecs(15);
+         waitForPageToLoad();
 
     }
 

@@ -10,5 +10,6 @@ public interface LogInPageLocators
 	 By CANCEL_BTN = By.xpath("//span[text()='Cancel']");
 	 By USERICON = By.xpath("//button[@title='Presentation mode']/following-sibling::button[2]");
   	 By LOGOUT = By.xpath("//span[text()='Logout']");
+  	 By INSIGHT_LABEL = By.xpath("//span[text()='Insights']");
 
 }

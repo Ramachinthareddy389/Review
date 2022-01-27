@@ -155,10 +155,25 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_Users_008_AddingBusinessTypeUser(){
+    public void TC_Users_008_AddingBusinessTypeUser()
+    {
         userAccessRequestPage.addingTechicalUser("BUSINESS", "test12345@yopmail.com");
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         userAccessRequestPage.verifyingAddedUser("BUSINESS");
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Users_009_VerifyPageIconsInUsers(){
+        userAccessRequestPage.addingTechicalUser("TECHNICAL", "test12345@yopmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        userAccessRequestPage.verifyingPageIconsRolesPage("test12345@yopmail.com");
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Users_010_ApplyFiltersInUsers(){
+        userAccessRequestPage.addingTechicalUser("BUSINESS", "test12345@yopmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        userAccessRequestPage.applyingFiltersInUsersPage("BUSINESS", "test12345@yopmail.com");
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
@@ -197,7 +212,8 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_Login_008_ResetpasswordusingForgotPasswordfield() {
+    public void TC_Login_008_ResetpasswordusingForgotPasswordfield()
+    {
         userAccessRequestPage.signOut();
         userAccessRequestPage.verifyingFunctionalityOfForgotPassword("test1zenq@yopmail.com");
         getDriver().get(dashBoardData.yopmail);
@@ -208,7 +224,8 @@ public class UserAccessRequestTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_Login_002_LoginwithinvalidUsernamendValidPassword() {
+    public void TC_Login_002_LoginwithinvalidUsernamendValidPassword()
+    {
         userAccessRequestPage.signOut();
         userAccessRequestPage.verifyinginvalidUsernamendValidPassword("test12@yopmail.com", "Test@123");
 

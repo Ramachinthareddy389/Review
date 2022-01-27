@@ -66,13 +66,12 @@ public void clickingOnAllModule(){
             }
         }
 
-        waitForSecs(10);
+        waitUntilClickable(BUTTON_FINISH,"Finish button",MEDIUMWAIT);
         System.out.println("Before finish");
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(10);
-        System.out.println("after finish");
+        waitUntilClickable(BUTTON_CLOSE,"Finish button",MEDIUMWAIT);
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);
-        waitForSecs(20);
+     waitForPageToLoad();
     }
 
     @Step("Adding dashbaord in Dashboard overview page")

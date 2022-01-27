@@ -15,7 +15,7 @@ public class UXSettingsPage extends SafeActions implements UXSettingsLocators {
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
-    String AppProfieName ="Angular";
+    String AppProfieName ="Germain APM Workspace";
 
 
 
@@ -112,7 +112,10 @@ public class UXSettingsPage extends SafeActions implements UXSettingsLocators {
         waitForSecs(10);
         safeClick(BTN_CONFIRM,"Confirm button",MEDIUMWAIT);
         waitForSecs(10);
-
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_ENABLE, "Enable config button", MEDIUMWAIT);
+        waitForSecs(10);
 
     }
     public void applyingFiltersInUxSettingsWindow() {
