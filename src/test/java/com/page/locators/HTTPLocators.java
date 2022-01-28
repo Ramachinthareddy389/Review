@@ -67,6 +67,8 @@ public interface HTTPLocators {
     By KPIS_TEXT = By.xpath("//h6[text()='Alert Template']");
     By LIST_OF_KPIS_VALUES = By.xpath("//div[contains(@class,'MuiDialogContent-root')]/descendant::p/following-sibling::span/span");
     By CLOSE_WINDOW = By.xpath("//button[@aria-label='close']");
+    By BTN_SHOWADVANCED = By.xpath("//span[text()='Show Advanced']");
+    By TXTBOX_EXECOUNT = By.xpath("//input[@id='limitCount']");
     //HTTP SCENARIOS
     By BTN_ADDICON_HTTP_SCENARIOS = By.xpath("//h5[text()='Http Scenarios']/../div/div/button/span/i[@aria-label='Add New Configuration']");
     By LABEL_HTTPSCENARIO = By.xpath("//li[text()='HTTP Scenario']");

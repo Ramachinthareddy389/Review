@@ -27,7 +27,7 @@ public class ComponentTests extends BaseSetup {
     String Cred = "Cred" + "-" + random.nextInt(500);
     String Querys = "Querys" + " - " + random.nextInt(500);
     String Component = "Component" + "-" + random.nextInt(500);
-
+    String AutoConfig = "AutoConfig" + "-" + random.nextInt(500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -227,26 +227,36 @@ public class ComponentTests extends BaseSetup {
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_Auto_001_AddAutoConfig() {
-        componentPage.addingAutoConfig();
-        componentPage.verifyingAddedAutoConfig();
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.verifyingAddedAutoConfig(AutoConfig);
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_Auto_002_EditAutoConfig() {
-        componentPage.addingAutoConfig();
-        componentPage.editAutoConfig();
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.editAutoConfig(AutoConfig);
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Auto_003_RepplyToServers() {
-        componentPage.addingAutoConfig();
-        componentPage.repplyToServers();
+    public void TC_Auto_004_RepplyToServers() {
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.repplyToServers(AutoConfig);
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Auto_004_AddProfileBindingsInEditAutoConfigwindow() {
-        componentPage.addingAutoConfig();
-        componentPage.addingProfileBinding();
+    public void TC_Auto_003_AddProfileBindingsInEditAutoConfigwindow() {
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.addingProfileBinding(AutoConfig);
         componentPage.verifyingAddedProfileBinding();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_AutoConfig_005_VerifyPageIconsInAutoPage(){
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.clickingOnAutoConfig();
+        componentPage.verifyingPageIcons(AutoConfig);
+
+    }
+
+
 }

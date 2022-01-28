@@ -259,7 +259,6 @@ public class BaseSetup implements TimeOuts {
 
 
 
-
 @AfterMethod(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);

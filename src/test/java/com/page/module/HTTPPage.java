@@ -45,6 +45,8 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         safeType(TXTBOX_ACTIONS_NAME, HttpName, "Name into textbox", MEDIUMWAIT);
         action_Add = safeGetAttribute(TXTBOX_ACTIONS_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(action_Add);
+        safeClick(BTN_SHOWADVANCED,"Show advanced",MEDIUMWAIT);
+        safeType(TXTBOX_EXECOUNT,"1","Execution count textbox",MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(LABEL_PATH, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_PATH, "Path Name", "Name into textbox", MEDIUMWAIT);
@@ -141,7 +143,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         waitForSecs(10);
 
         System.out.println(action_Add + driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value") + path_Add + driver.findElement(TXTBOX_EDITED_TARGET_PATH).getAttribute("value") +
-                Request_add + driver.findElement(TXTBOX_EDITED_TARGET_METHOD).getText() + content_add + driver.findElement(TXTBOX_EDITED_TARGET_CONTENT_TYPE).getText() + sla_add + driver.findElement(HYPERLINK_SLAs).getText());
+                Request_add + driver.findElement(TXTBOX_EDITED_TARGET_METHOD).getText() + content_add + driver.findElement(TXTBOX_EDITED_TARGET_CONTENT_TYPE).getText() );
         if (action_Add.equals(driver.findElement(TXTBOX_EDITED_NAME).getAttribute("value")) && path_Add.equals(driver.findElement(TXTBOX_EDITED_TARGET_PATH).getAttribute("value")) &&
                 Request_add.equals(driver.findElement(TXTBOX_EDITED_TARGET_METHOD).getText()) && content_add.equals(driver.findElement(TXTBOX_EDITED_TARGET_CONTENT_TYPE).getText())) {
             System.out.println("KPIs details are valid");
@@ -162,12 +164,12 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
+        waitForSecs(15);
         String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
         System.out.println(pageTitle);
         String expectedText = HttpName;
         Assert.assertEquals(pageTitle, expectedText);
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(SLA_ADD_ICON, "SLA Add icon", MEDIUMWAIT);
     }
 
@@ -404,6 +406,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     }
 
     public void addingHTTPScenarioUsingharFile() throws InterruptedException, AWTException {
+        waitForSecs(10);
         safeClick(LABEL_NAME, "MOonitor name", MEDIUMWAIT);
         safeType(TXTBOX_NAME, HTTPScenario, "Scenario", MEDIUMWAIT);
         waitForSecs(10);

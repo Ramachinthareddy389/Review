@@ -175,6 +175,12 @@ public class UserAccessRequestTests extends BaseSetup {
         userAccessRequestPage.ClickingFinIShNdCloseButtons();
         userAccessRequestPage.applyingFiltersInUsersPage("BUSINESS", "test12345@yopmail.com");
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_Users_012_VerifyIconsInEditConfigWindow(){
+        userAccessRequestPage.addingTechicalUser("BUSINESS", "test12345@yopmail.com");
+        userAccessRequestPage.ClickingFinIShNdCloseButtons();
+        userAccessRequestPage.verifyingIconsInUserEditWindow("BUSINESS");
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_UserAccessReq_003_VerifyUserAccessRequestsForTemporaryUsers() throws InterruptedException {
@@ -186,6 +192,7 @@ public class UserAccessRequestTests extends BaseSetup {
         emailPage.navigatingToYopMail("testzenq@yopmail.com", "germain APM - shared this dashboard with you");
         alertTemplatePage.deletingEmails();
     }
+
 
 
     @Test(alwaysRun = true)
