@@ -257,6 +257,20 @@ public class ComponentTests extends BaseSetup {
         componentPage.verifyingPageIcons(AutoConfig);
 
     }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_AutoConfig_006_ApplyFiltersInAutoPage(){
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.clickingOnAutoConfig();
+        componentPage.applyingFilters(AutoConfig);
+
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke SUite")
+    public void TC_AutoConfig_008_VerifyIconsinEditconfigWindow(){
+        componentPage.addingAutoConfig(AutoConfig);
+        componentPage.clickingOnAutoConfig();
+        componentPage.verifyingIconsInEditWindow(AutoConfig);
+    }
 
 
 }

@@ -257,6 +257,7 @@ public class BaseSetup implements TimeOuts {
 	 */
 
 
+/*
 
 
 @AfterMethod(alwaysRun = true)
@@ -267,6 +268,7 @@ public class BaseSetup implements TimeOuts {
 			driver.quit();
 		}
 	}
+*/
 
 
 

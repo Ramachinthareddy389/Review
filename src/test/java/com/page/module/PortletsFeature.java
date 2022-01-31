@@ -502,11 +502,12 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Verifying N Tabular Portlet in Dashboard page")
     public void verifyingNTabularPortlet(String nTabularPortletName) throws InterruptedException {
         waitForPageToLoad();
-        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + nTabularPortletName + "']");
-        waitUntilClickable(NTABULAR_PORTLET_TITLE, "N Tabular Portlet Title", MEDIUMWAIT);
+        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + nTabularPortletName +" (Day)"+"']");
+        System.out.println(NTABULAR_PORTLET_TITLE);
+        waitUntilClickable(NTABULAR_PORTLET_TITLE, "GH Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(NTABULAR_PORTLET_TITLE).isDisplayed())
-            Assert.fail("N Tabular portlet added is not displayed in Dashboard page");
-        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + nTabularPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
+            Assert.fail("GH portlet added is not displayed in Dashboard page");
+        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + nTabularPortletName  +" (Day)"+"']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_NTABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for N Tabular Portlet");
         mouseHoverJScript(FILTER_NTABULAR_PORTLET, "Filter icon", "Filter icon in N Tabular Portlet", MEDIUMWAIT);

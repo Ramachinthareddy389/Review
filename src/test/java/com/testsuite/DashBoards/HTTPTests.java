@@ -80,6 +80,7 @@ public class HTTPTests extends BaseSetup {
         hardwarePage.addingNewHardware(HostName);
         httpPage.configuringNodeInAPMModule();
         httpPage.configuringEnginesInAPMModule();
+        httpPage.addingHttpScenarioUsinharFile();
         httpPage.addingHTTPScenarioUsingharFile();
         httpPage.verifyingHttpScenario();
     }
@@ -119,6 +120,7 @@ public class HTTPTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_HTTP_016_ViewDataForFieldswithViewIconInEditConfigwindow(){
         alertTemplatePage.clickingOnAlertTemplate();
+        alertTemplatePage.addButtonInAlertTemplatePage();
         alertTemplatePage.addIngAlertTemplate(alertTemp);
         httpPage.clickingOnAutomation();
         httpPage.addingHTTPPage();

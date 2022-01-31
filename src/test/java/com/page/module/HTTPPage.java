@@ -392,10 +392,16 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         }
         content_add = safeGetText(CONTENT_TYPE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(content_add);
-        waitForSecs(20);
+        waitForSecs(10);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
-        waitForSecs(15);
+        waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
     }
 
     public void addingHttpScenarioUsinharFile() {
@@ -406,7 +412,6 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     }
 
     public void addingHTTPScenarioUsingharFile() throws InterruptedException, AWTException {
-        waitForSecs(10);
         safeClick(LABEL_NAME, "MOonitor name", MEDIUMWAIT);
         safeType(TXTBOX_NAME, HTTPScenario, "Scenario", MEDIUMWAIT);
         waitForSecs(10);
@@ -490,12 +495,12 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         safeType(TXTBOX_SLA_THRESHOLD, "5", "Threshold value", MEDIUMWAIT);
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ACTIONS, "QA Alert", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS, "user-login-report", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs6 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs6.get(i).getText().equals("QA Alert")) {
+            if (dbs6.get(i).getText().equalsIgnoreCase("user-login-report")) {
 
                 dbs6.get(i).click();
                 break;
@@ -642,12 +647,12 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         safeClick(SLA_ADD_ICON, "SLA Add icon", MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "Agent Desktop User Click - raw - Agent Desktop Click", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Agent Desktop User Click - raw - Agent Desktop Click")) {
+            if (dbs3.get(i).getText().equalsIgnoreCase("Native User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -686,7 +691,6 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
             }
         }
         waitForSecs(10);
-        System.out.println(driver.findElement((BTN_SAVE_DISABLED)).isDisplayed());
         if(driver.findElement((BTN_SAVE)).isEnabled()==false) {
             safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         }
@@ -707,6 +711,17 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
             System.out.println("Values are " + dashBoardData.SLA_VALUES[j]);
         }
         safeClick(CLOSE_ICON, "Closing window");
+        waitForSecs(10);
+        try{
+            if(isElementEnabled(BTN_SAVE)) {
+                safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Save button is not displaying");
+        }
+
         waitForSecs(10);
         safeClick(CLOSE_EDITWINDOW, "Closing window");
         waitForSecs(10);

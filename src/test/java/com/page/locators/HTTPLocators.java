@@ -47,6 +47,7 @@ public interface HTTPLocators {
     By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
     By BTN_DELETE = By.xpath("//h5[text()='Http Actions']/..//div[@aria-label='Remove Selected Configuration']");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By BTN_DELETE_SCENARIO = By.xpath("//h5[text()='Http Scenarios']/..//div[@aria-label='Remove Selected Configuration']");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By BTN_EDIT = By.xpath("//h5[text()='Http Actions']/..//div[@aria-label='Edit Selected Configuration']");
     By CHEKBOXES_EDITWINDOW = By.xpath("//h6[text() ='Editing 1 Http Actions']/parent::div/../../following-sibling::div/descendant::input[@type='checkbox']");
