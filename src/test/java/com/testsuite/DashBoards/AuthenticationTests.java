@@ -3,7 +3,6 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.AlertTemplatePage;
 import com.page.module.AuthenticationPage;
 import com.page.module.DashboardOverviewPage;
 import com.page.module.LoginPage;

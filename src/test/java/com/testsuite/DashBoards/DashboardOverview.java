@@ -9,8 +9,6 @@ import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.*;
 
-import java.util.Random;
-
 public class DashboardOverview extends BaseSetup {
     private DashboardOverviewPage dashboardOverviewPage;
     private DashBoardData dashBoardData;

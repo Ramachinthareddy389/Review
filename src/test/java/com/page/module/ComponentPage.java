@@ -620,6 +620,111 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
         safeClick(CLOSE_EDITWINDOW, "Close Edit Window", MEDIUMWAIT);
     }
 
+    public void applyingFiltersInDisplaySettings(){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_DISPLAY_SETTINGS, "Display settings label", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + "ActionConfig" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, "ActionConfig");
+    }
+
+    public void verifyingPageIconsInDisplaySettings(){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_DISPLAY_SETTINGS, "Display settings label", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        isElementClickable(TYPE_SEARCH, MEDIUMWAIT);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        // mouseHoverJScript(DROPDOWN_FEILDS,"Name header","",MEDIUMWAIT);
+        waitForPageToLoad();
+        safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + "ActionConfig" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        boolean b1 = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(b1);
+        Assert.assertTrue(b1);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(BTN_ENABLE);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        waitForSecs(10);
+        safeClick(BTN_DISABLE, "Enable config button", MEDIUMWAIT);
+        boolean disable = isElementDisplayed(BTN_STATUS);
+        System.out.println(disable);
+        Assert.assertTrue(disable);
+        boolean row = isElementSelected(SELECTROW_CHKBOX);
+        System.out.println(row);
+        Assert.assertFalse(row);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(BTN_CLONE, "clone button", MEDIUMWAIT);
+        waitForSecs(10);
+        String pageTitle = safeGetAttribute(HEADER_CLONED, "aria-label", "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = "ActionConfig" + " - Cloned";
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(5);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(25);
+        safeJavaScriptClick(SELECTROW_CHKBOX, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_ENABLE, "Enable config button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void verifyPageIconsInDisplaySettingsEditWindow(){
+        safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
+        safeClick(LABEL_DISPLAY_SETTINGS, "Display settings label", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        isElementClickable(TYPE_SEARCH, MEDIUMWAIT);
+        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        // mouseHoverJScript(DROPDOWN_FEILDS,"Name header","",MEDIUMWAIT);
+        waitForPageToLoad();
+        safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + "ActionConfig" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeJavaScriptClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DISABLE_ICON, "Disable icon", MEDIUMWAIT);
+        waitForSecs(10);
+        boolean b = isElementDisplayed(ENABLED_STATUS);
+        System.out.println(b);
+        Assert.assertTrue(b);
+        safeClick(CLONE_ICON, "Clone icon", MEDIUMWAIT);
+        waitForSecs(10);
+        By Cloned = By.xpath("//div[@aria-label='Save Configuration']/../../h5[@aria-label='" + "ActionConfig" + " - Cloned']");
+        if (!driver.findElement(Cloned).isDisplayed())
+            Assert.fail("Cloned business process not displayed");
+        waitForSecs(20);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+    }
+
     //Distribution list
 
     public void clickingOnAddDistributionList(String name, String email) {

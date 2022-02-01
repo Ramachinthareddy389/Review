@@ -6,7 +6,6 @@ import com.page.data.DashBoardData;
 import com.page.module.DashboardOverviewPage;
 import com.page.module.LoginPage;
 import com.page.module.SoftwarePage;
-import com.page.module.TicketsPage;
 import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;

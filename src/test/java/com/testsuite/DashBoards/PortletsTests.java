@@ -4,7 +4,6 @@ import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
 import com.page.module.DashboardOverviewPage;
-import com.page.module.DashboardPage;
 import com.page.module.LoginPage;
 import com.page.module.PortletsFeature;
 import com.selenium.Sync;

@@ -5,11 +5,7 @@ import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
 import com.page.module.*;
 import com.selenium.Sync;
-import jvm.PasswordDecoder;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class Email extends BaseSetup {
     private DashboardPage dashboardPage;

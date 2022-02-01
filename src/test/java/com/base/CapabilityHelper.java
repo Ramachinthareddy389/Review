@@ -32,254 +32,263 @@ import io.appium.java_client.remote.MobilePlatform;
 
 public class CapabilityHelper {
 
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    // private ConfigManager sys;
-    private Logger log = Logger.getLogger("CapabilityHelper");
-    private IOSDriver<MobileElement> iOSDriver;
-    private WebDriver driver;
+	DesiredCapabilities capabilities = new DesiredCapabilities();
+	// private ConfigManager sys;
+	private Logger log = Logger.getLogger("CapabilityHelper");
+	private IOSDriver<MobileElement> iOSDriver;
+	private WebDriver driver;
 
-    /**
-     * Gets the desiredCapability of respective CloudType(saucelabs or
-     * testinbot)
-     *
-     * @param browserType,
-     * @param browserVersion,
-     * @param OSName,
-     * @param OSVersion,
-     * @param session
-     * @return DesiredCapabilities
-     */
-    protected DesiredCapabilities addCapability(String browserType, String browserVersion, String OSName,
-                                                String OSVersion, String session) {
-        ConfigManager sys = new ConfigManager();
-        String cloudURL = sys.getProperty("Cloud.Host.URL").toLowerCase();
+	/**
+	 * Gets the desiredCapability of respective CloudType(saucelabs or
+	 * testinbot)
+	 * 
+	 * @param browserType,
+	 * @param browserVersion,
+	 * @param OSName,
+	 * @param OSVersion,
+	 * @param session
+	 *
+	 * @return DesiredCapabilities
+	 */
+	protected DesiredCapabilities addCapability(String browserType, String browserVersion, String OSName,
+			String OSVersion, String session) {
+		ConfigManager sys = new ConfigManager();
+		String cloudURL = sys.getProperty("Cloud.Host.URL").toLowerCase();
 
-        if (cloudURL.contains("saucelabs")) {
-            setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
-        } else if (cloudURL.contains("browserstack")) {
-            setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
-        } else if (cloudURL.contains("Testingbot")) {
-            setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
-        } else if (UtilityMethods.validateIP(cloudURL.split(":")[1].substring(2))) {
+		if (cloudURL.contains("saucelabs")) {
+			setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
+		}
 
-            setBrowser(browserType);
-        } else {
-            log.error("cloud entered does not exist - " + cloudURL);
-            try {
-                throw new CloudNotFoundException(cloudURL);
-            } catch (CloudNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        return capabilities;
-    }
+		else if (cloudURL.contains("browserstack")) {
+			setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
+		}
 
-    /**
-     * This method sets the desired capabilities based on browser type
-     *
-     * @param browserType , Need to pass the browser type
-     */
-    private void setBrowser(String browserType) {
-        switch (browserType.toLowerCase()) {
-            case "chrome":
-                capabilities = DesiredCapabilities.chrome();
-                break;
-            case "firefox":
-                capabilities = DesiredCapabilities.firefox();
-                break;
+		else if (cloudURL.contains("Testingbot")) {
+			setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
+		}
 
-            case "iexplore":
-                capabilities.setBrowserName("internet explorer");
-                // capabilities = DesiredCapabilities.internetExplorer();
-                capabilities.setCapability("ignoreProtectedModeSettings", true);
-                capabilities.setCapability("enablePersistentHover", false);
-                capabilities.setCapability("native_events", false);
-                break;
-            case "safari":
-                capabilities = DesiredCapabilities.safari();
-                break;
-            case "opera":
-                capabilities = DesiredCapabilities.operaBlink();
-                break;
-            default:
-                log.error("browser : " + browserType + " is invalid, Launching Firefox as browser of choice..");
-                capabilities = DesiredCapabilities.firefox();
-        }
-    }
+		else if (UtilityMethods.validateIP(cloudURL.split(":")[1].substring(2))) {
 
-    /**
-     * Extracted method that does common setup of setting OS/Platform where
-     * cloud browser should be launched
-     */
-    private void setOperatingSystem(String OSName, String OSVersion) {
-        switch (OSName.toLowerCase()) {
-            case "windows":
-                switch (OSVersion.toLowerCase()) {
-                    case "xp":
-                        capabilities.setCapability("platform", Platform.XP);
-                        break;
+			setBrowser(browserType);
+		} else {
+			log.error("cloud entered does not exist - " + cloudURL);
+			try {
+				throw new CloudNotFoundException(cloudURL);
+			} catch (CloudNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return capabilities;
+	}
 
-                    case "vista":
-                        capabilities.setCapability("platform", Platform.VISTA);
-                        break;
+	/**
+	 * 
+	 * This method sets the desired capabilities based on browser type
+	 *
+	 * @param browserType
+	 *            , Need to pass the browser type
+	 */
+	private void setBrowser(String browserType) {
+		switch (browserType.toLowerCase()) {
+		case "chrome":
+			capabilities = DesiredCapabilities.chrome();
+			break;
+		case "firefox":
+			capabilities = DesiredCapabilities.firefox();
+			break;
 
-                    case "7":
-                        capabilities.setCapability("platform", Platform.WINDOWS);
-                        break;
+		case "iexplore":
+			capabilities.setBrowserName("internet explorer");
+			// capabilities = DesiredCapabilities.internetExplorer();
+			capabilities.setCapability("ignoreProtectedModeSettings", true);
+			capabilities.setCapability("enablePersistentHover", false);
+			capabilities.setCapability("native_events", false);
+			break;
+		case "safari":
+			capabilities = DesiredCapabilities.safari();
+			break;
+		case "opera":
+			capabilities = DesiredCapabilities.operaBlink();
+			break;
+		default:
+			log.error("browser : " + browserType + " is invalid, Launching Firefox as browser of choice..");
+			capabilities = DesiredCapabilities.firefox();
+		}
+	}
 
-                    case "8":
-                        capabilities.setCapability("platform", Platform.WIN8);
-                        break;
+	/**
+	 * Extracted method that does common setup of setting OS/Platform where
+	 * cloud browser should be launched
+	 */
+	private void setOperatingSystem(String OSName, String OSVersion) {
+		switch (OSName.toLowerCase()) {
+		case "windows":
+			switch (OSVersion.toLowerCase()) {
+			case "xp":
+				capabilities.setCapability("platform", Platform.XP);
+				break;
 
-                    case "8_1":
-                        capabilities.setCapability("platform", Platform.WIN8_1);
-                        break;
-                }
+			case "vista":
+				capabilities.setCapability("platform", Platform.VISTA);
+				break;
 
-                break;
-            case "mac":
-                capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
-                break;
+			case "7":
+				capabilities.setCapability("platform", Platform.WINDOWS);
+				break;
 
-            case "linux":
-                capabilities.setCapability("platform", Platform.LINUX);
-                break;
+			case "8":
+				capabilities.setCapability("platform", Platform.WIN8);
+				break;
 
-            case "unix":
-                capabilities.setCapability("platform", Platform.UNIX);
-                break;
+			case "8_1":
+				capabilities.setCapability("platform", Platform.WIN8_1);
+				break;
+			}
 
-            case "any":
-                capabilities.setCapability("platform", Platform.ANY);
-                break;
+			break;
+		case "mac":
+			capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
+			break;
 
-            default:
-                log.warn(
-                        "Please select valid platform, contact your cloud providers for valid platform list \n For now executing on cloud default OS");
-                capabilities.setCapability("platform", Platform.ANY);
-                break;
-        }
-    }
+		case "linux":
+			capabilities.setCapability("platform", Platform.LINUX);
+			break;
 
-    private void setCloudCapabulities(String browserVersion, String session, String browserType, String OSName,
-                                      String OSVersion) {
+		case "unix":
+			capabilities.setCapability("platform", Platform.UNIX);
+			break;
 
-        setBrowser(browserType);
-        setOperatingSystem(OSName, OSVersion);
-        capabilities.setCapability("version", browserVersion);
-        capabilities.setCapability("name", session);
-    }
+		case "any":
+			capabilities.setCapability("platform", Platform.ANY);
+			break;
 
-    /**
-     * Method webAppCapabilities() is declared as part of @BeforeClass for
-     * setting up of Web Application Capabilities automatically The
-     * initialization() process includes read the
-     * devicename/platformVersion/platformName/browserName.. parameter from
-     * "Config.Properties" file and launch the application in local devices or
-     * in cloud
-     *
-     * @param platformVersion
-     * @param deviceName
-     * @param deviceUrl
-     * @param udid
-     * @param sBrowserName
-     * @param osName
-     * @return WebDriver
-     */
-    public WebDriver webAppCapabilities(String platformVersion, String deviceName, String deviceUrl, String udid,
-                                        String sBrowserName, String osName) {
-        try {
-            capabilities.setJavascriptEnabled(true);
-            capabilities.setCapability("appActivity", "com.google.android.apps.chrome.Main");
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, osName);
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
-            capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, sBrowserName);
-            capabilities.setCapability(MobileCapabilityType.UDID, udid);
-            driver = new AndroidDriver<MobileElement>(new URL(deviceUrl), capabilities);
-            //context.setAttribute("driver", driver);
-        } catch (Exception e) {
-            log.info(
-                    "  Capabilities provided for Web App are not correct , Please cross check your capabilites once \n");
-            e.printStackTrace();
-        }
-        log.info("..................... Executing scripts in for Web App ...............");
-        return driver;
-    }
+		default:
+			log.warn(
+					"Please select valid platform, contact your cloud providers for valid platform list \n For now executing on cloud default OS");
+			capabilities.setCapability("platform", Platform.ANY);
+			break;
+		}
+	}
 
-    /**
-     * Method webAppCapabilitiesForRealDevice() is declared as part
-     * of @BeforeClass for setting up of Web App Capabilities on Real Device
-     * automatically The initialization() process includes read the
-     * devicename/platformVersion/browserName/udid/app... parameter from
-     * "Device.Properties" file and launch the application in local devices or
-     * in cloud
-     *
-     * @param udid
-     * @param sURL
-     * @param sDeviceName
-     * @param sVersion
-     * @return WebDriver
-     */
-    public WebDriver iOSWebAppCapabilitiesForRealDevice(String udid, String sURL, String sDeviceName, String sVersion
-    ) {
-        try {
+	private void setCloudCapabulities(String browserVersion, String session, String browserType, String OSName,
+			String OSVersion) {
 
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setJavascriptEnabled(true);
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS);
-            capabilities.setCapability("platformVersion", sVersion);
-            capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.SAFARI);
-            capabilities.setCapability("deviceName", sDeviceName);
-            capabilities.setCapability("udid", udid);
-            capabilities.setCapability("automationName", "XCUITest");
-            capabilities.setCapability("safariAllowPopups", false);
-            capabilities.setCapability("safariIgnoreFraudWarning", true);
-            iOSDriver = new IOSDriver<MobileElement>(new URL(sURL), capabilities);
-            //context.setAttribute("driver", iOSDriver);
-            log.info("<******.... Scripts are running in Web Application on Real Device ...******>");
-        } catch (Exception e) {
+		setBrowser(browserType);
+		setOperatingSystem(OSName, OSVersion);
+		capabilities.setCapability("version", browserVersion);
+		capabilities.setCapability("name", session);
+	}
 
-            log.error(
-                    "Capabilities given for Web App on Real Device might be wrong,Cross check your capabilities once...");
-            e.printStackTrace();
-        }
-        return iOSDriver;
-    }
+	/**
+	 * Method webAppCapabilities() is declared as part of @BeforeClass for
+	 * setting up of Web Application Capabilities automatically The
+	 * initialization() process includes read the
+	 * devicename/platformVersion/platformName/browserName.. parameter from
+	 * "Config.Properties" file and launch the application in local devices or
+	 * in cloud
+	 * 
+	 * @param platformVersion
+	 * @param deviceName
+	 * @param deviceUrl
+	 * @param udid
+	 * @param sBrowserName
+	 * @param osName
+	 * @return WebDriver
+	 */
+	public WebDriver webAppCapabilities(String platformVersion, String deviceName, String deviceUrl, String udid,
+			 String sBrowserName, String osName) {
+		try {
+			capabilities.setJavascriptEnabled(true);
+			capabilities.setCapability("appActivity", "com.google.android.apps.chrome.Main");
+			capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, osName);
+			capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+			capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
+			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, sBrowserName);
+			capabilities.setCapability(MobileCapabilityType.UDID, udid);
+			driver = new AndroidDriver<MobileElement>(new URL(deviceUrl), capabilities);
+			//context.setAttribute("driver", driver);
+		} catch (Exception e) {
+			log.info(
+					"  Capabilities provided for Web App are not correct , Please cross check your capabilites once \n");
+			e.printStackTrace();
+		}
+		log.info("..................... Executing scripts in for Web App ...............");
+		return driver;
+	}
 
-    /**
-     * Configuring the Test in Sauce Labs
-     *
-     * @param deviceName
-     * @param platformVersion
-   //  * @param browserName
-    // * @param appiumVersion
-     * @param platformName
-     * @return
-     */
-    public WebDriver SauceLabWebAppCapabilities(String deviceName, String platformVersion,
-                                                String platformName) {
-        // String cloudURL = sys.getProperty("Cloud.Host.URL").toLowerCase();
-        try {
-            //apabilities.setCapability("appiumVersion", appiumVersion);
-            capabilities.setCapability("deviceName", deviceName);
-            // capabilities.setCapability("deviceOrientation",
-            // config.getProperty("Device.ORIENTATION"));
-            capabilities.setCapability("browserName", "Browser");
-            capabilities.setCapability("platformVersion", platformVersion);
-            capabilities.setCapability("platformName", platformName);
-            try {
-                driver = new AndroidDriver<MobileElement>(new URL("http://192.168.0.186:4444/wd/hub"), capabilities);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-        } catch (Exception e) {
-            log.info(
-                    "Failed Sauce Lab Capabilities capability setup for Web App , Please cross check your capabilities once ");
-        }
-        log.info("..................... Executing scripts in SAUCE LABS with Web App ............... ");
+	/**
+	 * Method webAppCapabilitiesForRealDevice() is declared as part
+	 * of @BeforeClass for setting up of Web App Capabilities on Real Device
+	 * automatically The initialization() process includes read the
+	 * devicename/platformVersion/browserName/udid/app... parameter from
+	 * "Device.Properties" file and launch the application in local devices or
+	 * in cloud
+	 * 
+	 * @param udid
+	 * @param sURL
+	 * @param sDeviceName
+	 * @param sVersion
+	 * @return WebDriver
+	 */
+	public WebDriver iOSWebAppCapabilitiesForRealDevice(String udid, String sURL, String sDeviceName, String sVersion
+			) {
+		try {
 
-        return driver;
-    }
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			capabilities.setJavascriptEnabled(true);
+			capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS);
+			capabilities.setCapability("platformVersion", sVersion);
+			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.SAFARI);
+			capabilities.setCapability("deviceName", sDeviceName);
+			capabilities.setCapability("udid", udid);
+			capabilities.setCapability("automationName", "XCUITest");
+			capabilities.setCapability("safariAllowPopups", false);
+			capabilities.setCapability("safariIgnoreFraudWarning", true);
+			iOSDriver = new IOSDriver<MobileElement>(new URL(sURL), capabilities);
+			//context.setAttribute("driver", iOSDriver);
+			log.info("<******.... Scripts are running in Web Application on Real Device ...******>");
+		} catch (Exception e) {
+
+			log.error(
+					"Capabilities given for Web App on Real Device might be wrong,Cross check your capabilities once...");
+			e.printStackTrace();
+		}
+		return iOSDriver;
+	}
+
+	/**
+	 * Configuring the Test in Sauce Labs
+	 * 
+	 * @param deviceName
+	 * @param deviceVersion
+	 * @param browserName
+	 * @param appiumVersion
+	 * @param platformName
+	 * @return
+	 */
+	public WebDriver SauceLabWebAppCapabilities( String deviceName, String platformVersion,
+			String platformName) {
+		// String cloudURL = sys.getProperty("Cloud.Host.URL").toLowerCase();
+		try {
+		//apabilities.setCapability("appiumVersion", appiumVersion);
+			capabilities.setCapability("deviceName", deviceName);
+			// capabilities.setCapability("deviceOrientation",
+			// config.getProperty("Device.ORIENTATION"));
+			capabilities.setCapability("browserName", "Browser");
+			capabilities.setCapability("platformVersion", platformVersion);
+			capabilities.setCapability("platformName", platformName);
+			try {
+				driver = new AndroidDriver<MobileElement>(new URL("http://192.168.0.186:4444/wd/hub"), capabilities);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			log.info(
+					"Failed Sauce Lab Capabilities capability setup for Web App , Please cross check your capabilities once ");
+		}
+		log.info("..................... Executing scripts in SAUCE LABS with Web App ............... ");
+
+		return driver;
+	}
 
 }

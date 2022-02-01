@@ -3,7 +3,6 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
-import com.page.module.HTTPPage;
 import com.page.module.HardwarePage;
 import com.page.module.LocalProgramPage;
 import com.page.module.LoginPage;
@@ -11,8 +10,6 @@ import com.selenium.Sync;
 import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.Random;
 
 public class LocalProgramTests extends BaseSetup {
     private DashBoardData dashBoardData;

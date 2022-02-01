@@ -28,6 +28,7 @@ public class ComponentTests extends BaseSetup {
     String Querys = "Querys" + " - " + random.nextInt(500);
     String Component = "Component" + "-" + random.nextInt(500);
     String AutoConfig = "AutoConfig" + "-" + random.nextInt(500);
+
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -97,8 +98,8 @@ public class ComponentTests extends BaseSetup {
         componentPage.applyingFilters(Component);
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_CompTypes_008_VerifyIconsinEditconfigWindow(){
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_CompTypes_008_VerifyIconsinEditconfigWindow() {
         componentPage.clickingOnAutomation();
         componentPage.adding1stComponent(Component);
         componentPage.navigatingToComponentPage();
@@ -111,7 +112,6 @@ public class ComponentTests extends BaseSetup {
         componentPage.adding2ndComponent(Component);
         componentPage.ViewDataforFieldswithViewIconinEditconfigWindows(Component);
     }
-
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
@@ -175,30 +175,41 @@ public class ComponentTests extends BaseSetup {
         componentPage.verifyingIconsInEditWindow(Cred);
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_DisplaySettings_001_EditDisplaySettingsConfiguration() {
 
         componentPage.clickingOnDisplaySettings();
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_001_AddDistributionListwithAllDistributiontypes()
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_DisplaySettings_002_VerifyDisplaySettingsPageIcons()
     {
+      componentPage.verifyingPageIconsInDisplaySettings();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_DisplaySettings_003_ApplyFiltersInDisplaySettings()
+    {
+       componentPage.applyingFiltersInDisplaySettings();
+    }
+
+
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_DLs_001_AddDistributionListwithAllDistributiontypes() {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingAddedDistributionList(DistriList, "rama.chinthareddy@zenq.com");
     }
 
-    @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_002_AddMembersinEditDistributionListwindow()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_DLs_002_AddMembersinEditDistributionListwindow() {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.addMembersInEditDistributionListwindow(DistriList);
         componentPage.verifyingAddedDistributionList(DistriList, "rama.chinthareddy@zenq.com");
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_003_EditDistributionListconfiguration()
-    {
+    public void TC_DLs_003_EditDistributionListconfiguration() {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingEditDistributionListConfig(DistriList);
 
@@ -206,8 +217,7 @@ public class ComponentTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_DLs_004_VerifyPageIconsInDistributionList()
-    {
+    public void TC_DLs_004_VerifyPageIconsInDistributionList() {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingPageIcons(DistriList);
     }
@@ -250,23 +260,24 @@ public class ComponentTests extends BaseSetup {
         componentPage.verifyingAddedProfileBinding();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_AutoConfig_005_VerifyPageIconsInAutoPage(){
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_AutoConfig_005_VerifyPageIconsInAutoPage() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.clickingOnAutoConfig();
         componentPage.verifyingPageIcons(AutoConfig);
 
     }
-    @Test(alwaysRun = true,groups = "Smoke Suite")
-    public void TC_AutoConfig_006_ApplyFiltersInAutoPage(){
+
+    @Test(alwaysRun = true, groups = "Smoke Suite")
+    public void TC_AutoConfig_006_ApplyFiltersInAutoPage() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.clickingOnAutoConfig();
         componentPage.applyingFilters(AutoConfig);
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke SUite")
-    public void TC_AutoConfig_008_VerifyIconsinEditconfigWindow(){
+    @Test(alwaysRun = true, groups = "Smoke SUite")
+    public void TC_AutoConfig_008_VerifyIconsinEditconfigWindow() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.clickingOnAutoConfig();
         componentPage.verifyingIconsInEditWindow(AutoConfig);
