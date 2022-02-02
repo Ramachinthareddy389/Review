@@ -193,7 +193,10 @@ public class ComponentTests extends BaseSetup {
        componentPage.applyingFiltersInDisplaySettings();
     }
 
-
+    @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_DisplaySettings_005_VerifyIconsDisplaySettingsEditconfigWindow(){
+        componentPage.verifyPageIconsInDisplaySettingsEditWindow();
+    }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_DLs_001_AddDistributionListwithAllDistributiontypes() {

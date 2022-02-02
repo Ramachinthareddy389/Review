@@ -91,12 +91,12 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     public void addingSLA() {
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_SLA, "Alert - raw - test", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SLA, "Native User Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs3 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
         for (int i = 0; i < dbs3.size(); i++) {
 
-            if (dbs3.get(i).getText().equals("Alert - raw - test")) {
+            if (dbs3.get(i).getText().equals("Native User Click - raw - User Click SLA")) {
 
                 dbs3.get(i).click();
                 break;
@@ -170,6 +170,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         String expectedText = HttpName;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(15);
+        safeClick(BTN_SHOW_ADVANCED,"Show advanced button",MEDIUMWAIT);
         safeClick(SLA_ADD_ICON, "SLA Add icon", MEDIUMWAIT);
     }
 

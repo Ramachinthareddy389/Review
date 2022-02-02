@@ -28,6 +28,7 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
      */
     @Step("Verifying login page")
     public void verifyLoginPage() {
+        waitForSecs(500);
         boolean bIsEmailAddressExists = isElementPresent(EMAILADDRESS_FIELD, MEDIUMWAIT);
         boolean bIsPasswordFieldExists = isElementPresent(PASSWORD_FIELD, MEDIUMWAIT);
         Assert.assertTrue(bIsEmailAddressExists || bIsPasswordFieldExists, "Email field/Password field textbox is not being displayed on 'Login' page");

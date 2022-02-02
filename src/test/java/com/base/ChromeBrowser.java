@@ -13,207 +13,208 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.datamanager.ConfigManager;
 import com.testng.Assert;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * This class defines all methods required to initialize ChromeDriver So far
  * only one method is written to initialize with default settings
  */
 public class ChromeBrowser implements IBrowser {
-	ConfigManager sys = new ConfigManager();
-	private Logger log = Logger.getLogger("ChromeBrowser");
-	private WebDriver driver;
-	String fileSeperator = System.getProperty("file.separator");
+    ConfigManager sys = new ConfigManager();
+    private Logger log = Logger.getLogger("ChromeBrowser");
+    private WebDriver driver;
+    String fileSeperator = System.getProperty("file.separator");
 
-	/**
-	 * 
-	 * This method initiates Chrome browser and returns the driver object
-	 *
-	 * @return , returns the driver object after initiating Chrome browser
-	 */
-	public WebDriver init() {
-		String UserDataPath = getUserDataPath();
-		String ProfileName = getProfileName();
-		if (isUserDataDirPresent()) {
-			driver = initChromeDriver(UserDataPath, ProfileName);
-		} else {
-			driver = initChromeDriver();
-		}
-		return driver;
-	}
+    /**
+     * This method initiates Chrome browser and returns the driver object
+     *
+     * @return , returns the driver object after initiating Chrome browser
+     */
+    public WebDriver init() {
+        String UserDataPath = getUserDataPath();
+        String ProfileName = getProfileName();
+        if (isUserDataDirPresent()) {
+            driver = initChromeDriver(UserDataPath, ProfileName);
+        } else {
+            driver = initChromeDriver();
+        }
+        return driver;
+    }
 
-	/**
-	 * 
-	 * This method initiates Chrome browser with default profile and returns the
-	 * driver object
-	 *
-	 * @return , returns the driver object after initiating Chrome browser
-	 */
-	private WebDriver initChromeDriver() {
-		log.info("Launching google chrome with new profile..");
-		System.setProperty("webdriver.chrome.driver", getDriverPath());
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put("download.default_directory", getDownloadLocation());
-		prefs.put("download.prompt_for_download", false);
-		
+    /**
+     * This method initiates Chrome browser with default profile and returns the
+     * driver object
+     *
+     * @return , returns the driver object after initiating Chrome browser
+     */
+    private WebDriver initChromeDriver() {
+        String fileSeperator = System.getProperty("file.separator");
+      //  String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "Lighthouse_v100.0.0.crx";
+      //  String path = System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator + "User-Click-Recorder---Selenium-germainAPM.crx";
+        String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "8.6.11.10_0.crx";
+        log.info("Path of extention is -----------------"+path);
+        log.info("Launching google chrome with new profile..testing");
+        System.setProperty("webdriver.chrome.driver", getDriverPath());
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("download.default_directory", getDownloadLocation());
+        prefs.put("download.prompt_for_download", false);
+
         //Enable flash for desired sites
         prefs.put("profile.default_content_setting_values.plugins", 1);
-     prefs.put("profile.content_settings.plugin_whitelist.adobe-flash-player", 1);
-     prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
-     //prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-    // prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-     
+        prefs.put("profile.content_settings.plugin_whitelist.adobe-flash-player", 1);
+        prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
+        //prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
+        // prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
 
-		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--test-type", "start-maximized");
-		options.setExperimentalOption("prefs", prefs);
-		options.addArguments("--disable-extensions");
-		options.addArguments("--disable-infobars");
-		options.addArguments("--use-fake-ui-for-media-stream");
-		//Below lines are Chrome browser version 54 and Above
-		 options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-component-update"));
-		 options.addArguments(Arrays.asList("--always-authorize-plugins","--allow-outdated-plugins"));
 
-		 //options.addArguments("headless");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--test-type", "start-maximized");
+        options.setExperimentalOption("prefs", prefs);
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--use-fake-ui-for-media-stream");
+        //Below lines are Chrome browser version 54 and Above
+        options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-component-update"));
+        options.addArguments(Arrays.asList("--always-authorize-plugins", "--allow-outdated-plugins"));
+       options.addExtensions(new File(path));
 
-		log.info("chrome driver initialized..");
-		return new ChromeDriver(options);
-	}
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        //options.addArguments("User Click Recorder - Selenium/germainAPM");
+        //options.addArguments("headless");
+        log.info("chrome driver initialized..");
+        return new ChromeDriver(capabilities);
+    }
 
-	/**
-	 * 
-	 * This method initiates chrome browser with specified profile
-	 *
-	 * @param UserDataPath
-	 *            , Need to pass the chrome user directory path
-	 * @param ProfileName
-	 *            , Need to the chrome profile name
-	 * @return , returns the driver object after initiating Chrome browser with
-	 *         specified profile
-	 */
-	private WebDriver initChromeDriver(String UserDataPath, String ProfileName) {
-		log.info("Launching google chrome with specified profile - "
-				+ ProfileName);
-		System.setProperty("webdriver.chrome.driver", getDriverPath());
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put("download.default_directory", getDownloadLocation());
-		prefs.put("download.prompt_for_download", false);
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--test-type", "start-maximized");
-		if (isProfileDirPresent()) {
-			log.info("Running with specified chrome profile");
-			options.addArguments("user-data-dir=" + UserDataPath);
-			options.addArguments("--profile-directory=" + ProfileName);
-			options.addArguments("--disable-extensions");
-			options.addArguments("--disable-infobars");
-			options.addArguments("headless");
-			log.info("Init chrome driver with custom profile is completed..");
-		} else {
-			log.info("Specified chrome profile does not exists in 'User Data' folder");
-			log.info("Hence Chrome Browser is launched with a new profile..");
-		}
-		options.setExperimentalOption("prefs", prefs);
-		return new ChromeDriver(options);
-	}
+    /**
+     * This method initiates chrome browser with specified profile
+     *
+     * @param UserDataPath , Need to pass the chrome user directory path
+     * @param ProfileName  , Need to the chrome profile name
+     * @return , returns the driver object after initiating Chrome browser with
+     * specified profile
+     */
+    private WebDriver initChromeDriver(String UserDataPath, String ProfileName) {
+        log.info("Launching google chrome with specified profile - "
+                + ProfileName);
+        System.setProperty("webdriver.chrome.driver", getDriverPath());
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("download.default_directory", getDownloadLocation());
+        prefs.put("download.prompt_for_download", false);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--test-type", "start-maximized");
+        if (isProfileDirPresent()) {
+            log.info("Running with specified chrome profile");
+            options.addArguments("user-data-dir=" + UserDataPath);
+            options.addArguments("--profile-directory=" + ProfileName);
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-infobars");
+            options.addArguments("headless");
+            log.info("Init chrome driver with custom profile is completed..");
+        } else {
+            log.info("Specified chrome profile does not exists in 'User Data' folder");
+            log.info("Hence Chrome Browser is launched with a new profile..");
+        }
+        options.setExperimentalOption("prefs", prefs);
+        return new ChromeDriver(options);
+    }
 
-	/**
-	 * 
-	 * This method returns the location of chromedriver based on Operating
-	 * system he scripts executed
-	 * 
-	 * 
-	 * @return, returns chromedriver.exe file path
-	 */
-	public String getDriverPath() {
+    /**
+     * This method returns the location of chromedriver based on Operating
+     * system he scripts executed
+     *
+     * @return, returns chromedriver.exe file path
+     */
+    public String getDriverPath() {
 
-		String chromeLocation = System.getProperty("user.dir") + fileSeperator
-				+ "Resources" + fileSeperator + "Drivers" + fileSeperator;
+        String chromeLocation = System.getProperty("user.dir") + fileSeperator
+                + "Resources" + fileSeperator + "Drivers" + fileSeperator;
 
-		if (System.getProperty("os.name").toLowerCase().contains("windows"))
-			chromeLocation = chromeLocation + "chromedriver.exe";
-		else if (System.getProperty("os.name").toLowerCase().contains("mac"))
-			chromeLocation = chromeLocation + "chromedriver";
-		else if (System.getProperty("os.name").toLowerCase().contains("linux"))
-			chromeLocation+="chromedriver";
+        if (System.getProperty("os.name").toLowerCase().contains("windows"))
+            chromeLocation = chromeLocation + "chromedriver.exe";
+        else if (System.getProperty("os.name").toLowerCase().contains("mac"))
+            chromeLocation = chromeLocation + "chromedriver";
+        else if (System.getProperty("os.name").toLowerCase().contains("linux"))
+            chromeLocation += "chromedriver";
 
-		return chromeLocation;
+        return chromeLocation;
 
-	}
+    }
 
-	/**
-	 * Method to retrieve the Chrome 'User Data' path given in Properties file
-	 * 
-	 * @return - returns chrome user data path
-	 * @throws Exception
-	 */
-	public String getUserDataPath() {
-		return sys.getProperty("ChromeUserDirectoryPath");
-	}
+    /**
+     * Method to retrieve the Chrome 'User Data' path given in Properties file
+     *
+     * @return - returns chrome user data path
+     * @throws Exception
+     */
+    public String getUserDataPath() {
+        return sys.getProperty("ChromeUserDirectoryPath");
+    }
 
-	/**
-	 * Method to retrieve the Chrome 'User Data' path given in Properties file
-	 * 
-	 * @return - returns chrome user data path
-	 * @throws Exception
-	 */
-	public String getProfileName() {
-		return sys.getProperty("ChromeProfileFoldername");
-	}
+    /**
+     * Method to retrieve the Chrome 'User Data' path given in Properties file
+     *
+     * @return - returns chrome user data path
+     * @throws Exception
+     */
+    public String getProfileName() {
+        return sys.getProperty("ChromeProfileFoldername");
+    }
 
-	/**
-	 * Method to retrieve the Chrome 'User Data' path given in Properties file
-	 * 
-	 * @return - returns chrome user data path
-	 * @throws Exception
-	 */
-	public boolean isUserDataDirPresent() {
-		String sUserData = getUserDataPath();
-		try {
-			if (!sUserData.isEmpty()) {
-				File UserDataFolder = new File(sUserData);
-				return UserDataFolder.exists();
-			} else {
-				return false;
-			}
-		} catch (NullPointerException e) {
-			log.error("folder does not exists" + sUserData);
-			// Assert.fail("folder does not exists"+sUserData);
-			return false;
-		}
-	}
+    /**
+     * Method to retrieve the Chrome 'User Data' path given in Properties file
+     *
+     * @return - returns chrome user data path
+     * @throws Exception
+     */
+    public boolean isUserDataDirPresent() {
+        String sUserData = getUserDataPath();
+        try {
+            if (!sUserData.isEmpty()) {
+                File UserDataFolder = new File(sUserData);
+                return UserDataFolder.exists();
+            } else {
+                return false;
+            }
+        } catch (NullPointerException e) {
+            log.error("folder does not exists" + sUserData);
+            // Assert.fail("folder does not exists"+sUserData);
+            return false;
+        }
+    }
 
-	/**
-	 * Method to retrieve the Chrome 'User Data' path given in Properties file
-	 * 
-	 * @return - returns chrome user data path
-	 * @throws Exception
-	 */
-	public boolean isProfileDirPresent() {
-		String profilePath = getUserDataPath() + fileSeperator
-				+ getProfileName();
-		try {
-			if (!profilePath.isEmpty()) {
-				File profileFolder = new File(profilePath);
-				return profileFolder.exists();
-			} else {
-				return false;
-			}
-		} catch (NullPointerException e) {
-			log.error("Profile does not exists" + getProfileName());
-			Assert.fail("Profile does not exists" + getProfileName());
-			return false;
-		}
-	}
+    /**
+     * Method to retrieve the Chrome 'User Data' path given in Properties file
+     *
+     * @return - returns chrome user data path
+     * @throws Exception
+     */
+    public boolean isProfileDirPresent() {
+        String profilePath = getUserDataPath() + fileSeperator
+                + getProfileName();
+        try {
+            if (!profilePath.isEmpty()) {
+                File profileFolder = new File(profilePath);
+                return profileFolder.exists();
+            } else {
+                return false;
+            }
+        } catch (NullPointerException e) {
+            log.error("Profile does not exists" + getProfileName());
+            Assert.fail("Profile does not exists" + getProfileName());
+            return false;
+        }
+    }
 
-	/**
-	 * Method to get file download path location
-	 * 
-	 * @return - returns file download path
-	 * @throws IOException
-	 */
-	public String getDownloadLocation() {
-		String DownloadPath = System.getProperty("user.dir") + fileSeperator
-				+ "Downloaded Files";
-		return DownloadPath;
-	}
+    /**
+     * Method to get file download path location
+     *
+     * @return - returns file download path
+     * @throws IOException
+     */
+    public String getDownloadLocation() {
+        String DownloadPath = System.getProperty("user.dir") + fileSeperator
+                + "Downloaded Files";
+        return DownloadPath;
+    }
 }

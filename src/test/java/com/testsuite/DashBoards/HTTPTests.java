@@ -63,6 +63,13 @@ public class HTTPTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
+    public void TC_HTTP_006_NavigatetoSLAsPageOnClickingAnySLAUnderTriggeredBySLAsColumn(){
+        httpPage.clickingOnAutomation();
+        httpPage.addingHTTPPage();
+        httpPage.verifyingAddedSLAInHTTP();
+        httpPage.addingSLA();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_HTTP_007_AddHTTPScenarioconfiguration()
     {
         hardwarePage.clickingOnHardware();
