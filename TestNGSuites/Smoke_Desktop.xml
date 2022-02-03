@@ -8,11 +8,12 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 	<test name="Dashboards">
-		<parameter name="browser-Type" value="chrome" />
-		<parameter name="browserVersion" value="91" />
-		<parameter name="osName" value="WINDOWS" />
-		<parameter name="osVersion" value="10" />
-		<parameter name="session" value="Testing" />
+		<parameter name="browser" value="Chrome" />
+		<parameter name="browser_version" value="latest" />
+		<parameter name="os" value="Windows" />
+		<parameter name="os_version" value="10" />
+		<parameter name="browserstack.local" value="1920x1080" />
+		<parameter name ="browserstack.selenium_version" value="3.14.0" />
 		<classes>
             <class name="com.testsuite.DashBoards.AlertTemplateTests"></class>
 			<class name="com.testsuite.DashBoards.AuthenticationTests"></class>

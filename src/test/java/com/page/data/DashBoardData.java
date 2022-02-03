@@ -46,6 +46,8 @@ public class DashBoardData {
 	public final String flowPortletColumnLabel = portletsData.getProperty("ColumnLabel");
 	public  final  String noPorteltNotify   = portletsData.getProperty("NoPorteltNotify");
 	public final String porletHeaders       = portletsData.getProperty("portlets");
+	public final String FactporletHeaders       = portletsData.getProperty("FactPortlet");
+	public final String CPUndHeapporletHeaders       = portletsData.getProperty("CPUndHeapPortlets");
 	public final String tablePortletName    = portletsData.getProperty("TablePortletName");
 	public final String chartPortletName    = portletsData.getProperty("ChartPortletName");
 	public final String pivotFieldPivotPage = portletsData.getProperty("Pivot_Portlet");

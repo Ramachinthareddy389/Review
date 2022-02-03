@@ -34,7 +34,14 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.Reporter;
 import org.testng.SkipException;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.awt.*;
 import java.io.File;
@@ -133,7 +140,7 @@ public class BaseSetup implements TimeOuts {
 	 */
 	@Parameters({ "deviceName", "deviceVersion", "deviceUrl", "udid", "platformName", "browser-Type", "browserVersion",
 			"osName", "osVersion", "session" })
-	@BeforeMethod(alwaysRun = true)
+	@BeforeClass(alwaysRun = true)
 	public void initializeBaseSetup(@Optional("Android Mobile Phone") String deviceName,
 			@Optional("6.0.1") String deviceVersion, @Optional("http://0.0.0.0:4723/wd/hub") String deviceUrl,
 			@Optional("1fa71036") String udid, @Optional("Desktop") String sPlatform,
@@ -255,26 +262,13 @@ public class BaseSetup implements TimeOuts {
 	 * This method since added in "AfterClass" group and when this class is
 	 * inherited from a TestSuite class, it will be called automatically
 	 */
-
-
-
-
-@AfterMethod(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
 		if (driver != null) {
-
 			driver.quit();
 		}
 	}
-
-
-
-
-
-
-
-
 
 	/**
 	 * This method adds Log file link to ReportNG report
@@ -387,7 +381,6 @@ public class BaseSetup implements TimeOuts {
 	public String getBrowserName() {
 		//efDriver = new MyEventFiringWebDriver((RemoteWebDriver) driver);
 		Capabilities caps = efDriver.getCapabilities();
-
 		return caps.getBrowserName();
 	}
 
@@ -426,7 +419,7 @@ public class BaseSetup implements TimeOuts {
 					(int) sz.getHeight());
 			driver.manage().window().setSize(dim);
 		}
-		setPageLoadTimeOut(VERYLONGWAIT);
+		//setPageLoadTimeOut(VERYLONGWAIT);
 	}
 
 	public void step(String stepMessage) {
