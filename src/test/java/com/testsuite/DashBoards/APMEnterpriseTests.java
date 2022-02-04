@@ -69,4 +69,22 @@ public class APMEnterpriseTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEnter_004_ExportFactsProcessedPortlet() throws InterruptedException, IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingPortlets();
+        apmEnterprisePage.clickingOnExportBtnOfFactProcessedPortlet();
+        apmEnterprisePage.validatingExportedPortlet("Facts Processed_Germain APM Fact Rate.csv", dashBoardData.FactporletHeaders.split(","));
+
+
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEnter_006_NavigateToDrillthroughPageFromCPUPortlet() throws InterruptedException
+    {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.navigateToDrirllThroughPageFrmCPUUsagePortlet();
+
+    }
+
 }

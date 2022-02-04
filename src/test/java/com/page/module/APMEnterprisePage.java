@@ -70,6 +70,111 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
             Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_FACT_PROCESSED));
     }
 
+    public void exportingPortlets() {
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Hostname", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + "9f6619421afb" + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(HOSTNAME_VALUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(HOSTNAME_VALUE, "Host name value", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    @Step("Taking latest file from windows")
+    private File getLatestFilefromDir(String dirPath) {
+        File dir = new File(dirPath);
+        File[] files = dir.listFiles();
+        if (files == null || files.length == 0) {
+            return null;
+        }
 
+        File lastModifiedFile = files[0];
+        for (int i = 1; i < files.length; i++) {
+            if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+                lastModifiedFile = files[i];
+            }
+        }
+        return lastModifiedFile;
+    }
+    public void clickingOnExportBtnOfFactProcessedPortlet(){
+        waitForSecs(7);
+        safeClick(EXPORT_FACT_PROCESSED, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void clickingOnExportBtnOfCPUUsagePortlet(){
+        waitForSecs(7);
+        safeClick(EXPORT_CPU, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void clickingOnExportBtnOfHeapUsagePortlet(){
+        waitForSecs(7);
+        safeClick(EXPORT_HEAP, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void downloadedpath() {
+        String home = System.getProperty("user.home");
+        downloadPath = home + "\\Downloads";
+        System.out.println(downloadPath);
 
+    }
+    @Step("Export portlets")
+    public void validatingExportedPortlet(String file_name, String[] expected) throws IOException {
+
+        downloadedpath();
+
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+        System.out.println(fileName);
+        System.out.println(file_name);
+        Assert.assertTrue(fileName.equals(file_name));
+        for (int j = 0; j < expected.length; j++) {
+            System.out.println("Values are " + expected[j]);
+        }
+        Reader reader = new FileReader(downloadPath + "\\" + fileName);
+        CSVReader csvreader = new CSVReader(reader);
+        List<String[]> list = csvreader.readAll();
+        Iterator<String[]> ite = list.iterator();
+        String[] data = ite.next();
+        for (int i = 0; i < data.length; i++) {
+            String actualText = data[i];
+            Assert.assertEquals(actualText, expected[i]);
+            if (actualText.equals(expected[i])) {
+                System.out.println(expected[i]);
+                System.out.println("passed on: " + actualText);
+            } else {
+                System.out.println("failed on: " + actualText);
+            }
+        }
+        reader.close();
+        File file = new File(downloadPath + "\\" + fileName);
+        if (file.delete())
+            System.out.println("file deleted");
+        else {
+            System.out.println("file not deleted");
+        }
+
+    }
+    public void navigateToDrirllThroughPageFrmCPUUsagePortlet(){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Hostname", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+"9f6619421afb"+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(HOSTNAME_VALUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(HOSTNAME_VALUE,"Host name value",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DRILLTHRUGH_CPU,"Drill through icon",MEDIUMWAIT);
+        waitForSecs(5);
+        Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_CPU));
+    }
 }

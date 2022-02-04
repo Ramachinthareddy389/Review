@@ -49,6 +49,9 @@ public class ChromeBrowser implements IBrowser {
 	 * @return , returns the driver object after initiating Chrome browser
 	 */
 	private WebDriver initChromeDriver() {
+		String fileSeperator = System.getProperty("file.separator");
+    //	String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "8.6.11.10_0.crx";
+    	//System.out.println(path);
 		log.info("Launching google chrome with new profile..");
 		System.setProperty("webdriver.chrome.driver", getDriverPath());
 		Map<String, Object> prefs = new HashMap<String, Object>();
@@ -70,9 +73,11 @@ public class ChromeBrowser implements IBrowser {
 		options.addArguments("--disable-extensions");
 		options.addArguments("--disable-infobars");
 		options.addArguments("--use-fake-ui-for-media-stream");
+
 		//Below lines are Chrome browser version 54 and Above
 		 options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-component-update"));
 		 options.addArguments(Arrays.asList("--always-authorize-plugins","--allow-outdated-plugins"));
+		 options.addExtensions(new File("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0.crx"));
 
 		 //options.addArguments("headless");
 

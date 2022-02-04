@@ -2,7 +2,6 @@ package com.base;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
@@ -42,35 +41,35 @@ public class CapabilityHelper {
 	/**
 	 * Gets the desiredCapability of respective CloudType(saucelabs or
 	 * testinbot)
-	 * 
-	 * @param os_version,
-	 * @param resolution,
-	 * @param browser,
-	 * @param browser_version,
-	 * @param os
+	 *
+	 * @param browserType,
+	 * @param browserVersion,
+	 * @param OSName,
+	 * @param OSVersion,
+	 * @param session
 	 *
 	 * @return DesiredCapabilities
 	 */
-	protected DesiredCapabilities addCapability(String os_version, String resolution, String browser,
-			String browser_version, String os) {
+	protected DesiredCapabilities addCapability(String browserType, String browserVersion, String OSName,
+			String OSVersion, String session) {
 		ConfigManager sys = new ConfigManager();
 		String cloudURL = sys.getProperty("Cloud.Host.URL").toLowerCase();
 
 		if (cloudURL.contains("saucelabs")) {
-			setCloudCapabulities(os_version, resolution, browser, browser_version, os);
+			setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
 		}
 
 		else if (cloudURL.contains("browserstack")) {
-			setCloudCapabulities(os_version, resolution, browser, browser_version, os);
+			setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
 		}
 
 		else if (cloudURL.contains("Testingbot")) {
-			setCloudCapabulities(os_version, resolution, browser, browser_version, os);
+			setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
 		}
 
 		else if (UtilityMethods.validateIP(cloudURL.split(":")[1].substring(2))) {
 
-			setBrowser(browser);
+			setBrowser(browserType);
 		} else {
 			log.error("cloud entered does not exist - " + cloudURL);
 			try {
@@ -83,7 +82,7 @@ public class CapabilityHelper {
 	}
 
 	/**
-	 * 
+	 *
 	 * This method sets the desired capabilities based on browser type
 	 *
 	 * @param browserType
@@ -171,20 +170,13 @@ public class CapabilityHelper {
 		}
 	}
 
-	private void setCloudCapabulities(String os_version, String resolution, String browser,
-									  String browser_version, String os) {
+	private void setCloudCapabulities(String browserVersion, String session, String browserType, String OSName,
+			String OSVersion) {
 
-		setBrowser(browser);
-		setOperatingSystem(os, os_version);
-		capabilities.setCapability("version", browser_version);
-		capabilities.setCapability("name", resolution);
-		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-		browserstackOptions.put("os", "Windows");
-		browserstackOptions.put("osVersion", "10");
-		browserstackOptions.put("local", "false");
-		browserstackOptions.put("seleniumVersion", "4.0.0");
-		capabilities.setCapability("bstack:options", browserstackOptions);
-
+		setBrowser(browserType);
+		setOperatingSystem(OSName, OSVersion);
+		capabilities.setCapability("version", browserVersion);
+		capabilities.setCapability("name", session);
 	}
 
 	/**
@@ -194,7 +186,7 @@ public class CapabilityHelper {
 	 * devicename/platformVersion/platformName/browserName.. parameter from
 	 * "Config.Properties" file and launch the application in local devices or
 	 * in cloud
-	 * 
+	 *
 	 * @param platformVersion
 	 * @param deviceName
 	 * @param deviceUrl
@@ -231,7 +223,7 @@ public class CapabilityHelper {
 	 * devicename/platformVersion/browserName/udid/app... parameter from
 	 * "Device.Properties" file and launch the application in local devices or
 	 * in cloud
-	 * 
+	 *
 	 * @param udid
 	 * @param sURL
 	 * @param sDeviceName
@@ -266,11 +258,11 @@ public class CapabilityHelper {
 
 	/**
 	 * Configuring the Test in Sauce Labs
-	 * 
-//	 * @param deviceName
-//	 * @param deviceVersion
-//	 * @param browserName
-//	 * @param appiumVersion
+	 *
+	 * @param deviceName
+	// * @param deviceVersion
+	// * @param browserName
+	// * @param appiumVersion
 	 * @param platformName
 	 * @return
 	 */

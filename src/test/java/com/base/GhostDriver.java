@@ -9,7 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  * Implementation of HeadLess driver i.e GhostDriver using PhantomJs
  * There are some issues with PhantomJs latest release,Once the official fixes come then 
  * We need to test the same for GhostDriver,Then only we can run scripts in headless mode using
- * GhostDriver
+ * GhostDrivercapabilities.setJavascriptEnabled(true);
  *   
  */
 
@@ -27,7 +27,7 @@ public class GhostDriver implements IBrowser {
 		capabilities.setCapability(
 				PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 				getDriverPath());
-		capabilities.setJavascriptEnabled(true);
+
 		capabilities.setCapability("takesScreenshot", true);
 		driver = new PhantomJSDriver(capabilities);
 		return driver;
