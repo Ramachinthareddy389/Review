@@ -86,5 +86,22 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.navigateToDrirllThroughPageFrmCPUUsagePortlet();
 
     }
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEnter_009_NavigateToDrillthroughPageFromHeapPortlet() throws InterruptedException
+    {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.navigateToDrirllThroughPageFrmHeapUsagePortlet();
+
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEnter_007_ExportCPUUsagePortlet() throws InterruptedException, IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingPortlets();
+        apmEnterprisePage.clickingOnExportBtnOfCPUUsagePortlet();
+        apmEnterprisePage.validatingExportedPortlet("CPU Usage_Germain APM Service CPU Usage.csv", dashBoardData.CPUndHeapporletHeaders.split(","));
+
+
+    }
 
 }

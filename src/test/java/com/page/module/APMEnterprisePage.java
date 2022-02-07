@@ -177,4 +177,22 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(5);
         Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_CPU));
     }
+    public void navigateToDrirllThroughPageFrmHeapUsagePortlet(){
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Hostname", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+"9f6619421afb"+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(HOSTNAME_VALUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(HOSTNAME_VALUE,"Host name value",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(DRILLTHRUGH_HEAP,"Drill through icon",MEDIUMWAIT);
+        waitForSecs(5);
+        Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_HEAP));
+    }
 }

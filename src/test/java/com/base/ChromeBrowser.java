@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.datamanager.ConfigManager;
 import com.testng.Assert;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * This class defines all methods required to initialize ChromeDriver So far
@@ -49,41 +50,38 @@ public class ChromeBrowser implements IBrowser {
 	 * @return , returns the driver object after initiating Chrome browser
 	 */
 	private WebDriver initChromeDriver() {
-		String fileSeperator = System.getProperty("file.separator");
-    //	String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "8.6.11.10_0.crx";
-    	//System.out.println(path);
-		log.info("Launching google chrome with new profile..");
-		System.setProperty("webdriver.chrome.driver", getDriverPath());
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put("download.default_directory", getDownloadLocation());
-		prefs.put("download.prompt_for_download", false);
-		
-        //Enable flash for desired sites
-        prefs.put("profile.default_content_setting_values.plugins", 1);
-     prefs.put("profile.content_settings.plugin_whitelist.adobe-flash-player", 1);
-     prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
-     //prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-    // prefs.put("PluginsAllowedForUrls", "https://qa.vport.voyagersopris.com");
-     
+//		String fileSeperator = System.getProperty("file.separator");
+////		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "Lighthouse_v100.0.0.crx";
+////		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "User-Click-Recorder---Selenium-germainAPM.crx";
+//		//log.info("Path of extention is -----------------"+path);
+//		log.info("Launching google chrome with new profile..");
+//		System.setProperty("webdriver.chrome.driver", getDriverPath());
+//		Map<String, Object> prefs = new HashMap<String, Object>();
+//		prefs.put("download.default_directory", getDownloadLocation());
+//		prefs.put("download.prompt_for_download", false);
+//		ChromeOptions options = new ChromeOptions();
+//		//options.addArguments("user-data-dir=C:\\Selenium\\BrowserProfile");
+//		options.addArguments("start-maximized");
+//	//	options.setExperimentalOption("prefs", prefs);
+//		//String pathToExtension = "C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0";
+//		//options.addArguments("?load-extension=" + pathToExtension);
+////		options.addArguments("--disable-extensions");
+//		//options.addArguments("disable-infobars");
+//	//	options.addArguments("--disable-application-cache");
+//		options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\App.crx"));
+//		System.out.println("Extension added");
+//		log.info("chrome driver initialized..");
+//		return new ChromeDriver(options);
 
-		
+		System.setProperty("webdriver.chrome.driver",getDriverPath());
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--test-type", "start-maximized");
-		options.setExperimentalOption("prefs", prefs);
-		options.addArguments("--disable-extensions");
-		options.addArguments("--disable-infobars");
-		options.addArguments("--use-fake-ui-for-media-stream");
-
-		//Below lines are Chrome browser version 54 and Above
-		 options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-component-update"));
-		 options.addArguments(Arrays.asList("--always-authorize-plugins","--allow-outdated-plugins"));
-		 options.addExtensions(new File("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0.crx"));
-
-		 //options.addArguments("headless");
-
-		log.info("chrome driver initialized..");
+		options.addExtensions(new File("D:\\DecProject\\germain-test-automation\\Resources\\App.crx"));
+		options.addArguments("--incognito");
+		DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+		desiredCapabilities.setCapability(ChromeOptions.CAPABILITY,options);
 		return new ChromeDriver(options);
 	}
+
 
 	/**
 	 * 
