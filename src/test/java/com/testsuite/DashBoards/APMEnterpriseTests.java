@@ -104,4 +104,25 @@ public class APMEnterpriseTests extends BaseSetup {
 
     }
 
+
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEnter_010_ExportHeapUsagePortlet() throws InterruptedException, IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingPortlets();
+        apmEnterprisePage.clickingOnExportBtnOfHeapUsagePortlet();
+        apmEnterprisePage.validatingExportedPortlet("Heap Usage_Germain APM Service Heap Usage.csv", dashBoardData.CPUndHeapporletHeaders.split(","));
+
+
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMQueue_001_ClickOnQueueSection() throws InterruptedException
+    {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.verifyingNavigateToAPMQueueTab();
+
+    }
+
+
 }

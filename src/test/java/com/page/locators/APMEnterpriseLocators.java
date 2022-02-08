@@ -20,4 +20,15 @@ public  interface  APMEnterpriseLocators {
     By EXPORT_FACT_PROCESSED = By.xpath("//span[text()='Facts Processed (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
     By EXPORT_CPU = By.xpath("//span[text()='CPU Usage (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-file-csv']");
     By EXPORT_HEAP = By.xpath("//span[text()='Heap Usage (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
+    By QUEUES_TAB = By.xpath("//span[contains(text(),'Queues')]");
+    By ERRORS_COLUMN = By.xpath("//div[text()='Errors']");
+    By DROPDOWN_FEILDS_QUEUES=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Name']");
+    By NAME_QUEUE = By.xpath("(//span[text()='apm.action'])[2]");
+    By DRILLTHRUGH_QUEUESIZE = By.xpath("//span[text()='Queue Size (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
+    By TITLE_DRILLTHRUGH_QUEUESIZE = By.xpath("//h5[text()='Drillthrough on Queue Size']");
+    By EXPORT_QUEUESIZE = By.xpath("//span[text()='Queue Size (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
+    By EXPORT_QUEUE_HEAP = By.xpath("//span[text()='Queue Heap Usage (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
+    By TITLE_DRILLTHRUGH_QUEUE_HEAP = By.xpath("//h5[text()='Drillthrough on Queue Heap Usage']");
+    By DRILLTHRUGH_QUEUE_HEAP = By.xpath("//span[text()='Queue Heap Usage (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
+
 }

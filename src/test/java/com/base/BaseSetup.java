@@ -181,7 +181,7 @@ public class BaseSetup implements TimeOuts {
 					sys.writeProperty("CurrentlyRunningBrowserName", getBrowserName());
 					context.setAttribute("driverWithoutWebListener", driverWithoutWebListener);
 					context.setAttribute("driver", driver);
-				//	setPageLoadTimeOut(VERYLONGWAIT);
+					setPageLoadTimeOut(VERYLONGWAIT);
 				} else {
 					Assert.fail("Driver not initialized properly .Please re-initialize the driver");
 				}
@@ -196,7 +196,7 @@ public class BaseSetup implements TimeOuts {
 	@Parameters({ "browser-Type", "browserVersion", "osName", "osVersion", "session" })
 	@BeforeMethod(alwaysRun = true)
 	public void initializeBaseSetupForRemote(@Optional("chrome") String browserType,
-			@Optional("30") String browserVersion, @Optional("WINDOWS") String OSName, @Optional("7") String OSVersion,
+			@Optional("97") String browserVersion, @Optional("WINDOWS") String OSName, @Optional("10") String OSVersion,
 			@Optional() String session, ITestContext context) {
 		sys.writeProperty("BrowserName", browserType);
 		try {

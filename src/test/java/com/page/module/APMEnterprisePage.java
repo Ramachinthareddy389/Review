@@ -116,6 +116,18 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(EXPORT_HEAP, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
     }
+
+    public void clickingOnExportBtnOfQueueSizePortlet(){
+        waitForSecs(7);
+        safeClick(EXPORT_QUEUESIZE, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void clickingOnExportBtnOfQueueHeapUsagePortlet(){
+        waitForSecs(7);
+        safeClick(EXPORT_QUEUE_HEAP, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
     public void downloadedpath() {
         String home = System.getProperty("user.home");
         downloadPath = home + "\\Downloads";
@@ -194,5 +206,75 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeJavaScriptClick(DRILLTHRUGH_HEAP,"Drill through icon",MEDIUMWAIT);
         waitForSecs(5);
         Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_HEAP));
+    }
+
+    public  void verifyingNavigateToAPMQueueTab(){
+        try {
+            if (!isElementDisplayed(ERRORS_COLUMN)) {
+                safeClick(QUEUES_TAB,"Queues tab");
+                Assert.assertTrue(isElementDisplayed(QUEUES_TAB));
+            }
+            Assert.assertTrue(isElementDisplayed(QUEUES_TAB));
+        }catch (Exception e){
+
+        }
+
+    }
+
+
+    public  void navigateToDrirllThroughPageFrmQueueSizePortlet(){
+        safeClick(QUEUES_TAB,"Queues tab",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS_QUEUES, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+"apm.action"+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(NAME_QUEUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(NAME_QUEUE,"Host name value",MEDIUMWAIT);
+
+        waitForSecs(10);
+        safeJavaScriptClick(DRILLTHRUGH_QUEUESIZE,"Drill through icon",MEDIUMWAIT);
+        waitForSecs(5);
+        Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_QUEUESIZE));
+    }
+    public  void exportingQueueSizePortlet(){
+        safeClick(QUEUES_TAB,"Queues tab",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS_QUEUES, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+"apm.action"+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(NAME_QUEUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(NAME_QUEUE,"Host name value",MEDIUMWAIT);
+    }
+    public  void navigateToDrirllThroughPageFrmQueueHeapUsagePortlet(){
+        safeClick(QUEUES_TAB,"Queues tab",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text",MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS_QUEUES, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'"+"apm.action"+"')]");
+        mouseHoverJScript(SeachedText,"SeachedText","text",MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        mouseHoverJScript(NAME_QUEUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(NAME_QUEUE,"Host name value",MEDIUMWAIT);
+
+        waitForSecs(10);
+        safeJavaScriptClick(DRILLTHRUGH_QUEUE_HEAP,"Drill through icon",MEDIUMWAIT);
+        waitForSecs(5);
+        Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_QUEUE_HEAP));
     }
 }

@@ -92,6 +92,7 @@ public class CapabilityHelper {
 		switch (browserType.toLowerCase()) {
 		case "chrome":
 			capabilities = DesiredCapabilities.chrome();
+
 			break;
 		case "firefox":
 			capabilities = DesiredCapabilities.firefox();

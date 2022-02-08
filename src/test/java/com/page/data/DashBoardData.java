@@ -48,6 +48,9 @@ public class DashBoardData {
 	public final String porletHeaders       = portletsData.getProperty("portlets");
 	public final String FactporletHeaders       = portletsData.getProperty("FactPortlet");
 	public final String CPUndHeapporletHeaders       = portletsData.getProperty("CPUndHeapPortlets");
+	public final String QueueSizeporletHeaders       = portletsData.getProperty("QueueSizeporletHeaders");
+	public final String QueueHeapUsageportletHeaders       = portletsData.getProperty("QueueHeapUsageportletHeaders");
+
 	public final String tablePortletName    = portletsData.getProperty("TablePortletName");
 	public final String chartPortletName    = portletsData.getProperty("ChartPortletName");
 	public final String pivotFieldPivotPage = portletsData.getProperty("Pivot_Portlet");
