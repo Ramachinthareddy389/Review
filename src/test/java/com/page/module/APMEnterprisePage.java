@@ -75,10 +75,11 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
-        safeType(TYPE_SEARCH, "Hostname", "Enter Text in portlets");
+        safeType(TYPE_SEARCH, "Type", "Enter Text in portlets");
         waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'" + "9f6619421afb" + "')]");
+        By SeachedText = By.xpath("//div[contains(text(),'" + "ACTION" + "')]");
+        waitForSecs(10);
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         mouseHoverJScript(HOSTNAME_VALUE, "Databse Name", "Mouse hover", MEDIUMWAIT);

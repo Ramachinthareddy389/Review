@@ -427,11 +427,10 @@ public void addingMoniteredServer(){
         waitForSecs(10);
         driver.findElements(By.cssSelector("[aria-label='Add to Chrome']")).get(0).click();
         waitForSecs(15);
-        switchToWindow(1);
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.elementToBeClickable(By.name("Add extension")));
-
-        driver.findElement(By.name("Add extension"));
+        selectFrame(1);
+//        WebDriverWait wait = new WebDriverWait(driver, 15);
+//        wait.until(ExpectedConditions.elementToBeClickable(By.name("Add extension")));
+        safeActionsClick(ADDEXTENSION,"Add extension button",MEDIUMWAIT);
       /*  Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_UP);
         Thread.sleep(500);

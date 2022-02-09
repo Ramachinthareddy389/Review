@@ -124,5 +124,21 @@ public class APMEnterpriseTests extends BaseSetup {
 
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMQueue_003_NavigateToDrillthroughPageFromQueueSizePortlet() throws InterruptedException
+    {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.navigateToDrirllThroughPageFrmQueueSizePortlet();
 
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMQueue_004_ExportQueueSizePortlet() throws InterruptedException, IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingQueueSizePortlet();
+        apmEnterprisePage.clickingOnExportBtnOfQueueSizePortlet();
+        apmEnterprisePage.validatingExportedPortlet("Queue Size_ActiveMQ Message Backlog.csv", dashBoardData.QueueSizeporletHeaders.split(","));
+
+
+    }
 }

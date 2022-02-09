@@ -53,8 +53,15 @@ public interface AlertTemplateLocators
     //Alert Locators
     By LABEL_AUTOMATION = By.xpath("//span[text()='Automation']");
     By LABEL_ALERT = By.xpath("//span[text() ='Alert']");
-    By DISTRIBUTION_LIST_GHOSTTEXT = By.xpath("//input[@id='alertGroupName']/../../../div[1]");
-    By DRPDOWN_DISTRIBUTION_LIST = By.xpath("//input[@id='alertGroupName']");
+    By DISTRIBUTION_LIST_TXTBOX = By.xpath("//span[text()='Distribution List Name']/../../following-sibling::div/input");
+
+    By DISTRIBUTION_ADD = By.xpath("//button[@aria-label='Add']");
+    By LABEL_EMAIL_ADDRESS = By.xpath("//input[@id='name']/../../../div[1]/../../../../label/p/span[1]");
+    By EMAIL_ADDRESS_GHOSTEXT = By.xpath("//input[@id='name']/../../../div[1]");
+    By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By TXTBOX_EMAIL_ADDRESS = By.xpath("//span[text()='Member Email Address']/../../following-sibling::div/descendant::input");
+    By DISTRIBUTION_LIST_NEXT = By.xpath("(//span[text()='Next'])[2]");
+    By TXTBOX_EXECUTION_COUNT = By.xpath("//input[@id='limitCount']");
     By SLA_GHOSTTEXT = By.xpath("//input[@id='sla']/../../../div[1]");
     By DRPDOWN_SLA = By.xpath("//input[@id='sla']");
     By DROPDOWN_LIST=By.xpath("//div[contains(@class,'MuiListItem-button')]");
@@ -68,7 +75,6 @@ public interface AlertTemplateLocators
     By LABEL_NOTIFY_ON_FAILURE = By.xpath("//span[text()='Notify On Failure']");
     By LABEL_MENU_BUTTON = By.xpath("//button[@id='delsel']/../../div[1]/button");
     By LABEL_EMPTY_TEXTBOX = By.xpath("//span[text()='Empty Inbox']");
-    By TXTBOX_EXECUTION_COUNT = By.xpath("//input[@id='limitCount']");
     By TXTBOX_QUITE_TIME = By.xpath("//input[@id='quietTimePeriod']");
 
     By BTN_EDIT = By.xpath("//div[@aria-label='Edit Selected Configuration']");

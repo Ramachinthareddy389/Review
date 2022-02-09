@@ -2412,7 +2412,7 @@ public class SafeActions extends Sync
 			log.error(getTestCasename()+"Unable to move to '"+sLocatorName+"' using sikuli, please check screenshot and image path"+"\n" + " - " + e.getMessage());
 			Assert.fail("Unable to move to '"+sLocatorName+"' using sikuli, please check screenshot and image path");
 		}
-	}*/
+	}
 
 	/**
 	 *

@@ -44,6 +44,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     }
 
     public void addIngAlertTemplate(String dname1) {
+        waitForSecs(10);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, dname1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
@@ -51,7 +52,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         isElementClickable(LABEL_TEXT_TITLE,MEDIUMWAIT);
         safeClick(LABEL_TEXT_TITLE, "Text title label", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         driver.findElements(TXTBOX_USERNAME_QUERY).get(0).sendKeys("test");
         textTitle = driver.findElement(ADDED_TEXT_AREA).getText();
         isElementClickable(LABEL_TEXT_CONTENT,MEDIUMWAIT);
@@ -365,27 +366,37 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(LABEL_ALERT, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
 
-    public void addingAlerts(String Alert) {
+    public void addingAlerts(String Alert,String name,String email) {
         waitForSecs(30);
         safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_NAME, Alert, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-        safeClick(DISTRIBUTION_LIST_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(DRPDOWN_DISTRIBUTION_LIST, "DistributionList", "Server name into textbox", MEDIUMWAIT);
+        safeClick(DISTRIBUTION_ADD, "Server textbox", MEDIUMWAIT);
+        safeType(DISTRIBUTION_LIST_TXTBOX, name, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
         waitForSecs(10);
-        List<WebElement> dbs = driver.findElements(DROPDOWN_LIST);
-        System.out.println("Total no 0f dashboards:::====> " + dbs.size());
-        for (int i = 0; i < dbs.size(); i++) {
+        safeClick(DISTRIBUTION_LIST_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(LABEL_EMAIL_ADDRESS, "Server Feild", MEDIUMWAIT);
+       // safeClick(EMAIL_ADDRESS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESS, email, "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs.get(i).getText().contains("DistributionList")) {
+            if (dbs1.get(i).getText().equals(email)) {
 
-                dbs.get(i).click();
+                dbs1.get(i).click();
                 break;
             }
         }
-
-        waitForSecs(10);
+        waitForSecs(15);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED,"show advanced button",MEDIUMWAIT);
+        safeType(TXTBOX_EXECUTION_COUNT,"1","Execution count",MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);

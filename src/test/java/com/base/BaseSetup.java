@@ -140,12 +140,12 @@ public class BaseSetup implements TimeOuts {
 	 */
 	@Parameters({ "deviceName", "deviceVersion", "deviceUrl", "udid", "platformName", "browser-Type", "browserVersion",
 			"osName", "osVersion", "session" })
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public void initializeBaseSetup(@Optional("Android Mobile Phone") String deviceName,
 			@Optional("6.0.1") String deviceVersion, @Optional("http://0.0.0.0:4723/wd/hub") String deviceUrl,
 			@Optional("1fa71036") String udid, @Optional("Desktop") String sPlatform,
 			@Optional("chrome") String sBrowsername, @Optional("30") String browserVersion,
-			@Optional("windows") String sOSName, @Optional("7") String OSVersion, @Optional() String session,
+			@Optional("IPHONE") String sOSName, @Optional("10") String OSVersion, @Optional() String session,
 			ITestContext context) {
 
 		sys.writeProperty("BrowserName", sBrowsername);
@@ -196,7 +196,7 @@ public class BaseSetup implements TimeOuts {
 	@Parameters({ "browser-Type", "browserVersion", "osName", "osVersion", "session" })
 	@BeforeMethod(alwaysRun = true)
 	public void initializeBaseSetupForRemote(@Optional("chrome") String browserType,
-			@Optional("97") String browserVersion, @Optional("WINDOWS") String OSName, @Optional("10") String OSVersion,
+			@Optional("97") String browserVersion, @Optional("IPHONE ") String OSName, @Optional("10") String OSVersion,
 			@Optional() String session, ITestContext context) {
 		sys.writeProperty("BrowserName", browserType);
 		try {
@@ -262,13 +262,13 @@ public class BaseSetup implements TimeOuts {
 	 * This method since added in "AfterClass" group and when this class is
 	 * inherited from a TestSuite class, it will be called automatically
 	 */
-	@AfterClass(alwaysRun = true)
+/*	@AfterClass(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
 		if (driver != null) {
 			driver.quit();
 		}
-	}
+	}*/
 
 	/**
 	 * This method adds Log file link to ReportNG report
@@ -407,7 +407,7 @@ public class BaseSetup implements TimeOuts {
 				+ browserVersion.trim();
 		initiateDriver(browserType, browserVersion, OSName, OSVersion, session);
 		log.info("Initiated Webdriver...");
-		context.setAttribute("driverWithoutWebListener", driverWithoutWebListener);
+		//context.setAttribute("driverWithoutWebListener", driverWithoutWebListener);
 		context.setAttribute("driver", driver);
 		setDriver(driver);
 		driver.manage().window().maximize();

@@ -35,6 +35,7 @@ public class ChromeBrowser implements IBrowser {
 		if (isUserDataDirPresent()) {
 			driver = initChromeDriver(UserDataPath, ProfileName);
 		} else {
+
 			driver = initChromeDriver();
 		}
 		return driver;
@@ -53,21 +54,22 @@ public class ChromeBrowser implements IBrowser {
 		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "re.crx";
 		log.info("Path of extention is -----------------"+path);
 		log.info("Launching google chrome with new profile..");
-		System.setProperty("webdriver.chrome.driver", getDriverPath());
+		System.setProperty("webdriver.chrome.driver", "D:\\DecProject\\germain-test-automation\\Resources\\Drivers\\chromedriver.exe");
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		prefs.put("download.default_directory", getDownloadLocation());
 		prefs.put("download.prompt_for_download", false);
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--test-type", "start-maximized");
-		options.setExperimentalOption("prefs", prefs);
-     	options.addArguments("--disable-extensions");
-		options.addArguments("disable-infobars");
-		options.addArguments("--disable-application-cache");
+		//options.setExperimentalOption("prefs", prefs);
+     //	options.addArguments("--enable-extensions");
+		//options.addArguments("disable-infobars");
+//		options.addArguments("--disable-application-cache");
+		options.addArguments("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0");
 		options.addExtensions (new File(path));
-		DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
-		desiredCapabilities.setCapability(options.CAPABILITY,options);
+	//	DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+	//	desiredCapabilities.setCapability(options.CAPABILITY,options);
 		log.info("chrome driver initialized..");
-		return new ChromeDriver(desiredCapabilities);
+		return new ChromeDriver(options);
 	}
 
 	/**

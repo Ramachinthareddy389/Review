@@ -121,6 +121,7 @@ public interface SSHLocators {
     By BTN_CLICK = By.xpath("//span[text()='Click']");
     By BTN_ADDICON_CLICK = By.xpath("//h5[text()='Click']/../div/div/button/span/i");
     By LABEL_RECORD = By.xpath("//li[text()='Record (with click recorder)']");
+    By ADDEXTENSION = By.name("Add extension");
     By BTN_STOP = By.xpath("//button[text()=' Stop ']");
     By BTN_EXPORT = By.xpath("//button[text()=' Export ']");
     By LABEL_BRWSER_DRIVER_PATH = By.xpath("//span[text()='Browser Driver Path']");

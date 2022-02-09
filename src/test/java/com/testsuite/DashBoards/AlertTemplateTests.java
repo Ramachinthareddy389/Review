@@ -26,6 +26,7 @@ public class AlertTemplateTests extends BaseSetup {
     String dname1 = dname + random.nextInt(1500);
     String Alert = "alert" + random.nextInt(1500);
     String slasName = "SLAs" + random.nextInt(3000);
+    String DistriList = "DistriList" + "-" + random.nextInt(500);
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -67,7 +68,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Suite")
     public void TC_Alerts_001_TriggerAnAlertbasedonSLAs() {
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.deletingAlert(Alert);
         getDriver().get(dashBoardData.yopmail);
         emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
@@ -80,7 +81,7 @@ public class AlertTemplateTests extends BaseSetup {
     public void TC_Alerts_005_VerifytriggeredalertsinInsightspage()
     {
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         insightsPage.navigateToInsightsPage();
         alertTemplatePage.verifyingAddedAlertInInsightPage();
         alertTemplatePage.deletingAlert(Alert);
@@ -89,7 +90,7 @@ public class AlertTemplateTests extends BaseSetup {
     public  void TC_Alerts_002_TriggerAnAlertwithNotifications()
     {
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.triggeringAnAlertWithNotify(Alert);
         alertTemplatePage.deletingAlert(Alert);
         getDriver().get(dashBoardData.yopmail);
@@ -101,7 +102,7 @@ public class AlertTemplateTests extends BaseSetup {
    @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_004_TriggerAnAlertBasedonExecutionCount(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+       alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.triggeringAlertBasedOnExecutionCount(Alert);
         getDriver().get(dashBoardData.yopmail);
         emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
@@ -112,7 +113,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_003_TriggerAnAlertwithSpecifiedQuiettime(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
         getDriver().get(dashBoardData.yopmail);
         emailPage.navigatingToYopMail("zentest75@yopmail.com", "Germain Alert - User Click - germainApm - PERFORMANCE Issue");
@@ -123,7 +124,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_006_VerifyDatainAlertEmail(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.triggeringAnAlertWithSpecifiedquiteTime(Alert);
         alertTemplatePage.deletingAlert(Alert);
         getDriver().get(dashBoardData.yopmail);
@@ -135,7 +136,7 @@ public class AlertTemplateTests extends BaseSetup {
     public void TC_Alerts_008_VerifyPageIconsinAlertPage()
     {
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.navigatingToAlertPage();
         alertTemplatePage.verifyingPageIcons(Alert);
         alertTemplatePage.verifyingEditIconFunctionalityInAlerts();
@@ -144,7 +145,7 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_009_ApplyFiltersInAlertsPage(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.navigatingToAlertPage();
         alertTemplatePage.applyingFilters(Alert);
     }
@@ -192,14 +193,14 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_011_VerifyIconsinEditconfigWindows(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.verifyingIconsInEditWindow(Alert);
     }
 
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_013_NavigatetoSLAEditWindowfrmAlertsEditwindow(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.NavigateToSLAsPageFromAlertEditwindow(Alert);
         alertTemplatePage.validatingSLAsEditWindow();
     }
@@ -207,14 +208,14 @@ public class AlertTemplateTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_014_ViewDataforFieldsWithViewIconinEditConfigWindows(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.verifyingTheViewDataForFeidlsInAlertsEditWindow(Alert);
 
     }
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_Alerts_015_NavigatetoSLAsPageonClickingAnySLAUnderTriggeredBySLAsColumn(){
         alertTemplatePage.clickingOnAlerts();
-        alertTemplatePage.addingAlerts(Alert);
+        alertTemplatePage.addingAlerts(Alert,DistriList, "rama.chinthareddy@zenq.com");
         alertTemplatePage.navigateToSLAPageFrmAlertspage(Alert);
         alertTemplatePage.navigatingToAlertPage();
         alertTemplatePage.deletingCreatedAlerts(Alert);
