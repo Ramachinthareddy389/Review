@@ -141,4 +141,23 @@ public class APMEnterpriseTests extends BaseSetup {
 
 
     }
+
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMQueue_006_NavigateToDrillthroughPageFromQueueHeapUsagePortlet() throws InterruptedException
+    {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.navigateToDrirllThroughPageFrmQueueHeapUsagePortlet();
+
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMQueue_007_ExportQueueHeapUsagePortlet() throws InterruptedException, IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingQueueSizePortlet();
+        apmEnterprisePage.clickingOnExportBtnOfQueueHeapUsagePortlet();
+        apmEnterprisePage.validatingExportedPortlet("Queue Heap Usage_ActiveMQ Heap Usage.csv", dashBoardData.QueueHeapUsageportletHeaders.split(","));
+
+
+    }
 }

@@ -401,10 +401,9 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         safeType(TXTBOX_NAME, Rules, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
-        safeType(TEXTAREA_CONTENT,"//\n" +
-                "// Router map used by Siebel Crash Parser on Windows.\n" +
-                "//\n" +
-                "package com.germainsoftware.apm.parser;\n" +
+        safeType(TEXTAREA_CONTENT,
+
+                "package com.germainsoftware.apm.parser;" +
                 "\n" +
                 "dialect \"mvel\"\n" +
                 "\n" +
@@ -508,7 +507,8 @@ public class PresentationModesNdRulesNdRulesPages extends SafeActions implements
         String expectedText = Rules;
         Assert.assertEquals(pageTitle, expectedText);
         waitForSecs(10);
-        if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && Content_Add.equals(driver.findElement(CONTENT_VAULUE).getText())) {
+        System.out.println(driver.findElements(CONTENT_VAULUE).get(1).getText());
+        if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) ) {
             System.out.println("Business process details are valid");
             Assert.assertTrue(true);
 
