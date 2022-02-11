@@ -60,12 +60,15 @@ public class ChromeBrowser implements IBrowser {
 		prefs.put("download.prompt_for_download", false);
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--test-type", "start-maximized");
+		options.addArguments("--disable-web-security");
+		options.addArguments("--allow-running-insecure-content");
+		options.addArguments("--disable-gpu");
 		//options.setExperimentalOption("prefs", prefs);
      //	options.addArguments("--enable-extensions");
 		//options.addArguments("disable-infobars");
 //		options.addArguments("--disable-application-cache");
-		options.addArguments("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0");
-		options.addExtensions (new File(path));
+		/*options.addArguments("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0");
+		options.addExtensions (new File(path));*/
 	//	DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
 	//	desiredCapabilities.setCapability(options.CAPABILITY,options);
 		log.info("chrome driver initialized..");

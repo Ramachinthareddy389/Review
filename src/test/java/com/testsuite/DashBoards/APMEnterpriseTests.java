@@ -160,4 +160,17 @@ public class APMEnterpriseTests extends BaseSetup {
 
 
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMNode_001_ClickOnNodessection(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.verifyingNavigateToNodeTab();
+    }
+
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMNode_002_AddingNewNodeFrmNodesTab(){
+        apmEnterprisePage.configuringNodeInAPMModule();
+        apmEnterprisePage.verifyingAddedNodeInNodesPage();
+    }
 }

@@ -30,5 +30,19 @@ public  interface  APMEnterpriseLocators {
     By EXPORT_QUEUE_HEAP = By.xpath("//span[text()='Queue Heap Usage (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
     By TITLE_DRILLTHRUGH_QUEUE_HEAP = By.xpath("//h5[text()='Drillthrough on Queue Heap Usage']");
     By DRILLTHRUGH_QUEUE_HEAP = By.xpath("//span[text()='Queue Heap Usage (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
-
+    By NODES_TAB = By.xpath("//span[contains(text(),'Nodes')]");
+    By ENGINES_COLUMN = By.xpath("//div[text()='Engines']");
+    By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
+    By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
+    By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
+    By TXTBOX_EDITED_SERVERNAME = By.xpath("//input[@id='name']");
+    By LABEL_HOSTNAME_NODE = By.xpath("//span[text()='Hostname']");
+    By TXTBOX_HOSTNAME_NODE = By.xpath("//input[@id='hostname']");
+    By BTN_FINISH = By.xpath("//span[text()='Finish']");
+    By BTN_CLOSE = By.xpath("//span[text()='Close']");
+    By TEXTBOX_TYPESEARCH = By.xpath("//input[@placeholder='Type or select below']");
+    By LISTOFDBS = By.xpath("//div[@title='Select Row']/following-sibling::div[2]/span/span");
+    By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
+    By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
+    By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
 }

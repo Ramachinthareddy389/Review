@@ -23,8 +23,9 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
     Random random = new Random();
     String dname1 = dname + random.nextInt(1500);
     String dnameEdit = "Httpedit" + random.nextInt(1500);
-    String Server_add, AppName_add, Cred_add, Component_add, Edit_Server_add, Edit_MonitorName_add, Edit_App_add;
+    String Server_Add, AppName_add, Cred_add, Component_add, Edit_Server_add, Edit_MonitorName_add, Edit_App_add;
     String downloadPath;
+    String NodeJS = "NodeJs" + " - " + random.nextInt(500);
     public APMEnterprisePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
@@ -277,5 +278,56 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeJavaScriptClick(DRILLTHRUGH_QUEUE_HEAP,"Drill through icon",MEDIUMWAIT);
         waitForSecs(5);
         Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_QUEUE_HEAP));
+    }
+
+    public  void verifyingNavigateToNodeTab(){
+        try {
+            if (!isElementDisplayed(ENGINES_COLUMN)) {
+                safeClick(NODES_TAB,"Queues tab");
+                Assert.assertTrue(isElementDisplayed(NODES_TAB));
+            }
+            Assert.assertTrue(isElementDisplayed(NODES_TAB));
+        }catch (Exception e){
+
+        }
+
+    }
+
+    public void configuringNodeInAPMModule() {
+        safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
+        safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(NODES_TAB, "Nodes Tab", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TXTBOX_EDITED_SERVERNAME, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_EDITED_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_HOSTNAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+
+
+    }
+
+    public void verifyingAddedNodeInNodesPage(){
+        safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = NodeJS;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
     }
 }
