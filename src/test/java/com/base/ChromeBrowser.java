@@ -54,7 +54,7 @@ public class ChromeBrowser implements IBrowser {
 		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "re.crx";
 		log.info("Path of extention is -----------------"+path);
 		log.info("Launching google chrome with new profile..");
-		System.setProperty("webdriver.chrome.driver", "D:\\DecProject\\germain-test-automation\\Resources\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", getDriverPath());
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		prefs.put("download.default_directory", getDownloadLocation());
 		prefs.put("download.prompt_for_download", false);

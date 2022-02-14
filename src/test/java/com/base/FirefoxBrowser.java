@@ -112,7 +112,7 @@ public class FirefoxBrowser implements IBrowser
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);   
 		cap.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-		firefoxOptions.addCapabilities(cap);
+	//	firefoxOptions.addCapabilities(cap);
 		firefoxOptions.setProfile(firefoxProfile);
 		if(isBinaryPathPresent())
 		{	
@@ -146,7 +146,7 @@ public class FirefoxBrowser implements IBrowser
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);   
 		cap.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-		firefoxOptions.addCapabilities(cap);
+		//firefoxOptions.addCapabilities(cap);
 		firefoxOptions.setProfile(firefoxProfile);
 	
 		if(isBinaryPathPresent())

@@ -45,4 +45,17 @@ public  interface  APMEnterpriseLocators {
     By HEADER_DB = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
     By CONFIRM_DELETE = By.xpath("//button/span[contains(text(),'Confirm')]");
     By DELETE_ALERT = By.xpath("//div[@aria-label='Remove Configuration']");
+    By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
+    By ENGINES_ADD_ICON_IN_NODE = By.xpath("//i[contains(@aria-label,'A list of Germain engines that will be run on this node.')]/../../following-sibling::div/button/span/i");
+    By LABLE_NAME = By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/label");
+    By TXTBOX_NAME= By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/div/input");
+    By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
+    By LABEL_MONITORED_SERVER = By.xpath("//input[@id='monitoredServer']/../../../../../../label/p/span");
+    By MONITORED_SERVER_GHOSTEXT = By.xpath("//input[@id='monitoredServer']/../../../div[1]");
+    By TXTBOX_MONITORED = By.xpath("//input[@id='monitoredServer']");
+    By BTN_NEXT = By.xpath("//span[text()='Next']");
+    By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
+    By CLOSE_EDITOR = By.xpath("//div[@aria-label='Close Editor']");
+    By ENGINE_HYPERLINK = By.xpath("//i[contains(@aria-label,'A list of Germain engines that will be run on this node.')]/../../following-sibling::div/div/descendant::button");
+    By ENGINES_TAB = By.xpath("//span[contains(text(),'Engines')]");
 }

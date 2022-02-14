@@ -3360,6 +3360,7 @@ public class SafeActions extends Sync
 			{
 		String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
 		WebElement searchField = driver.findElement(locator);
+				searchField.clear();
 		searchField.sendKeys(del + text);
 				log.info(getTestCasename()+"Entered - '" + text + " into " + friendlyWebElementName);
 			}

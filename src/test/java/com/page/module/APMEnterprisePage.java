@@ -7,6 +7,7 @@ import com.selenium.SafeActions;
 import com.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.File;
@@ -26,6 +27,10 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
     String Server_Add, AppName_add, Cred_add, Component_add, Edit_Server_add, Edit_MonitorName_add, Edit_App_add;
     String downloadPath;
     String NodeJS = "NodeJs" + " - " + random.nextInt(500);
+    String EditNodeJS= "EditNodeJS" + " - " + random.nextInt(500);
+    String DbTitle = "Hardware" + " - " + random.nextInt(500);
+    String Engine = "Engine" + " - " + random.nextInt(500);
+
     public APMEnterprisePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
@@ -329,5 +334,105 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+
+    public void verifyingEditedNodeInNodesPage(){
+        safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = NodeJS;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeJavaScriptClearAndType(TXTBOX_EDITED_SERVERNAME, EditNodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_EDITED_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        Assert.assertEquals(Server_Add,EditNodeJS);
+        safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
+        safeJavaScriptClearAndType(TXTBOX_HOSTNAME_NODE, EditNodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        Assert.assertEquals(Server_Add,EditNodeJS);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void verifyingAddedEngineinNodeEditWindow(){
+        safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(ENGINES_ADD_ICON_IN_NODE,"Engines add icon",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(LABLE_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Engine, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_SHOW_ADVANCED, "Show advanced");
+        safeClick(LABEL_MONITORED_SERVER, "Monitored Server", MEDIUMWAIT);
+        safeClick(MONITORED_SERVER_GHOSTEXT, "Monitored Server host text", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONITORED, DbTitle, "Monitored name into textbox", MEDIUMWAIT);
+        List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + db1.size());
+        for (int i = 0; i < db1.size(); i++) {
+
+            if (db1.get(i).getText().equalsIgnoreCase(DbTitle)) {
+
+                db1.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(15);
+        safeClick(CLOSE_EDITOR,"Close Editor",MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String engine_Hyperlink =safeGetText(ENGINE_HYPERLINK,"Added ENgine Hyper link",MEDIUMWAIT);
+        Assert.assertEquals(Engine,engine_Hyperlink);
+        waitForSecs(10);
+
+
+    }
+
+    public void verifyingAddedEngineInEnginesTab(){
+        safeClick(ENGINES_TAB,"Engines Hyperlink in node edit window",MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, Engine + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
+        System.out.println(pageTitle);
+        String expectedText = Engine;
+        Assert.assertEquals(pageTitle, expectedText);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(NODES_TAB,"Engines Hyperlink in node edit window",MEDIUMWAIT);
+        safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(10);
+
     }
 }
