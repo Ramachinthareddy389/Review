@@ -57,5 +57,12 @@ public  interface  APMEnterpriseLocators {
     By DROPDOWN_SERVER = By.xpath("//div[contains(@class,'MuiListItem-button')]");
     By CLOSE_EDITOR = By.xpath("//div[@aria-label='Close Editor']");
     By ENGINE_HYPERLINK = By.xpath("//i[contains(@aria-label,'A list of Germain engines that will be run on this node.')]/../../following-sibling::div/div/descendant::button");
+    By NODEADD_ICON_ENGINES = By.xpath("(//button[@aria-label='Add'])[1]");
     By ENGINES_TAB = By.xpath("//span[contains(text(),'Engines')]");
+    By TXTBOX_NAME_NODE = By.xpath("(//input[@id='name'])[2]");
+    By LABEL_SAVE = By.xpath("//span[text()='Save']");
+    By BTN_CLEAR = By.xpath("//span[text()='Clear']");
+    By DROPDOWN_ENGINE=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[3]/div[text()='Name']");
+
+
 }

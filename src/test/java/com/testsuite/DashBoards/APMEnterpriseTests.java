@@ -143,6 +143,9 @@ public class APMEnterpriseTests extends BaseSetup {
     }
 
 
+
+
+
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMQueue_006_NavigateToDrillthroughPageFromQueueHeapUsagePortlet() throws InterruptedException
     {
@@ -187,4 +190,15 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.verifyingAddedEngineInEnginesTab();
     }
 
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMEngine_001_ClickingOnEnginesSection(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.verifyingNavigateToAPMEngineTab();
+    }
+
+    @Test(alwaysRun = true,groups ="Smoke Test")
+    public void TC_APMEngine_002_AddingNewEngine(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewEngine();
+    }
 }

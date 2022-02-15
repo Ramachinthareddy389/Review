@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import com.datamanager.ConfigManager;
 import com.testng.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.MutableCapabilities;
 
 /**
  * This class defines all methods required to initialize ChromeDriver So far
@@ -67,12 +68,14 @@ public class ChromeBrowser implements IBrowser {
      //	options.addArguments("--enable-extensions");
 		//options.addArguments("disable-infobars");
 //		options.addArguments("--disable-application-cache");
-		/*options.addArguments("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0");
-		options.addExtensions (new File(path));*/
-	//	DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
-	//	desiredCapabilities.setCapability(options.CAPABILITY,options);
-		log.info("chrome driver initialized..");
-		return new ChromeDriver(options);
+		//options.addArguments("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0");//
+
+		DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+	    desiredCapabilities.setCapability(options.CAPABILITY,options);
+	    log.info("chrome driver initialized..");
+		options.addExtensions (new File(path));
+		ChromeDriver chromeDriver = new ChromeDriver(desiredCapabilities);
+		return  chromeDriver;
 	}
 
 	/**

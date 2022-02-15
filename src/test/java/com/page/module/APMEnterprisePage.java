@@ -435,4 +435,83 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(10);
 
     }
+
+    public  void verifyingNavigateToAPMEngineTab(){
+        try {
+            if (!isElementDisplayed(ERRORS_COLUMN)) {
+                safeClick(ENGINES_TAB,"Queues tab");
+                Assert.assertTrue(isElementDisplayed(ENGINES_TAB));
+            }
+            Assert.assertTrue(isElementDisplayed(ENGINES_TAB));
+        }catch (Exception e){
+
+        }
+
+    }
+
+    public void addingNewEngine() {
+        safeClick(ENGINES_TAB, "Engines Hyperlink in node edit window", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        safeClick(NODEADD_ICON_ENGINES, "Node add icon", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TXTBOX_NAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_NAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        waitForSecs(10);
+        safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_HOSTNAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        safeClick(LABLE_NAME, "Name Feild", MEDIUMWAIT);
+        safeType(TXTBOX_NAME, Engine, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_SHOW_ADVANCED, "Show advanced");
+        safeClick(LABEL_MONITORED_SERVER, "Monitored Server", MEDIUMWAIT);
+        safeClick(MONITORED_SERVER_GHOSTEXT, "Monitored Server host text", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONITORED, DbTitle, "Monitored name into textbox", MEDIUMWAIT);
+        List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + db1.size());
+        for (int i = 0; i < db1.size(); i++) {
+
+            if (db1.get(i).getText().equalsIgnoreCase(DbTitle)) {
+
+                db1.get(i).click();
+                break;
+            }
+        }
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(15);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        waitForSecs(20);
+        safeClick(DROPDOWN_ENGINE, "Selecting field", MEDIUMWAIT);
+        waitForSecs(10);
+        By SeachedText = By.xpath("//div[contains(text()," + Engine + ")]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        //  mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        System.out.println(BPName);
+        Assert.assertTrue(isElementDisplayed(LABEL_SAVE));
+        Assert.assertTrue(isElementDisplayed(BTN_CLEAR));
+        Assert.assertEquals(BPName, Engine);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
+        waitForSecs(15);
+
+    }
 }
