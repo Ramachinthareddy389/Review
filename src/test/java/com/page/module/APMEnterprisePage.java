@@ -278,7 +278,6 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         driver.findElement(SeachedText).click();
         mouseHoverJScript(NAME_QUEUE, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(NAME_QUEUE,"Host name value",MEDIUMWAIT);
-
         waitForSecs(10);
         safeJavaScriptClick(DRILLTHRUGH_QUEUE_HEAP,"Drill through icon",MEDIUMWAIT);
         waitForSecs(5);
@@ -487,7 +486,6 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
-        waitForSecs(15);
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -496,7 +494,7 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(20);
         safeClick(DROPDOWN_ENGINE, "Selecting field", MEDIUMWAIT);
         waitForSecs(10);
-        By SeachedText = By.xpath("//div[contains(text()," + Engine + ")]");
+        By SeachedText = By.xpath("//div[contains(text(),'" + Engine + "')]");
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
         driver.findElement(SeachedText).click();
         // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
@@ -508,10 +506,63 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         Assert.assertEquals(BPName, Engine);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
+
+
+    }
+
+    public void deletingAddedEngine(){
         safeClick(DELETE_ALERT, "Delete Slas", MEDIUMWAIT);
         waitForSecs(20);
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
+    }
 
+
+    public void navigateToDrillthruPageFrmCPUUsagePortlet(){
+        waitForSecs(10);
+        safeJavaScriptClick(DRILLTHRUGH_CPU,"Drill through icon",MEDIUMWAIT);
+        waitForSecs(5);
+        Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_CPU));
+        safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ENGINES_TAB, "Engines Hyperlink in node edit window", MEDIUMWAIT);
+        waitForSecs(5);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        waitForSecs(20);
+        safeClick(DROPDOWN_ENGINE, "Selecting field", MEDIUMWAIT);
+        waitForSecs(10);
+        By SeachedText = By.xpath("//div[contains(text(),'" + Engine + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void navigateToDrillthruPageFrmMemoryUsagePortlet(){
+        waitForSecs(10);
+        safeJavaScriptClick(DRILLTHRUGH_MEMORYUSAGE,"Drill through icon",MEDIUMWAIT);
+        waitForSecs(5);
+        Assert.assertTrue(isElementDisplayed(TITLE_DRILLTHRUGH_MEMORYUSAGE));
+        safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ENGINES_TAB, "Engines Hyperlink in node edit window", MEDIUMWAIT);
+        waitForSecs(5);
+        waitForSecs(10);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+        waitForSecs(20);
+        safeClick(DROPDOWN_ENGINE, "Selecting field", MEDIUMWAIT);
+        waitForSecs(10);
+        By SeachedText = By.xpath("//div[contains(text(),'" + Engine + "')]");
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(10);
     }
 }

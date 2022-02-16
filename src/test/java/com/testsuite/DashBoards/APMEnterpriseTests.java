@@ -42,7 +42,7 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage = new APMEnterprisePage(getDriver());
         componentPage = new ComponentPage(getDriver());
         dashBoardData = new DashBoardData();
-        getDriver().manage().deleteAllCookies();
+       // getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
         (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
@@ -143,9 +143,6 @@ public class APMEnterpriseTests extends BaseSetup {
     }
 
 
-
-
-
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMQueue_006_NavigateToDrillthroughPageFromQueueHeapUsagePortlet() throws InterruptedException
     {
@@ -200,5 +197,22 @@ public class APMEnterpriseTests extends BaseSetup {
     public void TC_APMEngine_002_AddingNewEngine(){
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewEngine();
+        apmEnterprisePage.deletingAddedEngine();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMEngine_011_NavigateToDrillthroughPagefrmCPUUsagePortlet(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewEngine();
+        apmEnterprisePage.navigateToDrillthruPageFrmCPUUsagePortlet();
+        apmEnterprisePage.deletingAddedEngine();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMEngine_014_NavigatetoDrillthroughPagefrmMemoryUsagePortlet() throws IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewEngine();
+        apmEnterprisePage.navigateToDrillthruPageFrmMemoryUsagePortlet();
+        apmEnterprisePage.deletingAddedEngine();
     }
 }

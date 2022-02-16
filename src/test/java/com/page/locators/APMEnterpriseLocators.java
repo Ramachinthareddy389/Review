@@ -9,7 +9,7 @@ public  interface  APMEnterpriseLocators {
     By INSTANCE_COLUMN = By.xpath("//div[text()='Instance ID']");
     By SEARCH_ICON = By.xpath("//i[@class='fas fa-search']");
     By TYPE_SEARCH = By.xpath("//input[@placeholder='Type or select below']");
-    By DROPDOWN_FEILDS=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Type']");
+    By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Type']");
     By HOSTNAME_VALUE = By.xpath("(//span[contains(text(),'Action')])[1]");
     By DRILLTHRUGH_FACT_PROCESSED = By.xpath("//span[text()='Facts Processed (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
     By TITLE_DRILLTHRUGH_FACT_PROCESSED = By.xpath("//h5[text()='Drillthrough on Facts Processed']");
@@ -22,7 +22,7 @@ public  interface  APMEnterpriseLocators {
     By EXPORT_HEAP = By.xpath("//span[text()='Heap Usage (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
     By QUEUES_TAB = By.xpath("//span[contains(text(),'Queues')]");
     By ERRORS_COLUMN = By.xpath("//div[text()='Errors']");
-    By DROPDOWN_FEILDS_QUEUES=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Name']");
+    By DROPDOWN_FEILDS_QUEUES = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[2]/div[text()='Name']");
     By NAME_QUEUE = By.xpath("(//span[text()='apm.action'])[2]");
     By DRILLTHRUGH_QUEUESIZE = By.xpath("//span[text()='Queue Size (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
     By TITLE_DRILLTHRUGH_QUEUESIZE = By.xpath("//h5[text()='Drillthrough on Queue Size']");
@@ -48,8 +48,8 @@ public  interface  APMEnterpriseLocators {
     By BTN_SAVE = By.xpath("//div[@aria-label='Save Configuration']");
     By ENGINES_ADD_ICON_IN_NODE = By.xpath("//i[contains(@aria-label,'A list of Germain engines that will be run on this node.')]/../../following-sibling::div/button/span/i");
     By LABLE_NAME = By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/label");
-    By TXTBOX_NAME= By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/div/input");
-    By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
+    By TXTBOX_NAME = By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/div/input");
+    By BTN_SHOW_ADVANCED = By.xpath("//span[text()='Show Advanced']");
     By LABEL_MONITORED_SERVER = By.xpath("//input[@id='monitoredServer']/../../../../../../label/p/span");
     By MONITORED_SERVER_GHOSTEXT = By.xpath("//input[@id='monitoredServer']/../../../div[1]");
     By TXTBOX_MONITORED = By.xpath("//input[@id='monitoredServer']");
@@ -62,7 +62,7 @@ public  interface  APMEnterpriseLocators {
     By TXTBOX_NAME_NODE = By.xpath("(//input[@id='name'])[2]");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
-    By DROPDOWN_ENGINE=By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[3]/div[text()='Name']");
-
-
+    By DROPDOWN_ENGINE = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[4]/div[text()='Name']");
+    By DRILLTHRUGH_MEMORYUSAGE = By.xpath("//span[text()='Memory Usage (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
+    By TITLE_DRILLTHRUGH_MEMORYUSAGE = By.xpath("//h5[text()='Drillthrough on Memory Usage']");
 }
