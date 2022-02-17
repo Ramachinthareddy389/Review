@@ -34,14 +34,7 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.Reporter;
 import org.testng.SkipException;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.awt.*;
 import java.io.File;
@@ -262,14 +255,13 @@ public class BaseSetup implements TimeOuts {
 	 * This method since added in "AfterClass" group and when this class is
 	 * inherited from a TestSuite class, it will be called automatically
 	 */
-	@AfterClass(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
 		if (driver != null) {
 			driver.quit();
 		}
 	}
-
 	/**
 	 * This method adds Log file link to ReportNG report
 	 */

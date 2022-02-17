@@ -201,6 +201,13 @@ public class APMEnterpriseTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMEngine_003_EditExistingEngine(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewEngine();
+        apmEnterprisePage.editingExistingEngine();
+        apmEnterprisePage.deletingAddedEngine();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_APMEngine_011_NavigateToDrillthroughPagefrmCPUUsagePortlet(){
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewEngine();
@@ -214,5 +221,13 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.addingNewEngine();
         apmEnterprisePage.navigateToDrillthruPageFrmMemoryUsagePortlet();
         apmEnterprisePage.deletingAddedEngine();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMEngine_012_ExportCPUUsagePortlet() throws IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingCPUPortletsInAPMEngine();
+        apmEnterprisePage.clickingOnExportBtnOfCPUUsagePortlet();
+        apmEnterprisePage.validatingExportedPortlet("CPU Usage_Germain APM Engine CPU Usage.csv", dashBoardData.QueueHeapUsageportletHeaders.split(","));
     }
 }

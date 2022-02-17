@@ -62,7 +62,7 @@ public  interface  APMEnterpriseLocators {
     By TXTBOX_NAME_NODE = By.xpath("(//input[@id='name'])[2]");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
     By BTN_CLEAR = By.xpath("//span[text()='Clear']");
-    By DROPDOWN_ENGINE = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div[4]/div[text()='Name']");
+    By DROPDOWN_ENGINE = By.xpath("//div[text()='Name']");
     By DRILLTHRUGH_MEMORYUSAGE = By.xpath("//span[text()='Memory Usage (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
     By TITLE_DRILLTHRUGH_MEMORYUSAGE = By.xpath("//h5[text()='Drillthrough on Memory Usage']");
 }

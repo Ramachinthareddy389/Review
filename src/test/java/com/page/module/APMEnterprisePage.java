@@ -29,7 +29,7 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
     String NodeJS = "NodeJs" + " - " + random.nextInt(500);
     String EditNodeJS= "EditNodeJS" + " - " + random.nextInt(500);
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
-    String Engine = "Engine" + " - " + random.nextInt(500);
+    String Engine = "TestEngine" + " - " + random.nextInt(500);
 
     public APMEnterprisePage(WebDriver driver) {
         super(driver);
@@ -495,8 +495,11 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(DROPDOWN_ENGINE, "Selecting field", MEDIUMWAIT);
         waitForSecs(10);
         By SeachedText = By.xpath("//div[contains(text(),'" + Engine + "')]");
-        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
-        driver.findElement(SeachedText).click();
+        waitForSecs(10);
+       mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        waitForSecs(15);
+        safeJavaScriptClick(SeachedText,"Engine",MEDIUMWAIT);
+       // driver.findElement(SeachedText).click();
         // driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
         //  mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         String BPName = safeGetText(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
@@ -516,7 +519,14 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(CONFIRM_DELETE, "Confirm delete", MEDIUMWAIT);
         waitForSecs(15);
     }
-
+public void editingExistingEngine(){
+    safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+    waitForSecs(10);
+    safeJavaScriptClearAndType(TXTBOX_SERVERNAME, EditNodeJS, "Name into textbox", MEDIUMWAIT);
+    Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+    System.out.println(Server_Add);
+     Assert.assertEquals(Server_Add,EditNodeJS);
+}
 
     public void navigateToDrillthruPageFrmCPUUsagePortlet(){
         waitForSecs(10);
@@ -550,7 +560,6 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(ENGINES_TAB, "Engines Hyperlink in node edit window", MEDIUMWAIT);
-        waitForSecs(5);
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
@@ -564,5 +573,18 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         driver.findElement(SeachedText).click();
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+    public void exportingCPUPortletsInAPMEngine() {
+        waitForSecs(10);
+        safeClick(ENGINES_TAB, "Engines Hyperlink in node edit window", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TEXTBOX_TYPESEARCH, "standalone" + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
+        waitForSecs(20);
+        mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
+        safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);
+
     }
 }
