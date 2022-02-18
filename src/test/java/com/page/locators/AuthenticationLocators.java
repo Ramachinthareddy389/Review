@@ -40,6 +40,7 @@ public interface AuthenticationLocators {
     By TXTBOX_JSK_SET_URI = By.xpath("//input[@id='jwkSetUri']");
     By LABEL_USR_NAME_ATTR = By.xpath("//span[text()='User Name Attribute']");
     By TXTBOX_USR_NAME_ATTR  = By.xpath("//input[@id='userNameAttribute']");
+    By TXTBOX_NAME = By.xpath("//input[@id='name']");
     By BTN_SHOW_ADVANCED = By.xpath("//span[text()='Show Advanced']");
     By TXTBOX_USERNAME_QUERY = By.xpath("//textarea[@class='inputarea']");
     By LABEL_USED_BY_USERNAME_QUERY = By.xpath("//span[text()='User By Username Query']");

@@ -65,4 +65,7 @@ public  interface  APMEnterpriseLocators {
     By DROPDOWN_ENGINE = By.xpath("//div[text()='Name']");
     By DRILLTHRUGH_MEMORYUSAGE = By.xpath("//span[text()='Memory Usage (Auto)']/../../following-sibling::div/descendant::span/i[@class='fas fa-search-plus']");
     By TITLE_DRILLTHRUGH_MEMORYUSAGE = By.xpath("//h5[text()='Drillthrough on Memory Usage']");
+    By COMPONENTS_TAB = By.xpath("//span[contains(text(),'Components')]");
+    By MONITORED_SERVER_COLUMN = By.xpath("//div[text()='Monitored Server']");
+    By EXPORT_MEMORY_USAGE = By.xpath("//span[text()='Memory Usage (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
 }

@@ -126,19 +126,20 @@ public class AuthenticationPage extends SafeActions implements AuthenticationLoc
         mouseHoverJScript(LISTOFDBS, "Database Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(LABEL_USED_BY_USERNAME_QUERY, "Text title label", MEDIUMWAIT);
+     /*   safeClick(TXTBOX_NAME, "Text title label", MEDIUMWAIT);
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
-        WebElement searchField = driver.findElements(TXTBOX_USERNAME_QUERY).get(0);
-        searchField.sendKeys(del + "test");
-        safeClick(LABEL_AUTHORITIES_BY_USERNAME, "Text title label", MEDIUMWAIT);
+        WebElement searchField = driver.findElement(TXTBOX_NAME);
+        searchField.sendKeys(del + "test");*/
+        safeJavaScriptClearAndType(TXTBOX_NAME,"test","Name textbox",MEDIUMWAIT);
+       /* safeClick(LABEL_AUTHORITIES_BY_USERNAME, "Text title label", MEDIUMWAIT);
         String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElements(TXTBOX_USERNAME_QUERY).get(1);
-        searchField1.sendKeys(del + "test1");
+        searchField1.sendKeys(del + "test1");*/
         safeClick(BTN_SAVE, "Save button", MEDIUMWAIT);
-        String exp = safeGetText(ADDED_USERNAME_QUALITY, "user name qury", MEDIUMWAIT);
+        String exp = safeGetText(TXTBOX_NAME, "user name qury", MEDIUMWAIT);
         Assert.assertEquals("test", exp);
-        String exp2 = safeGetText(ADDED_AUTHORITIES_QUALITY, "Authorities quality", MEDIUMWAIT);
-        Assert.assertEquals("test1", exp2);
+/*        String exp2 = safeGetText(ADDED_AUTHORITIES_QUALITY, "Authorities quality", MEDIUMWAIT);
+        Assert.assertEquals("test1", exp2);*/
         safeJavaScriptClick(DELETE_ALERT, "Delete Alert", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(CONFIRM_DELETE, "Confirm button", MEDIUMWAIT);

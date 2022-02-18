@@ -230,4 +230,19 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.clickingOnExportBtnOfCPUUsagePortlet();
         apmEnterprisePage.validatingExportedPortlet("CPU Usage_Germain APM Engine CPU Usage.csv", dashBoardData.QueueHeapUsageportletHeaders.split(","));
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMEngine_015_ExportMemoryUsagePortlet() throws IOException {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.exportingCPUPortletsInAPMEngine();
+        apmEnterprisePage.clickingOnExportBtnOfMemoryUsagePortlet();
+        apmEnterprisePage.validatingExportedPortlet("Memory Usage_Germain APM Engine Memory Usage.csv", dashBoardData.QueueHeapUsageportletHeaders.split(","));
+    }
+
+     @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_001_ClickingOnComponentSection(){
+         apmEnterprisePage.navigateToAPMPage();
+         apmEnterprisePage.verifyingNavigateToComponentsTab();
+    }
+
 }

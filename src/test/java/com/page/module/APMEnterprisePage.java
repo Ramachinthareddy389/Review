@@ -135,6 +135,11 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(EXPORT_QUEUE_HEAP, "Export Button", MEDIUMWAIT);
         waitForSecs(10);
     }
+    public void clickingOnExportBtnOfMemoryUsagePortlet(){
+        waitForSecs(7);
+        safeClick(EXPORT_MEMORY_USAGE, "Export Button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
     public void downloadedpath() {
         String home = System.getProperty("user.home");
         downloadPath = home + "\\Downloads";
@@ -585,6 +590,19 @@ public void editingExistingEngine(){
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
+
+    }
+
+    public  void verifyingNavigateToComponentsTab(){
+        try {
+            if (!isElementDisplayed(MONITORED_SERVER_COLUMN)) {
+                safeClick(COMPONENTS_TAB,"Components tab");
+                Assert.assertTrue(isElementDisplayed(COMPONENTS_TAB));
+            }
+            Assert.assertTrue(isElementDisplayed(COMPONENTS_TAB));
+        }catch (Exception e){
+
+        }
 
     }
 }
