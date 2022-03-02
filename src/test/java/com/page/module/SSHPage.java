@@ -420,17 +420,19 @@ public void addingMoniteredServer(){
         safeClick(BTN_CLICK, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
     }
     public void addingNewRecordingInClickPage() throws InterruptedException, AWTException {
+     /*   ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(0));*/
         safeClick(LABEL_RECORD, "Record option", MEDIUMWAIT);
         waitForSecs(15);
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        waitForSecs(10);
-        driver.findElements(By.cssSelector("[aria-label='Add to Chrome']")).get(0).click();
-        waitForSecs(15);
-        selectFrame(1);
+      //  ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+     //   driver.switchTo().window(tabs.get(1));
+       // waitForSecs(10);
+       // driver.findElements(By.cssSelector("[aria-label='Add to Chrome']")).get(0).click();
+       // waitForSecs(15);
+     //   selectFrame(1);
 //        WebDriverWait wait = new WebDriverWait(driver, 15);
 //        wait.until(ExpectedConditions.elementToBeClickable(By.name("Add extension")));
-        safeActionsClick(ADDEXTENSION,"Add extension button",MEDIUMWAIT);
+       // safeActionsClick(ADDEXTENSION,"Add extension button",MEDIUMWAIT);
       /*  Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_UP);
         Thread.sleep(500);
@@ -457,7 +459,7 @@ public void addingMoniteredServer(){
         driver.findElements(By.xpath("//center/input[@aria-label='Google Search']")).get(1).click();
         driver.navigate().back();
         System.out.println(tabs.size());
-        System.out.println(driver.switchTo().window(tabs.get(3)));
+        System.out.println(driver.switchTo().window(tabs.get(1)));
         Record1 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
         System.out.println(Record1);
         Record2 = driver.findElement(By.xpath("//tbody/tr[2]/td[1]")).getText();
@@ -733,7 +735,7 @@ public void addingMoniteredServer(){
         driver.findElements(By.xpath("//center/input[@aria-label='Google Search']")).get(1).click();
         driver.navigate().back();
         System.out.println(tabs.size());
-        System.out.println(driver.switchTo().window(tabs.get(3)));
+        System.out.println(driver.switchTo().window(tabs.get(1)));
         Record1 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
         System.out.println(Record1);
         Record2 = driver.findElement(By.xpath("//tbody/tr[2]/td[1]")).getText();

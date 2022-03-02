@@ -18,9 +18,10 @@ import com.datamanager.ConfigManager;
 import com.listener.WebListener;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.selenium.SlackIntegration;
-import com.utilities.ReportSetup;
+//import com.utilities.ReportSetup;
 import com.utilities.TimeOuts;
 import com.utilities.UtilityMethods;
+import jvm.ReportSetup;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -188,8 +189,8 @@ public class BaseSetup implements TimeOuts {
 
 	@Parameters({ "browser-Type", "browserVersion", "osName", "osVersion", "session" })
 	@BeforeMethod(alwaysRun = true)
-	public void initializeBaseSetupForRemote(@Optional("chrome") String browserType,
-			@Optional("97") String browserVersion, @Optional("IPHONE ") String OSName, @Optional("10") String OSVersion,
+	public void initializeBaseSetupForRemote(@Optional("Safari") String browserType,
+			@Optional("97") String browserVersion, @Optional("iPhone 11 Pro Max") String OSName, @Optional("13") String OSVersion,
 			@Optional() String session, ITestContext context) {
 		sys.writeProperty("BrowserName", browserType);
 		try {

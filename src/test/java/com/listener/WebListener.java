@@ -15,10 +15,7 @@
 package com.listener;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
 
@@ -91,12 +88,42 @@ public class WebListener implements WebDriverEventListener
 			log.error("WebDriver error:", error);
 	}
 
+	@Override
+	public <X> void beforeGetScreenshotAs(OutputType<X> target) {
+
+	}
+
+	@Override
+	public <X> void afterGetScreenshotAs(OutputType<X> target, X screenshot) {
+
+	}
+
+	@Override
+	public void beforeGetText(WebElement element, WebDriver driver) {
+
+	}
+
+	@Override
+	public void afterGetText(WebElement element, WebDriver driver, String text) {
+
+	}
+
 	/*
      * non overridden methods of WebListener class
      */
 	public void beforeScript(String script, WebDriver driver){}
 
 	public void afterScript(String script, WebDriver driver){}
+
+	@Override
+	public void beforeSwitchToWindow(String windowName, WebDriver driver) {
+
+	}
+
+	@Override
+	public void afterSwitchToWindow(String windowName, WebDriver driver) {
+
+	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver){}
 

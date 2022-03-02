@@ -10,8 +10,8 @@ import Client.Robotil;
 import com.datamanager.ConfigManager;
 import com.google.common.base.CharMatcher;
 import com.testng.Assert;
-import com.utilities.ReportSetup;
 import com.utilities.RobotilHelper;
+import jvm.ReportSetup;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -2764,7 +2764,7 @@ public class SafeActions extends Sync
 		waitForPageToLoad(timeOutInSeconds);
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
-		ReportSetup.Report_PageLoadTime(url, totalTime);
+		ReportSetup.createReportsFolder();
 	}
 
 	/**

@@ -33,6 +33,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
     }
 
     public void clickingOnAlertTemplate() {
+        waitForPageToLoad();
         safeClick(BTN_SYSTEM, "Datasources label from left side pane", MEDIUMWAIT);
         safeClick(BTN_ALERT_TEMPLATES, "DbInstances label from Datasources sub mneu", MEDIUMWAIT);
 

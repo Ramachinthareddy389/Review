@@ -42,10 +42,12 @@ public class BrowserProvider {
 			case "safari":
 				log.info("The Browser Name is provided as Safari");
 				return new SafariBrowser();
+/*
 
 			case "headless":
 				log.info("The Browser Name is provided as Headless");
 				return new GhostDriver();
+*/
 
 			case "mobileChrome":
 				log.info("The Browser Name is provided as chrome in android mobile");

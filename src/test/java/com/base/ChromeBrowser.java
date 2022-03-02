@@ -51,8 +51,7 @@ public class ChromeBrowser implements IBrowser {
 	 */
 	private WebDriver initChromeDriver() {
 		String fileSeperator = System.getProperty("file.separator");
-//		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "Lighthouse_v100.0.0.crx";
-		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "re.crx";
+		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "salesforce.crx";
 		log.info("Path of extention is -----------------"+path);
 		log.info("Launching google chrome with new profile..");
 		System.setProperty("webdriver.chrome.driver", getDriverPath());
@@ -61,21 +60,16 @@ public class ChromeBrowser implements IBrowser {
 		prefs.put("download.prompt_for_download", false);
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");
+		options.addArguments("--disable-notifications");
 		options.addArguments("--disable-web-security");
 		options.addArguments("--allow-running-insecure-content");
 		options.addArguments("--disable-gpu");
-		//options.setExperimentalOption("prefs", prefs);
-     //	options.addArguments("--enable-extensions");
-		//options.addArguments("disable-infobars");
-//		options.addArguments("--disable-application-cache");
-		//options.addArguments("C:\\Users\\rama.chinthareddy\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\bpfnegmcopgmjchmcpahhgmlkjgfblii\\8.6.11.10_0");//
-
 		DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
 		desiredCapabilities.setCapability("chrome.binary",getDriverPath());
 	    desiredCapabilities.setCapability(options.CAPABILITY,options);
 	    log.info("chrome driver initialized..");
 		options.addExtensions (new File(path));
-		WebDriver chromeDriver = new ChromeDriver(desiredCapabilities);
+		WebDriver chromeDriver = new ChromeDriver(options);
 		return  chromeDriver;
 	}
 
@@ -174,6 +168,8 @@ public class ChromeBrowser implements IBrowser {
 			return false;
 		}
 	}
+
+
 
 	/**
 	 * Method to retrieve the Chrome 'User Data' path given in Properties file

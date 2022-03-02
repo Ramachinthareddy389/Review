@@ -9,6 +9,8 @@ import com.page.locators.LogInPageLocators;
 import com.selenium.SafeActions;
 import com.testng.Assert;
 
+import java.util.ArrayList;
+
 
 public class LoginPage extends SafeActions implements LogInPageLocators {
     private WebDriver driver;
@@ -28,7 +30,19 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
      */
     @Step("Verifying login page")
     public void verifyLoginPage() {
-      boolean bIsEmailAddressExists = isElementPresent(EMAILADDRESS_FIELD, MEDIUMWAIT);
+        waitForSecs(10);
+
+        try{
+            ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+            waitForSecs(10);
+            driver.switchTo().window(tabs2.get(1));
+            driver.close();
+            driver.switchTo().window(tabs2.get(0));
+        }catch(Exception e){
+
+            e.printStackTrace();
+        }
+        boolean bIsEmailAddressExists = isElementPresent(EMAILADDRESS_FIELD, MEDIUMWAIT);
         boolean bIsPasswordFieldExists = isElementPresent(PASSWORD_FIELD, MEDIUMWAIT);
         Assert.assertTrue(bIsEmailAddressExists || bIsPasswordFieldExists, "Email field/Password field textbox is not being displayed on 'Login' page");
     }
@@ -56,7 +70,8 @@ public class LoginPage extends SafeActions implements LogInPageLocators {
     @Step("Clicking on LogIn button")
     public void clickLogInButton() {
         safeClick(LOGIN_BTN, "'Login' button in 'Login' page ", VERYLONGWAIT);
-        isElementVisible(INSIGHT_LABEL,MEDIUMWAIT);
+        isElementVisible(INSIGHT_LABEL, MEDIUMWAIT);
+
     }
 
     @Step("Clicking on Logout button")

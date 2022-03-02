@@ -68,4 +68,22 @@ public  interface  APMEnterpriseLocators {
     By COMPONENTS_TAB = By.xpath("//span[contains(text(),'Components')]");
     By MONITORED_SERVER_COLUMN = By.xpath("//div[text()='Monitored Server']");
     By EXPORT_MEMORY_USAGE = By.xpath("//span[text()='Memory Usage (Auto)']/../../following-sibling::div/descendant::span//i[@class='fas fa-file-csv']");
+    By COLLATOR_COMPONENT= By.xpath("//li[text()='Collator Deployment']");
+    By TXTBOX_COMPONENTTYPE = By.xpath("//input[@id='typeName']");
+    By TXTBOX_MONITORED_SERVER = By.xpath("//input[@id='monitoredServer']");
+    By TXTBOX_APPLICATION = By.xpath("//input[@id='monitoredApplication']");
+    By TXTBOX_NODE = By.xpath("//input[@id='nodeAndEngine']");
+    By TXTBOX_ENGINE = By.xpath("//input[@id='nodeAndEngine_child']");
+    By TXTBOX_EDITED_MONITOREDSOFTWARE = By.xpath("//input[@id='monitoredApplication']/../../../div[1]");
+    By DATABASE_CHANGE_COMPONENT = By.xpath("//li[text()='Database Change Monitor Deployment']");
+    By DATABASEPAGE_ADDBTNS = By.xpath("//i[@aria-label='Add']");
+    By DRPDOWN_SERVER =By.xpath("//input[@id='server']");
+    By DRPDOWN_VENDOR = By.xpath("//input[@id='vendor']");
+    By TXTBOX_PORT = By.xpath("//input[@id='port']");
+    By TXTBOX_USERNAME = By.xpath("//input[@id='username']");
+    By TXTBOX_PASSWORD = By.xpath("//input[@id='password']");
+    By TXTBOX_SQL = By.xpath("//textarea[@class='inputarea']");
+    By TAB_JSCRIPTS = By.xpath("//span[contains(text(),'JS Scripts')]");
+
+
 }

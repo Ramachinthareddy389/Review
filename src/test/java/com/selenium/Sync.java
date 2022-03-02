@@ -11,7 +11,7 @@ package com.selenium;
 
 import java.util.concurrent.TimeUnit;
 
-import com.utilities.ReportSetup;
+//import com.utilities.ReportSetup;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -671,7 +671,7 @@ public class Sync implements TimeOuts
 		}
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
-		ReportSetup.Report_PageLoadTime(SourcePage, DestinationPage, totalTime);
+	//	ReportSetup.Report_PageLoadTime(SourcePage, DestinationPage, totalTime);
 		return jQcondition;
 	}
 
@@ -706,7 +706,7 @@ public class Sync implements TimeOuts
 		}
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
-		ReportSetup.Report_PageLoadTime(SourcePage, DestinationPage, totalTime);
+		//ReportSetup.Report_PageLoadTime(SourcePage, DestinationPage, totalTime);
 		setImplicitWait(IMPLICITWAIT);
 		return isPageLoadComplete;
 	}

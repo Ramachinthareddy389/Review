@@ -32,11 +32,11 @@
 			<version>1.4.9</version>
 		</dependency>
 
-		<dependency>
-			<groupId>Selenium</groupId>
-			<artifactId>standalone</artifactId>
-			<version>3.4.0</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>Selenium</groupId>-->
+<!--			<artifactId>standalone</artifactId>-->
+<!--			<version>3.4.0</version>-->
+<!--		</dependency>-->
 
 
 		<dependency>
@@ -47,7 +47,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.4.0</version>
+			<version>3.141.59</version>
 		</dependency>
 		<dependency>
 			<groupId>io.appium</groupId>
@@ -107,11 +107,11 @@
 		<!-- <dependency> <groupId>org.testng</groupId> <artifactId>testng</artifactId> 
 			<version>6.8.8</version> <scope>test</scope> </dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.4.0</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.seleniumhq.selenium</groupId>-->
+<!--			<artifactId>selenium-java</artifactId>-->
+<!--			<version>3.4.0</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
@@ -437,8 +437,8 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-remote-driver</artifactId>
-			<version>3.4.0</version>
-			<scope>test</scope>
+			<version>3.141.59</version>
+<!--			<scope>test</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.jsoup</groupId>
@@ -468,17 +468,17 @@
 			<version>3.3</version>
 		</dependency>
 
-		<dependency>
-			<groupId>ZenQJars</groupId>
-			<artifactId>SetupHub</artifactId>
-			<version>1.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-impl</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>ZenQJars</groupId>-->
+<!--			<artifactId>SetupHub</artifactId>-->
+<!--			<version>1.0</version>-->
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>org.slf4j</groupId>-->
+<!--					<artifactId>slf4j-impl</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+<!--		</dependency>-->
 
 
 		<dependency>

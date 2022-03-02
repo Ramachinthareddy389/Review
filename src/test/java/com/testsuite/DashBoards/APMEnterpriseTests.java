@@ -30,6 +30,7 @@ public class APMEnterpriseTests extends BaseSetup {
     String HostName1 = "Hostname" + "-" + random.nextInt(500);
     String DbTitle = "Module_soft" + " - " + random.nextInt(500);
     String Cred = "Cred" + "-" + random.nextInt(500);
+
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -42,7 +43,7 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage = new APMEnterprisePage(getDriver());
         componentPage = new ComponentPage(getDriver());
         dashBoardData = new DashBoardData();
-       // getDriver().manage().deleteAllCookies();
+        // getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
         (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
@@ -53,8 +54,7 @@ public class APMEnterpriseTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMEnter_001_clickingOnEnterpriseSection() throws InterruptedException
-    {
+    public void TC_APMEnter_001_clickingOnEnterpriseSection() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.verifyingNavigateToEnterpriseTab();
 
@@ -62,8 +62,7 @@ public class APMEnterpriseTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMEnter_003_NavigateToDrillthroughPageFromFactsProcessedPortlet() throws InterruptedException
-    {
+    public void TC_APMEnter_003_NavigateToDrillthroughPageFromFactsProcessedPortlet() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.navigateToDrirllThroughPageFrmFactsProcessedPortlet();
 
@@ -80,15 +79,14 @@ public class APMEnterpriseTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMEnter_006_NavigateToDrillthroughPageFromCPUPortlet() throws InterruptedException
-    {
+    public void TC_APMEnter_006_NavigateToDrillthroughPageFromCPUPortlet() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.navigateToDrirllThroughPageFrmCPUUsagePortlet();
 
     }
+
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMEnter_009_NavigateToDrillthroughPageFromHeapPortlet() throws InterruptedException
-    {
+    public void TC_APMEnter_009_NavigateToDrillthroughPageFromHeapPortlet() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.navigateToDrirllThroughPageFrmHeapUsagePortlet();
 
@@ -105,7 +103,6 @@ public class APMEnterpriseTests extends BaseSetup {
     }
 
 
-
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMEnter_010_ExportHeapUsagePortlet() throws InterruptedException, IOException {
         apmEnterprisePage.navigateToAPMPage();
@@ -117,16 +114,14 @@ public class APMEnterpriseTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMQueue_001_ClickOnQueueSection() throws InterruptedException
-    {
+    public void TC_APMQueue_001_ClickOnQueueSection() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.verifyingNavigateToAPMQueueTab();
 
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMQueue_003_NavigateToDrillthroughPageFromQueueSizePortlet() throws InterruptedException
-    {
+    public void TC_APMQueue_003_NavigateToDrillthroughPageFromQueueSizePortlet() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.navigateToDrirllThroughPageFrmQueueSizePortlet();
 
@@ -144,8 +139,7 @@ public class APMEnterpriseTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_APMQueue_006_NavigateToDrillthroughPageFromQueueHeapUsagePortlet() throws InterruptedException
-    {
+    public void TC_APMQueue_006_NavigateToDrillthroughPageFromQueueHeapUsagePortlet() throws InterruptedException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.navigateToDrirllThroughPageFrmQueueHeapUsagePortlet();
 
@@ -161,61 +155,62 @@ public class APMEnterpriseTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMNode_001_ClickOnNodessection(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMNode_001_ClickOnNodessection() {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.verifyingNavigateToNodeTab();
     }
 
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMNode_002_AddingNewNodeFrmNodesTab(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMNode_002_AddingNewNodeFrmNodesTab() {
         apmEnterprisePage.configuringNodeInAPMModule();
         apmEnterprisePage.verifyingAddedNodeInNodesPage();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMNode_003_EditExistingNodeFrmNodesTab(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMNode_003_EditExistingNodeFrmNodesTab() {
         apmEnterprisePage.configuringNodeInAPMModule();
         apmEnterprisePage.verifyingEditedNodeInNodesPage();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMNode_004_AddEnginesfrmNodeEditWindow(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMNode_004_AddEnginesfrmNodeEditWindow() {
         apmEnterprisePage.configuringNodeInAPMModule();
         apmEnterprisePage.verifyingAddedEngineinNodeEditWindow();
         apmEnterprisePage.verifyingAddedEngineInEnginesTab();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMEngine_001_ClickingOnEnginesSection(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEngine_001_ClickingOnEnginesSection() {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.verifyingNavigateToAPMEngineTab();
     }
 
-    @Test(alwaysRun = true,groups ="Smoke Test")
-    public void TC_APMEngine_002_AddingNewEngine(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEngine_002_AddingNewEngine() {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewEngine();
         apmEnterprisePage.deletingAddedEngine();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMEngine_003_EditExistingEngine(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEngine_003_EditExistingEngine() {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewEngine();
         apmEnterprisePage.editingExistingEngine();
         apmEnterprisePage.deletingAddedEngine();
     }
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMEngine_011_NavigateToDrillthroughPagefrmCPUUsagePortlet(){
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMEngine_011_NavigateToDrillthroughPagefrmCPUUsagePortlet() {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewEngine();
         apmEnterprisePage.navigateToDrillthruPageFrmCPUUsagePortlet();
         apmEnterprisePage.deletingAddedEngine();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMEngine_014_NavigatetoDrillthroughPagefrmMemoryUsagePortlet() throws IOException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewEngine();
@@ -223,7 +218,7 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.deletingAddedEngine();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMEngine_012_ExportCPUUsagePortlet() throws IOException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.exportingCPUPortletsInAPMEngine();
@@ -231,7 +226,7 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.validatingExportedPortlet("CPU Usage_Germain APM Engine CPU Usage.csv", dashBoardData.QueueHeapUsageportletHeaders.split(","));
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
+    @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMEngine_015_ExportMemoryUsagePortlet() throws IOException {
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.exportingCPUPortletsInAPMEngine();
@@ -239,10 +234,60 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.validatingExportedPortlet("Memory Usage_Germain APM Engine Memory Usage.csv", dashBoardData.QueueHeapUsageportletHeaders.split(","));
     }
 
-     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMComp_001_ClickingOnComponentSection(){
-         apmEnterprisePage.navigateToAPMPage();
-         apmEnterprisePage.verifyingNavigateToComponentsTab();
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMComp_001_ClickingOnComponentSection() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.verifyingNavigateToComponentsTab();
     }
 
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMComp_002_AddNewCollatorDeploymentComponent() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewCollatorDeploymentComponent();
+        apmEnterprisePage.verifyingAddedCollatorDeploymentComponent();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMComp_003_EditExistingCollatorDeploymentComponent() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewCollatorDeploymentComponent();
+        apmEnterprisePage.editExistingCollatorDeploymentComponent();
+        apmEnterprisePage.verifyingEditedValuesInCollatorComponent();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void injectingJavaScript() throws IOException {
+        apmEnterprisePage.injectingJSscript();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMComp_004_AddNewDatabaseChangeMonitorDeploymentComponent() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent();
+        apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent1();
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMComp_005_EditexistingDatabaseChangeMonitorDeploymentComponent() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent();
+        apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent1();
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editexistingDatabaseChangeMonitorDeploymentComponent();
+        apmEnterprisePage.verifyingEditedDatabaseChangeConfigs();
+    }
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMJScripts_001_ClickOnJSScriptsSection() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.verifyingNavigateToJSScriptsTab();
+    }
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_APMJScripts_002_AddNewConfig() {
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewJSConfig();
+        apmEnterprisePage.verifyingAddedJSScripts();
+
+    }
 }

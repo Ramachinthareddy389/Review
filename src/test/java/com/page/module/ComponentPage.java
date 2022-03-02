@@ -300,6 +300,7 @@ public class ComponentPage extends SafeActions implements ComponentTypesLocators
     public void addingNewCredentials(String Cred) {
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
         // safeClick(LABEL_NAME, "Name Feild", MEDIUMWAIT);
+        waitForSecs(10);
         safeType(TXTBOX_SOFT_NAME, Cred, "Name into textbox", MEDIUMWAIT);
         safeClick(LABEL_USERNAME, "Name Feild", MEDIUMWAIT);
         safeType(TXTBOX_USERNAME, Cred, "Name into textbox", MEDIUMWAIT);

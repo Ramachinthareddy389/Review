@@ -139,7 +139,7 @@ public class SSHNdWMITests extends BaseSetup {
     public void TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow() throws InterruptedException, AWTException {
         sshPage.clickingOnClickModuleInAutomation();
         sshPage.addingNewRecordingInClickPage();
-        sshPage.switchingToMainWindow();
+       // sshPage.switchingToMainWindow();
         sshPage.startedRecording();
         sshPage.addingClickConfigurations();
         sshPage.verifyingAddedClickActions();
