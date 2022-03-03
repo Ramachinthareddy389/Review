@@ -1,0 +1,264 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="1" parallel="tests" verbose="10" name="Germain Suite"
+       annotations="JDK" preserve-order="true">
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+    <test name="Dashboards">
+        <parameter name="os" value="Windows"/>
+        <parameter name="os_version" value="10"/>
+        <parameter name="browser" value="Chrome"/>
+        <parameter name="browser_version" value="98"/>
+
+        <classes>
+            <class name="com.testsuite.DashBoards.AlertTemplateTests">
+                <methods>
+                    <include name="TC_AleTemp_001_AddAlertTemplateConfiguration"></include>
+                    <include name="TC_AleTemp_002_EditAlertTemplateConfiguration"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.AuthenticationTests">
+                <methods>
+                    <include name="TC_Auth_001_AddAuthenticationConfiguration"></include>
+                    <include name="TC_Auth_002_Editalltypesofproviders"></include>
+                    <include name="TC_Auth_003_UpdateManagerPasswordinEditLDAPProviderwindow"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.DashBoardTests">
+                <methods>
+                    <include name="TC_Breadcrumb_001_Verify_Standard_Breadcrumb_Navigation"></include>
+                    <include name="TC_Breadcrumb_002_Verify_Standard_Breadcrumb_Backward_Navigation"></include>
+                    <include name="TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA"></include>
+                    <include name="TC_Breadcrumb_004_BreadcrumbNavigationfromPortletwithConstraintsinPivotpage"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.BusinessProcessTests">
+                <methods>
+                    <include name="TC_BusiProcess_001_AddBusinessProcessConfiguration"></include>
+                    <include name="TC_BusiProcess_002_EditBusinessProcessConfiguration"></include>
+                    <include name="TC_BusiProcess_003_AddBPStepineditconfigwindow"></include>
+                    <include name="TC_BusiProcess_004_AddBPStepMetricinEditBPStepwindow"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.SSHNdWMITests">
+                <methods>
+                    <include name="TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow"></include>
+                    <include name="TC_Click_002_AddClickByImportingExistingJSonFileinSystem"></include>
+                    <include name="TC_Click_003_AddandeditcustomRuleClick"></include>
+                    <include name="TC_Click_004_EditClickByImportingExistingJSONFileInSystem"></include>
+                    <include name="TC_Click_005_ExportActionsInSystemToExtensionWindow"></include>
+                    <include name="TC_WMI_001_AddWMIconfiguration"></include>
+                    <include name="TC_WMI_004_AddnewScriptfromAddEditWMIwindow"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.CorrelationTests">
+                <methods>
+                    <include name="TC_Corr_001_AddCorrelationScenarioconfig"></include>
+                    <include name="TC_Corr_004_AddTypesinEditCorrelationScenariowindow"></include>
+                    <include name="TC_Corr_005_AddFactTypeinEditCorrelationScenariowindow"></include>
+
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.ComponentTests">
+                <methods>
+                    <include name="TC_Creds_001_AddCredentialsconfiguration"></include>
+                    <include name="TC_DLs_001_AddDistributionListwithAllDistributiontypes"></include>
+                    <include name="TC_DLs_002_AddMembersinEditDistributionListwindow"></include>
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.DashboardOverview">
+                <methods>
+                    <include name="TC_DashOverview_001_AddingDashboardFolder"></include>
+                    <include name="TC_DashOverview_002_AddDashboardFolderToExistingFolder"></include>
+                    <include name="TC_DashOverview_003_AddDashboardtoExistingFolder"></include>
+                    <include name="TC_DashOverview_008_PinUnpinDashboardFolder"></include>
+                    <include name="TC_DashOverview_018_ApplyanydatefrompredefinedtimerangesinCalendar"></include>
+
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.DBInstancesTests">
+                <methods>
+                    <include name="TC_DBInstances_001_AddNewConfiguration"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.PortletsTests">
+                <methods>
+                    <include name="TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip"></include>
+                    <include name="TC_Drillthrough_006_ApplyingTimeRangeinCalendar"></include>
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.HardwareTests">
+                <methods>
+                    <include name="TC_Hware_001_AddNewHardwareConfiguration"></include>
+                    <include name="TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow"></include>
+                    <include name="TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow"></include>
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.HardwareTests">
+                <methods>
+                    <include name="TC_Hware_001_AddNewHardwareConfiguration"></include>
+                    <include name="TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow"></include>
+                    <include name="TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow"></include>
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.KPIsTests">
+                <methods>
+                    <include name="TC_KPIs_001_AddKPIconfigurationwithallSLATypes"></include>
+                    <include name="TC_KPIs_003_AddSLAsinEditKPIconfigwindow"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.HTTPTests">
+                <methods>
+                    <include name="TC_HTTP_001_AddHTTPActionconfiguration"></include>
+                    <include name="TC_HTTP_002_AddSLAsinEditHTTPActionwindow"></include>
+                    <include name="TC_HTTP_007_AddHTTPScenarioconfiguration"></include>
+                    <include name="TC_HTTP_008_AddHTTPScenariofromharfileconfiguration"></include>
+                    <include name="TC_HTTP_009_AddScenarioTargetsinEditHTTPScenariowindow"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.PivotTests">
+                <methods>
+                    <include name="TC_Pivot_001_AddingTablePortletInPivotPage"></include>
+                    <include name="TC_Pivot_002_AddingChartPortletInPivotPage"></include>
+                    <include name="TC_Pivot_005_VerifyingDataInPortletInPivotPage"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.OprationalTests">
+                <methods>
+                    <include name="TC_Oper_001_ApplyTimeRangeinCalendar"></include>
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.LocalProgramTests">
+                <methods>
+                    <include name="TC_LProgram_001_AddLocalProgramConfiguration"></include>
+                    <include name="TC_LProgram_002_AddScriptinAddEditLocalProgramwindow"></include>
+                    <include name="TC_LProgram_003_AddSLAsinAddEditLocalProgramWindow"></include>
+                </methods>
+            </class>
+			<class name="com.testsuite.DashBoards.MaintenanceTests">
+				<methods>
+					<include name="TC_Maintenance_001_AddMaintenanceConfiguration"></include>
+					<include name="TC_Maintenance_002_AddActionsinEditMaintenancewindow"></include>
+
+				</methods>
+			</class>
+
+			<class name="com.testsuite.DashBoards.UserAccessRequestTests">
+				<methods>
+					<include name="TC_Login_002_LoginwithinvalidUsernamendValidPassword"></include>
+					<include name="TC_Login_006_UpdatePasswordfromProfilewithCorrectrequirements"></include>
+					<include name="TC_Login_008_ResetpasswordusingForgotPasswordfield"></include>
+				</methods>
+			</class>
+
+			<class name="com.testsuite.DashBoards.PortletsTests">
+				<methods>
+					<include name="TC_Portlet_001_AddingGeneralHealthPortlet"></include>
+					<include name="TC_Portlet_002_AddingTabularPortlet"></include>
+					<include name="TC_Portlet_003_AddingNTabularPortlet"></include>
+					<include name="TC_Portlet_004_AddingMapPortlet"></include>
+					<include name="TC_Portlet_005_AddingFlowPortlet"></include>
+					<include name="TC_Portlet_007_AddingGaugePortlet"></include>
+					<include name="TC_Portlet_008_AddingCounterPortlet"></include>
+				</methods>
+			</class>
+            <class name="com.testsuite.DashBoards.PortletsTests">
+                <methods>
+                    <include name="TC_Portlet_001_AddingGeneralHealthPortlet"></include>
+                    <include name="TC_Portlet_002_AddingTabularPortlet"></include>
+                    <include name="TC_Portlet_003_AddingNTabularPortlet"></include>
+                    <include name="TC_Portlet_004_AddingMapPortlet"></include>
+                    <include name="TC_Portlet_005_AddingFlowPortlet"></include>
+                    <include name="TC_Portlet_007_AddingGaugePortlet"></include>
+                    <include name="TC_Portlet_008_AddingCounterPortlet"></include>
+                    <include name="TC_RCA_003_VerifyingTimeRangeInRCAPage"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.ScriptTests">
+                <methods>
+                    <include name="TC_Script_001_AddScriptconfigurationwithallConnectionTypes"></include>
+                    <include name="TC_Script_004_AddSLAinAddScriptwindow"></include>
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.PresentationModesNdRolesTests">
+                <methods>
+                    <include name="TC_PresenModes_001_AddNewPresentationwithDashboards"></include>
+                    <include name="TC_PresenModes_003_AddDashboardsViewsinEditPresentationModewindow"></include>
+                    <include name="TC_Rules_001_AddRuleconfiguration"></include>
+                    <include name="TC_TimeRanges_001_AddAbsoluteTimeRange"></include>
+                    <include name="TC_TimeRanges_002_AddRelativeTimeRange"></include>
+                    <include name="TC_TimeRanges_005_VerifyTimeRangesinCalendar"></include>
+                    <include name="TC_TimeRanges_006_VerifyTimeRangesinGuidedSearchPage"></include>
+                    <include name="TC_UserRoles_001_AddNewRole"></include>
+
+                </methods>
+            </class>
+
+
+            <class name="com.testsuite.DashBoards.TicketsTest">
+                <methods>
+                    <include name="TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants"></include>
+                    <include name="TC_Tickets_002_Upload_Attachment_To_Ticket"></include>
+                    <include name="TC_Tickets_003_Verify_Status_Assigned_To_In_Tickets_Page"></include>
+                    <include name="TC_Tickets_005_AddTicketFromPivotPage"></include>
+                    <include name="TC_Tickets_006_AddTicketFromDrillthroughpage"></include>
+                    <include name="TC_Tickets_007_AddTicketFromRCApage"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.SoftwareTests">
+                <methods>
+                    <include name="TC_Sware_001_AddSoftwareConfiguration"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.SLAsTests">
+                <methods>
+                    <include name="TC_Sware_001_AddSoftwareConfiguration"></include>
+
+                </methods>
+            </class>
+
+            <class name="com.testsuite.DashBoards.SSHNdWMITests">
+                <methods>
+                    <include name="TC_SSH_001_AddSSHConfiguration"></include>
+                    <include name="TC_SSH_004_AddNewScriptFromAddEditSSHWindow"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.WizardsTests">
+                <methods>
+                    <include name="TC_SSH_001_AddSSHConfiguration"></include>
+                    <include name="TC_SSH_004_AddNewScriptFromAddEditSSHWindow"></include>
+                </methods>
+            </class>
+            <class name="com.testsuite.DashBoards.DashBoardTests">
+                <methods>
+                    <include name="TC_Dash_001_CreatingDashboard"></include>
+                    <include name="TC_Dash_020_CreateTicketOnDashboard"></include>
+                    <include name="TC_Dash_021_PinUnPinDashboard"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite>

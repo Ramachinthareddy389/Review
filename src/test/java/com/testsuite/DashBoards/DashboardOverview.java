@@ -42,7 +42,7 @@ public class DashboardOverview extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DashOverview_001_CreatingDashboard() throws InterruptedException
+    public void TC_Dash_001_CreatingDashboard() throws InterruptedException
     {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         dashboardOverviewPage.addingNewDashboard();

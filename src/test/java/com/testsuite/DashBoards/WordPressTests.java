@@ -37,20 +37,37 @@ public class WordPressTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void WordPressContactScript() throws InterruptedException {
-
-        wordPressPage.ClickingOnContacts();
-    }
-
-    @Test(alwaysRun = true)
     public void TC_UXWordPress_001_RecordingUXSessionwithBasicNavigationFlowsInWP() {
+        wordPressPage.LoginToWordPressSite();
         wordPressPage.basicWorkFlow();
     }
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_002_RecordingUXSessionwithAlertPopupinWP() {
+        wordPressPage.LoginToWordPressSite();
         wordPressPage.alertPopupInWordPress();
     }
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_003_RecordingUXSessionwithPromptinWP(){
+        wordPressPage.LoginToWordPressSite();
+        wordPressPage.windowPopUpinWordPress();
+    }
 
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_004_RecordingUXSessionbyUsingAllFunctionKeysinWP()
+    {
+        wordPressPage.LoginToWordPressSite();
+        wordPressPage.clickingOnFunctionalKeys();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_005_RecordingUXSessionbySearchingContentsingtheSearchboxinWP(){
+        wordPressPage.searchingTheApp();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_006_RecordingUXSessionBySubmittingForminContactPageinWP(){
+        wordPressPage.ClickingOnContacts();
+    }
 
 }

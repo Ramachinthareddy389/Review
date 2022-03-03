@@ -16,6 +16,10 @@ By TAB_ENTER = By.xpath("(//a[text()='Entertainment'])[1]");
 By TAB_FASHION = By.xpath("(//a[text()='Fashion'])[1]");
 By TAB_TRAVEL = By.xpath("(//a[text()='Travel'])[1]");
 By TAB_FOOD = By.xpath("(//a[text()='Food & Health'])[1]");
+By LINK_THINGSTONEW_YEAR = By.xpath("//a[@href='http://qa.germainapm.com/wordpress/index.php/2017/12/26/things-to-do-new-years-eve-2017-best-nye-events-parties-and-fireworks-displays-in-new-york-and-across-the-usa/']");
+By BTN_SEARCH = By.xpath("//i[@class='fa fa-search search-top']");
+By TXTBOX_SEARCH = By.xpath("//input[@class='s field']");
+By BTN_SUBMIT_SEARCH = By.xpath("//button[@type='submit']");
 
 
 
