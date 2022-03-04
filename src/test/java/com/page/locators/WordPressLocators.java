@@ -20,6 +20,9 @@ By LINK_THINGSTONEW_YEAR = By.xpath("//a[@href='http://qa.germainapm.com/wordpre
 By BTN_SEARCH = By.xpath("//i[@class='fa fa-search search-top']");
 By TXTBOX_SEARCH = By.xpath("//input[@class='s field']");
 By BTN_SUBMIT_SEARCH = By.xpath("//button[@type='submit']");
+By HYPERRLINK_SUPPORT_FORUM = By.xpath("//a[@href='http://themegrill.com/support-forum/']");
+By HYPERLINK_CONTACTPAGE = By.xpath("//a[@href='http://themegrill.com/contact/']");
+By LINK_EVENTS_FORUM_PLUGIN = By.xpath("//a[@href='https://downloads.wordpress.org/plugin/everest-forms.zip']");
 
 
 

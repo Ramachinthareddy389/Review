@@ -9,6 +9,7 @@ import jvm.PasswordDecoder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class WordPressTests extends BaseSetup {
@@ -47,27 +48,51 @@ public class WordPressTests extends BaseSetup {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.alertPopupInWordPress();
     }
+
     @Test(alwaysRun = true)
-    public void TC_UXWordPress_003_RecordingUXSessionwithPromptinWP(){
+    public void TC_UXWordPress_003_RecordingUXSessionwithPromptinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.windowPopUpinWordPress();
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXWordPress_004_RecordingUXSessionbyUsingAllFunctionKeysinWP()
-    {
+    public void TC_UXWordPress_004_RecordingUXSessionbyUsingAllFunctionKeysinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.clickingOnFunctionalKeys();
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXWordPress_005_RecordingUXSessionbySearchingContentsingtheSearchboxinWP(){
+    public void TC_UXWordPress_005_RecordingUXSessionbySearchingContentsingtheSearchboxinWP() {
         wordPressPage.searchingTheApp();
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXWordPress_006_RecordingUXSessionBySubmittingForminContactPageinWP(){
+    public void TC_UXWordPress_006_RecordingUXSessionBySubmittingForminContactPageinWP() {
         wordPressPage.ClickingOnContacts();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_007_RecordingUXSessionByClickingonDifferentLinksinContactUsinWP() {
+        wordPressPage.clickingOnDiffLinksInContactUs();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_008_RecordingUXSessionByDownloadingEverestForumPlugininWP() throws IOException {
+        wordPressPage.downloadingEverestForumPluginInWP();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_009_RecordingUXSessionByNavigatingToaTabOfNoninjectedSiteFromWP() {
+        wordPressPage.LoginToWordPressSite();
+        wordPressPage.openNoninjectedSiteinNewTab();
+        wordPressPage.basicWorkFlow();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXWordPress_010_RecordingUXSessionbyNavigatingtoTabOfinjectedSiteFromWP(){
+        wordPressPage.LoginToWordPressSite();
+        wordPressPage.openInjectedSiteinNewTab();
+        wordPressPage.basicWorkFlow();
     }
 
 }
