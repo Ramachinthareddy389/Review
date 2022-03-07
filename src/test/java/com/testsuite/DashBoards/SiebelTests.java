@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class SiebelTests  extends BaseSetup {
+public class SiebelTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private WordPressPage wordPressPage;
@@ -47,5 +47,22 @@ public class SiebelTests  extends BaseSetup {
         siebelPage.ClickingOnSibel();
     }
 
-  
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_001_RecordingUXSessionwithBasicNavigationFlowsInSiebel() {
+        siebelPage.launchTheApp();
+        siebelPage.logoutFromSiebel();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_002_RecordingUXSessionwithAlertPopupInSiebel(){
+        siebelPage.launchTheApp();
+        siebelPage.alertPopupInSiebel();
+        siebelPage.logoutFromSiebel();
+    }
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_003_RecordingUXSessionwithPromptinSiebel(){
+        siebelPage.launchTheApp();
+        siebelPage.windowPopUpInSiebel();
+        siebelPage.logoutFromSiebel();
+    }
 }

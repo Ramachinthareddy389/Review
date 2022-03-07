@@ -3,6 +3,7 @@ package com.page.module;
 import com.page.locators.SalesForceLocators;
 import com.page.locators.SiebelLocators;
 import com.selenium.SafeActions;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class SiebelPage extends SafeActions implements SiebelLocators {
@@ -64,8 +65,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(10);
 
     }
-
-    public void basicNavigationFlow(){
+    public void launchTheApp(){
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
@@ -75,6 +75,9 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(10);
         safeClick(TAB_OPPORTUNITIES, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
+    }
+
+    public void logoutFromSiebel(){
         safeClick(TAB_FLEET_MANAGEMENT, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
@@ -84,5 +87,21 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeClick(LOGOUT, "Logout button", MEDIUMWAIT);
         waitForSecs(10);
 
+    }
+
+    public void alertPopupInSiebel(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("alert('Hello');");
+        waitForSecs(10);
+        dismissAlert();
+        waitForSecs(5);
+    }
+
+    public void windowPopUpInSiebel(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(" window.prompt ('User Prompt')");
+        waitForSecs(10);
+        dismissAlert();
+        waitForSecs(5);
     }
 }

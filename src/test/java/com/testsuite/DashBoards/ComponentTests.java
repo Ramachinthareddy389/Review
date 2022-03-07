@@ -176,7 +176,8 @@ public class ComponentTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Suite")
-    public void TC_DisplaySettings_001_EditDisplaySettingsConfiguration() {
+    public void TC_DisplaySettings_001_EditDisplaySettingsConfiguration()
+    {
 
         componentPage.clickingOnDisplaySettings();
     }
@@ -212,7 +213,8 @@ public class ComponentTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_DLs_003_EditDistributionListconfiguration() {
+    public void TC_DLs_003_EditDistributionListconfiguration()
+    {
         componentPage.clickingOnAddDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         componentPage.verifyingEditDistributionListConfig(DistriList);
 
@@ -239,25 +241,25 @@ public class ComponentTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Auto_001_AddAutoConfig() {
+    public void TC_AutoConfig_001_AddAutoConfig() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.verifyingAddedAutoConfig(AutoConfig);
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Auto_002_EditAutoConfig() {
+    public void TC_AutoConfig_002_EditAutoConfig() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.editAutoConfig(AutoConfig);
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Auto_004_RepplyToServers() {
+    public void TC_AutoConfig_004_RepplyToServers() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.repplyToServers(AutoConfig);
     }
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Auto_003_AddProfileBindingsInEditAutoConfigwindow() {
+    public void TC_AutoConfig_003_AddProfileBindingsInEditAutoConfigwindow() {
         componentPage.addingAutoConfig(AutoConfig);
         componentPage.addingProfileBinding(AutoConfig);
         componentPage.verifyingAddedProfileBinding();

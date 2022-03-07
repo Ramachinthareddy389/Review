@@ -58,4 +58,10 @@ public class SalesForceTests extends BaseSetup {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingWindowPopup();
     }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_004(){
+
+        salesForcePage.loginIntoSalesForceApp();
+    }
 }
