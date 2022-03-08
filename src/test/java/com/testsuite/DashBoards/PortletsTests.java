@@ -57,7 +57,7 @@ public class PortletsTests extends BaseSetup {
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingPortlet(dname1,"User Click");
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        portletsFeature.VerifyingGHPortlet(dname1);
+        portletsFeature.VerifyingGHPortlet(dname1,"User Click");
         //portletsFeature.removingPortlet();
         // dashboardOverviewPage.deletingDashboard();
         dashboardOverviewPage.clickingDashBoardModule();

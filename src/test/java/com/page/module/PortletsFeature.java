@@ -288,12 +288,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(BTN_ADD_METRIC, "Add metric icon");
 /*        waitUntilClickable(LINK_ADD_METRIC, "Waiting for an Add metric link");
         safeClick(LINK_ADD_METRIC, "Add metric link");*/
-        safeClick(DROPDWON_KPI, "KPI Label", MEDIUMWAIT);
+      //  safeClick(DROPDWON_KPI, "KPI Label", MEDIUMWAIT);
         // safeType(TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
-        waitForSecs(7);
-        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        waitForSecs(15);
+        safeClearAndType(TEXTBOX_KPI,KPI,"KPI Name",MEDIUMWAIT);
+      /*  String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(TEXTBOX_KPI);
-        searchField2.sendKeys(del2 + KPI);
+        searchField2.sendKeys(del2 + KPI);*/
+        waitForSecs(10);
         List<WebElement> kpi12 = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpi12.size(); i++) {
             System.out.println(kpi12.get(i).getText());
@@ -303,9 +305,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             }
         }
         safeClick(TEXT_HEADER, "Portlet Name");
-        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        waitForSecs(10);
+        safeClearAndType(TEXTBOX_PORTLET,dname1,"KPI Name",MEDIUMWAIT);
+       /* String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
-        searchField.sendKeys(del + dname1);
+        searchField.sendKeys(del + dname1);*/
         WebElement rle = driver.findElement(By.xpath("//*[text()='Show As']/../../../div//div[contains(@class,'body1')]"));
         safeClick(DROPDOWN_SHOWAS, "ShowAs Dropdown", MEDIUMWAIT);
         safeType(TEXTBOX_SHOWAS, "Trend Chart", "Chart from show as dropdown", MEDIUMWAIT);
@@ -350,32 +354,34 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         WebElement searchField1 = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         searchField1.sendKeys(del1 + 5);
         waitForSecs(10);
-        safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
         waitForSecs(20);
-        safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
+        safeClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
-        safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        safeClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);
         waitForSecs(5);
         System.out.println("Filter in Portlet Filters is " + driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value"));
         appliedFilter = driver.findElement(TEXTBOX_PORTLET_FILTERS).getAttribute("value");
+        waitForSecs(10);
         safeClick(BTN_ADD_PORTLET, "Add Portlet", MEDIUMWAIT);
     }
 
 
     @Step("Verifying GHPortlet")
-    public void VerifyingGHPortlet(String dname1) {
+    public void VerifyingGHPortlet(String dname1,String KPI) {
         waitForSecs(10);
-        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" + dname1 +" (Minute)"+"']");
+        By NTABULAR_PORTLET_TITLE = By.xpath("//span[@aria-label='" +KPI+ dname1 +" (Minute)"+"']");
         System.out.println(NTABULAR_PORTLET_TITLE);
         waitUntilClickable(NTABULAR_PORTLET_TITLE, "GH Portlet Title", MEDIUMWAIT);
         if (!driver.findElement(NTABULAR_PORTLET_TITLE).isDisplayed())
             Assert.fail("GH portlet added is not displayed in Dashboard page");
-        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" + dname1  +" (Minute)"+"']/../following-sibling::div/span/i[contains(@class,'filter')]");
+        By FILTER_NTABULAR_PORTLET = By.xpath("//span[@aria-label='" +KPI+ dname1  +" (Minute)"+"']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_NTABULAR_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for N Tabular Portlet");
         mouseHoverJScript(FILTER_NTABULAR_PORTLET, "Filter icon", "Filter icon in N Tabular Portlet", MEDIUMWAIT);
@@ -575,10 +581,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(TABULAR_HEADER, "Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        // safeType(TABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
-        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        waitForSecs(10);
+        safeType(TABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+/*        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(TABULAR_TEXTBOX_KPI);
-        searchField2.sendKeys(del2 + dashBoardData.portletKPI);
+        searchField2.sendKeys(del2 + dashBoardData.portletKPI);*/
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
@@ -629,15 +636,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         WebElement decimalPlacesField = driver.findElement(TEXTBOX_DECIMAL_PLACES);
         decimalPlacesField.sendKeys(deleteDecimalPlaces + 2);
         waitForSecs(20);
-        safeJavaScriptClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
-        // safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
+        safeClick(TEXTBOX_PORTLET_FILTERS, "Portlet filters field", MEDIUMWAIT);
         waitForSecs(20);
-        safeJavaScriptClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
+        safeClick(PortletFilters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
         safeType(PortletFilters_TypeSearch, "Color", "Enter Text in portlets");
-        safeJavaScriptClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        safeJavaScriptClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
-        safeJavaScriptClick(LABEl_IS, "Is label", MEDIUMWAIT);
-        safeJavaScriptClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
+        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        safeClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
+        safeClick(LABEl_IS, "Is label", MEDIUMWAIT);
+        safeClick(SELECT_DRPDOWN, "is not", MEDIUMWAIT);
         // safeClick(IS_NOT_PORTLET_FILTER, "Changing to negation filter", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_APPLY, "Apply button in Portlet Filters", MEDIUMWAIT);

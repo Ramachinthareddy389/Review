@@ -65,4 +65,24 @@ public class SiebelTests extends BaseSetup {
         siebelPage.windowPopUpInSiebel();
         siebelPage.logoutFromSiebel();
     }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_004_RecordingUXSessionByUsingAllFunctionKeysInSiebel(){
+        siebelPage.recordingUXSessionByUsingAllFunctionKeysinSiebel();
+        siebelPage.logoutFromSiebel();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_005_RecordingUXSessionBySearchingContentUsingTheSearchBoxInSiebel(){
+        siebelPage.launchTheApp();
+        siebelPage.searchingContentUsingSearchBoxInSiebel();
+        siebelPage.logoutFromSiebel();
+
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_006_RecordingUXSessionByChangingTheQueryInSiebel(){
+        siebelPage.changingTheQueryInSiebel();
+
+    }
 }
