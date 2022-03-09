@@ -26,4 +26,6 @@ public interface SiebelLocators {
     By TAB_CALENDER = By.xpath("//a[text()='Calendar']");
     By BTN_CANCEL = By.xpath("//button[text()='Cancel']");
     By DRPDOWN_QUERIES = By.xpath("//select[@title='Saved Queries']");
+    By TAB_ACCOUNTS = By.xpath("//a[text()='Accounts']");
+    By TAB_ADMINISTRATIVE_PRODUCT = By.xpath("//a[text()='Administration - Product']");
 }

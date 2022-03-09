@@ -42,38 +42,33 @@ public class SiebelTests extends BaseSetup {
 
 
     @Test(alwaysRun = true)
-    public void SIBElUxScript() throws InterruptedException {
-
-        siebelPage.ClickingOnSibel();
-    }
-
-    @Test(alwaysRun = true)
     public void TC_UXSiebel_001_RecordingUXSessionwithBasicNavigationFlowsInSiebel() {
         siebelPage.launchTheApp();
         siebelPage.logoutFromSiebel();
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_002_RecordingUXSessionwithAlertPopupInSiebel(){
+    public void TC_UXSiebel_002_RecordingUXSessionwithAlertPopupInSiebel() {
         siebelPage.launchTheApp();
         siebelPage.alertPopupInSiebel();
         siebelPage.logoutFromSiebel();
     }
+
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_003_RecordingUXSessionwithPromptinSiebel(){
+    public void TC_UXSiebel_003_RecordingUXSessionwithPromptinSiebel() {
         siebelPage.launchTheApp();
         siebelPage.windowPopUpInSiebel();
         siebelPage.logoutFromSiebel();
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_004_RecordingUXSessionByUsingAllFunctionKeysInSiebel(){
+    public void TC_UXSiebel_004_RecordingUXSessionByUsingAllFunctionKeysInSiebel() {
         siebelPage.recordingUXSessionByUsingAllFunctionKeysinSiebel();
         siebelPage.logoutFromSiebel();
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_005_RecordingUXSessionBySearchingContentUsingTheSearchBoxInSiebel(){
+    public void TC_UXSiebel_005_RecordingUXSessionBySearchingContentUsingTheSearchBoxInSiebel() {
         siebelPage.launchTheApp();
         siebelPage.searchingContentUsingSearchBoxInSiebel();
         siebelPage.logoutFromSiebel();
@@ -81,8 +76,26 @@ public class SiebelTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_006_RecordingUXSessionByChangingTheQueryInSiebel(){
+    public void TC_UXSiebel_006_RecordingUXSessionByChangingTheQueryInSiebel() {
         siebelPage.changingTheQueryInSiebel();
 
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_007_RecordingUXSessionByMakingChangesInContactsandOpportunitiesInSiebel() {
+        siebelPage.ChangingInContactNdOpportunitiesOnSibel();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_008_RecordingUXSessionByNavigatingtoaTabOfNoninjectedsitefrmSiebel() {
+        siebelPage.openNoninjectedSiteinNewTab();
+        siebelPage.logoutFromSiebel();
+
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSiebel_009_RecordingUXSessionByNavigatingToATabOfinjectedSitefrmSiebel() {
+        siebelPage.openInjectedSiteinNewTab();
+        siebelPage.logoutFromSiebel();
     }
 }

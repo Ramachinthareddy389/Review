@@ -15,7 +15,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         this.driver = driver;
     }
 
-    public void ClickingOnSibel() {
+    public void ChangingInContactNdOpportunitiesOnSibel() {
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
@@ -160,6 +160,43 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LOGOUT, "Logout button", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void openNoninjectedSiteinNewTab(){
+        driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
+        safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
+        safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
+        waitForSecs(10);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.open('https://www.google.co.in/', '_blank');");
+        switchToWindow(0);
+        safeClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void openInjectedSiteinNewTab(){
+        driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
+        safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
+        safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
+        waitForSecs(20);
+        safeClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
+        waitForSecs(10);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.open('http://qa.germainapm.com/wordpress/index.php', '_blank');");
+        switchToWindow(0);
+        safeClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);
         waitForSecs(10);
     }
 }

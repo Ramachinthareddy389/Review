@@ -27,7 +27,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         waitForPageToLoad();
         String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Page title for pivot", MEDIUMWAIT);
         System.out.println(Tooltip3);
-        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3+" "+gaugePortletName);
+        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3+" "+"User Click"+gaugePortletName);
         waitForSecs(15);
     }
 
@@ -39,8 +39,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         safeType(PORTLET_NAME_FIELD_INPUT, dashBoardData.tablePortletName, "Portlet Name Data in Table Portlet", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(PIVOT_FIELD, "Pivot Field in Table Portlet", MEDIUMWAIT);
-        String pivot = Keys.chord(dashBoardData.pivotFieldPivotPage);
-        driver.findElement(PIVOT_FIELD_INPUT).sendKeys(pivot);
+        driver.findElement(PIVOT_FIELD_INPUT).sendKeys(dashBoardData.pivotFieldPivotPage);
         waitForSecs(10);
         safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.pivotFieldPivotPage);
         waitForSecs(20);

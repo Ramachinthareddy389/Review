@@ -3,44 +3,42 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
 <head>
-  <title>Test Results Report - Modules</title>
+  <title>Test Results Report - Dashboards</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="description" content="TestNG unit test results." />
   <link href="reportng.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript" src="reportng.js"></script>
 </head>
 <body>
-<h1>Modules</h1>
+<h1>Dashboards</h1>
 <p>
-  Test duration: 3560.350s
+  Test duration: 5971.755s
 </p>
 
   <table class="resultsTable configTable">
     <tr><th colspan="3" class="header failedConfig">Failed Configuration</th></tr>
               <tr class="group">
-        <td colspan="3">com.testsuite.DashBoards.ComponentTests</td>
+        <td colspan="3">com.testsuite.DashBoards.BusinessProcessTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  initializeBaseSetup
+                  baseClassSetUp
       </td>
   <td class="duration">
     0.000s
   </td>
   <td class="result">
         
-          <i>Method arguments: </i><span class="arguments">"Android Mobile Phone", "6.0.1", "http://0.0.0.0:4723/wd/hub", "1fa71036", "Desktop", "chrome", "91", "WINDOWS", "10", "Testing", org.testng.TestRunner@4cc8a4ed</span><br />
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Unable to save to file D:\Clientrepo\germain-test-automation\ConfigFiles\Sys.properties[Ljava.lang.StackTraceElement;@1b146f94</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-0">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeProperty(ConfigManager.java:106)<br />
-              com.base.BaseSetup.initiateDriver(BaseSetup.java:234)<br />
-              com.base.BaseSetup.launchDriver(BaseSetup.java:416)<br />
-              com.base.BaseSetup.initializeBaseSetup(BaseSetup.java:159)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.BusinessProcessTests.baseClassSetUp(BusinessProcessTests.java:37)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -48,9 +46,11 @@
               org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
               org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
               org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:144)<br />
-              org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:169)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
               org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
               org.testng.TestRunner.run(TestRunner.java:610)<br />
               org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
@@ -65,7 +65,7 @@
       </td>
 </tr>
           <tr class="group">
-        <td colspan="3">com.testsuite.DashBoards.DashBoardTests</td>
+        <td colspan="3">com.testsuite.DashBoards.HTTPTests</td>
       </tr>
             
 <tr>
@@ -80,9 +80,12 @@
     
         
 
-        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-1">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.HTTPTests.baseClassSetUp(HTTPTests.java:41)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -120,9 +123,12 @@
     
         
 
-        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
+        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-2">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.HTTPTests.baseClassSetUp(HTTPTests.java:41)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -148,6 +154,10 @@
                 </div>
       </td>
 </tr>
+          <tr class="group">
+        <td colspan="3">com.testsuite.DashBoards.PortletsTests</td>
+      </tr>
+            
 <tr>
   <td class="method">
                   baseClassSetUp
@@ -160,9 +170,12 @@
     
         
 
-        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
+        <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-3">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.PortletsTests.baseClassSetUp(PortletsTests.java:46)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -200,9 +213,12 @@
     
         
 
-        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
+        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-4">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.PortletsTests.baseClassSetUp(PortletsTests.java:46)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -240,9 +256,12 @@
     
         
 
-        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
+        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-5">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.PortletsTests.baseClassSetUp(PortletsTests.java:46)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -268,6 +287,10 @@
                 </div>
       </td>
 </tr>
+          <tr class="group">
+        <td colspan="3">com.testsuite.DashBoards.SSHNdWMITests</td>
+      </tr>
+            
 <tr>
   <td class="method">
                   baseClassSetUp
@@ -280,1177 +303,12 @@
     
         
 
-        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
+        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Email field/Password field textbox is not being displayed on &apos;Login&apos; page</b></a><br />
     <div class="stackTrace" id="exception-6">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-7">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-8', 'block')" title="Click to expand/collapse">java.lang.ClassNotFoundException: com.page.module.PivotPage</a><br />
-        <div class="stackTrace" id="exception-8">
-                      java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582)<br />
-                      java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:185)<br />
-                      java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:496)<br />
-                      com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-                      java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-                      java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-                      org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-                      org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-                      org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-                      org.testng.TestRunner.run(TestRunner.java:610)<br />
-                      org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-                      org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-                      org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-                      org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-                      java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-                      java.base/java.lang.Thread.run(Thread.java:844)<br />
-                  </div>
-          </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-9', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-9">
-              com.testsuite.DashBoards.DashBoardTests.baseClassSetUp(DashBoardTests.java:30)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-          <tr class="group">
-        <td colspan="3">com.testsuite.DashBoards.MaintenanceTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-10', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/MaintenancePage</b></a><br />
-    <div class="stackTrace" id="exception-10">
-              com.testsuite.DashBoards.MaintenanceTests.baseClassSetUp(MaintenanceTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-11', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/MaintenancePage</b></a><br />
-    <div class="stackTrace" id="exception-11">
-              com.testsuite.DashBoards.MaintenanceTests.baseClassSetUp(MaintenanceTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-12', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/MaintenancePage</b></a><br />
-    <div class="stackTrace" id="exception-12">
-              com.testsuite.DashBoards.MaintenanceTests.baseClassSetUp(MaintenanceTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-13', 'block')" title="Click to expand/collapse">java.lang.ClassNotFoundException: com.page.module.MaintenancePage</a><br />
-        <div class="stackTrace" id="exception-13">
-                      java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582)<br />
-                      java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:185)<br />
-                      java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:496)<br />
-                      com.testsuite.DashBoards.MaintenanceTests.baseClassSetUp(MaintenanceTests.java:26)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-                      java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-                      java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-                      org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-                      org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-                      org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-                      org.testng.TestRunner.run(TestRunner.java:610)<br />
-                      org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-                      org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-                      org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-                      org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-                      java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-                      java.base/java.lang.Thread.run(Thread.java:844)<br />
-                  </div>
-          </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-14', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/MaintenancePage</b></a><br />
-    <div class="stackTrace" id="exception-14">
-              com.testsuite.DashBoards.MaintenanceTests.baseClassSetUp(MaintenanceTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-15', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/MaintenancePage</b></a><br />
-    <div class="stackTrace" id="exception-15">
-              com.testsuite.DashBoards.MaintenanceTests.baseClassSetUp(MaintenanceTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-          <tr class="group">
-        <td colspan="3">com.testsuite.DashBoards.PivotTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-16', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-16">
-              com.testsuite.DashBoards.PivotTests.baseClassSetUp(PivotTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-17', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-17">
-              com.testsuite.DashBoards.PivotTests.baseClassSetUp(PivotTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-18', 'block')" title="Click to expand/collapse">java.lang.ClassNotFoundException: com.page.module.PivotPage</a><br />
-        <div class="stackTrace" id="exception-18">
-                      java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582)<br />
-                      java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:185)<br />
-                      java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:496)<br />
-                      com.testsuite.DashBoards.PivotTests.baseClassSetUp(PivotTests.java:33)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-                      java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-                      java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-                      org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-                      org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-                      org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-                      org.testng.TestRunner.run(TestRunner.java:610)<br />
-                      org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-                      org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-                      org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-                      org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-                      java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-                      java.base/java.lang.Thread.run(Thread.java:844)<br />
-                  </div>
-          </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-19', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-19">
-              com.testsuite.DashBoards.PivotTests.baseClassSetUp(PivotTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-20', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-20">
-              com.testsuite.DashBoards.PivotTests.baseClassSetUp(PivotTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-21', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PivotPage</b></a><br />
-    <div class="stackTrace" id="exception-21">
-              com.testsuite.DashBoards.PivotTests.baseClassSetUp(PivotTests.java:33)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-          <tr class="group">
-        <td colspan="3">com.testsuite.DashBoards.PresentationModesNdRolesTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-22', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-22">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-23', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-23">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-24', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-24">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-25', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-25">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-26', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-26">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-27', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-27">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-28', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-28">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-29', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-29">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-30', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-30">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-31', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-31">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-32', 'block')" title="Click to expand/collapse">java.lang.ClassNotFoundException: com.page.module.PresentationModesNdRulesNdRulesPages</a><br />
-        <div class="stackTrace" id="exception-32">
-                      java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582)<br />
-                      java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:185)<br />
-                      java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:496)<br />
-                      com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-                      java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-                      java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-                      org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-                      org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-                      org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-                      org.testng.TestRunner.run(TestRunner.java:610)<br />
-                      org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-                      org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-                      org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-                      org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-                      java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-                      java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-                      java.base/java.lang.Thread.run(Thread.java:844)<br />
-                  </div>
-          </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-33', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-33">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-34', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-34">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-35', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-35">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)<br />
-              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:590)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  baseClassSetUp
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-36', 'block')" title="Click to expand/collapse"><b>java.lang.NoClassDefFoundError: com/page/module/PresentationModesNdRulesNdRulesPages</b></a><br />
-    <div class="stackTrace" id="exception-36">
-              com.testsuite.DashBoards.PresentationModesNdRolesTests.baseClassSetUp(PresentationModesNdRulesTests.java:26)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.assertTrue(Assert.java:85)<br />
+              com.page.module.LoginPage.verifyLoginPage(LoginPage.java:47)<br />
+              com.testsuite.DashBoards.SSHNdWMITests.baseClassSetUp(SSHNdWMITests.java:35)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -1483,30 +341,138 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.ComponentTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DBInstancesTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC_373_AddallComponentTypeconfigurations
+                  TC_DBInstances_001_AddNewConfiguration
       </td>
   <td class="duration">
-    56.274s
+    9.964s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1897509390.png"> <img src="..\Screenshots\Screenshot-1897509390.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_DBInstances_001_AddNewConfiguration08.Mar.2022_20.01.24.294.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-37', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-37">
+        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Dabase name Feild was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-7">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.DBInstancesPage.addingNewDbinstances(DBInstancesPage.java:76)<br />
+              com.testsuite.DashBoards.DBInstancesTests.TC_DBInstances_001_AddNewConfiguration(DBInstancesTests.java:49)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA
+      </td>
+  <td class="duration">
+    53.087s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1486025490.png"> <img src="..\Screenshots\Screenshot-1486025490.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA08.Mar.2022_21.22.10.308.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-8', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Measure field was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-8">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.PortletsFeature.addingGaugePortletForAllThenavgations(PortletsFeature.java:1923)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA(DashBoardTests.java:173)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HardwareTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow
+      </td>
+  <td class="duration">
+    65.524s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-397353060.png"> <img src="..\Screenshots\Screenshot-397353060.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow08.Mar.2022_20.05.59.344.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-9', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Finish button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-9">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.HardwarePage.configuringNodeInAPMModule(HardwarePage.java:437)<br />
+              com.testsuite.DashBoards.HardwareTests.TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow(HardwareTests.java:71)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1526,25 +492,187 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_374_EditallComponentTypeconfigurations
+                  TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow
       </td>
   <td class="duration">
-    48.246s
+    28.168s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1436351402.png"> <img src="..\Screenshots\Screenshot-1436351402.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow08.Mar.2022_20.07.08.767.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-38', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-38">
+        <a href="javascript:toggleElement('exception-10', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-10">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.HardwarePage.addingNewHardware(HardwarePage.java:76)<br />
+              com.testsuite.DashBoards.HardwareTests.TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow(HardwareTests.java:59)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.LocalProgramTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_LProgram_001_AddLocalProgramConfiguration
+      </td>
+  <td class="duration">
+    13.111s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot953708665.png"> <img src="..\Screenshots\Screenshot953708665.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_LProgram_001_AddLocalProgramConfiguration08.Mar.2022_20.30.52.284.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-11', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next Button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-11">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.LocalProgramPage.addingLocalPrograms(LocalProgramPage.java:48)<br />
+              com.testsuite.DashBoards.LocalProgramTests.TC_LProgram_001_AddLocalProgramConfiguration(LocalProgramTests.java:43)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.OprationalTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Oper_001_ApplyTimeRangeinCalendar
+      </td>
+  <td class="duration">
+    34.355s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot1949552497.png"> <img src="..\Screenshots\Screenshot1949552497.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Oper_001_ApplyTimeRangeinCalendar08.Mar.2022_20.30.02.149.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-12', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: expected [03/08/2022 09:00 AM -03/08/2022 05:00 PM] but found [03/08/2022 08:00 AM -03/08/2022 05:00 PM]</b></a><br />
+    <div class="stackTrace" id="exception-12">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.failNotEquals(Assert.java:1277)<br />
+              com.testng.Assert.failnotequals(Assert.java:252)<br />
+              com.testng.Assert.assertEquals(Assert.java:242)<br />
+              com.testng.Assert.assertEquals(Assert.java:362)<br />
+              com.testng.Assert.assertEquals(Assert.java:375)<br />
+              com.page.module.DashboardOverviewPage.validatingBusinessHours(DashboardOverviewPage.java:419)<br />
+              com.testsuite.DashBoards.OprationalTests.TC_Oper_001_ApplyTimeRangeinCalendar(OprationalTests.java:79)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PivotTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Pivot_001_AddingTablePortletInPivotPage
+      </td>
+  <td class="duration">
+    155.623s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot788000531.png"> <img src="..\Screenshots\Screenshot788000531.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Pivot_001_AddingTablePortletInPivotPage08.Mar.2022_20.25.17.780.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-13', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Measure field was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-13">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.PortletsFeature.addingGaugePortlet(PortletsFeature.java:72)<br />
+              com.testsuite.DashBoards.PivotTests.TC_Pivot_001_AddingTablePortletInPivotPage(PivotTests.java:53)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1564,25 +692,108 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_383_AddCredentialsconfiguration
+                  TC_Pivot_002_AddingChartPortletInPivotPage
       </td>
   <td class="duration">
-    48.167s
+    155.916s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot963845488.png"> <img src="..\Screenshots\Screenshot963845488.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Pivot_002_AddingChartPortletInPivotPage08.Mar.2022_20.28.49.566.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-39', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-39">
+        <a href="javascript:toggleElement('exception-14', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Measure field was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-14">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.PortletsFeature.addingGaugePortlet(PortletsFeature.java:72)<br />
+              com.testsuite.DashBoards.PivotTests.TC_Pivot_002_AddingChartPortletInPivotPage(PivotTests.java:68)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.SSHNdWMITests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow
+      </td>
+  <td class="duration">
+    60.381s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1604451423.png"> <img src="..\Screenshots\Screenshot-1604451423.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow08.Mar.2022_21.10.39.324.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-15', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tbody/tr[1]/td[1]&quot;}<br/>
+&nbsp; (Session info: chrome=98.0.4758.102)<br/>
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html<br/>
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;<br/>
+System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.103&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
+Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\RAMA~1.CHI\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:56832}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
+Session ID: 2159a5c87571cad1cbb7bf762fc74981<br/>
+*** Element info: {Using=xpath, value=//tbody/tr[1]/td[1]}</b></a><br />
+    <div class="stackTrace" id="exception-15">
+              jdk.internal.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
+              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
+              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
+              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
+              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br />
+              org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br />
+              jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.openqa.selenium.support.events.EventFiringWebDriver.lambda$new$1(EventFiringWebDriver.java:105)<br />
+              com.sun.proxy.$Proxy14.findElement(Unknown Source)<br />
+              org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:194)<br />
+              com.page.module.SSHPage.startedRecording(SSHPage.java:463)<br />
+              com.testsuite.DashBoards.SSHNdWMITests.TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow(SSHNdWMITests.java:143)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1602,25 +813,33 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_384_EditCredentialsconfiguration
+                  TC_Click_002_AddClickByImportingExistingJSonFileinSystem
       </td>
   <td class="duration">
-    47.906s
+    170.839s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-962847431.png"> <img src="..\Screenshots\Screenshot-962847431.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Click_002_AddClickByImportingExistingJSonFileinSystem08.Mar.2022_21.14.10.630.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-40', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-40">
+        <a href="javascript:toggleElement('exception-16', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find Db page title in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-16">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.SSHPage.verifyingAddedClickActionsUsingJsonFile(SSHPage.java:552)<br />
+              com.testsuite.DashBoards.SSHNdWMITests.TC_Click_002_AddClickByImportingExistingJSonFileinSystem(SSHNdWMITests.java:154)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1640,25 +859,83 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_385_ChangePasswordInCredentialsEditwindow
+                  TC_SSH_001_AddSSHConfiguration
       </td>
   <td class="duration">
-    47.704s
+    54.145s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1613024763.png"> <img src="..\Screenshots\Screenshot-1613024763.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_SSH_001_AddSSHConfiguration08.Mar.2022_21.18.54.090.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-41', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-41">
+        <a href="javascript:toggleElement('exception-17', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next Button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-17">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.SSHPage.addingSSH(SSHPage.java:92)<br />
+              com.testsuite.DashBoards.SSHNdWMITests.TC_SSH_001_AddSSHConfiguration(SSHNdWMITests.java:44)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.TicketsTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants
+      </td>
+  <td class="duration">
+    51.611s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot697582370.png"> <img src="..\Screenshots\Screenshot697582370.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants08.Mar.2022_20.59.57.556.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-18', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to enter Ticket From Dashboard page --- 33 in&nbsp; Ticket Title in Dashboard page in time - 30 Seconds</b></a><br />
+    <div class="stackTrace" id="exception-18">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeTypeUsingChrod(SafeActions.java:3370)<br />
+              com.page.module.TicketsPage.addTicketWithAssigneeAndMultipleParticipants(TicketsPage.java:65)<br />
+              com.testsuite.DashBoards.TicketsTest.TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants(TicketsTest.java:65)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1678,25 +955,33 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_393_EditDisplaySettingsConfiguration
+                  TC_Tickets_002_Upload_Attachment_To_Ticket
       </td>
   <td class="duration">
-    48.020s
+    51.559s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1581635070.png"> <img src="..\Screenshots\Screenshot-1581635070.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Tickets_002_Upload_Attachment_To_Ticket08.Mar.2022_21.01.28.170.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-42', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-42">
+        <a href="javascript:toggleElement('exception-19', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to enter Ticket From Dashboard page --- 690 in&nbsp; Ticket Title in Dashboard page in time - 30 Seconds</b></a><br />
+    <div class="stackTrace" id="exception-19">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeTypeUsingChrod(SafeActions.java:3370)<br />
+              com.page.module.TicketsPage.addTicketWithAssigneeAndMultipleParticipants(TicketsPage.java:65)<br />
+              com.testsuite.DashBoards.TicketsTest.TC_Tickets_002_Upload_Attachment_To_Ticket(TicketsTest.java:49)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1714,103 +999,39 @@
                 </div>
       </td>
 </tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.WizardsTests</td>
+      </tr>
+            
 <tr>
   <td class="method">
-                  TC_399_AddDistributionListwithAllDistributiontypes
+                  TC_Wizards_001_AddconfigfromWizardspage
       </td>
   <td class="duration">
-    47.987s
+    5.159s
   </td>
   <td class="result">
         
     
-        
-
-        <a href="javascript:toggleElement('exception-43', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-43">
-              com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_400_AddMembersinEditDistributionListwindow
-      </td>
-  <td class="duration">
-    48.015s
-  </td>
-  <td class="result">
-        
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot2061585975.png"> <img src="..\Screenshots\Screenshot2061585975.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Wizards_001_AddconfigfromWizardspage08.Mar.2022_21.25.33.254.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
     
-        
 
-        <a href="javascript:toggleElement('exception-44', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-44">
+        <a href="javascript:toggleElement('exception-20', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next Button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-20">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_401_EditDistributionListconfiguration
-      </td>
-  <td class="duration">
-    48.113s
-  </td>
-  <td class="result">
-        
-    
-        
-
-        <a href="javascript:toggleElement('exception-45', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: cannot write to properties file...Cannot locate configuration source D:\Clientrepo\germain-test-automation\Dashboard\16.properties</b></a><br />
-    <div class="stackTrace" id="exception-45">
-              com.testng.Assert.fail(Assert.java:201)<br />
-              com.datamanager.ConfigManager.writeToDashboard(ConfigManager.java:207)<br />
-              com.listener.TestListener.updateRuntimeReport(TestListener.java:220)<br />
-              com.listener.TestListener.onTestSkipped(TestListener.java:279)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1708)<br />
-              org.testng.internal.Invoker.runTestListeners(Invoker.java:1699)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:703)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.WizardsPage.addingConfigFromWizardPage(WizardsPage.java:47)<br />
+              com.testsuite.DashBoards.WizardsTests.TC_Wizards_001_AddconfigfromWizardspage(WizardsTests.java:47)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
               org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
               org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
               org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
@@ -1833,15 +1054,15 @@
   <table class="resultsTable" width="100%">
     <tr><th colspan="3" class="header skipped">Skipped Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.CorrelationTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.BusinessProcessTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC_172_AddCorrelationScenarioconfig
+                  TC_BusiProcess_001_AddBusinessProcessConfiguration
       </td>
   <td class="duration">
-    0.080s
+    0.038s
   </td>
   <td class="result">
                                
@@ -1852,66 +1073,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_173_EditCorrelationScenarioconfig
+                  TC_BusiProcess_003_AddBPStepineditconfigwindow
       </td>
   <td class="duration">
-    0.080s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_175_AddTypesinEditCorrelationScenariowindow
-      </td>
-  <td class="duration">
-    0.086s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_176_AddFactTypeinEditCorrelationScenariowindow
-      </td>
-  <td class="duration">
-    0.067s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_177_AddStreamCorrelationScenarioconfig
-      </td>
-  <td class="duration">
-    0.072s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_178_EditStreamCorrelationScenarioconfig
-      </td>
-  <td class="duration">
-    0.070s
+    0.023s
   </td>
   <td class="result">
                                
@@ -1921,15 +1086,15 @@
       </td>
 </tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.DBInstancesTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HTTPTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC132_AddNewConfiguration
+                  TC_HTTP_007_AddHTTPScenarioconfiguration
       </td>
   <td class="duration">
-    0.085s
+    0.034s
   </td>
   <td class="result">
                                
@@ -1940,380 +1105,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC133_EditConfiguration
+                  TC_HTTP_008_AddHTTPScenariofromharfileconfiguration
       </td>
   <td class="duration">
-    0.124s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC012_Verify_Dashboard_Visibility_AllowedUsers
-      </td>
-  <td class="duration">
-    0.641s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC013_Verify_Dashboard_Visibility_RequiredRoles
-      </td>
-  <td class="duration">
-    0.372s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC014_Verify_Dashboard_Visibility_OwnerRoles
-      </td>
-  <td class="duration">
-    0.839s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC020_CreateTicketOnDashboard
-      </td>
-  <td class="duration">
-    0.143s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC085_Verify_Standard_Breadcrumb_Navigation
-      </td>
-  <td class="duration">
-    0.610s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC086_Verify_Standard_Breadcrumb_Backward_Navigation
-      </td>
-  <td class="duration">
-    0.460s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC087_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA
-      </td>
-  <td class="duration">
-    0.383s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC112_PinUnPinDashboard
-      </td>
-  <td class="duration">
-    0.200s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.DataFieldExclusionsTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_187_AddDataFieldExclusionconfig
-      </td>
-  <td class="duration">
-    0.103s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_188_EditDataFieldExclusionconfig
-      </td>
-  <td class="duration">
-    0.083s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_193_AddDataFieldExclusionfromDrillthroughpage
-      </td>
-  <td class="duration">
-    0.071s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.HardwareTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_141_AddNewHardwareConfiguration
-      </td>
-  <td class="duration">
-    0.075s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_142_EditingHardwareConfiguration
-      </td>
-  <td class="duration">
-    0.068s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_147_ApplyReapplyMonitoringProfileswindowEditconfigwindow
-      </td>
-  <td class="duration">
-    0.093s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_148_AddLocalMonitoringAgentsinEditconfigwindow
-      </td>
-  <td class="duration">
-    0.111s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.MaintenanceTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_407_AddMaintenanceConfiguration
-      </td>
-  <td class="duration">
-    0.764s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_408_AddActionsinEditMaintenancewindow
-      </td>
-  <td class="duration">
-    3.076s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_409_VerifyScheduleinEditMaintenancewindow
-      </td>
-  <td class="duration">
-    0.160s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_410_VerifyRecurringCheckboxinEditMaintenancewindow
-      </td>
-  <td class="duration">
-    0.173s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_411_VerifyGlobalMaintenancePeriod
-      </td>
-  <td class="duration">
-    1.939s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.PivotTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_071_AddingTablePortletInPivotPage
-      </td>
-  <td class="duration">
-    0.474s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_072_AddingChartPortletInPivotPage
-      </td>
-  <td class="duration">
-    0.323s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_075_VerifyingDataInPortletInPivotPage
-      </td>
-  <td class="duration">
-    0.493s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_076_EditingChartPortletInPivotPage
-      </td>
-  <td class="duration">
-    0.812s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_077_EditingTablePortletInPivotPage
-      </td>
-  <td class="duration">
-    0.843s
+    0.065s
   </td>
   <td class="result">
                                
@@ -2328,10 +1123,10 @@
             
 <tr>
   <td class="method">
-                  TC023_AddingGeneralHealthPortlet
+                  TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip
       </td>
   <td class="duration">
-    0.148s
+    0.031s
   </td>
   <td class="result">
                                
@@ -2342,10 +1137,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_048_ExportGHPortlet
+                  TC_Portlet_001_AddingGeneralHealthPortlet
       </td>
   <td class="duration">
-    0.155s
+    0.023s
   </td>
   <td class="result">
                                
@@ -2356,10 +1151,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_049_ExportTabularportlet
+                  TC_Portlet_002_AddingTabularPortlet
       </td>
   <td class="duration">
-    0.105s
+    0.029s
   </td>
   <td class="result">
                                
@@ -2370,10 +1165,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_051_ExportMapPortlet
+                  TC_Portlet_003_AddingNTabularPortlet
       </td>
   <td class="duration">
-    0.105s
+    0.029s
   </td>
   <td class="result">
                                
@@ -2384,10 +1179,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_055_NavigatetoDrillthroughpage
+                  TC_Portlet_004_AddingMapPortlet
       </td>
   <td class="duration">
-    0.089s
+    0.054s
   </td>
   <td class="result">
                                
@@ -2398,10 +1193,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_056_VerifyHovermessageinFilterIconInTabularPortlet
+                  TC_Portlet_005_AddingFlowPortlet
       </td>
   <td class="duration">
-    0.120s
+    0.034s
   </td>
   <td class="result">
                                
@@ -2412,10 +1207,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_057_NavigateDrillthroughpageUsing3optionTooltip
+                  TC_Portlet_007_AddingGaugePortlet
       </td>
   <td class="duration">
-    1.650s
+    0.030s
   </td>
   <td class="result">
                                
@@ -2426,234 +1221,10 @@
 </tr>
 <tr>
   <td class="method">
-                  TC_058_AddingPortletFromSearchBar
+                  TC_Portlet_008_AddingCounterPortlet
       </td>
   <td class="duration">
-    0.266s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_061_NavigateToDrillthroughpageUsing3optionTooltip
-      </td>
-  <td class="duration">
-    0.240s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_066_ApplyingTimeRangeinCalendar
-      </td>
-  <td class="duration">
-    0.108s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_080_VerifyingTimeRangeInRCAPage
-      </td>
-  <td class="duration">
-    0.237s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_082_MaximisePortletInRCAPage
-      </td>
-  <td class="duration">
-    0.134s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_24_AddingTabularPortlet
-      </td>
-  <td class="duration">
-    0.125s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_25_AddingNTabularPortlet
-      </td>
-  <td class="duration">
-    0.328s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_26_AddingMapPortlet
-      </td>
-  <td class="duration">
-    0.141s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_27_1_AddingFlowPortletUsingBPKPI
-      </td>
-  <td class="duration">
-    2.243s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_27_AddingFlowPortlet
-      </td>
-  <td class="duration">
-    0.348s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_28_AddingGaugePortlet
-      </td>
-  <td class="duration">
-    3.808s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_29_AddingCounterPortlet
-      </td>
-  <td class="duration">
-    0.149s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_45_ClonePortletToAnotherDashboard
-      </td>
-  <td class="duration">
-    1.574s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_50_ExportNTabularPortlet
-      </td>
-  <td class="duration">
-    2.193s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_53_ExportingGaugePortlet
-      </td>
-  <td class="duration">
-    1.429s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_54_ExportingCounterPortlet
-      </td>
-  <td class="duration">
-    2.256s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_O52_RemovePortlet
-      </td>
-  <td class="duration">
-    6.476s
+    0.030s
   </td>
   <td class="result">
                                
@@ -2663,363 +1234,15 @@
       </td>
 </tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.PresentationModesNdRolesTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.SSHNdWMITests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC_418_AddNewPresentationwithDashboards
+                  TC_WMI_001_AddWMIconfiguration
       </td>
   <td class="duration">
-    0.884s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_419_AddNewPresentationwithViews
-      </td>
-  <td class="duration">
-    0.147s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_420_AddDashboardsViewsinEditPresentationModewindow
-      </td>
-  <td class="duration">
-    0.262s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_422_VerifyPresentationmodesinPresentationbutton
-      </td>
-  <td class="duration">
-    0.268s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_424_EditDashboardNdViewconfigurationinEditPresentationModewindow
-      </td>
-  <td class="duration">
-    0.420s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_431_AddRuleconfiguration
-      </td>
-  <td class="duration">
-    1.211s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_432_EditRuleConfiguration
-      </td>
-  <td class="duration">
-    0.316s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_440_AddAbsoluteTimeRange
-      </td>
-  <td class="duration">
-    0.601s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_441_AddRelativeTimeRange
-      </td>
-  <td class="duration">
-    0.841s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_442_EditTimeRangeConfiguration
-      </td>
-  <td class="duration">
-    0.276s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_444_VerifyTimeRangesinCalendar
-      </td>
-  <td class="duration">
-    1.346s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_445_VerifyTimeRangesinGuidedSearchPage
-      </td>
-  <td class="duration">
-    0.739s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_457_AddNewRole
-      </td>
-  <td class="duration">
-    0.346s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_458_EditRole
-      </td>
-  <td class="duration">
-    1.838s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.SLAsTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_213_AddSLAConfigforAllTypes
-      </td>
-  <td class="duration">
-    0.083s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_214_AddThresholdinFactBasedSLAeditwindow
-      </td>
-  <td class="duration">
-    0.075s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_215_EditSLAconfigforallTypes
-      </td>
-  <td class="duration">
-    0.071s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_216_AddActionsinEditSLAconfigwindow
-      </td>
-  <td class="duration">
-    0.072s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.SQLTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_276_AddSQLConfigwithDatamartQuery
-      </td>
-  <td class="duration">
-    0.086s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_278_AddSQLConfigwithMultiplequeries
-      </td>
-  <td class="duration">
-    0.084s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_282_VerifyLoggingEnabledinEditSQLwindow
-      </td>
-  <td class="duration">
-    0.078s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_283_VerifyRunonScheduleinEditSQLwindow
-      </td>
-  <td class="duration">
-    0.101s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_284_VerifyAttachResultinEditSQLwindow
-      </td>
-  <td class="duration">
-    0.098s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.SoftwareTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_152_AddSoftwareConfiguration
-      </td>
-  <td class="duration">
-    0.073s
-  </td>
-  <td class="result">
-                               
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_153_EditSoftwareConfiguration
-      </td>
-  <td class="duration">
-    0.068s
+    0.064s
   </td>
   <td class="result">
                                
@@ -3030,6 +1253,464 @@
 </tr>
       </table>
 
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.AlertTemplateTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_AleTemp_001_AddAlertTemplateConfiguration
+      </td>
+  <td class="duration">
+    127.075s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_AleTemp_001_AddAlertTemplateConfiguration08.Mar.2022_19.39.08.601.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.AuthenticationTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Auth_001_AddAuthenticationConfiguration
+      </td>
+  <td class="duration">
+    257.165s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Auth_001_AddAuthenticationConfiguration08.Mar.2022_19.44.11.643.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.ComponentTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_AutoConfig_001_AddAutoConfig
+      </td>
+  <td class="duration">
+    60.561s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_AutoConfig_001_AddAutoConfig08.Mar.2022_19.58.43.167.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_Creds_001_AddCredentialsconfiguration
+      </td>
+  <td class="duration">
+    92.797s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Creds_001_AddCredentialsconfiguration08.Mar.2022_19.55.00.001.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_DLs_001_AddDistributionListwithAllDistributiontypes
+      </td>
+  <td class="duration">
+    81.253s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_DLs_001_AddDistributionListwithAllDistributiontypes08.Mar.2022_19.57.02.402.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.CorrelationTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Corr_001_AddCorrelationScenarioconfig
+      </td>
+  <td class="duration">
+    307.189s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Corr_001_AddCorrelationScenarioconfig08.Mar.2022_19.52.28.261.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Dash_021_PinUnPinDashboard
+      </td>
+  <td class="duration">
+    117.557s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Dash_021_PinUnPinDashboard08.Mar.2022_21.24.48.950.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashboardOverview</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_DashOverview_001_AddingDashboardFolder
+      </td>
+  <td class="duration">
+    42.267s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_DashOverview_001_AddingDashboardFolder08.Mar.2022_20.00.34.456.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HTTPTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_HTTP_001_AddHTTPActionconfiguration
+      </td>
+  <td class="duration">
+    48.487s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_HTTP_001_AddHTTPActionconfiguration08.Mar.2022_20.18.52.966.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HardwareTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Hware_001_AddNewHardwareConfiguration
+      </td>
+  <td class="duration">
+    103.378s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Hware_001_AddNewHardwareConfiguration08.Mar.2022_20.03.53.663.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.KPIsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_KPIs_001_AddKPIconfigurationwithallSLATypes
+      </td>
+  <td class="duration">
+    229.895s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_KPIs_001_AddKPIconfigurationwithallSLATypes08.Mar.2022_20.11.39.355.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_KPIs_003_AddSLAsinEditKPIconfigwindow
+      </td>
+  <td class="duration">
+    270.935s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_KPIs_003_AddSLAsinEditKPIconfigwindow08.Mar.2022_20.17.09.672.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.MaintenanceTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Maintenance_001_AddMaintenanceConfiguration
+      </td>
+  <td class="duration">
+    93.596s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Maintenance_001_AddMaintenanceConfiguration08.Mar.2022_20.33.26.190.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.PresentationModesNdRolesTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_PresenModes_001_AddNewPresentationwithDashboards
+      </td>
+  <td class="duration">
+    156.559s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_PresenModes_001_AddNewPresentationwithDashboards08.Mar.2022_20.48.05.062.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_Rules_001_AddRuleconfiguration
+      </td>
+  <td class="duration">
+    95.706s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Rules_001_AddRuleconfiguration08.Mar.2022_20.50.35.060.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_TimeRanges_001_AddAbsoluteTimeRange
+      </td>
+  <td class="duration">
+    109.380s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_TimeRanges_001_AddAbsoluteTimeRange08.Mar.2022_20.53.03.566.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_TimeRanges_002_AddRelativeTimeRange
+      </td>
+  <td class="duration">
+    108.118s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_TimeRanges_002_AddRelativeTimeRange08.Mar.2022_20.55.27.871.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_UserRoles_001_AddNewRole
+      </td>
+  <td class="duration">
+    122.239s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_UserRoles_001_AddNewRole08.Mar.2022_20.58.25.899.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.SLAsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_SLAs_001_AddSLAConfigforAllTypes
+      </td>
+  <td class="duration">
+    205.985s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_SLAs_001_AddSLAConfigforAllTypes08.Mar.2022_21.08.45.154.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.SSHNdWMITests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Click_003_AddandeditcustomRuleClick
+      </td>
+  <td class="duration">
+    135.197s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Click_003_AddandeditcustomRuleClick08.Mar.2022_21.17.20.381.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.ScriptTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Script_001_AddScriptconfigurationwithallConnectionTypes
+      </td>
+  <td class="duration">
+    136.078s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Script_001_AddScriptconfigurationwithallConnectionTypes08.Mar.2022_20.44.49.392.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.SoftwareTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Sware_001_AddSoftwareConfiguration
+      </td>
+  <td class="duration">
+    126.064s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Sware_001_AddSoftwareConfiguration08.Mar.2022_21.04.31.907.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.WizardsTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Wizards_002_ManageButtonsfromWizardPage
+      </td>
+  <td class="duration">
+    6.474s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Wizards_002_ManageButtonsfromWizardPage08.Mar.2022_21.26.32.940.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+      </table>
   
 </body>
 </html>
