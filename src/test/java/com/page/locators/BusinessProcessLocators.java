@@ -45,7 +45,7 @@ public interface BusinessProcessLocators {
     By TXTBOX_STEPNAME = By.xpath("//span[text()='Step Name']/../../../div/input[@id='name']");
     By ADDED_BPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/button");
     By BTN_REMOVEBPSTEPS = By.xpath("//span[text()='BP Steps']/../../../div/div/div/div[@aria-label='Remove Configuration']");
-
+    By IMAGE_PORTLET = By.xpath("//img[@src='/germainapm/workspace/app/static/media/general-health-chart.bf60ade1.png']");
 
     //BP Step Metrics
 

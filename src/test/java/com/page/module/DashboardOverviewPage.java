@@ -87,7 +87,7 @@ public void clickingOnAllModule(){
         By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
         waitForSecs(10);
         mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         driver.findElement(SeachedText).click();;
         waitForSecs(20);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
@@ -410,6 +410,11 @@ public void clickingOnAllModule(){
             str = str + list.get(i).getText();
         }
         System.out.println(str);
+        Calendar cal1 = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormatArrivals = new SimpleDateFormat("hh:00 aa", Locale.US);
+        String time = simpleDateFormatArrivals.format(new Date(cal1.getTimeInMillis()));
+        System.out.println(time);
+        cal1.add(Calendar.HOUR, 1);
         DateFormat date123 = new SimpleDateFormat("MM/dd/yyyy");
         Date date2 = new Date();
         String date5 = date123.format(date2);

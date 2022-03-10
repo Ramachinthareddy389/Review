@@ -45,6 +45,9 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
         safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
         waitForSecs(5);
         safeCheck(CHKBOX_RUNSCHEDULE,"Run Schedule checkbox",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SHOW_ADVANCED,"Show advanced",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EXECUTIONCOUNT,"2","Execution count",MEDIUMWAIT);
         safeClick(BTN_NEXT,"Next Button",MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
@@ -72,12 +75,14 @@ public class LocalProgramPage extends SafeActions implements LocalProgramLocator
     }
 
     public void verifyingLocalprogrames(){
-        isElementClickable(SEARCH_ICON,MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        isElementPresent(TYPE_SEARCH,MEDIUMWAIT);
-        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
-        isElementClickable(DROPDOWN_FEILDS,MEDIUMWAIT);
+       // isElementClickable(SEARCH_ICON,MEDIUMWAIT);
+        safeJavaScriptClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+       // safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+     //   safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
+         waitForSecs(10);
+        safeType(TYPE_SEARCH, "Name", "Enter Text in portlets");
+      //  isElementClickable(DROPDOWN_FEILDS,MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Dropdown field", MEDIUMWAIT);
         waitForSecs(10);
         By SeachedText = By.xpath("//div[contains(text(),'" + LCLPRGM + "')]");

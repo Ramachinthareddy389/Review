@@ -421,6 +421,55 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
 
     }
 
+
+    public void addingDistributionList(String name,String email){
+        waitForSecs(10);
+        safeClick(DISTRIBUTION_ADD, "Server textbox", MEDIUMWAIT);
+        safeType(DISTRIBUTION_LIST_TXTBOX, name, "Name into textbox", MEDIUMWAIT);
+        Name_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Name_Add);
+        waitForSecs(10);
+        safeClick(DISTRIBUTION_LIST_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(LABEL_EMAIL_ADDRESS, "Server Feild", MEDIUMWAIT);
+        // safeClick(EMAIL_ADDRESS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EMAIL_ADDRESS, email, "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(20);
+        List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
+        for (int i = 0; i < dbs1.size(); i++) {
+
+            if (dbs1.get(i).getText().equals(email)) {
+
+                dbs1.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(15);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED,"show advanced button",MEDIUMWAIT);
+        safeType(TXTBOX_EXECUTION_COUNT,"1","Execution count",MEDIUMWAIT);
+        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
+        safeClearAndType(DRPDOWN_SLA, "Native Mouse Click - raw - User Click SLA", "Server name into textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_LIST);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equalsIgnoreCase("Native Mouse Click - raw - User Click SLA")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+
+        waitForSecs(10);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+
+    }
     public void deletingAlert(String Alert) {
         safeType(TEXTBOX_TYPESEARCH, Alert + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");

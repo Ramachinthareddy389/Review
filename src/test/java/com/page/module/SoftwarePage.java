@@ -115,26 +115,29 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
         safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
-        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+      /*  String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
-        searchField.sendKeys(del + EditTitle);
+        searchField.sendKeys(del + EditTitle);*/
+        safeClearAndType(TXTBOX_SERVERNAME,EditTitle,"Editing server name",MEDIUMWAIT);
         waitForSecs(5);
         Server_Add1 = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add1);
         safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LABEL_DESC, "Name Feild", MEDIUMWAIT);
-        String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+  /*      String del1 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField1 = driver.findElement(TXTBOX_DESC);
-        searchField1.sendKeys(del1 + EditTitle);
+        searchField1.sendKeys(del1 + EditTitle);*/
+        safeClearAndType(TXTBOX_DESC,EditTitle,"description",MEDIUMWAIT);
         waitForSecs(5);
         desc1 = safeGetAttribute(TXTBOX_DESC, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(desc1);
 /*        safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);*/
         safeClick(LABEL_TECHSTACK, "Name Feild", MEDIUMWAIT);
-        String del7 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+     /*   String del7 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField7 = driver.findElement(TXTBOX_TECKSTACK);
-        searchField7.sendKeys(del7 + "EditedTechstack");
+        searchField7.sendKeys(del7 + "EditedTechstack");*/
+        safeClearAndType(TXTBOX_TECKSTACK,"EditedTechstack","Edit",MEDIUMWAIT);
         techStack1 = safeGetAttribute(TXTBOX_TECKSTACK, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(techStack1);
  /*       safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);*/
@@ -155,17 +158,19 @@ public class SoftwarePage extends SafeActions implements SoftwareLocators {
         category_Add1 = safeGetText(CATEGORY_GHOSTEXT, "Server textbox value", MEDIUMWAIT);
      /*   safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(5);*/
-        String del3 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+       /* String del3 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField3 = driver.findElement(EDITED_ACESSMEANS);
-        searchField3.sendKeys(del + "EditedAcessMeans");
+        searchField3.sendKeys(del + "EditedAcessMeans");*/
+        safeClearAndType(EDITED_ACESSMEANS,"EditedAcessMeans","Access means",MEDIUMWAIT);
         waitForSecs(5);
         acess_Means1 = safeGetAttribute(EDITED_ACESSMEANS, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(acess_Means1);
    /*     safeJavaScriptClick(BTN_SAVE, "Save button", MEDIUMWAIT);
         waitForSecs(5);*/
-        String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+    /*    String del5 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField5 = driver.findElement(EDITED_SEARCHTAGS);
-        searchField5.sendKeys(del + "EditedSearchTags");
+        searchField5.sendKeys(del + "EditedSearchTags");*/
+        safeClearAndType(EDITED_SEARCHTAGS,"EditedSearchTags","edit",MEDIUMWAIT);
         waitForSecs(5);
         search_Tags1 = safeGetAttribute(EDITED_SEARCHTAGS, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(search_Tags1);

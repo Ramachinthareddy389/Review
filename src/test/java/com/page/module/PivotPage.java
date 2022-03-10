@@ -21,13 +21,13 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
 
     @Step("Navigating to Pivot page from tooltip")
     public void navigateToPivotPage(String gaugePortletName) {
-       waitForSecs(10);
+        waitForSecs(10);
         mouseHoverJScript(PORTLET_BAR, "Portlet Bar", "Mouse Over on the portlet bar", MEDIUMWAIT);
         safeClick(TOOLTIPOPTION_3, "Pivot", MEDIUMWAIT);
         waitForPageToLoad();
         String Tooltip3 = safeGetText(Title_DRILLTHROUGH, "Page title for pivot", MEDIUMWAIT);
         System.out.println(Tooltip3);
-        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3+" "+"User Click"+gaugePortletName);
+        Assert.assertEquals(Tooltip3, dashBoardData.tooltip3 + " " + "User Click" + gaugePortletName);
         waitForSecs(15);
     }
 
@@ -41,7 +41,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         safeClick(PIVOT_FIELD, "Pivot Field in Table Portlet", MEDIUMWAIT);
         driver.findElement(PIVOT_FIELD_INPUT).sendKeys(dashBoardData.pivotFieldPivotPage);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.pivotFieldPivotPage);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.pivotFieldPivotPage);
         waitForSecs(20);
         safeClick(ORDER_BY_FIELD, "Order By Field in Table portlet", MEDIUMWAIT);
         safeClick(ORDER_BY_OPTION, "Order By Field option in Table portlet", MEDIUMWAIT);
@@ -83,7 +83,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         safeClick(DELETE_TABLE_PORTLET, "Delete icon in Table portlet", MEDIUMWAIT);
         safeClick(CONFIRM_DELETE_PORTLET, "Confirm button in delete popup", MEDIUMWAIT);
         try {
-        waitForSecs(15);
+            waitForSecs(15);
             if (driver.findElement(TABLE_PORTLET).isDisplayed())
                 Assert.fail("Table portlet is not deleted in Pivot page");
         } catch (NoSuchElementException e) {
@@ -101,23 +101,22 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         safeType(CHART_PORTLET_NAME_FIELD_INPUT, dashBoardData.chartPortletName, "Portlet Name Data in Chart Portlet", MEDIUMWAIT);
         waitUntilClickable(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
         safeClick(CHART_PIVOT_FIELD, "Pivot Field in Chart Portlet", MEDIUMWAIT);
-        String pivot = Keys.chord(dashBoardData.pivotFieldPivotPage) ;
-        driver.findElement(CHART_PIVOT_FIELD_INPUT).sendKeys(pivot);
+        safeClearAndType(CHART_PIVOT_FIELD_INPUT, dashBoardData.pivotFieldPivotPage, "pivot feild,M" +
+                MEDIUMWAIT);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.pivotFieldPivotPage);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.pivotFieldPivotPage);
         waitForSecs(20);
         //waitUntilClickable(CHART_MEASURE_FIELD, "Measures Field in Chart Portlet", MEDIUMWAIT);
         safeClick(CHART_MEASURE_FIELD, "Measures Field in Chart Portlet", MEDIUMWAIT);
-        String measure = Keys.chord(dashBoardData.measurePivotPortlet);
-        driver.findElement(CHART_MEASURE_INPUT).sendKeys(measure);
+        //  String measure = Keys.chord(dashBoardData.measurePivotPortlet);
+        safeClearAndType(CHART_MEASURE_INPUT, dashBoardData.measurePivotPortlet, "Pivot", MEDIUMWAIT);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.measurePivotPortlet);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.measurePivotPortlet);
         waitForSecs(20);
         safeClick(CHART_TYPE_FIELD, "Chart Type field", MEDIUMWAIT);
-        String chartType = Keys.chord(dashBoardData.chartType) ;
-        driver.findElement(CHART_TYPE_INPUT).sendKeys(chartType);
+        safeClearAndType(CHART_TYPE_INPUT, dashBoardData.chartType, "Chart Type", MEDIUMWAIT);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.chartType);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.chartType);
         waitForSecs(20);
         safeClick(ADD_PORTLET_PIVOT, "Add Portlet button", MEDIUMWAIT);
         By CHART_PORTLET = By.xpath("//span[contains(@aria-label,'" + dashBoardData.chartPortletName + "')]");
@@ -170,7 +169,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         String pivot = Keys.chord(dashBoardData.updatedPivotFieldPivotPage);
         driver.findElement(CHART_PIVOT_FIELD_INPUT).sendKeys(pivot);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.updatedPivotFieldPivotPage);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.updatedPivotFieldPivotPage);
         waitForSecs(20);
         By DELETE_EXISTING_MEASURE = By.xpath("//div[text()='" + dashBoardData.measurePivotPortlet + "']/../following-sibling::button/descendant::i");
         waitForSecs(10);
@@ -180,13 +179,13 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         String measure = Keys.chord(dashBoardData.updatedMeasurePivotPortlet);
         driver.findElement(CHART_MEASURE_INPUT).sendKeys(measure);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.updatedMeasurePivotPortlet);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.updatedMeasurePivotPortlet);
         waitForSecs(20);
         safeClick(CHART_TYPE_FIELD, "Chart Type field", MEDIUMWAIT);
         String chartType = Keys.chord(dashBoardData.updatedChartType);
         driver.findElement(CHART_TYPE_INPUT).sendKeys(chartType);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.updatedChartType);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.updatedChartType);
         waitForSecs(20);
         safeClick(SHOW_CHART_LEGEND_CHECKBOX, "Show Chart Legend Checkbox", MEDIUMWAIT);
         safeClick(UPDATE_PORTLET_PIVOT, "Update Portlet button", MEDIUMWAIT);
@@ -229,10 +228,10 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
         waitForSecs(15);
         safeClick(ORDER_BY_FIELD, "Order By Field in Table portlet", MEDIUMWAIT);
         safeClick(PIVOT_FIELD, "Pivot Field in Table Portlet", MEDIUMWAIT);
-        String pivot = Keys.chord(dashBoardData.updatedPivotFieldPivotPage) ;
+        String pivot = Keys.chord(dashBoardData.updatedPivotFieldPivotPage);
         driver.findElement(PIVOT_FIELD_INPUT).sendKeys(pivot);
         waitForSecs(10);
-        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.updatedPivotFieldPivotPage);
+        safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.updatedPivotFieldPivotPage);
         waitForSecs(20);
         By DELETE_EXISTING_MEASURE = By.xpath("//div[@role='button']/span[contains(text(),'" + dashBoardData.measurePivotPortlet + "')]/following-sibling::i");
         waitUntilClickable(DELETE_EXISTING_MEASURE, "Delete existing data in Measures field", MEDIUMWAIT);
@@ -290,7 +289,7 @@ public class PivotPage extends SafeActions implements PivotLocators, PortletLoca
             String pivot = Keys.chord(dashBoardData.pivotsArray[i]);
             driver.findElement(PIVOT_FIELD_INPUT).sendKeys(pivot);
             waitForSecs(10);
-            safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER,dashBoardData.pivotsArray[i]);
+            safeClickingOnSearchingConfig(DROPDOWN_DASHBOARD_FOLDER, dashBoardData.pivotsArray[i]);
             waitForSecs(20);
         }
         for (int j = 0; j < dashBoardData.measuresArray.length; j++) {

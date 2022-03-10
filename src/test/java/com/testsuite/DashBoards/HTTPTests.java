@@ -72,11 +72,11 @@ public class HTTPTests extends BaseSetup {
     @Test(alwaysRun = true,groups = "Smoke Suite")
     public void TC_HTTP_007_AddHTTPScenarioconfiguration()
     {
-        hardwarePage.clickingOnHardware();
-        hardwarePage.addingNewHardware(HostName);
-        httpPage.configuringNodeInAPMModule();
-        httpPage.configuringEnginesInAPMModule();
+
+
         httpPage.addingHttpScenario();
+        httpPage.verifyingHttpScenario();
+
 
 
     }

@@ -91,10 +91,15 @@ public interface HTTPLocators {
     By TXTBOX_HOSTNAME_NODE = By.xpath("//input[@id='hostname']");
     By MONITORSCRIPTPROFILE_LABEL = By.xpath("//span[text()='Monitoring script profile']");
     By ENGINES_ADDICON = By.xpath("//span[text()='Hostname']/../../../../../div[3]/div/div/button/span/i");
+    By NODE_ADD_ICON = By.xpath("//span[text()='Monitoring Node']/../../../../../following-sibling::button/span/i");
+    By ENGINE_NODE_ADD_ICON = By.xpath("//span[text()='Node']/../../../../../following-sibling::button/span/i");
+    By ENGINE_ADD_ICON = By.xpath("//span[text()='Engine']/../../../../../following-sibling::button/span/i");
     By LABLE_NAME = By.xpath("//span[text()='Show Advanced']/../../parent::div/div[2]/div/div/label");
     By BTN_ADDICON = By.xpath("//i[@aria-label='Add New Configuration']");
     By LABEL_SERVERNAME = By.xpath("//label[@id='name-label']");
     By TXTBOX_SERVERNAME = By.xpath("//input[@id='name']");
+    By NODE_NAME = By.xpath("(//input[@id='name'])[2]");
+    By ENGINE_NODE_NAME = By.xpath("(//input[@id='name'])[3]");
     By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
     By LABEL_MONITORED_SERVER = By.xpath("//input[@id='monitoredServer']/../../../../../../label/p/span");
     By MONITORED_SERVER_GHOSTEXT = By.xpath("//input[@id='monitoredServer']/../../../div[1]");

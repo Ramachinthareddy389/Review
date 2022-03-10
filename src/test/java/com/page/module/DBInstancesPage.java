@@ -73,11 +73,12 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         safeClick(LABEL_PORTNUMBER, "Port number feild", MEDIUMWAIT);
         safeType(TXTBOX_PORTNUMBER, "5040", "Portnumber", MEDIUMWAIT);
         Port_Add = safeGetAttribute(TXTBOX_PORTNUMBER, "value", "Name textbox value", MEDIUMWAIT);
-        safeClick(LABEL_DATABASENAME, "Dabase name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_DATABASENAME, "Oracle", "Database");
+        waitForSecs(10);
+        //safeClick(LABEL_DATABASENAME, "Dabase name Feild", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_DATABASENAME, "Oracle", "Database");
         DatabaseName_Add = safeGetAttribute(TXTBOX_DATABASENAME, "value", "Name textbox value", MEDIUMWAIT);
-        safeClick(LABEL_INSTANCENAME, "Instance Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_INSTANCENAME, "Instance", "Instance Name", MEDIUMWAIT);
+       // safeClick(LABEL_INSTANCENAME, "Instance Name Feild", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_INSTANCENAME, "Instance", "Instance Name", MEDIUMWAIT);
         InstanceName_Add = safeGetAttribute(TXTBOX_INSTANCENAME, "value", "Name textbox value", MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
@@ -92,11 +93,9 @@ public class DBInstancesPage extends SafeActions implements DBInstancesLocators 
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
         waitForSecs(9);
-        String pageTitle = safeGetText(HEADER_DB, "Db page title", MEDIUMWAIT);
-        System.out.println(pageTitle);
-        String expectedText = dbinstance;
-        Assert.assertEquals(pageTitle, expectedText);
-        waitForSecs(5);
+        boolean header = isElementDisplayed(By.xpath("//h5[@aria-label='" +dbinstance+ "']"));
+       Assert.assertTrue(header);
+       waitForSecs(5);
         if (Name_Add.equals(driver.findElement(TXTBOX_NAME).getAttribute("value")) && DatabaseName_Add.equals(driver.findElement(TXTBOX_DATABASENAME).getAttribute("value")) &&
                 InstanceName_Add.equals(driver.findElement(TXTBOX_INSTANCENAME).getAttribute("value")) && Port_Add.equals(driver.findElement(TXTBOX_PORTNUMBER).getAttribute("value")) &&
                 Vendor_add.equals(driver.findElement(VENDOR_NAME_GHOSTTEXT).getText()) && Server_Add.equals(driver.findElement(SERVER_GHOSTEXT).getText())) {

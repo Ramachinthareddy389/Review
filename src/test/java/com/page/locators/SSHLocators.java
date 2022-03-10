@@ -76,6 +76,7 @@ public interface SSHLocators {
     By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
     By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
+    By TXTBOX_REMOTEPORT = By.xpath("//input[@id='remotePort']");
     By SLA_LINK = By.xpath("//div[@title='Select Row']/../descendant::button[text()='User Click SLA']");
     By SLA_TXTBOX = By.xpath("//input[@id='slaName']");
     By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");
@@ -83,6 +84,7 @@ public interface SSHLocators {
     By BTN_DISABLE = By.xpath("//div[@aria-label='Disable Selected Configuration']");
     By BTN_CLONE = By.xpath("//div[@aria-label='Clone Selected Configuration']");
     By BTN_STATUS = By.xpath("//div[@aria-disabled='true']");
+    By TXTBOX_EXECUTIONCOUNT = By.xpath("//input[@id='limitCount']");
     By HEADER_CLONED = By.xpath("//div[@aria-label='Save Configuration']/../../h5");
     By BTN_DELETE = By.xpath("//div[@aria-label='Remove Selected Configuration']");
     By BTN_EDIT = By.xpath("//div[@aria-label='Edit Selected Configuration']");

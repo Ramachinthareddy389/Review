@@ -63,5 +63,17 @@ public class SalesForceTests extends BaseSetup {
     public void TC_UXSalesForce_004(){
 
         salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.clickingOnFunctionalKeys();
+    }
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_011(){
+        salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.openNoninjectedSiteinNewTab();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_012(){
+        salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.openInjectedSiteinNewTab();
     }
 }

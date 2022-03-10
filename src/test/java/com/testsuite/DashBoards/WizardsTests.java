@@ -3,6 +3,7 @@ package com.testsuite.DashBoards;
 import com.base.BaseSetup;
 import com.datamanager.ConfigManager;
 import com.page.data.DashBoardData;
+import com.page.module.AlertTemplatePage;
 import com.page.module.DashboardOverviewPage;
 import com.page.module.LoginPage;
 import com.page.module.WizardsPage;
@@ -18,11 +19,12 @@ public class WizardsTests extends BaseSetup {
     private DashBoardData dashBoardData;
     private LoginPage loginPage;
     private WizardsPage wizardsPage;
-
+private  AlertTemplatePage alertTemplatePage;
     private String sModeOfExecution;
     Random random = new Random();
     String dname = "wizards";
     String dname1 = dname + random.nextInt(1500);
+    String DistriList = "DistriList" + "-" + random.nextInt(500);
 
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
@@ -31,6 +33,7 @@ public class WizardsTests extends BaseSetup {
         loginPage = new LoginPage(getDriver());
         wizardsPage = new WizardsPage(getDriver());
         dashboardOverviewPage = new DashboardOverviewPage(getDriver());
+        alertTemplatePage=new AlertTemplatePage(getDriver());
         dashBoardData = new DashBoardData();
         getDriver().manage().deleteAllCookies();
         getDriver().get(dashBoardData.openCartURL);
@@ -45,6 +48,7 @@ public class WizardsTests extends BaseSetup {
     public void TC_Wizards_001_AddconfigfromWizardspage() throws InterruptedException {
         dashboardOverviewPage.verifyDashBoardOverviewPage(dashBoardData.dashboard, dashBoardData.allpages);
         wizardsPage.addingConfigFromWizardPage();
+        alertTemplatePage.addingDistributionList(DistriList, "rama.chinthareddy@zenq.com");
         wizardsPage.verifyingInAlertPage();
 
 

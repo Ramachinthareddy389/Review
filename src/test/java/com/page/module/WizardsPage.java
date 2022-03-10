@@ -11,26 +11,31 @@ import org.openqa.selenium.WebElement;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class WizardsPage extends SafeActions implements WizardsLocators {
 
     private WebDriver driver;
     private DashBoardData dashBoardData = new DashBoardData();
+    public AlertTemplatePage alertTemplatePage;
 
-
+    Random random = new Random();
+    String dname = "TestAlerts";
+    String dname1 = dname + random.nextInt(1500);
     //Constructor to define/call methods
     public WizardsPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
+
     }
 
     @Step("Add config from Wizards page")
     public void addingConfigFromWizardPage() {
         safeClick(BTN_Wizards, "Wizard label from side pane", MEDIUMWAIT);
         safeClick(ALERT_ADD_BUTTON, "Alert button", MEDIUMWAIT);
-        safeType(ALERTNAME_TXTBOX, "TestAlerts", "Alert Textbox", MEDIUMWAIT);
-        safeClick(DISTRIBUTION_HEADER, "Distribution header", MEDIUMWAIT);
+        safeType(ALERTNAME_TXTBOX, dname1, "Alert Textbox", MEDIUMWAIT);
+ /*       safeClick(DISTRIBUTION_HEADER, "Distribution header", MEDIUMWAIT);
         safeClick(DISTRIBUTION_GhOSTTEXT, "Select or add ghost text", MEDIUMWAIT);
         safeClearAndType(DISTRIBUTION_TXTBOX, "QA test", "QA test", MEDIUMWAIT);
         List<WebElement> dbs = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
@@ -43,7 +48,13 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
                 break;
             }
 
-        }
+        }*/
+
+
+
+    }
+
+    public void addingAlertsFromWizradPage(){
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(SLA_HEADER, "SLA label", MEDIUMWAIT);
@@ -72,17 +83,16 @@ public class WizardsPage extends SafeActions implements WizardsLocators {
         }
         safeClick(BUTTON_CLOSE, "Close button", MEDIUMWAIT);
 
-
     }
 
     @Step("Verifying created alert in alert page")
     public void verifyingInAlertPage() {
         safeClick(BTN_AUTOMATION, "Automation label from left side pane", MEDIUMWAIT);
         safeClick(ALERT_HEADER_SIDE_MENU, "Alerts label from automation menu", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, "TestAlerts" + "\n", "Alert Name into type search");
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
-        By ALERTNAME = By.xpath("//mark[text()='TestAlerts']");
+        By ALERTNAME = By.xpath("//mark[text()='"+dname1+"']");
         boolean alertName = driver.findElement(ALERTNAME).isDisplayed();
         System.out.println(alertName);
         Assert.assertTrue(alertName);

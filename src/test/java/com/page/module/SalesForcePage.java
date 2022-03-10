@@ -113,4 +113,73 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         waitForSecs(5);
 
     }
+
+    public void clickingOnFunctionalKeys(){
+        safeJavaScriptClick(HYPERLINK_VIEWCALENDER, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F1);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F10);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F11);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F12);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F2);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F3);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F4);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F5);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F6);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F7);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F8);
+        waitForSecs(5);
+        driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F9);
+        waitForSecs(5);
+        safeJavaScriptClick(HOME_TAB, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(TODAY_VIEW_ALL, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+    }
+
+    public void openNoninjectedSiteinNewTab(){
+        safeJavaScriptClick(HYPERLINK_VIEWCALENDER, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.open('https://www.google.co.in/', '_blank');");
+        switchToWindow(0);
+        safeJavaScriptClick(HOME_TAB, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(TODAY_VIEW_ALL, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+    }
+
+    public void openInjectedSiteinNewTab(){
+        safeJavaScriptClick(HYPERLINK_VIEWCALENDER, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.open('http://qa.germainapm.com/wordpress/index.php', '_blank');");
+        switchToWindow(0);
+        safeJavaScriptClick(HOME_TAB, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeJavaScriptClick(TODAY_VIEW_ALL, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+    }
 }

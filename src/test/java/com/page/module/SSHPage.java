@@ -81,6 +81,8 @@ public class SSHPage extends SafeActions implements SSHLocators {
         addingCredentials();
         Cred_add = safeGetText(CREDENTIALS_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         System.out.println(Cred_add);
+        safeClick(BTN_SHOW_ADVANCED,"Show advanced button",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_REMOTEPORT,"8080","Port Number",MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_PROGRAM, "Server Feild", MEDIUMWAIT);
         safeType(TXTBOX_PROGRAM, "Program", "Name Textbox", MEDIUMWAIT);
@@ -89,6 +91,8 @@ public class SSHPage extends SafeActions implements SSHLocators {
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         waitForSecs(5);
         safeCheck(CHKBOX_RUNSCHEDULE, "Run Schedule checkbox", MEDIUMWAIT);
+        safeClick(BTN_SHOW_ADVANCED,"Show Advanced",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_EXECUTIONCOUNT,"2","Execution count",MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_SLA, "Server Feild", MEDIUMWAIT);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);

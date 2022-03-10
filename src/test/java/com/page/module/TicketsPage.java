@@ -22,7 +22,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
     private DashBoardData dashBoardData = new DashBoardData();
     String sampleTicket = "Ticket From Dashboard page - 48";
     String ticketTitle = dashBoardData.ticketTitle
-            + " --- " + random.nextInt(1000);
+            + "_" + random.nextInt(1000);
     String Assignee_Add, Severity_Add, Priority_Add, Status_Add;
     String[] Participants_Add = new String[20];
     String[] Participants_After_Add = new String[20];
@@ -59,10 +59,10 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
 
     @Step("Adding Ticket with assignee and Multiple Participants in Tickets page")
     public void addTicketWithAssigneeAndMultipleParticipants() {
-        //safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
+        safeClick(ADD_TICKET_ICON, "Add Ticket Icon", LONGWAIT);
         waitForSecs(10);
         //waitUntilClickable(TICKET_TITLE, "", MEDIUMWAIT);
-        safeTypeUsingChrod(TICKET_TITLE, ticketTitle, "Ticket Title in Dashboard page", MEDIUMWAIT);
+        safeClearAndType(TICKET_TITLE, ticketTitle, "Ticket Title in Dashboard page", MEDIUMWAIT);
         safeClick(TICKET_SEVERITY, "Severity field", MEDIUMWAIT);
         waitUntilClickable(SEVERITY_OPTION, "", MEDIUMWAIT);
         safeClick(SEVERITY_OPTION, "Severity Option selection", MEDIUMWAIT);
@@ -77,7 +77,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         safeClick(STATUS_OPTION, "Status Option selection", MEDIUMWAIT);
         safeClick(TICKET_ASSIGNEE, "Assignee field", MEDIUMWAIT);
         waitUntilClickable(TICKET_ASSIGNEE_DROPDOWN, "", MEDIUMWAIT);
-        safeType(TEXTBOX_ASSIGNEE, "vchavhan", "Entering text in to assignee");
+        safeType(TEXTBOX_ASSIGNEE, "vivek.chavhan@zenq.com", "Entering text in to assignee");
         List<WebElement> assignees = driver.findElements(TICKET_ASSIGNEE_DROPDOWN);
         System.out.println("Total no 0f assignees:::====> " + assignees.size());
         for (int i = 0; i < assignees.size(); i++) {
@@ -126,27 +126,26 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
         safeClick(STATUS_TICKETS_PAGE, "Status in Tickets page", MEDIUMWAIT);
         waitUntilClickable(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
         safeClick(TICKET_ASSIGNED_TO, "Assigned user in Tickets page", MEDIUMWAIT);
-        safeType(TEXTBOX_TYPESEARCH, ticketTitle + "\n", "Searching Ticket Title", MEDIUMWAIT);
+      /*  safeType(TEXTBOX_TYPESEARCH, ticketTitle + "\n", "Searching Ticket Title", MEDIUMWAIT);
         waitUntilClickable(TICKET_ROWS, "Ticket Rows in Tickets page", MEDIUMWAIT);
-        By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])");
-        waitForSecs(15);
+        By TitleCheck = By.xpath("(//span[contains(text(),'" + ticketTitle + "')])");*/
         waitForSecs(10);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
         waitForSecs(10);
-        safeType(TYPE_SEARCH, "name", "Enter Text in portlets");
+        safeType(TYPE_SEARCH, "title", "Enter Text in portlets");
         waitForSecs(10);
-        safeClick(TYPE_SEARCH_DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
+        safeClick(TICKET_DROPDOWN_FEILD, "Selecting field", MEDIUMWAIT);
+        By SeachedText = By.xpath("//div[contains(text(),'" + ticketTitle + "')]");
         waitForSecs(10);
-        //  By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
-        safeType(TYPE_SEARCH, ticketTitle, "text", MEDIUMWAIT);
-        //driver.findElement(SeachedText).click();
-        driver.findElement(TYPE_SEARCH).sendKeys(Keys.ENTER);
+        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
+        driver.findElement(SeachedText).click();
         waitForSecs(10);
-        //waitUntilClickable(TitleCheck, "Ticket Title", MEDIUMWAIT);
-        if (driver.findElement(TitleCheck).isDisplayed()) {
-            mouseHoverJScript(TitleCheck,"Title of ticket ","Title",MEDIUMWAIT);
-            safeClick(TitleCheck, "Ticket Title in Tickets page", MEDIUMWAIT);
+
+        By searched_Title =By.xpath("(//span[contains(text(),'" + ticketTitle + "')])[2]");
+        //if (driver.findElement(TitleCheck).isDisplayed()) {
+            //mouseHoverJScript(SeachedText,"Title of ticket ","Title",MEDIUMWAIT);
+            safeJavaScriptClick(searched_Title, "Ticket Title in Tickets page", MEDIUMWAIT);
             waitForSecs(10);
             if (Assignee_Add.equals(driver.findElement(TICKET_ASSIGNEE).getText()) || Severity_Add.equals(driver.findElement(TICKET_SEVERITY).getText()) ||
                     Priority_Add.equals(driver.findElement(TICKET_PRIORITY).getText()) || Status_Add.equals(driver.findElement(TICKET_STATUS).getText())) {
@@ -168,7 +167,7 @@ public class TicketsPage extends SafeActions implements TicketLocators, DashBoar
                 Assert.fail("Ticket added on Dashboard is not displayed in Tickets page");
             }
           //  safeClick(CLOSE_BUTTON,"Closing Ticket",MEDIUMWAIT);
-        }
+       // }
     }
 
     @Step("Upload attachments to Ticket")

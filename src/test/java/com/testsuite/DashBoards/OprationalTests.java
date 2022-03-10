@@ -84,8 +84,8 @@ public class OprationalTests extends BaseSetup {
         dashboardOverviewPage.validatingToday("12:00 AM");
         dashboardOverviewPage.validatingYesterday("12:00 AM");
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
-        dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
-        dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
+      //  dashboardOverviewPage.validatingAbsoluteQa_30Mins("01/01/2020 01:01 AM", "02/04/2021 01:30 AM");
+     //   dashboardOverviewPage.validatingAbsoluteAllUnits("01/01/2020 01:00 AM", "02/20/2021 05:30 AM");
 
     }
 

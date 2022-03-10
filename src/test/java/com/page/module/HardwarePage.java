@@ -18,6 +18,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
     String EditTitle = "Andriod" + " - " + random.nextInt(500);
     String NodeJS = "NodeJs" + " - " + random.nextInt(500);
+    String NodeAPM = "NodeJs" + random.nextInt(500);
     String Engine = "Engine" + " - " + random.nextInt(500);
     String WebUXAgent = "WebUXAgent" + " - " + random.nextInt(500);
 
@@ -431,7 +432,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
         Server_Add = safeGetAttribute(TXTBOX_EDITED_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
         safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_HOSTNAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
+        safeType(TXTBOX_HOSTNAME_NODE, NodeAPM, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);

@@ -47,6 +47,7 @@ public interface LocalProgramLocators {
     By DROPDOWN_FEILDS = By.xpath("//div[contains(text(),'Free-text search for')]/following-sibling::div/div[text()='Name']");
     By LABEL_SAVE = By.xpath("//span[text()='Save']");
     By BTN_SHOW_ADVANCED =By.xpath("//span[text()='Show Advanced']");
+    By TXTBOX_EXECUTIONCOUNT = By.xpath("//input[@id='limitCount']");
     By SLA_LINK = By.xpath("//div[@title='Select Row']/../descendant::button[text()='User Click SLA']");
     By SLA_TXTBOX = By.xpath("//input[@id='slaName']");
     By SELECTROW_CHKBOX = By.xpath("//input[@aria-label='Select Row']");

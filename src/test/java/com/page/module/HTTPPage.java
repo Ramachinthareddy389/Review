@@ -20,6 +20,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     private DashBoardData dashBoardData = new DashBoardData();
     Random random = new Random();
     String NodeJS = "NodeJs" + " - " + random.nextInt(500);
+    String NodeAPM = "NodeAPM"+ random.nextInt(500);
     String Engine = "Engine" + " - " + random.nextInt(500);
     String HttpName = "HttpTest" + random.nextInt(3000);
     String editKPi = "EditedKpis" + random.nextInt(3000);
@@ -28,6 +29,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
     String EditTitle = "Andriod" + " - " + random.nextInt(500);
     String HTTPScenario = "test" + "_" + random.nextInt(1000);
+    String test = "test"+ random.nextInt(1000);
 
     public HTTPPage(WebDriver driver) {
         super(driver);
@@ -175,16 +177,18 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     }
 
     public void configuringNodeInAPMModule() {
-        safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
+/*        safeClick(APMHEADER, "APM label from left side pane", MEDIUMWAIT);
         safeClick(APMSTATE_HEADER, "APM STATE label from Datasources sub mneu", MEDIUMWAIT);
         safeClick(NODES_TAB, "Nodes Tab", MEDIUMWAIT);
-        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
-        safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_SERVERNAME, NodeJS, "Name into textbox", MEDIUMWAIT);
-        Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
+        safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);*/
+        waitForSecs(10);
+        safeClick(NODE_ADD_ICON,"Node Add icon");
+        //safeClick(LABEL_SERVERNAME, "Name Feild", MEDIUMWAIT);
+        safeClearAndType(NODE_NAME, NodeJS, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(NODE_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
         safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_HOSTNAME_NODE, NodeJS, "Name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_HOSTNAME_NODE, NodeAPM, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
@@ -194,35 +198,34 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
     }
 
     public void configuringEnginesInAPMModule() {
+  /*      waitForSecs(10);
         safeType(TEXTBOX_TYPESEARCH, NodeJS + "\n", "Alert Name into type search");
         System.out.println("entered dbtext");
         waitForSecs(9);
         mouseHoverJScript(LISTOFDBS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         safeClick(LISTOFDBS, " Searched DatabaseName ", MEDIUMWAIT);
-        waitForSecs(9);
-        safeClick(ENGINES_ADDICON, " Engine Add Icon", MEDIUMWAIT);
-        waitForSecs(5);
-        safeClick(LABLE_NAME, "Name Feild", MEDIUMWAIT);
-        safeType(TXTBOX_NAME, Engine, "Name into textbox", MEDIUMWAIT);
-        Server_Add = safeGetAttribute(TXTBOX_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        waitForSecs(9);*/
+        safeClick(ENGINE_ADD_ICON, " Engine Add Icon", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(ENGINE_NODE_ADD_ICON,"engines",MEDIUMWAIT);
+        safeClearAndType(ENGINE_NODE_NAME, test, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(ENGINE_NODE_NAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);
-        safeClick(BTN_SHOW_ADVANCED, "Show advanced");
-        safeClick(LABEL_MONITORED_SERVER, "Monitored Server", MEDIUMWAIT);
-        safeClick(MONITORED_SERVER_GHOSTEXT, "Monitored Server host text", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_MONITORED, DbTitle, "Monitored name into textbox", MEDIUMWAIT);
-        List<WebElement> db1 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + db1.size());
-        for (int i = 0; i < db1.size(); i++) {
-
-            if (db1.get(i).getText().equals(DbTitle)) {
-
-                db1.get(i).click();
-                break;
-            }
-        }
-        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
+        safeClick(LABEL_HOSTNAME_NODE, "Name Feild", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_HOSTNAME_NODE, test, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(TXTBOX_HOSTNAME_NODE, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClearAndType(NODE_NAME, Engine, "Name into textbox", MEDIUMWAIT);
+        Server_Add = safeGetAttribute(NODE_NAME, "value", "Name textbox value", MEDIUMWAIT);
+        System.out.println(Server_Add);
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(1).click();
+        driver.findElements(BTN_NEXT).get(1).click();
         safeClick(BTN_FINISH, "Finish Button", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         waitForSecs(10);
     }
@@ -235,7 +238,9 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         safeClick(LABEL_HTTPSCENARIO, "Http scenario label", MEDIUMWAIT);
         safeClick(LABEL_NAME, "MOonitor name", MEDIUMWAIT);
         safeType(TXTBOX_NAME, HTTPScenario, "Scenario", MEDIUMWAIT);
-        waitForSecs(10);
+        configuringNodeInAPMModule();
+        configuringEnginesInAPMModule();
+       /* waitForSecs(10);
         safeClick(LABEL_MONITORING_NODE, "Server Feild", MEDIUMWAIT);
         safeClick(MONITORING_NODE_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_MONITORING_NODE, NodeJS, "Server name into textbox", MEDIUMWAIT);
@@ -265,12 +270,12 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
             }
         }
         engine_add = safeGetText(ENGINE_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(10);*/
         safeClick(LABEL_APPLICATION_NAME, "Server Feild", MEDIUMWAIT);
         safeClick(APPLICATION_NAME_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_APPLICATION_NAME, "Android", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
-        System.out.println("Total no 0f dashboards:::====> " + dbs3.size());
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
         for (int i = 0; i < dbs4.size(); i++) {
 
             if (dbs4.get(i).getText().equals("Android")) {
@@ -282,7 +287,7 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         application_add = safeGetText(APPLICATION_NAME_GHOSTTEXT, "Server textbox value", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeTypeUsingChrod(TXTBOX_HOSTNAME, "httptest", "Enteering http value", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_HOSTNAME, "httptest", "Enteering http value", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LABEL_SERVERNAME, "Clickinng servername", MEDIUMWAIT);
@@ -324,21 +329,21 @@ public class HTTPPage extends SafeActions implements HTTPLocators {
         System.out.println(content_add);
         waitForSecs(10);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-       /* safeClick(LABEL_THRESHOLD_SLA,"MOonitor name",MEDIUMWAIT);
+        safeClick(LABEL_THRESHOLD_SLA,"MOonitor name",MEDIUMWAIT);
         safeType(TXTBOX_SLA_THRESHOLD,"5","Threshold value",MEDIUMWAIT);
         safeClick(LABEL_ACTIONS, "Server Feild", MEDIUMWAIT);
         safeClick(ACTIONS_GHOSTTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_ACTIONS, "QA Alert", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_ACTIONS, "QA", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs6 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
-        for (int i = 0; i < dbs2.size(); i++) {
+        for (int i = 0; i < dbs6.size(); i++) {
 
-            if (dbs6.get(i).getText().equals("QA Alert")) {
+            if (dbs6.get(i).getText().equals("QA")) {
 
                 dbs6.get(i).click();
                 break;
             }
-        }*/
+        }
         waitForSecs(20);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(15);

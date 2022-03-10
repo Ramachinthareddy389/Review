@@ -20,7 +20,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
     static int j;
     String Name_Add, KPIS_add, KeyExp_add, StepName_Add, SLA_Add, EditKey_Exp_add, Edited_KPIS_add, Edited_Name_Add;
     Random random = new Random();
-    String dname = "BP";
+    String dname = "Business";
     String dname1 = dname + random.nextInt(1500);
     String editBP = "BPEDIT";
     String editBP1 = editBP + random.nextInt(1500);
@@ -46,12 +46,12 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         waitForSecs(10);
         safeClick(LABEL_KPIS, "Server Feild", MEDIUMWAIT);
         safeClick(KPIS_GHOSTEXT, "Server textbox", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_KPIS, "Alert", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_KPIS, "ActiveMQ Heap Usage", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs1 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs1.size());
         for (int i = 0; i < dbs1.size(); i++) {
 
-            if (dbs1.get(i).getText().equals("Alert")) {
+            if (dbs1.get(i).getText().equals("ActiveMQ Heap Usage")) {
 
                 dbs1.get(i).click();
                 break;
@@ -104,7 +104,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeType(TXTBOX_SLA, dname1, "Name into textbox", MEDIUMWAIT);
         SLA_Add = safeGetAttribute(TXTBOX_SLA, "value", "Name textbox value", MEDIUMWAIT);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
-        safeClick(BTN_SKIP, "Skip", MEDIUMWAIT);
+        //safeClick(BTN_SKIP, "Skip", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(LABEL_DASHBOARD, "Server Feild", MEDIUMWAIT);
         safeClick(DASHBOARD_GHOSTEXT, "Server textbox", MEDIUMWAIT);
@@ -120,6 +120,7 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
             }
         }
         waitForSecs(15);
+        safeClick(IMAGE_PORTLET,"Image portlet",MEDIUMWAIT);
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(15);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
@@ -261,6 +262,8 @@ public class BusinessProcessPage extends SafeActions implements BusinessProcessL
         safeType(TXTBOX_STEPNAME, editBP1, "Name into textbox", MEDIUMWAIT);
         Name_Add = safeGetAttribute(TXTBOX_STEPNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Name_Add);
+        waitForSecs(5);
+        safeClick(BTN_SLAADDICON, "Add button", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(Filter_GHOSTEXT, "Server textbox", MEDIUMWAIT);
         safeClearAndType(TXTBOX_FILTERS, "color", "Server name into textbox", MEDIUMWAIT);
