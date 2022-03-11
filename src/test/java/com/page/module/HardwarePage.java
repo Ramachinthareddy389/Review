@@ -35,6 +35,7 @@ public class HardwarePage extends SafeActions implements HardwareLocators {
 
     public void addingNewHardware(String Hostname) {
         safeClick(BTN_ADDICON, "Add button", MEDIUMWAIT);
+        waitForSecs(10);
         safeType(TXTBOX_SERVERNAME, DbTitle, "Name into textbox", MEDIUMWAIT);
         Server_Add = safeGetAttribute(TXTBOX_SERVERNAME, "value", "Name textbox value", MEDIUMWAIT);
         System.out.println(Server_Add);

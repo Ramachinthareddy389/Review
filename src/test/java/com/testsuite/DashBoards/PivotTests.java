@@ -51,7 +51,7 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-      //  dashboardOverviewPage.validatingLast30Days("12:00 AM");
+       dashboardOverviewPage.validatingLast30Days("12:00 AM");
        // portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addTablePortletInPivotPage();
@@ -66,7 +66,7 @@ public class PivotTests extends BaseSetup {
         dashboardOverviewPage.enterAddrequirefeildsInDashBoardPage();
         dashboardOverviewPage.searchingDashboard();
         portletsFeature.addingGaugePortlet(gaugePortletName);
-       // dashboardOverviewPage.validatingLast30Days("12:00 AM");
+        dashboardOverviewPage.validatingLast30Days("12:00 AM");
        // portletsFeature.verifyingPortletAddedFromSearchBar();
         pivotPage.navigateToPivotPage(gaugePortletName);
         pivotPage.addChartPortletInPivotPage();

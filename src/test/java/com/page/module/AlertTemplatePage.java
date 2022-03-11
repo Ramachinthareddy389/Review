@@ -449,6 +449,7 @@ public class AlertTemplatePage extends SafeActions implements AlertTemplateLocat
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
         safeClick(BTN_SHOW_ADVANCED,"show advanced button",MEDIUMWAIT);
         safeType(TXTBOX_EXECUTION_COUNT,"1","Execution count",MEDIUMWAIT);
+      waitForSecs(5);
         safeClick(BTN_NEXT, "Next button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(SLA_GHOSTTEXT, "Server textbox", MEDIUMWAIT);

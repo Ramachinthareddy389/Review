@@ -83,6 +83,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
         System.out.println(Cred_add);
         safeClick(BTN_SHOW_ADVANCED,"Show advanced button",MEDIUMWAIT);
         safeClearAndType(TXTBOX_REMOTEPORT,"8080","Port Number",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_NEXT, "Next Button", MEDIUMWAIT);
         safeClick(LABEL_PROGRAM, "Server Feild", MEDIUMWAIT);
         safeType(TXTBOX_PROGRAM, "Program", "Name Textbox", MEDIUMWAIT);

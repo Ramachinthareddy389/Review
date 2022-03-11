@@ -68,6 +68,7 @@ public void clickingOnAllModule(){
 
         waitUntilClickable(BUTTON_FINISH,"Finish button",MEDIUMWAIT);
         System.out.println("Before finish");
+        waitForSecs(10);
         safeClick(BUTTON_FINISH, "Finish button in Dashboard window", MEDIUMWAIT);
         waitUntilClickable(BUTTON_CLOSE,"Finish button",MEDIUMWAIT);
         safeClick(BUTTON_CLOSE, "Close button in Dashboard window", MEDIUMWAIT);

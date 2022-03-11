@@ -199,7 +199,7 @@ public interface DashBoardLocators {
     By Title_DRILLTHROUGH = By.xpath("//nav[contains(@class,'MuiBreadcrumbs-root')]/following-sibling::div/div/h5");
 
     //Breadcrumb with Constraints
-    By FILTER_VALUE_DRILLTHROUGH = By.xpath("//div[@aria-label='Pin this filter']/parent::div/span/span[2]/span");
+    By FILTER_VALUE_DRILLTHROUGH = By.xpath("//h3[text()='Application Names']/../following-sibling::div/div");
     By BREADCRUMB_DRILLTHROUGH = By.xpath("//nav[contains(@aria-label,'breadcrumb')]/descendant::span[2]");
 
     //

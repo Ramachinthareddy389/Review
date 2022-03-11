@@ -122,7 +122,6 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingFlowPortlet(flowPortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingFlowPortlet(flowPortletName);
-        portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
@@ -137,7 +136,6 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingGaugePortlet(gaugePortletName);
         dashboardOverviewPage.validatingLast7Days("12:00 AM");
         portletsFeature.verifyingGaugePortlet(gaugePortletName);
-        portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();
@@ -152,7 +150,6 @@ public class PortletsTests extends BaseSetup {
         portletsFeature.addingCounterPortlet(counterPortletName);
         dashboardOverviewPage.validatingLast30Days("12:00 AM");
         portletsFeature.verifyingCounterPortlet(counterPortletName);
-        portletsFeature.removingPortlet();
         dashboardOverviewPage.clickingDashBoardModule();
         dashboardOverviewPage.searchingDashboard();
         dashboardOverviewPage.deletingDashboard();

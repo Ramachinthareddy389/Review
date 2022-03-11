@@ -569,12 +569,18 @@ public class DashboardPage extends SafeActions implements DashBoardLocators {
     @Step("Applying and Verifying breadcrumb with constraints in Drillthrough page")
     public void applyAndVerifyConstraintsInDrillthroughPage() {
         waitForPageToLoad();
-        safeClick(TEXTBOX_TYPESEARCH, "Search box in Drillthrough page", MEDIUMWAIT);
+        safeClick(TEXTBOX_TYPESEARCH, "Search box in Drillthrough page", MEDIUMWAIT);/*
         String constraint = Keys.chord(dashBoardData1.constraint_DrillthroughPage) + Keys.ENTER;
-        driver.findElement(TEXTBOX_TYPESEARCH).sendKeys(constraint);
+        driver.findElement(TEXTBOX_TYPESEARCH).sendKeys(constraint);*/
+        safeClearAndType(TEXTBOX_TYPESEARCH,dashBoardData1.constraint_DrillthroughPage,"Entering value",MEDIUMWAIT);
         //waitUntilClickable(FILTER_VALUE_DRILLTHROUGH, "Filter value in Drillthrough page", MEDIUMWAIT);
+        mouseHoverJScript(FILTER_VALUE_DRILLTHROUGH,"Filter value","",MEDIUMWAIT);
         filterValue_Drillthrough = driver.findElement(FILTER_VALUE_DRILLTHROUGH).getText();
-        if (!driver.findElement(FILTER_VALUE_DRILLTHROUGH).getText().equalsIgnoreCase(driver.findElement(BREADCRUMB_DRILLTHROUGH).getText()))
+        System.out.println(filterValue_Drillthrough);
+        safeClick(FILTER_VALUE_DRILLTHROUGH,"Filtered value",MEDIUMWAIT);
+        waitForSecs(10);
+        System.out.println(driver.findElement(BREADCRUMB_DRILLTHROUGH).getText());
+        if (!filterValue_Drillthrough.equalsIgnoreCase(driver.findElement(BREADCRUMB_DRILLTHROUGH).getText()))
             Assert.fail("Breadcrumb is not updated as per the applied constraint");
     }
 

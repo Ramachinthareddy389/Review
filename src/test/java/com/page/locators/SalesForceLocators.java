@@ -29,5 +29,14 @@ public interface SalesForceLocators {
     By HOME_TAB = By.xpath("//span[text()='Home']");
     By PROFILE_ICON = By.xpath("//div[contains(@class,'profileTrigger')]");
     By TODAY_VIEW_ALL = By.xpath("//span[text()='View All']");
-
+    By SEARCHBAR_TXTBOX = By.xpath("//input[@title='Search...']");
+    By TXT_QADASHBOARD = By.xpath("//span[@title='QA Dashboard']");
+    By TAB_QADASHBOARD = By.xpath("//span[text()='QA Dashboard']");
+    By GLOBAL_KEY_ICON = By.xpath("//*[local-name()='svg' and @data-key='add']");
+    By NEW_EVENT_LINK = By.xpath("//a[@title='New Event']");
+    By NEW_TASK_LINK  = By.xpath("//a[@title='New Task']");
+    By TXTBOX_SUBJECT = By.xpath("//input[@class='slds-combobox__input slds-input']");
+    By TXTBOX_DATE = By.xpath("//input[@class='slds-input']");
+    By TXTBOX_TIME = By.xpath("//input[@class='slds-combobox__input slds-input slds-combobox__input-value']");
+    By BTN_SAVE = By.xpath("(//span[text()='Save'])[2]");
 }

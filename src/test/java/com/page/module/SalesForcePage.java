@@ -182,4 +182,46 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
     }
+    public void  searchingContentUsingTheSearchBoxInSalesforce()
+    {
+        safeClearAndType(SEARCHBAR_TXTBOX,"QA dashboard","Qa dashboard",MEDIUMWAIT);
+        mouseHoverJScript(TXT_QADASHBOARD,"Dashboard","Da",MEDIUMWAIT);
+        safeJavaScriptClick(TXT_QADASHBOARD,"searched Dashboard",MEDIUMWAIT);
+        isElementDisplayed(TAB_QADASHBOARD);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+
+    }
+    public void  addingANewEventInSalesforceSite()
+    {
+        safeClick(GLOBAL_KEY_ICON,"Global key",MEDIUMWAIT);
+        safeClick(NEW_EVENT_LINK,"Event link",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SUBJECT,"New Event","Event link",MEDIUMWAIT);
+        driver.findElements(TXTBOX_DATE).get(0).sendKeys("Mar 20, 2022");
+        driver.findElements(TXTBOX_DATE).get(1).sendKeys("Mar 21, 2022");
+        driver.findElements(TXTBOX_TIME).get(0).sendKeys("7:00 PM");
+        driver.findElements(TXTBOX_DATE).get(1).sendKeys("8:00 PM");
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+    }
+
+    public void  addingANewTaskInSalesforceSite()
+    {
+        safeClick(GLOBAL_KEY_ICON,"Global key",MEDIUMWAIT);
+        safeClick(NEW_TASK_LINK,"Event link",MEDIUMWAIT);
+        safeClearAndType(TXTBOX_SUBJECT,"New Task","Event link",MEDIUMWAIT);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+    }
 }

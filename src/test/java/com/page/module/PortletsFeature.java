@@ -130,11 +130,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         safeClick(COUNTER_HEADER, "Counter header in Portlet Interface", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        // safeType(COUNTER_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        safeClearAndType(COUNTER_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
-        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+/*        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(COUNTER_TEXTBOX_KPI);
-        searchField2.sendKeys(del2 + dashBoardData.portletKPI);
+        searchField2.sendKeys(del2 + dashBoardData.portletKPI);*/
         waitForSecs(5);
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
@@ -193,14 +193,14 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         By FILTER_COUNTER_PORTLET = By.xpath("//span[@aria-label='" +"User Click"+ counterPortletName + "']/../following-sibling::div/span/i[contains(@class,'filter')]");
         if (!driver.findElement(FILTER_COUNTER_PORTLET).isDisplayed())
             Assert.fail("Filter icon is not displayed for Counter Portlet");
-        mouseHoverJScript(FILTER_COUNTER_PORTLET, "Filter icon", "Filter icon in Counter Portlet", MEDIUMWAIT);
         By FILTER_MESSAGE_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + appliedFilter + "']");
+        mouseHoverJScript(FILTER_MESSAGE_COUNTER_PORTLET, "Filter icon", "Filter icon in Counter Portlet", MEDIUMWAIT);
         if (!driver.findElement(FILTER_MESSAGE_COUNTER_PORTLET).isDisplayed())
             Assert.fail("Filter Message is not displayed properly in Counter portlet");
         try {
             waitForSecs(20);
             if (driver.findElement(COUNTER_PORTLET_CHART).isDisplayed()) {
-                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" + counterPortletName + "']/../../../following-sibling::div/div/div/div/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][1]");
+                By KPI_COUNTER_PORTLET = By.xpath("//span[@aria-label='" +"User Click"+ counterPortletName + "']/../../../following-sibling::div/div/div/div/div/*[local-name()='svg']/*[local-name()='text']/*[local-name()='tspan'][1]");
                 waitUntilClickable(KPI_COUNTER_PORTLET, "", MEDIUMWAIT);
                 if (!driver.findElement(KPI_COUNTER_PORTLET).isDisplayed())
                     Assert.fail("KPI Name is not displayed in Counter portlet");
@@ -417,7 +417,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(NTABULAR_HEADER, "N Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(NTABULAR_HEADER, "N Tabular header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        safeType(NTABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
+        safeClearAndType(NTABULAR_TEXTBOX_KPI, dashBoardData.portletKPI, "Sending the text", VERYLONGWAIT);
         waitForSecs(2);
      /*   String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(NTABULAR_TEXTBOX_KPI);
@@ -467,8 +467,9 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         }
         safeClick(TEXTBOX_KPI_FILTERS, "KPI filters field", MEDIUMWAIT);
         safeClick(Filters_TypeSearch, "Entering Text into type search", MEDIUMWAIT);
-        safeType(Filters_TypeSearch, "Application Name", "Enter Text in KPI Filters field");
-        safeClick(KPI_FILTER_OPTION, "Selecting field", MEDIUMWAIT);
+        safeType(Filters_TypeSearch, "Color", "Enter Text in KPI Filters field");
+        //safeClick(KPI_FILTER_OPTION, "Selecting field", MEDIUMWAIT);
+       waitForSecs(10);
         safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
         safeClick(DROPDOWN_VALUE, "Apply filters text", MEDIUMWAIT);
         safeClick(LABEl_IS, "Is label", MEDIUMWAIT);
@@ -1895,6 +1896,7 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
     @Step("Adding Gauge Portlet")
     public void addingGaugePortletForAllThenavgations(String gaugePortletName) throws InterruptedException {
         waitForSecs(10);
+        mouseHoverJScript(LISTOFDASHBOARDS, "text", "mouse", MEDIUMWAIT);
         safeClick(LISTOFDASHBOARDS, "clicking on Dashboard", MEDIUMWAIT);
         waitForSecs(10);
         waitUntilClickable(BTN_ADD_METRIC, "Clicking add metric icon");
@@ -1904,11 +1906,11 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
         waitUntilClickable(GAUGE_HEADER, "Gauge header in Portlet Interface", MEDIUMWAIT);
         safeClick(GAUGE_HEADER, "Gauge header in Portlet Interface", MEDIUMWAIT);
         safeClick(DROPDOWN_KPI, "Clicking on KPI", MEDIUMWAIT);
-        //safeType(GAUGE_TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
+        safeClearAndType(GAUGE_TEXTBOX_KPI, "User Click", "Sending the text", VERYLONGWAIT);
         Thread.sleep(3000);
-        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+/*        String del2 = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField2 = driver.findElement(GAUGE_TEXTBOX_KPI);
-        searchField2.sendKeys(del2 + "User Click");
+        searchField2.sendKeys(del2 + "User Click");*/
         List<WebElement> kpis = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
         for (int i = 0; i < kpis.size(); i++) {
             System.out.println(kpis.get(i).getText());
@@ -1918,9 +1920,10 @@ public class PortletsFeature extends SafeActions implements PortletLocators {
             }
         }
         safeClick(GAUGE_PORTLET_NAME, "Portlet Name field in Gauge portlet Interface");
-        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        safeClearAndType(TEXTBOX_PORTLET,gaugePortletName,"Gauge Portlet",MEDIUMWAIT);
+/*        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TEXTBOX_PORTLET);
-        searchField.sendKeys(del + gaugePortletName);
+        searchField.sendKeys(del + gaugePortletName);*/
         safeClick(GAUGE_TEXTBOX_MEASURE, "Measure field", MEDIUMWAIT);
         safeType(GAUGE_TEXTBOX_MEASURE, "Avg Color Threshold", "Enter Measure", MEDIUMWAIT);
         List<WebElement> measures = driver.findElements(DROPDOWN_DASHBOARD_FOLDER);
