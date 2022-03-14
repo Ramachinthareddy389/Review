@@ -224,4 +224,70 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
     }
+    public void addingNewContactInSalesForce(){
+        safeClick(GLOBAL_KEY_ICON,"Global key",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(NEW_CONTACT_LINK,"Contact link",MEDIUMWAIT);
+        safeClearAndType(FIRSTNAME_TXTBOX,"Test","Event link",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClearAndType(LASTNAME_TXTBOX,"Salesforce","Event link",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClearAndType(TXTBOX_EMAIL,"TestSalesforce@gmail.com","Event link",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClearAndType(TXTBOX_PHONE,"999999999","Event link",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_SAVE,"Save button",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+
+    }
+
+    public void  addingALoggingacallInSalesforce(){
+        safeClick(GLOBAL_KEY_ICON,"Global key",MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(NEW_LOG_A_CAll_LINK,"Log a link",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClearAndType(SUBJECT_CONTACTS,"Logging a call","Event link",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+
+    }
+
+    public void  addingaFavoriteListInSalesforce(){
+        safeClearAndType(SEARCHBAR_TXTBOX,"QA dashboard","Qa dashboard",MEDIUMWAIT);
+        mouseHoverJScript(TXT_QADASHBOARD,"Dashboard","Da",MEDIUMWAIT);
+        safeJavaScriptClick(TXT_QADASHBOARD,"searched Dashboard",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(ICON_FAVORITE,"Favorite Icon",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+    }
+
+    public void accessingtheRecentRecordsFromSalesforce(){
+        waitForSecs(30);
+        Actions builder = new Actions(driver);
+        builder.sendKeys(Keys.ESCAPE).build().perform();
+        safeClick(BTN_APP_LAUNCHER, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(BTN_VIEW_ALL, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(HYPERLINK_HOME, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(QADASHBOARD_LINK, "Sales force", MEDIUMWAIT);
+        switchToWindow("Home");
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(LOGIN_ID,"Login",MEDIUMWAIT);
+        switchToWindow("Home");
+
+    }
 }

@@ -39,4 +39,15 @@ public interface SalesForceLocators {
     By TXTBOX_DATE = By.xpath("//input[@class='slds-input']");
     By TXTBOX_TIME = By.xpath("//input[@class='slds-combobox__input slds-input slds-combobox__input-value']");
     By BTN_SAVE = By.xpath("(//span[text()='Save'])[2]");
+    By NEW_CONTACT_LINK  = By.xpath("//a[@title='New Contact']");
+    By NEW_LOG_A_CAll_LINK  = By.xpath("//a[@title='Log a Call']");
+    By ICON_FAVORITE = By.xpath("//button[contains(@class,'slds-is-selected branding-favorites-star-button')]");
+    By FIRSTNAME_TXTBOX = By.xpath("//input[@placeholder ='First Name']");
+    By LASTNAME_TXTBOX = By.xpath("//input[@placeholder ='Last Name']");
+    By TXTBOX_PHONE = By.xpath("//input[@type='tel']");
+    By TXTBOX_EMAIL = By.xpath("//input[@inputmode='email']");
+    By SUBJECT_CONTACTS = By.xpath("(//input[contains(@class,'slds-combobox__input slds-input slds-combobox__input-value')])[2]");
+    By QADASHBOARD_LINK = By.xpath("//a[text()='QA Dashboard']");
+    By LOGIN_ID  = By.xpath("//a[@class='profile-link-label'][text()='Vivek Chavhan']");
+
 }

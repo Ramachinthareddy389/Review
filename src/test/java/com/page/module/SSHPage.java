@@ -24,7 +24,7 @@ public class SSHPage extends SafeActions implements SSHLocators {
     String SCRIPT = "Script" + "-" + random.nextInt(500);
     String SSH = "SSH" + "-" + random.nextInt(500);
     String WMI = "WMI" + "-" + random.nextInt(500);
-    String Cred = "Cred" + "-" + random.nextInt(500);
+    String Cred = "Cred"+ random.nextInt(500);
     String Hostname = "HostTest" + "-" + random.nextInt(500);
     String DbTitle = "Hardware" + " - " + random.nextInt(500);
     String Cred_add, server_Add, program_Add, sla_add, monitoredServer_add, script_Add, Record2, Record1, AddedScenario1, AddedScenario2;

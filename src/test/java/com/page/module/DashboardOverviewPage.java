@@ -77,24 +77,16 @@ public void clickingOnAllModule(){
 
     @Step("Adding dashbaord in Dashboard overview page")
     public void searchingDashboard() throws InterruptedException {
-        waitForSecs(10);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        safeClick(SEARCH_ICON, "Text", MEDIUMWAIT);
-        waitForSecs(10);
-        safeType(TYPE_SEARCH, "Dashboard Display Name", "Enter Text in portlets");
+        safeType(TEXTBOX_TYPESEARCH, dname1 + "\n", "Alert Name into type search");
+        System.out.println("entered dbtext");
         waitForSecs(20);
-        safeClick(DROPDOWN_FEILDS, "Selecting field", MEDIUMWAIT);
-        By SeachedText = By.xpath("//div[contains(text(),'" + dname1 + "')]");
-        waitForSecs(10);
-        mouseHoverJScript(SeachedText, "SeachedText", "text", MEDIUMWAIT);
-        waitForSecs(20);
-        driver.findElement(SeachedText).click();;
-        waitForSecs(20);
+        mouseHoverJScript(LISTOFDASHBOARDS, "Databse Name", "Mouse hover", MEDIUMWAIT);
         String actualText = safeGetText(LISTOFDASHBOARDS, "dashboard name", MEDIUMWAIT);
         System.out.println(actualText);
         Assert.assertEquals(actualText, dname1);
         waitForSecs(10);
+    /*    safeClick(LISTOFDASHBOARDS, " Searched DatabaseName ", MEDIUMWAIT);
+        waitForSecs(9);*/
     }
 
     @Step("Adding Folder in Dashboard overview Page")
@@ -468,6 +460,7 @@ public void clickingOnAllModule(){
     @Step("Validating This month of predefined time range from calendar ")
     public void validatingThisMonth(String time) {
         safeClick(CALENDAR_ICON, "Calendar Icon", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_THIS_MONTH, "Last 7 Days");
         List<WebElement> list = driver.findElements(TIMESTAMPTEXTBOX);
         String str = "";

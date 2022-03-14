@@ -12,7 +12,7 @@
 <body>
 <h1>Dashboards</h1>
 <p>
-  Test duration: 10184.101s
+  Test duration: 11999.773s
 </p>
 
 
@@ -20,57 +20,32 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.CorrelationTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC_Corr_001_AddCorrelationScenarioconfig
+                  TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA
       </td>
   <td class="duration">
-    271.596s
+    250.729s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-1830672091.png"> <img src="..\Screenshots\Screenshot-1830672091.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Corr_001_AddCorrelationScenarioconfig11.Mar.2022_09.36.32.845.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot-611229142.png"> <img src="..\Screenshots\Screenshot-611229142.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA12.Mar.2022_02.12.09.648.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&apos;Types&apos;]/../../../div/div/div/button&quot;}<br/>
-&nbsp; (Session info: chrome=98.0.4758.102)<br/>
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html<br/>
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\RAMA~1.CHI\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:62869}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
-Session ID: be474c1e333a7242ce96162a3ef59079<br/>
-*** Element info: {Using=xpath, value=//span[text()=&apos;Types&apos;]/../../../div/div/div/button}</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: waiting for element was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
     <div class="stackTrace" id="exception-0">
-              jdk.internal.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br />
-              org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br />
-              jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver.lambda$new$1(EventFiringWebDriver.java:105)<br />
-              com.sun.proxy.$Proxy14.findElement(Unknown Source)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:194)<br />
-              com.page.module.CorrelationPage.verifyingCorrelationDetails(CorrelationPage.java:170)<br />
-              com.testsuite.DashBoards.CorrelationTests.TC_Corr_001_AddCorrelationScenarioconfig(CorrelationTests.java:48)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.DashboardPage.deletingDashboard(DashboardPage.java:631)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA(DashBoardTests.java:181)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -94,33 +69,29 @@ Session ID: be474c1e333a7242ce96162a3ef59079<br/>
                 </div>
       </td>
 </tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
-      </tr>
-            
 <tr>
   <td class="method">
-                  TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA
+                  TC_Dash_021_PinUnPinDashboard
       </td>
   <td class="duration">
-    53.862s
+    157.536s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-1759519058.png"> <img src="..\Screenshots\Screenshot-1759519058.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA11.Mar.2022_11.58.38.101.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot1522501540.png"> <img src="..\Screenshots\Screenshot1522501540.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Dash_021_PinUnPinDashboard12.Mar.2022_02.15.46.390.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Measure field was not found on the web page</b></a><br />
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
     <div class="stackTrace" id="exception-1">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
-              com.page.module.PortletsFeature.addingGaugePortletForAllThenavgations(PortletsFeature.java:1924)<br />
-              com.testsuite.DashBoards.DashBoardTests.TC_Breadcrumb_003_Verify_Standard_Breadcrumb_Navigation_With_Constraints_From_Drillthrough_To_RCA(DashBoardTests.java:173)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardPage.deleteDashboard(DashboardPage.java:671)<br />
+              com.testsuite.DashBoards.DashBoardTests.TC_Dash_021_PinUnPinDashboard(DashBoardTests.java:130)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -153,14 +124,14 @@ Session ID: be474c1e333a7242ce96162a3ef59079<br/>
                   TC_HTTP_007_AddHTTPScenarioconfiguration
       </td>
   <td class="duration">
-    198.913s
+    207.496s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-2006078512.png"> <img src="..\Screenshots\Screenshot-2006078512.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_HTTP_007_AddHTTPScenarioconfiguration11.Mar.2022_10.11.25.492.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot74287197.png"> <img src="..\Screenshots\Screenshot74287197.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_HTTP_007_AddHTTPScenarioconfiguration11.Mar.2022_23.57.28.193.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
@@ -199,14 +170,14 @@ Session ID: be474c1e333a7242ce96162a3ef59079<br/>
                   TC_HTTP_008_AddHTTPScenariofromharfileconfiguration
       </td>
   <td class="duration">
-    96.770s
+    98.918s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-1219380864.png"> <img src="..\Screenshots\Screenshot-1219380864.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_HTTP_008_AddHTTPScenariofromharfileconfiguration11.Mar.2022_10.13.40.865.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot-1144365914.png"> <img src="..\Screenshots\Screenshot-1144365914.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_HTTP_008_AddHTTPScenariofromharfileconfiguration11.Mar.2022_23.59.44.306.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
@@ -242,57 +213,86 @@ Session ID: be474c1e333a7242ce96162a3ef59079<br/>
       </td>
 </tr>
           <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.PivotTests</td>
+        <td colspan="3" class="group">com.testsuite.DashBoards.HardwareTests</td>
       </tr>
             
 <tr>
   <td class="method">
-                  TC_Pivot_002_AddingChartPortletInPivotPage
+                  TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow
       </td>
   <td class="duration">
-    460.835s
+    38.798s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot562089857.png"> <img src="..\Screenshots\Screenshot562089857.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Pivot_002_AddingChartPortletInPivotPage11.Mar.2022_10.29.13.006.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot-2100059386.png"> <img src="..\Screenshots\Screenshot-2100059386.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow11.Mar.2022_23.41.52.481.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(@aria-label,&apos;Sample Chart Portlet&apos;)]/../../../../../descendant::*[local-name()=&apos;tspan&apos; and contains(text(),&apos;Avg Duration&apos;)]&quot;}<br/>
-&nbsp; (Session info: chrome=98.0.4758.102)<br/>
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html<br/>
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\RAMA~1.CHI\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:50417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
-Session ID: bde92d848d485e00bb772c3f83ead13d<br/>
-*** Element info: {Using=xpath, value=//span[contains(@aria-label,&apos;Sample Chart Portlet&apos;)]/../../../../../descendant::*[local-name()=&apos;tspan&apos; and contains(text(),&apos;Avg Duration&apos;)]}</b></a><br />
+        <a href="javascript:toggleElement('exception-4', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next button was not found on the web page</b></a><br />
     <div class="stackTrace" id="exception-4">
-              jdk.internal.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br />
-              org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br />
-              jdk.internal.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)<br />
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.HardwarePage.addingNewHardware(HardwarePage.java:78)<br />
+              com.testsuite.DashBoards.HardwareTests.TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow(HardwareTests.java:59)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
               java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver.lambda$new$1(EventFiringWebDriver.java:105)<br />
-              com.sun.proxy.$Proxy14.findElement(Unknown Source)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:194)<br />
-              com.page.module.PivotPage.verifyChartPortletInPivotPage(PivotPage.java:136)<br />
-              com.testsuite.DashBoards.PivotTests.TC_Pivot_002_AddingChartPortletInPivotPage(PivotTests.java:73)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.OprationalTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Oper_001_ApplyTimeRangeinCalendar
+      </td>
+  <td class="duration">
+    24.730s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot-1179313049.png"> <img src="..\Screenshots\Screenshot-1179313049.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Oper_001_ApplyTimeRangeinCalendar12.Mar.2022_00.16.23.036.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: expected [03/12/2022 11:00 PM -03/12/2022 12:00 AM] but found [03/11/2022 11:00 PM -03/12/2022 12:00 AM]</b></a><br />
+    <div class="stackTrace" id="exception-5">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.testng.Assert.failNotEquals(Assert.java:1277)<br />
+              com.testng.Assert.failnotequals(Assert.java:252)<br />
+              com.testng.Assert.assertEquals(Assert.java:242)<br />
+              com.testng.Assert.assertEquals(Assert.java:362)<br />
+              com.testng.Assert.assertEquals(Assert.java:375)<br />
+              com.page.module.DashboardOverviewPage.validatingLastHour(DashboardOverviewPage.java:397)<br />
+              com.testsuite.DashBoards.OprationalTests.TC_Oper_001_ApplyTimeRangeinCalendar(OprationalTests.java:78)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -322,193 +322,27 @@ Session ID: bde92d848d485e00bb772c3f83ead13d<br/>
             
 <tr>
   <td class="method">
-                  TC_Portlet_002_AddingTabularPortlet
-      </td>
-  <td class="duration">
-    119.285s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-682999955.png"> <img src="..\Screenshots\Screenshot-682999955.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Portlet_002_AddingTabularPortlet11.Mar.2022_10.51.42.218.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                                <font color='Blue' face='verdana' size='2'><b></b></font>
-                  </div>
-    
-
-        <a href="javascript:toggleElement('exception-5', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Selecting field was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
-    <div class="stackTrace" id="exception-5">
-              com.testng.Assert.fail(Assert.java:201)<br />
-              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
-              com.selenium.SafeActions.safeClick(SafeActions.java:120)<br />
-              com.page.module.DashboardOverviewPage.searchingDashboard(DashboardOverviewPage.java:87)<br />
-              com.testsuite.DashBoards.PortletsTests.TC_Portlet_002_AddingTabularPortlet(PortletsTests.java:73)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_Portlet_003_AddingNTabularPortlet
-      </td>
-  <td class="duration">
-    154.595s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-715667990.png"> <img src="..\Screenshots\Screenshot-715667990.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Portlet_003_AddingNTabularPortlet11.Mar.2022_10.54.54.224.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                                <font color='Blue' face='verdana' size='2'><b></b></font>
-                  </div>
-    
-
-        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to enter &apos;User Click&apos; text in&nbsp; -Sending the text Some Exception</b></a><br />
-    <div class="stackTrace" id="exception-6">
-              com.testng.Assert.fail(Assert.java:201)<br />
-              com.selenium.SafeActions.safeType(SafeActions.java:330)<br />
-              com.page.module.PortletsFeature.addingNTabularPortlet(PortletsFeature.java:420)<br />
-              com.testsuite.DashBoards.PortletsTests.TC_Portlet_003_AddingNTabularPortlet(PortletsTests.java:91)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_Portlet_004_AddingMapPortlet
-      </td>
-  <td class="duration">
-    400.276s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-2131135562.png"> <img src="..\Screenshots\Screenshot-2131135562.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Portlet_004_AddingMapPortlet11.Mar.2022_11.02.12.296.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                                <font color='Blue' face='verdana' size='2'><b></b></font>
-                  </div>
-    
-
-        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: expected [Create &quot;Dboverview11&quot;] but found [Dboverview1100]</b></a><br />
-    <div class="stackTrace" id="exception-7">
-              com.testng.Assert.fail(Assert.java:201)<br />
-              com.testng.Assert.failNotEquals(Assert.java:1277)<br />
-              com.testng.Assert.failnotequals(Assert.java:252)<br />
-              com.testng.Assert.assertEquals(Assert.java:242)<br />
-              com.testng.Assert.assertEquals(Assert.java:362)<br />
-              com.testng.Assert.assertEquals(Assert.java:375)<br />
-              com.page.module.DashboardOverviewPage.deletingDashboard(DashboardOverviewPage.java:167)<br />
-              com.testsuite.DashBoards.PortletsTests.TC_Portlet_004_AddingMapPortlet(PortletsTests.java:113)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
-              org.testng.TestRunner.run(TestRunner.java:610)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
-              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
-              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
-              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
-              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
-              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
-              java.base/java.lang.Thread.run(Thread.java:844)<br />
-                </div>
-      </td>
-</tr>
-<tr>
-  <td class="method">
                   TC_Portlet_005_AddingFlowPortlet
       </td>
   <td class="duration">
-    179.397s
+    479.361s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot63510220.png"> <img src="..\Screenshots\Screenshot63510220.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Portlet_005_AddingFlowPortlet11.Mar.2022_11.05.47.789.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot-1427107724.png"> <img src="..\Screenshots\Screenshot-1427107724.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Portlet_005_AddingFlowPortlet12.Mar.2022_01.07.03.232.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-8', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document<br/>
-&nbsp; (Session info: chrome=98.0.4758.102)<br/>
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html<br/>
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
-Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\RAMA~1.CHI\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:52932}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
-Session ID: 6349cd9f0dc7dce897ad3dccd2ce8c3a</b></a><br />
-    <div class="stackTrace" id="exception-8">
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br />
-              org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br />
-              org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br />
-              org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br />
-              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)<br />
-              org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)<br />
-              jdk.internal.reflect.GeneratedMethodAccessor25.invoke(Unknown Source)<br />
-              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.lambda$new$0(EventFiringWebDriver.java:404)<br />
-              com.sun.proxy.$Proxy15.getText(Unknown Source)<br />
-              org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.getText(EventFiringWebDriver.java:463)<br />
-              com.page.module.PortletsFeature.addingFlowPortlet(PortletsFeature.java:830)<br />
-              com.testsuite.DashBoards.PortletsTests.TC_Portlet_005_AddingFlowPortlet(PortletsTests.java:122)<br />
+        <a href="javascript:toggleElement('exception-6', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-6">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.deletingDashboard(DashboardOverviewPage.java:164)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_Portlet_005_AddingFlowPortlet(PortletsTests.java:127)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -534,27 +368,27 @@ Session ID: 6349cd9f0dc7dce897ad3dccd2ce8c3a</b></a><br />
 </tr>
 <tr>
   <td class="method">
-                  TC_Portlet_008_AddingCounterPortlet
+                  TC_Portlet_007_AddingGaugePortlet
       </td>
   <td class="duration">
-    213.301s
+    463.466s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot821387220.png"> <img src="..\Screenshots\Screenshot821387220.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Portlet_008_AddingCounterPortlet11.Mar.2022_11.17.41.983.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot-999872295.png"> <img src="..\Screenshots\Screenshot-999872295.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Portlet_007_AddingGaugePortlet12.Mar.2022_01.15.28.755.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-9', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Measure field was not found on the web page</b></a><br />
-    <div class="stackTrace" id="exception-9">
+        <a href="javascript:toggleElement('exception-7', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find dashboard name in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-7">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
-              com.page.module.PortletsFeature.addingCounterPortlet(PortletsFeature.java:154)<br />
-              com.testsuite.DashBoards.PortletsTests.TC_Portlet_008_AddingCounterPortlet(PortletsTests.java:152)<br />
+              com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
+              com.page.module.DashboardOverviewPage.deletingDashboard(DashboardOverviewPage.java:164)<br />
+              com.testsuite.DashBoards.PortletsTests.TC_Portlet_007_AddingGaugePortlet(PortletsTests.java:141)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -587,28 +421,28 @@ Session ID: 6349cd9f0dc7dce897ad3dccd2ce8c3a</b></a><br />
                   TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow
       </td>
   <td class="duration">
-    61.270s
+    66.062s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot1054363794.png"> <img src="..\Screenshots\Screenshot1054363794.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow11.Mar.2022_11.45.33.560.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot1948192924.png"> <img src="..\Screenshots\Screenshot1948192924.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Click_001_AddClickByExportingRecordedActionsFromExtensionWindow12.Mar.2022_01.56.48.843.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-10', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tbody/tr[1]/td[1]&quot;}<br/>
-&nbsp; (Session info: chrome=98.0.4758.102)<br/>
+        <a href="javascript:toggleElement('exception-8', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tbody/tr[1]/td[1]&quot;}<br/>
+&nbsp; (Session info: chrome=99.0.4844.51)<br/>
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html<br/>
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;<br/>
-System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
+System info: host: &apos;RLT297&apos;, ip: &apos;192.168.0.101&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;<br/>
 Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\RAMA~1.CHI\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:55928}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
-Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.51, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\RAMA~1.CHI\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:55680}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
+Session ID: dbcb11ae06afbd6f40d1023a643a644b<br/>
 *** Element info: {Using=xpath, value=//tbody/tr[1]/td[1]}</b></a><br />
-    <div class="stackTrace" id="exception-10">
+    <div class="stackTrace" id="exception-8">
               jdk.internal.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)<br />
               java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
               java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)<br />
@@ -658,20 +492,20 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Click_002_AddClickByImportingExistingJSonFileinSystem
       </td>
   <td class="duration">
-    170.606s
+    178.695s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-1060033249.png"> <img src="..\Screenshots\Screenshot-1060033249.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Click_002_AddClickByImportingExistingJSonFileinSystem11.Mar.2022_11.49.00.198.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot1328257918.png"> <img src="..\Screenshots\Screenshot1328257918.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Click_002_AddClickByImportingExistingJSonFileinSystem12.Mar.2022_02.00.26.543.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-11', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find Db page title in time - 30</b></a><br />
-    <div class="stackTrace" id="exception-11">
+        <a href="javascript:toggleElement('exception-9', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Unable to find Db page title in time - 30</b></a><br />
+    <div class="stackTrace" id="exception-9">
               com.testng.Assert.fail(Assert.java:201)<br />
               com.selenium.SafeActions.safeGetText(SafeActions.java:1926)<br />
               com.page.module.SSHPage.verifyingAddedClickActionsUsingJsonFile(SSHPage.java:557)<br />
@@ -701,27 +535,123 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
 </tr>
 <tr>
   <td class="method">
-                  TC_WMI_001_AddWMIconfiguration
+                  TC_SSH_001_AddSSHConfiguration
       </td>
   <td class="duration">
-    58.272s
+    68.456s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-732555550.png"> <img src="..\Screenshots\Screenshot-732555550.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_WMI_001_AddWMIconfiguration11.Mar.2022_11.57.07.160.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot1255288977.png"> <img src="..\Screenshots\Screenshot1255288977.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_SSH_001_AddSSHConfiguration12.Mar.2022_02.05.27.960.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-12', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next Button was not found on the web page</b></a><br />
-    <div class="stackTrace" id="exception-12">
+        <a href="javascript:toggleElement('exception-10', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next Button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-10">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
+              com.page.module.SSHPage.addingSSH(SSHPage.java:87)<br />
+              com.testsuite.DashBoards.SSHNdWMITests.TC_SSH_001_AddSSHConfiguration(SSHNdWMITests.java:44)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_WMI_001_AddWMIconfiguration
+      </td>
+  <td class="duration">
+    67.465s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot2130335225.png"> <img src="..\Screenshots\Screenshot2130335225.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_WMI_001_AddWMIconfiguration12.Mar.2022_02.07.16.868.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-11', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Next Button was not found on the web page</b></a><br />
+    <div class="stackTrace" id="exception-11">
               com.testng.Assert.fail(Assert.java:201)<br />
               com.selenium.SafeActions.safeClick(SafeActions.java:147)<br />
               com.page.module.SSHPage.addingSSH(SSHPage.java:87)<br />
               com.testsuite.DashBoards.SSHNdWMITests.TC_WMI_001_AddWMIconfiguration(SSHNdWMITests.java:67)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:564)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:645)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:756)<br />
+              org.testng.TestRunner.run(TestRunner.java:610)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:387)<br />
+              org.testng.SuiteRunner.access$000(SuiteRunner.java:39)<br />
+              org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)<br />
+              org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)<br />
+              java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)<br />
+              java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)<br />
+              java.base/java.lang.Thread.run(Thread.java:844)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.ScriptTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Script_001_AddScriptconfigurationwithallConnectionTypes
+      </td>
+  <td class="duration">
+    132.804s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Screenshots\Screenshot923131642.png"> <img src="..\Screenshots\Screenshot923131642.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Script_001_AddScriptconfigurationwithallConnectionTypes12.Mar.2022_01.27.29.732.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                                <font color='Blue' face='verdana' size='2'><b></b></font>
+                  </div>
+    
+
+        <a href="javascript:toggleElement('exception-12', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Mouse hover was not visible to hover </b></a><br />
+    <div class="stackTrace" id="exception-12">
+              com.testng.Assert.fail(Assert.java:201)<br />
+              com.selenium.SafeActions.mouseHoverJScript(SafeActions.java:1139)<br />
+              com.page.module.ScriptPage.searchingForScript(ScriptPage.java:96)<br />
+              com.testsuite.DashBoards.ScriptTests.TC_Script_001_AddScriptconfigurationwithallConnectionTypes(ScriptTests.java:44)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -754,24 +684,24 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Tickets_002_Upload_Attachment_To_Ticket
       </td>
   <td class="duration">
-    27.309s
+    153.920s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Screenshots\Screenshot-1301730526.png"> <img src="..\Screenshots\Screenshot-1301730526.png" height=48 width=48 ></a>
-                                <a href="..\Videos\TC_Tickets_002_Upload_Attachment_To_Ticket11.Mar.2022_11.36.58.824.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Screenshots\Screenshot1624722758.png"> <img src="..\Screenshots\Screenshot1624722758.png" height=48 width=48 ></a>
+                                <a href="..\Videos\TC_Tickets_002_Upload_Attachment_To_Ticket12.Mar.2022_01.47.33.373.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                                 <font color='Blue' face='verdana' size='2'><b></b></font>
                   </div>
     
 
-        <a href="javascript:toggleElement('exception-13', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Priority Option selection is not attached to the page document - StaleElementReferenceException</b></a><br />
+        <a href="javascript:toggleElement('exception-13', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: Attached Files in Ticket was not displayed in time - 30 Seconds - TimeoutException</b></a><br />
     <div class="stackTrace" id="exception-13">
               com.testng.Assert.fail(Assert.java:201)<br />
-              com.selenium.SafeActions.safeClick(SafeActions.java:137)<br />
-              com.page.module.TicketsPage.addTicketWithAssigneeAndMultipleParticipants(TicketsPage.java:73)<br />
-              com.testsuite.DashBoards.TicketsTest.TC_Tickets_002_Upload_Attachment_To_Ticket(TicketsTest.java:49)<br />
+              com.selenium.Sync.waitUntilClickable(Sync.java:289)<br />
+              com.page.module.TicketsPage.verifyingUploadedAttachementsInTicket(TicketsPage.java:195)<br />
+              com.testsuite.DashBoards.TicketsTest.TC_Tickets_002_Upload_Attachment_To_Ticket(TicketsTest.java:52)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -809,13 +739,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_AleTemp_001_AddAlertTemplateConfiguration
       </td>
   <td class="duration">
-    130.262s
+    127.360s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_AleTemp_001_AddAlertTemplateConfiguration11.Mar.2022_09.17.45.258.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_AleTemp_001_AddAlertTemplateConfiguration11.Mar.2022_23.02.08.700.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -830,13 +760,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Auth_001_AddAuthenticationConfiguration
       </td>
   <td class="duration">
-    258.280s
+    256.050s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Auth_001_AddAuthenticationConfiguration11.Mar.2022_09.22.40.537.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Auth_001_AddAuthenticationConfiguration11.Mar.2022_23.07.01.817.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -851,13 +781,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_BusiProcess_001_AddBusinessProcessConfiguration
       </td>
   <td class="duration">
-    204.274s
+    204.171s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_BusiProcess_001_AddBusinessProcessConfiguration11.Mar.2022_09.26.45.673.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_BusiProcess_001_AddBusinessProcessConfiguration11.Mar.2022_23.11.09.684.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -868,13 +798,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_BusiProcess_003_AddBPStepineditconfigwindow
       </td>
   <td class="duration">
-    232.150s
+    232.953s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_BusiProcess_003_AddBPStepineditconfigwindow11.Mar.2022_09.31.15.631.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_BusiProcess_003_AddBPStepineditconfigwindow11.Mar.2022_23.16.24.667.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -889,13 +819,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_AutoConfig_001_AddAutoConfig
       </td>
   <td class="duration">
-    60.113s
+    68.352s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_AutoConfig_001_AddAutoConfig11.Mar.2022_09.42.14.875.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_AutoConfig_001_AddAutoConfig11.Mar.2022_23.28.59.661.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -906,13 +836,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Creds_001_AddCredentialsconfiguration
       </td>
   <td class="duration">
-    91.486s
+    93.850s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Creds_001_AddCredentialsconfiguration11.Mar.2022_09.38.42.119.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Creds_001_AddCredentialsconfiguration11.Mar.2022_23.25.02.624.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -923,13 +853,34 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_DLs_001_AddDistributionListwithAllDistributiontypes
       </td>
   <td class="duration">
-    79.243s
+    81.754s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_DLs_001_AddDistributionListwithAllDistributiontypes11.Mar.2022_09.40.36.894.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_DLs_001_AddDistributionListwithAllDistributiontypes11.Mar.2022_23.27.10.682.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">com.testsuite.DashBoards.CorrelationTests</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  TC_Corr_001_AddCorrelationScenarioconfig
+      </td>
+  <td class="duration">
+    308.183s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Corr_001_AddCorrelationScenarioconfig11.Mar.2022_23.22.45.044.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -944,34 +895,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_DBInstances_001_AddNewConfiguration
       </td>
   <td class="duration">
-    88.434s
+    91.752s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_DBInstances_001_AddNewConfiguration11.Mar.2022_09.45.55.061.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                  </div>
-    
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.DashBoardTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_Dash_021_PinUnPinDashboard
-      </td>
-  <td class="duration">
-    119.937s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Videos\TC_Dash_021_PinUnPinDashboard11.Mar.2022_12.01.15.218.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_DBInstances_001_AddNewConfiguration11.Mar.2022_23.33.30.518.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -986,13 +916,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_DashOverview_001_AddingDashboardFolder
       </td>
   <td class="duration">
-    52.756s
+    53.383s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_DashOverview_001_AddingDashboardFolder11.Mar.2022_09.43.49.233.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_DashOverview_001_AddingDashboardFolder11.Mar.2022_23.30.48.278.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1007,13 +937,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_HTTP_001_AddHTTPActionconfiguration
       </td>
   <td class="duration">
-    49.270s
+    51.869s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_HTTP_001_AddHTTPActionconfiguration11.Mar.2022_10.07.26.351.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_HTTP_001_AddHTTPActionconfiguration11.Mar.2022_23.53.23.073.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1028,13 +958,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Hware_001_AddNewHardwareConfiguration
       </td>
   <td class="duration">
-    115.439s
+    113.822s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Hware_001_AddNewHardwareConfiguration11.Mar.2022_09.48.27.183.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Hware_001_AddNewHardwareConfiguration11.Mar.2022_23.36.05.533.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1045,30 +975,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow
       </td>
   <td class="duration">
-    220.964s
+    226.201s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow11.Mar.2022_09.52.44.983.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                  </div>
-    
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow
-      </td>
-  <td class="duration">
-    179.800s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Videos\TC_Hware_008_AddLocalMonitoringAgentsinEditconfigwindow11.Mar.2022_09.56.20.293.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Hware_007_ApplyReapplyMonitoringProfileswindowEditconfigwindow11.Mar.2022_23.40.32.549.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1083,13 +996,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_KPIs_001_AddKPIconfigurationwithallSLATypes
       </td>
   <td class="duration">
-    230.748s
+    236.707s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_KPIs_001_AddKPIconfigurationwithallSLATypes11.Mar.2022_10.00.48.103.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_KPIs_001_AddKPIconfigurationwithallSLATypes11.Mar.2022_23.46.34.614.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1100,13 +1013,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_KPIs_003_AddSLAsinEditKPIconfigwindow
       </td>
   <td class="duration">
-    272.492s
+    280.485s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_KPIs_003_AddSLAsinEditKPIconfigwindow11.Mar.2022_10.06.00.920.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_KPIs_003_AddSLAsinEditKPIconfigwindow11.Mar.2022_23.51.53.844.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1121,13 +1034,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_LProgram_001_AddLocalProgramConfiguration
       </td>
   <td class="duration">
-    81.811s
+    84.203s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_LProgram_001_AddLocalProgramConfiguration11.Mar.2022_10.33.20.642.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_LProgram_001_AddLocalProgramConfiguration12.Mar.2022_00.18.24.244.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1142,34 +1055,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Maintenance_001_AddMaintenanceConfiguration
       </td>
   <td class="duration">
-    92.921s
+    95.388s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Maintenance_001_AddMaintenanceConfiguration11.Mar.2022_10.35.28.006.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                  </div>
-    
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.OprationalTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_Oper_001_ApplyTimeRangeinCalendar
-      </td>
-  <td class="duration">
-    92.592s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Videos\TC_Oper_001_ApplyTimeRangeinCalendar11.Mar.2022_10.31.22.831.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Maintenance_001_AddMaintenanceConfiguration12.Mar.2022_00.20.38.660.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1184,13 +1076,30 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Pivot_001_AddingTablePortletInPivotPage
       </td>
   <td class="duration">
-    397.268s
+    395.487s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Pivot_001_AddingTablePortletInPivotPage11.Mar.2022_10.20.54.921.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Pivot_001_AddingTablePortletInPivotPage12.Mar.2022_00.06.58.375.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_Pivot_002_AddingChartPortletInPivotPage
+      </td>
+  <td class="duration">
+    465.302s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Pivot_002_AddingChartPortletInPivotPage12.Mar.2022_00.15.20.844.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1205,13 +1114,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip
       </td>
   <td class="duration">
-    290.443s
+    296.529s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip11.Mar.2022_10.40.58.002.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Drillthrough_001_NavigateToDrillthroughpageUsing3optionTooltip12.Mar.2022_00.26.13.072.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1222,13 +1131,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Portlet_001_AddingGeneralHealthPortlet
       </td>
   <td class="duration">
-    450.128s
+    460.835s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Portlet_001_AddingGeneralHealthPortlet11.Mar.2022_10.49.06.485.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Portlet_001_AddingGeneralHealthPortlet12.Mar.2022_00.34.31.578.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1236,16 +1145,67 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
 </tr>
 <tr>
   <td class="method">
-                  TC_Portlet_007_AddingGaugePortlet
+                  TC_Portlet_002_AddingTabularPortlet
       </td>
   <td class="duration">
-    424.803s
+    459.260s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Portlet_007_AddingGaugePortlet11.Mar.2022_11.13.29.609.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Portlet_002_AddingTabularPortlet12.Mar.2022_00.42.49.569.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_Portlet_003_AddingNTabularPortlet
+      </td>
+  <td class="duration">
+    453.598s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Portlet_003_AddingNTabularPortlet12.Mar.2022_00.51.00.912.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_Portlet_004_AddingMapPortlet
+      </td>
+  <td class="duration">
+    404.997s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Portlet_004_AddingMapPortlet12.Mar.2022_00.58.23.197.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                  </div>
+    
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  TC_Portlet_008_AddingCounterPortlet
+      </td>
+  <td class="duration">
+    506.498s
+  </td>
+  <td class="result">
+        
+    
+            <div class="testOutput">
+                        <a href="..\Videos\TC_Portlet_008_AddingCounterPortlet12.Mar.2022_01.24.36.141.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1260,13 +1220,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_PresenModes_001_AddNewPresentationwithDashboards
       </td>
   <td class="duration">
-    156.920s
+    167.163s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_PresenModes_001_AddNewPresentationwithDashboards11.Mar.2022_11.23.49.539.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_PresenModes_001_AddNewPresentationwithDashboards12.Mar.2022_01.30.55.830.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1277,13 +1237,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Rules_001_AddRuleconfiguration
       </td>
   <td class="duration">
-    97.935s
+    111.995s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Rules_001_AddRuleconfiguration11.Mar.2022_11.26.01.782.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Rules_001_AddRuleconfiguration12.Mar.2022_01.33.26.496.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1294,13 +1254,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_TimeRanges_001_AddAbsoluteTimeRange
       </td>
   <td class="duration">
-    109.547s
+    122.463s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_TimeRanges_001_AddAbsoluteTimeRange11.Mar.2022_11.28.28.946.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_TimeRanges_001_AddAbsoluteTimeRange12.Mar.2022_01.36.08.866.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1311,13 +1271,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_TimeRanges_002_AddRelativeTimeRange
       </td>
   <td class="duration">
-    107.084s
+    118.643s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_TimeRanges_002_AddRelativeTimeRange11.Mar.2022_11.30.51.967.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_TimeRanges_002_AddRelativeTimeRange12.Mar.2022_01.38.47.284.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1328,13 +1288,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_UserRoles_001_AddNewRole
       </td>
   <td class="duration">
-    120.847s
+    130.927s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_UserRoles_001_AddNewRole11.Mar.2022_11.33.27.632.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_UserRoles_001_AddNewRole12.Mar.2022_01.41.38.514.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1349,13 +1309,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_SLAs_001_AddSLAConfigforAllTypes
       </td>
   <td class="duration">
-    206.611s
+    236.090s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_SLAs_001_AddSLAConfigforAllTypes11.Mar.2022_11.43.54.318.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_SLAs_001_AddSLAConfigforAllTypes12.Mar.2022_01.55.02.980.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1370,51 +1330,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Click_003_AddandeditcustomRuleClick
       </td>
   <td class="duration">
-    136.668s
+    149.566s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Click_003_AddandeditcustomRuleClick11.Mar.2022_11.51.52.773.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                  </div>
-    
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  TC_SSH_001_AddSSHConfiguration
-      </td>
-  <td class="duration">
-    181.944s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Videos\TC_SSH_001_AddSSHConfiguration11.Mar.2022_11.55.32.130.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
-                  </div>
-    
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">com.testsuite.DashBoards.ScriptTests</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  TC_Script_001_AddScriptconfigurationwithallConnectionTypes
-      </td>
-  <td class="duration">
-    135.923s
-  </td>
-  <td class="result">
-        
-    
-            <div class="testOutput">
-                        <a href="..\Videos\TC_Script_001_AddScriptconfigurationwithallConnectionTypes11.Mar.2022_11.20.36.013.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Click_003_AddandeditcustomRuleClick12.Mar.2022_02.03.37.884.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1429,13 +1351,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Sware_001_AddSoftwareConfiguration
       </td>
   <td class="duration">
-    127.195s
+    136.198s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Sware_001_AddSoftwareConfiguration11.Mar.2022_11.39.50.069.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Sware_001_AddSoftwareConfiguration12.Mar.2022_01.50.27.957.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1450,13 +1372,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants
       </td>
   <td class="duration">
-    106.163s
+    120.352s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants11.Mar.2022_11.35.49.070.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Tickets_001_Add_Ticket_With_Assignee_And_Multiple_Participants12.Mar.2022_01.44.19.305.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1471,13 +1393,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Wizards_001_AddconfigfromWizardspage
       </td>
   <td class="duration">
-    140.190s
+    151.797s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Wizards_001_AddconfigfromWizardspage11.Mar.2022_12.04.12.190.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Wizards_001_AddconfigfromWizardspage12.Mar.2022_02.18.57.940.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 
@@ -1488,13 +1410,13 @@ Session ID: 2c64959eaebfc1dff920ce5f86bfa135<br/>
                   TC_Wizards_002_ManageButtonsfromWizardPage
       </td>
   <td class="duration">
-    6.894s
+    9.834s
   </td>
   <td class="result">
         
     
             <div class="testOutput">
-                        <a href="..\Videos\TC_Wizards_002_ManageButtonsfromWizardPage11.Mar.2022_12.04.54.532.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
+                        <a href="..\Videos\TC_Wizards_002_ManageButtonsfromWizardPage12.Mar.2022_02.19.47.318.avi" style="text-decoration: none; color: white;"><div class = cbutton>Download Video</div></a>
                   </div>
     
 

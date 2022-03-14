@@ -92,9 +92,34 @@ public class SalesForceTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSalesForce_007(){
+    public void TC_UXSalesForce_007() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingANewTaskInSalesforceSite();
     }
 
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_008() {
+        salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.addingNewContactInSalesForce();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_009() {
+        salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.addingALoggingacallInSalesforce();
+
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_010() {
+
+        salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.addingaFavoriteListInSalesforce();
+    }
+
+    @Test(alwaysRun = true)
+    public void TC_UXSalesForce_013() {
+        salesForcePage.loginIntoSalesForceApp();
+        salesForcePage.accessingtheRecentRecordsFromSalesforce();
+    }
 }
