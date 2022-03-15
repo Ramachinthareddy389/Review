@@ -1,8 +1,10 @@
 package com.page.module;
 
+import Fillo.Select;
 import com.page.locators.SalesForceLocators;
 import com.page.locators.SiebelLocators;
 import com.selenium.SafeActions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -57,7 +59,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeClick(MENU_OPP, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_SAVERECORD, "ZENQ", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(TAB_HOME, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
@@ -81,10 +83,11 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
     public void logoutFromSiebel(){
         safeClick(TAB_FLEET_MANAGEMENT, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
+        safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"),"Calendar","test",MEDIUMWAIT );
+    /*    safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);*/
         waitForSecs(10);
         safeClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
-        waitForSecs(10);
+        waitForSecs(15);
         safeClick(LOGOUT, "Logout button", MEDIUMWAIT);
         waitForSecs(10);
 

@@ -96,9 +96,7 @@ public class CapabilityHelper {
 		case "chrome":
 			capabilities = DesiredCapabilities.chrome();
 			ChromeOptions options = new ChromeOptions ();
-
-			options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\re.crx"));
-
+			//options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\re.crx"));
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			capabilities.setCapability("browserName", "Android");
 			capabilities.setCapability("device", "Samsung Galaxy S21 Ultra");

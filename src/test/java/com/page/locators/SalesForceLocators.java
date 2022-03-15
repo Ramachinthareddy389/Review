@@ -49,5 +49,6 @@ public interface SalesForceLocators {
     By SUBJECT_CONTACTS = By.xpath("(//input[contains(@class,'slds-combobox__input slds-input slds-combobox__input-value')])[2]");
     By QADASHBOARD_LINK = By.xpath("//a[text()='QA Dashboard']");
     By LOGIN_ID  = By.xpath("//a[@class='profile-link-label'][text()='Vivek Chavhan']");
+    By SAMPLEREPORT_HYPERLINK = By.xpath("//a[text()='Sample Flow Report: Screen Flows']");
 
 }

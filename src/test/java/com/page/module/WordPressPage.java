@@ -27,8 +27,8 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     public void ClickingOnContacts() {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         final WebDriverWait wait = new WebDriverWait(driver, 10);
-    /*    WebElement toggle_menu = wait.until(ExpectedConditions.elementToBeClickable(TOGGLE_MENU));
-        toggle_menu.click();*/
+        WebElement toggle_menu = wait.until(ExpectedConditions.elementToBeClickable(TOGGLE_MENU));
+        toggle_menu.click();
         WebElement contact_Label = wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
         contact_Label.click();
         safeType(TXTBOX_NAME, "ZENQ", "Name textbox", MEDIUMWAIT);
@@ -39,25 +39,40 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     }
 
     public void basicWorkFlow() {
+        waitForSecs(15);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         waitForSecs(5);
         safeClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
     }
 
     public void LoginToWordPressSite() {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
-        safeClick(TAB_NEWS, "ZENQ", MEDIUMWAIT);
-        waitForSecs(5);
-        safeClick(TAB_NEWS, "ZENQ", MEDIUMWAIT);
-        waitForSecs(5);
-        safeClick(TAB_TECH, "ZENQ", MEDIUMWAIT);
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement toggle_menu = wait.until(ExpectedConditions.elementToBeClickable(TOGGLE_MENU));
+        toggle_menu.click();
+    /*    safeClick(TAB_NEWS, "ZENQ", MEDIUMWAIT);
+        waitForSecs(5);*/
+        safeClick(TAB_NEWS, "News", MEDIUMWAIT);
+        waitForSecs(15);
+   safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
         waitForSecs(5);
     }
 
@@ -67,8 +82,10 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(10);
         dismissAlert();
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
     }
@@ -79,8 +96,10 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(10);
         dismissAlert();
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
     }
@@ -128,7 +147,9 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
 
     public void clickingOnDiffLinksInContactUs(){
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
-        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement toggle_menu = wait.until(ExpectedConditions.elementToBeClickable(TOGGLE_MENU));
+        toggle_menu.click();
         WebElement contact_Label = wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
         contact_Label.click();
         waitForSecs(5);
@@ -136,6 +157,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         switchToWindow(0);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-250)", "");
+        safeClick(LABEL_CONTACT,"label contatc");
         WebElement contact= wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
         contact.click();
         safeClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);

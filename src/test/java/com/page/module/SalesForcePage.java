@@ -31,7 +31,7 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         driver.navigate().to("https://gapm-dev-ed.lightning.force.com");
         safeType(USERNAME, "vivek.chavhan@zenq.com", "Email textbox", MEDIUMWAIT);
         safeType(PASSWORD_SALES, "Second$123", "Email textbox", MEDIUMWAIT);
-        safeCheck(CHKBOX_REMEMBER,"Checkbox",MEDIUMWAIT);
+      //  safeCheck(CHKBOX_REMEMBER,"Checkbox",MEDIUMWAIT);
         safeClick(LOGIN_SALES, "Sales force", MEDIUMWAIT);
     }
 
@@ -283,11 +283,18 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         safeClick(HYPERLINK_HOME, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(QADASHBOARD_LINK, "Sales force", MEDIUMWAIT);
-        switchToWindow("Home");
+        safeJavaScriptClick(HOME_TAB, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
         safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(LOGIN_ID,"Login",MEDIUMWAIT);
-        switchToWindow("Home");
-
+        safeJavaScriptClick(HOME_TAB, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(SAMPLEREPORT_HYPERLINK,"Report Hyperlink",MEDIUMWAIT);
+        waitForSecs(5);
+        safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        waitForSecs(5);
     }
 }

@@ -68,7 +68,7 @@ public class ChromeBrowser implements IBrowser {
 		desiredCapabilities.setCapability("chrome.binary",getDriverPath());
 	    desiredCapabilities.setCapability(options.CAPABILITY,options);
 	    log.info("chrome driver initialized..");
-		options.addExtensions (new File(path));
+		//options.addExtensions (new File(path));
 		WebDriver chromeDriver = new ChromeDriver(options);
 		return  chromeDriver;
 	}
