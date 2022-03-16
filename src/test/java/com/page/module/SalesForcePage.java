@@ -15,7 +15,7 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         super(driver);
         this.driver = driver;
     }
-    public void loginIntoSalesForceApp(){
+    public void loginIntoSalesForceApp(){/*
         waitForSecs(20);
         driver.navigate().to("chrome-extension://fkcljfeejffnjajnpjflfammljcmdfnh/settings/index.html");
         waitForSecs(10);
@@ -27,7 +27,7 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         safeType(TXTBOX_SETTING_URL,"https://qa.cloud.germainapm.com","Settings url",MEDIUMWAIT);
         safeClick(URL_SAVE, "Add new website button", MEDIUMWAIT);
         waitForSecs(15);
-        driver.navigate().refresh();
+        driver.navigate().refresh();*/
         driver.navigate().to("https://gapm-dev-ed.lightning.force.com");
         safeType(USERNAME, "vivek.chavhan@zenq.com", "Email textbox", MEDIUMWAIT);
         safeType(PASSWORD_SALES, "Second$123", "Email textbox", MEDIUMWAIT);
@@ -273,9 +273,9 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
     }
 
     public void accessingtheRecentRecordsFromSalesforce(){
-        waitForSecs(30);
+/*        waitForSecs(30);
         Actions builder = new Actions(driver);
-        builder.sendKeys(Keys.ESCAPE).build().perform();
+        builder.sendKeys(Keys.ESCAPE).build().perform();*/
         safeClick(BTN_APP_LAUNCHER, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_VIEW_ALL, "Sales force", MEDIUMWAIT);

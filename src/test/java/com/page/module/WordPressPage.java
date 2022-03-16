@@ -46,19 +46,19 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(5);
         safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
-        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
     }
 
@@ -83,10 +83,10 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         dismissAlert();
         waitForSecs(5);
         safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-        safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-        safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
     }
 
@@ -97,48 +97,75 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         dismissAlert();
         waitForSecs(5);
         safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-        safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-        safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         waitForSecs(5);
     }
 
     public void clickingOnFunctionalKeys() {
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F1);
-        waitForSecs(5);
+        waitForSecs(10);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F10);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F11);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F12);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F2);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F3);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F4);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F5);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F6);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F7);
         waitForSecs(5);
+        safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F8);
         waitForSecs(5);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
         driver.findElement(TAB_TECH).sendKeys(Keys.F9);
         waitForSecs(5);
-        safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,250)", "");
         waitForSecs(10);
-        safeClick(LINK_THINGSTONEW_YEAR, "Link", MEDIUMWAIT);
+        safeJavaScriptClick(LINK_THINGSTONEW_YEAR, "Link", MEDIUMWAIT);
     }
 
     public void searchingTheApp() {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
+        waitForSecs(10);
         safeClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
         safeType(TXTBOX_SEARCH, "Company", "Search textbox", MEDIUMWAIT);
         safeClick(BTN_SUBMIT_SEARCH, "Search button", MEDIUMWAIT);
@@ -154,13 +181,16 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         contact_Label.click();
         waitForSecs(5);
         safeClick(HYPERRLINK_SUPPORT_FORUM,"Hyperlink",MEDIUMWAIT);
-        switchToWindow(0);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,-250)", "");
-        safeClick(LABEL_CONTACT,"label contatc");
-        WebElement contact= wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
-        contact.click();
-        safeClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);
+        //switchToWindow(0);
+     /*   JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-250)", "");*/
+       // waitForSecs(110);
+     //   toggle_menu.click();
+        waitForSecs(10);
+        safeJavaScriptClick(LABEL_CONTACT,"label contact",MEDIUMWAIT);
+      //  WebElement contact= wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
+      //  contact.click();
+        safeJavaScriptClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);
         switchToWindow(0);
 
     }
@@ -185,6 +215,8 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     public void downloadingEverestForumPluginInWP() throws IOException {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         final WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement toggle_menu = wait.until(ExpectedConditions.elementToBeClickable(TOGGLE_MENU));
+        toggle_menu.click();
         WebElement contact_Label = wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
         contact_Label.click();
         waitForSecs(5);
