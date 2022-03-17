@@ -189,8 +189,8 @@ public class BaseSetup implements TimeOuts {
 
 	@Parameters({ "browser-Type", "browserVersion", "osName", "osVersion", "session" })
 	@BeforeMethod(alwaysRun = true)
-	public void initializeBaseSetupForRemote(@Optional("Chrome") String browserType,
-			@Optional("97") String browserVersion, @Optional("Samsung ultra pro") String OSName, @Optional("13") String OSVersion,
+	public void initializeBaseSetupForRemote(@Optional("Safari") String browserType,
+			@Optional("97") String browserVersion, @Optional("Iphone") String OSName, @Optional("13") String OSVersion,
 			@Optional() String session, ITestContext context) {
 		sys.writeProperty("BrowserName", browserType);
 		try {
@@ -256,13 +256,13 @@ public class BaseSetup implements TimeOuts {
 	 * This method since added in "AfterClass" group and when this class is
 	 * inherited from a TestSuite class, it will be called automatically
 	 */
-/*	@AfterMethod(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
 		if (driver != null) {
 			driver.quit();
 		}
-	}*/
+	}
 	/**
 	 * This method adds Log file link to ReportNG report
 	 */
