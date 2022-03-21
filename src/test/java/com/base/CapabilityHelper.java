@@ -97,13 +97,19 @@ public class CapabilityHelper {
 			capabilities = DesiredCapabilities.chrome();
 			ChromeOptions options = new ChromeOptions ();
 			//options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\re.crx"));
-			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+/*			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			capabilities.setCapability("browserName", "Android");
 			capabilities.setCapability("device", "Samsung Galaxy S21 Ultra");
 			capabilities.setCapability("realMobile", "true");
 			capabilities.setCapability("os_version", "11.0");
 			capabilities.setCapability("name", "BStack-[Java] Sample Test"); // test name
-			capabilities.setCapability("build", "BStack Build Number 1"); // test name
+			capabilities.setCapability("build", "BStack Build Number 1"); // test name*/
+            capabilities.setCapability("build", "alpha_0.1.7");
+			capabilities.setCapability("os_version", "10.0");
+			capabilities.setCapability("device", "Samsung Galaxy Tab S7");
+			capabilities.setCapability("real_mobile", "true");
+			capabilities.setCapability("browserstack.local", "false");
+			capabilities.setCapability("browserstack.idleTimeout", "300");
 
 			break;
 		case "firefox":
@@ -119,10 +125,16 @@ public class CapabilityHelper {
 			break;
 		case "safari":
 			capabilities = DesiredCapabilities.safari();
-			capabilities.setCapability("os_version", "15");
+			/*capabilities.setCapability("os_version", "15");
 			capabilities.setCapability("device", "iPhone 13 Pro Max");
 			capabilities.setCapability("real_mobile", "true");
+			capabilities.setCapability("browserstack.local", "false");*/
+			capabilities.setCapability("build", "alpha_0.1.7");
+			capabilities.setCapability("os_version", "14");
+			capabilities.setCapability("device", "iPad Pro 12.9 2021");
+			capabilities.setCapability("real_mobile", "true");
 			capabilities.setCapability("browserstack.local", "false");
+			capabilities.setCapability("browserstack.idleTimeout", "300");
 			break;
 		case "opera":
 			capabilities = DesiredCapabilities.operaBlink();
