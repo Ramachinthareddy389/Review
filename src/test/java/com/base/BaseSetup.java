@@ -189,7 +189,7 @@ public class BaseSetup implements TimeOuts {
 
 	@Parameters({ "browser-Type", "browserVersion", "osName", "osVersion", "session" })
 	@BeforeMethod(alwaysRun = true)
-	public void initializeBaseSetupForRemote(@Optional("Chrome") String browserType,
+	public void initializeBaseSetupForRemote(@Optional("edge") String browserType,
 			@Optional("97") String browserVersion, @Optional("Iphone") String OSName, @Optional("13") String OSVersion,
 			@Optional() String session, ITestContext context) {
 		sys.writeProperty("BrowserName", browserType);

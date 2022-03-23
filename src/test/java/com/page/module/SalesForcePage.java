@@ -37,8 +37,8 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
 
     public void clickingOnSalesForce(){
         waitForSecs(30);
-        Actions builder = new Actions(driver);
-        builder.sendKeys(Keys.ESCAPE).build().perform();
+     /*   Actions builder = new Actions(driver);
+        builder.sendKeys(Keys.ESCAPE).build().perform();*/
         safeClick(BTN_APP_LAUNCHER, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(BTN_VIEW_ALL, "Sales force", MEDIUMWAIT);
@@ -115,6 +115,7 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
     }
 
     public void clickingOnFunctionalKeys(){
+        waitForSecs(10);
         safeJavaScriptClick(HYPERLINK_VIEWCALENDER, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
         driver.findElement(HYPERLINK_VIEWCALENDER).sendKeys(Keys.F1);

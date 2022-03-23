@@ -85,9 +85,9 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
 
     public void logoutFromSiebel(){
         safeClick(TAB_FLEET_MANAGEMENT, "ZENQ", MEDIUMWAIT);
-        waitForSecs(10);
-        safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"),"Calendar","test",MEDIUMWAIT );
-    /*    safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);*/
+        waitForSecs(20);
+     //   safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"),"Calendar","test",MEDIUMWAIT );
+         safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
