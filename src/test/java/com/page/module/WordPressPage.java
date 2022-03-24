@@ -34,67 +34,77 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
             safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
 
         }
+        waitForSecs(20);
         safeType(TXTBOX_NAME, "ZENQ", "Name textbox", MEDIUMWAIT);
+        waitForSecs(20);
         safeType(TXTBOX_EMAIL, "test@zenq.com", "Email textbox", MEDIUMWAIT);
+        waitForSecs(20);
         safeType(TXTBOX_SUBJECT, "Wordpress", "Subject textbox", MEDIUMWAIT);
+        waitForSecs(20);
         safeType(TXTAREA_MESSAGE, "Wordpresstesting", "Message textarea", MEDIUMWAIT);
+        waitForSecs(20);
         safeClick(BTN_SUBMIT, "Submit button", MEDIUMWAIT);
     }
 
     public void basicWorkFlow() {
-        if(!isElementDisplayed(TOGGLE_MENU)) {
-            safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
-            safeJavaScriptClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
-            waitForSecs(10);
-            safeJavaScriptClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
-            waitForSecs(10);
-            safeJavaScriptClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
-            waitForSecs(10);
-            safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
-        }
-        else {
-            safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-            safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
-            safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-            waitForSecs(5);
-            safeJavaScriptClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
-            safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-            waitForSecs(10);
-            safeJavaScriptClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
-            safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-            waitForSecs(10);
-            safeJavaScriptClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
-            safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-            waitForSecs(10);
-            safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
-            waitForSecs(5);
+        try {
+            if (!isElementDisplayed(TOGGLE_MENU)) {
+                safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+                waitForSecs(20);
+                safeClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
+                waitForSecs(20);
+                safeClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
+                waitForSecs(20);
+                safeClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
+                waitForSecs(20);
+                safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+                waitForSecs(5);
+            } else {
+                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+                waitForSecs(5);
+                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                waitForSecs(5);
+                safeJavaScriptClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
+                waitForSecs(5);
+                safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                waitForSecs(10);
+                safeJavaScriptClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
+                waitForSecs(5);
+                safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                waitForSecs(10);
+                safeJavaScriptClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
+                waitForSecs(5);
+                safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                waitForSecs(10);
+                safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+                waitForSecs(5);
+            }
+        }catch (Exception e){
+
         }
     }
 
     public void LoginToWordPressSite() {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         waitForSecs(10);
-        if(!isElementDisplayed(TOGGLE_MENU)) {
-            safeClick(TAB_NEWS, "Technology", MEDIUMWAIT);
-            waitForSecs(15);
-            safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
-            waitForSecs(15);
-        }
-        else {
-            safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-            safeClick(TAB_NEWS, "News", MEDIUMWAIT);
-            waitForSecs(15);
-            safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-            safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
-            waitForSecs(15);
-        }
+        try {
+            if (!isElementDisplayed(TOGGLE_MENU)) {
+                safeClick(TAB_NEWS, "Technology", MEDIUMWAIT);
+                waitForSecs(20);
+                safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
+                waitForSecs(15);
+            } else {
+                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                safeClick(TAB_NEWS, "News", MEDIUMWAIT);
+                waitForSecs(15);
+                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
+                waitForSecs(15);
+            }
+        }catch (Exception e){
 
+        }
     }
 
     public void alertPopupInWordPress() {
@@ -204,7 +214,9 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(10);
         safeClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
         safeType(TXTBOX_SEARCH, "Company", "Search textbox", MEDIUMWAIT);
+        waitForSecs(10);
         safeClick(BTN_SUBMIT_SEARCH, "Search button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
 
@@ -212,7 +224,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         if(!isElementDisplayed(TOGGLE_MENU)) {
-            safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+            safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         }
         else {
             safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);

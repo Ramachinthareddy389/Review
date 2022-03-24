@@ -35,9 +35,9 @@ public class SiebelTests extends BaseSetup {
         getDriver().get(dashBoardData.openCartURL);
         (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
-        loginPage.verifyLoginPage();
-        loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
-        loginPage.clickLogInButton();
+       // loginPage.verifyLoginPage();
+        //loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
+       // loginPage.clickLogInButton();
     }
 
 
