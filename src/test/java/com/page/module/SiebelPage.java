@@ -160,7 +160,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
-        waitForSecs(20);
+        waitForSecs(30);
         safeSelectListBox(DRPDOWN_QUERIES,"High Probability","Queries Dropdown",MEDIUMWAIT);
         waitForSecs(10);
         safeClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
@@ -182,7 +182,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(10);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open('https://www.google.co.in/', '_blank');");
-        switchToWindow(0);
+      //  switchToWindow(0);
         safeClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);
@@ -202,7 +202,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(10);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open('http://qa.germainapm.com/wordpress/index.php', '_blank');");
-        switchToWindow(0);
+        //switchToWindow(0);
         safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);

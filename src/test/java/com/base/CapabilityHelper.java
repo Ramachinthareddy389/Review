@@ -88,13 +88,13 @@ public class CapabilityHelper {
                 capabilities = DesiredCapabilities.chrome();
                 ChromeOptions options = new ChromeOptions();
                 //options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\re.crx"));
-                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+              /*  capabilities.setCapability(ChromeOptions.CAPABILITY, options);
                 capabilities.setCapability("browserName", "Android");
                 capabilities.setCapability("device", "Samsung Galaxy S21 Ultra");
                 capabilities.setCapability("realMobile", "true");
                 capabilities.setCapability("os_version", "11.0");
                 capabilities.setCapability("name", "BStack-[Java] Sample Test"); // test name
-                capabilities.setCapability("build", "BStack Build Number 1"); // test name
+                capabilities.setCapability("build", "BStack Build Number 1"); // test name*/
 /*                capabilities.setCapability("build", "alpha_0.1.7");
                 capabilities.setCapability("os_version", "10.0");
                 capabilities.setCapability("device", "Samsung Galaxy Tab S7");
@@ -102,11 +102,18 @@ public class CapabilityHelper {
                 capabilities.setCapability("browserstack.local", "false");
                 capabilities.setCapability("browserstack.idleTimeout", "300");*/
 
+                capabilities.setCapability("os", "Windows");
+                capabilities.setCapability("os_version", "7");
+                capabilities.setCapability("browser", "Chrome");
+                capabilities.setCapability("browser_version", "latest");
+                capabilities.setCapability("browserstack.local", "false");
+                capabilities.setCapability("browserstack.selenium_version", "3.10.0");
+
                 break;
             case "firefox":
                 capabilities = DesiredCapabilities.firefox();
                 capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "10");
+                capabilities.setCapability("os_version", "7");
                 capabilities.setCapability("browser", "Firefox");
                 capabilities.setCapability("browser_version", "latest");
                 capabilities.setCapability("browserstack.local", "false");
@@ -117,7 +124,7 @@ public class CapabilityHelper {
                 capabilities.setBrowserName("internet explorer");
                 capabilities = DesiredCapabilities.internetExplorer();
                 capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "10");
+                capabilities.setCapability("os_version", "7");
                 capabilities.setCapability("browser", "IE");
                 capabilities.setCapability("browser_version", "11.0");
                 capabilities.setCapability("browserstack.local", "false");
@@ -138,17 +145,25 @@ public class CapabilityHelper {
                 break;
             case "opera":
                 capabilities = DesiredCapabilities.operaBlink();
+                capabilities.setCapability("os", "Windows");
+                capabilities.setCapability("os_version", "7");
+                capabilities.setCapability("browser", "Opera");
+                capabilities.setCapability("browser_version", "12.16");
+                capabilities.setCapability("browserstack.local", "false");
+                capabilities.setCapability("browserstack.selenium_version", "2.41.0");
                 break;
 
             case "edge":
                 capabilities = DesiredCapabilities.edge();
                 capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "10");
+                capabilities.setCapability("os_version", "7");
                 capabilities.setCapability("browser", "Edge");
                 capabilities.setCapability("browser_version", "latest");
                 capabilities.setCapability("browserstack.local", "false");
                 capabilities.setCapability("browserstack.selenium_version", "3.5.2");
                 break;
+
+
 
             default:
                 log.error("browser : " + browserType + " is invalid, Launching Firefox as browser of choice..");
