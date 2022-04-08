@@ -65,7 +65,7 @@ public class CapabilityHelper {
             setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
         } else if (UtilityMethods.validateIP(cloudURL.split(":")[1].substring(2))) {
 
-            setBrowser(browserType);
+            setBrowser(browserType,OSName, OSVersion);
         } else {
             log.error("cloud entered does not exist - " + cloudURL);
             try {
@@ -82,29 +82,15 @@ public class CapabilityHelper {
      *
      * @param browserType , Need to pass the browser type
      */
-    private void setBrowser(String browserType) {
+    private void setBrowser(String browserType,String osName,String os_version) {
         switch (browserType.toLowerCase()) {
             case "chrome":
                 capabilities = DesiredCapabilities.chrome();
                 ChromeOptions options = new ChromeOptions();
                 //options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\re.crx"));
-              /*  capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-                capabilities.setCapability("browserName", "Android");
-                capabilities.setCapability("device", "Samsung Galaxy S21 Ultra");
-                capabilities.setCapability("realMobile", "true");
-                capabilities.setCapability("os_version", "11.0");
-                capabilities.setCapability("name", "BStack-[Java] Sample Test"); // test name
-                capabilities.setCapability("build", "BStack Build Number 1"); // test name*/
-/*                capabilities.setCapability("build", "alpha_0.1.7");
-                capabilities.setCapability("os_version", "10.0");
-                capabilities.setCapability("device", "Samsung Galaxy Tab S7");
-                capabilities.setCapability("real_mobile", "true");
-                capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.idleTimeout", "300");*/
-
-                capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "7");
-                capabilities.setCapability("browser", "Chrome");
+                capabilities.setCapability("os", osName);
+                capabilities.setCapability("device", os_version);
+                capabilities.setCapability("browser", browserType);
                 capabilities.setCapability("browser_version", "latest");
                 capabilities.setCapability("browserstack.local", "false");
                 capabilities.setCapability("browserstack.selenium_version", "3.10.0");
@@ -123,25 +109,48 @@ public class CapabilityHelper {
             case "iexplore":
                 capabilities.setBrowserName("internet explorer");
                 capabilities = DesiredCapabilities.internetExplorer();
-                capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "7");
-                capabilities.setCapability("browser", "IE");
+                capabilities.setCapability("os", osName);
+                capabilities.setCapability("os_version", os_version);
+                capabilities.setCapability("browser", browserType);
                 capabilities.setCapability("browser_version", "11.0");
                 capabilities.setCapability("browserstack.local", "false");
                 capabilities.setCapability("browserstack.selenium_version", "3.5.2");
                 break;
             case "safari":
                 capabilities = DesiredCapabilities.safari();
-                capabilities.setCapability("os_version", "15");
-                capabilities.setCapability("device", "iPhone 13 Pro Max");
-                capabilities.setCapability("real_mobile", "true");
-                capabilities.setCapability("browserstack.local", "false");
+                if(os_version.equals("Monterey"))
+                {
+                    capabilities.setCapability("os", osName);
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("browser", browserType);
+                    capabilities.setCapability("browser_version", "15.0");
+                    capabilities.setCapability("browserstack.local", "false");
+                    capabilities.setCapability("browserstack.video", "false");
+                    capabilities.setCapability("browserstack.selenium_version", "3.14.0");
+                }
+                else {
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("device", osName);
+                    capabilities.setCapability("real_mobile", "true");
+                    capabilities.setCapability("browserstack.local", "false");
+                }
                /* capabilities.setCapability("build", "alpha_0.1.7");
                 capabilities.setCapability("os_version", "14");
                 capabilities.setCapability("device", "iPad Pro 12.9 2021");
                 capabilities.setCapability("real_mobile", "true");
                 capabilities.setCapability("browserstack.local", "false");
                 capabilities.setCapability("browserstack.idleTimeout", "300");*/
+                break;
+
+            case "safariDesktop":
+                capabilities = DesiredCapabilities.safari();
+                capabilities.setCapability("os", osName);
+                capabilities.setCapability("os_version", os_version);
+                capabilities.setCapability("browser", browserType);
+                capabilities.setCapability("browser_version", "15.0");
+                capabilities.setCapability("browserstack.local", "false");
+                capabilities.setCapability("browserstack.video", "false");
+                capabilities.setCapability("browserstack.selenium_version", "3.14.0");
                 break;
             case "opera":
                 capabilities = DesiredCapabilities.operaBlink();
@@ -228,9 +237,9 @@ public class CapabilityHelper {
     private void setCloudCapabulities(String browserVersion, String session, String browserType, String OSName,
                                       String OSVersion) {
 
-        setBrowser(browserType);
+        setBrowser(browserType,OSName,OSVersion);
         setOperatingSystem(OSName, OSVersion);
-        capabilities.setCapability("version", browserVersion);
+        //capabilities.setCapability("version", browserVersion);
         capabilities.setCapability("name", session);
     }
 

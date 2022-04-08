@@ -43,7 +43,7 @@ public class WordPressTests extends BaseSetup {
         wordPressPage.basicWorkFlow();
     }
 
-    @Test(alwaysRun = true)
+/*    @Test(alwaysRun = true)
     public void TC_UXWordPress_002_RecordingUXSessionwithAlertPopupinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.alertPopupInWordPress();
@@ -53,7 +53,7 @@ public class WordPressTests extends BaseSetup {
     public void TC_UXWordPress_003_RecordingUXSessionwithPromptinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.windowPopUpinWordPress();
-    }
+    }*/
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_004_RecordingUXSessionbyUsingAllFunctionKeysinWP() {

@@ -15,10 +15,10 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         super(driver);
         this.driver = driver;
     }
-    public void loginIntoSalesForceApp(){/*
+    public void loginIntoSalesForceApp(){
         waitForSecs(20);
         driver.navigate().to("chrome-extension://fkcljfeejffnjajnpjflfammljcmdfnh/settings/index.html");
-        waitForSecs(10);
+        waitForSecs(20);
         safeClick(BTN_ADD_NEW_WEBSITE, "Add new website button", MEDIUMWAIT);
         safeType(TXTBOX_WEBSITE_URL,"https://gapm-dev-ed.lightning.force.com","Settings url",MEDIUMWAIT);
         safeType(TXTBOX_WEBSITE_APPNAME,"Salesforce","Settings url",MEDIUMWAIT);
@@ -27,7 +27,7 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         safeType(TXTBOX_SETTING_URL,"https://qa.cloud.germainapm.com","Settings url",MEDIUMWAIT);
         safeClick(URL_SAVE, "Add new website button", MEDIUMWAIT);
         waitForSecs(15);
-        driver.navigate().refresh();*/
+        driver.navigate().refresh();
         driver.navigate().to("https://gapm-dev-ed.lightning.force.com");
         safeType(USERNAME, "vivek.chavhan@zenq.com", "Email textbox", MEDIUMWAIT);
         safeType(PASSWORD_SALES, "Second$123", "Email textbox", MEDIUMWAIT);
@@ -50,10 +50,10 @@ public class SalesForcePage  extends SafeActions implements SalesForceLocators {
         safeJavaScriptClick(HOME_TAB, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
         safeJavaScriptClick(TODAY_VIEW_ALL, "Sales force", MEDIUMWAIT);
-        waitForSecs(5);
+        waitForSecs(20);
         safeClick(PROFILE_ICON, "Sales force", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_LOGOUT, "Sales force", MEDIUMWAIT);
         waitForSecs(5);
 
     }

@@ -27,7 +27,7 @@ public interface SalesForceLocators {
     By HYPERLINK_HOME = By.xpath("//p[text()='Home']");
     By HYPERLINK_VIEWCALENDER = By.xpath("//span[text()='View Calendar']");
     By HOME_TAB = By.xpath("//span[text()='Home']");
-    By PROFILE_ICON = By.xpath("//div[contains(@class,'profileTrigger')]");
+    By PROFILE_ICON = By.xpath("//div[contains(@class,'profileTrigger')]/span/img");
     By TODAY_VIEW_ALL = By.xpath("//span[text()='View All']");
     By SEARCHBAR_TXTBOX = By.xpath("//input[@title='Search...']");
     By TXT_QADASHBOARD = By.xpath("//span[@title='QA Dashboard']");

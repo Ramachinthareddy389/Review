@@ -40,6 +40,8 @@ import org.testng.annotations.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -123,6 +125,9 @@ public class BaseSetup implements TimeOuts {
 
 		}
 		log.info("<h2>--------------------SuiteRunner Log-------------------------<h2>");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(dtf.format(now));
 	}
 
 	/**
@@ -189,7 +194,7 @@ public class BaseSetup implements TimeOuts {
 
 	@Parameters({ "browser-Type", "browserVersion", "osName", "osVersion", "session" })
 	@BeforeMethod(alwaysRun = true)
-	public void initializeBaseSetupForRemote(@Optional("iexplore") String browserType,
+	public void initializeBaseSetupForRemote(@Optional("Chrome") String browserType,
 			@Optional("97") String browserVersion, @Optional("Iphone") String OSName, @Optional("13") String OSVersion,
 			@Optional() String session, ITestContext context) {
 		sys.writeProperty("BrowserName", browserType);
@@ -262,6 +267,9 @@ public class BaseSetup implements TimeOuts {
 		if (driver != null) {
 			driver.quit();
 		}
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(dtf.format(now));
 	}
 	/**
 	 * This method adds Log file link to ReportNG report

@@ -77,19 +77,19 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(30);
-        safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
+        safeClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(TAB_OPPORTUNITIES, "ZENQ", MEDIUMWAIT);
+        safeClick(TAB_OPPORTUNITIES, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
     }
 
     public void logoutFromSiebel(){
         safeClick(TAB_FLEET_MANAGEMENT, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
-     //   safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"),"Calendar","test",MEDIUMWAIT );
-         safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
+       safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"),"Calendar","test",MEDIUMWAIT );
+        // safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
+        safeClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
         safeJavaScriptClick(LOGOUT, "Logout button", MEDIUMWAIT);
         waitForSecs(10);
@@ -118,7 +118,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElement(TAB_CONTACTS).sendKeys(Keys.F1);
         waitForSecs(5);

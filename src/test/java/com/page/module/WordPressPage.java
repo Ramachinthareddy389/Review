@@ -112,6 +112,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     }
 
     public void alertPopupInWordPress() {
+        waitForSecs(10);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("alert('Hello');");
         waitForSecs(10);
@@ -217,7 +218,8 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         waitForSecs(10);
         safeClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
-        safeType(TXTBOX_SEARCH, "Company", "Search textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptType(TXTBOX_SEARCH, "Company", "Search textbox", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_SUBMIT_SEARCH, "Search button", MEDIUMWAIT);
         waitForSecs(10);
@@ -238,7 +240,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(15);
         safeClick(HYPERRLINK_SUPPORT_FORUM,"Hyperlink",MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(LABEL_CONTACT,"label contact",MEDIUMWAIT);
+        safeJavaScriptClick(LABEL_CONTACT,"label contact",MEDIUMWAIT);
         safeClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);
         //switchToWindow(0);
 
@@ -263,11 +265,14 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
 
     public void downloadingEverestForumPluginInWP() throws IOException {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
-        final WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement toggle_menu = wait.until(ExpectedConditions.elementToBeClickable(TOGGLE_MENU));
-        toggle_menu.click();
-        WebElement contact_Label = wait.until(ExpectedConditions.elementToBeClickable(LABEL_CONTACT));
-        contact_Label.click();
+        if(!isElementDisplayed(TOGGLE_MENU)) {
+            safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+        }
+        else {
+            safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+            safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+
+        }
         waitForSecs(5);
         safeClick(LINK_EVENTS_FORUM_PLUGIN,"Forum Plugin",MEDIUMWAIT);
         waitForSecs(10);

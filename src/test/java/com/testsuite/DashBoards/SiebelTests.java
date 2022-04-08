@@ -47,7 +47,7 @@ public class SiebelTests extends BaseSetup {
         siebelPage.logoutFromSiebel();
     }
 
-    @Test(alwaysRun = true)
+/*    @Test(alwaysRun = true)
     public void TC_UXSiebel_002_RecordingUXSessionwithAlertPopupInSiebel() {
         siebelPage.launchTheApp();
         siebelPage.alertPopupInSiebel();
@@ -59,10 +59,12 @@ public class SiebelTests extends BaseSetup {
         siebelPage.launchTheApp();
         siebelPage.windowPopUpInSiebel();
         siebelPage.logoutFromSiebel();
-    }
+    }*/
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_004_RecordingUXSessionByUsingAllFunctionKeysInSiebel() {
+
+
         siebelPage.recordingUXSessionByUsingAllFunctionKeysinSiebel();
         siebelPage.logoutFromSiebel();
     }
