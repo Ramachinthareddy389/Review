@@ -5,11 +5,17 @@
 	<artifactId>germain-test-automation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+
 	<properties>
 		<TestNGSuiteFileName>Smoke_Desktop.xml</TestNGSuiteFileName>
+		<TestNGSuiteFileName>Automated_UXRevamp_xmls/Seibel_browserstack.xml</TestNGSuiteFileName>
+		<TestNGSuiteFileName>Automated_UXRevamp_xmls/Wordpress_BS_Chrome.xml</TestNGSuiteFileName>
+		<TestNGSuiteFileName>Automated_UXRevamp_xmls/Wordpress_BS_Monetry.xml</TestNGSuiteFileName>
+		<TestNGSuiteFileName>Automated_UXRevamp_xmls/Wordpress_Safari_Browserstack.xml</TestNGSuiteFileName>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<surefire.rerunFailingTestsCount>2</surefire.rerunFailingTestsCount>
 	</properties>
+
 
 	<repositories>
 		<repository>

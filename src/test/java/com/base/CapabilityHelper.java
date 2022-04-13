@@ -88,13 +88,17 @@ public class CapabilityHelper {
                 capabilities = DesiredCapabilities.chrome();
                 ChromeOptions options = new ChromeOptions();
                 //options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\re.crx"));
-                capabilities.setCapability("os", osName);
+     /*           capabilities.setCapability("os", osName);
                 capabilities.setCapability("device", os_version);
                 capabilities.setCapability("browser", browserType);
                 capabilities.setCapability("browser_version", "latest");
                 capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.selenium_version", "3.10.0");
-
+                capabilities.setCapability("browserstack.selenium_version", "3.10.0");*/
+                capabilities.setCapability("os_version", "4.4");
+                capabilities.setCapability("device", "Samsung Galaxy Tab 4");
+                capabilities.setCapability("real_mobile", "true");
+                capabilities.setCapability("browserstack.local", "false");
+                capabilities.setCapability("browser", "chrome");
                 break;
             case "firefox":
                 capabilities = DesiredCapabilities.firefox();
@@ -125,7 +129,7 @@ public class CapabilityHelper {
                     capabilities.setCapability("browser", browserType);
                     capabilities.setCapability("browser_version", "15.0");
                     capabilities.setCapability("browserstack.local", "false");
-                    capabilities.setCapability("browserstack.video", "false");
+                    capabilities.setCapability("browserstack.video", "true");
                     capabilities.setCapability("browserstack.selenium_version", "3.14.0");
                 }
                 else {

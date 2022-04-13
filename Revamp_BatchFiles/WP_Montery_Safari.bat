@@ -10,6 +10,6 @@ echo %MAVEN_HOME%
 echo %PATH%
 pushd %~dp0%
 timeout 1
-mvn clean test -Dsurefire.suiteXmlFiles=TestNGSuites/Automated_UXRevamp_xmls/Wordpress_BS_Monetry.xml
+mvn clean test -Dsurefire.suiteXmlFiles=TestNGSuites\Automated_UXRevamp_xmls\Wordpress_BS_Monetry.xml
 pause
 pause

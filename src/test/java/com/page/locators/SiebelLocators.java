@@ -28,4 +28,8 @@ public interface SiebelLocators {
     By DRPDOWN_QUERIES = By.xpath("//select[@title='Saved Queries']");
     By TAB_ACCOUNTS = By.xpath("//a[text()='Accounts']");
     By TAB_ADMINISTRATIVE_PRODUCT = By.xpath("//a[text()='Administration - Product']");
+    By SEARCH_ICON = By.xpath("//div[@id='srch_icon']");
+    By COMBOX_BOX = By.xpath("//select[@id='lookinCombo']");
+    By SEARCH_TXTBOX = By.xpath("//*[@id='text-box']");
+    By BTN_SEARCH = By.xpath("//button[@id='srch-button']");
 }

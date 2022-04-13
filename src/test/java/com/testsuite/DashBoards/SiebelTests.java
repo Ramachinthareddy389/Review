@@ -44,6 +44,7 @@ public class SiebelTests extends BaseSetup {
     @Test(alwaysRun = true)
     public void TC_UXSiebel_001_RecordingUXSessionwithBasicNavigationFlowsInSiebel() {
         siebelPage.launchTheApp();
+        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel001");
         siebelPage.logoutFromSiebel();
     }
 
@@ -51,6 +52,7 @@ public class SiebelTests extends BaseSetup {
     public void TC_UXSiebel_002_RecordingUXSessionwithAlertPopupInSiebel() {
         siebelPage.launchTheApp();
         siebelPage.alertPopupInSiebel();
+         siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel002");
         siebelPage.logoutFromSiebel();
     }
 
@@ -58,6 +60,7 @@ public class SiebelTests extends BaseSetup {
     public void TC_UXSiebel_003_RecordingUXSessionwithPromptinSiebel() {
         siebelPage.launchTheApp();
         siebelPage.windowPopUpInSiebel();
+        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel003");
         siebelPage.logoutFromSiebel();
     }*/
 
@@ -65,39 +68,45 @@ public class SiebelTests extends BaseSetup {
     public void TC_UXSiebel_004_RecordingUXSessionByUsingAllFunctionKeysInSiebel() {
 
 
-        siebelPage.recordingUXSessionByUsingAllFunctionKeysinSiebel();
+        siebelPage.recordingUXSessionByUsingAllFunctionKeysinSiebel("TCUXSiebel004");
+        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel004");
         siebelPage.logoutFromSiebel();
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_005_RecordingUXSessionBySearchingContentUsingTheSearchBoxInSiebel() {
         siebelPage.launchTheApp();
-        siebelPage.searchingContentUsingSearchBoxInSiebel();
+        siebelPage.searchingContentUsingSearchBoxInSiebel("TCUXSiebel005");
+        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel005");
         siebelPage.logoutFromSiebel();
 
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_006_RecordingUXSessionByChangingTheQueryInSiebel() {
-        siebelPage.changingTheQueryInSiebel();
+        siebelPage.changingTheQueryInSiebel("TCUXSiebel006");
+
 
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_007_RecordingUXSessionByMakingChangesInContactsandOpportunitiesInSiebel() {
-        siebelPage.ChangingInContactNdOpportunitiesOnSibel();
+        siebelPage.ChangingInContactNdOpportunitiesOnSibel("TCUXSiebel007");
+
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_008_RecordingUXSessionByNavigatingtoaTabOfNoninjectedsitefrmSiebel() {
-        siebelPage.openNoninjectedSiteinNewTab();
+        siebelPage.openNoninjectedSiteinNewTab("TCUXSiebel008");
+        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel008");
         siebelPage.logoutFromSiebel();
 
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_009_RecordingUXSessionByNavigatingToATabOfinjectedSitefrmSiebel() {
-        siebelPage.openInjectedSiteinNewTab();
+        siebelPage.openInjectedSiteinNewTab("TCUXSiebel009");
+        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel009");
         siebelPage.logoutFromSiebel();
     }
 }

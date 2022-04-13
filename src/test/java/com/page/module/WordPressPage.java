@@ -275,7 +275,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         }
         waitForSecs(5);
         safeClick(LINK_EVENTS_FORUM_PLUGIN,"Forum Plugin",MEDIUMWAIT);
-        waitForSecs(10);
+       /* waitForSecs(10);
         String home = System.getProperty("user.home");
         String file_name = "everest-forms" + ".zip";
         System.out.println(file_name);
@@ -290,19 +290,28 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
             System.out.println("file deleted");
         else {
             System.out.println("file not deleted");
-        }
+        }*/
     }
 
     public void openNoninjectedSiteinNewTab(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open('https://www.google.co.in/', '_blank');");
         waitForSecs(20);
-        //switchToWindow(0);
+        switchToWindow(0);
     }
 
     public void openInjectedSiteinNewTab(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open('https://gapm-dev-ed.lightning.force.com', '_blank');");
-       // switchToWindow(0);
+        switchToWindow(0);
+    }
+
+    public void addingTestcaseFrmSearchbtn(String testcaseID){
+        safeClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptType(TXTBOX_SEARCH, testcaseID, "Search textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptClick(BTN_SUBMIT_SEARCH, "Search button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 }

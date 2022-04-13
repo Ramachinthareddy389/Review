@@ -41,44 +41,54 @@ public class WordPressTests extends BaseSetup {
     public void TC_UXWordPress_001_RecordingUXSessionwithBasicNavigationFlowsInWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.basicWorkFlow();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress001");
+
     }
 
 /*    @Test(alwaysRun = true)
     public void TC_UXWordPress_002_RecordingUXSessionwithAlertPopupinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.alertPopupInWordPress();
+                wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress002");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_003_RecordingUXSessionwithPromptinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.windowPopUpinWordPress();
+                wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress003");
     }*/
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_004_RecordingUXSessionbyUsingAllFunctionKeysinWP() {
         wordPressPage.LoginToWordPressSite();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress004");
         wordPressPage.clickingOnFunctionalKeys();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress004");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_005_RecordingUXSessionbySearchingContentsingtheSearchboxinWP() {
         wordPressPage.searchingTheApp();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress005");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_006_RecordingUXSessionBySubmittingForminContactPageinWP() {
         wordPressPage.ClickingOnContacts();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress006");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_007_RecordingUXSessionByClickingonDifferentLinksinContactUsinWP() {
         wordPressPage.clickingOnDiffLinksInContactUs();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress007");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_008_RecordingUXSessionByDownloadingEverestForumPlugininWP() throws IOException {
         wordPressPage.downloadingEverestForumPluginInWP();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress008");
     }
 
     @Test(alwaysRun = true)
@@ -86,6 +96,7 @@ public class WordPressTests extends BaseSetup {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.openNoninjectedSiteinNewTab();
         wordPressPage.basicWorkFlow();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress009");
     }
 
     @Test(alwaysRun = true)
@@ -93,6 +104,7 @@ public class WordPressTests extends BaseSetup {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.openInjectedSiteinNewTab();
         wordPressPage.basicWorkFlow();
+        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress010");
     }
 
 }
