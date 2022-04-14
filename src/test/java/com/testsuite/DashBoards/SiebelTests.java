@@ -32,8 +32,8 @@ public class SiebelTests extends BaseSetup {
         wordPressPage = new WordPressPage(getDriver());
         siebelPage = new SiebelPage(getDriver());
         getDriver().manage().deleteAllCookies();
-        getDriver().get(dashBoardData.openCartURL);
-        (new Sync(getDriver())).waitForPageToLoad();
+      //  getDriver().get(dashBoardData.openCartURL);
+     //   (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
        // loginPage.verifyLoginPage();
         //loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
@@ -64,20 +64,18 @@ public class SiebelTests extends BaseSetup {
         siebelPage.logoutFromSiebel();
     }*/
 
-    @Test(alwaysRun = true)
+ /*   @Test(alwaysRun = true)
     public void TC_UXSiebel_004_RecordingUXSessionByUsingAllFunctionKeysInSiebel() {
 
 
         siebelPage.recordingUXSessionByUsingAllFunctionKeysinSiebel("TCUXSiebel004");
         siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel004");
         siebelPage.logoutFromSiebel();
-    }
+    }*/
 
     @Test(alwaysRun = true)
     public void TC_UXSiebel_005_RecordingUXSessionBySearchingContentUsingTheSearchBoxInSiebel() {
-        siebelPage.launchTheApp();
         siebelPage.searchingContentUsingSearchBoxInSiebel("TCUXSiebel005");
-        siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel005");
         siebelPage.logoutFromSiebel();
 
     }

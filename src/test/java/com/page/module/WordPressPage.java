@@ -34,18 +34,18 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
             safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
 
         }
-        waitForSecs(20);
-        safeType(TXTBOX_NAME, "ZENQ", "Name textbox", MEDIUMWAIT);
-        waitForSecs(20);
-        safeType(TXTBOX_EMAIL, "test@zenq.com", "Email textbox", MEDIUMWAIT);
-        waitForSecs(20);
-        safeType(TXTBOX_SUBJECT, "Wordpress", "Subject textbox", MEDIUMWAIT);
-        waitForSecs(20);
-        safeType(TXTAREA_MESSAGE, "Wordpresstesting", "Message textarea", MEDIUMWAIT);
-        waitForSecs(30);
+        waitForSecs(10);
+        safeJavaScriptType(TXTBOX_NAME, "ZENQ", "Name textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptType(TXTBOX_EMAIL, "test@zenq.com", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptType(TXTBOX_SUBJECT, "Wordpress", "Subject textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        safeJavaScriptType(TXTAREA_MESSAGE, "Wordpresstesting", "Message textarea", MEDIUMWAIT);
+        waitForSecs(10);
        // safeClickWithoutScroll(BTN_SUBMIT,"Submit button", MEDIUMWAIT );
-
-        safeClick(BTN_SUBMIT, "Submit button", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_SUBMIT, "Submit button", MEDIUMWAIT);
+        waitForSecs(10);
     }
 
     public void basicWorkFlow() {
@@ -226,7 +226,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     }
 
 
-    public void clickingOnDiffLinksInContactUs(){
+    public void clickingOnDiffLinksInContactUs(String testid){
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         if(!isElementDisplayed(TOGGLE_MENU)) {
@@ -238,11 +238,15 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
 
         }
         waitForSecs(15);
-        safeClick(HYPERRLINK_SUPPORT_FORUM,"Hyperlink",MEDIUMWAIT);
+
+        safeJavaScriptClick(HYPERRLINK_SUPPORT_FORUM,"Hyperlink",MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(LABEL_CONTACT,"label contact",MEDIUMWAIT);
-        safeClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);
-        //switchToWindow(0);
+        //safeJavaScriptClick(LABEL_CONTACT,"label contact",MEDIUMWAIT);
+        switchToWindow(0);
+        safeJavaScriptClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);
+        switchToWindow(0);
+        addingTestcaseFrmSearchbtn(testid);
+
 
     }
     @Step("Taking latest file from windows")
@@ -274,7 +278,8 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
 
         }
         waitForSecs(5);
-        safeClick(LINK_EVENTS_FORUM_PLUGIN,"Forum Plugin",MEDIUMWAIT);
+        safeJavaScriptClick(LINK_EVENTS_FORUM_PLUGIN,"Forum Plugin",MEDIUMWAIT);
+        waitForSecs(10);
        /* waitForSecs(10);
         String home = System.getProperty("user.home");
         String file_name = "everest-forms" + ".zip";
@@ -307,7 +312,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     }
 
     public void addingTestcaseFrmSearchbtn(String testcaseID){
-        safeClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
+        safeJavaScriptClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptType(TXTBOX_SEARCH, testcaseID, "Search textbox", MEDIUMWAIT);
         waitForSecs(10);

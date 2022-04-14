@@ -29,8 +29,8 @@ public class WordPressTests extends BaseSetup {
         dashBoardData = new DashBoardData();
         wordPressPage = new WordPressPage(getDriver());
         getDriver().manage().deleteAllCookies();
-        getDriver().get(dashBoardData.openCartURL);
-        (new Sync(getDriver())).waitForPageToLoad();
+        //getDriver().get(dashBoardData.openCartURL);
+      //  (new Sync(getDriver())).waitForPageToLoad();
         sModeOfExecution = sys.getProperty("ModeOfExecution");
         //loginPage.verifyLoginPage();
       //  loginPage.enterLoginCredentials(dashBoardData.emailAddress, PasswordDecoder.passwordDecrypt(dashBoardData.password));
@@ -59,13 +59,13 @@ public class WordPressTests extends BaseSetup {
                 wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress003");
     }*/
 
-    @Test(alwaysRun = true)
+/*    @Test(alwaysRun = true)
     public void TC_UXWordPress_004_RecordingUXSessionbyUsingAllFunctionKeysinWP() {
         wordPressPage.LoginToWordPressSite();
         wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress004");
         wordPressPage.clickingOnFunctionalKeys();
         wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress004");
-    }
+    }*/
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_005_RecordingUXSessionbySearchingContentsingtheSearchboxinWP() {
@@ -81,8 +81,8 @@ public class WordPressTests extends BaseSetup {
 
     @Test(alwaysRun = true)
     public void TC_UXWordPress_007_RecordingUXSessionByClickingonDifferentLinksinContactUsinWP() {
-        wordPressPage.clickingOnDiffLinksInContactUs();
-        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress007");
+        wordPressPage.clickingOnDiffLinksInContactUs("TCUXWordPress007");
+
     }
 
     @Test(alwaysRun = true)

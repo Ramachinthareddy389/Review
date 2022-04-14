@@ -45,21 +45,18 @@ public class SalesForceTests extends BaseSetup {
     public void TC_UXSalesForce_001() throws InterruptedException {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.clickingOnSalesForce();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce001");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_002() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingAlertPopup();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce002");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_003() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingWindowPopup();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce003");
     }
 
     @Test(alwaysRun = true)
@@ -67,56 +64,49 @@ public class SalesForceTests extends BaseSetup {
 
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.clickingOnFunctionalKeys();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce004");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_011() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.openNoninjectedSiteinNewTab();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce011");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_012() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.openInjectedSiteinNewTab();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce012");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_005() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.searchingContentUsingTheSearchBoxInSalesforce();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce005");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_006() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingANewEventInSalesforceSite();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce006");
+
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_007() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingANewTaskInSalesforceSite();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce007");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_008() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingNewContactInSalesForce();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce008");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_009() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingALoggingacallInSalesforce();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce009");
 
     }
 
@@ -125,13 +115,11 @@ public class SalesForceTests extends BaseSetup {
 
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.addingaFavoriteListInSalesforce();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce010");
     }
 
     @Test(alwaysRun = true)
     public void TC_UXSalesForce_013() {
         salesForcePage.loginIntoSalesForceApp();
         salesForcePage.accessingtheRecentRecordsFromSalesforce();
-        salesForcePage.addingTestcaseUsingsearchFun("TCUXSalesForce013");
     }
 }

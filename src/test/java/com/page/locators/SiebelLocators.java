@@ -32,4 +32,6 @@ public interface SiebelLocators {
     By COMBOX_BOX = By.xpath("//select[@id='lookinCombo']");
     By SEARCH_TXTBOX = By.xpath("//*[@id='text-box']");
     By BTN_SEARCH = By.xpath("//button[@id='srch-button']");
+    By TXTBOX_NAME = By.xpath("//input[@title='Name']");
+    By OPP_SEARCH_BTN = By.xpath("//button[@id='inner-adv-find-button']");
 }

@@ -143,7 +143,7 @@ public class BaseSetup implements TimeOuts {
 	public void initializeBaseSetup(@Optional("Android Mobile Phone") String deviceName,
 			@Optional("6.0.1") String deviceVersion, @Optional("http://0.0.0.0:4723/wd/hub") String deviceUrl,
 			@Optional("1fa71036") String udid, @Optional("Desktop") String sPlatform,
-			@Optional("Safari") String sBrowsername, @Optional("30") String browserVersion,
+			@Optional("chrome") String sBrowsername, @Optional("30") String browserVersion,
 			@Optional("IPHONE") String sOSName, @Optional("10") String OSVersion, @Optional() String session,
 			ITestContext context) {
 
