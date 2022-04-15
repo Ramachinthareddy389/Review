@@ -79,6 +79,8 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(30);
+        safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "conatcts", MEDIUMWAIT);
+        waitForSecs(10);
         safeJavaScriptClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);

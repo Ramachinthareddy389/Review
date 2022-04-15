@@ -87,26 +87,31 @@ public class CapabilityHelper {
             case "chrome":
                 capabilities = DesiredCapabilities.chrome();
                 ChromeOptions options = new ChromeOptions();
-           /*     options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
-                capabilities.setCapability("os_version", os_version);
-                capabilities.setCapability("device", osName);
-                capabilities.setCapability("real_mobile", "true");
-                capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.idleTimeout", "300");*/
-                capabilities.setCapability("os_version", "10.0");
-                capabilities.setCapability("device", "Google Pixel 4 XL");
-                capabilities.setCapability("real_mobile", "true");
-                capabilities.setCapability("browserstack.local", "false");
+           //    options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
+                if(os_version.equals("Big Sur"))
+                {
+                    capabilities.setCapability("os", osName);
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("browser", browserType);
+                    capabilities.setCapability("browser_version", "latest");
+                    capabilities.setCapability("browserstack.local", "false");
+                    capabilities.setCapability("browserstack.video", "true");
+                    capabilities.setCapability("browserstack.selenium_version", "3.14.0");
+                }
+                else {
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("device", osName);
+                    capabilities.setCapability("real_mobile", "true");
+                    capabilities.setCapability("browserstack.local", "false");
+                }
 
                 break;
             case "firefox":
                 capabilities = DesiredCapabilities.firefox();
-                capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "7");
-                capabilities.setCapability("browser", "Firefox");
-                capabilities.setCapability("browser_version", "latest");
+                capabilities.setCapability("os_version", os_version);
+                capabilities.setCapability("device", osName);
+                capabilities.setCapability("real_mobile", "true");
                 capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.selenium_version", "3.10.0");
                 break;
 
             case "iexplore":

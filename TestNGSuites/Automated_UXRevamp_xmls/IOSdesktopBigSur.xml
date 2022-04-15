@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite thread-count="1" verbose="10" name="Germain Suite"
+       annotations="JDK" >
+
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+    <test name="Dashboards">
+        <parameter name="browser-Type" value="chrome" />
+        <parameter name="osName" value="OS X" />
+        <parameter name="osVersion" value="Big Sur" />
+
+        <classes>
+            <class name="com.testsuite.DashBoards.SiebelTests">
+
+            </class>
+
+        </classes>
+    </test>
+
+</suite>
