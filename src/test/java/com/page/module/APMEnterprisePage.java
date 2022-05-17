@@ -31,7 +31,7 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
     String Engine = "TestEngine" + " - " + random.nextInt(500);
     String Cred = "Cred" + " - " + random.nextInt(500);
     String Database = "Database" + " - " + random.nextInt(500);
-    String Component = "Component" + " - " + random.nextInt(500);
+    String Component = "Component"+ random.nextInt(500);
     String JSSCRIPT = "Jsscript" + " - " + random.nextInt(500);
 
     public APMEnterprisePage(WebDriver driver) {
@@ -47,6 +47,21 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(10);
     }
 
+    public void addingComponent(){
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Components tab");
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeClick(DATABASE_CHANGE_COMPONENT, "Collator Component", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void addingDataBaseQueryComponent(){
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Components tab");
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeClick(DATABASE_QUERY_COMPONENT, "Collator Component", MEDIUMWAIT);
+        waitForSecs(10);
+    }
     public void verifyingNavigateToEnterpriseTab() {
         try {
             if (!isElementDisplayed(INSTANCE_COLUMN)) {
@@ -769,18 +784,13 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
     }
 
     public void addingNewDatabaseChangeMonitorDeploymentComponent() {
-        waitForSecs(10);
-        safeClick(COMPONENTS_TAB, "Components tab");
-        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
-        safeClick(DATABASE_CHANGE_COMPONENT, "Collator Component", MEDIUMWAIT);
-        waitForSecs(10);
         driver.findElements(DATABASEPAGE_ADDBTNS).get(0).click();
-        safeClearAndType(DRPDOWN_SERVER, "test_cloud_germainapm_com", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(DRPDOWN_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("test_cloud_germainapm_com")) {
+            if (dbs2.get(i).getText().equals("QA Test")) {
 
                 dbs2.get(i).click();
                 break;
@@ -835,12 +845,12 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
             }
         }
         waitForSecs(10);
-        safeClearAndType(TXTBOX_MONITORED_SERVER, "test_cloud_germainapm_com", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONITORED_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("test_cloud_germainapm_com")) {
+            if (dbs2.get(i).getText().equals("QA Test")) {
 
                 dbs2.get(i).click();
                 break;
@@ -855,6 +865,67 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         driver.findElements(BTN_NEXT).get(1).click();
         safeType(TXTBOX_SERVERNAME, Component, "Component name", MEDIUMWAIT);
         safeType(TXTBOX_SQL, "sql", "Component name", MEDIUMWAIT);
+        safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
+        waitForSecs(5);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+    }
+
+    public void addingDatabaseQueryMonitorDeployment(){
+        safeClearAndType(TXTBOX_APPLICATION, "Android", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs4.get(i).getText().equals("Android")) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+        safeClick(DATABASEPAGE_ADDBTNS, "Component add button", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TXTBOX_COMPONENT, Component, "Component name", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(1).click();
+        driver.findElements(BTN_NEXT).get(1).click();
+        safeType(TXTBOX_QUERYNAME, Component, "Component name", MEDIUMWAIT);
+        waitForSecs(10);
+        safeType(TXTBOX_SQL, "sql", "Component name", MEDIUMWAIT);
+        waitForSecs(5);
+        driver.findElements(BTN_NEXT).get(1).click();
+        safeClearAndType(TXTBOX_KPI, "ActiveMQ Heap Usage", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs5.get(i).getText().equals("ActiveMQ Heap Usage")) {
+
+                dbs5.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClick(KPIFEILD_ADDICON, "Finish button", MEDIUMWAIT);
+        safeType(KPIFEILD_TXTBOX,"Test","Test com",MEDIUMWAIT);
+        safeClearAndType(KPIFEILD_VALUE, "bucket", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs6 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs6.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs6.get(i).getText().equals("bucket")) {
+
+                dbs6.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(1).click();
         safeClick(BTN_FINISH, "Finish button", MEDIUMWAIT);
         waitForSecs(10);
         safeClick(BTN_CLOSE, "Close button", MEDIUMWAIT);
@@ -958,6 +1029,8 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(DELETE_ALERT, "Delete button", MEDIUMWAIT);
         waitForSecs(5);
         safeClick(CONFIRM_DELETE, "Confirm Delete button", MEDIUMWAIT);
+        boolean b=  isElementDisplayed(By.xpath("//div[text()='No Results Found']"));
+        Assert.assertTrue(b);
     }
 
 
@@ -979,12 +1052,12 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(10);
         safeClick(TAB_JSCRIPTS, "Components tab");
         safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
-        safeClearAndType(TXTBOX_MONITORED_SERVER, "test_cloud_germainapm_com", "Server name into textbox", MEDIUMWAIT);
+        safeClearAndType(TXTBOX_MONITORED_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
         List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
         System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
         for (int i = 0; i < dbs2.size(); i++) {
 
-            if (dbs2.get(i).getText().equals("test_cloud_germainapm_com")) {
+            if (dbs2.get(i).getText().equals("QA Test")) {
 
                 dbs2.get(i).click();
                 break;

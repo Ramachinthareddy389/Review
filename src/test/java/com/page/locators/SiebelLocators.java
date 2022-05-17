@@ -34,4 +34,6 @@ public interface SiebelLocators {
     By BTN_SEARCH = By.xpath("//button[@id='srch-button']");
     By TXTBOX_NAME = By.xpath("//input[@title='Name']");
     By OPP_SEARCH_BTN = By.xpath("//button[@id='inner-adv-find-button']");
+    By BTN_CLOSE = By.xpath("i[class*='largeBannerCloser']");
+
 }

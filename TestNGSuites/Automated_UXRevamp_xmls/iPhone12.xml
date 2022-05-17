@@ -12,10 +12,10 @@
 
     <test name="Dashboards">
         <parameter name="browser-Type" value="chrome" />
-        <parameter name="osName" value="OS X" />
-        <parameter name="osVersion" value="Mountain Lion" />
+        <parameter name="osName" value="iPhone 12" />
+        <parameter name="osVersion" value="14" />
         <classes>
-            <class name="com.testsuite.DashBoards.SalesForceTests">
+            <class name="com.testsuite.DashBoards.SiebelTests">
 
             </class>
 

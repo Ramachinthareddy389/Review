@@ -4,10 +4,9 @@ import Fillo.Select;
 import com.page.locators.SalesForceLocators;
 import com.page.locators.SiebelLocators;
 import com.selenium.SafeActions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SiebelPage extends SafeActions implements SiebelLocators {
     private WebDriver driver;
@@ -17,13 +16,16 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         this.driver = driver;
     }
 
-    public void ChangingInContactNdOpportunitiesOnSibel(String testcaseID) {
+    public void ChangingInContactNdOpportunitiesOnSibel(String testcaseID) throws InterruptedException {
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         waitForSecs(10);
-        safeJavaScriptClearAndType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        safeJavaScriptType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
+        driver.findElement(PASSWORD).sendKeys("SADMIN");
+        // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(LOGIN).sendKeys("SADMIN");
+        // safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(30);
         safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
@@ -71,29 +73,34 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(10);
 
     }
-    public void launchTheApp(){
+
+    public void launchTheApp() {
         waitForSecs(10);
         driver.get("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         waitForSecs(10);
-        safeJavaScriptClearAndType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(PASSWORD).sendKeys("SADMIN");
+       // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(LOGIN).sendKeys("SADMIN");
+       // safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(30);
         safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
-        safeClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
         waitForSecs(20);
-        safeClick(TAB_OPPORTUNITIES, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptClick(TAB_OPPORTUNITIES, "ZENQ", MEDIUMWAIT);
         waitForSecs(10);
     }
 
-    public void logoutFromSiebel(){
+    public void logoutFromSiebel() {
         safeJavaScriptClick(TAB_FLEET_MANAGEMENT, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
-        safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"),"Calendar","test",MEDIUMWAIT );
-        //safeClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
+        safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"), "Calendar", "test", MEDIUMWAIT);
+      //  safeJavaScriptClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
@@ -102,7 +109,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
 
     }
 
-    public void alertPopupInSiebel(){
+    public void alertPopupInSiebel() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("alert('Hello');");
         waitForSecs(10);
@@ -110,7 +117,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(5);
     }
 
-    public void windowPopUpInSiebel(){
+    public void windowPopUpInSiebel() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(" window.prompt ('User Prompt')");
         waitForSecs(10);
@@ -118,13 +125,13 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(5);
     }
 
-    public void recordingUXSessionByUsingAllFunctionKeysinSiebel(String testID){
+    public void recordingUXSessionByUsingAllFunctionKeysinSiebel(String testID) throws InterruptedException {
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
-     addingTestcaseUsingSearchFun(testID);
+        addingTestcaseUsingSearchFun(testID);
         safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
         driver.findElement(TAB_CONTACTS).sendKeys(Keys.F1);
@@ -151,61 +158,76 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         waitForSecs(5);
         driver.findElement(TAB_CONTACTS).sendKeys(Keys.F9);
         waitForSecs(5);
-        safeClick(BTN_CANCEL,"Cancel button",MEDIUMWAIT);
+        safeClick(BTN_CANCEL, "Cancel button", MEDIUMWAIT);
     }
 
-    public void searchingContentUsingSearchBoxInSiebel(String testID){
+    public void searchingContentUsingSearchBoxInSiebel(String testID) {
         waitForSecs(10);
         driver.get("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         waitForSecs(10);
-        safeJavaScriptClearAndType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
-        waitForSecs(30);
+        safeJavaScriptType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(PASSWORD).sendKeys("SADMIN");
+        // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(LOGIN).sendKeys("SADMIN");
         safeJavaScriptClick(SEARCH_ICON, "Search button", MEDIUMWAIT);
         waitForSecs(30);
-        safeSelectOptionInDropDownByVisibleText(COMBOX_BOX,"  Opportunities","value",MEDIUMWAIT);
+        safeSelectOptionInDropDownByVisibleText(COMBOX_BOX, "  Opportunities", "value", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptType(TXTBOX_NAME,"Test1","Search",MEDIUMWAIT);
+        safeJavaScriptType(TXTBOX_NAME, "Test1", "Search", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(OPP_SEARCH_BTN,"Search button",MEDIUMWAIT);
+        safeJavaScriptClick(OPP_SEARCH_BTN, "Search button", MEDIUMWAIT);
         waitForSecs(10);
-        safeSelectOptionInDropDownByVisibleText(COMBOX_BOX,"  All","value",MEDIUMWAIT);
+        safeSelectOptionInDropDownByVisibleText(COMBOX_BOX, "  All", "value", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptType(SEARCH_TXTBOX,testID,"serch",MEDIUMWAIT);
+        safeJavaScriptType(SEARCH_TXTBOX, testID, "serch", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
         waitForSecs(20);
-        if(isAlertPresent(30)) {
-            acceptAlert();
+        System.out.println(isAlertPresent(10));
+        try {
+            if (isAlertPresent(30)) {
+                dismissAlert();
+            }
+
+        } catch (Exception e) {
+
         }
+
     }
 
 
-
-    public void changingTheQueryInSiebel(String testcaseID){
+    public void changingTheQueryInSiebel(String testcaseID) throws InterruptedException {
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
-        safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
-        waitForSecs(30);
-        safeSelectListBox(DRPDOWN_QUERIES,"High Probability","Queries Dropdown",MEDIUMWAIT);
+        safeJavaScriptType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-         addingTestcaseUsingSearchFun(testcaseID);
+        driver.findElement(PASSWORD).sendKeys("SADMIN");
+        // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(LOGIN).sendKeys("SADMIN");
+        waitForSecs(30);
+        safeSelectListBox(DRPDOWN_QUERIES, "High Probability", "Queries Dropdown", MEDIUMWAIT);
+        waitForSecs(10);
+        addingTestcaseUsingSearchFun(testcaseID);
+        waitForSecs(10);
         safeJavaScriptClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
         safeJavaScriptClick(LOGOUT, "Logout button", MEDIUMWAIT);
         waitForSecs(10);
     }
-    public void openNoninjectedSiteinNewTab(String testId){
+
+    public void openNoninjectedSiteinNewTab(String testId) throws InterruptedException {
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         waitForSecs(10);
-        safeJavaScriptClearAndType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClearAndType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        safeJavaScriptType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
+        driver.findElement(PASSWORD).sendKeys("SADMIN");
+        // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(LOGIN).sendKeys("SADMIN");
         waitForSecs(30);
-        addingTestcaseUsingSearchFun(testId);
+        //addingTestcaseUsingSearchFun(testId);
         safeJavaScriptClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
@@ -213,19 +235,28 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open('https://www.google.co.in/', '_blank');");
         waitForSecs(20);
-        switchToWindow(0);
-        safeClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
-        waitForSecs(10);
-        safeClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);
+        try{
+            switchToWindow(0);
+        }catch (InvalidArgumentException i)
+        {
+
+        }
+      waitForSecs(10);
+        safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
+        waitForSecs(30);
+        safeJavaScriptClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);
         waitForSecs(10);
     }
 
-    public void openInjectedSiteinNewTab(String testID){
+    public void openInjectedSiteinNewTab(String testID) throws InterruptedException {
         driver.navigate().to("http://qa.germainapm.com/callcenter_enu/start.swe?SWECmd=Start&SWEHo=qa.germainapm.com");
         waitForSecs(10);
-        safeType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
-        safeJavaScriptClick(LOGIN, "ZENQ", MEDIUMWAIT);
+        safeJavaScriptType(USERID, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(PASSWORD).sendKeys("SADMIN");
+        // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
+        waitForSecs(10);
+        driver.findElement(LOGIN).sendKeys("SADMIN");
         waitForSecs(30);
         addingTestcaseUsingSearchFun(testID);
         safeJavaScriptClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
@@ -236,21 +267,32 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         js.executeScript("window.open('http://qa.germainapm.com/wordpress/index.php', '_blank');");
         waitForSecs(20);
         switchToWindow(0);
-        safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
         waitForSecs(10);
+        safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "Administrative product", MEDIUMWAIT);
+        waitForSecs(30);
         safeJavaScriptClick(TAB_OPPORTUNITIES, "Opportunities", MEDIUMWAIT);
         waitForSecs(10);
     }
 
-    public void addingTestcaseUsingSearchFun(String testcaseID){
+    public void addingTestcaseUsingSearchFun(String testcaseID) throws InterruptedException {
         safeJavaScriptClick(SEARCH_ICON, "Search button", MEDIUMWAIT);
         waitForSecs(20);
-        safeJavaScriptType(SEARCH_TXTBOX,testcaseID,"serch",MEDIUMWAIT);
-        waitForSecs(10);
-        safeJavaScriptClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
+        safeJavaScriptType(SEARCH_TXTBOX, testcaseID, "serch", MEDIUMWAIT);
         waitForSecs(20);
-        if(isAlertPresent(30)) {
-            acceptAlert();
+       /* WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(BTN_SEARCH));*/
+        safeJavaScriptClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
+        Thread.sleep(5000);
+        try {
+            Alert alert = driver.switchTo().alert(); // switch to alert
+            String alertMessage = driver.switchTo().alert().getText(); // capture alert message
+
+            System.out.println(alertMessage); // Print Alert Message
+            Thread.sleep(5000);
+            alert.dismiss();
+        }catch (Exception e)
+        {
+
         }
     }
 }

@@ -51,8 +51,8 @@ public class ChromeBrowser implements IBrowser {
 	 */
 	private WebDriver initChromeDriver() {
 		String fileSeperator = System.getProperty("file.separator");
-		String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "salesforce.crx";
-		log.info("Path of extention is -----------------"+path);
+		//String path =  System.getProperty("user.dir") + fileSeperator + "Resources" + fileSeperator+ "salesforce.crx";
+	//	log.info("Path of extention is -----------------"+path);
 		log.info("Launching google chrome with new profile..");
 		System.setProperty("webdriver.chrome.driver", getDriverPath());
 		Map<String, Object> prefs = new HashMap<String, Object>();

@@ -11,11 +11,11 @@
     </listeners>
 
     <test name="Dashboards">
-        <parameter name="browser-Type" value="chrome" />
-        <parameter name="osName" value="OS X" />
-        <parameter name="osVersion" value="Mountain Lion" />
+        <parameter name="browser-Type" value="firefox" />
+        <parameter name="osName" value="Samsung Galaxy S20 Ultra" />
+        <parameter name="osVersion" value="10.0" />
         <classes>
-            <class name="com.testsuite.DashBoards.SalesForceTests">
+            <class name="com.testsuite.DashBoards.WordPressTests">
 
             </class>
 

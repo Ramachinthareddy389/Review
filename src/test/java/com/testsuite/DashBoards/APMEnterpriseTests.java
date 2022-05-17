@@ -263,6 +263,7 @@ public class APMEnterpriseTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMComp_004_AddNewDatabaseChangeMonitorDeploymentComponent() {
         apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingComponent();
         apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent();
         apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent1();
         apmEnterprisePage.DeployementPage();
@@ -272,8 +273,30 @@ public class APMEnterpriseTests extends BaseSetup {
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMComp_005_EditexistingDatabaseChangeMonitorDeploymentComponent() {
         apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingComponent();
         apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent();
         apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent1();
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editexistingDatabaseChangeMonitorDeploymentComponent();
+        apmEnterprisePage.verifyingEditedDatabaseChangeConfigs();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_006_AddnewDatabaseQueryMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingDataBaseQueryComponent();
+        apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent();
+        apmEnterprisePage.addingDatabaseQueryMonitorDeployment();
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_007_EditExistingDatabaseQueryMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingDataBaseQueryComponent();
+        apmEnterprisePage.addingNewDatabaseChangeMonitorDeploymentComponent();
+        apmEnterprisePage.addingDatabaseQueryMonitorDeployment();
         apmEnterprisePage.DeployementPage();
         apmEnterprisePage.editexistingDatabaseChangeMonitorDeploymentComponent();
         apmEnterprisePage.verifyingEditedDatabaseChangeConfigs();

@@ -27,7 +27,7 @@ public interface SalesForceLocators {
     By HYPERLINK_HOME = By.xpath("//p[text()='Home']");
     By HYPERLINK_VIEWCALENDER = By.xpath("//span[text()='View Calendar']");
     By HOME_TAB = By.xpath("//span[text()='Home']");
-    By PROFILE_ICON = By.xpath("//div[contains(@class,'profileTrigger')]/span/img");
+    By PROFILE_ICON = By.xpath("//div[contains(@class,'profileTrigger')]/span");
     By TODAY_VIEW_ALL = By.xpath("//span[text()='View All']");
     By SEARCHBAR_TXTBOX = By.xpath("//input[@title='Search...']");
     By TXT_QADASHBOARD = By.xpath("//span[@title='QA Dashboard']");
@@ -41,7 +41,7 @@ public interface SalesForceLocators {
     By BTN_SAVE = By.xpath("(//span[text()='Save'])[2]");
     By NEW_CONTACT_LINK  = By.xpath("//a[@title='New Contact']");
     By NEW_LOG_A_CAll_LINK  = By.xpath("//a[@title='Log a Call']");
-    By ICON_FAVORITE = By.xpath("//button[contains(@class,'slds-is-selected branding-favorites-star-button')]");
+    By ICON_FAVORITE = By.xpath("//button[contains(@class,'branding-favorites-star-button')]");
     By FIRSTNAME_TXTBOX = By.xpath("//input[@placeholder ='First Name']");
     By LASTNAME_TXTBOX = By.xpath("//input[@placeholder ='Last Name']");
     By TXTBOX_PHONE = By.xpath("//input[@type='tel']");

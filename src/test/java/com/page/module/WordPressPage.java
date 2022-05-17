@@ -52,19 +52,19 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         try {
             if (!isElementDisplayed(TOGGLE_MENU)) {
                 waitForSecs(20);
-                safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
                 waitForSecs(20);
-                safeClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_FASHION, "ZENQ", MEDIUMWAIT);
                 waitForSecs(20);
-                safeClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_TRAVEL, "ZENQ", MEDIUMWAIT);
                 waitForSecs(20);
-                safeClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_FOOD, "ZENQ", MEDIUMWAIT);
                 waitForSecs(20);
-                safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+                safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
                 waitForSecs(5);
             } else {
-                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-                safeClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
+                safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_ENTER, "ZENQ", MEDIUMWAIT);
                 waitForSecs(5);
                 safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
                 waitForSecs(5);
@@ -94,16 +94,16 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         try {
             if (!isElementDisplayed(TOGGLE_MENU)) {
                 waitForSecs(20);
-                safeClick(TAB_NEWS, "Technology", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_NEWS, "Technology", MEDIUMWAIT);
                 waitForSecs(25);
-                safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_TECH, "Technology", MEDIUMWAIT);
                 waitForSecs(15);
             } else {
-                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-                safeClick(TAB_NEWS, "News", MEDIUMWAIT);
+                safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_NEWS, "News", MEDIUMWAIT);
                 waitForSecs(15);
-                safeClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
-                safeClick(TAB_TECH, "Technology", MEDIUMWAIT);
+                safeJavaScriptClick(TOGGLE_MENU, "Toggle menu", MEDIUMWAIT);
+                safeJavaScriptClick(TAB_TECH, "Technology", MEDIUMWAIT);
                 waitForSecs(15);
             }
         }catch (Exception e){
@@ -216,8 +216,8 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
 
     public void searchingTheApp() {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
-        waitForSecs(10);
-        safeClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
+        waitForSecs(20);
+        safeJavaScriptClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptType(TXTBOX_SEARCH, "Company", "Search textbox", MEDIUMWAIT);
         waitForSecs(10);
@@ -243,6 +243,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(10);
         //safeJavaScriptClick(LABEL_CONTACT,"label contact",MEDIUMWAIT);
         switchToWindow(0);
+        waitForSecs(10);
         safeJavaScriptClick(HYPERLINK_CONTACTPAGE,"Hyperlink",MEDIUMWAIT);
         switchToWindow(0);
         addingTestcaseFrmSearchbtn(testid);
@@ -270,14 +271,14 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     public void downloadingEverestForumPluginInWP() throws IOException {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
         if(!isElementDisplayed(TOGGLE_MENU)) {
-            safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+            safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         }
         else {
-            safeClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
-            safeClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
+            safeJavaScriptClick(TOGGLE_MENU,"Toggle menu",MEDIUMWAIT);
+            safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
 
         }
-        waitForSecs(5);
+        waitForSecs(20);
         safeJavaScriptClick(LINK_EVENTS_FORUM_PLUGIN,"Forum Plugin",MEDIUMWAIT);
         waitForSecs(10);
        /* waitForSecs(10);
@@ -312,6 +313,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
     }
 
     public void addingTestcaseFrmSearchbtn(String testcaseID){
+        waitForSecs(20);
         safeJavaScriptClick(BTN_SEARCH, "Search button", MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptType(TXTBOX_SEARCH, testcaseID, "Search textbox", MEDIUMWAIT);

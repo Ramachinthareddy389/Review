@@ -9,6 +9,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -65,7 +66,7 @@ public class CapabilityHelper {
             setCloudCapabulities(browserVersion, session, browserType, OSName, OSVersion);
         } else if (UtilityMethods.validateIP(cloudURL.split(":")[1].substring(2))) {
 
-            setBrowser(browserType,OSName, OSVersion);
+            setBrowser(browserType, OSName, OSVersion);
         } else {
             log.error("cloud entered does not exist - " + cloudURL);
             try {
@@ -82,21 +83,44 @@ public class CapabilityHelper {
      *
      * @param browserType , Need to pass the browser type
      */
-    private void setBrowser(String browserType,String osName,String os_version) {
+    private void setBrowser(String browserType, String osName, String os_version) {
         switch (browserType.toLowerCase()) {
             case "chrome":
                 capabilities = DesiredCapabilities.chrome();
                 ChromeOptions options = new ChromeOptions();
-           //    options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
-                if(os_version.equals("Big Sur"))
-                {
+         /*       options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
+                capabilities.setCapability(options.CAPABILITY,options);*/
+
+                if (os_version.equals("Mountain Lion")) {
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);
                     capabilities.setCapability("browser_version", "latest");
                     capabilities.setCapability("browserstack.local", "false");
                     capabilities.setCapability("browserstack.video", "true");
-                    capabilities.setCapability("browserstack.selenium_version", "3.14.0");
+
+                   //capabilities.setCapability("browserstack.selenium_version", "2.43.1");
+                } else {
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("device", osName);
+                    capabilities.setCapability("real_mobile", "true");
+                    capabilities.setCapability("browserstack.local", "false");
+                }
+
+
+                break;
+            case "firefox":
+                capabilities = DesiredCapabilities.firefox();
+                FirefoxOptions options1 = new FirefoxOptions();
+                if(os_version.equals("7"))
+                {
+                    capabilities.setCapability("os", osName);
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("browser", browserType);
+                    capabilities.setCapability("browser_version", "42.0");
+                    capabilities.setCapability("browserstack.local", "false");
+                    capabilities.setCapability("browserstack.video", "true");
+                    capabilities.setCapability("browserstack.selenium_version", "2.46.0");
                 }
                 else {
                     capabilities.setCapability("os_version", os_version);
@@ -104,15 +128,9 @@ public class CapabilityHelper {
                     capabilities.setCapability("real_mobile", "true");
                     capabilities.setCapability("browserstack.local", "false");
                 }
+                break;
 
-                break;
-            case "firefox":
-                capabilities = DesiredCapabilities.firefox();
-                capabilities.setCapability("os_version", os_version);
-                capabilities.setCapability("device", osName);
-                capabilities.setCapability("real_mobile", "true");
-                capabilities.setCapability("browserstack.local", "false");
-                break;
+
 
             case "iexplore":
                 capabilities.setBrowserName("internet explorer");
@@ -126,51 +144,58 @@ public class CapabilityHelper {
                 break;
             case "safari":
                 capabilities = DesiredCapabilities.safari();
-                if(os_version.equals("Monterey"))
-                {
+                if (os_version.equals("Lion")) {
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);
-                    capabilities.setCapability("browser_version", "15.0");
+                    capabilities.setCapability("browser_version", "6.0");
                     capabilities.setCapability("browserstack.local", "false");
-                    capabilities.setCapability("browserstack.video", "false");
-                    capabilities.setCapability("browserstack.selenium_version", "3.14.0");
-                }
-                else {
+                    capabilities.setCapability("browserstack.video", "true");
+                    capabilities.setCapability("browserstack.selenium_version", "2.43.1");
+                } else {
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("device", osName);
                     capabilities.setCapability("real_mobile", "true");
                     capabilities.setCapability("browserstack.local", "false");
                 }
-               /* capabilities.setCapability("build", "alpha_0.1.7");
-                capabilities.setCapability("os_version", "14");
-                capabilities.setCapability("device", "iPad Pro 12.9 2021");
-                capabilities.setCapability("real_mobile", "true");
-                capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.idleTimeout", "300");*/
                 break;
 
 
             case "opera":
                 capabilities = DesiredCapabilities.operaBlink();
-                capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "7");
-                capabilities.setCapability("browser", "Opera");
-                capabilities.setCapability("browser_version", "12.16");
-                capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.selenium_version", "2.41.0");
+                if (os_version.equals("Lion")) {
+                    capabilities.setCapability("os", osName);
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("browser", browserType);
+                    capabilities.setCapability("browser_version", "12.15");
+                    capabilities.setCapability("browserstack.local", "false");
+                    capabilities.setCapability("browserstack.video", "true");
+                    //capabilities.setCapability("browserstack.selenium_version", "2.43.1");
+                } else {
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("device", osName);
+                    capabilities.setCapability("real_mobile", "true");
+                    capabilities.setCapability("browserstack.local", "false");
+                }
                 break;
 
             case "edge":
                 capabilities = DesiredCapabilities.edge();
-                capabilities.setCapability("os", "Windows");
-                capabilities.setCapability("os_version", "7");
-                capabilities.setCapability("browser", "Edge");
-                capabilities.setCapability("browser_version", "latest");
-                capabilities.setCapability("browserstack.local", "false");
-                capabilities.setCapability("browserstack.selenium_version", "3.5.2");
+                if (os_version.equals("Snow Leopard")) {
+                    capabilities.setCapability("os", osName);
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("browser", browserType);
+                    capabilities.setCapability("browser_version", "latest");
+                    capabilities.setCapability("browserstack.local", "false");
+                    capabilities.setCapability("browserstack.video", "true");
+                    capabilities.setCapability("browserstack.selenium_version", "3.4.0");
+                } else {
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("device", osName);
+                    capabilities.setCapability("real_mobile", "true");
+                    capabilities.setCapability("browserstack.local", "false");
+                }
                 break;
-
 
 
             default:
@@ -236,7 +261,7 @@ public class CapabilityHelper {
     private void setCloudCapabulities(String browserVersion, String session, String browserType, String OSName,
                                       String OSVersion) {
 
-        setBrowser(browserType,OSName,OSVersion);
+        setBrowser(browserType, OSName, OSVersion);
         setOperatingSystem(OSName, OSVersion);
         //capabilities.setCapability("version", browserVersion);
         capabilities.setCapability("name", session);

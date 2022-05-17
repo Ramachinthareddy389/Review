@@ -82,8 +82,15 @@ public  interface  APMEnterpriseLocators {
     By TXTBOX_PORT = By.xpath("//input[@id='port']");
     By TXTBOX_USERNAME = By.xpath("//input[@id='username']");
     By TXTBOX_PASSWORD = By.xpath("//input[@id='password']");
-    By TXTBOX_SQL = By.xpath("//textarea[@class='inputarea']");
+    By TXTBOX_SQL = By.xpath("//textarea[contains(@class,'inputarea')]");
+    By TXTBOX_KPI = By.xpath("//input[@id='kpi']");
     By TAB_JSCRIPTS = By.xpath("//span[contains(text(),'JS Scripts')]");
+    By DATABASE_QUERY_COMPONENT = By.xpath("//li[text()='Database Query Monitor Deployment']");
+    By TXTBOX_COMPONENT = By.xpath("//input[@id='componentName']");
+    By TXTBOX_QUERYNAME = By.xpath("//input[@id='queryName']");
+    By KPIFEILD_ADDICON = By.xpath("//span[text()='KPI Field Mapping']/../../following-sibling::button/descendant::i");
+    By KPIFEILD_TXTBOX = By.xpath("//span[text()='KPI Field Mapping']/../../parent::div/div/descendant::input[1]");
+    By KPIFEILD_VALUE = By.xpath("//input[contains(@id,'mappedFields')]");
 
 
 }

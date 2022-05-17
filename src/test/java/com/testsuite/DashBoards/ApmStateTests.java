@@ -29,6 +29,7 @@ public class ApmStateTests extends BaseSetup {
     String HostName1 = "Hostname" + "-" + random.nextInt(500);
     String DbTitle = "Module_soft" + " - " + random.nextInt(500);
     String Cred = "Cred" + "-" + random.nextInt(500);
+
     @BeforeMethod(alwaysRun = true)
     public void baseClassSetUp() {
         ConfigManager sys;
@@ -52,32 +53,31 @@ public class ApmStateTests extends BaseSetup {
 
 
     @Test(alwaysRun = true, groups = "Smoke Test")
-    public void TC_Apm_001_AddNewHTTPScenarioComponentDeployementComponent() throws InterruptedException
-    {
+    public void TC_Apm_001_AddNewHTTPScenarioComponentDeployementComponent() throws InterruptedException {
         apmStatePage.configuringHttpScenario();
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
         apmStatePage.verifyingHttpScenario();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_002_EditExistingHTTPScenarioComponentDeployementComponent(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_002_EditExistingHTTPScenarioComponentDeployementComponent() {
         apmStatePage.configuringHttpScenario();
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
         apmStatePage.verifyingEditHttpConfigs();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_003_MoveHTTPScenarioComponentDeploymentTootherEngine(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_003_MoveHTTPScenarioComponentDeploymentTootherEngine() {
         apmStatePage.configuringHttpScenario();
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
         apmStatePage.movingHttpScenrioToOtherEngine();
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_004_AddMonitoredServerandApplicationfromEditWindow(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_004_AddMonitoredServerandApplicationfromEditWindow() {
         apmStatePage.configuringHttpScenario();
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
@@ -95,8 +95,8 @@ public class ApmStateTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_005_AddCredentialsfromEditWindow(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_005_AddCredentialsfromEditWindow() {
         apmStatePage.configuringHttpScenario();
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
@@ -108,9 +108,8 @@ public class ApmStateTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_006_CopyHTTPScenarioComponentDeploymenttootherEngine()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_006_CopyHTTPScenarioComponentDeploymenttootherEngine() {
         apmStatePage.configuringHttpScenario();
         apmStatePage.configuringServerPage();
         apmStatePage.configuringDeploymentPage();
@@ -118,9 +117,8 @@ public class ApmStateTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_007_AddNewParserDeploymentcomponent()
-    {
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_007_AddNewParserDeploymentcomponent() {
         apmStatePage.configuringParserDepoly();
         apmStatePage.monitoringPage();
         apmStatePage.configuringDeploymentPage();
@@ -128,11 +126,11 @@ public class ApmStateTests extends BaseSetup {
 
     }
 
-    @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_Apm_008_EditExistingParserDeploymentcomponent(){
+    @Test(alwaysRun = true, groups = "Smoke Test")
+    public void TC_Apm_008_EditExistingParserDeploymentcomponent() {
         apmStatePage.configuringParserDepoly();
         apmStatePage.monitoringPage();
         apmStatePage.configuringDeploymentPage();
-       apmStatePage .verifyingEditParsementDeployConfig();
+        apmStatePage.verifyingEditParsementDeployConfig();
     }
 }

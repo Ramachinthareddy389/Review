@@ -42,7 +42,7 @@ public class SiebelTests extends BaseSetup {
 
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_001_RecordingUXSessionwithBasicNavigationFlowsInSiebel() {
+    public void TC_UXSiebel_001_RecordingUXSessionwithBasicNavigationFlowsInSiebel() throws InterruptedException {
         siebelPage.launchTheApp();
         siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel001");
         siebelPage.logoutFromSiebel();
@@ -82,21 +82,20 @@ public class SiebelTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_006_RecordingUXSessionByChangingTheQueryInSiebel()
-    {
+    public void TC_UXSiebel_006_RecordingUXSessionByChangingTheQueryInSiebel() throws InterruptedException {
         siebelPage.changingTheQueryInSiebel("TCUXSiebel006");
 
 
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_007_RecordingUXSessionByMakingChangesInContactsandOpportunitiesInSiebel() {
+    public void TC_UXSiebel_007_RecordingUXSessionByMakingChangesInContactsandOpportunitiesInSiebel() throws InterruptedException {
         siebelPage.ChangingInContactNdOpportunitiesOnSibel("TCUXSiebel007");
 
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_008_RecordingUXSessionByNavigatingtoaTabOfNoninjectedsitefrmSiebel() {
+    public void TC_UXSiebel_008_RecordingUXSessionByNavigatingtoaTabOfNoninjectedsitefrmSiebel() throws InterruptedException {
         siebelPage.openNoninjectedSiteinNewTab("TCUXSiebel008");
         siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel008");
         siebelPage.logoutFromSiebel();
@@ -104,7 +103,7 @@ public class SiebelTests extends BaseSetup {
     }
 
     @Test(alwaysRun = true)
-    public void TC_UXSiebel_009_RecordingUXSessionByNavigatingToATabOfinjectedSitefrmSiebel() {
+    public void TC_UXSiebel_009_RecordingUXSessionByNavigatingToATabOfinjectedSitefrmSiebel() throws InterruptedException {
         siebelPage.openInjectedSiteinNewTab("TCUXSiebel009");
         siebelPage.addingTestcaseUsingSearchFun("TCUXSiebel009");
         siebelPage.logoutFromSiebel();
