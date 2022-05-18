@@ -301,6 +301,44 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.editexistingDatabaseChangeMonitorDeploymentComponent();
         apmEnterprisePage.verifyingEditedDatabaseChangeConfigs();
     }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_008_AddNewDirectoryMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingDirectoryMonitorDeploymenComponent();
+        apmEnterprisePage.addingDirectoryMonitorDeployment("OHS Log Directory Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_009_editExistingDirectoryMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingDirectoryMonitorDeploymenComponent();
+        apmEnterprisePage.addingDirectoryMonitorDeployment("OHS Log Directory Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editingDirectorymonitoryDeployment();
+        apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_010_AddNewDirectoryScannerDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingDirectoryScannerDeploymenComponent();
+        apmEnterprisePage.addingDirectoryMonitorDeployment("Directory Scanner Component");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_011_EditExistingDirectoryScannerDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingDirectoryScannerDeploymenComponent();
+        apmEnterprisePage.addingDirectoryMonitorDeployment("Directory Scanner Component");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editingDirectorymonitoryDeployment();
+        apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
+    }
+
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMJScripts_001_ClickOnJSScriptsSection() {
         apmEnterprisePage.navigateToAPMPage();

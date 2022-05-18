@@ -88,10 +88,10 @@ public class CapabilityHelper {
             case "chrome":
                 capabilities = DesiredCapabilities.chrome();
                 ChromeOptions options = new ChromeOptions();
-         /*       options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
-                capabilities.setCapability(options.CAPABILITY,options);*/
+                options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
+                capabilities.setCapability(options.CAPABILITY,options);
 
-                if (os_version.equals("Mountain Lion")) {
+                if (os_version.equals("10")) {
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);
@@ -130,6 +130,14 @@ public class CapabilityHelper {
                 }
                 break;
 
+            case "samsung":
+                    capabilities.setCapability("browser", "Samsung");
+                    capabilities.setCapability("os_version", os_version);
+                    capabilities.setCapability("device", osName);
+                    capabilities.setCapability("real_mobile", "true");
+                    capabilities.setCapability("browserstack.local", "false");
+
+                break;
 
 
             case "iexplore":
@@ -144,20 +152,11 @@ public class CapabilityHelper {
                 break;
             case "safari":
                 capabilities = DesiredCapabilities.safari();
-                if (os_version.equals("Lion")) {
-                    capabilities.setCapability("os", osName);
-                    capabilities.setCapability("os_version", os_version);
-                    capabilities.setCapability("browser", browserType);
-                    capabilities.setCapability("browser_version", "6.0");
-                    capabilities.setCapability("browserstack.local", "false");
-                    capabilities.setCapability("browserstack.video", "true");
-                    capabilities.setCapability("browserstack.selenium_version", "2.43.1");
-                } else {
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("device", osName);
                     capabilities.setCapability("real_mobile", "true");
                     capabilities.setCapability("browserstack.local", "false");
-                }
+
                 break;
 
 

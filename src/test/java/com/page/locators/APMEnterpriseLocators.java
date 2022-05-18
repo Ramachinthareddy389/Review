@@ -91,6 +91,8 @@ public  interface  APMEnterpriseLocators {
     By KPIFEILD_ADDICON = By.xpath("//span[text()='KPI Field Mapping']/../../following-sibling::button/descendant::i");
     By KPIFEILD_TXTBOX = By.xpath("//span[text()='KPI Field Mapping']/../../parent::div/div/descendant::input[1]");
     By KPIFEILD_VALUE = By.xpath("//input[contains(@id,'mappedFields')]");
-
-
+    By DIRECTORY_MONITOR_COMPONENT = By.xpath("//li[text()='Directory Monitor Deployment']");
+    By TXTBOX_COMPONENT_TYPE = By.xpath("//input[@id='typeName']");
+    By TXTBOX_PATH = By.xpath("//input[@id='path']");
+    By DIRECTORY_SCANNER_COMPONENT = By.xpath("//li[text()='Directory Scanner Deployment']");
 }
