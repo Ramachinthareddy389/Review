@@ -24,7 +24,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         driver.findElement(PASSWORD).sendKeys("SADMIN");
         // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        driver.findElement(LOGIN).sendKeys("SADMIN");
+        driver.findElement(LOGIN).click();
         // safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(30);
         safeJavaScriptClick(TAB_CONTACTS, "conatcts", MEDIUMWAIT);
@@ -83,7 +83,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         driver.findElement(PASSWORD).sendKeys("SADMIN");
        // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        driver.findElement(LOGIN).sendKeys("SADMIN");
+        driver.findElement(LOGIN).click();
        // safeClick(LOGIN, "ZENQ", MEDIUMWAIT);
         waitForSecs(30);
         safeJavaScriptClick(TAB_ADMINISTRATIVE_PRODUCT, "conatcts", MEDIUMWAIT);
@@ -99,8 +99,8 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
     public void logoutFromSiebel() {
         safeJavaScriptClick(TAB_FLEET_MANAGEMENT, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
-        safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"), "Calendar", "test", MEDIUMWAIT);
-      //  safeJavaScriptClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
+       safeSelectListBox(By.xpath("//select[@aria-label='First Level View Bar']"), "Calendar", "test", MEDIUMWAIT);
+       //safeJavaScriptClick(TAB_CALENDER,"Tab calender",MEDIUMWAIT);
         waitForSecs(10);
         safeJavaScriptClick(FILE_LABEL, "ZENQ", MEDIUMWAIT);
         waitForSecs(20);
@@ -170,7 +170,8 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         driver.findElement(PASSWORD).sendKeys("SADMIN");
         // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        driver.findElement(LOGIN).sendKeys("SADMIN");
+        driver.findElement(LOGIN).click();
+        waitForSecs(10);
         safeJavaScriptClick(SEARCH_ICON, "Search button", MEDIUMWAIT);
         waitForSecs(30);
         safeSelectOptionInDropDownByVisibleText(COMBOX_BOX, "  Opportunities", "value", MEDIUMWAIT);
@@ -205,7 +206,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         driver.findElement(PASSWORD).sendKeys("SADMIN");
         // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        driver.findElement(LOGIN).sendKeys("SADMIN");
+        driver.findElement(LOGIN).click();
         waitForSecs(30);
         safeSelectListBox(DRPDOWN_QUERIES, "High Probability", "Queries Dropdown", MEDIUMWAIT);
         waitForSecs(10);
@@ -225,7 +226,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         driver.findElement(PASSWORD).sendKeys("SADMIN");
         // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        driver.findElement(LOGIN).sendKeys("SADMIN");
+        driver.findElement(LOGIN).click();
         waitForSecs(30);
         //addingTestcaseUsingSearchFun(testId);
         safeJavaScriptClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);
@@ -256,7 +257,7 @@ public class SiebelPage extends SafeActions implements SiebelLocators {
         driver.findElement(PASSWORD).sendKeys("SADMIN");
         // safeJavaScriptType(PASSWORD, "SADMIN", "Email textbox", MEDIUMWAIT);
         waitForSecs(10);
-        driver.findElement(LOGIN).sendKeys("SADMIN");
+        driver.findElement(LOGIN).click();
         waitForSecs(30);
         addingTestcaseUsingSearchFun(testID);
         safeJavaScriptClick(TAB_ACCOUNTS, "conatcts", MEDIUMWAIT);

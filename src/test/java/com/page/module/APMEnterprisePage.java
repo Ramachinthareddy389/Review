@@ -75,6 +75,22 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(10);
     }
 
+    public void addinNewMonitorGoLangAppComponent() {
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Components tab");
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeClick(MONITOR_GOLANG_COMPONENT, "Directory Monitor Component", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
+    public void addingNewIMAPMonitorDeploymentComponent(){
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Components tab");
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeClick(IMAP_MONITOR_COMPONENT, "Directory Monitor Component", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+
     public void verifyingNavigateToEnterpriseTab() {
         try {
             if (!isElementDisplayed(INSTANCE_COLUMN)) {
@@ -975,6 +991,86 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         waitForSecs(10);
         driver.findElements(BTN_NEXT).get(0).click();
         waitForSecs(5);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
+        searchField.clear();
+        searchField.sendKeys(del);
+
+    }
+    public void addingNewMonitoringGoLangApp(){
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_MONITORED_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("QA Test")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_APPLICATION, "Android", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs4.get(i).getText().equals("Android")) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+        safeClick(BTN_SKIP,"Skip button",MEDIUMWAIT);
+        waitForSecs(5);
+    }
+    public void addingIMAPMonitorDeployment(String componentType){
+        safeClearAndType(TXTBOX_COMPONENT_TYPE, componentType, "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs4.get(i).getText().equals(componentType)) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_MONITORED_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("QA Test")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_APPLICATION, "Android", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+        for (int i = 0; i < dbs5.size(); i++) {
+
+            if (dbs5.get(i).getText().equals("Android")) {
+
+                dbs5.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+        safeType(TXTBOX_PORT, "8080", "Port Number", MEDIUMWAIT);
+        waitForSecs(5);
+        driver.findElements(BTN_NEXT).get(0).click();
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
         searchField.clear();

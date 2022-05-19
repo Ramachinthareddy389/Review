@@ -87,11 +87,10 @@ public class CapabilityHelper {
         switch (browserType.toLowerCase()) {
             case "chrome":
                 capabilities = DesiredCapabilities.chrome();
-                ChromeOptions options = new ChromeOptions();
-                options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
-                capabilities.setCapability(options.CAPABILITY,options);
-
                 if (os_version.equals("10")) {
+                    ChromeOptions options = new ChromeOptions();
+                    options.addExtensions (new File("D:\\DecProject\\germain-test-automation\\Resources\\salesforce.crx"));
+                    capabilities.setCapability(options.CAPABILITY,options);
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);
@@ -112,12 +111,12 @@ public class CapabilityHelper {
             case "firefox":
                 capabilities = DesiredCapabilities.firefox();
                 FirefoxOptions options1 = new FirefoxOptions();
-                if(os_version.equals("7"))
+                if(os_version.equals("High Sierra"))
                 {
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);
-                    capabilities.setCapability("browser_version", "42.0");
+                    capabilities.setCapability("browser_version", "11.1");
                     capabilities.setCapability("browserstack.local", "false");
                     capabilities.setCapability("browserstack.video", "true");
                     capabilities.setCapability("browserstack.selenium_version", "2.46.0");
@@ -180,7 +179,7 @@ public class CapabilityHelper {
 
             case "edge":
                 capabilities = DesiredCapabilities.edge();
-                if (os_version.equals("Snow Leopard")) {
+                if (os_version.equals("Big Sur")) {
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);

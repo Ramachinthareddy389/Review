@@ -264,9 +264,9 @@ public class BaseSetup implements TimeOuts {
 	@AfterMethod(alwaysRun = true)
 	public void CloseBrowser() {
 		System.out.println(driver);
-		if (driver != null) {
+	/*	if (driver != null) {
 			driver.quit();
-		}
+		}*/
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		System.out.println(dtf.format(now));

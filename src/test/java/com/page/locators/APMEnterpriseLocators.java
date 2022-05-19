@@ -95,4 +95,7 @@ public  interface  APMEnterpriseLocators {
     By TXTBOX_COMPONENT_TYPE = By.xpath("//input[@id='typeName']");
     By TXTBOX_PATH = By.xpath("//input[@id='path']");
     By DIRECTORY_SCANNER_COMPONENT = By.xpath("//li[text()='Directory Scanner Deployment']");
+    By MONITOR_GOLANG_COMPONENT = By.xpath("//li[text()='Monitor GoLang Application']");
+    By BTN_SKIP = By.xpath("//span[text()='Skip']");
+    By IMAP_MONITOR_COMPONENT = By.xpath("//li[text()='IMAP Monitor Deployment']");
 }

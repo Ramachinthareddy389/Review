@@ -328,12 +328,46 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.DeployementPage();
         apmEnterprisePage.verifyingAddedComponent();
     }
-
     @Test(alwaysRun = true,groups = "Smoke Test")
     public void TC_APMComp_011_EditExistingDirectoryScannerDeploymentComponent(){
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingDirectoryScannerDeploymenComponent();
         apmEnterprisePage.addingDirectoryMonitorDeployment("Directory Scanner Component");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editingDirectorymonitoryDeployment();
+        apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
+    }
+
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_012_AddNewDirectoryScannerDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addinNewMonitorGoLangAppComponent();
+        apmEnterprisePage.addingNewMonitoringGoLangApp();
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_013_EditexistingMonitorGoLangApplicationComponent (){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addinNewMonitorGoLangAppComponent();
+        apmEnterprisePage.addingNewMonitoringGoLangApp();
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editingDirectorymonitoryDeployment();
+        apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_020_addNewIMAPMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewIMAPMonitorDeploymentComponent();
+        apmEnterprisePage.addingIMAPMonitorDeployment("IMAP Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_021_editExistingIMAPMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewIMAPMonitorDeploymentComponent();
+        apmEnterprisePage.addingIMAPMonitorDeployment("IMAP Monitor");
         apmEnterprisePage.DeployementPage();
         apmEnterprisePage.editingDirectorymonitoryDeployment();
         apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();

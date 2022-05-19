@@ -11,12 +11,12 @@
     </listeners>
 
     <test name="Dashboards">
-        <parameter name="browser-Type" value="edge" />
+        <parameter name="browser-Type" value="firefox" />
         <parameter name="osName" value="OS X" />
-        <parameter name="osVersion" value="Big Sur" />
+        <parameter name="osVersion" value="High Sierra" />
 
         <classes>
-            <class name="com.testsuite.DashBoards.SiebelTests">
+            <class name="com.testsuite.DashBoards.WordPressTests">
 
             </class>
 
