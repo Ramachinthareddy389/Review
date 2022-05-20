@@ -364,7 +364,7 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.verifyingAddedComponent();
     }
     @Test(alwaysRun = true,groups = "Smoke Test")
-    public void TC_APMComp_021_editExistingIMAPMonitorDeploymentComponent(){
+    public void TC_APMComp_021_EditExistingIMAPMonitorDeploymentComponent(){
         apmEnterprisePage.navigateToAPMPage();
         apmEnterprisePage.addingNewIMAPMonitorDeploymentComponent();
         apmEnterprisePage.addingIMAPMonitorDeployment("IMAP Monitor");
@@ -372,7 +372,40 @@ public class APMEnterpriseTests extends BaseSetup {
         apmEnterprisePage.editingDirectorymonitoryDeployment();
         apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
     }
-
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_022_AddNewJAVAMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewJAVAMonitorDeploymentComponent();
+        apmEnterprisePage.addingJavaMonitorDeployment("JMX WebLogic Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_023_EditExistingJAVAMonitorDeploymentComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewJAVAMonitorDeploymentComponent();
+        apmEnterprisePage.addingJavaMonitorDeployment("JMX WebLogic Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editingDirectorymonitoryDeployment();
+        apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_024_AddNewMonitorServerLocallyOnServerComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewMonitorServerLocallyonServerDeploymentComponent();
+        apmEnterprisePage.addingMonitorServerLocallyOnServerDeployment("ActiveMQ Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.verifyingAddedComponent();
+    }
+    @Test(alwaysRun = true,groups = "Smoke Test")
+    public void TC_APMComp_025_EditExistingMonitorServerLocallyOnServerComponent(){
+        apmEnterprisePage.navigateToAPMPage();
+        apmEnterprisePage.addingNewMonitorServerLocallyonServerDeploymentComponent();
+        apmEnterprisePage.addingMonitorServerLocallyOnServerDeployment("ActiveMQ Monitor");
+        apmEnterprisePage.DeployementPage();
+        apmEnterprisePage.editingDirectorymonitoryDeployment();
+        apmEnterprisePage.verifyingEditedDirectoryMonitorConfigs();
+    }
     @Test(alwaysRun = true, groups = "Smoke Test")
     public void TC_APMJScripts_001_ClickOnJSScriptsSection() {
         apmEnterprisePage.navigateToAPMPage();

@@ -88,7 +88,7 @@ public class WordPressTests extends BaseSetup {
     @Test(alwaysRun = true)
     public void TC_UXWordPress_008_RecordingUXSessionByDownloadingEverestForumPlugininWP() throws IOException {
         wordPressPage.downloadingEverestForumPluginInWP();
-        wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress008");
+        //wordPressPage.addingTestcaseFrmSearchbtn("TCUXWordPress008");
     }
 
     @Test(alwaysRun = true)

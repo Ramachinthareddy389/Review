@@ -116,10 +116,10 @@ public class CapabilityHelper {
                     capabilities.setCapability("os", osName);
                     capabilities.setCapability("os_version", os_version);
                     capabilities.setCapability("browser", browserType);
-                    capabilities.setCapability("browser_version", "11.1");
+                    capabilities.setCapability("browser_version", "latest");
                     capabilities.setCapability("browserstack.local", "false");
                     capabilities.setCapability("browserstack.video", "true");
-                    capabilities.setCapability("browserstack.selenium_version", "2.46.0");
+
                 }
                 else {
                     capabilities.setCapability("os_version", os_version);

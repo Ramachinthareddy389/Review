@@ -270,6 +270,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
 
     public void downloadingEverestForumPluginInWP() throws IOException {
         driver.navigate().to("http://qa.germainapm.com/wordpress/index.php");
+        addingTestcaseFrmSearchbtn("TC_UXWordPress_008");
         if(!isElementDisplayed(TOGGLE_MENU)) {
             safeJavaScriptClick(LABEL_CONTACT, "ZENQ", MEDIUMWAIT);
         }
@@ -281,6 +282,7 @@ public class WordPressPage extends SafeActions implements WordPressLocators {
         waitForSecs(20);
         safeJavaScriptClick(LINK_EVENTS_FORUM_PLUGIN,"Forum Plugin",MEDIUMWAIT);
         waitForSecs(10);
+        switchToWindow(0);
        /* waitForSecs(10);
         String home = System.getProperty("user.home");
         String file_name = "everest-forms" + ".zip";

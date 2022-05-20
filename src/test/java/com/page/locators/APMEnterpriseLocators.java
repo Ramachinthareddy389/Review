@@ -98,4 +98,6 @@ public  interface  APMEnterpriseLocators {
     By MONITOR_GOLANG_COMPONENT = By.xpath("//li[text()='Monitor GoLang Application']");
     By BTN_SKIP = By.xpath("//span[text()='Skip']");
     By IMAP_MONITOR_COMPONENT = By.xpath("//li[text()='IMAP Monitor Deployment']");
+    By JAVA_MONITOR_COMPONENT = By.xpath("//li[text()='Java Monitor Deployment']");
+    By LOCALLYON_SERVER_MONITOR_COMPONENT = By.xpath("//li[text()='Monitor Server (Locally on Server)']");
 }

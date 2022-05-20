@@ -16,6 +16,9 @@
         <parameter name="osVersion" value="11" />
         <classes>
             <class name="com.testsuite.DashBoards.WordPressTests">
+                <methods>
+                    <include name="TC_UXWordPress_008_RecordingUXSessionByDownloadingEverestForumPlugininWP"/>
+                </methods>
 
             </class>
 

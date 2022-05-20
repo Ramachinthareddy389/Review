@@ -90,7 +90,20 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         safeClick(IMAP_MONITOR_COMPONENT, "Directory Monitor Component", MEDIUMWAIT);
         waitForSecs(10);
     }
-
+    public void addingNewJAVAMonitorDeploymentComponent(){
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Components tab");
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeClick(JAVA_MONITOR_COMPONENT, "Directory Monitor Component", MEDIUMWAIT);
+        waitForSecs(10);
+    }
+    public void addingNewMonitorServerLocallyonServerDeploymentComponent(){
+        waitForSecs(10);
+        safeClick(COMPONENTS_TAB, "Components tab");
+        safeClick(BTN_ADDICON, "Add Icon", MEDIUMWAIT);
+        safeClick(LOCALLYON_SERVER_MONITOR_COMPONENT, "Directory Monitor Component", MEDIUMWAIT);
+        waitForSecs(10);
+    }
     public void verifyingNavigateToEnterpriseTab() {
         try {
             if (!isElementDisplayed(INSTANCE_COLUMN)) {
@@ -1077,7 +1090,102 @@ public class APMEnterprisePage extends SafeActions implements APMEnterpriseLocat
         searchField.sendKeys(del);
 
     }
+    public void addingJavaMonitorDeployment(String componentType){
+        safeClearAndType(TXTBOX_COMPONENT_TYPE, componentType, "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
+        for (int i = 0; i < dbs4.size(); i++) {
 
+            if (dbs4.get(i).getText().equals(componentType)) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_MONITORED_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("QA Test")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_APPLICATION, "Android", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+        for (int i = 0; i < dbs5.size(); i++) {
+
+            if (dbs5.get(i).getText().equals("Android")) {
+
+                dbs5.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
+        searchField.clear();
+        searchField.sendKeys(del);
+
+    }
+    public void addingMonitorServerLocallyOnServerDeployment(String componentType){
+        safeClearAndType(TXTBOX_COMPONENT_TYPE, componentType, "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs4 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs4.size());
+        for (int i = 0; i < dbs4.size(); i++) {
+
+            if (dbs4.get(i).getText().equals(componentType)) {
+
+                dbs4.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_MONITORED_SERVER, "QA Test", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs2 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs2.size());
+        for (int i = 0; i < dbs2.size(); i++) {
+
+            if (dbs2.get(i).getText().equals("QA Test")) {
+
+                dbs2.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        safeClearAndType(TXTBOX_APPLICATION, "Android", "Server name into textbox", MEDIUMWAIT);
+        List<WebElement> dbs5 = driver.findElements(DROPDOWN_SERVER);
+        System.out.println("Total no 0f dashboards:::====> " + dbs5.size());
+        for (int i = 0; i < dbs5.size(); i++) {
+
+            if (dbs5.get(i).getText().equals("Android")) {
+
+                dbs5.get(i).click();
+                break;
+            }
+        }
+        waitForSecs(10);
+        driver.findElements(BTN_NEXT).get(0).click();
+        waitForSecs(5);
+        driver.findElement(BTN_SKIP).click();
+        waitForSecs(5);
+        String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
+        WebElement searchField = driver.findElement(TXTBOX_SERVERNAME);
+        searchField.clear();
+        searchField.sendKeys(del);
+
+    }
     public void DeployementPage() {
         safeClearAndType(TXTBOX_SERVERNAME, Component, "Component name", MEDIUMWAIT);
         safeClearAndType(TXTBOX_NODE, "APM", "Server name into textbox", MEDIUMWAIT);
