@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite thread-count="1" verbose="10" name="Germain Suite"
+       annotations="JDK" >
+
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+    <test name="Dashboards">
+        <parameter name="browser-Type" value="safari" />
+        <parameter name="osName" value="iPad Mini 2019" />
+        <parameter name="osVersion" value="12" />
+        <classes>
+            <class name="com.testsuite.DashBoards.WordPressTests">
+
+            </class>
+
+        </classes>
+    </test>
+
+</suite>
